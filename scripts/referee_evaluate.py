@@ -22,6 +22,7 @@ def main():
     parser.add_argument("--max-tokens", type=int, default=1024)
     parser.add_argument("--cost-cap", type=float, default=0.60)
     parser.add_argument("--total-cost-cap", type=float, default=1.0)
+    parser.add_argument("--focused", action="store_true", help="two honest unit rewrites and all four controls")
     args = parser.parse_args()
     load_local_env()
     os.environ["REFEREE_MODEL"] = args.model
@@ -48,6 +49,7 @@ def main():
     initial_usage = float(request("/key")["data"]["usage"])
     summary = {"model": args.model, "pricing": pricing, "initial_key_usage": initial_usage,
                "cost_cap": args.cost_cap, "total_cost_cap": args.total_cost_cap,
+               "focused": args.focused,
                "source_sha256": hashlib.sha256((Path(__file__).resolve().parents[1] / "contracts/impeach.py").read_bytes()).hexdigest(),
                "requests": 0, "cost_usd": 0.0, "completed": False}
     args.transcript.parent.mkdir(parents=True, exist_ok=True)
@@ -80,6 +82,13 @@ def main():
             return data["choices"][0]["message"]["content"]
 
         referee_dryrun.live_llm = live_llm
+        if args.focused:
+            load_corpus = referee_dryrun.pop.load_corpus
+            def focused_corpus():
+                corpus = load_corpus()
+                corpus["rewrites"] = {index: corpus["rewrites"][index] for index in (1, 17)}
+                return corpus
+            referee_dryrun.pop.load_corpus = focused_corpus
         sys.argv = ["referee_dryrun.py", "--out", str(args.out)]
         try:
             result = referee_dryrun.main()

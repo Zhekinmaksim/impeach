@@ -1,0 +1,19 @@
+{
+  "model": "anthropic/claude-sonnet-4.6",
+  "pricing": {
+    "prompt": "0.000003",
+    "completion": "0.000015",
+    "web_search": "0.01",
+    "input_cache_read": "0.0000003",
+    "input_cache_write": "0.00000375",
+    "input_cache_write_1h": "0.000006"
+  },
+  "initial_key_usage": 0.29744784,
+  "cost_cap": 0.6,
+  "total_cost_cap": 1.0,
+  "source_sha256": "f4b43bfc3f76d4fc43b56d8cf598ad346c2d887f2a9a28524c9411e447297dc5",
+  "requests": 26,
+  "cost_usd": 0.173223,
+  "completed": false,
+  "final_key_usage": 0.46529694
+}

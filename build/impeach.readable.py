@@ -299,6 +299,21 @@ def _signed_milli(a: int, b: int, whole: int) -> int:
 def _strip_fence(raw: str) -> str:
     return raw.replace('```json', '').replace('```', '').strip()
 
+def _referee_json(raw: str) -> dict:
+    try:
+        parsed = json.loads(raw)
+    except Exception:
+        parts = raw.split('```')
+        if len(parts) != 3 or '{' in parts[0] + parts[2] or '}' in parts[0] + parts[2]:
+            raise ValueError('ambiguous or absent referee JSON')
+        language, separator, body = parts[1].partition('\n')
+        if not separator or language.strip().lower() not in ('', 'json'):
+            raise ValueError('referee block must be JSON')
+        parsed = json.loads(body)
+    if type(parsed) is not dict:
+        raise ValueError('referee JSON must be an object')
+    return parsed
+
 def _clock() -> int:
     import datetime
     raw = ''
@@ -848,8 +863,8 @@ class Impeach(gl.Contract):
 
         def run() -> str:
             try:
-                solved = json.loads(_strip_fence(gl.nondet.exec_prompt(solve_prompt)))
-                judged = json.loads(_strip_fence(gl.nondet.exec_prompt(prompt)))
+                solved = _referee_json(gl.nondet.exec_prompt(solve_prompt))
+                judged = _referee_json(gl.nondet.exec_prompt(prompt))
                 return json.dumps({'original_result': solved['original_result'], 'rewrite_result': solved['rewrite_result'], 'same_question': judged['same_question']})
             except Exception:
                 return json.dumps({'original_result': '', 'rewrite_result': '', 'same_question': False})

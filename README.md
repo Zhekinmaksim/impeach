@@ -23,8 +23,8 @@ Impeach  — does this score survive items the model has not seen before
 > [DEPLOY.md](DEPLOY.md) for the on-chain run. Submission evidence is still pending.
 
 The court is deployed on Bradbury (chain 4221) at
-`0x774f8ca813724B39775617487ADb4DfCf1eb72D6`.
-The [deployment transaction](https://explorer-bradbury.genlayer.com/transactions/0xef103cfa95e7f8408712520076ce00c73454b3bcff01b2ab7eeabfcafb0918cf)
+`0xD08Ee3B08b338539748b0D310b6709B4E77a627F`.
+The [deployment transaction](https://explorer-bradbury.genlayer.com/transactions/0x82d689f194b40d5675baef07f48be2d617cd96e2ef848b1bd1aeaaf31d309eb8)
 was accepted with `FINISHED_WITH_RETURN`. Source hashes and the failed first
 attempt are recorded in `runs/deployment.json`. A deployed court is not a
 completed trial; the published case data remains labelled by its actual origin.

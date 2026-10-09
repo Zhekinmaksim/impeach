@@ -1,0 +1,9 @@
+{
+  "total_limit_usd": 5,
+  "controlled_direct_calls_limit_usd": 1.5,
+  "gateway_allocated_usd": 3.5,
+  "gateway_previous_allocation_usd": 4,
+  "extra_reserved_for_direct_calls_usd": 0.5,
+  "ledger_remaining_usd": 3.497,
+  "at": 1791566033
+}

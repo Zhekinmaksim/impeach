@@ -13,12 +13,12 @@ a durable local ledger.
 ## Active setup: local gateway with a durable budget
 
 The user approved $5 total. Deduct earlier rehearsal/referee spend before choosing
-the gateway's `--budget`. For example, allocate at most $1 to preliminary calls
-and $4 to the gateway, using the same key. Do not continue separate direct API
+the gateway's `--budget`. For example, allocate at most $1.50 to preliminary calls
+and $3.50 to the gateway, using the same key. Do not continue separate direct API
 calls beyond that preliminary allocation while the gateway is running.
 
 ```bash
-python3 scripts/openrouter_server.py --budget 4 --ledger runs/openrouter-budget.sqlite
+python3 scripts/openrouter_server.py --budget 3.5 --ledger runs/openrouter-budget.sqlite
 ```
 
 The server loads `.env.local`, binds only `127.0.0.1:8787`, and serves
@@ -64,6 +64,10 @@ python3 scripts/rehearse.py --endpoint http://127.0.0.1:8787/v1/chat/completions
   --model meta-llama/llama-3.1-8b-instruct
 python3 -m unittest discover -s test -p test_openrouter_server.py -v
 ```
+
+The current session started a $4 ledger, then permanently reserved an extra
+$0.50 for direct referee work. It therefore has at most $3.50 for public calls
+without resetting the existing ledger. See `runs/budget-allocation.json`.
 
 The seven offline tests cover real-contract request parity, price/provider caps,
 concurrent reservations, restarts, rejected requests and failure accounting.

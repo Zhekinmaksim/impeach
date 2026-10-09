@@ -1,9 +1,9 @@
 {
-  "source_sha256": "f4b43bfc3f76d4fc43b56d8cf598ad346c2d887f2a9a28524c9411e447297dc5",
-  "compact_sha256": "d78caadf7a558d3268788b6f3bfedd90953701b3d5682835b0a2738c73062ccd",
-  "artifact_sha256": "9c84d3b281881bcc1cd5c4fe959ec428a37ad14ac93469c912cdc72223ada851",
-  "source_bytes": 66515,
-  "compact_bytes": 51879,
-  "artifact_bytes": 17037,
+  "source_sha256": "1594a040f321af615a77479a18eec96790a2d10725dc873637965f2048ffa273",
+  "compact_sha256": "7be1efafa98aa47dfef8855e63d1fd7719a49016ba9e2e1c69d41068d7beb801",
+  "artifact_sha256": "717c3838ec1fa9441f8c37c104e83f34480c0ef2167d16f5f3a6d11249c26780",
+  "source_bytes": 67268,
+  "compact_bytes": 52483,
+  "artifact_bytes": 17250,
   "transformation": "remove comments/docstrings; AST equivalence checked; zlib + base85"
 }

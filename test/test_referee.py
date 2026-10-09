@@ -51,6 +51,31 @@ class RefereeTests(unittest.TestCase):
         self.assertNotIn(env["answer"], prompts[0])
         self.assertNotIn("ANSWER A:", prompts[0])
 
+    def test_parser_accepts_one_fenced_object_after_explanatory_prose(self):
+        payload = {"original_result": "18", "rewrite_result": "36", "same_question": True}
+        parse = self.driver.module._referee_json
+        self.assertEqual(parse(json.dumps(payload)), payload)
+        self.assertEqual(parse("I computed both answers.\n```json\n" + json.dumps(payload) + "\n```"), payload)
+
+    def test_parser_refuses_ambiguous_or_nonobject_answers(self):
+        parse = self.driver.module._referee_json
+        for raw in ('{} {}', '[]', 'true', '```json\n{}\n```\n```json\n{}\n```',
+                    '{}\n```json\n{}\n```', '```python\n{}\n```'):
+            with self.subTest(raw=raw), self.assertRaises((ValueError, TypeError)):
+                parse(raw)
+
+    def test_replay_saved_sonnet_responses_without_network(self):
+        transcript = ROOT / "runs" / "referee-sonnet46-blind-transcript.jsonl"
+        if not transcript.exists():
+            self.skipTest("local calibration transcript is not included")
+        rows = [json.loads(line) for line in transcript.read_text().splitlines()]
+        self.assertGreater(len(rows), 0)
+        for row in rows:
+            response = row["response"]["choices"][0]["message"]["content"]
+            parsed = self.driver.module._referee_json(response)
+            self.assertIn("original_result", parsed)
+            self.assertIn("rewrite_result", parsed)
+
 
 if __name__ == "__main__":
     unittest.main()
