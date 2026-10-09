@@ -1,0 +1,37 @@
+{
+  "subject": "meta-llama/llama-3.1-8b-instruct@deepinfra-fp8/2026-10-09",
+  "endpoint": "https://fccf65ac452f50.lhr.life/v1/chat/completions",
+  "score_milli": 750,
+  "items": "calibration/gsm8k-24.items.json",
+  "scoring_rule": "The reply is correct if and only if the final numeric answer it commits to equals the reference answer as a number. Ignore currency signs, thousands separators, units and trailing zeros. A reply with no final answer is wrong.",
+  "prompt_template": {
+    "system": "You are a careful solver of grade-school math word problems.",
+    "user": "Solve the problem. Finish with a line of the form ANSWER: <number>.\n\n{{item}}"
+  },
+  "decode_params": {
+    "temperature": 0,
+    "top_p": 1,
+    "max_tokens": 512,
+    "seed": 7,
+    "model": "meta-llama/llama-3.1-8b-instruct"
+  },
+  "classes": [
+    "paraphrase",
+    "numeral_substitution",
+    "entity_rename",
+    "unit_change",
+    "format_shift"
+  ],
+  "delta_threshold": 250,
+  "recall_threshold": 150,
+  "min_items": 20,
+  "bond": "100000000000000000",
+  "stake": "1000000000000000",
+  "extras": {
+    "recall_prefix_milli": 400,
+    "similarity_milli": 900,
+    "reveal_window_s": 86400,
+    "trial_window_s": 259200
+  },
+  "rewrites": "examples/rewrites"
+}

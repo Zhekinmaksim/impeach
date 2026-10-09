@@ -1,0 +1,53 @@
+{
+ "model": "anthropic/claude-sonnet-4.6",
+ "rows": [
+  {
+   "item_index": 1,
+   "class": "unit_change",
+   "expect": "ADMISSIBLE",
+   "framing_1": "ADMISSIBLE",
+   "framing_2": "ADMISSIBLE",
+   "ok": true
+  },
+  {
+   "item_index": 17,
+   "class": "unit_change",
+   "expect": "ADMISSIBLE",
+   "framing_1": "ADMISSIBLE",
+   "framing_2": "ADMISSIBLE",
+   "ok": true
+  },
+  {
+   "item_index": 0,
+   "class": "paraphrase",
+   "expect": "INADMISSIBLE",
+   "framing_1": "INADMISSIBLE",
+   "framing_2": "INADMISSIBLE",
+   "ok": true
+  },
+  {
+   "item_index": 3,
+   "class": "entity_rename",
+   "expect": "INADMISSIBLE",
+   "framing_1": "INADMISSIBLE",
+   "framing_2": "INADMISSIBLE",
+   "ok": true
+  },
+  {
+   "item_index": 10,
+   "class": "numeral_substitution",
+   "expect": "INADMISSIBLE",
+   "framing_1": "INADMISSIBLE",
+   "framing_2": "INADMISSIBLE",
+   "ok": true
+  },
+  {
+   "item_index": 17,
+   "class": "unit_change",
+   "expect": "INADMISSIBLE",
+   "framing_1": "INADMISSIBLE",
+   "framing_2": "INADMISSIBLE",
+   "ok": true
+  }
+ ]
+}

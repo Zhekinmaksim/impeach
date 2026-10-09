@@ -1,6 +1,6 @@
 {
   "subject": "meta-llama/llama-3.1-8b-instruct@deepinfra-fp8/2026-10-09",
-  "endpoint": "https://fccf65ac452f50.lhr.life/v1/chat/completions",
+  "endpoint": "https://impeach.vercel.app/api/chat/completions",
   "score_milli": 750,
   "items": "calibration/gsm8k-24.items.json",
   "scoring_rule": "The reply is correct if and only if the final numeric answer it commits to equals the reference answer as a number. Ignore currency signs, thousands separators, units and trailing zeros. A reply with no final answer is wrong.",

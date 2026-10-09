@@ -4,13 +4,14 @@ OpenRouter can supply the real subject and the local referee. The contract canno
 send an API key. A gateway adds the server-side key and exposes only the committed
 demonstration trial.
 
-The selected setup uses `scripts/openrouter_server.py` with a persistent SQLite
-budget and an HTTPS tunnel. This enforces the allocated budget independently of OpenRouter account settings.
-The dedicated key also now has a $5 lifetime cap; BYOK is not included in that cap. The Vercel gateway stays disabled; its optional
-configuration below requires a capped key because Vercel instances do not share
-a durable local ledger.
+`scripts/openrouter_server.py` provides a local gateway with a persistent SQLite
+budget and an HTTPS tunnel. The Vercel gateway supports either a key cap that
+includes BYOK or a narrow, four-hour credits-only mode described below. Both
+Vercel modes remain disabled by default and require a capped key because Vercel
+instances do not share a durable local ledger. A lost tunnel URL cannot be
+replaced in an already opened claim.
 
-## Active setup: local gateway with a durable budget
+## Local gateway with a durable budget
 
 The user approved $5 total. Deduct earlier rehearsal/referee spend before choosing
 the gateway's `--budget`. For example, allocate at most $1.50 to preliminary calls
@@ -92,8 +93,9 @@ starting models are `meta-llama/llama-3.1-8b-instruct` for the subject and
 | `OPENROUTER_PROVIDER` | Exact provider slug, currently `deepinfra/fp8` |
 | `REFEREE_MODEL` | Local referee only; not exposed through the public endpoint |
 | `TRIAL_ENABLED` | Must equal `true` to permit inference; otherwise disabled |
+| `TRIAL_CREDIT_ONLY` | Optional `true` for the verified DeepInfra credits-only route; defaults to false |
 | `TRIAL_BUDGET_USD` | Approved total key limit; currently `5` |
-| `TRIAL_EXPIRES_AT` | UTC deadline in `YYYY-MM-DDTHH:MM:SSZ` format, at most 96 hours ahead |
+| `TRIAL_EXPIRES_AT` | UTC deadline in `YYYY-MM-DDTHH:MM:SSZ` format; at most 4 hours in credits-only mode, otherwise 96 hours |
 
 For this optional Vercel setup, use an OpenRouter inference key with a credit limit no higher than $5, no limit
 reset, and **include BYOK usage in the limit** enabled. The function checks
@@ -101,6 +103,36 @@ reset, and **include BYOK usage in the limit** enabled. The function checks
 unlimited key, a recurring limit, a management key, an exhausted key, or a failed
 lookup prevents inference. The same dedicated capped key should cover rehearsal
 and referee calls so they share the total allowance.
+
+### Narrow credits-only mode
+
+`TRIAL_CREDIT_ONLY=true` is an explicit alternative to the include-BYOK setting,
+only for `meta-llama/llama-3.1-8b-instruct` through `deepinfra/fp8`. Before enabling
+it, verify in the authenticated OpenRouter provider settings that DeepInfra BYOK
+is **Not configured**. That verification was completed for the current session;
+do not add a DeepInfra provider key while this mode is active. This mode does not
+claim that a request parameter can disable OpenRouter BYOK.
+
+The gateway requires an approved budget of at most $5 and a deadline no more
+than four hours ahead. Before every completion it verifies a finite lifetime key
+limit no higher than that budget, no limit reset, a non-management inference key,
+finite `byok_usage` equal to zero, and at least $0.10 of `limit_remaining`.
+Unknown BYOK usage closes the gate. `include_byok_in_limit` may be false only
+because this mode depends on the verified absence of a DeepInfra BYOK key.
+
+Both Vercel modes send a fixed provider, disable fallbacks, require support for
+the frozen parameters, and set `provider.max_price` to $0.05 per million input
+tokens, $0.10 per million output tokens and zero per-request fee. The model,
+prompts, decoding and 72-request allowlist are unchanged.
+
+In credits-only mode, the completed upstream response must also explicitly
+report `usage.is_byok: false`. A missing or true value returns
+`502 credit_only_response_required`. **This is a check after inference: rejecting
+the response cannot reverse a charge already incurred.** Account configuration
+verification and the OpenRouter credit cap remain necessary. The ten-cent
+reserve is an early stop margin, not an atomic reservation across concurrent
+serverless instances. Disable the trial when the case ends or if the account's
+provider configuration changes. Ordinary mode retains its include-BYOK gate.
 
 The corpus is public, and anyone can repeat an allowed request during the active
 window. The allowlist prevents general chat or a more expensive model; it cannot
@@ -198,6 +230,8 @@ Tests compare the allowlist with all 72 requests emitted by the actual Python
 contract. They also cover free health checks, disabled and expired windows,
 request injection, token/body limits, provider pinning, key limits, timeouts,
 secret-free errors, unchanged responses and repeated requests without caching.
+Credits-only tests cover the fixed route, four-hour window, known zero BYOK usage,
+ten-cent boundary, lifetime cap and missing or true response BYOK markers.
 These checks use a fake provider and spend no credits.
 
 | Response | Meaning |
@@ -205,11 +239,13 @@ These checks use a fake provider and spend no credits.
 | `403 request_not_in_trial` | Model, messages, decoding or fields differ from the committed trial |
 | `503 trial_disabled` | Enablement is absent or false |
 | `503 trial_not_configured` | Required server environment values are missing/invalid |
+| `503 credit_only_configuration_required` | Credits-only mode has another model/provider or a budget above $5 |
 | `503 trial_window_invalid` / `trial_expired` | Fix the deadline before opening, or close the completed trial |
-| `503 capped_inference_key_required` | The key cap, reset/BYOK setting or key type does not satisfy the gate |
-| `503 trial_budget_exhausted` | The provider reports no remaining key allowance |
+| `503 capped_inference_key_required` | The key cap, reset/BYOK setting or key type does not satisfy the selected mode's gate |
+| `503 trial_budget_exhausted` | No key allowance remains, or credits-only mode has less than $0.10 remaining |
 | `503 budget_check_unavailable` | Key metadata could not be verified; no completion was attempted |
 | `429 upstream_unavailable` | The provider rate limited the request |
+| `502 credit_only_response_required` | The completed response did not explicitly report non-BYOK usage; an upstream charge may already exist |
 | `502` / `504` | Provider failure, invalid response or 45-second upstream timeout |
 
 Provider error messages and keys are never sent to the caller. There are no

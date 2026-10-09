@@ -14,6 +14,9 @@ const KEY = { limit: 5, limit_remaining: 4.5, limit_reset: null,
   include_byok_in_limit: true, is_management_key: false, is_provisioning_key: false };
 const requests = trialRequests(MODEL);
 const rawCompletion = '{ "choices": [{"message":{"role":"assistant","content":"ANSWER: 18"},"finish_reason":"stop"}], "usage":{"total_tokens":20} }';
+const creditCompletion = '{ "choices": [{"message":{"role":"assistant","content":"ANSWER: 18"},"finish_reason":"stop"}], "usage":{"total_tokens":20,"is_byok":false} }';
+const CREDIT_ENV = { TRIAL_CREDIT_ONLY: 'true' };
+const CREDIT_KEY = { include_byok_in_limit: false, byok_usage: 0 };
 const request = (body = requests[0], headers = {}) => new Request('https://example.test/api/chat/completions', {
   method: 'POST', headers: { 'Content-Type': 'application/json', ...headers }, body: typeof body === 'string' ? body : JSON.stringify(body),
 });
@@ -99,7 +102,8 @@ test('all allowed requests reach the fixed provider; repeat calls are never cach
     assert.equal(await result.text(), rawCompletion);
     assert.equal(result.headers.get('cache-control'), 'no-store');
     const sent = JSON.parse(calls.at(-1).init.body);
-    assert.deepEqual(sent.provider, { only: ['deepinfra/fp8'], allow_fallbacks: false, require_parameters: true });
+    assert.deepEqual(sent.provider, { only: ['deepinfra/fp8'], allow_fallbacks: false, require_parameters: true,
+      max_price: { prompt: 0.05, completion: 0.10, request: 0 } });
     delete sent.provider;
     assert.deepEqual(sent, body);
     assert.equal(calls.at(-1).url, 'https://openrouter.ai/api/v1/chat/completions');
@@ -126,6 +130,71 @@ test('key cap is verified before inference with no local or cross-instance budge
   const { handle, calls } = fixture({ key: { limit: 2 } });
   assert.equal((await handle(request())).status, 200);
   assert.equal(calls.length, 2);
+});
+
+test('credit-only mode admits only the verified route and preserves its actual response', async () => {
+  const { handle, calls } = fixture({ env: CREDIT_ENV, key: CREDIT_KEY, completion: creditCompletion });
+  const result = await handle(request());
+  assert.equal(result.status, 200);
+  assert.equal(await result.text(), creditCompletion);
+  assert.equal(calls.length, 2);
+  const sent = JSON.parse(calls[1].init.body);
+  assert.deepEqual(sent.provider, { only: ['deepinfra/fp8'], allow_fallbacks: false, require_parameters: true,
+    max_price: { prompt: 0.05, completion: 0.10, request: 0 } });
+  delete sent.provider;
+  assert.deepEqual(sent, requests[0]);
+  const health = await (await handle(new Request('https://example.test/api/chat/completions'))).json();
+  assert.equal(health.credit_only, true);
+  assert.equal(calls.length, 2, 'health does not contact the provider');
+});
+
+test('credit-only mode refuses another route, a larger budget or a window beyond four hours', async () => {
+  for (const change of [
+    { OPENROUTER_MODEL: 'meta-llama/llama-3.3-70b-instruct' },
+    { OPENROUTER_PROVIDER: 'deepinfra' }, { OPENROUTER_PROVIDER: 'another-provider' },
+    { TRIAL_BUDGET_USD: '5.01' }, { TRIAL_EXPIRES_AT: '2026-10-09T16:00:01Z' },
+  ]) {
+    const { handle, calls } = fixture({ env: { ...CREDIT_ENV, ...change }, key: CREDIT_KEY, completion: creditCompletion });
+    assert.equal((await handle(request())).status, 503, JSON.stringify(change));
+    assert.equal(calls.length, 0);
+  }
+  const boundary = fixture({ env: { ...CREDIT_ENV, TRIAL_EXPIRES_AT: '2026-10-09T16:00:00Z' },
+    key: CREDIT_KEY, completion: creditCompletion });
+  assert.equal((await boundary.handle(request())).status, 200);
+  const normal = fixture({ env: { TRIAL_EXPIRES_AT: '2026-10-13T12:00:00Z' } });
+  assert.equal((await normal.handle(request())).status, 200, 'ordinary mode retains its 96-hour window');
+});
+
+test('credit-only mode requires known zero BYOK usage, a lifetime cap and at least ten cents remaining', async () => {
+  for (const change of [
+    { byok_usage: undefined }, { byok_usage: null }, { byok_usage: '0' },
+    { byok_usage: 0.0001 }, { byok_usage: -1 }, { byok_usage: Infinity },
+    { limit: null }, { limit: 6 }, { limit: '5' }, { limit: 0 },
+    { limit_reset: undefined }, { limit_reset: 'daily' },
+    { is_management_key: true }, { is_management_key: undefined }, { is_provisioning_key: true },
+    { limit_remaining: 0.099999 }, { limit_remaining: 0 }, { limit_remaining: null },
+  ]) {
+    const { handle, calls } = fixture({ env: CREDIT_ENV, key: { ...CREDIT_KEY, ...change }, completion: creditCompletion });
+    assert.equal((await handle(request())).status, 503, JSON.stringify(change));
+    assert.equal(calls.length, 1, 'invalid key metadata must stop before inference');
+  }
+  const boundary = fixture({ env: CREDIT_ENV, key: { ...CREDIT_KEY, limit_remaining: 0.10 }, completion: creditCompletion });
+  assert.equal((await boundary.handle(request())).status, 200);
+  // An unknown flag must not silently waive the ordinary include-BYOK gate.
+  const unknownMode = fixture({ env: { TRIAL_CREDIT_ONLY: 'TRUE' }, key: CREDIT_KEY, completion: creditCompletion });
+  assert.equal((await unknownMode.handle(request())).status, 503);
+  assert.equal(unknownMode.calls.length, 1);
+});
+
+test('credit-only mode refuses unknown or BYOK completion usage after the upstream call', async () => {
+  for (const usage of [undefined, null, {}, { is_byok: true }, { is_byok: 'false' }, { is_byok: null }]) {
+    const completion = JSON.stringify({ choices: [{ message: { content: 'ANSWER: 18' } }], usage });
+    const { handle, calls } = fixture({ env: CREDIT_ENV, key: CREDIT_KEY, completion });
+    const result = await handle(request());
+    assert.equal(result.status, 502);
+    assert.deepEqual(await result.json(), { error: { code: 'credit_only_response_required' } });
+    assert.equal(calls.length, 2, 'response validation happens after a potentially billed inference');
+  }
 });
 
 test('invalid, excessive or non-JSON requests are rejected before inference', async () => {

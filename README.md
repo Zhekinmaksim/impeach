@@ -155,17 +155,29 @@ browser). The suite holds the three equal.
 
 ## Live validation and remaining checks
 
-- **A live trial.** The deployment transaction succeeded. Whether validators agree on
-  a model's answer at temperature 0, and how long a probe round takes, is
-  unknown until Bradbury.
-- **The referee with a real model.** Initial GPT-4.1 and GPT-4.1-mini runs exposed
-  false admissions in the supplied controls. The referee now solves both questions
-  before seeing their supplied answers, then checks the rewrite in two framings.
-  Real-model results and raw responses are recorded in `runs/`. The complete
-  24-positive / 4-negative gate must pass before a live claim opens.
-- **HTTP inside GenVM.** `gl.nondet.web.post` works in direct-mode tests; a live
-  probe must verify public endpoint reachability from validators. The deployed
-  contract's `clock()` was checked against current UTC after deployment.
+The Bradbury deployment, `open`, `challenge`, `reveal`, and the first question's
+four probe transactions succeeded. Both network referee framings admitted its
+rewrite. However, all three HTTP probes returned `DEAD`: a separate diagnostic
+contract confirmed HTTP 502 with body `no tunnel`. The temporary tunnel lost its
+registration after passing local preflight. This is an endpoint failure, not a
+finding about Llama. The trial remains pending; see `runs/live-status.json`.
+
+A permanent Vercel endpoint is implemented and tested, but remains disabled until
+the owner authorizes storing the OpenRouter key as a server-side production secret.
+The original endpoint is immutable. A new live run must use a fresh court instance
+because this demonstration's item set is already spent in the first court.
+
+The initial real-model referee runs exposed false admissions. The revised referee
+solves both questions before seeing the proposed answer key, then checks the class
+in two framings. GPT-4.1 admitted 20/24 honest rewrites and rejected all 4 controls;
+Sonnet 4.6 admitted 14/24 and rejected all 4 controls in both framings. The full
+Sonnet transcript and exact offline replay are in `runs/`. These false rejections
+are a material limitation: at least 20 admitted pairs are needed for the gap
+verdict. Calibration with one model does not guarantee validator agreement.
+
+The deployed clock and HTTP API both work. A completed live model verdict is
+still missing. The website continues to identify its published case data as local
+scripted rehearsals.
 
 The real subject rehearsal used `meta-llama/llama-3.1-8b-instruct`, fixed to
 DeepInfra FP8: 72 requests, sealed accuracy 750‰, rewritten accuracy 708‰,

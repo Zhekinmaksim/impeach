@@ -1,0 +1,10 @@
+{
+  "endpoint": "https://fccf65ac452f50.lhr.life/v1/chat/completions",
+  "status": 200,
+  "provider": "DeepInfra",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "finish_reason": "stop",
+  "answer": "ANSWER: $18",
+  "usage": { "cost": 0.0000071 },
+  "note": "Recorded from the completed public HTTPS preflight output. Only usage.cost and the final answer line were retained; no new request was made."
+}

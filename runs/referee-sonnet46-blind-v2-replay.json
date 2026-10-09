@@ -1,0 +1,627 @@
+{
+  "source_sha256": "1594a040f321af615a77479a18eec96790a2d10725dc873637965f2048ffa273",
+  "transcript_sha256": "124e234fd36f25668a427c9782f85eab54517a0a994731bd0c337f1edc0831b7",
+  "replay_exact_prompts": true,
+  "replay_matches_saved_results": true,
+  "requests": 110,
+  "honest_admitted": 14,
+  "controls_rejected": 4,
+  "failures": [
+    {
+      "item_index": 0,
+      "class": "numeral_substitution",
+      "expect": "ADMISSIBLE",
+      "ok": false,
+      "rounds": [
+        {
+          "framing": 1,
+          "ruling": "ADMISSIBLE",
+          "response_indices": [
+            1,
+            2
+          ],
+          "parse_errors": [],
+          "blind_results": {
+            "original_result": "18",
+            "rewrite_result": "36"
+          },
+          "numeric_matches": {
+            "original_result": true,
+            "rewrite_result": true
+          },
+          "same_question": true
+        },
+        {
+          "framing": 2,
+          "ruling": "INADMISSIBLE",
+          "response_indices": [
+            3,
+            4
+          ],
+          "parse_errors": [],
+          "blind_results": {
+            "original_result": "18",
+            "rewrite_result": "36"
+          },
+          "numeric_matches": {
+            "original_result": true,
+            "rewrite_result": true
+          },
+          "same_question": false
+        }
+      ]
+    },
+    {
+      "item_index": 2,
+      "class": "numeral_substitution",
+      "expect": "ADMISSIBLE",
+      "ok": false,
+      "rounds": [
+        {
+          "framing": 1,
+          "ruling": "ADMISSIBLE",
+          "response_indices": [
+            9,
+            10
+          ],
+          "parse_errors": [],
+          "blind_results": {
+            "original_result": "64",
+            "rewrite_result": "84"
+          },
+          "numeric_matches": {
+            "original_result": true,
+            "rewrite_result": true
+          },
+          "same_question": true
+        },
+        {
+          "framing": 2,
+          "ruling": "INADMISSIBLE",
+          "response_indices": [
+            11,
+            12
+          ],
+          "parse_errors": [],
+          "blind_results": {
+            "original_result": "64",
+            "rewrite_result": "84"
+          },
+          "numeric_matches": {
+            "original_result": true,
+            "rewrite_result": true
+          },
+          "same_question": false
+        }
+      ]
+    },
+    {
+      "item_index": 7,
+      "class": "numeral_substitution",
+      "expect": "ADMISSIBLE",
+      "ok": false,
+      "rounds": [
+        {
+          "framing": 1,
+          "ruling": "ADMISSIBLE",
+          "response_indices": [
+            29,
+            30
+          ],
+          "parse_errors": [],
+          "blind_results": {
+            "original_result": "13",
+            "rewrite_result": "11"
+          },
+          "numeric_matches": {
+            "original_result": true,
+            "rewrite_result": true
+          },
+          "same_question": true
+        },
+        {
+          "framing": 2,
+          "ruling": "INADMISSIBLE",
+          "response_indices": [
+            31,
+            32
+          ],
+          "parse_errors": [],
+          "blind_results": {
+            "original_result": "12",
+            "rewrite_result": "10"
+          },
+          "numeric_matches": {
+            "original_result": false,
+            "rewrite_result": false
+          },
+          "same_question": false
+        }
+      ]
+    },
+    {
+      "item_index": 10,
+      "class": "numeral_substitution",
+      "expect": "ADMISSIBLE",
+      "ok": false,
+      "rounds": [
+        {
+          "framing": 1,
+          "ruling": "INADMISSIBLE",
+          "response_indices": [
+            41,
+            42
+          ],
+          "parse_errors": [],
+          "blind_results": {
+            "original_result": "57500",
+            "rewrite_result": "55200"
+          },
+          "numeric_matches": {
+            "original_result": true,
+            "rewrite_result": true
+          },
+          "same_question": false
+        },
+        {
+          "framing": 2,
+          "ruling": "INADMISSIBLE",
+          "response_indices": [
+            43,
+            44
+          ],
+          "parse_errors": [],
+          "blind_results": {
+            "original_result": "57500",
+            "rewrite_result": "55200"
+          },
+          "numeric_matches": {
+            "original_result": true,
+            "rewrite_result": true
+          },
+          "same_question": false
+        }
+      ]
+    },
+    {
+      "item_index": 11,
+      "class": "numeral_substitution",
+      "expect": "ADMISSIBLE",
+      "ok": false,
+      "rounds": [
+        {
+          "framing": 1,
+          "ruling": "ADMISSIBLE",
+          "response_indices": [
+            45,
+            46
+          ],
+          "parse_errors": [],
+          "blind_results": {
+            "original_result": "7",
+            "rewrite_result": "14"
+          },
+          "numeric_matches": {
+            "original_result": true,
+            "rewrite_result": true
+          },
+          "same_question": true
+        },
+        {
+          "framing": 2,
+          "ruling": "INADMISSIBLE",
+          "response_indices": [
+            47,
+            48
+          ],
+          "parse_errors": [],
+          "blind_results": {
+            "original_result": "7",
+            "rewrite_result": "14"
+          },
+          "numeric_matches": {
+            "original_result": true,
+            "rewrite_result": true
+          },
+          "same_question": false
+        }
+      ]
+    },
+    {
+      "item_index": 15,
+      "class": "numeral_substitution",
+      "expect": "ADMISSIBLE",
+      "ok": false,
+      "rounds": [
+        {
+          "framing": 1,
+          "ruling": "INADMISSIBLE",
+          "response_indices": [
+            61,
+            62
+          ],
+          "parse_errors": [
+            {
+              "response_index": 62,
+              "error": "ambiguous or absent referee JSON"
+            }
+          ],
+          "blind_results": {
+            "original_result": "26",
+            "rewrite_result": "45"
+          },
+          "numeric_matches": {
+            "original_result": true,
+            "rewrite_result": true
+          }
+        },
+        {
+          "framing": 2,
+          "ruling": "ADMISSIBLE",
+          "response_indices": [
+            63,
+            64
+          ],
+          "parse_errors": [],
+          "blind_results": {
+            "original_result": "26",
+            "rewrite_result": "45"
+          },
+          "numeric_matches": {
+            "original_result": true,
+            "rewrite_result": true
+          },
+          "same_question": true
+        }
+      ]
+    },
+    {
+      "item_index": 18,
+      "class": "numeral_substitution",
+      "expect": "ADMISSIBLE",
+      "ok": false,
+      "rounds": [
+        {
+          "framing": 1,
+          "ruling": "ADMISSIBLE",
+          "response_indices": [
+            73,
+            74
+          ],
+          "parse_errors": [],
+          "blind_results": {
+            "original_result": "16",
+            "rewrite_result": "35"
+          },
+          "numeric_matches": {
+            "original_result": true,
+            "rewrite_result": true
+          },
+          "same_question": true
+        },
+        {
+          "framing": 2,
+          "ruling": "INADMISSIBLE",
+          "response_indices": [
+            75,
+            76
+          ],
+          "parse_errors": [],
+          "blind_results": {
+            "original_result": "16",
+            "rewrite_result": "35"
+          },
+          "numeric_matches": {
+            "original_result": true,
+            "rewrite_result": true
+          },
+          "same_question": false
+        }
+      ]
+    },
+    {
+      "item_index": 19,
+      "class": "entity_rename",
+      "expect": "ADMISSIBLE",
+      "ok": false,
+      "rounds": [
+        {
+          "framing": 1,
+          "ruling": "ADMISSIBLE",
+          "response_indices": [
+            77,
+            78
+          ],
+          "parse_errors": [],
+          "blind_results": {
+            "original_result": "25",
+            "rewrite_result": "25"
+          },
+          "numeric_matches": {
+            "original_result": true,
+            "rewrite_result": true
+          },
+          "same_question": true
+        },
+        {
+          "framing": 2,
+          "ruling": "INADMISSIBLE",
+          "response_indices": [
+            79
+          ],
+          "parse_errors": [
+            {
+              "response_index": 79,
+              "error": "ambiguous or absent referee JSON"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item_index": 20,
+      "class": "numeral_substitution",
+      "expect": "ADMISSIBLE",
+      "ok": false,
+      "rounds": [
+        {
+          "framing": 1,
+          "ruling": "INADMISSIBLE",
+          "response_indices": [
+            80,
+            81
+          ],
+          "parse_errors": [
+            {
+              "response_index": 81,
+              "error": "ambiguous or absent referee JSON"
+            }
+          ],
+          "blind_results": {
+            "original_result": "104",
+            "rewrite_result": "130"
+          },
+          "numeric_matches": {
+            "original_result": true,
+            "rewrite_result": true
+          }
+        },
+        {
+          "framing": 2,
+          "ruling": "INADMISSIBLE",
+          "response_indices": [
+            82,
+            83
+          ],
+          "parse_errors": [],
+          "blind_results": {
+            "original_result": "104",
+            "rewrite_result": "130"
+          },
+          "numeric_matches": {
+            "original_result": true,
+            "rewrite_result": true
+          },
+          "same_question": false
+        }
+      ]
+    },
+    {
+      "item_index": 22,
+      "class": "entity_rename",
+      "expect": "ADMISSIBLE",
+      "ok": false,
+      "rounds": [
+        {
+          "framing": 1,
+          "ruling": "ADMISSIBLE",
+          "response_indices": [
+            88,
+            89
+          ],
+          "parse_errors": [],
+          "blind_results": {
+            "original_result": "70",
+            "rewrite_result": "70"
+          },
+          "numeric_matches": {
+            "original_result": true,
+            "rewrite_result": true
+          },
+          "same_question": true
+        },
+        {
+          "framing": 2,
+          "ruling": "INADMISSIBLE",
+          "response_indices": [
+            90
+          ],
+          "parse_errors": [
+            {
+              "response_index": 90,
+              "error": "ambiguous or absent referee JSON"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "item_index": 0,
+      "class": "paraphrase",
+      "expect": "INADMISSIBLE",
+      "ok": true,
+      "rounds": [
+        {
+          "framing": 1,
+          "ruling": "INADMISSIBLE",
+          "response_indices": [
+            95,
+            96
+          ],
+          "parse_errors": [],
+          "blind_results": {
+            "original_result": "18",
+            "rewrite_result": "26"
+          },
+          "numeric_matches": {
+            "original_result": true,
+            "rewrite_result": false
+          },
+          "same_question": false
+        },
+        {
+          "framing": 2,
+          "ruling": "INADMISSIBLE",
+          "response_indices": [
+            97,
+            98
+          ],
+          "parse_errors": [],
+          "blind_results": {
+            "original_result": "18",
+            "rewrite_result": "26"
+          },
+          "numeric_matches": {
+            "original_result": true,
+            "rewrite_result": false
+          },
+          "same_question": false
+        }
+      ]
+    },
+    {
+      "item_index": 3,
+      "class": "entity_rename",
+      "expect": "INADMISSIBLE",
+      "ok": true,
+      "rounds": [
+        {
+          "framing": 1,
+          "ruling": "INADMISSIBLE",
+          "response_indices": [
+            99,
+            100
+          ],
+          "parse_errors": [],
+          "blind_results": {
+            "original_result": "260",
+            "rewrite_result": "200"
+          },
+          "numeric_matches": {
+            "original_result": true,
+            "rewrite_result": false
+          },
+          "same_question": false
+        },
+        {
+          "framing": 2,
+          "ruling": "INADMISSIBLE",
+          "response_indices": [
+            101,
+            102
+          ],
+          "parse_errors": [],
+          "blind_results": {
+            "original_result": "260",
+            "rewrite_result": "200"
+          },
+          "numeric_matches": {
+            "original_result": true,
+            "rewrite_result": false
+          },
+          "same_question": false
+        }
+      ]
+    },
+    {
+      "item_index": 10,
+      "class": "numeral_substitution",
+      "expect": "INADMISSIBLE",
+      "ok": true,
+      "rounds": [
+        {
+          "framing": 1,
+          "ruling": "INADMISSIBLE",
+          "response_indices": [
+            103,
+            104
+          ],
+          "parse_errors": [],
+          "blind_results": {
+            "original_result": "57500",
+            "rewrite_result": "55200"
+          },
+          "numeric_matches": {
+            "original_result": true,
+            "rewrite_result": false
+          },
+          "same_question": false
+        },
+        {
+          "framing": 2,
+          "ruling": "INADMISSIBLE",
+          "response_indices": [
+            105,
+            106
+          ],
+          "parse_errors": [],
+          "blind_results": {
+            "original_result": "57500",
+            "rewrite_result": "55200"
+          },
+          "numeric_matches": {
+            "original_result": true,
+            "rewrite_result": false
+          },
+          "same_question": false
+        }
+      ]
+    },
+    {
+      "item_index": 17,
+      "class": "unit_change",
+      "expect": "INADMISSIBLE",
+      "ok": true,
+      "rounds": [
+        {
+          "framing": 1,
+          "ruling": "INADMISSIBLE",
+          "response_indices": [
+            107,
+            108
+          ],
+          "parse_errors": [],
+          "blind_results": {
+            "original_result": "243",
+            "rewrite_result": "198.45"
+          },
+          "numeric_matches": {
+            "original_result": true,
+            "rewrite_result": false
+          },
+          "same_question": false
+        },
+        {
+          "framing": 2,
+          "ruling": "INADMISSIBLE",
+          "response_indices": [
+            109,
+            110
+          ],
+          "parse_errors": [],
+          "blind_results": {
+            "original_result": "243",
+            "rewrite_result": "198.45"
+          },
+          "numeric_matches": {
+            "original_result": true,
+            "rewrite_result": false
+          },
+          "same_question": false
+        }
+      ]
+    }
+  ]
+}
