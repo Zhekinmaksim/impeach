@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.vercel/
+node_modules/
+.venv/
+.env
+.env.*
+!.env.example
+output/
+.tools/
+runs/*.sqlite*
+runs/*.pid
+runs/*tunnel*.log
+.playwright-cli/
+runs/referee-dryrun.json
+.vercel

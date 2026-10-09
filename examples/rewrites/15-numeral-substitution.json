@@ -1,0 +1,9 @@
+{
+ "version": "impeach/1",
+ "item_index": 15,
+ "class": "numeral_substitution",
+ "prompt": "Kyle bought last year's best-selling book for $31.50. This is with a 30% discount from the original price. What was the original price of the book?",
+ "answer": "45",
+ "derivation": "3150 * 100 // 70 // 100",
+ "author_note": "Price and discount moved; still a divide-by-complement."
+}

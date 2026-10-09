@@ -1,0 +1,9 @@
+{
+ "version": "impeach/1",
+ "item_index": 18,
+ "class": "numeral_substitution",
+ "prompt": "Cynthia eats one serving of ice cream every night.  She buys cartons of ice cream with 12 servings of ice cream per carton at a cost of $5.00 per carton.  After 84 days, how much will she spend on ice cream?",
+ "answer": "35",
+ "derivation": "84 // 12 * 5",
+ "author_note": "Servings, price and days moved; days stay a multiple of servings as in the original."
+}

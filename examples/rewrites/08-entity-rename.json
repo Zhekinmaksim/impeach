@@ -1,0 +1,9 @@
+{
+ "version": "impeach/1",
+ "item_index": 8,
+ "class": "entity_rename",
+ "prompt": "Tomas is a door-to-door salesman. He sold a third of his water filters at the blue house, 2 more to the yellow house, and half of what was left at the white house. If Tomas has 5 water filters left, how many did he start with?",
+ "answer": "18",
+ "derivation": "(5*2 + 2) * 3 // 2",
+ "author_note": "Person, product and house colours renamed."
+}

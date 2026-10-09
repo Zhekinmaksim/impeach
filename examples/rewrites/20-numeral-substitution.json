@@ -1,0 +1,9 @@
+{
+ "version": "impeach/1",
+ "item_index": 20,
+ "class": "numeral_substitution",
+ "prompt": "Gloria is shoe shopping when she comes across a pair of boots that fit her shoe budget. However, she has to choose between the boots and two pairs of high heels that together cost seven dollars less than the boots. If one pair of heels costs $41 and the other costs twice as much, how many dollars are the boots?",
+ "answer": "130",
+ "derivation": "41 + 2*41 + 7",
+ "author_note": "Difference and base price moved."
+}

@@ -1,0 +1,4 @@
+{"key":"open","tx":"0xopen","method":"open_claim","step":"open"}
+{"key":"probe:0:0:PINNED","tx":"0xp0","method":"probe","step":"probe","challenge_id":0,"item_index":0,"mode":"PINNED"}
+{"key":"probe:0:1:PINNED","tx":"0xp1","method":"probe","step":"probe","challenge_id":0,"item_index":1,"mode":"PINNED"}
+{"key":"probe:0:2:RECALL","tx":"0xp2","method":"probe","step":"probe","challenge_id":0,"item_index":2,"mode":"RECALL"}

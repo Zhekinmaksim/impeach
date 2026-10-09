@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../web/assets/fonts.css">
+<style>
+  html, body { margin: 0; }
+  body { width: 1200px; height: 630px; background: #eef3ec; color: #26292b; position: relative; overflow: hidden; font-family: "STIX Two Text", serif; }
+  .corner { position: absolute; width: 22px; height: 22px; background: #26292b; }
+  .tl { top: 36px; left: 36px; } .tr { top: 36px; right: 36px; } .bl { bottom: 36px; left: 36px; } .br { bottom: 36px; right: 36px; }
+  .frame { position: absolute; inset: 22px; border: 3px solid #1e6a4b; }
+  h1 { position: absolute; left: 96px; top: 58px; margin: 0; font-family: "Barlow Condensed", sans-serif; font-weight: 600; font-size: 184px; line-height: 0.9; letter-spacing: -2px; color: #1e6a4b; }
+  p { position: absolute; left: 100px; top: 262px; margin: 0; width: 780px; font-size: 38px; line-height: 1.24; }
+  .sheet { position: absolute; left: 124px; right: 100px; bottom: 104px; }
+  .row { display: grid; grid-template-columns: repeat(24, 1fr); gap: 8px; position: relative; }
+  .row + .row { margin-top: 12px; }
+  .row.apart { margin-top: 26px; }
+  .row::before { content: ""; position: absolute; left: -42px; top: 50%; width: 24px; height: 9px; margin-top: -4.5px; background: #26292b; }
+  .b { height: 27px; border-radius: 999px; border: 3px solid #1e6a4b; box-sizing: border-box; }
+  .f { background: #26292b; border-color: #26292b; }
+  .o { background: #b3202e; border-color: #b3202e; }
+  .tag { position: absolute; right: 100px; top: 84px; font-family: "Barlow Condensed", sans-serif; font-weight: 500; font-size: 30px; color: #1e6a4b; text-align: right; line-height: 1.2; }
+</style></head>
+<body>
+  <div class="frame"></div>
+  <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
+  <h1>Impeach</h1>
+  <div class="tag">A court for<br>benchmark scores</div>
+  <p>The same questions, asked again in words the model has not met.</p>
+  <div class="sheet" id="sheet"></div>
+<script>
+  // rows: answered as sealed, answered as rewritten, continued from memory.
+  // f = pencilled in, o = the old answer, e = empty. An illustration of the sheet, not a case.
+  const rows = [
+    "ffffffffffffffffffffffff",
+    "ofoeoeeoeeooffeoefofofee",
+    "ffffffffffffffffffffffff",
+  ];
+  const sheet = document.getElementById("sheet");
+  rows.forEach((r, i) => {
+    const row = document.createElement("div");
+    row.className = "row" + (i === 2 ? " apart" : "");
+    for (const c of r) { const b = document.createElement("span"); b.className = "b " + (c === "e" ? "" : c); row.append(b); }
+    sheet.append(row);
+  });
+</script>
+</body></html>

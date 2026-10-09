@@ -1,0 +1,83 @@
+{
+ "model": "openai/gpt-4.1",
+ "rows": [
+  {
+   "item": 1,
+   "expect": "ADMISSIBLE",
+   "rulings": [
+    "ADMISSIBLE",
+    "ADMISSIBLE"
+   ],
+   "ok": true,
+   "responses": [
+    "```json\n{\"original_result\": \"540\", \"rewrite_result\": \"540\", \"same_question\": true}\n```",
+    "```json\n{\"original_result\": \"540\", \"rewrite_result\": \"540\", \"same_question\": true}\n```"
+   ]
+  },
+  {
+   "item": 17,
+   "expect": "ADMISSIBLE",
+   "rulings": [
+    "ADMISSIBLE",
+    "ADMISSIBLE"
+   ],
+   "ok": true,
+   "responses": [
+    "```json\n{\"original_result\": \"243\", \"rewrite_result\": \"243\", \"same_question\": true}\n```",
+    "{\"original_result\": \"243\", \"rewrite_result\": \"243\", \"same_question\": true}"
+   ]
+  },
+  {
+   "item": 0,
+   "expect": "INADMISSIBLE",
+   "rulings": [
+    "INADMISSIBLE",
+    "INADMISSIBLE"
+   ],
+   "ok": true,
+   "responses": [
+    "```json\n{\"original_result\": \"18\", \"rewrite_result\": \"26\", \"same_question\": false}\n```",
+    "```json\n{\"original_result\": \"18\", \"rewrite_result\": \"26\", \"same_question\": false}\n```"
+   ]
+  },
+  {
+   "item": 3,
+   "expect": "INADMISSIBLE",
+   "rulings": [
+    "INADMISSIBLE",
+    "INADMISSIBLE"
+   ],
+   "ok": true,
+   "responses": [
+    "```json\n{\"original_result\": \"180\", \"rewrite_result\": \"100\", \"same_question\": false}\n```",
+    "```json\n{\"original_result\": \"180\", \"rewrite_result\": \"140\", \"same_question\": false}\n```"
+   ]
+  },
+  {
+   "item": 10,
+   "expect": "INADMISSIBLE",
+   "rulings": [
+    "ADMISSIBLE",
+    "INADMISSIBLE"
+   ],
+   "ok": true,
+   "responses": [
+    "```json\n{\"original_result\": \"57500\", \"rewrite_result\": \"57600\", \"same_question\": true}\n```",
+    "```json\n{\"original_result\": \"57500\", \"rewrite_result\": \"43200\", \"same_question\": false}\n```"
+   ]
+  },
+  {
+   "item": 17,
+   "expect": "INADMISSIBLE",
+   "rulings": [
+    "ADMISSIBLE",
+    "ADMISSIBLE"
+   ],
+   "ok": false,
+   "responses": [
+    "{\"original_result\": \"243\", \"rewrite_result\": \"243\", \"same_question\": true}",
+    "```json\n{\"original_result\": \"243\", \"rewrite_result\": \"243\", \"same_question\": true}\n```"
+   ]
+  }
+ ]
+}

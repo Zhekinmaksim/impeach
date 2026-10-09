@@ -1,0 +1,95 @@
+{
+ "model": "openai/gpt-4.1",
+ "rows": [
+  {
+   "item": 1,
+   "expect": "ADMISSIBLE",
+   "rulings": [
+    "INADMISSIBLE",
+    "INADMISSIBLE"
+   ],
+   "ok": false,
+   "responses": [
+    "{\n  \"original_calculation\": \"3 sprints * 3 times/week * 60 meters = 9 * 60 = 540 meters\",\n  \"original_result\": \"540 meters\",\n  \"rewrite_calculation\": \"3 sprints * 3 times/week * 0.06 km/sprint * 1000 meters/km = 9 * 0.06 * 1000 = 0.54 * 1000 = 540 meters\",\n  \"rewrite_result\": \"540 meters\"\n}",
+    "```json\n{\"original_result\": \"540\", \"rewrite_result\": \"540\", \"same_question\": true}\n```",
+    "{\n  \"original_calculation\": \"3 sprints x 3 times/week x 0.06 km/sprint x 1000 m/km\",\n  \"original_result\": \"540 meters\",\n  \"rewrite_calculation\": \"3 sprints x 3 times/week x 60 meters/sprint\",\n  \"rewrite_result\": \"540 meters\"\n}",
+    "{\"original_result\": \"540\", \"rewrite_result\": \"540\", \"same_question\": true}"
+   ]
+  },
+  {
+   "item": 17,
+   "expect": "ADMISSIBLE",
+   "rulings": [
+    "ADMISSIBLE",
+    "INADMISSIBLE"
+   ],
+   "ok": false,
+   "responses": [
+    "{\n  \"original_calculation\": \"3 * $16.50 + 3 * $22.50 + 3 * $42 = $49.50 + $67.50 + $126 = $243.00\",\n  \"original_result\": \"$243.00\",\n  \"rewrite_calculation\": \"3 * 1650 + 3 * 2250 + 3 * 4200 = 4950 + 6750 + 12600 = 24300 cents; 24300 / 100 = $243.00\",\n  \"rewrite_result\": \"$243.00\"\n}",
+    "{\"original_result\": \"243\", \"rewrite_result\": \"243\", \"same_question\": true}",
+    "{\n  \"original_calculation\": \"((3 * 1650) + (3 * 2250) + (3 * 4200)) / 100\",\n  \"original_result\": \"24,450 / 100 = 244.50 dollars\",\n  \"rewrite_calculation\": \"((3 * 16.50) + (3 * 22.50) + (3 * 42.00))\",\n  \"rewrite_result\": \"49.50 + 67.50 + 126.00 = 243.00 dollars\"\n}",
+    "{\"original_result\": \"243\", \"rewrite_result\": \"243\", \"same_question\": true}"
+   ]
+  },
+  {
+   "item": 0,
+   "expect": "INADMISSIBLE",
+   "rulings": [
+    "INADMISSIBLE",
+    "INADMISSIBLE"
+   ],
+   "ok": true,
+   "responses": [
+    "{\n  \"original_calculation\": \"16 - 3 - 4 = 9 eggs sold; 9 * $2 = $18\",\n  \"original_result\": \"$18\",\n  \"rewrite_calculation\": \"16 - 3 = 13 eggs sold; 13 * $2 = $26\",\n  \"rewrite_result\": \"$26\"\n}",
+    "```json\n{\"original_result\": \"18\", \"rewrite_result\": \"26\", \"same_question\": false}\n```",
+    "{\n  \"original_calculation\": \"16 - 3 = 13; 13 * 2 = 26\",\n  \"original_result\": \"26 dollars\",\n  \"rewrite_calculation\": \"16 - 3 - 4 = 9; 9 * 2 = 18\",\n  \"rewrite_result\": \"18 dollars\"\n}",
+    "```json\n{\"original_result\": \"18\", \"rewrite_result\": \"26\", \"same_question\": false}\n```"
+   ]
+  },
+  {
+   "item": 3,
+   "expect": "INADMISSIBLE",
+   "rulings": [
+    "INADMISSIBLE",
+    "INADMISSIBLE"
+   ],
+   "ok": true,
+   "responses": [
+    "{\n  \"original_calculation\": \"Seattle = 20; Charleston = 4 * 20 = 80; Toulouse = 2 * 80 = 160; Total = 20 + 80 + 160 = 260\",\n  \"original_result\": \"260 sheep\",\n  \"rewrite_calculation\": \"Tunis = 20; Lagos = 3 * 20 = 60; Porto = 2 * 60 = 120; Total = 20 + 60 + 120 = 200\",\n  \"rewrite_result\": \"200 goats\"\n}",
+    "```json\n{\"original_result\": \"180\", \"rewrite_result\": \"100\", \"same_question\": false}\n```",
+    "{\n  \"original_calculation\": \"Let Tunis = 20 goats. Lagos = 3 * 20 = 60 goats. Porto = 2 * 60 = 120 goats. Total = 20 + 60 + 120 = 200 goats.\",\n  \"original_result\": \"200 goats\",\n  \"rewrite_calculation\": \"Let Seattle = 20 sheep. Charleston = 4 * 20 = 80 sheep. Toulouse = 2 * 80 = 160 sheep. Total = 20 + 80 + 160 = 260 sheep.\",\n  \"rewrite_result\": \"260 sheep\"\n}",
+    "```json\n{\"original_result\": \"180\", \"rewrite_result\": \"140\", \"same_question\": false}\n```"
+   ]
+  },
+  {
+   "item": 10,
+   "expect": "INADMISSIBLE",
+   "rulings": [
+    "INADMISSIBLE",
+    "INADMISSIBLE"
+   ],
+   "ok": true,
+   "responses": [
+    "{\n  \"original_calculation\": \"((35 hours/week * $20/hour) + (15 hours/week * $30/hour)) * 50 weeks = (700 + 450) * 50 = 1150 * 50 = $57,500\",\n  \"original_result\": \"$57,500 per year\",\n  \"rewrite_calculation\": \"((30 hours/week * $25/hour) + (10 hours/week * $40/hour)) * 48 weeks = (750 + 400) * 48 = 1150 * 48 = $55,200\",\n  \"rewrite_result\": \"$55,200 per year\"\n}",
+    "```json\n{\"original_result\": \"57500\", \"rewrite_result\": \"57600\", \"same_question\": true}\n```",
+    "{\n  \"original_calculation\": \"($25 * 30 * 48) + ($40 * 10 * 48)\",\n  \"original_result\": \"$36,000 + $19,200 = $55,200 per year\",\n  \"rewrite_calculation\": \"($20 * 35 * 50) + ($30 * 15 * 50)\",\n  \"rewrite_result\": \"$35,000 + $22,500 = $57,500 per year\"\n}",
+    "```json\n{\"original_result\": \"57500\", \"rewrite_result\": \"43200\", \"same_question\": false}\n```"
+   ]
+  },
+  {
+   "item": 17,
+   "expect": "INADMISSIBLE",
+   "rulings": [
+    "INADMISSIBLE",
+    "INADMISSIBLE"
+   ],
+   "ok": true,
+   "responses": [
+    "{\n  \"original_calculation\": \"3 * $16.50 + 3 * $22.50 + 3 * $42 = $49.50 + $67.50 + $126 = $243.00\",\n  \"original_result\": \"$243.00\",\n  \"rewrite_calculation\": \"3 * 165 + 3 * 2250 + 3 * 4200 = 495 + 6750 + 12600 = 19845 cents; 19845 / 100 = $198.45\",\n  \"rewrite_result\": \"$198.45\"\n}",
+    "```json\n{\"original_result\": \"243\", \"rewrite_result\": \"243\", \"same_question\": true}\n```",
+    "{\n  \"original_calculation\": \"((3 * 165) + (3 * 2250) + (3 * 4200)) / 100\",\n  \"original_result\": \"196.95 dollars\",\n  \"rewrite_calculation\": \"(3 * 16.50) + (3 * 22.50) + (3 * 42)\",\n  \"rewrite_result\": \"246 dollars\"\n}",
+    "```json\n{\"original_result\": \"243\", \"rewrite_result\": \"243\", \"same_question\": true}\n```"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,9 @@
+{
+ "version": "impeach/1",
+ "item_index": 22,
+ "class": "entity_rename",
+ "prompt": "Olusegun has 110 stamps. There are 30 more foreign stamps than domestic stamps. How many foreign stamps does Olusegun have?",
+ "answer": "70",
+ "derivation": "(110 + 30) // 2",
+ "author_note": "Person and collected object renamed."
+}

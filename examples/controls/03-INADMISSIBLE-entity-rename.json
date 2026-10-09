@@ -1,0 +1,10 @@
+{
+ "version": "impeach/1",
+ "item_index": 3,
+ "class": "entity_rename",
+ "prompt": "Porto has twice as many goats as Lagos. Lagos has 3 times as many goats as Tunis. How many goats do Porto, Lagos, and Tunis have together if Tunis has 20 goats?",
+ "answer": "260",
+ "expect": "INADMISSIBLE",
+ "author_note": "A ratio moved from 4 to 3 under cover of the rename. The true answer is 200.",
+ "true_answer": "200"
+}

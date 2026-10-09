@@ -1,0 +1,9 @@
+{
+ "version": "impeach/1",
+ "item_index": 11,
+ "class": "numeral_substitution",
+ "prompt": "Claire makes a 4 egg omelet every morning for breakfast.  How many dozens of eggs will she eat in 6 weeks?",
+ "answer": "14",
+ "derivation": "4*6*7//12",
+ "author_note": "Eggs per omelet and weeks moved."
+}

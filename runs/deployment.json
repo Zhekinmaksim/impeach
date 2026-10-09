@@ -1,0 +1,36 @@
+{
+  "network": "testnet-bradbury",
+  "chain_id": 4221,
+  "contract": "0x774f8ca813724B39775617487ADb4DfCf1eb72D6",
+  "deploy_tx": "0xef103cfa95e7f8408712520076ce00c73454b3bcff01b2ab7eeabfcafb0918cf",
+  "publisher": "0x771388495F34d21C5574FeFc04cd1D5811E00aDa",
+  "status": "ACCEPTED",
+  "execution": "FINISHED_WITH_RETURN",
+  "artifact": "build/impeach.py",
+  "artifact_sha256": "9c84d3b281881bcc1cd5c4fe959ec428a37ad14ac93469c912cdc72223ada851",
+  "checked_at": 1791565819,
+  "previous_deployment": {
+    "network": "testnet-bradbury",
+    "chain_id": 4221,
+    "contract": "0x41Efd17951696A4269C0E4C47e565D505e659A7f",
+    "deploy_tx": "0x21bdcf3ddb5c076fa4eec68dbc821d79286e98a38343d713ce556b7af9db7788",
+    "publisher": "0x771388495F34d21C5574FeFc04cd1D5811E00aDa",
+    "status": "ACCEPTED",
+    "execution": "FINISHED_WITH_RETURN",
+    "artifact": "build/impeach.py",
+    "artifact_sha256": "82640127fc271e7979cd508c48e2983b0e8b469082d542936390951dfe51e601",
+    "checked_at": 1791565000,
+    "prior_failed_attempt": {
+      "network": "testnet-bradbury",
+      "chain_id": 4221,
+      "deploy_tx": "0xad4511fc04f88c280b5f30a375799fc62654ba9c5e4bc36ec9a1c3d8a70cc67c",
+      "publisher": "0x771388495f34d21c5574fefc04cd1d5811e00ada",
+      "artifact": "build/impeach.py",
+      "artifact_sha256": "b1e4cfab9c6b75cb98e23d509e1bf5fcea96f2060b6293c8e79ffb2d892fa120",
+      "submitted_at": 1791564872,
+      "status": "ACCEPTED",
+      "execution": "FINISHED_WITH_ERROR",
+      "candidate_contract": "0x21A89f8F02939148a7530B63Ec1070ea0BfA5984"
+    }
+  }
+}

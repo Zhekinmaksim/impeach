@@ -1,0 +1,9 @@
+{
+ "version": "impeach/1",
+ "item_index": 19,
+ "class": "entity_rename",
+ "prompt": "Aiko made two stops during her 60-mile canoe trip. She first stopped after 20 miles. Her second stop was 15 miles before the end of the trip. How many miles did she travel between her first and second stops?",
+ "answer": "25",
+ "derivation": "60 - 15 - 20",
+ "author_note": "Person and vehicle renamed."
+}

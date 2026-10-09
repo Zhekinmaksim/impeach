@@ -1,0 +1,10 @@
+{
+ "version": "impeach/1",
+ "item_index": 10,
+ "class": "numeral_substitution",
+ "prompt": "Jill gets paid $25 per hour to teach and $40 to be a cheerleading coach. If she works 48 weeks a year, 30 hours a week as a teacher and 10 hours a week as a coach, what's her annual salary?",
+ "answer": "57600",
+ "expect": "INADMISSIBLE",
+ "author_note": "The numbers are an honest substitution; the declared answer is not what they give. (25*30 + 40*10) * 48 is 55200.",
+ "true_answer": "55200"
+}

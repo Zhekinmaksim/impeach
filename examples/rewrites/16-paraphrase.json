@@ -1,0 +1,9 @@
+{
+ "version": "impeach/1",
+ "item_index": 16,
+ "class": "paraphrase",
+ "prompt": "Marie's order came to $50 in total. It included one chicken meal at $12, 5 packs of milk at $3 per pack, 4 apples at $1.50 apiece, and a number of pizza boxes at $8.50 per box. How many boxes of pizza were in the order?",
+ "answer": "2",
+ "derivation": "(5000 - 1200 - 5*300 - 4*150) // 850",
+ "author_note": "Total moved to the front; figures untouched."
+}

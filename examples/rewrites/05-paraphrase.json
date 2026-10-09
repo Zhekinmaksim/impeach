@@ -1,0 +1,9 @@
+{
+ "version": "impeach/1",
+ "item_index": 5,
+ "class": "paraphrase",
+ "prompt": "In its first month a newly released app was downloaded 60 times. In the second month it got three times the first month's downloads. In the third month the downloads fell by 30% compared with the second month. Across all three months, how many downloads did the app get?",
+ "answer": "366",
+ "derivation": "60 + 180 + 180*70//100",
+ "author_note": "Reworded sentence by sentence; every figure in place."
+}

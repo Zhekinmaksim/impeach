@@ -1,0 +1,9 @@
+{
+ "version": "impeach/1",
+ "item_index": 14,
+ "class": "format_shift",
+ "prompt": "Billy sells DVDs. Tuesday's sales log, 8 customers:\n\ncustomers 1-3: 1 DVD each\ncustomers 4-5: 2 DVDs each\ncustomers 6-8: 0 DVDs\n\nHow many DVDs did Billy sell on Tuesday?",
+ "answer": "7",
+ "derivation": "3*1 + 2*2 + 3*0",
+ "author_note": "Prose turned into a log."
+}

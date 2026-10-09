@@ -1,0 +1,9 @@
+{
+ "version": "impeach/1",
+ "item_index": 9,
+ "class": "paraphrase",
+ "prompt": "A dance class has 20 students. 20% of them signed up for contemporary dance. Of the students who were left, 25% signed up for jazz dance, and all the others signed up for hip-hop dance. What percentage of the whole class signed up for hip-hop dance?",
+ "answer": "60",
+ "derivation": "(20 - 20*20//100 - (20 - 20*20//100)*25//100) * 100 // 20",
+ "author_note": "Reworded; 'of the remaining' kept explicit."
+}

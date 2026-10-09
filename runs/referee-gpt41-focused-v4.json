@@ -1,0 +1,95 @@
+{
+ "model": "openai/gpt-4.1",
+ "rows": [
+  {
+   "item": 1,
+   "expect": "ADMISSIBLE",
+   "rulings": [
+    "ADMISSIBLE",
+    "ADMISSIBLE"
+   ],
+   "ok": true,
+   "responses": [
+    "{\"original_calculation\": \"3 sprints * 3 times/week * 60 meters = 9 * 60 = 540 meters\", \"original_result\": \"540\", \"rewrite_calculation\": \"3 sprints * 3 times/week * 0.06 kilometers = 9 * 0.06 = 0.54 kilometers; 0.54 kilometers * 1000 meters/kilometer = 540 meters\", \"rewrite_result\": \"540\"}",
+    "```json\n{\"original_result\": \"540\", \"rewrite_result\": \"540\", \"same_question\": true}\n```",
+    "{\n  \"original_calculation\": \"3 sprints * 3 times/week * 60 meters = 9 * 60 = 540 meters\",\n  \"original_result\": \"540\",\n  \"rewrite_calculation\": \"3 sprints * 3 times/week * 0.06 km = 9 * 0.06 km = 0.54 km; 0.54 km * 1000 = 540 meters\",\n  \"rewrite_result\": \"540\"\n}",
+    "{\"original_result\": \"540\", \"rewrite_result\": \"540\", \"same_question\": true}"
+   ]
+  },
+  {
+   "item": 17,
+   "expect": "ADMISSIBLE",
+   "rulings": [
+    "ADMISSIBLE",
+    "ADMISSIBLE"
+   ],
+   "ok": true,
+   "responses": [
+    "{\n  \"original_calculation\": \"3*16.50 + 3*22.50 + 3*42 = 49.50 + 67.50 + 126 = 243\",\n  \"original_result\": \"243\",\n  \"rewrite_calculation\": \"3*1650 + 3*2250 + 3*4200 = 4950 + 6750 + 12600 = 24300 cents; 24300 / 100 = 243\",\n  \"rewrite_result\": \"243\"\n}",
+    "{\"original_result\": \"243\", \"rewrite_result\": \"243\", \"same_question\": true}",
+    "{\n  \"original_calculation\": \"3*16.50 + 3*22.50 + 3*42 = 49.50 + 67.50 + 126 = 243\",\n  \"original_result\": \"243\",\n  \"rewrite_calculation\": \"3*1650 + 3*2250 + 3*4200 = 4950 + 6750 + 12600 = 24300 cents; 24300/100 = 243\",\n  \"rewrite_result\": \"243\"\n}",
+    "```json\n{\"original_result\": \"243\", \"rewrite_result\": \"243\", \"same_question\": true}\n```"
+   ]
+  },
+  {
+   "item": 0,
+   "expect": "INADMISSIBLE",
+   "rulings": [
+    "INADMISSIBLE",
+    "INADMISSIBLE"
+   ],
+   "ok": true,
+   "responses": [
+    "{\"original_calculation\": \"Eggs left to sell = 16 - 3 - 4 = 9 eggs; Money made = 9 * 2 = 18 dollars\", \"original_result\": \"18\", \"rewrite_calculation\": \"Eggs left to sell = 16 - 3 = 13 eggs; Money made = 13 * 2 = 26 dollars\", \"rewrite_result\": \"26\"}",
+    "```json\n{\"original_result\": \"18\", \"rewrite_result\": \"26\", \"same_question\": false}\n```",
+    "{\n  \"original_calculation\": \"Total eggs per day = 16; Eggs eaten = 3; Eggs used for muffins = 4; Eggs sold = 16 - 3 - 4 = 9; Money made = 9 * 2 = 18\",\n  \"original_result\": \"18\",\n  \"rewrite_calculation\": \"Total eggs per day = 16; Eggs eaten = 3; Eggs sold = 16 - 3 = 13; Money made = 13 * 2 = 26\",\n  \"rewrite_result\": \"26\"\n}",
+    "{\"original_result\": \"18\", \"rewrite_result\": \"26\", \"same_question\": false}"
+   ]
+  },
+  {
+   "item": 3,
+   "expect": "INADMISSIBLE",
+   "rulings": [
+    "INADMISSIBLE",
+    "INADMISSIBLE"
+   ],
+   "ok": true,
+   "responses": [
+    "{\n  \"original_calculation\": \"Seattle = 20 sheep; Charleston = 4 * 20 = 80 sheep; Toulouse = 2 * 80 = 160 sheep; Total = 20 + 80 + 160 = 260 sheep\",\n  \"original_result\": \"260\",\n  \"rewrite_calculation\": \"Tunis = 20 goats; Lagos = 3 * 20 = 60 goats; Porto = 2 * 60 = 120 goats; Total = 20 + 60 + 120 = 200 goats\",\n  \"rewrite_result\": \"200\"\n}",
+    "```json\n{\"original_result\": \"180\", \"rewrite_result\": \"100\", \"same_question\": false}\n```",
+    "{\n  \"original_calculation\": \"Seattle = 20; Charleston = 4*20 = 80; Toulouse = 2*80 = 160; Total = 20 + 80 + 160 = 260\",\n  \"original_result\": \"260\",\n  \"rewrite_calculation\": \"Tunis = 20; Lagos = 3*20 = 60; Porto = 2*60 = 120; Total = 20 + 60 + 120 = 200\",\n  \"rewrite_result\": \"200\"\n}",
+    "```json\n{\"original_result\": \"180\", \"rewrite_result\": \"140\", \"same_question\": false}\n```"
+   ]
+  },
+  {
+   "item": 10,
+   "expect": "INADMISSIBLE",
+   "rulings": [
+    "INADMISSIBLE",
+    "INADMISSIBLE"
+   ],
+   "ok": true,
+   "responses": [
+    "{\n  \"original_calculation\": \"Teaching: $20/hour * 35 hours/week * 50 weeks = $35,000; Coaching: $30/hour * 15 hours/week * 50 weeks = $22,500; Total annual salary = $35,000 + $22,500 = $57,500\",\n  \"original_result\": \"57500\",\n  \"rewrite_calculation\": \"Teaching: $25/hour * 30 hours/week * 48 weeks = $36,000; Coaching: $40/hour * 10 hours/week * 48 weeks = $19,200; Total annual salary = $36,000 + $19,200 = $55,200\",\n  \"rewrite_result\": \"55200\"\n}",
+    "```json\n{\"original_result\": \"57500\", \"rewrite_result\": \"57600\", \"same_question\": true}\n```",
+    "{\n  \"original_calculation\": \"Teaching: $20/hour * 35 hours/week * 50 weeks = $35,000. Coaching: $30/hour * 15 hours/week * 50 weeks = $22,500. Total annual salary = $35,000 + $22,500 = $57,500.\",\n  \"original_result\": \"57500\",\n  \"rewrite_calculation\": \"Teaching: $25/hour * 30 hours/week * 48 weeks = $36,000. Coaching: $40/hour * 10 hours/week * 48 weeks = $19,200. Total annual salary = $36,000 + $19,200 = $55,200.\",\n  \"rewrite_result\": \"55200\"\n}",
+    "```json\n{\"original_result\": \"57500\", \"rewrite_result\": \"45600\", \"same_question\": false}\n```"
+   ]
+  },
+  {
+   "item": 17,
+   "expect": "INADMISSIBLE",
+   "rulings": [
+    "INADMISSIBLE",
+    "INADMISSIBLE"
+   ],
+   "ok": true,
+   "responses": [
+    "{\n  \"original_calculation\": \"3*16.50 + 3*22.50 + 3*42 = 49.50 + 67.50 + 126 = 243\",\n  \"original_result\": \"243\",\n  \"rewrite_calculation\": \"3*165 + 3*2250 + 3*4200 = 495 + 6750 + 12600 = 19845 cents; 19845 / 100 = 198.45 dollars\",\n  \"rewrite_result\": \"198.45\"\n}",
+    "{\"original_result\": \"243\", \"rewrite_result\": \"243\", \"same_question\": true}",
+    "{\n  \"original_calculation\": \"3*16.50 + 3*22.50 + 3*42 = 49.50 + 67.50 + 126 = 243\",\n  \"original_result\": \"243\",\n  \"rewrite_calculation\": \"3*165 + 3*2250 + 3*4200 = 495 + 6750 + 12600 = 19845 cents; 19845 / 100 = 198.45\",\n  \"rewrite_result\": \"198.45\"\n}",
+    "```json\n{\"original_result\": \"243\", \"rewrite_result\": \"243\", \"same_question\": true}\n```"
+   ]
+  }
+ ]
+}

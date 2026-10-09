@@ -1,0 +1,9 @@
+{
+ "version": "impeach/1",
+ "item_index": 10,
+ "class": "numeral_substitution",
+ "prompt": "Jill gets paid $25 per hour to teach and $40 to be a cheerleading coach. If she works 48 weeks a year, 30 hours a week as a teacher and 10 hours a week as a coach, what's her annual salary?",
+ "answer": "55200",
+ "derivation": "(25*30 + 40*10) * 48",
+ "author_note": "All five quantities moved."
+}

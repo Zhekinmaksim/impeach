@@ -1,0 +1,12 @@
+.git
+.venv
+.env*
+node_modules
+output
+.playwright-cli
+.tools
+build
+__pycache__
+test
+runs
+design

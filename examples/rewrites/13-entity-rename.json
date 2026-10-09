@@ -1,0 +1,9 @@
+{
+ "version": "impeach/1",
+ "item_index": 13,
+ "class": "entity_rename",
+ "prompt": "Dmitri and Lena are cousins. Dmitri was born 6 years before Lena. Dmitri had a daughter at the age of 23. If Lena is now 31, how many years ago was Dmitri's daughter born?",
+ "answer": "14",
+ "derivation": "31 + 6 - 23",
+ "author_note": "Names changed, son became daughter."
+}

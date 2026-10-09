@@ -1,0 +1,10 @@
+{
+ "version": "impeach/1",
+ "item_index": 0,
+ "class": "paraphrase",
+ "prompt": "Janet's ducks lay 16 eggs per day. She eats three for breakfast every morning. She sells the remainder at the farmers' market daily for $2 per fresh duck egg. How much in dollars does she make every day at the farmers' market?",
+ "answer": "18",
+ "expect": "INADMISSIBLE",
+ "author_note": "The muffin step is gone. The true answer is now 26, and the envelope still swears to 18: any model that reads the question correctly is marked wrong.",
+ "true_answer": "26"
+}

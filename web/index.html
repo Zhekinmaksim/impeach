@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Impeach — a court for benchmark scores</title>
+<meta name="description" content="A GenLayer court that cross-examines a benchmark score: pinned items against rewrites the model has not seen, verbatim recall, and a public registry of spent evaluation items.">
+<link rel="canonical" href="https://impeach.vercel.app/">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/favicon-180.png">
+<meta name="theme-color" content="#eef3ec">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Impeach">
+<meta property="og:title" content="Impeach — a court for benchmark scores">
+<meta property="og:description" content="A bonded score is tried on its sealed items and on rewrites the model has not seen. The items are burned into a public registry the moment they are shown.">
+<meta property="og:url" content="https://impeach.vercel.app/">
+<meta property="og:image" content="https://impeach.vercel.app/assets/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Impeach. An answer sheet with three rows of marks: answered as sealed, answered as rewritten, continued from memory.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Impeach — a court for benchmark scores">
+<meta name="twitter:description" content="The same questions, asked again in words the model has not met.">
+<meta name="twitter:image" content="https://impeach.vercel.app/assets/og-card.png">
+<link rel="preload" href="assets/fonts/barlow-condensed-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts.css">
+<style>
+:root {
+  --paper: #eef3ec;
+  --sheet: #f9fbf7;
+  --form: #1e6a4b;        /* the printed ink of the form */
+  --form-pale: #c9dccf;
+  --graphite: #26292b;    /* what the pencil leaves */
+  --graphite-soft: #5a6061;
+  --void: #b3202e;        /* a mark that cancels */
+  --void-pale: #f3dcdc;
+  --chrome: "Barlow Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --text: "STIX Two Text", "Times New Roman", Times, serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --measure: 34rem;
+}
+* { box-sizing: border-box; }
+/* Barlow Condensed sets small for its size; the whole scale is raised to carry it. */
+html { background: var(--paper); font-size: 112.5%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--graphite);
+  font-family: var(--text);
+  font-size: 1rem;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+main, header.top, footer.end { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; }
+h1, h2, h3, .chrome, button, label, th, .tab, dt { font-family: var(--chrome); letter-spacing: 0.01em; }
+h1 { font-size: clamp(4rem, 11vw, 8.5rem); font-weight: 600; line-height: 0.9; margin: 0; color: var(--form); letter-spacing: -0.01em; }
+h2 { font-size: 2.2rem; font-weight: 600; line-height: 1.1; margin: 0 0 0.35rem; }
+h3 { font-size: 1.25rem; font-weight: 600; margin: 0 0 0.4rem; color: var(--form); }
+p { margin: 0 0 0.9rem; max-width: var(--measure); }
+a { color: var(--form); text-underline-offset: 0.18em; }
+a:hover { color: var(--graphite); }
+:focus-visible { outline: 2px solid var(--graphite); outline-offset: 2px; }
+code, .mono { font-family: var(--mono); font-size: 0.82em; overflow-wrap: anywhere; }
+
+/* ---------------------------------------------------------------- top */
+header.top { padding-top: 2.75rem; padding-bottom: 1.25rem; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 30rem); gap: 1.5rem 3.5rem; align-items: end; }
+header.top .lede { font-size: 1.3rem; line-height: 1.4; margin: 1rem 0 0; max-width: 31rem; }
+.hero-side { min-width: 0; }
+.tabs { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.tabs-label { font-family: var(--chrome); color: var(--graphite-soft); font-size: 1.05rem; margin: 1rem 0 0.35rem; }
+.tab {
+  font-size: 1.15rem; font-weight: 500; padding: 0.3rem 0.9rem 0.35rem; cursor: pointer;
+  background: transparent; color: var(--form); border: 1.5px solid var(--form); border-radius: 999px;
+}
+.tab[aria-selected="true"] { background: var(--graphite); border-color: var(--graphite); color: var(--sheet); }
+
+/* The sheet at reading distance: the same three rows as below, with nothing
+   written on it. Corner squares and edge ticks are what a scanner aligns to. */
+.hero-sheet {
+  margin: 0; position: relative; background: var(--sheet); border: 1.5px solid var(--form);
+  padding: 1.6rem 1.6rem 1.25rem 2.6rem;
+}
+.hero-sheet::before, .hero-sheet::after, .hero-sheet .corner::before, .hero-sheet .corner::after {
+  content: ""; position: absolute; width: 0.6rem; height: 0.6rem; background: var(--graphite);
+}
+.hero-sheet::before { top: 0.45rem; left: 0.45rem; }
+.hero-sheet::after { top: 0.45rem; right: 0.45rem; }
+.hero-sheet .corner::before { bottom: 0.45rem; left: 0.45rem; }
+.hero-sheet .corner::after { bottom: 0.45rem; right: 0.45rem; }
+.hero-row { position: relative; display: grid; grid-template-columns: repeat(var(--n, 24), minmax(0, 1fr)); gap: 0.22rem; }
+.hero-row + .hero-row { margin-top: 0.5rem; }
+.hero-row.apart { margin-top: 1.15rem; }
+.hero-row::before { content: ""; position: absolute; left: -1.7rem; top: 50%; width: 0.95rem; height: 0.34rem; margin-top: -0.17rem; background: var(--graphite); }
+.hero-row .b { height: 1.5rem; cursor: default; border-radius: 999px; }
+.hero-sheet figcaption { margin-top: 1rem; font-family: var(--chrome); font-size: 1.02rem; line-height: 1.3; color: var(--form); }
+
+.rehearsal {
+  max-width: 72rem; margin: 0 auto 0.5rem; padding: 0 1.5rem;
+}
+.rehearsal p {
+  max-width: none; margin: 0; padding: 0.6rem 0.9rem; font-family: var(--chrome); font-size: 1.1rem;
+  color: var(--void); border: 1.5px dashed var(--void); background: var(--void-pale);
+}
+
+/* ------------------------------------------------------------ sections */
+section { padding: 2.25rem 0; border-top: 1.5px solid var(--form); }
+section > .head { display: flex; flex-wrap: wrap; gap: 0.25rem 2rem; align-items: baseline; justify-content: space-between; margin-bottom: 1.1rem; }
+section > .head p { margin: 0; color: var(--graphite-soft); }
+
+/* ------------------------------------------------------------- exhibit */
+.pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; border: 1.5px solid var(--form); background: var(--sheet); }
+.pair > div { padding: 1.1rem 1.25rem 1.2rem; min-width: 0; }
+.pair > div + div { border-left: 1.5px solid var(--form); }
+.side-name { font-family: var(--chrome); font-size: 1.1rem; color: var(--form); margin-bottom: 0.45rem; }
+.question { font-size: 1.14rem; line-height: 1.5; white-space: pre-wrap; margin: 0 0 1rem; max-width: none; }
+.question mark { background: none; color: inherit; border-bottom: 2.5px solid var(--graphite); padding-bottom: 1px; }
+.pair .rewritten .question mark { border-bottom-color: var(--void); }
+.answers { display: grid; grid-template-columns: auto 1fr; gap: 0.15rem 0.9rem; margin: 0; font-family: var(--chrome); font-size: 1.15rem; }
+.answers dt { color: var(--graphite-soft); }
+.answers dd { margin: 0; font-weight: 500; font-variant-numeric: tabular-nums; }
+.answers .bad { color: var(--void); }
+.exhibit-note { margin-top: 0.9rem; font-size: 1.05rem; max-width: 44rem; }
+
+/* --------------------------------------------------------------- sheet */
+.verdict { display: grid; grid-template-columns: minmax(0, 1fr) 23rem; gap: 1rem 3rem; align-items: end; margin-bottom: 1.6rem; }
+.verdict .word { font-family: var(--chrome); font-weight: 600; font-size: clamp(3.6rem, 11vw, 7.5rem); line-height: 0.9; margin-bottom: 0.9rem; }
+.verdict .word.bad { color: var(--void); }
+.verdict .word.good { color: var(--form); }
+.verdict p { margin: 0 0 0.4rem; max-width: 34rem; }
+.verdict .recheck { font-family: var(--chrome); font-size: 1.05rem; color: var(--graphite-soft); }
+.verdict .recheck.bad { color: var(--void); }
+
+/* slope: accuracy on the sealed wording, then on the rewritten one */
+.slope { margin: 0; }
+.slope svg { display: block; width: 100%; height: auto; overflow: visible; }
+.slope text { font-family: var(--chrome); font-size: 15px; fill: var(--form); }
+.slope .axis { stroke: var(--form); stroke-width: 1.5; }
+.slope .other { stroke: var(--form-pale); stroke-width: 2; fill: none; }
+.slope .other-dot { fill: var(--form-pale); }
+.slope .other-label { fill: var(--graphite-soft); font-size: 14px; }
+.slope .allowed { stroke: var(--form); stroke-width: 1.5; stroke-dasharray: 4 4; fill: none; }
+.slope .mine { stroke: var(--graphite); stroke-width: 3.5; fill: none; stroke-linecap: round; }
+.slope .mine.over { stroke: var(--void); }
+.slope .dot { fill: var(--graphite); }
+.slope .dot.over { fill: var(--void); }
+.slope .value { font-size: 20px; font-weight: 600; fill: var(--graphite); }
+.slope .value.over { fill: var(--void); }
+.slope figcaption { font-family: var(--chrome); font-size: 1rem; line-height: 1.3; color: var(--graphite-soft); margin-top: 0.4rem; }
+
+.drawn { margin: 2rem 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 1.25rem 2rem; border-top: 1px solid var(--form-pale); padding-top: 1.25rem; }
+.drawn div { min-width: 0; }
+.drawn dd { margin: 0; font-family: var(--chrome); font-weight: 600; font-size: clamp(2.6rem, 5vw, 3.6rem); line-height: 0.95; font-variant-numeric: tabular-nums; color: var(--graphite); }
+.drawn dt { font-family: var(--chrome); font-size: 1.08rem; line-height: 1.25; color: var(--form); margin-top: 0.3rem; }
+
+.take { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+.btn {
+  font-family: var(--chrome); font-size: 1.1rem; font-weight: 500; padding: 0.3rem 0.9rem 0.35rem; cursor: pointer;
+  background: var(--sheet); color: var(--form); border: 1.5px solid var(--form); border-radius: 0; text-decoration: none; display: inline-block;
+}
+.btn:hover { background: var(--form); color: var(--sheet); }
+
+.sheet-wrap { overflow-x: auto; background: var(--sheet); border: 1.5px solid var(--form); }
+.sheet { min-width: 52rem; padding: 1rem 1.25rem 1rem 0; }
+.detector { display: grid; grid-template-columns: 2.25rem 12.5rem minmax(0, 1fr); align-items: center; }
+.detector + .detector { margin-top: 1.1rem; padding-top: 1.1rem; border-top: 1px solid var(--form-pale); }
+.detector .name { grid-column: 2 / 4; display: flex; flex-wrap: wrap; gap: 0.2rem 1.5rem; align-items: baseline; margin-bottom: 0.5rem; }
+.detector .name h3 { margin: 0; }
+.detector .name span { font-family: var(--chrome); font-size: 1.1rem; }
+.tick { width: 1.1rem; height: 0.42rem; background: var(--graphite); justify-self: start; }  /* timing track: one mark per row a reader should scan */
+.row-label { font-family: var(--chrome); font-size: 1.1rem; color: var(--form); }
+.row-label.low { margin-top: 0.85rem; }
+.bubbles { display: grid; grid-template-columns: repeat(var(--n, 24), minmax(0, 1fr)); gap: 0.3rem; padding: 0.22rem 0; }
+.b {
+  appearance: none; padding: 0; margin: 0; cursor: pointer; background: transparent;
+  height: 1.05rem; border: 1.5px solid var(--form); border-radius: 999px; position: relative;
+}
+.b.fill { background: var(--graphite); border-color: var(--graphite); }
+.b.old { border-color: var(--void); background: var(--void); }
+.b.dead { border-style: dashed; border-color: var(--graphite-soft); }
+.b.none { border-color: var(--form-pale); }
+.b.none::after { content: ""; position: absolute; left: 12%; right: 12%; top: 50%; border-top: 1.5px solid var(--form); }
+.b[aria-pressed="true"] { outline: 2px solid var(--graphite); outline-offset: 2px; }
+.nums { margin-top: 0.85rem; display: grid; grid-template-columns: repeat(var(--n, 24), minmax(0, 1fr)); gap: 0.3rem; font-family: var(--chrome); font-size: 0.95rem; color: var(--form); text-align: center; font-variant-numeric: tabular-nums; }
+.gauge { grid-column: 3; margin-top: 0.55rem; position: relative; height: 1.5rem; }
+.gauge .line { position: absolute; left: 0; right: 0; top: 0.3rem; height: 0; border-top: 1.5px solid var(--form); }
+.gauge .at { position: absolute; top: 0; width: 0; height: 0.65rem; border-left: 1.5px solid var(--form); }
+.gauge .at span { position: absolute; top: 0.6rem; left: 0; transform: translateX(-50%); font-family: var(--chrome); font-size: 0.9rem; color: var(--form); white-space: nowrap; }
+.gauge .val { position: absolute; top: -0.05rem; width: 0.7rem; height: 0.7rem; margin-left: -0.35rem; border-radius: 50%; background: var(--graphite); }
+.gauge .val.over { background: var(--void); }
+.legend { display: flex; flex-wrap: wrap; gap: 0.4rem 1.4rem; margin: 0.9rem 0 0; padding: 0; list-style: none; font-family: var(--chrome); font-size: 1.02rem; color: var(--graphite-soft); }
+.legend li { display: flex; align-items: center; gap: 0.45rem; }
+.legend .b { width: 1.9rem; cursor: default; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-row.fresh .b.fill, .hero-row.fresh .b.old { animation: pencil 0.25s ease-out both; animation-delay: calc(var(--i) * 22ms + var(--row) * 120ms); }
+  @keyframes pencil { from { background: transparent; } }
+}
+
+/* -------------------------------------------------------------- detail */
+.detail-grid { display: grid; grid-template-columns: minmax(0, 1fr) 19rem; gap: 2rem; align-items: start; }
+.facts { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 0.3rem 1rem; font-family: var(--chrome); font-size: 1.1rem; }
+.facts dt { color: var(--graphite-soft); }
+.facts dd { margin: 0; font-weight: 500; overflow-wrap: anywhere; }
+.facts dd.bad { color: var(--void); }
+.recall { margin-top: 1.25rem; border: 1.5px solid var(--form); background: var(--sheet); padding: 1rem 1.25rem; }
+.recall p { max-width: none; white-space: pre-wrap; margin: 0; font-size: 1.08rem; }
+.recall .held { color: var(--graphite-soft); border-bottom: 1.5px dotted var(--form); }
+.pager { display: flex; gap: 0.5rem; }
+.pager button, .check button {
+  font-size: 1.1rem; font-weight: 500; padding: 0.3rem 0.9rem 0.35rem; cursor: pointer;
+  background: var(--sheet); color: var(--form); border: 1.5px solid var(--form); border-radius: 0;
+}
+.pager button:hover, .check button:hover { background: var(--form); color: var(--sheet); }
+
+/* --------------------------------------------------------- certificate */
+.two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem; }
+table { border-collapse: collapse; width: 100%; font-size: 1rem; }
+th, td { text-align: left; vertical-align: top; padding: 0.32rem 0.75rem 0.32rem 0; border-bottom: 1px solid var(--form-pale); }
+th { font-weight: 500; font-size: 1.08rem; color: var(--form); white-space: nowrap; width: 1%; }
+td { font-family: var(--chrome); font-size: 1.1rem; font-weight: 500; overflow-wrap: anywhere; }
+td.long { font-family: var(--text); font-weight: 400; font-size: 0.98rem; white-space: pre-wrap; }
+
+/* ------------------------------------------------------------ registry */
+.check { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0.5rem; max-width: 46rem; }
+.check label { grid-column: 1 / -1; font-size: 1.1rem; color: var(--form); }
+.check textarea {
+  font-family: var(--text); font-size: 1rem; line-height: 1.4; padding: 0.55rem 0.7rem; min-height: 4.6rem; resize: vertical;
+  background: var(--sheet); color: var(--graphite); border: 1.5px solid var(--form); border-radius: 0;
+}
+.check button { align-self: start; }
+.answer { margin: 0.8rem 0 0; font-family: var(--chrome); font-size: 1.2rem; max-width: 46rem; min-height: 1.6em; }
+.answer.spent { color: var(--void); }
+.answer.unspent { color: var(--form); }
+.reg { margin-top: 1.5rem; }
+.reg td.mono { font-family: var(--mono); font-size: 0.78rem; font-weight: 400; }
+.reg td.txt { font-family: var(--text); font-weight: 400; font-size: 0.98rem; }
+.reg tr.hit td { background: var(--void-pale); }
+.reg-wrap { overflow-x: auto; }
+
+footer.end { padding-top: 2rem; padding-bottom: 3.5rem; border-top: 1.5px solid var(--form); margin-top: 0; }
+footer.end .two p { max-width: none; }
+pre { font-family: var(--mono); font-size: 0.8rem; line-height: 1.5; background: var(--sheet); border: 1.5px solid var(--form); padding: 0.8rem 1rem; overflow-x: auto; margin: 0 0 0.9rem; }
+
+@media (max-width: 52rem) {
+  header.top { grid-template-columns: minmax(0, 1fr); }
+  .pair, .two, .detail-grid, .verdict { grid-template-columns: minmax(0, 1fr); }
+  .slope { max-width: 24rem; }
+  .hero-row .b { height: 1.1rem; }
+  .hero-sheet { padding: 1.4rem 1.2rem 1rem 2rem; }
+  .hero-row::before { left: -1.3rem; width: 0.7rem; }
+  .pair > div + div { border-left: 0; border-top: 1.5px solid var(--form); }
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div>
+    <h1>Impeach</h1>
+    <p class="lede">A score says a model can do something. It might only say the model has seen the answers. This court asks the same questions again, in words the model has not met.</p>
+  </div>
+  <div class="hero-side">
+    <figure class="hero-sheet" id="hero-sheet"></figure>
+    <div class="tabs-label" id="tabs-label">Subject on trial</div>
+    <div class="tabs" id="tabs" role="tablist" aria-labelledby="tabs-label"></div>
+  </div>
+</header>
+
+<div class="rehearsal" id="rehearsal" hidden>
+  <p>Rehearsal. These cases ran locally against scripted subjects. They show how the court works; they are not a chain record and not evidence about any model.</p>
+</div>
+
+<main id="main" aria-live="polite">
+  <section id="exhibit" aria-labelledby="exhibit-title">
+    <div class="head">
+      <h2 id="exhibit-title">The same question, twice</h2>
+      <p id="exhibit-sub"></p>
+    </div>
+    <div class="pair" id="exhibit-pair"></div>
+    <p class="exhibit-note" id="exhibit-note"></p>
+  </section>
+
+  <section id="ruling" aria-labelledby="ruling-title">
+    <div class="head">
+      <h2 id="ruling-title">The answer sheet</h2>
+      <p id="ruling-sub"></p>
+    </div>
+    <div class="verdict">
+      <div class="verdict-text" id="verdict"></div>
+      <figure class="slope" id="slope"></figure>
+    </div>
+    <div class="sheet-wrap"><div class="sheet" id="sheet"></div></div>
+    <ul class="legend" id="legend"></ul>
+    <dl class="drawn" id="drawn" aria-label="What this ruling draws from"></dl>
+  </section>
+
+  <section id="detail" aria-labelledby="detail-title">
+    <div class="head">
+      <h2 id="detail-title">Item</h2>
+      <div class="pager">
+        <button type="button" id="prev">Previous item</button>
+        <button type="button" id="next">Next item</button>
+      </div>
+    </div>
+    <div class="detail-grid">
+      <div>
+        <div class="pair" id="detail-pair"></div>
+        <div class="recall" id="detail-recall"></div>
+      </div>
+      <dl class="facts" id="detail-facts"></dl>
+    </div>
+  </section>
+
+  <section id="record" aria-labelledby="record-title">
+    <div class="head">
+      <h2 id="record-title">What was sworn, and what was found</h2>
+      <p>Frozen when the claim was opened. Nothing on the left could be changed after the numbers on the right came in.</p>
+    </div>
+    <div class="two">
+      <div><h3>Terms of the claim</h3><table id="terms"></table></div>
+      <div><h3>Certificate</h3><table id="cert"></table>
+        <div class="take">
+          <a class="btn" href="case.json" download="impeach-case.json">Download the case file</a>
+          <button type="button" class="btn" id="copy-cert">Copy certificate</button>
+        </div>
+        <div id="receipts"></div></div>
+    </div>
+  </section>
+
+  <section id="registry" aria-labelledby="registry-title">
+    <div class="head">
+      <h2 id="registry-title">Spent items</h2>
+      <p id="registry-sub"></p>
+    </div>
+    <p>To try a score the court has to show the items, and an item that has been shown is in every future training set. Each one below was burned the moment it was revealed. A score measured on it afterwards is evidence of nothing.</p>
+    <form class="check" id="check">
+      <label for="needle">Paste an item's text or a hash. Text is hashed in this browser and never sent anywhere.</label>
+      <textarea id="needle" spellcheck="false"></textarea>
+      <button type="submit">Check item</button>
+    </form>
+    <p class="answer" id="check-answer" role="status"></p>
+    <div class="reg-wrap"><table class="reg" id="reg"></table></div>
+  </section>
+</main>
+
+<footer class="end">
+  <p><a href="https://github.com/Zhekinmaksim/impeach">Source on GitHub</a> · <a href="https://github.com/Zhekinmaksim/impeach/blob/main/spec/SPEC.md">Contract specification</a> · <a href="case.json" download="impeach-case.json">Download evidence</a></p>
+  <p><a href="https://explorer-bradbury.genlayer.com/transactions/0xef103cfa95e7f8408712520076ce00c73454b3bcff01b2ab7eeabfcafb0918cf">Contract deployment on Bradbury</a></p>
+  <div class="two">
+    <div>
+      <h3>Check from a terminal</h3>
+      <pre>python3 cli/impeach.py check --text "…the item…"
+python3 cli/impeach.py check &lt;sha256&gt; --address $CONTRACT
+python3 cli/impeach.py recompute web/case.json</pre>
+      <p>The first two exit with status 1 when the item is spent, so they can gate a CI job. The third rebuilds every verdict on this page from the published probes.</p>
+    </div>
+    <div>
+      <h3>What this does not show</h3>
+      <p>A gap is evidence, not proof: every model drops a little on rewritten questions, and the threshold is a convention. The raw counts are published so a reader can disagree with it. Only subjects that answer a public endpoint can be tried.</p>
+      <p id="source"></p>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="src/app.js"></script>
+</body>
+</html>

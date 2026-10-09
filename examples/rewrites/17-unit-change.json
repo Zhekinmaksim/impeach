@@ -1,0 +1,9 @@
+{
+ "version": "impeach/1",
+ "item_index": 17,
+ "class": "unit_change",
+ "prompt": "Mishka bought 3 pairs of shorts, 3 pairs of pants, and 3 pairs of shoes. One pair of shorts costs 1650 cents. One pair of pants costs 2250 cents and one pair of shoes costs 4200 cents. How many dollars did Mishka spend on all the clothing items?",
+ "answer": "243",
+ "derivation": "3*(1650+2250+4200)//100",
+ "author_note": "Prices restated in cents; the question still asks for dollars."
+}

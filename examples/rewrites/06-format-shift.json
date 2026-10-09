@@ -1,0 +1,9 @@
+{
+ "version": "impeach/1",
+ "item_index": 6,
+ "class": "format_shift",
+ "prompt": "Bakery receipt for Toula:\n- donuts: 3 dozen at $68 per dozen\n- mini cupcakes: 2 dozen at $80 per dozen\n- mini cheesecakes: 6 dozen at $55 per dozen\n\nWhat was the total cost?",
+ "answer": "694",
+ "derivation": "3*68 + 2*80 + 6*55",
+ "author_note": "Prose turned into a receipt."
+}

@@ -1,0 +1,9 @@
+{
+ "version": "impeach/1",
+ "item_index": 7,
+ "class": "numeral_substitution",
+ "prompt": "Carlos is planting a lemon tree. The tree will cost $120 to plant. Each year it will grow 9 lemons, which he can sell for $2 each. It costs $6 a year to water and feed the tree. How many years will it take before he starts earning money on the lemon tree?",
+ "answer": "11",
+ "derivation": "120 // (9*2 - 6) + 1",
+ "author_note": "Same trap as the original: break-even lands exactly on a year, earning starts the year after."
+}

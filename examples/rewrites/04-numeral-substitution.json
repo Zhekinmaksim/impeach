@@ -1,0 +1,9 @@
+{
+ "version": "impeach/1",
+ "item_index": 4,
+ "class": "numeral_substitution",
+ "prompt": "Eliza's rate per hour for the first 40 hours she works each week is $15. She also receives an overtime pay of 1.4 times her regular hourly rate. If Eliza worked for 50 hours this week, how much are her earnings for this week?",
+ "answer": "810",
+ "derivation": "40*15 + (50-40)*15*14//10",
+ "author_note": "Rate, multiplier and hours moved; the 40-hour threshold stays."
+}

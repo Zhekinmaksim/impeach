@@ -1,0 +1,9 @@
+{
+ "version": "impeach/1",
+ "item_index": 23,
+ "class": "paraphrase",
+ "prompt": "Raymond owns 40 jewels. Aaron's jewel count is 5 more than half of Raymond's. Siobhan's count is 2 below Aaron's. How many jewels does Siobhan have?",
+ "answer": "23",
+ "derivation": "40//2 + 5 - 2",
+ "author_note": "Given in solving order instead of reverse order."
+}
