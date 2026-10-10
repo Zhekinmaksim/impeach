@@ -1,0 +1,15 @@
+{
+  "sdk_enum_source": "https://github.com/genlayerlabs/genlayer-js/blob/2af6928e2587091fb33f5f703160c8a160606048/src/types/transactions.ts#L44",
+  "legacy_status_codes": {
+    "11": "READY_TO_FINALIZE",
+    "12": "VALIDATORS_TIMEOUT",
+    "13": "LEADER_TIMEOUT",
+    "14": "LEADER_REVEALING"
+  },
+  "status14_terminal": false,
+  "scope": "Poll the original transaction only. Neither successful nor an acknowledged decided failure.",
+  "network_manifest": "https://github.com/genlayerlabs/genlayer-networks/blob/f9a30ed9536e56255cd2d7f8579a4d5dcc81ffd0/bradbury/testnet_deployments.json",
+  "consensus_main": "0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D",
+  "manifest_source_version": "v0.5:9c68608",
+  "limitation": "The linked consensus repository currently returns404; direct Solidity enum verification was unavailable. This does not authorize changing other legacy status codes to the current v0.6 table."
+}

@@ -79,6 +79,14 @@ This run used GenLayer CLI 0.39.1 with its genlayer-js 1.1.8 SDK and legacy
 Bradbury consensus VERSION 2.0.0. The receipt status table is specific to that
 release family; check it before switching to Consensus v0.6 tooling.
 
+The legacy-compatible SDK update also adds `14 = LEADER_REVEALING` while
+keeping `11 = READY_TO_FINALIZE`, `12 = VALIDATORS_TIMEOUT`, and
+`13 = LEADER_TIMEOUT`; see
+[the official enum change](https://github.com/genlayerlabs/genlayer-js/commit/2af6928e2587091fb33f5f703160c8a160606048).
+This phase only waits on the original hash. It is neither success nor a decided
+failure and never authorizes a duplicate. The installed SDK 1.1.8 may return
+the raw numeric value without a name.
+
 ```bash
 export RPC=https://rpc-bradbury.genlayer.com
 python3 scripts/build_contract.py

@@ -24,6 +24,12 @@ FAILED = {'status': 7, 'result': 5, 'txExecutionResult': 1, 'rounds': [{'votes':
 
 
 class CompletionTests(unittest.TestCase):
+    def test_legacy_leader_revealing_is_pending_even_with_a_proposed_return(self):
+        for receipt in ({'status':14,'result':0,'txExecutionResult':0},
+                        {'status':14,'statusName':'LEADER_REVEALING','result':1,'txExecutionResult':1}):
+            self.assertEqual(complete.classify(receipt),'PENDING')
+            self.assertFalse(complete.successful(receipt))
+
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
         self.addCleanup(self.tmp.cleanup)

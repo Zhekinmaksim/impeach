@@ -10,6 +10,7 @@ import {dirname, join, resolve} from "node:path";
 import {realpathSync, readFileSync} from "node:fs";
 import {pathToFileURL} from "node:url";
 import {checkedGas, TRANSACTION_GAS_CAP} from "./gas_guard.mjs";
+import {writeLine} from "./output.mjs";
 
 function fail(message) {
   console.error("genlayer_write: " + message);
@@ -97,7 +98,7 @@ if (readIndex >= 0) {
   const readClient = sdk.createClient({chain: chains.testnetBradbury, endpoint: option("--rpc") || undefined});
   const result = await readClient.readContract({address: readAddress, functionName: readMethod,
     args, jsonSafeReturn: false});
-  console.log(readJSON(result));
+  await writeLine(readJSON(result));
   process.exit(0);
 }
 
@@ -105,7 +106,7 @@ const receiptHash = option("--receipt");
 if (receiptHash) {
   const client = sdk.createClient({chain: chains.testnetBradbury, endpoint: option("--rpc") || undefined});
   const receipt = await client.getTransaction({hash: receiptHash});
-  console.log(JSON.stringify(receipt, (_key, value) => typeof value === "bigint" ? value.toString() : value));
+  await writeLine(JSON.stringify(receipt, (_key, value) => typeof value === "bigint" ? value.toString() : value));
   process.exit(0);
 }
 
