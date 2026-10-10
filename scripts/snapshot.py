@@ -1,7 +1,7 @@
 """Build the published snapshot. One shape, two sources.
 
 `read(method, *args)` is any callable that returns what the contract view of
-that name returns: the local harness in scripts/simulate.py, or `genlayer call`
+that name returns: the local harness in scripts/simulate.py, or the official SDK
 in scripts/collect.py. The page and `impeach recompute` only ever see this shape,
 so a simulated snapshot and a chain snapshot cannot drift apart silently.
 """

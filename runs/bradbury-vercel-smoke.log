@@ -1,0 +1,46 @@
+STEP open
+Gas preflight: {"from":"0x771388495F34d21C5574FeFc04cd1D5811E00aDa","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"2760739","boundedEstimate":"2760739","gasLimit":"3036813","gasCap":"16777216","calldataBytes":2724,"dryRun":false}
+Transaction Hash: 0x21c709cbbb88a9f04804d2a117b46c0494885235de1f2b00329398062c473d1b
+sent  open 0x21c709cbbb88a9f04804d2a117b46c0494885235de1f2b00329398062c473d1b
+accepted  open 0x21c709cbbb88a9f04804d2a117b46c0494885235de1f2b00329398062c473d1b
+STEP challenge
+accepted  open 0x21c709cbbb88a9f04804d2a117b46c0494885235de1f2b00329398062c473d1b
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"1059618","boundedEstimate":"1059618","gasLimit":"1165580","gasCap":"16777216","calldataBytes":452,"dryRun":false}
+Transaction Hash: 0x3fd7880e8e9243bc9a085434516008f17477b2e72de63afc4e069c84fce62bca
+sent  challenge:0 0x3fd7880e8e9243bc9a085434516008f17477b2e72de63afc4e069c84fce62bca
+accepted  challenge:0 0x3fd7880e8e9243bc9a085434516008f17477b2e72de63afc4e069c84fce62bca
+STEP reveal
+accepted  open 0x21c709cbbb88a9f04804d2a117b46c0494885235de1f2b00329398062c473d1b
+accepted  challenge:0 0x3fd7880e8e9243bc9a085434516008f17477b2e72de63afc4e069c84fce62bca
+Gas preflight: {"from":"0x771388495F34d21C5574FeFc04cd1D5811E00aDa","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"5708262","boundedEstimate":"5708122","gasLimit":"6278935","gasCap":"16777216","calldataBytes":6724,"dryRun":false}
+Transaction Hash: 0xf9ef19272af823b0d7e184fffd498e4be610eafa24b6283f56fa6f410c6a985c
+sent  reveal:0 0xf9ef19272af823b0d7e184fffd498e4be610eafa24b6283f56fa6f410c6a985c
+accepted  reveal:0 0xf9ef19272af823b0d7e184fffd498e4be610eafa24b6283f56fa6f410c6a985c
+STEP probes
+accepted  open 0x21c709cbbb88a9f04804d2a117b46c0494885235de1f2b00329398062c473d1b
+accepted  challenge:0 0x3fd7880e8e9243bc9a085434516008f17477b2e72de63afc4e069c84fce62bca
+accepted  reveal:0 0xf9ef19272af823b0d7e184fffd498e4be610eafa24b6283f56fa6f410c6a985c
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+Transaction Hash: 0x2cd1ddf5a098f676bfe16d77b24656860311a6f0405435f1952f6f941da3415a
+sent  probe:0:0:PINNED 0x2cd1ddf5a098f676bfe16d77b24656860311a6f0405435f1952f6f941da3415a
+accepted  probe:0:0:PINNED 0x2cd1ddf5a098f676bfe16d77b24656860311a6f0405435f1952f6f941da3415a
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+Transaction Hash: 0xf754b93dd9d1f3f9430e3928ff875626a204497e19e4ccc2e3a7812d4d5b8951
+sent  probe:0:0:RECALL 0xf754b93dd9d1f3f9430e3928ff875626a204497e19e4ccc2e3a7812d4d5b8951
+accepted  probe:0:0:RECALL 0xf754b93dd9d1f3f9430e3928ff875626a204497e19e4ccc2e3a7812d4d5b8951
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"1152266","boundedEstimate":"1152266","gasLimit":"1267493","gasCap":"16777216","calldataBytes":644,"dryRun":false}
+Transaction Hash: 0xeef8ca72a1aaaba33d2fbd47aa9a45e728dde64c731c233c4976bdd227f5913e
+sent  probe:0:0:REWRITE 0xeef8ca72a1aaaba33d2fbd47aa9a45e728dde64c731c233c4976bdd227f5913e
+accepted  probe:0:0:REWRITE 0xeef8ca72a1aaaba33d2fbd47aa9a45e728dde64c731c233c4976bdd227f5913e
+STEP admit
+accepted  open 0x21c709cbbb88a9f04804d2a117b46c0494885235de1f2b00329398062c473d1b
+accepted  challenge:0 0x3fd7880e8e9243bc9a085434516008f17477b2e72de63afc4e069c84fce62bca
+accepted  reveal:0 0xf9ef19272af823b0d7e184fffd498e4be610eafa24b6283f56fa6f410c6a985c
+accepted  probe:0:0:PINNED 0x2cd1ddf5a098f676bfe16d77b24656860311a6f0405435f1952f6f941da3415a
+accepted  probe:0:0:RECALL 0xf754b93dd9d1f3f9430e3928ff875626a204497e19e4ccc2e3a7812d4d5b8951
+accepted  probe:0:0:REWRITE 0xeef8ca72a1aaaba33d2fbd47aa9a45e728dde64c731c233c4976bdd227f5913e
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"865003","boundedEstimate":"865003","gasLimit":"951504","gasCap":"16777216","calldataBytes":260,"dryRun":false}
+Transaction Hash: 0x6cd15506d3f302153951f99288e64fdef6f08920b91e0df9155d9d09a78fe4f5
+sent  probe:0:0:ADMIT 0x6cd15506d3f302153951f99288e64fdef6f08920b91e0df9155d9d09a78fe4f5
+accepted  probe:0:0:ADMIT 0x6cd15506d3f302153951f99288e64fdef6f08920b91e0df9155d9d09a78fe4f5
+SMOKE COMPLETE

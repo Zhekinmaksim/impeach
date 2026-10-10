@@ -26,8 +26,8 @@ const VERDICT_TEXT = {
       RECALL: "The model continued sealed items it was only shown the start of. The recall rate is over the threshold frozen in the claim.",
     })[c.reason] || "Over the thresholds frozen in the claim.",
   CLEAN: (c) =>
-    "Both detectors stayed under their thresholds on a full sample." +
-    (c.reason === "RECALL_NOT_MEASURED" ? " The items were too short for the recall detector to say anything." : "") +
+    "The admitted rewrite sample met the minimum and the gap stayed below its threshold." +
+    (c.reason === "RECALL_NOT_MEASURED" ? " Recall did not meet the minimum measurable sample." : " Verbatim recall also stayed below its threshold.") +
     (c.bond_standing > 0 ? " The bond is still posted, so the next challenger can try again." : " The publisher has since taken the bond back."),
   UNSUPPORTED: (c) =>
     c.reason === "SET_ALREADY_SPENT"
@@ -36,7 +36,7 @@ const VERDICT_TEXT = {
   INCONCLUSIVE: (c) =>
     c.reason === "ENDPOINT_SILENT"
       ? "The endpoint did not answer enough probes to rule. The publisher paid the challenger's costs, and the claim can be tried again."
-      : "Too few rewrites were admitted to rule on the gap. Nobody is paid.",
+      : "Too few rewrites were admitted to rule on the gap. No bond penalty was imposed; rewrite stake was settled according to the referee rulings.",
   DEFAULT: () => "The publisher did not reveal the sealed items inside the window and lost by default. Nothing was burned.",
   UNCONTESTED: () => "Nobody has challenged this claim. That is not a finding: an unchallenged score is never called clean.",
 };
@@ -71,6 +71,18 @@ function probeFor(kase, itemIndex) {
 
 function admitted(p) {
   return p.stage_c1 === "ADMISSIBLE" && p.stage_c2 === "ADMISSIBLE";
+}
+
+function stakeSettlement(kase, p) {
+  const settled = p.slice_settled || kase.challenge?.status === "RULED";
+  if (!settled) return { text: "still riding", forfeited: false };
+  const refused = p.stage_c1 === "INADMISSIBLE" || p.stage_c2 === "INADMISSIBLE";
+  const early = kase.certificate.verdict === "DEFAULT" || kase.certificate.reason === "SET_ALREADY_SPENT";
+  const returned = !refused && (Boolean(p.rewrite_class) || early);
+  return {
+    text: String(kase.challenge.slice) + " wei credited to the " + (returned ? "challenger" : "publisher"),
+    forfeited: !returned,
+  };
 }
 
 // ------------------------------------------------------------------ pieces
@@ -113,7 +125,7 @@ function pairNodes(kase, itemIndex) {
         h("dt", { text: "Model answered" }),
         ok || p.rewrite
           ? h("dd", { class: p.rewrite === "RIGHT" ? "" : "bad", text: answerText(p.rewrite, p.rewrite_reply) + (p.stale ? ", the old answer" : "") })
-          : h("dd", { text: "not asked" }),
+          : h("dd", { text: "no recorded answer" }),
         h("dt", { text: "Referees" }),
         h("dd", { class: ok ? "" : "bad", text: refereeText(p) }),
       ));
@@ -123,7 +135,7 @@ function pairNodes(kase, itemIndex) {
 
 function answerText(status, answer) {
   if (status === "DEAD") return "no reply";
-  if (!status) return "not asked";
+  if (!status) return "no recorded answer";
   const shown = answer === "" ? "nothing readable" : answer;
   return shown + (status === "RIGHT" ? ", right" : ", wrong");
 }
@@ -181,7 +193,7 @@ function marksFor(p) {
     p.pinned === "RIGHT" ? ["fill", "sealed wording, answered right"]
     : p.pinned === "DEAD" ? ["dead", "sealed wording, no reply"]
     : p.pinned === "WRONG" ? ["", "sealed wording, answered wrong"]
-    : ["none", "sealed wording, not asked"];
+    : ["none", "sealed wording, no recorded result"];
   const rewritten =
     !admitted(p) ? ["none", p.rewrite_class ? "rewrite not admitted" : "no rewrite filed"]
     : p.stale ? ["old", "rewritten, answered with the old answer"]
@@ -192,7 +204,8 @@ function marksFor(p) {
     p.recall === "MATCH" ? ["fill", "continued the sealed text verbatim"]
     : p.recall === "DEAD" ? ["dead", "recall probe, no reply"]
     : p.recall === "MISS" ? ["", "did not reproduce the sealed text"]
-    : ["none", "too short for the recall probe"];
+    : p.recall === "NA" ? ["none", "too short for the recall probe"]
+    : ["none", "recall probe has no recorded result"];
   return { pinned, rewritten, recall };
 }
 
@@ -222,7 +235,7 @@ function renderHero(kase, fresh) {
   fig.setAttribute("role", "img");
   fig.setAttribute("aria-label",
     "Answer sheet for " + kase.label + ": " + permille(cert.pinned_milli) + " right as sealed, " +
-    permille(cert.rewrite_milli) + " right as rewritten, " + permille(cert.recall_milli) + " continued verbatim.");
+    permille(cert.rewrite_milli) + " court-adjusted rewrite score, " + permille(cert.recall_milli) + " continued verbatim.");
 }
 
 // ------------------------------------------------------------------- slope
@@ -246,9 +259,9 @@ function renderSlope(kase) {
   const svg = s("svg", { viewBox: "0 0 " + W + " " + H, role: "img" });
   const cert = kase.certificate;
   const over = cert.verdict === "CONTAMINATED" && cert.reason !== "RECALL";
-  svg.append(s("title", {}, "Sealed accuracy " + cert.pinned_milli + " per mille, rewritten accuracy " + cert.rewrite_milli + " per mille."));
+  svg.append(s("title", {}, "Sealed accuracy " + cert.pinned_milli + " per mille, court-adjusted rewrite score " + cert.rewrite_milli + " per mille."));
   svg.append(s("line", { class: "axis", x1: x0, y1: top - 8, x2: x0, y2: bottom }), s("line", { class: "axis", x1, y1: top - 8, x2: x1, y2: bottom }));
-  svg.append(s("text", { x: x0, y: H - 14, "text-anchor": "middle" }, "as sealed"), s("text", { x: x1, y: H - 14, "text-anchor": "middle" }, "as rewritten"));
+  svg.append(s("text", { x: x0, y: H - 14, "text-anchor": "middle" }, "as sealed"), s("text", { x: x1, y: H - 14, "text-anchor": "middle" }, "rewrite score"));
   // scale ends, on the outside of the left axis where no value label is drawn
   svg.append(s("text", { x: x0 - 10, y: bottom + 4, "text-anchor": "end" }, "0"), s("text", { x: x0 - 10, y: top + 4, "text-anchor": "end" }, "1000‰"));
 
@@ -276,7 +289,7 @@ function renderSlope(kase) {
     s("text", { class: "value" + tone, x: x1 - 10, y: y(cert.rewrite_milli) + (over && cert.rewrite_milli > 120 ? 22 : -12), "text-anchor": "end" }, permille(cert.rewrite_milli)),
   );
   fig.append(svg, h("figcaption", {
-    text: "Dashed: the furthest the frozen threshold lets it fall." +
+    text: "Dashed: the furthest the frozen threshold lets it fall. The court counts missing or unadmitted rewrites as correct; this is not accuracy on admitted rewrites alone." +
       (state.snap.cases.length > 1 ? " Pale lines are the other subjects in this file." : ""),
   }));
 }
@@ -307,7 +320,7 @@ function renderDrawn(kase, fresh) {
   const txs = Object.keys(kase.txs || {}).length;
   const figures = [
     [kase.certificate.items_burned, "items burned to hear this case"],
-    [calls, "answers taken from the model"],
+    [calls, "model probe outcomes recorded"],
     [rulings, "referee rulings on rewrites"],
     [kase.certificate.admissible_probes, "pairs admitted as the same question"],
   ];
@@ -362,7 +375,7 @@ function renderSheet(kase, fresh) {
   );
 
   $("ruling-sub").textContent = subset.length
-    ? subset.length + " items probed. One column per item; select a mark to read that item in full."
+    ? subset.length + " challenged items. One column per item; select a mark to read that item in full."
     : "No trial has run on this claim.";
   if (!subset.length) { $("legend").replaceChildren(); return; }
 
@@ -378,7 +391,7 @@ function renderSheet(kase, fresh) {
       class: "recheck" + (drift.length ? " bad" : ""),
       text: drift.length
         ? "Recomputed in this browser from the probes below, the certificate does not match on: " + drift.join(", ") + "."
-        : "Recomputed in this browser from the " + kase.probes.length + " probes below. It matches the certificate.",
+        : "Recomputed in this browser from the " + kase.probes.length + " items below. It matches the certificate.",
     }));
   }
 
@@ -400,7 +413,7 @@ function renderSheet(kase, fresh) {
     h("div", { class: "detector" },
       h("div", { class: "name" },
         h("h3", { text: "Detector one: the gap" }),
-        h("span", { text: "Sealed " + permille(cert.pinned_milli) + " right, rewritten " + permille(cert.rewrite_milli) + ". Gap " + permille(cert.delta_milli) + " over " + cert.admissible_probes + " admitted pairs." })),
+        h("span", { text: "Sealed accuracy " + permille(cert.pinned_milli) + ", court-adjusted rewrite score " + permille(cert.rewrite_milli) + ". Gap " + permille(cert.delta_milli) + " across " + cert.items_probed + " answered sealed items; " + cert.admissible_probes + " pairs admitted. Missing or unadmitted rewrites count as correct for the publisher." })),
       h("div", { class: "tick" }), h("div", { class: "row-label", text: "Answered as sealed" }), pinned,
       h("div", { class: "tick" }), h("div", { class: "row-label", text: "Answered as rewritten" }), rewritten,
       gauge(cert.delta_milli, claim.delta_threshold, gapMeasured),
@@ -446,22 +459,23 @@ function renderDetail(kase) {
   $("detail-pair").replaceChildren(...pairNodes(kase, state.item));
 
   const box = $("detail-recall");
-  box.replaceChildren(h("div", { class: "side-name", text: "Recall probe: the model saw the first part and was asked to continue" }));
+  box.replaceChildren(h("div", { class: "side-name", text: "Recall probe: first part and held-out continuation" }));
   box.append(h("p", {}, item.recall_prefix, h("span", { class: "held", text: item.recall_tail })));
   box.append(h("dl", { class: "answers", style: "margin-top:0.8rem" },
     h("dt", { text: "Held-out part" }), h("dd", { text: "dotted, " + item.recall_tail.length + " characters" }),
     h("dt", { text: "Result" }),
     h("dd", { class: p.recall === "MATCH" ? "bad" : "", text: {
       MATCH: "reproduced it", MISS: "did not reproduce it", DEAD: "no reply", NA: "item too short to test",
-    }[p.recall] || "not run" })));
+    }[p.recall] || "no recorded result" })));
 
   const facts = $("detail-facts");
   const row = (name, value, bad) => [h("dt", { text: name }), h("dd", { class: bad ? "bad" : "", text: value })];
+  const settlement = stakeSettlement(kase, p);
   facts.replaceChildren(
     h("dt", { text: "Sealed hash" }), h("dd", {}, h("code", { text: item.item_hash })),
     h("dt", { text: "Text hash" }), h("dd", {}, h("code", { text: item.content_hash })),
     ...(p.rewrite_hash ? [h("dt", { text: "Rewrite hash" }), h("dd", {}, h("code", { text: p.rewrite_hash }))] : []),
-    ...row("Stake slice", !p.touched || !p.slice_settled ? "still riding" : admitted(p) ? "returned to the challenger" : p.rewrite_class ? "forfeited to the publisher" : "forfeited, no rewrite filed", p.slice_settled && !admitted(p)),
+    ...row("Stake slice", settlement.text, settlement.forfeited),
     ...row("Burned", when(kase.claim.burned_at)),
   );
 
@@ -492,8 +506,8 @@ function renderRecord(kase) {
     line("Decode parameters", c.decode_params, true),
     line("Prompt", template, true),
     line("Scoring rule", c.scoring_rule, true),
-    line("Bond", String(c.bond_sworn)),
-    line("Stake per item", String(c.stake)),
+    line("Bond (wei)", String(c.bond_sworn)),
+    line("Stake per item (wei)", String(c.stake)),
     h("tr", {}, h("th", { scope: "row", text: "Terms hash" }), h("td", {}, h("code", { text: c.spec_hash }))),
   );
 
@@ -511,20 +525,24 @@ function renderRecord(kase) {
       ? "spent with its items on " + when(cert.score_expired_at) + ". It can never be measured again on unseen text."
       : "still sealed", true),
     line("Challenges survived", String(cert.challenges_survived)),
-    line("Bond still posted", String(cert.bond_standing)),
+    line("Bond still posted (wei)", String(cert.bond_standing)),
     line("Ruled", when(cert.ruled_at)),
-    line("Final", cert.final ? "yes" : cert.contested ? "no, open to the next challenger" : "no"),
+    line("Claim closed", cert.final ? "yes" : cert.contested ? "no, open to the next challenger" : "no"),
   );
 
   const receipts = $("receipts");
   receipts.replaceChildren();
   const txs = Object.entries(kase.txs || {});
   if (txs.length) {
-    const undetermined = txs.filter(([, t]) => t.status === "UNDETERMINED").length;
+    const failed = txs.filter(([, t]) =>
+      ["UNDETERMINED", "LEADER_TIMEOUT", "VALIDATORS_TIMEOUT", "CANCELED", "ERROR"].includes(t.status) ||
+      (t.status === "FINALIZED" && t.consensus_result === "IDLE" && t.execution === "NOT_VOTED") ||
+      ["NO_MAJORITY", "TIMEOUT", "DETERMINISTIC_VIOLATION", "DISAGREE", "MAJORITY_DISAGREE"].includes(t.consensus_result) ||
+      ["FINISHED_WITH_ERROR", "TIMEOUT", "NONDET_DISAGREE", "DETERMINISTIC_VIOLATION"].includes(t.execution)).length;
     receipts.append(
       h("h3", { text: "Receipts", style: "margin-top:1.4rem" }),
-      h("p", { text: txs.length + " transactions." + (undetermined ? " " + undetermined + " ended undetermined: the validators could not agree on what the model answered, and no state was written for them." : "") }),
-      h("p", {}, ...txs.slice(0, 200).flatMap(([name, t]) => [h("a", { href: EXPLORER + t.tx, rel: "noopener", text: name }), " "])),
+      h("p", { text: txs.length + " transactions." + (failed ? " " + failed + " did not produce an accepted successful execution. Consensus and execution outcomes are retained in the evidence file; these failures are not model answers." : "") }),
+      h("p", {}, ...txs.slice(0, 200).flatMap(([name, t]) => [h("a", { href: EXPLORER + t.tx, rel: "noopener", title: [t.status, t.consensus_result, t.execution].filter(Boolean).join(" / "), text: name.includes("@") ? name.split("@")[0] + " (additional attempt)" : name }), " "])),
     );
   }
 }
@@ -603,14 +621,19 @@ function renderCase(fresh) {
 }
 
 async function start() {
+  const sourceFile = new URLSearchParams(location.search).get("demo") === "1" ? "demo.json" : "case.json";
+  for (const id of ["download-case", "download-evidence"]) {
+    $(id).href = sourceFile;
+    $(id).download = "impeach-" + sourceFile;
+  }
   let snap;
   try {
-    const response = await fetch("case.json", { cache: "no-cache" });
+    const response = await fetch(sourceFile, { cache: "no-cache" });
     if (!response.ok) throw new Error(String(response.status));
     snap = await response.json();
   } catch (error) {
     $("main").replaceChildren(h("section", {}, h("h2", { text: "The case file did not load" }),
-      h("p", { text: "case.json could not be read (" + error.message + "). Serve the web folder over http, for example with `make serve`, and reload." })));
+      h("p", { text: sourceFile + " could not be read (" + error.message + "). Serve the web folder over http, for example with `make serve`, and reload." })));
     return;
   }
   state.snap = snap;

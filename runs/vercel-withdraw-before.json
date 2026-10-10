@@ -1,0 +1,13 @@
+{
+  "publisher": {
+    "address": "0x771388495F34d21C5574FeFc04cd1D5811E00aDa",
+    "wallet_balance_wei": 157362807354108824909,
+    "contract_credit_wei": 116000000000000000
+  },
+  "challenger": {
+    "address": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+    "wallet_balance_wei": 942733451727431351,
+    "contract_credit_wei": 8000000000000000
+  },
+  "checked_at": "2026-10-10T04:44:22.998737+00:00"
+}

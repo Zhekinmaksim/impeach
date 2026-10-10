@@ -14,20 +14,22 @@ Suborn   — does this specification survive a document written to break it
 Impeach  — does this score survive items the model has not seen before
 ```
 
-> **Status.** [Interactive demo](https://impeach.vercel.app) ·
+> **Status.** [Live case](https://impeach.vercel.app) ·
+> [Scripted examples](https://impeach.vercel.app/?demo=1) ·
 > [Source](https://github.com/Zhekinmaksim/impeach).
-> `web/case.json` contains local rehearsals against scripted subjects, visibly
-> labelled on the page. It is not a live model finding. Contract scenarios pass
-> on the local stub and the pinned real SDK. See [OPENROUTER.md](OPENROUTER.md)
-> for a hosted model, [LOCAL-MODEL.md](LOCAL-MODEL.md) for Ollama, and
-> [DEPLOY.md](DEPLOY.md) for the on-chain run. Submission evidence is still pending.
+> The live Bradbury certificate is `INCONCLUSIVE / TOO_FEW_ADMISSIBLE`:
+> 11 answered sealed items, 4 admitted pairs, with a minimum of 20.
+> `web/case.json` contains the contract reads and transaction outcomes;
+> `web/demo.json` preserves the three clearly labelled scripted examples.
+> See [OPENROUTER.md](OPENROUTER.md), [LOCAL-MODEL.md](LOCAL-MODEL.md), and
+> [DEPLOY.md](DEPLOY.md) for reproducing the run. Submission is prepared separately.
 
 The court is deployed on Bradbury (chain 4221) at
-`0xD08Ee3B08b338539748b0D310b6709B4E77a627F`.
-The [deployment transaction](https://explorer-bradbury.genlayer.com/transactions/0x82d689f194b40d5675baef07f48be2d617cd96e2ef848b1bd1aeaaf31d309eb8)
-was accepted with `FINISHED_WITH_RETURN`. Source hashes and the failed first
-attempt are recorded in `runs/deployment.json`. A deployed court is not a
-completed trial; the published case data remains labelled by its actual origin.
+`0x47b0B5a11fC7F44F8f0d4ABa3A54b1A304AfDD3e`.
+The [deployment transaction](https://explorer-bradbury.genlayer.com/transactions/0x28e52e602628b4dfbf5e0972aa10dfe9bda751c3b7284cd3921526dff4cd415e)
+is finalized with `AGREE / FINISHED_WITH_RETURN`. Source hashes and the failed first
+attempt are recorded in `runs/deployment.json`. The completed trial certificate is linked from the page, together with the failed
+and recovered probe transactions.
 
 ## Run it
 
@@ -122,7 +124,7 @@ examples/rewrites/         24 rewrites across five classes, arithmetic machine-c
 examples/controls/         4 rewrites that change the answer; a referee must stop them
 test/                      scenarios, scripted subjects, stub, real-SDK runner
 scripts/                   simulate · rehearse · run_case · collect · referee_dryrun · stub_endpoint
-web/                       the page; reads case.json only
+web/                       the page; case.json for the current case, demo.json for examples
 spec/SPEC.md               the specification this was built from
 ```
 
@@ -153,19 +155,40 @@ single call.
 The hashing, flattening and verdict arithmetic exist three times (contract, CLI,
 browser). The suite holds the three equal.
 
-## Live validation and remaining checks
+## Live validation
 
-The Bradbury deployment, `open`, `challenge`, `reveal`, and the first question's
-four probe transactions succeeded. Both network referee framings admitted its
-rewrite. However, all three HTTP probes returned `DEAD`: a separate diagnostic
-contract confirmed HTTP 502 with body `no tunnel`. The temporary tunnel lost its
-registration after passing local preflight. This is an endpoint failure, not a
-finding about Llama. The trial remains pending; see `runs/live-status.json`.
+The live subject is `meta-llama/llama-3.1-8b-instruct`, fixed to DeepInfra FP8,
+with frozen decode parameters and a public Vercel gateway. The Bradbury trial
+opened, challenged and revealed all 24 committed items. Its first item passed
+both referee framings and all three native model probes.
 
-A permanent Vercel endpoint is implemented and tested, but remains disabled until
-the owner authorizes storing the OpenRouter key as a server-side production secret.
-The original endpoint is immutable. A new live run must use a fresh court instance
-because this demonstration's item set is already spent in the first court.
+The partial run stopped after a leader timeout; the fixed trial window then
+expired. The court ruled `INCONCLUSIVE / TOO_FEW_ADMISSIBLE`: 11 sealed answers,
+4 admitted pairs and 12 recall probes. Nine of the 11 sealed answers were correct.
+The certificate's court-adjusted rewrite score is 1000‰ and its gap is −181‰;
+missing or unadmitted rewrites are presumed correct for the publisher, so that
+score is not the subject's measured rewrite accuracy. The recall result is 0‰.
+None of the detectors reached the 20-item minimum.
+
+The [rule transaction](https://explorer-bradbury.genlayer.com/transactions/0xdd4d149a02291d1901e80f277eca45ac48ec0284b3c57aa74ed8c5cb4bcc4d12)
+was accepted with successful execution. `runs/bradbury-vercel.jsonl` preserves
+submissions and recovery links; `web/case.json` includes their fetched outcomes.
+Leader timeouts, disagreement and execution violations remain visible. They
+are not subject answers. The result establishes the native integration and
+partial evidence, not a contamination finding or a successful 24-item trial.
+
+The publisher retired the ruled claim; the certificate is retained. Both parties'
+credits are being verified through native `withdraw`. The four-hour model API
+expired automatically and production is configured disabled. Total OpenRouter
+usage, including calibration, is $1.28827328 of the approved $5.
+
+An earlier trial used a temporary tunnel which returned HTTP 502, `no tunnel`,
+after passing local preflight. Its immutable endpoint could not be repaired.
+That separate court remains pending until 12 October 2026, 22:20:45 in Tashkent;
+0.1 GEN bond and 0.023 GEN stake remain locked there. See `runs/live-status.json`.
+Its spent registry and failed evidence remain intact.
+Gateway restrictions and spending safeguards are documented in
+[OPENROUTER.md](OPENROUTER.md).
 
 The initial real-model referee runs exposed false admissions. The revised referee
 solves both questions before seeing the proposed answer key, then checks the class
@@ -175,9 +198,9 @@ Sonnet transcript and exact offline replay are in `runs/`. These false rejection
 are a material limitation: at least 20 admitted pairs are needed for the gap
 verdict. Calibration with one model does not guarantee validator agreement.
 
-The deployed clock and HTTP API both work. A completed live model verdict is
-still missing. The website continues to identify its published case data as local
-scripted rehearsals.
+The deployed clock, native HTTP probes, referee rounds and rule operation have
+been exercised on Bradbury. A complete 24-item live evaluation remains outstanding;
+the published `INCONCLUSIVE` certificate records the partial trial honestly.
 
 The real subject rehearsal used `meta-llama/llama-3.1-8b-instruct`, fixed to
 DeepInfra FP8: 72 requests, sealed accuracy 750‰, rewritten accuracy 708‰,

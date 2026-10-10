@@ -1,0 +1,110 @@
+{
+  "transaction_id": "0x1a7e5216ae65af0a9421ec2f4a1fe2668e2f27897d550bb43e0c2b8005e36181",
+  "contract": "0x47b0B5a11fC7F44F8f0d4ABa3A54b1A304AfDD3e",
+  "evidence": {
+    "pre_appeal_receipt": "runs/vercel-item2-rewrite-undetermined.json",
+    "pre_appeal_receipt_sha256": "065df0bf68eba6714d074387c935c3813b009965a4d27ad6b40b02696441cf76",
+    "post_appeal_trace_requested_round0": "runs/vercel-item2-rewrite-debug-post-appeal-requested-round0.json",
+    "post_appeal_trace_sha256": "7b04060cfe7aaff9c8debd9ca1bb1d016035a4df80a400a464b9b646cd90ac62"
+  },
+  "initial_outcome": {
+    "status": "UNDETERMINED",
+    "result": "NO_MAJORITY",
+    "execution_result": "FINISHED_WITH_RETURN",
+    "rotations_left": "0",
+    "votes": [
+      "TIMEOUT",
+      "DETERMINISTIC_VIOLATION",
+      "DETERMINISTIC_VIOLATION",
+      "TIMEOUT",
+      "AGREE"
+    ],
+    "validator_addresses": [
+      "0x4Cd1ab61867487F45988dB08eb18bd00e20c518a",
+      "0xF01877B6Ac60861CA3b134e0E483C482679b4682",
+      "0x2CD9051E10cd1547a7b64eF61EbF1E608235dBda",
+      "0x3f5cAED686336ED9cF3Dede61154B0Cd67Fb9bD7",
+      "0x422357d87B035e478777C84748BAC834CE2A9597"
+    ],
+    "validator_result_hashes": [
+      "0x9fc8d2d92c2ea25ae2ac3d9b20370cb9cb1e53d073b5c1a20b03621ca750f8df",
+      "0x6f36613535bfbff74dae07048e9807bb4b6c4982e1bed90f37c33a84808255e8",
+      "0x6f36613535bfbff74dae07048e9807bb4b6c4982e1bed90f37c33a84808255e8",
+      "0x9fc8d2d92c2ea25ae2ac3d9b20370cb9cb1e53d073b5c1a20b03621ca750f8df",
+      "0x8e2606d93a67028653d1627a1846868f35ccdc6156daa5f949dbc358d4b5ecdf"
+    ]
+  },
+  "leader_eq_outputs": [
+    {
+      "original_result": "64",
+      "rewrite_result": "84",
+      "same_question": true
+    },
+    {
+      "status": "LIVE",
+      "answer": "88",
+      "correct": false
+    }
+  ],
+  "debug": {
+    "requested_round": 0,
+    "result_code": 0,
+    "observed_return": "INADMISSIBLE",
+    "stdout": "",
+    "stderr": "",
+    "metrics": {
+      "gvm": {
+        "host": {
+          "time": 6529
+        },
+        "llm_module": {
+          "calls": 0,
+          "time": 0
+        },
+        "supervisor": {
+          "compilation_time": 0,
+          "compiled_modules": 0,
+          "precompile_hits": 2
+        },
+        "web_module": {
+          "calls": 0,
+          "time": 0
+        }
+      },
+      "llm": null,
+      "web": null
+    },
+    "limitation": "This post-appeal replay cannot explain the earlier validators\u2019 DETERMINISTIC_VIOLATION votes. It returned a different outcome from the pre-appeal trace despite the same requested round. The immutable pre-appeal receipt and vote hashes are the primary evidence of the original NO_MAJORITY.",
+    "capture_context": "Fetched after one appeal was submitted. round=0 was requested, but this RPC replay returned INADMISSIBLE whereas the pre-appeal replay returned WRONG. Do not treat this trace as an immutable archive of the pre-appeal validator execution."
+  },
+  "appeal_read_only_preflight": {
+    "chain_timestamp": "1791569282",
+    "bond_wei": "0",
+    "bond_GEN": "0",
+    "from": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+    "method": "submitAppeal(bytes32)",
+    "simulation": "success",
+    "estimated_gas": "1671468",
+    "gas_price_wei": "166751400",
+    "estimated_gas_cost_GEN": "0.0002787196290552",
+    "can_finalize": [
+      false,
+      "1791569282",
+      "1791571018"
+    ],
+    "valid_until": "1791572553",
+    "note": "Snapshot before the parent submitted one bounded appeal. Gas estimate is not an actual paid fee."
+  },
+  "interpretation": "NO_MAJORITY is preserved. Votes are two TIMEOUT, two DETERMINISTIC_VIOLATION and one AGREE, not ordinary referee disagreement. A zero-bond appeal retries consensus for the same transaction identity; success is not presumed. No bond refund is due when the bond is zero; network gas and any model usage still cost resources.",
+  "pre_appeal_debug_observation": {
+    "source": "Interactive RPC output before the appeal; raw response was not yet saved as a local file.",
+    "requested_round": 0,
+    "result_code": 0,
+    "observed_return": "WRONG",
+    "stdout": "",
+    "stderr": "",
+    "llm_calls": 0,
+    "web_calls": 0,
+    "limitation": "Successful replay with stored leader outputs did not include the divergent validators\u2019 traces and did not establish the cause of their votes."
+  }
+}

@@ -58,12 +58,49 @@ function parseArgs() {
   });
 }
 
+// Raw SDK reads contain BigInts and Maps. Emit exact JSON integers so Python
+// keeps both small IDs and wei balances as integers, without rounding or
+// changing strings that happen to contain digits or hexadecimal addresses.
+function readJSON(value) {
+  if (typeof value === "bigint") return value.toString();
+  if (value === null || ["string", "boolean"].includes(typeof value)) return JSON.stringify(value);
+  if (typeof value === "number" && Number.isFinite(value)) return JSON.stringify(value);
+  if (Array.isArray(value)) return "[" + value.map(readJSON).join(",") + "]";
+  if (value instanceof Uint8Array) return JSON.stringify("0x" + Buffer.from(value).toString("hex"));
+  if (value instanceof Map || (value && Object.getPrototypeOf(value) === Object.prototype)) {
+    const entries = value instanceof Map ? [...value.entries()] : Object.entries(value);
+    return "{" + entries.map(([key, item]) => JSON.stringify(String(key)) + ":" + readJSON(item)).join(",") + "}";
+  }
+  throw new Error("unsupported SDK read result type");
+}
+
 const cliEntry = realpathSync(execFileSync("which", ["genlayer"], {encoding: "utf8"}).trim());
 const packageRoot = resolve(dirname(cliEntry), "..");
 const sdk = await import(pathToFileURL(join(packageRoot, "node_modules/genlayer-js/dist/index.js")));
 const chains = await import(pathToFileURL(join(packageRoot, "node_modules/genlayer-js/dist/chains/index.js")));
 
-// Receipt reads never unlock an account or touch the keychain.
+// Read-only paths exit before account configuration or keychain access.
+const readIndex = process.argv.indexOf("--read");
+if (readIndex >= 0) {
+  if (["--receipt", "--deploy", "--appeal", "--finalize"].some(flag => process.argv.includes(flag))) {
+    fail("choose only one read or transaction operation");
+  }
+  const readAddress = required(process.argv[readIndex + 1], "read contract address");
+  const readMethod = required(process.argv[readIndex + 2], "read method");
+  let args;
+  try {
+    args = JSON.parse(option("--args-json", "[]"));
+    if (!Array.isArray(args)) throw new Error("expected an array");
+  } catch (error) {
+    fail("invalid --args-json: " + error.message);
+  }
+  const readClient = sdk.createClient({chain: chains.testnetBradbury, endpoint: option("--rpc") || undefined});
+  const result = await readClient.readContract({address: readAddress, functionName: readMethod,
+    args, jsonSafeReturn: false});
+  console.log(readJSON(result));
+  process.exit(0);
+}
+
 const receiptHash = option("--receipt");
 if (receiptHash) {
   const client = sdk.createClient({chain: chains.testnetBradbury, endpoint: option("--rpc") || undefined});
@@ -73,9 +110,12 @@ if (receiptHash) {
 }
 
 const deployPath = option("--deploy");
+const appealHash = option("--appeal");
+const finalizeHash = option("--finalize");
+if ([deployPath, appealHash, finalizeHash].filter(Boolean).length > 1) fail("choose only one deploy, appeal, or finalize operation");
 const dryRun = process.argv.includes("--dry-run");
 const [address, method] = process.argv.slice(2);
-if (!deployPath) {
+if (!deployPath && !appealHash && !finalizeHash) {
   required(address, "contract address");
   required(method, "method");
 }
@@ -131,6 +171,31 @@ const client = sdk.createClient({
 });
 const value = BigInt(option("--value", "0"));
 try {
+  if (finalizeHash) {
+    if (!/^0x[0-9a-fA-F]{64}$/.test(finalizeHash)) fail("invalid finalization transaction hash");
+    const receipt = await client.getTransaction({hash: finalizeHash});
+    if (receipt.statusName === "FINALIZED") fail("transaction is already finalized; no duplicate finalization sent");
+    if (!["ACCEPTED", "UNDETERMINED", "LEADER_TIMEOUT", "VALIDATORS_TIMEOUT", "READY_TO_FINALIZE"].includes(receipt.statusName)) {
+      fail("transaction has no decided outcome to finalize");
+    }
+    // The bounded gas simulation also checks the network's finalization window.
+    const hash = await client.finalizeTransaction({account, txId: finalizeHash});
+    console.log("Finalization EVM transaction:", hash);
+    process.exit(0);
+  }
+  if (appealHash) {
+    if (!/^0x[0-9a-fA-F]{64}$/.test(appealHash)) fail("invalid appeal transaction hash");
+    const receipt = await client.getTransaction({hash: appealHash});
+    if (!["LEADER_TIMEOUT", "UNDETERMINED"].includes(receipt.statusName)) {
+      fail("only a confirmed leader timeout or undetermined round can be appealed with this helper");
+    }
+    const bond = await client.getMinAppealBond({txId: appealHash});
+    // This recovery path is deliberately limited to zero-bond testnet appeals.
+    if (bond !== 0n) fail("appeal requires a nonzero bond; inspect it before proceeding");
+    await client.appealTransaction({account, txId: appealHash, value: 0n});
+    console.log("Appealed original transaction:", appealHash);
+    process.exit(0);
+  }
   const hash = deployPath
     ? await client.deployContract({account, code: readFileSync(resolve(deployPath), "utf8"), args: parseArgs()})
     : await client.writeContract({account, address, functionName: method, args: parseArgs(), value});

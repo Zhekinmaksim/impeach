@@ -64,9 +64,23 @@ curl -s $ENDPOINT -H 'content-type: application/json' \
 The contract reads `choices[0].message.content` and treats anything else,
 including any status other than 200, as a dead probe.
 
-## 3. Deploy and smoke-test
+The bundled Vercel proxy only accepts the frozen corpus requests; the generic
+`2+2` request above intentionally gets `403 request_not_in_trial`. Test that proxy
+with an allowed request instead (once its trial window has been enabled):
 
 ```bash
+node --input-type=module -e 'import {trialRequests} from "./lib/proxy.mjs"; console.log(JSON.stringify(trialRequests("meta-llama/llama-3.1-8b-instruct")[0]))' > /tmp/impeach-preflight.json
+curl -sS "$ENDPOINT" -H 'content-type: application/json' --data-binary @/tmp/impeach-preflight.json
+```
+
+## 3. Deploy and smoke-test
+
+This run used GenLayer CLI 0.39.1 with its genlayer-js 1.1.8 SDK and legacy
+Bradbury consensus VERSION 2.0.0. The receipt status table is specific to that
+release family; check it before switching to Consensus v0.6 tooling.
+
+```bash
+export RPC=https://rpc-bradbury.genlayer.com
 python3 scripts/build_contract.py
 node scripts/genlayer_write.mjs --deploy build/impeach.py --dry-run \
   --from 0xYOUR_PUBLIC_ACCOUNT --rpc https://rpc-bradbury.genlayer.com
@@ -74,9 +88,9 @@ node scripts/genlayer_write.mjs --deploy build/impeach.py \
   --account YOUR_ACCOUNT --rpc https://rpc-bradbury.genlayer.com
 export CONTRACT=0x…
 
-genlayer call $CONTRACT clock      # must be close to now, in unix seconds
-genlayer call $CONTRACT defaults
-genlayer call $CONTRACT counts
+genlayer call $CONTRACT clock --rpc $RPC      # must be close to now, in unix seconds
+genlayer call $CONTRACT defaults --rpc $RPC
+genlayer call $CONTRACT counts --rpc $RPC
 ```
 
 The readable 62 KB source exceeds Bradbury's per-transaction gas cap when
@@ -108,24 +122,73 @@ The contract refuses a publisher challenging their own claim. Create and fund a
 Set `subject` and `endpoint` in `calibration/claim-gsm8k.json`, then:
 
 ```bash
-python3 scripts/run_case.py open      --address $CONTRACT --account publisher
-python3 scripts/run_case.py challenge --address $CONTRACT --claim-id 0 --account challenger
-python3 scripts/run_case.py reveal    --address $CONTRACT --claim-id 0 --account publisher
-python3 scripts/run_case.py probes    --address $CONTRACT --challenge-id 0 --account challenger
+export MANIFEST=runs/my-case.jsonl  # choose a fresh file for a new case
+python3 scripts/run_case.py open      --address $CONTRACT --account publisher --rpc $RPC --manifest $MANIFEST
+python3 scripts/run_case.py challenge --address $CONTRACT --claim-id 0 --account challenger --rpc $RPC --manifest $MANIFEST
+python3 scripts/run_case.py reveal    --address $CONTRACT --claim-id 0 --account publisher --rpc $RPC --manifest $MANIFEST
+python3 scripts/run_case.py probes    --address $CONTRACT --challenge-id 0 --account challenger --rpc $RPC --manifest $MANIFEST
 # wait for the first pass to settle
-python3 scripts/run_case.py admit     --address $CONTRACT --challenge-id 0 --account challenger
-python3 scripts/run_case.py retry     --address $CONTRACT --challenge-id 0 --account challenger
-python3 scripts/run_case.py rule      --address $CONTRACT --challenge-id 0 --account challenger
+python3 scripts/run_case.py admit     --address $CONTRACT --challenge-id 0 --account challenger --rpc $RPC --manifest $MANIFEST
+python3 scripts/run_case.py retry     --address $CONTRACT --challenge-id 0 --account challenger --rpc $RPC --manifest $MANIFEST
+python3 scripts/run_case.py rule      --address $CONTRACT --challenge-id 0 --account challenger --rpc $RPC --manifest $MANIFEST
 ```
 
 Each write waits for `ACCEPTED` or `FINALIZED` **and**
-`FINISHED_WITH_RETURN`. Acceptance of an error receipt stops the runner.
+`FINISHED_WITH_RETURN` with `AGREE` or `MAJORITY_AGREE`. The sole compatibility
+exception is an older compact `ACCEPTED` receipt that omits the consensus result;
+an explicit unknown or contradictory result is never treated as success.
+Acceptance of an error receipt stops the runner.
 Every step takes `--dry-run`. Every submitted hash is immediately appended to
 `runs/bradbury.jsonl`. If interrupted or timed out, re-run the same command:
 it resumes receipt tracking for recorded hashes before sending anything new.
 Use `--wait-timeout 1800` when consensus needs more than the default 600 seconds.
 An undetermined or failed transaction requires receipt inspection; it is never
 blindly resubmitted.
+
+On the legacy Bradbury consensus used here, `LEADER_TIMEOUT` is a decided
+failure that can still be appealed. `UNDETERMINED` also permits an appeal.
+Save the failed-round receipt before proceeding: disagreement remains part of
+the evidence even if a later round settles. After inspecting it, the helper
+can recover that same transaction when the network requires a zero-bond appeal:
+
+```bash
+node scripts/genlayer_write.mjs --appeal <original-tx-hash> --account challenger --rpc https://rpc-bradbury.genlayer.com
+```
+
+The helper rejects other statuses and nonzero appeal bonds, and runs the same
+gas simulation as ordinary writes. Keep the original manifest hash and rerun
+the interrupted step after the new round succeeds. An appeal submission error
+can occur after broadcast; read the original transaction before trying again.
+
+To continue other items after inspecting and saving a failed receipt, repeat
+the runner command with `--acknowledge-failed <hash>`. This only skips a known
+failed outcome; it does not count it as an answer or send it again. Pending
+transactions and unknown or contradictory finalization fields still stop progress.
+For `FINALIZED`, a known negative consensus result or known unsuccessful execution
+can be acknowledged. This includes a leader timeout that finishes as
+`FINALIZED / NOT_VOTED / IDLE`: finalization did not execute the contract.
+
+A new probe attempt is allowed only after the old transaction actually reaches
+`FINALIZED` with a negative consensus result, or exactly
+`FINALIZED / NOT_VOTED / IDLE`, and its contract slot is still empty. All outcome
+fields must be known and consistent. An agreed contract error can be acknowledged
+to continue other work, but this recovery helper does not retry it.
+Expiry of the appeal window alone is not finalization. The bridge can request
+finalization; its simulation rejects an attempt before the network permits it:
+
+```bash
+node scripts/genlayer_write.mjs --finalize <original-tx-hash> --account challenger --rpc https://rpc-bradbury.genlayer.com
+python3 scripts/retry_finalized_probe.py --address $CONTRACT --account challenger --rpc $RPC --manifest $MANIFEST --tx <original-tx-hash> --dry-run
+# Inspect the dry run, then repeat without --dry-run to send one recovery attempt.
+```
+
+Recovery checks the original input signature, zero value, untouched slot and
+open trial window. It preserves the finalized receipt and appends a new manifest
+row with `previous_tx`; a second recovery of that probe is refused. Do not run
+recovery concurrently with the ordinary runner on the same account.
+Before sending, it also saves a durable dispatch marker. If interrupted before
+the new hash is recorded, it refuses another attempt until the on-chain outcome
+and manifest have been reconciled; do not remove that marker and blindly resend.
 
 Use a separate `--manifest runs/<case>.jsonl` for each case, including the
 scripted subject and real model. The runner checks the contract address and
@@ -139,8 +202,8 @@ GEN per item.
 **Do the first three probes by hand and look at them** before running the pass:
 
 ```bash
-python3 scripts/run_case.py probes --address $CONTRACT --challenge-id 0 --account challenger --subset 0
-genlayer call $CONTRACT get_probe --args 0 0
+python3 scripts/run_case.py probes --address $CONTRACT --challenge-id 0 --account challenger --subset 0 --rpc $RPC --manifest $MANIFEST
+genlayer call $CONTRACT get_probe --args 0 0 --rpc $RPC
 ```
 
 The first `PINNED` is the first time `gl.nondet.web.post` runs inside GenVM for
@@ -155,28 +218,61 @@ coverage. This does not establish that a Bradbury transaction has succeeded.
 ## 6. Collect and publish
 
 ```bash
-make publish CONTRACT=$CONTRACT
+make publish CONTRACT=$CONTRACT MANIFEST=$MANIFEST RPC=$RPC
 ```
 
 This reads every receipt through the SDK and the same RPC used for contract
-reads, records consensus status and execution result, reads settled state, writes
+reads, records consensus status, consensus decision and execution result, reads ruled state, writes
 `web/case.json` with provenance `bradbury`, and recomputes the verdict from the
 published probes. Transactions that ended undetermined are counted per probe
-mode and kept in the snapshot. If nothing has settled it exits non-zero and the
+mode and kept in the snapshot, including an original failed attempt when a later
+recovery succeeds. Offline `--from-json` reads are labelled `simulation`, never
+verified chain evidence. If no certificate has been ruled it exits non-zero and the
 rehearsal snapshot stays where it is.
 
 When the snapshot is live the rehearsal banner disappears on its own.
 
 ## 7. Withdraw
 
+After `CLEAN` or `INCONCLUSIVE`, the bond remains posted. If the publisher wants
+to close that standing claim and recover the bond, first retire it:
+
 ```bash
-genlayer write $CONTRACT withdraw     # from each account that is owed
-genlayer call  $CONTRACT solvency
+node scripts/genlayer_write.mjs $CONTRACT retire_claim --account publisher --rpc $RPC --args-json '["0"]'
 ```
+
+Then withdraw each account's available credit:
+
+```bash
+genlayer write $CONTRACT withdraw --rpc $RPC  # from each account that is owed
+genlayer call  $CONTRACT solvency --rpc $RPC
+```
+
+On Bradbury, native transfer messages use `onAcceptance: false`. An accepted
+`withdraw` clears the contract credit, while the wallet payment waits for network
+finalization. Confirm a successful `FINALIZED` receipt and the recipient's wallet
+balance increase after gas fees; a zero credit alone does not prove payment.
+The bridge's `--receipt <hash>` preserves the recipient, value and transfer flag.
 
 Do this before submitting. It is the first real exercise of native value leaving
 the contract, and the same line is suspect in Suborn and Jastrow (see
 DECISIONS.md).
+
+### Earlier tunnel trial
+
+The separate court at `0xD08Ee3B08b338539748b0D310b6709B4E77a627F` has a
+frozen three-day trial window. Its 0.1 GEN bond and 0.023 GEN stake cannot be
+settled before **12 October 2026, 17:20:45 UTC / 22:20:45 Tashkent**.
+`runs/live-status.json` records that deadline and the failed tunnel. The available
+0.001 GEN challenger credit was withdrawn separately; it does not close this claim.
+
+After the deadline, read `clock` and `get_challenge(0)` on that court, call
+`rule(0)`, and inspect the certificate and both credits. If the claim is standing,
+the publisher can call `retire_claim(0)` before withdrawing. Use the SDK bridge
+above with this old address and the matching publisher/challenger account. Record
+each new hash in `runs/bradbury.jsonl`, retain its receipt, and confirm native
+payments after finalization. Do not mix this court's manifest with
+`runs/bradbury-vercel.jsonl`, or send these settlement calls before its deadline.
 
 ## 8. Ship the page
 

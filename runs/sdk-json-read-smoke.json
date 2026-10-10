@@ -1,0 +1,145 @@
+{
+  "contract": "0x47b0B5a11fC7F44F8f0d4ABa3A54b1A304AfDD3e",
+  "calls": [
+    [
+      "counts",
+      []
+    ],
+    [
+      "get_claim",
+      [
+        0
+      ]
+    ],
+    [
+      "get_probe",
+      [
+        0,
+        1
+      ]
+    ],
+    [
+      "clock",
+      []
+    ],
+    [
+      "balance_of",
+      [
+        "0x771388495F34d21C5574FeFc04cd1D5811E00aDa"
+      ]
+    ],
+    [
+      "get_probe",
+      [
+        0,
+        6
+      ]
+    ]
+  ],
+  "results": {
+    "counts": {
+      "challenges": 1,
+      "claims": 1,
+      "spent": 24
+    },
+    "get_claim": {
+      "active_challenge": 0,
+      "bond": 100000000000000000,
+      "bond_sworn": 100000000000000000,
+      "burned_at": 1791567831,
+      "challenges_survived": 0,
+      "claim_id": 0,
+      "classes": [
+        "paraphrase",
+        "numeral_substitution",
+        "entity_rename",
+        "unit_change",
+        "format_shift"
+      ],
+      "decode_params": "{\"temperature\": 0, \"top_p\": 1, \"max_tokens\": 512, \"seed\": 7, \"model\": \"meta-llama/llama-3.1-8b-instruct\"}",
+      "delta_threshold": 250,
+      "endpoint": "https://impeach.vercel.app/api/chat/completions",
+      "item_hashes": [
+        "6e987c0376a2b7e074e758b8fca674a3390895dc1621c450e44ea4f0bb32cdca",
+        "c431e51ca15b87da4bd9f08d7c45f5c2c1745af4452094d7b72ea1a7c4bdd8c7",
+        "65ccaf657f291a45f6c0643ed726bfcca05e8aba53ee2f74623dffda745aecec",
+        "ed56c299b28addb77860883f3d1976f0285c86a6a0a88fe6f4c5d2761eadf630",
+        "23dd6f1d0eb93dbe06b943865cee5ffef3c84c101e7cd182fa9b0fde28b5001e",
+        "e659bd8480ab405ddf112b49206d12e2c4613b48f3ca8148dbff28d4fe2fb086",
+        "ee48950f992cfd00af956004b65e901acc655d6a1d56fd8d0a79b3ff14f97ddf",
+        "e537b4b984fdc3eccd963e5d21b9efd3d73edd9626f03443ad4b6759208d6fc9",
+        "e5f6f8a6f8ed07d87a5945ac3f8931b830f047eb773ad640e855a127824db11c",
+        "e6bd020eaf8a1688ec258e4fd8607dc4134f411e73158050c64be101af20a91c",
+        "691a8b5f527a2a954b6c9540e795e9e05840580f85a59e0c8a8c7c0480724f02",
+        "b902008fff2b738e5e47b714a7685fcc05460e49d379534f9cbe1963694a3311",
+        "cfae82ac460c7c40f75ff864a2611ebe17fcfcc75a71b54036124b2c736b239c",
+        "a5cd03f224ec4bc398466231acab50e4d81d31f343ff8b31a1966e0c3927eb40",
+        "efbb051c4d6f2e304356a17f0439ac91bf01774c46aa19303dd315edb2ccf3b9",
+        "e4138cb2a7462db2ebd574dfc5f0391d756f5e56cf01626a6dec1b1819a9ab96",
+        "670677c0e0242c924dda42cff736a9c1ae84b66208072c75ddedaab7630af370",
+        "f15f9d6f851a42ea4727a0e5042a18b27b6618a2e87490edb1fbc77258d782ce",
+        "f50ee89c0518e8ddb794bb520a9bc993818aff1be7c4e14fdff1f5d90ce63d21",
+        "bf4112d6da6e77eff75a4d8fc43bdac023ab11272e100db295a80f6140fc49e2",
+        "8058705d502c0f5df3504fd4aabf54e7659153cb0246aee6c7cabc6570237b1d",
+        "aab7630836bcda65ac61bf3dec5ea28f705f65e8ccf633f9b6d455a3107829d9",
+        "f119463ee66b20cd9321a3fc53c01a27bdaa1cf7fb62f706d3afc8fc8613b83e",
+        "a99ea50c9aed9bfa3290b29d4f0b4746083969aceab0a013afe8b7723a548ee3"
+      ],
+      "last_challenge": -1,
+      "last_verdict": "UNCONTESTED",
+      "min_items": 20,
+      "opened_at": 1791567792,
+      "prompt_template": "{\"system\": \"You are a careful solver of grade-school math word problems.\", \"user\": \"Solve the problem. Finish with a line of the form ANSWER: <number>.\\n\\n{{item}}\"}",
+      "publisher": "0x771388495F34d21C5574FeFc04cd1D5811E00aDa",
+      "recall_prefix_milli": 400,
+      "recall_threshold": 150,
+      "reveal_window_s": 3600,
+      "score_milli": 750,
+      "scoring_rule": "The reply is correct if and only if the final numeric answer it commits to equals the reference answer as a number. Ignore currency signs, thousands separators, units and trailing zeros. A reply with no final answer is wrong.",
+      "similarity_milli": 900,
+      "spec_hash": "edc171783f06bd931893975a60d8fbf466ae96d491a77e16e66729db496b866b",
+      "stake": 1000000000000000,
+      "status": "TRIAL",
+      "subject": "meta-llama/llama-3.1-8b-instruct@deepinfra-fp8/2026-10-09",
+      "trial_window_s": 10800
+    },
+    "get_probe": {
+      "challenge_id": 0,
+      "item_index": 1,
+      "pinned": "RIGHT",
+      "pinned_answer": "540",
+      "recall": "MISS",
+      "rewrite": "RIGHT",
+      "rewrite_answer": "540",
+      "rewrite_class": "unit_change",
+      "rewrite_hash": "12119d7d9638a3aab89af876c4f69ea934e5266ad310c39ca889182db5af30cc",
+      "rewrite_prompt": "James decides to run 3 sprints 3 times a week.  He runs 0.06 kilometers each sprint.  How many total meters does he run a week?",
+      "rewrite_reply": "540",
+      "slice_settled": false,
+      "stage_c1": "ADMISSIBLE",
+      "stage_c2": "PENDING",
+      "stale": false,
+      "touched": true
+    },
+    "clock": 1791571092,
+    "balance_of": 0,
+    "get_probe_multiline": {
+      "challenge_id": 0,
+      "item_index": 6,
+      "pinned": "",
+      "pinned_answer": "",
+      "recall": "MISS",
+      "rewrite": "RIGHT",
+      "rewrite_answer": "694",
+      "rewrite_class": "format_shift",
+      "rewrite_hash": "6713e28aef3703883c5b93e9fe5870bc0c606e04763bc5bb039356a034c32f8c",
+      "rewrite_prompt": "Bakery receipt for Toula:\n- donuts: 3 dozen at $68 per dozen\n- mini cupcakes: 2 dozen at $80 per dozen\n- mini cheesecakes: 6 dozen at $55 per dozen\n\nWhat was the total cost?",
+      "rewrite_reply": "694",
+      "slice_settled": false,
+      "stage_c1": "ADMISSIBLE",
+      "stage_c2": "PENDING",
+      "stale": false,
+      "touched": true
+    }
+  }
+}

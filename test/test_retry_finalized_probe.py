@@ -1,0 +1,246 @@
+"""Offline recovery checks; all RPC reads and transaction submissions are mocked."""
+
+import contextlib
+import copy
+import fcntl
+import hashlib
+import io
+import json
+import os
+import subprocess
+import sys
+import tempfile
+import unittest
+from types import SimpleNamespace
+from unittest.mock import patch
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(ROOT, "scripts"))
+import retry_finalized_probe as recovery
+import run_case
+
+
+class FinalizedProbeRecoveryTests(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.args = SimpleNamespace(
+            address="0x" + "1" * 40, account="challenger", rpc="https://rpc.example",
+            manifest=os.path.join(self.tmp.name, "case.jsonl"), tx="0x" + "a" * 64,
+            claim=os.path.join(ROOT, "calibration", "claim-gsm8k.json"),
+            dry_run=False, delay=0, wait_timeout=0.05, poll_interval=0.001,
+        )
+        self.new_tx = "0x" + "b" * 64
+        self.claim = run_case.load_claim(self.args.claim)
+        self.rewrites = run_case.load_rewrites(self.claim)
+        self.challenge = {"status": "TRIAL", "claim_id": 0, "subset": [2], "trial_started_at": 100}
+        self.clock = 120
+        self.state = {"touched": True, "pinned": "RIGHT", "recall": "MISS", "rewrite_class": ""}
+        self.receipt = {"status": 7, "result": 5, "txExecutionResult": 1, "rounds": [{"votes": [4, 3]}]}
+        self.row = self.make_row()
+        self.write_rows(self.row)
+        self.enterContext(contextlib.redirect_stdout(io.StringIO()))
+        self.original_fetch = self.enterContext(patch.object(recovery, "fetch_receipt", return_value=self.receipt))
+        self.new_fetch = self.enterContext(patch.object(run_case, "fetch_receipt", return_value={
+            "status": 5, "result": 1, "txExecutionResult": 1,
+        }))
+        self.enterContext(patch.object(run_case.Runner, "read", side_effect=self.read))
+        self.send = self.enterContext(patch.object(run_case.subprocess, "run", return_value=
+            subprocess.CompletedProcess([], 0, "Transaction Hash: " + self.new_tx + "\n", "")))
+
+    def make_row(self, mode="REWRITE", value=0):
+        payload = run_case.tool.canonical_envelope(self.rewrites[2]) if mode == "REWRITE" else ""
+        call_args = ["0", "2", mode, payload]
+        signature = hashlib.sha256(json.dumps(["probe", call_args, str(value)],
+                                             ensure_ascii=False, sort_keys=True).encode()).hexdigest()
+        return {"key": "probe:0:2:" + mode, "tx": self.args.tx, "method": "probe", "at": 1,
+                "address": self.args.address, "signature": signature, "step": "probe",
+                "challenge_id": 0, "item_index": 2, "mode": mode}
+
+    def write_rows(self, *rows):
+        with open(self.args.manifest, "w", encoding="utf-8") as target:
+            for row in rows:
+                target.write(json.dumps(row) + "\n")
+
+    def read_rows(self):
+        with open(self.args.manifest, encoding="utf-8") as source:
+            return [json.loads(line) for line in source]
+
+    def read(self, method, *args):
+        return {"get_challenge": self.challenge, "get_claim": {"trial_window_s": 30},
+                "clock": self.clock, "get_probe": self.state}[method]
+
+    def refuse(self, message):
+        original = self.read_rows()
+        with self.assertRaisesRegex(SystemExit, message):
+            recovery.retry(self.args)
+        self.send.assert_not_called()
+        self.assertEqual(self.read_rows(), original)
+
+    def test_appends_once_and_saves_complete_receipt_before_submission(self):
+        def submit(command, **kwargs):
+            self.assertEqual(self.read_rows(), [self.row])
+            folder = self.args.manifest + ".receipts"
+            names = [name for name in os.listdir(folder) if ".finalized-" in name]
+            self.assertEqual(len(names), 1)
+            self.assertTrue(os.path.isfile(recovery.dispatch_path(self.args.manifest, self.args.tx)))
+            with open(os.path.join(folder, names[0]), encoding="utf-8") as source:
+                self.assertEqual(json.load(source), self.receipt)
+            self.assertEqual(command[command.index("--value") + 1], "0")
+            self.assertEqual(json.loads(command[command.index("--args-json") + 1]),
+                             recovery.original_call(self.row, self.args.claim))
+            return subprocess.CompletedProcess([], 0, "Transaction Hash: " + self.new_tx + "\n", "")
+
+        self.send.side_effect = submit
+        recovery.retry(self.args)
+        first, second = self.read_rows()
+        self.assertEqual(first, self.row)
+        self.assertEqual(second["previous_row"], self.row)
+        self.assertEqual(second["previous_tx"], self.row["tx"])
+        self.assertEqual(second["tx"], self.new_tx)
+        self.assertEqual(second["signature"], first["signature"])
+        self.assertFalse(os.path.isabs(second["previous_receipt"]))
+        self.assertTrue(os.path.isfile(os.path.join(self.tmp.name, second["previous_receipt"])))
+        with self.assertRaisesRegex(SystemExit, "latest manifest"):
+            recovery.retry(self.args)
+        self.args.tx = self.new_tx
+        with self.assertRaisesRegex(SystemExit, "already has a recovery"):
+            recovery.retry(self.args)
+        self.assertEqual(self.send.call_count, 1)
+        self.assertEqual(len(self.read_rows()), 2)
+
+    def test_pending_unfinalized_success_and_unknown_results_refuse(self):
+        for receipt in (
+            {"status": 1, "result": 5}, {"status": 6, "result": 5},
+            {"status": 11, "result": 5}, {"status": 7, "result": 1},
+            {"status": 7}, {"status": 7, "result": "future_result"},
+            {"status": 7, "result": 5, "resultName": "AGREE"},
+            {"status": 7, "result": 5},
+            {"status": 7, "result": 1, "txExecutionResult": 2},
+            {"status": 7, "result": 0, "txExecutionResult": 1},
+            {"status": 7, "result": 0, "txExecutionResult": 0, "txExecutionResultName": "FINISHED_WITH_RETURN"},
+        ):
+            with self.subTest(receipt=receipt):
+                self.original_fetch.return_value = receipt
+                self.refuse("FINALIZED with an explicit negative")
+
+    def test_finalized_idle_not_voted_can_retry_untouched_slot_once(self):
+        self.original_fetch.return_value = {
+            "status": 7, "statusName": "FINALIZED", "result": 0, "resultName": "IDLE",
+            "txExecutionResult": 0, "txExecutionResultName": "NOT_VOTED",
+        }
+        recovery.retry(self.args)
+        old, new = self.read_rows()
+        self.assertEqual(old, self.row)
+        self.assertEqual(new["previous_tx"], old["tx"])
+        self.assertEqual(self.send.call_count, 1)
+        with open(os.path.join(self.tmp.name, new["previous_receipt"]), encoding="utf-8") as source:
+            self.assertEqual(json.load(source), self.original_fetch.return_value)
+        self.args.tx = self.new_tx
+        with self.assertRaisesRegex(SystemExit, "already has a recovery"):
+            recovery.retry(self.args)
+        self.assertEqual(self.send.call_count, 1)
+
+    def test_finalized_no_execution_does_not_bypass_closed_trial(self):
+        self.original_fetch.return_value = {"status": 7, "result": 0, "txExecutionResult": 0}
+        self.challenge["status"] = "RULED"
+        self.refuse("active TRIAL")
+        self.challenge["status"] = "TRIAL"
+        self.clock = 131
+        self.refuse("window has closed")
+        self.assertFalse(os.path.exists(recovery.dispatch_path(self.args.manifest, self.args.tx)))
+
+    def test_nonzero_values_and_other_methods_or_steps_refuse(self):
+        for row in ({**self.row, "value": 1}, self.make_row(value=1),
+                    {**self.row, "method": "open_claim"}, {**self.row, "step": "retry"}):
+            with self.subTest(row=row):
+                self.write_rows(row)
+                self.refuse("zero-value|nonzero|original probe")
+
+    def test_current_rewrite_must_match_original_signature(self):
+        rewrites = copy.deepcopy(self.rewrites)
+        rewrites[2]["prompt"] += " Changed wording."
+        with patch.object(run_case, "load_rewrites", return_value=rewrites):
+            self.refuse("signature does not match")
+
+    def test_each_applied_slot_refuses(self):
+        occupied = {
+            "PINNED": {"touched": True, "pinned": "DEAD"},
+            "RECALL": {"touched": True, "recall": "MISS"},
+            "REWRITE": {"touched": True, "rewrite_class": "paraphrase"},
+            "ADMIT": {"touched": True, "stage_c1": "ADMISSIBLE", "stage_c2": "INADMISSIBLE"},
+        }
+        for mode, state in occupied.items():
+            with self.subTest(mode=mode):
+                self.write_rows(self.make_row(mode))
+                self.state = state
+                self.refuse("already applied or not ready")
+
+    def test_empty_slots_and_pending_second_framing_are_eligible(self):
+        for mode in ("PINNED", "RECALL", "REWRITE", "ADMIT"):
+            with self.subTest(mode=mode):
+                self.args.tx = "0x" + str(("PINNED", "RECALL", "REWRITE", "ADMIT").index(mode) + 1) * 64
+                self.write_rows(self.make_row(mode))
+                self.state = ({"touched": True, "stage_c1": "ADMISSIBLE", "stage_c2": "PENDING"}
+                              if mode == "ADMIT" else {"touched": False})
+                recovery.retry(self.args)
+                self.assertEqual(len(self.read_rows()), 2)
+
+    def test_closed_trial_and_expired_window_refuse(self):
+        self.challenge["status"] = "RULED"
+        self.refuse("active TRIAL")
+        self.challenge["status"] = "TRIAL"
+        self.clock = 131
+        self.refuse("window has closed")
+
+    def test_missing_slot_fields_do_not_imply_untouched(self):
+        self.state = {"touched": True}
+        self.refuse("already applied or not ready")
+        self.state = {}
+        self.refuse("already applied or not ready")
+
+    def test_original_hash_must_still_be_latest_for_its_key(self):
+        self.write_rows(self.row, {**self.row, "tx": self.new_tx})
+        self.refuse("latest manifest")
+
+    def test_does_not_resume_an_unrelated_pending_transaction(self):
+        other = {"key": "open", "tx": "0x" + "c" * 64, "method": "open_claim",
+                 "step": "open", "address": self.args.address}
+        self.write_rows(other, self.row)
+        recovery.retry(self.args)
+        self.assertEqual(self.read_rows()[0], other)
+        self.assertEqual(self.original_fetch.call_args.args[0], self.args.tx)
+        self.assertEqual(self.new_fetch.call_args.args[0], self.new_tx)
+        self.assertEqual(self.original_fetch.call_count, 1)
+        self.assertEqual(self.new_fetch.call_count, 1)
+
+    def test_dry_run_checks_and_preserves_history_without_submission(self):
+        self.args.dry_run = True
+        recovery.retry(self.args)
+        self.send.assert_not_called()
+        self.assertEqual(self.read_rows(), [self.row])
+        self.original_fetch.assert_called_once()
+        self.assertFalse(os.path.exists(recovery.dispatch_path(self.args.manifest, self.args.tx)))
+
+    def test_crash_with_unknown_submission_outcome_blocks_second_dispatch(self):
+        self.send.side_effect = RuntimeError("connection lost before the new hash was recorded")
+        with self.assertRaisesRegex(RuntimeError, "connection lost"):
+            recovery.retry(self.args)
+        self.assertEqual(self.read_rows(), [self.row])
+        marker = recovery.dispatch_path(self.args.manifest, self.args.tx)
+        with open(marker, encoding="utf-8") as source:
+            self.assertEqual(json.load(source)["previous_tx"], self.args.tx)
+        with self.assertRaisesRegex(SystemExit, "reconcile its on-chain outcome"):
+            recovery.retry(self.args)
+        self.assertEqual(self.send.call_count, 1)
+        self.assertEqual(self.original_fetch.call_count, 1)
+        self.assertTrue(os.path.isfile(marker))
+
+    def test_concurrent_recovery_cannot_submit_a_second_attempt(self):
+        with open(self.args.manifest + ".retry.lock", "a", encoding="utf-8") as lock:
+            fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            self.refuse("another recovery")
+
+
+if __name__ == "__main__":
+    unittest.main()

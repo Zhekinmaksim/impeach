@@ -34,7 +34,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "cli"))
 
 import impeach as tool  # noqa: E402
-from chain_receipts import TERMINAL, execution_of, fetch_receipt, status_of, successful
+from chain_receipts import TERMINAL, consensus_result_of, execution_of, fetch_receipt, finalized_failure, status_of, successful
 
 TX_RE = re.compile(r"Transaction Hash:\s*(0x[0-9a-fA-F]+)")
 
@@ -76,13 +76,14 @@ class Runner:
         self.args = args
         self.rows = manifest_rows(args.manifest)
         self.confirmed = set()
+        self.acknowledged = set()
         for row in self.rows.values():
             if row.get("address", "").lower() != args.address.lower():
                 raise SystemExit("manifest belongs to a different or unspecified contract; use a separate --manifest for this case")
         os.makedirs(os.path.dirname(os.path.abspath(args.manifest)), exist_ok=True)
 
     def wait(self, row):
-        if row["tx"] in self.confirmed or self.args.dry_run:
+        if row["tx"] in self.confirmed or row["tx"] in self.acknowledged or self.args.dry_run:
             return
         deadline = time.monotonic() + self.args.wait_timeout
         last = "PENDING"
@@ -90,10 +91,17 @@ class Runner:
             try:
                 receipt = fetch_receipt(row["tx"], self.args.rpc,
                                         timeout=max(1, min(30, deadline - time.monotonic())))
-                last = "%s / %s" % (status_of(receipt), execution_of(receipt))
+                last = "%s / %s / %s" % (status_of(receipt), execution_of(receipt), consensus_result_of(receipt))
                 if successful(receipt):
                     self.confirmed.add(row["tx"])
                     print("accepted  %s %s" % (row["key"], row["tx"]), flush=True)
+                    return
+                failed = status_of(receipt) in {"UNDETERMINED", "LEADER_TIMEOUT", "VALIDATORS_TIMEOUT", "CANCELED"}
+                failed |= finalized_failure(receipt)
+                if row["tx"] in getattr(self.args, "acknowledge_failed", []) and failed:
+                    self.acknowledged.add(row["tx"])
+                    print("acknowledged failure  %s %s (%s); no successful result assumed and no duplicate sent" %
+                          (row["key"], row["tx"], last), flush=True)
                     return
                 if status_of(receipt) in TERMINAL:
                     raise SystemExit("%s ended %s (%s); inspect the receipt before continuing; no duplicate was sent" %
@@ -312,6 +320,8 @@ def main() -> int:
     ap.add_argument("--delay", type=float, default=5.0)
     ap.add_argument("--wait-timeout", type=float, default=600, help="seconds to wait for each submitted transaction")
     ap.add_argument("--poll-interval", type=float, default=5, help="seconds between receipt reads")
+    ap.add_argument("--acknowledge-failed", action="append", default=[], metavar="TX_HASH",
+                    help="after saving and inspecting a decided failure, skip that hash without resubmitting it; repeat per hash")
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--live-reads", action="store_true", help="in a dry run, still read chain state")
     args = ap.parse_args()

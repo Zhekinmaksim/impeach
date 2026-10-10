@@ -1,0 +1,44 @@
+Retrieving project…
+Deploying zhekinmaksim-8919s-projects/impeach
+Uploading [--------------------] (0.0B/1.2KB)
+Uploading [====================] (1.2KB/1.2KB)
+Inspect: https://vercel.com/zhekinmaksim-8919s-projects/impeach/4BaJ8X7RsipUHAqfvvKKGQCRk2ok [2s]
+Production: https://impeach-m9vd78b9f-zhekinmaksim-8919s-projects.vercel.app [2s]
+Building...
+Building...
+Building: Running build in Washington, D.C., USA (East) – iad1
+Building: Build machine configuration: 4 cores, 8 GB
+Building: Retrieving list of deployment files...
+Building: Previous build caches not available.
+Building: Downloading 96 deployment files...
+Building: Running "vercel build"
+Building: Vercel CLI 62.7.0
+Building: Installing dependencies...
+Building: up to date in 419ms
+Building: Build Completed in /vercel/output [741ms]
+Building: Deploying outputs...
+[2K[1A[2K[GProduction: https://impeach-m9vd78b9f-zhekinmaksim-8919s-projects.vercel.app [13s]
+Completing...
+Aliased: https://impeach.vercel.app [14s]
+{
+  "status": "ok",
+  "deployment": {
+    "id": "dpl_4BaJ8X7RsipUHAqfvvKKGQCRk2ok",
+    "url": "https://impeach-m9vd78b9f-zhekinmaksim-8919s-projects.vercel.app",
+    "inspectorUrl": "https://vercel.com/zhekinmaksim-8919s-projects/impeach/4BaJ8X7RsipUHAqfvvKKGQCRk2ok",
+    "readyState": "READY",
+    "target": "production",
+    "deploymentApiUrl": "https://api.vercel.com/v13/deployments/dpl_4BaJ8X7RsipUHAqfvvKKGQCRk2ok"
+  },
+  "message": "Deployment impeach-m9vd78b9f-zhekinmaksim-8919s-projects.vercel.app ready.",
+  "next": [
+    {
+      "command": "vercel inspect impeach-m9vd78b9f-zhekinmaksim-8919s-projects.vercel.app --scope zhekinmaksim-8919s-projects",
+      "when": "Inspect deployment"
+    },
+    {
+      "command": "vercel deploy --prod --scope zhekinmaksim-8919s-projects",
+      "when": "Promote to production"
+    }
+  ]
+}

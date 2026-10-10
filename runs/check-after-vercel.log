@@ -1,0 +1,332 @@
+python3 cli/impeach.py envelope examples/rewrites/*.json --items calibration/gsm8k-24.items.json > /dev/null && echo "rewrites ok"
+rewrites ok
+python3 test/run_tests.py
+
+hashing, flattening, distance: contract and cli agree
+  ok   commitment matches
+  ok   commitment depends on the salt
+  ok   fields cannot bleed into each other
+  ok   content hash matches
+  ok   content hash ignores case, spacing and curly quotes
+  ok   content hash does not ignore a changed number
+  ok   flatten agrees on every sample
+  ok   squash agrees on every sample
+  ok   norm_answer agrees
+  ok   norm_answer: money and trailing zeros
+  ok   numerals agree
+  ok   numerals keep decimals, drop thousands separators
+  ok   banded distance equals full Levenshtein, 400 random pairs (contract)
+  ok   banded distance equals full Levenshtein, 400 random pairs (cli)
+  ok   recall: verbatim tail matches
+  ok   recall: restated prefix is stripped first
+  ok   recall: whitespace noise tolerated
+  ok   recall: a paraphrase does not match
+  ok   recall: empty continuation does not match
+  ok   recall: one typo is inside 0.9
+  ok   recall: one typo is outside 1.0
+  ok   recall match agrees with cli
+  ok   every corpus item is long enough for the recall detector
+  ok   a short item is not
+  ok   class vocabularies agree
+  ok   precheck agrees and rules as documented
+
+perturbation corpus
+  ok   24 items, one rewrite each
+  ok   every rewrite passes the deterministic gate and its own derivation
+  ok   every numeral_substitution carries a derivation
+  ok   all five declared classes are exercised
+  ok   controls pass the deterministic gate: only a referee can stop them
+  ok   controls really do change the answer
+  ok   a derivation that disagrees with the sworn answer is caught before any stake
+  ok   a derivation is arithmetic only
+
+opening a claim
+  ok   http endpoint refused
+  ok   score above 1000 refused
+  ok   fewer items than min_items refused
+  ok   min_items below the floor refused
+  ok   unknown class refused
+  ok   template without the item slot refused
+  ok   bond not attached refused
+  ok   stake that outweighs the bond refused
+  ok   malformed hash refused
+  ok   duplicate hash refused
+  ok   threshold of zero refused
+  ok   ten-second window refused
+  ok   claim opens sealed with the full bond
+  ok   spec hash is pinned
+  ok   items are not readable while sealed
+  ok   nothing is spent yet
+  ok   an unchallenged claim reads UNCONTESTED, never CLEAN
+
+who may do what
+  ok   publisher cannot challenge themselves
+  ok   subset under min_items refused
+  ok   subset index out of range refused
+  ok   class the claim did not allow refused
+  ok   understaked challenge refused
+  ok   reveal before any challenge refused
+  ok   overpaid stake is credited back, not kept
+  ok   claim is now CHALLENGED and cannot be retired
+  ok   second challenge while one is open refused
+  ok   probe before reveal refused
+  ok   only the publisher reveals
+  ok   a reveal that does not match the seal is refused
+  ok   a partial reveal is refused
+  ok   reveal moves the claim to TRIAL and burns the set
+  ok   items are now on chain in full
+  ok   only the challenger files rewrites
+  ok   ADMIT before a rewrite refused
+  ok   unknown mode refused
+  ok   rewrite in an undeclared class refused
+  ok   rewrite identical to the item refused without costing a stake
+  ok   rule with probes outstanding refused
+  ok   one rewrite per item
+  ok   a pinned probe is answered once
+  ok   solvency held through every call
+
+the court separates the three populations
+  ok   memoriser: CONTAMINATED on both detectors
+  ok   memoriser: pinned accuracy is perfect and the gap is wide
+  ok   memoriser: reproduces every held-out tail
+  ok   memoriser: answers every numeral substitution with the old number
+  ok   memoriser: bond goes to the challenger, stake comes back
+  ok   memoriser: certificate is final and the score is spent
+  ok   memoriser: verdict recomputes offline from the published probes
+  ok   memoriser: a contaminated claim takes no further challenge
+  ok   memoriser: solvency held through every call
+  ok   capable: CLEAN
+  ok   capable: both numbers under threshold with a full sample
+  ok   capable: the sworn score reproduces
+  ok   capable: honest challenger pays nothing: full stake back
+  ok   capable: bond stays posted and the claim stays open to the next challenger
+  ok   capable: verdict recomputes offline
+  ok   capable: solvency held through every call
+  ok   neither: UNSUPPORTED, the sworn number does not reproduce
+  ok   neither: no gap and no recall, so it is not called contaminated
+  ok   neither: a false oath costs the bond
+  ok   neither: verdict recomputes offline
+  ok   neither: solvency held through every call
+  ok   three subjects, three different verdicts
+  ok   a bad model that swears to a bad score is CLEAN: the court tries the oath, not the model
+
+the spent registry
+  ok   sealed: neither commitment nor text is in the registry
+  ok   challenged but unrevealed: still unspent
+  ok   revealed: every commitment is spent, including items the challenger did not pick
+  ok   revealed: every item is spent by the hash of its text
+  ok   the text is recognised through case and spacing changes
+  ok   a different item is not spent
+  ok   registry names the claim that burned it
+  ok   registry pages in burn order
+  ok   burning is at reveal, not at verdict
+  ok   the same sealed hashes cannot open another claim
+  ok   re-salted spent items are caught at reveal
+  ok   a claim sworn on spent items is UNSUPPORTED on the spot
+  ok   its bond goes to the challenger with the whole stake
+  ok   the registry does not double count
+  ok   the first burner stays on record
+  ok   solvency held through every call
+
+admissibility: a rewrite that changes the question
+  ok   all four controls are ruled INADMISSIBLE by framing one
+  ok   an inadmissible rewrite is never put to the model
+  ok   framing two is not spent on them
+  ok   each forfeits its slice to the publisher, at once
+  ok   the capable model stays CLEAN
+  ok   certificate counts 20 admissible and 4 inadmissible
+  ok   challenger gets back exactly the admissible slices
+  ok   solvency held through every call
+  ok   with framing one fooled, the controls reach the model and it is marked wrong
+  ok   framing two rejects all four
+  ok   the manufactured wrong answers do not reach the gap
+  ok   the griefer still loses the four slices
+  ok   with both framings fooled, four changed questions convict a clean model at a 150‰ threshold
+
+selective omission: dropping the items the model got wrong
+  ok   the challenger filed rewrites only where the model was right
+  ok   counted over those pairs alone, the gap would convict
+  ok   counted the way the contract counts, it does not
+  ok   the unfiled slices went to the publisher
+  ok   offline recomputation applies the same presumption
+  ok   solvency held through every call
+
+an endpoint that does not answer
+  ok   every model call comes back DEAD, twice
+  ok   a dead probe has two attempts and no third
+  ok   INCONCLUSIVE, and the reason is on the record
+  ok   silence is not free: the publisher pays the challenger's costs out of the bond
+  ok   the claim is still standing, its set burned, and can be tried again
+  ok   offline recomputation agrees
+  ok   solvency held through every call
+  ok   a transient failure is retried once and then answers
+  ok   a dead rewrite answer is retried without refiling the rewrite
+  ok   the retry does not pay the referee again
+  ok   answers what it has seen, errors on what it has not
+  ok   going quiet on the rewrites is read as an answer: CONTAMINATED
+  ok   offline recomputation agrees
+
+windows: refusing to reveal, walking away
+  ok   default cannot be claimed while the reveal window is open
+  ok   a late reveal is refused
+  ok   a publisher who never opens the set loses by default
+  ok   bond and stake both go to the challenger
+  ok   nothing was burned: the items were never shown
+  ok   solvency held through every call
+  ok   the publisher cannot rule early on an idle challenger
+  ok   probing after the trial window is refused
+  ok   a challenger who burns the set and walks away gets INCONCLUSIVE
+  ok   and forfeits the whole stake to the publisher whose set was burned
+  ok   the bond is untouched
+  ok   solvency held through every call
+
+CLEAN is not final while the bond stands
+  ok   probing an item outside the challenged subset is refused
+  ok   first challenge, 20 items chosen blind: CLEAN
+  ok   ruling twice is refused
+  ok   a second challenger has seen the items, so cannot pick among them
+  ok   the second challenge goes straight to trial: there is nothing left to reveal
+  ok   a CLEAN certificate does not protect the next trial
+  ok   the certificate still says it survived one challenge first
+  ok   the second challenger takes the bond
+  ok   solvency held through every call
+
+retiring a claim
+  ok   only the publisher retires
+  ok   retired without a challenge: bond back, certificate UNCONTESTED for good
+  ok   a retired claim takes no challenge
+  ok   retired after CLEAN: verdict kept, bond no longer standing, marked final
+
+withdrawals
+  ok   withdraw pays exactly the credited balance
+  ok   and only once
+  ok   challenger withdraws the returned stake
+  ok   the two transfers left the contract as native value
+  ok   the contract holds nothing after everyone is paid
+  ok   solvency held through every call
+
+177 passed, 0 failed  (local stub)
+python3 -m unittest discover -s test -p 'test_*.py'
+...............................................................
+----------------------------------------------------------------------
+Ran 63 tests in 0.915s
+
+OK
+python3 scripts/make_fixtures.py --check
+fixtures ok
+node test/test_parity.mjs
+47 passed, 0 failed  (web/src/seal.js parity)
+node --test test/test_gas.mjs
+TAP version 13
+# Subtest: bounds the estimate, adds margin, and simulates the exact selected gas
+ok 1 - bounds the estimate, adds margin, and simulates the exact selected gas
+  ---
+  duration_ms: 0.584958
+  ...
+# Subtest: does not exceed the transaction cap when adding margin
+ok 2 - does not exceed the transaction cap when adding margin
+  ---
+  duration_ms: 0.0845
+  ...
+# Subtest: refuses an oversized estimate instead of silently truncating it
+ok 3 - refuses an oversized estimate instead of silently truncating it
+  ---
+  duration_ms: 0.178958
+  ...
+# Subtest: refuses a failed simulation
+ok 4 - refuses a failed simulation
+  ---
+  duration_ms: 0.132417
+  ...
+# Subtest: refuses the wrong chain and an override above the protocol cap
+ok 5 - refuses the wrong chain and an override above the protocol cap
+  ---
+  duration_ms: 0.3745
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 33.296084
+node --test test/test_proxy.mjs
+TAP version 13
+# Subtest: allowlist matches all 72 bodies generated by the real contract
+ok 1 - allowlist matches all 72 bodies generated by the real contract
+  ---
+  duration_ms: 70.367166
+  ...
+# Subtest: health is free, works without configuration, and never reveals secrets
+ok 2 - health is free, works without configuration, and never reveals secrets
+  ---
+  duration_ms: 10.355333
+  ...
+# Subtest: disabled, unconfigured and expired deployments never call the provider
+ok 3 - disabled, unconfigured and expired deployments never call the provider
+  ---
+  duration_ms: 1.887292
+  ...
+# Subtest: arbitrary conversations, models, parameters, tools and streams cannot spend credits
+ok 4 - arbitrary conversations, models, parameters, tools and streams cannot spend credits
+  ---
+  duration_ms: 15.957125
+  ...
+# Subtest: all allowed requests reach the fixed provider; repeat calls are never cached
+ok 5 - all allowed requests reach the fixed provider; repeat calls are never cached
+  ---
+  duration_ms: 61.967625
+  ...
+# Subtest: key cap is verified before inference with no local or cross-instance budget assumptions
+ok 6 - key cap is verified before inference with no local or cross-instance budget assumptions
+  ---
+  duration_ms: 8.962375
+  ...
+# Subtest: credit-only mode admits only the verified route and preserves its actual response
+ok 7 - credit-only mode admits only the verified route and preserves its actual response
+  ---
+  duration_ms: 1.508375
+  ...
+# Subtest: credit-only mode refuses another route, a larger budget or a window beyond four hours
+ok 8 - credit-only mode refuses another route, a larger budget or a window beyond four hours
+  ---
+  duration_ms: 1.8145
+  ...
+# Subtest: credit-only mode requires known zero BYOK usage, a lifetime cap and at least ten cents remaining
+ok 9 - credit-only mode requires known zero BYOK usage, a lifetime cap and at least ten cents remaining
+  ---
+  duration_ms: 14.166708
+  ...
+# Subtest: credit-only mode refuses unknown or BYOK completion usage after the upstream call
+ok 10 - credit-only mode refuses unknown or BYOK completion usage after the upstream call
+  ---
+  duration_ms: 4.697416
+  ...
+# Subtest: invalid, excessive or non-JSON requests are rejected before inference
+ok 11 - invalid, excessive or non-JSON requests are rejected before inference
+  ---
+  duration_ms: 3.181666
+  ...
+# Subtest: provider failures and malformed replies never expose upstream errors or secrets
+ok 12 - provider failures and malformed replies never expose upstream errors or secrets
+  ---
+  duration_ms: 5.339792
+  ...
+# Subtest: timeout and failed key lookup close the endpoint without inference
+ok 13 - timeout and failed key lookup close the endpoint without inference
+  ---
+  duration_ms: 6.929334
+  ...
+1..13
+# tests 13
+# suites 0
+# pass 13
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 243.871125
+python3 cli/impeach.py recompute web/case.json
+ok   claim 0  INCONCLUSIVE  Δ=-181‰ R=0‰ n=4

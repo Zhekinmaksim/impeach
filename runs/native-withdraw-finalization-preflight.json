@@ -1,0 +1,37 @@
+{
+  "checked_at": "2026-10-10T04:58:06.132Z",
+  "block_time": "2026-10-10T04:58:14.000Z",
+  "consensus_data": "0x85D7bf947A512Fc640C75327A780c90847267697",
+  "checks": [
+    {
+      "role": "publisher",
+      "tx": "0xdc9472cfb17951024e2d5ae967fe0c9024aabd556e619378700a04a6b0296ee3",
+      "can_finalize": [
+        false,
+        "1791608294",
+        "1791609314"
+      ],
+      "eligible_at": "2026-10-10T05:15:14.000Z"
+    },
+    {
+      "role": "challenger",
+      "tx": "0x542fba228940ecf69f93c95e20a44ef905a6ae59c5d4c36bcc733b4239881ed0",
+      "can_finalize": [
+        false,
+        "1791608294",
+        "1791609370"
+      ],
+      "eligible_at": "2026-10-10T05:16:10.000Z"
+    },
+    {
+      "role": "tunnel_challenger",
+      "tx": "0xc46309db01b51f72029bd87a93472a87bbee8ab07297a4800b476445f52d3ae3",
+      "can_finalize": [
+        false,
+        "1791608294",
+        "1791609605"
+      ],
+      "eligible_at": "2026-10-10T05:20:05.000Z"
+    }
+  ]
+}

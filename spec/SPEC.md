@@ -211,14 +211,16 @@ Storage mirrors Suborn: `TreeMap` keyed by id, pull-based balances with a single
 
 ## 8. Equivalence principles
 
-- **answering a probe** — `prompt_comparative` on the extracted answer field
-  only, never on the model's prose. The judges are not grading style.
-- **admissibility** — `prompt_comparative` on a boolean, two framings.
+- **answering a probe** — `prompt_comparative` requires matching status and
+  correctness fields and equivalent extracted answers, ignoring answer formatting.
+- **admissibility** — `prompt_comparative` compares independently computed
+  original/rewrite answers and the semantic referee's boolean, in two framings.
 - **verbatim recall** — `strict_eq` on an integer similarity bucket. No LLM.
 - **the model call itself** — each validator calls the endpoint independently.
-  This is the only place where real nondeterminism is desirable: if validators
-  cannot agree on what the model answered at temperature 0, that is itself a
-  finding, and it is reported rather than smoothed away.
+  Receipts preserve a failure to reach consensus. An undetermined result can
+  arise from timeouts or execution violations; it does not by itself establish
+  that the subject gave inconsistent answers. Inspect the vote reasons before
+  attributing a failed round to the model.
 
 ## 9. The certificate
 

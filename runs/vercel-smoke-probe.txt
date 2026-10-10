@@ -1,0 +1,21 @@
+
+Result:
+{
+  challenge_id: 0,
+  item_index: 0,
+  pinned: 'RIGHT',
+  pinned_answer: '18',
+  recall: 'MISS',
+  rewrite: 'RIGHT',
+  rewrite_answer: '36',
+  rewrite_class: 'numeral_substitution',
+  rewrite_hash: '58335aea980dbed2dd24ccb5e5b8ca8499a8ecdddbdf51207cf9f22d0f882b8e',
+  rewrite_prompt: "Janet’s ducks lay 22 eggs per day. She eats four for breakfast every morning and bakes muffins for her friends every day with six. She sells the remainder at the farmers' market daily for $3 per fresh duck egg. How much in dollars does she make every day at the farmers' market?",
+  rewrite_reply: '36',
+  slice_settled: true,
+  stage_c1: 'ADMISSIBLE',
+  stage_c2: 'ADMISSIBLE',
+  stale: false,
+  touched: true
+}
+

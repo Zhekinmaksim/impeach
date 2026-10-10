@@ -1,0 +1,6 @@
+52 transactions: ACCEPTED 4, FINALIZED 48
+  ADMIT    FINALIZED 6
+  PINNED   FINALIZED 14
+  RECALL   FINALIZED 12
+  REWRITE  FINALIZED 13
+1 cases, 24 registry rows -> web/case.json

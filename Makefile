@@ -1,4 +1,6 @@
 PY ?= python3
+MANIFEST ?= runs/bradbury.jsonl
+RPC ?= https://rpc-bradbury.genlayer.com
 
 .PHONY: check check-sdk lint snapshot publish assets serve clean
 
@@ -28,7 +30,7 @@ snapshot:
 # Rebuild the published snapshot from settled receipts. collect exits non-zero
 # when nothing has settled, and make stops there.
 publish:
-	$(PY) scripts/collect.py runs/bradbury.jsonl --address $(CONTRACT) --out web/case.json
+	$(PY) scripts/collect.py $(MANIFEST) --address $(CONTRACT) --rpc $(RPC) --out web/case.json
 	$(PY) cli/impeach.py recompute web/case.json
 
 # Logo, share card and icons. Needs fonttools, brotli, uharfbuzz, playwright and

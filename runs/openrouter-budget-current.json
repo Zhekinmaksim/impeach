@@ -1,0 +1,9 @@
+{
+  "usage": 1.28827328,
+  "limit": 5,
+  "limit_remaining": 3.7117267199999997,
+  "limit_reset": null,
+  "include_byok_in_limit": false,
+  "byok_usage": 0,
+  "checked_at": "2026-10-10T04:43:32.610328+00:00"
+}

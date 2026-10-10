@@ -1,0 +1,21 @@
+
+Result:
+{
+  challenge_id: 0,
+  item_index: 1,
+  pinned: 'RIGHT',
+  pinned_answer: '540',
+  recall: 'MISS',
+  rewrite: 'RIGHT',
+  rewrite_answer: '540',
+  rewrite_class: 'unit_change',
+  rewrite_hash: '12119d7d9638a3aab89af876c4f69ea934e5266ad310c39ca889182db5af30cc',
+  rewrite_prompt: 'James decides to run 3 sprints 3 times a week.  He runs 0.06 kilometers each sprint.  How many total meters does he run a week?',
+  rewrite_reply: '540',
+  slice_settled: false,
+  stage_c1: 'ADMISSIBLE',
+  stage_c2: 'PENDING',
+  stale: false,
+  touched: true
+}
+

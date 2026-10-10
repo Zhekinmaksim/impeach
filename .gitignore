@@ -11,7 +11,9 @@ output/
 .tools/
 runs/*.sqlite*
 runs/*.pid
+runs/*.retry.lock
 runs/*tunnel*.log
+!runs/tunnel-withdraw-challenger.log
 .playwright-cli/
 runs/referee-dryrun.json
 .vercel

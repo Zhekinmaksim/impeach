@@ -8,9 +8,8 @@
     impeach probe     <challenge> <item> <mode>  one probe round
     impeach rule      <challenge>                compute Δ and R, settle
 
-`check` is the piece meant to be installed elsewhere. It needs nothing but this
-file: point it at a published snapshot or at the contract and it answers
-whether an evaluation item is still evidence of anything.
+`check` can use a published snapshot with this file alone. Live contract reads
+also require scripts/genlayer_write.mjs and the installed GenLayer SDK.
 
 The hashing, the flattening and the edit distance below are copies of the ones
 in contracts/impeach.py. test/run_tests.py holds the two equal.
@@ -379,15 +378,16 @@ def extract_json(text: str):
 
 
 def chain_call(address: str, method: str, args: list, rpc: str = "", timeout: int = 60):
-    command = ["genlayer", "call", address, method]
-    if args:
-        command += ["--args"] + [str(a) for a in args]
+    bridge = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                          "scripts", "genlayer_write.mjs")
+    command = ["node", bridge, "--read", address, method,
+               "--args-json", json.dumps(args, ensure_ascii=False)]
     if rpc:
         command += ["--rpc", rpc]
     result = subprocess.run(command, capture_output=True, text=True, timeout=timeout)
     if result.returncode != 0:
         raise RuntimeError((result.stdout + result.stderr).strip())
-    return extract_json(result.stdout)
+    return json.loads(result.stdout)
 
 
 def chain_write_command(address: str, method: str, args: list, rpc: str = "") -> list:

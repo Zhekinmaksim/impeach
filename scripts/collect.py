@@ -7,10 +7,10 @@ web/case.json with provenance "bradbury".
 
     python3 scripts/collect.py runs/bradbury.jsonl --address $CONTRACT --out web/case.json
 
-A probe whose transaction ended UNDETERMINED never wrote state: the validators
-could not agree on what the model answered. Those are counted here and carried
-into the snapshot rather than dropped, because at temperature 0 that
-disagreement is itself a finding about the subject.
+A probe whose transaction ended UNDETERMINED did not obtain consensus. Its
+votes can reflect timeouts or execution violations as well as disagreement.
+These outcomes remain in the snapshot; they are not, by themselves, findings
+about the subject's answers.
 
 Nothing is estimated. If nothing has settled, the old snapshot is left in place
 and the exit status is non-zero.
@@ -33,7 +33,17 @@ sys.path.insert(0, os.path.join(ROOT, "scripts"))
 
 import impeach as tool  # noqa: E402
 import snapshot  # noqa: E402
-from chain_receipts import TERMINAL, execution_of, fetch_receipt, status_of
+from chain_receipts import TERMINAL, consensus_result_of, execution_of, fetch_receipt, status_of
+
+
+def record_transaction(txs, row):
+    key = row["key"]
+    if key in txs and txs[key]["tx"] != row["tx"]:
+        key += "@" + row["tx"]
+    txs[key] = {field: row[field] for field in ("tx", "status", "execution", "consensus_result")}
+    if row.get("previous_tx"):
+        txs[key]["previous_tx"] = row["previous_tx"]
+
 
 def main() -> int:
     ap = argparse.ArgumentParser(prog="collect")
@@ -59,6 +69,8 @@ def main() -> int:
     else:
         if not args.address:
             raise SystemExit("--address or --from-json is required")
+        if any(row.get("address", "").lower() != args.address.lower() for row in rows):
+            raise SystemExit("manifest belongs to a different or unspecified contract; use the matching --manifest and --address")
 
         def read(method, *call_args):
             return tool.chain_call(args.address, method, list(call_args), args.rpc, args.timeout)
@@ -73,13 +85,16 @@ def main() -> int:
 
     statuses = {}
     executions = {}
+    decisions = {}
     by_mode = {}
     for row in rows:
         st = status_of(receipts.get(row["tx"]))
         row["status"] = st
         row["execution"] = execution_of(receipts.get(row["tx"]))
+        row["consensus_result"] = consensus_result_of(receipts.get(row["tx"]))
         statuses[st] = statuses.get(st, 0) + 1
         executions[row["execution"]] = executions.get(row["execution"], 0) + 1
+        decisions[row["consensus_result"]] = decisions.get(row["consensus_result"], 0) + 1
         if row.get("mode"):
             slot = by_mode.setdefault(row["mode"], {})
             slot[st] = slot.get(st, 0) + 1
@@ -92,13 +107,17 @@ def main() -> int:
         txs = {}
         for row in rows:
             if row.get("claim_id") == cid or row.get("step") == "open":
-                txs[row["key"]] = {"tx": row["tx"], "status": row["status"], "execution": row["execution"]}
+                record_transaction(txs, row)
         case = snapshot.build_case(read, cid, txs=txs)
         if case["challenge"]:
             hid = case["challenge"]["challenge_id"]
             for row in rows:
                 if row.get("challenge_id") == hid:
-                    txs[row["key"]] = {"tx": row["tx"], "status": row["status"], "execution": row["execution"]}
+                    record_transaction(txs, row)
+        # A probe-only manifest starts with no claim-level entries. The
+        # snapshot builder may replace that empty dict, so attach the completed
+        # history explicitly, including failed and recovered probe hashes.
+        case["txs"] = txs
         cases.append(case)
 
     previews = {}
@@ -112,23 +131,26 @@ def main() -> int:
             sealed.setdefault(it["content_hash"], it["item_hash"])
     registry = snapshot.build_registry(read, previews, sealed)
 
-    settled = [c for c in cases if c["claim"]["burned_at"] or c["certificate"]["contested"]]
+    settled = [c for c in cases if c["certificate"]["contested"] and c["certificate"]["ruled_at"]]
     print("%d transactions: %s" % (len(rows), ", ".join("%s %d" % kv for kv in sorted(statuses.items()))))
     for mode in sorted(by_mode):
         print("  %-8s %s" % (mode, ", ".join("%s %d" % kv for kv in sorted(by_mode[mode].items()))))
     if pending:
         print("%d still settling, re-run later: %s" % (len(pending), ", ".join(t[:12] for t in pending[:5])))
     if not settled:
-        print("Nothing settled. Not writing a snapshot — the old one stays in place.")
+        print("No ruled certificate. Not writing a snapshot — the old one stays in place.")
         return 2
 
-    snap = snapshot.envelope("bradbury", args.address, cases, registry, int(time.time()))
+    provenance = "simulation" if args.from_json else "bradbury"
+    note = "Offline recorded reads; not verified chain evidence." if args.from_json else ""
+    snap = snapshot.envelope(provenance, args.address, settled, registry, int(time.time()), note)
     snap["receipts"] = {"total": len(rows), "by_status": statuses, "by_execution": executions,
+                        "by_consensus_result": decisions,
                         "by_mode": by_mode, "pending": len(pending)}
     with open(args.out, "w", encoding="utf-8") as f:
         json.dump(snap, f, ensure_ascii=False, indent=1)
         f.write("\n")
-    print("%d cases, %d registry rows -> %s" % (len(cases), len(registry), args.out))
+    print("%d cases, %d registry rows -> %s" % (len(settled), len(registry), args.out))
     return 0
 
 

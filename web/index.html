@@ -240,6 +240,7 @@ td.long { font-family: var(--text); font-weight: 400; font-size: 0.98rem; white-
 
 footer.end { padding-top: 2rem; padding-bottom: 3.5rem; border-top: 1.5px solid var(--form); margin-top: 0; }
 footer.end .two p { max-width: none; }
+#source { overflow-wrap: anywhere; }
 pre { font-family: var(--mono); font-size: 0.8rem; line-height: 1.5; background: var(--sheet); border: 1.5px solid var(--form); padding: 0.8rem 1rem; overflow-x: auto; margin: 0 0 0.9rem; }
 
 @media (max-width: 52rem) {
@@ -321,7 +322,7 @@ pre { font-family: var(--mono); font-size: 0.8rem; line-height: 1.5; background:
       <div><h3>Terms of the claim</h3><table id="terms"></table></div>
       <div><h3>Certificate</h3><table id="cert"></table>
         <div class="take">
-          <a class="btn" href="case.json" download="impeach-case.json">Download the case file</a>
+          <a class="btn" id="download-case" href="case.json" download="impeach-case.json">Download the case file</a>
           <button type="button" class="btn" id="copy-cert">Copy certificate</button>
         </div>
         <div id="receipts"></div></div>
@@ -345,8 +346,8 @@ pre { font-family: var(--mono); font-size: 0.8rem; line-height: 1.5; background:
 </main>
 
 <footer class="end">
-  <p><a href="https://github.com/Zhekinmaksim/impeach">Source on GitHub</a> · <a href="https://github.com/Zhekinmaksim/impeach/blob/main/spec/SPEC.md">Contract specification</a> · <a href="case.json" download="impeach-case.json">Download evidence</a></p>
-  <p><a href="https://github.com/Zhekinmaksim/impeach/blob/main/runs/llama-rehearsal.json">Real-model rehearsal: Llama 3.1 8B</a> · <a href="https://explorer-bradbury.genlayer.com/transactions/0x82d689f194b40d5675baef07f48be2d617cd96e2ef848b1bd1aeaaf31d309eb8">Contract deployment on Bradbury</a></p>
+  <p><a href="./">Current case</a> · <a href="?demo=1">Scripted examples</a> · <a href="https://github.com/Zhekinmaksim/impeach">Source on GitHub</a> · <a href="https://github.com/Zhekinmaksim/impeach/blob/main/spec/SPEC.md">Contract specification</a> · <a id="download-evidence" href="case.json" download="impeach-case.json">Download evidence</a></p>
+  <p><a href="https://github.com/Zhekinmaksim/impeach/blob/main/runs/llama-rehearsal.json">Real-model rehearsal: Llama 3.1 8B</a> · <a href="https://explorer-bradbury.genlayer.com/transactions/0x28e52e602628b4dfbf5e0972aa10dfe9bda751c3b7284cd3921526dff4cd415e">Contract deployment on Bradbury</a></p>
   <div class="two">
     <div>
       <h3>Check from a terminal</h3>

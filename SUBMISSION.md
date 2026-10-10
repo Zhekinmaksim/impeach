@@ -17,8 +17,8 @@ writes a certificate another contract can read.
 A harness run by the publisher measures what the publisher chose to measure. A
 harness run by the challenger is no more falsifiable. The judgment needs judges
 neither side picked, applying terms frozen before the items were revealed, each
-calling the model themselves. And a score is a durable claim, so the slowness of
-consensus costs nothing here.
+calling the model themselves. The resulting certificate exposes settled answers
+and failed consensus rounds under the same frozen terms.
 
 ## The mechanism that is new
 
@@ -31,7 +31,7 @@ humans and CI.
 ## What is reused from Jastrow and Suborn
 
 - Two referee framings that must agree before a rewrite counts (Suborn stage B).
-- `INCONCLUSIVE` as a first-class outcome that pays nobody (Jastrow's gate).
+- `INCONCLUSIVE` retains the bond and settles stake according to the referee decisions.
 - Pull-based balances, one `withdraw`, a solvency view asserted after every call.
 - Record the hash at submit, build the report from receipts later.
 
@@ -40,17 +40,18 @@ humans and CI.
 | where | principle | on what |
 | --- | --- | --- |
 | marking a model's answer | `prompt_comparative` | the extracted answer and a boolean, never the prose |
-| admissibility | `prompt_comparative` | one boolean, two framings |
+| admissibility | `prompt_comparative` | independently computed answers and the class decision, two framings |
 | verbatim recall | `strict_eq` | an integer bucket from bounded edit distance; no LLM |
 
-Each validator calls the endpoint itself. If they cannot agree on what the model
-answered, the round does not settle and the receipt says so.
+Each validator calls the endpoint itself. A round that fails consensus does not
+apply a probe result. Receipts distinguish disagreement, timeouts and execution
+violations; these failures alone do not establish what the model answered.
 
 ## The consumer outside the project
 
 `certificate(claim_id)` and `is_spent(item_hash)` are views meant for an agent
-marketplace, a grant committee or another contract. `cli/impeach.py check` is a
-single file with no dependencies that exits 1 when an item is spent.
+marketplace, a grant committee or another contract. `cli/impeach.py check`
+uses the installed GenLayer SDK and exits 1 when an item is spent.
 
 ## What was decided beyond the spec
 
@@ -87,5 +88,6 @@ _Empty until the live run. Fill from receipts and `web/case.json` only._
 | page | |
 | repository | |
 
-Transaction hashes in this document are taken from `runs/bradbury.jsonl`, which
-is written at submit time and is the canonical record for the run.
+The current trial's transaction hashes are recorded at submission in
+`runs/bradbury-vercel.jsonl`; fetched outcomes are included in `web/case.json`.
+`runs/bradbury.jsonl` preserves the earlier tunnel trial separately.

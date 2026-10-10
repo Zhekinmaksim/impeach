@@ -1,0 +1,8 @@
+{
+  "OPENROUTER_MODEL": "meta-llama/llama-3.1-8b-instruct",
+  "OPENROUTER_PROVIDER": "deepinfra/fp8",
+  "TRIAL_BUDGET_USD": "5",
+  "TRIAL_CREDIT_ONLY": "true",
+  "TRIAL_ENABLED": "true",
+  "TRIAL_EXPIRES_AT": "2026-10-09T21:35:54Z"
+}

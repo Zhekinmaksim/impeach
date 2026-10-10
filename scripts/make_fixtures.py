@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
-"""Write test/fixtures/parity.json: what the Python core computes for a fixed
-set of inputs. test/test_parity.mjs holds web/src/seal.js to it, and
-test/run_tests.py refuses to pass if the committed file is stale."""
+"""Write test/fixtures/parity.json from the fixed rehearsal in web/demo.json.
+
+test/test_parity.mjs checks web/src/seal.js against those inputs. `make check`
+separately recomputes the current live web/case.json, which may change as the
+network finalizes transactions without changing the rehearsal coverage.
+"""
 
 import json
 import os
@@ -20,7 +23,8 @@ def build() -> dict:
     texts = [it["prompt"] for it in items[:6]] + [
         "  a\tb\u00a0c  ", "“Q” ‘x’", "", "ÀÉ İ ß 𝒳", "x\r\n\r\ny", "MiXeD Case\x0b\x0cend",
     ]
-    snap = json.load(open(os.path.join(ROOT, "web", "case.json"), encoding="utf-8"))
+    with open(os.path.join(ROOT, "web", "demo.json"), encoding="utf-8") as source:
+        snap = json.load(source)
     return {
         "texts": [
             {"text": t, "squash": tool.squash(t), "flatten": tool.flatten(t), "content_hash": tool.content_hash(t)}

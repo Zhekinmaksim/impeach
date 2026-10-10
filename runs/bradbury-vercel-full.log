@@ -1,0 +1,800 @@
+STEP probes
+accepted  open 0x21c709cbbb88a9f04804d2a117b46c0494885235de1f2b00329398062c473d1b
+accepted  challenge:0 0x3fd7880e8e9243bc9a085434516008f17477b2e72de63afc4e069c84fce62bca
+accepted  reveal:0 0xf9ef19272af823b0d7e184fffd498e4be610eafa24b6283f56fa6f410c6a985c
+accepted  probe:0:0:PINNED 0x2cd1ddf5a098f676bfe16d77b24656860311a6f0405435f1952f6f941da3415a
+accepted  probe:0:0:RECALL 0xf754b93dd9d1f3f9430e3928ff875626a204497e19e4ccc2e3a7812d4d5b8951
+accepted  probe:0:0:REWRITE 0xeef8ca72a1aaaba33d2fbd47aa9a45e728dde64c731c233c4976bdd227f5913e
+accepted  probe:0:0:ADMIT 0x6cd15506d3f302153951f99288e64fdef6f08920b91e0df9155d9d09a78fe4f5
+skip  probe:0:0:PINNED
+skip  probe:0:0:RECALL
+skip  probe:0:0:REWRITE
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+Transaction Hash: 0x67fe459ce7555b3c4b5aa4936d2744353966610d2edd97e15cc112fe10c1fbad
+sent  probe:0:1:PINNED 0x67fe459ce7555b3c4b5aa4936d2744353966610d2edd97e15cc112fe10c1fbad
+accepted  probe:0:1:PINNED 0x67fe459ce7555b3c4b5aa4936d2744353966610d2edd97e15cc112fe10c1fbad
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+Transaction Hash: 0x9ec57fd22ecf325106ce7d36863e4cb4f0f51211215e8b1091b3c25740e62e21
+sent  probe:0:1:RECALL 0x9ec57fd22ecf325106ce7d36863e4cb4f0f51211215e8b1091b3c25740e62e21
+accepted  probe:0:1:RECALL 0x9ec57fd22ecf325106ce7d36863e4cb4f0f51211215e8b1091b3c25740e62e21
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"1032426","boundedEstimate":"1044954","gasLimit":"1149450","gasCap":"16777216","calldataBytes":484,"dryRun":false}
+Transaction Hash: 0x513b48d3a1e4f1e81ca82fb743f103ec8c1bfd9aa806abce387373a68b2045cd
+sent  probe:0:1:REWRITE 0x513b48d3a1e4f1e81ca82fb743f103ec8c1bfd9aa806abce387373a68b2045cd
+probe:0:1:REWRITE ended LEADER_TIMEOUT / NOT_VOTED (0x513b48d3a1e4f1e81ca82fb743f103ec8c1bfd9aa806abce387373a68b2045cd); inspect the receipt before continuing; no duplicate was sent
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['python3', 'scripts/run_case.py', 'probes', '--address', '0x47b0B5a11fC7F44F8f0d4ABa3A54b1A304AfDD3e', '--account', 'impeach-challenger', '--rpc', 'https://rpc-bradbury.genlayer.com', '--manifest', 'runs/bradbury-vercel.jsonl', '--delay', '0', '--wait-timeout', '600', '--poll-interval', '5']' returned non-zero exit status 1.
+RESUME AFTER APPEAL 1791568828
+STEP probes
+accepted  open 0x21c709cbbb88a9f04804d2a117b46c0494885235de1f2b00329398062c473d1b
+accepted  challenge:0 0x3fd7880e8e9243bc9a085434516008f17477b2e72de63afc4e069c84fce62bca
+accepted  reveal:0 0xf9ef19272af823b0d7e184fffd498e4be610eafa24b6283f56fa6f410c6a985c
+accepted  probe:0:0:PINNED 0x2cd1ddf5a098f676bfe16d77b24656860311a6f0405435f1952f6f941da3415a
+accepted  probe:0:0:RECALL 0xf754b93dd9d1f3f9430e3928ff875626a204497e19e4ccc2e3a7812d4d5b8951
+accepted  probe:0:0:REWRITE 0xeef8ca72a1aaaba33d2fbd47aa9a45e728dde64c731c233c4976bdd227f5913e
+accepted  probe:0:0:ADMIT 0x6cd15506d3f302153951f99288e64fdef6f08920b91e0df9155d9d09a78fe4f5
+accepted  probe:0:1:PINNED 0x67fe459ce7555b3c4b5aa4936d2744353966610d2edd97e15cc112fe10c1fbad
+accepted  probe:0:1:RECALL 0x9ec57fd22ecf325106ce7d36863e4cb4f0f51211215e8b1091b3c25740e62e21
+accepted  probe:0:1:REWRITE 0x513b48d3a1e4f1e81ca82fb743f103ec8c1bfd9aa806abce387373a68b2045cd
+skip  probe:0:0:PINNED
+skip  probe:0:0:RECALL
+skip  probe:0:0:REWRITE
+skip  probe:0:1:PINNED
+skip  probe:0:1:RECALL
+skip  probe:0:1:REWRITE
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"870648","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+Transaction Hash: 0xedc3c31e80f81b6ca7d228e12740e4ebb5058ac642a6c1813ae4b60a00383e74
+sent  probe:0:2:PINNED 0xedc3c31e80f81b6ca7d228e12740e4ebb5058ac642a6c1813ae4b60a00383e74
+accepted  probe:0:2:PINNED 0xedc3c31e80f81b6ca7d228e12740e4ebb5058ac642a6c1813ae4b60a00383e74
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+Transaction Hash: 0xa8fd23a3ad1954c93681ea18638ccfbe3a16ddd7490faedeea077975ac4f5c95
+sent  probe:0:2:RECALL 0xa8fd23a3ad1954c93681ea18638ccfbe3a16ddd7490faedeea077975ac4f5c95
+accepted  probe:0:2:RECALL 0xa8fd23a3ad1954c93681ea18638ccfbe3a16ddd7490faedeea077975ac4f5c95
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"1104188","boundedEstimate":"1104188","gasLimit":"1214607","gasCap":"16777216","calldataBytes":580,"dryRun":false}
+Transaction Hash: 0x1a7e5216ae65af0a9421ec2f4a1fe2668e2f27897d550bb43e0c2b8005e36181
+sent  probe:0:2:REWRITE 0x1a7e5216ae65af0a9421ec2f4a1fe2668e2f27897d550bb43e0c2b8005e36181
+probe:0:2:REWRITE ended UNDETERMINED / FINISHED_WITH_RETURN (0x1a7e5216ae65af0a9421ec2f4a1fe2668e2f27897d550bb43e0c2b8005e36181); inspect the receipt before continuing; no duplicate was sent
+Traceback (most recent call last):
+  File "<stdin>", line 6, in <module>
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['python3', 'scripts/run_case.py', 'probes', '--address', '0x47b0B5a11fC7F44F8f0d4ABa3A54b1A304AfDD3e', '--account', 'impeach-challenger', '--rpc', 'https://rpc-bradbury.genlayer.com', '--manifest', 'runs/bradbury-vercel.jsonl', '--delay', '0', '--wait-timeout', '600', '--poll-interval', '5']' returned non-zero exit status 1.
+RESUME AFTER UNDETERMINED APPEAL 1791569419
+STEP probes
+accepted  open 0x21c709cbbb88a9f04804d2a117b46c0494885235de1f2b00329398062c473d1b
+accepted  challenge:0 0x3fd7880e8e9243bc9a085434516008f17477b2e72de63afc4e069c84fce62bca
+accepted  reveal:0 0xf9ef19272af823b0d7e184fffd498e4be610eafa24b6283f56fa6f410c6a985c
+accepted  probe:0:0:PINNED 0x2cd1ddf5a098f676bfe16d77b24656860311a6f0405435f1952f6f941da3415a
+accepted  probe:0:0:RECALL 0xf754b93dd9d1f3f9430e3928ff875626a204497e19e4ccc2e3a7812d4d5b8951
+accepted  probe:0:0:REWRITE 0xeef8ca72a1aaaba33d2fbd47aa9a45e728dde64c731c233c4976bdd227f5913e
+accepted  probe:0:0:ADMIT 0x6cd15506d3f302153951f99288e64fdef6f08920b91e0df9155d9d09a78fe4f5
+accepted  probe:0:1:PINNED 0x67fe459ce7555b3c4b5aa4936d2744353966610d2edd97e15cc112fe10c1fbad
+accepted  probe:0:1:RECALL 0x9ec57fd22ecf325106ce7d36863e4cb4f0f51211215e8b1091b3c25740e62e21
+accepted  probe:0:1:REWRITE 0x513b48d3a1e4f1e81ca82fb743f103ec8c1bfd9aa806abce387373a68b2045cd
+accepted  probe:0:2:PINNED 0xedc3c31e80f81b6ca7d228e12740e4ebb5058ac642a6c1813ae4b60a00383e74
+accepted  probe:0:2:RECALL 0xa8fd23a3ad1954c93681ea18638ccfbe3a16ddd7490faedeea077975ac4f5c95
+probe:0:2:REWRITE ended LEADER_TIMEOUT / NOT_VOTED (0x1a7e5216ae65af0a9421ec2f4a1fe2668e2f27897d550bb43e0c2b8005e36181); inspect the receipt before continuing; no duplicate was sent
+Traceback (most recent call last):
+  File "<stdin>", line 6, in <module>
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['python3', 'scripts/run_case.py', 'probes', '--address', '0x47b0B5a11fC7F44F8f0d4ABa3A54b1A304AfDD3e', '--account', 'impeach-challenger', '--rpc', 'https://rpc-bradbury.genlayer.com', '--manifest', 'runs/bradbury-vercel.jsonl', '--delay', '0', '--wait-timeout', '600', '--poll-interval', '5']' returned non-zero exit status 1.
+RESUME AFTER LEADER RECOVERY 1791569527
+STEP probes
+accepted  open 0x21c709cbbb88a9f04804d2a117b46c0494885235de1f2b00329398062c473d1b
+accepted  challenge:0 0x3fd7880e8e9243bc9a085434516008f17477b2e72de63afc4e069c84fce62bca
+accepted  reveal:0 0xf9ef19272af823b0d7e184fffd498e4be610eafa24b6283f56fa6f410c6a985c
+accepted  probe:0:0:PINNED 0x2cd1ddf5a098f676bfe16d77b24656860311a6f0405435f1952f6f941da3415a
+accepted  probe:0:0:RECALL 0xf754b93dd9d1f3f9430e3928ff875626a204497e19e4ccc2e3a7812d4d5b8951
+accepted  probe:0:0:REWRITE 0xeef8ca72a1aaaba33d2fbd47aa9a45e728dde64c731c233c4976bdd227f5913e
+accepted  probe:0:0:ADMIT 0x6cd15506d3f302153951f99288e64fdef6f08920b91e0df9155d9d09a78fe4f5
+accepted  probe:0:1:PINNED 0x67fe459ce7555b3c4b5aa4936d2744353966610d2edd97e15cc112fe10c1fbad
+accepted  probe:0:1:RECALL 0x9ec57fd22ecf325106ce7d36863e4cb4f0f51211215e8b1091b3c25740e62e21
+accepted  probe:0:1:REWRITE 0x513b48d3a1e4f1e81ca82fb743f103ec8c1bfd9aa806abce387373a68b2045cd
+accepted  probe:0:2:PINNED 0xedc3c31e80f81b6ca7d228e12740e4ebb5058ac642a6c1813ae4b60a00383e74
+accepted  probe:0:2:RECALL 0xa8fd23a3ad1954c93681ea18638ccfbe3a16ddd7490faedeea077975ac4f5c95
+probe:0:2:REWRITE ended UNDETERMINED / FINISHED_WITH_RETURN (0x1a7e5216ae65af0a9421ec2f4a1fe2668e2f27897d550bb43e0c2b8005e36181); inspect the receipt before continuing; no duplicate was sent
+Traceback (most recent call last):
+  File "<stdin>", line 6, in <module>
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['python3', 'scripts/run_case.py', 'probes', '--address', '0x47b0B5a11fC7F44F8f0d4ABa3A54b1A304AfDD3e', '--account', 'impeach-challenger', '--rpc', 'https://rpc-bradbury.genlayer.com', '--manifest', 'runs/bradbury-vercel.jsonl', '--delay', '0', '--wait-timeout', '600', '--poll-interval', '5']' returned non-zero exit status 1.
+CONTINUE OTHER ITEMS WITH ACKNOWLEDGED CONSENSUS FAILURE 1791569717
+STEP probes
+accepted  open 0x21c709cbbb88a9f04804d2a117b46c0494885235de1f2b00329398062c473d1b
+accepted  challenge:0 0x3fd7880e8e9243bc9a085434516008f17477b2e72de63afc4e069c84fce62bca
+accepted  reveal:0 0xf9ef19272af823b0d7e184fffd498e4be610eafa24b6283f56fa6f410c6a985c
+accepted  probe:0:0:PINNED 0x2cd1ddf5a098f676bfe16d77b24656860311a6f0405435f1952f6f941da3415a
+accepted  probe:0:0:RECALL 0xf754b93dd9d1f3f9430e3928ff875626a204497e19e4ccc2e3a7812d4d5b8951
+accepted  probe:0:0:REWRITE 0xeef8ca72a1aaaba33d2fbd47aa9a45e728dde64c731c233c4976bdd227f5913e
+accepted  probe:0:0:ADMIT 0x6cd15506d3f302153951f99288e64fdef6f08920b91e0df9155d9d09a78fe4f5
+accepted  probe:0:1:PINNED 0x67fe459ce7555b3c4b5aa4936d2744353966610d2edd97e15cc112fe10c1fbad
+accepted  probe:0:1:RECALL 0x9ec57fd22ecf325106ce7d36863e4cb4f0f51211215e8b1091b3c25740e62e21
+accepted  probe:0:1:REWRITE 0x513b48d3a1e4f1e81ca82fb743f103ec8c1bfd9aa806abce387373a68b2045cd
+accepted  probe:0:2:PINNED 0xedc3c31e80f81b6ca7d228e12740e4ebb5058ac642a6c1813ae4b60a00383e74
+accepted  probe:0:2:RECALL 0xa8fd23a3ad1954c93681ea18638ccfbe3a16ddd7490faedeea077975ac4f5c95
+acknowledged failure  probe:0:2:REWRITE 0x1a7e5216ae65af0a9421ec2f4a1fe2668e2f27897d550bb43e0c2b8005e36181 (UNDETERMINED / FINISHED_WITH_RETURN); no successful result assumed and no duplicate sent
+skip  probe:0:0:PINNED
+skip  probe:0:0:RECALL
+skip  probe:0:0:REWRITE
+skip  probe:0:1:PINNED
+skip  probe:0:1:RECALL
+skip  probe:0:1:REWRITE
+skip  probe:0:2:PINNED
+skip  probe:0:2:RECALL
+skip  probe:0:2:REWRITE
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+Transaction Hash: 0x79e92be43d719b57d8e72746dcbacc08baaf2fc15df5458a7f618a919be29302
+sent  probe:0:3:PINNED 0x79e92be43d719b57d8e72746dcbacc08baaf2fc15df5458a7f618a919be29302
+accepted  probe:0:3:PINNED 0x79e92be43d719b57d8e72746dcbacc08baaf2fc15df5458a7f618a919be29302
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+Transaction Hash: 0xd2fcb36e655710bc7a6a81b7d8f880982afe3e8308122ca4803ab78440dc6cb1
+sent  probe:0:3:RECALL 0xd2fcb36e655710bc7a6a81b7d8f880982afe3e8308122ca4803ab78440dc6cb1
+accepted  probe:0:3:RECALL 0xd2fcb36e655710bc7a6a81b7d8f880982afe3e8308122ca4803ab78440dc6cb1
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"1056459","boundedEstimate":"1056459","gasLimit":"1162105","gasCap":"16777216","calldataBytes":516,"dryRun":false}
+Transaction Hash: 0xb932209a950a050bc022d17a24b2110850faf6b3298d05b4e9338d6b7f66ea71
+sent  probe:0:3:REWRITE 0xb932209a950a050bc022d17a24b2110850faf6b3298d05b4e9338d6b7f66ea71
+probe:0:3:REWRITE ended LEADER_TIMEOUT / NOT_VOTED (0xb932209a950a050bc022d17a24b2110850faf6b3298d05b4e9338d6b7f66ea71); inspect the receipt before continuing; no duplicate was sent
+Traceback (most recent call last):
+  File "<stdin>", line 8, in <module>
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['python3', 'scripts/run_case.py', 'probes', '--address', '0x47b0B5a11fC7F44F8f0d4ABa3A54b1A304AfDD3e', '--account', 'impeach-challenger', '--rpc', 'https://rpc-bradbury.genlayer.com', '--manifest', 'runs/bradbury-vercel.jsonl', '--delay', '0', '--wait-timeout', '600', '--poll-interval', '5', '--acknowledge-failed', '0x1a7e5216ae65af0a9421ec2f4a1fe2668e2f27897d550bb43e0c2b8005e36181']' returned non-zero exit status 1.
+accepted  open 0x21c709cbbb88a9f04804d2a117b46c0494885235de1f2b00329398062c473d1b
+accepted  challenge:0 0x3fd7880e8e9243bc9a085434516008f17477b2e72de63afc4e069c84fce62bca
+accepted  reveal:0 0xf9ef19272af823b0d7e184fffd498e4be610eafa24b6283f56fa6f410c6a985c
+accepted  probe:0:0:PINNED 0x2cd1ddf5a098f676bfe16d77b24656860311a6f0405435f1952f6f941da3415a
+accepted  probe:0:0:RECALL 0xf754b93dd9d1f3f9430e3928ff875626a204497e19e4ccc2e3a7812d4d5b8951
+accepted  probe:0:0:REWRITE 0xeef8ca72a1aaaba33d2fbd47aa9a45e728dde64c731c233c4976bdd227f5913e
+accepted  probe:0:0:ADMIT 0x6cd15506d3f302153951f99288e64fdef6f08920b91e0df9155d9d09a78fe4f5
+accepted  probe:0:1:PINNED 0x67fe459ce7555b3c4b5aa4936d2744353966610d2edd97e15cc112fe10c1fbad
+accepted  probe:0:1:RECALL 0x9ec57fd22ecf325106ce7d36863e4cb4f0f51211215e8b1091b3c25740e62e21
+accepted  probe:0:1:REWRITE 0x513b48d3a1e4f1e81ca82fb743f103ec8c1bfd9aa806abce387373a68b2045cd
+accepted  probe:0:2:PINNED 0xedc3c31e80f81b6ca7d228e12740e4ebb5058ac642a6c1813ae4b60a00383e74
+accepted  probe:0:2:RECALL 0xa8fd23a3ad1954c93681ea18638ccfbe3a16ddd7490faedeea077975ac4f5c95
+acknowledged failure  probe:0:2:REWRITE 0x1a7e5216ae65af0a9421ec2f4a1fe2668e2f27897d550bb43e0c2b8005e36181 (UNDETERMINED / FINISHED_WITH_RETURN / NO_MAJORITY); no successful result assumed and no duplicate sent
+accepted  probe:0:3:PINNED 0x79e92be43d719b57d8e72746dcbacc08baaf2fc15df5458a7f618a919be29302
+accepted  probe:0:3:RECALL 0xd2fcb36e655710bc7a6a81b7d8f880982afe3e8308122ca4803ab78440dc6cb1
+accepted  probe:0:3:REWRITE 0xb932209a950a050bc022d17a24b2110850faf6b3298d05b4e9338d6b7f66ea71
+skip  probe:0:0:PINNED
+skip  probe:0:0:RECALL
+skip  probe:0:0:REWRITE
+skip  probe:0:1:PINNED
+skip  probe:0:1:RECALL
+skip  probe:0:1:REWRITE
+skip  probe:0:2:PINNED
+skip  probe:0:2:RECALL
+skip  probe:0:2:REWRITE
+skip  probe:0:3:PINNED
+skip  probe:0:3:RECALL
+skip  probe:0:3:REWRITE
+Transaction Hash: 0xebd5248a28b7825d24370fa3a38771429d58153607c23c529236ae3d6bc70092
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:4:PINNED 0xebd5248a28b7825d24370fa3a38771429d58153607c23c529236ae3d6bc70092
+accepted  probe:0:4:PINNED 0xebd5248a28b7825d24370fa3a38771429d58153607c23c529236ae3d6bc70092
+Transaction Hash: 0xbca87b27b042cce1fb807df05e88fb11da4c72668d3ac01f6fa7817175cec6bf
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:4:RECALL 0xbca87b27b042cce1fb807df05e88fb11da4c72668d3ac01f6fa7817175cec6bf
+accepted  probe:0:4:RECALL 0xbca87b27b042cce1fb807df05e88fb11da4c72668d3ac01f6fa7817175cec6bf
+Transaction Hash: 0xa446f5c066ae1dd779beeabdfa0c00f1d6af8816fba8890b11f3cc120c27fe7b
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"1104722","boundedEstimate":"1104477","gasLimit":"1214925","gasCap":"16777216","calldataBytes":580,"dryRun":false}
+sent  probe:0:4:REWRITE 0xa446f5c066ae1dd779beeabdfa0c00f1d6af8816fba8890b11f3cc120c27fe7b
+accepted  probe:0:4:REWRITE 0xa446f5c066ae1dd779beeabdfa0c00f1d6af8816fba8890b11f3cc120c27fe7b
+Transaction Hash: 0xf6a0abe06a08a98cc52101506410abb548eae672bc3addd9af3b9eb2afdf29de
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:5:PINNED 0xf6a0abe06a08a98cc52101506410abb548eae672bc3addd9af3b9eb2afdf29de
+accepted  probe:0:5:PINNED 0xf6a0abe06a08a98cc52101506410abb548eae672bc3addd9af3b9eb2afdf29de
+Transaction Hash: 0x093a637c3f07779cebffd8592434857a9b98ec09c855bc70b872586b3d3ad542
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867941","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:5:RECALL 0x093a637c3f07779cebffd8592434857a9b98ec09c855bc70b872586b3d3ad542
+accepted  probe:0:5:RECALL 0x093a637c3f07779cebffd8592434857a9b98ec09c855bc70b872586b3d3ad542
+Transaction Hash: 0x74f54679b5dbb24b23b59eb2dddc2677492a9a95132a7f70bdf277d1a0dcfd37
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"1128473","boundedEstimate":"1128717","gasLimit":"1241589","gasCap":"16777216","calldataBytes":612,"dryRun":false}
+sent  probe:0:5:REWRITE 0x74f54679b5dbb24b23b59eb2dddc2677492a9a95132a7f70bdf277d1a0dcfd37
+accepted  probe:0:5:REWRITE 0x74f54679b5dbb24b23b59eb2dddc2677492a9a95132a7f70bdf277d1a0dcfd37
+Transaction Hash: 0x27f27f7fd7161cc0c8528510a2d70d45ca971c3ec704e93cce7d49acb1952122
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:6:PINNED 0x27f27f7fd7161cc0c8528510a2d70d45ca971c3ec704e93cce7d49acb1952122
+probe:0:6:PINNED ended LEADER_TIMEOUT / NOT_VOTED / IDLE (0x27f27f7fd7161cc0c8528510a2d70d45ca971c3ec704e93cce7d49acb1952122); inspect the receipt before continuing; no duplicate was sent
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"830125","boundedEstimate":"830125","gasLimit":"913138","gasCap":"16777216","calldataBytes":36,"dryRun":false}
+Appealed original transaction: 0x27f27f7fd7161cc0c8528510a2d70d45ca971c3ec704e93cce7d49acb1952122
+accepted  open 0x21c709cbbb88a9f04804d2a117b46c0494885235de1f2b00329398062c473d1b
+accepted  challenge:0 0x3fd7880e8e9243bc9a085434516008f17477b2e72de63afc4e069c84fce62bca
+accepted  reveal:0 0xf9ef19272af823b0d7e184fffd498e4be610eafa24b6283f56fa6f410c6a985c
+accepted  probe:0:0:PINNED 0x2cd1ddf5a098f676bfe16d77b24656860311a6f0405435f1952f6f941da3415a
+accepted  probe:0:0:RECALL 0xf754b93dd9d1f3f9430e3928ff875626a204497e19e4ccc2e3a7812d4d5b8951
+accepted  probe:0:0:REWRITE 0xeef8ca72a1aaaba33d2fbd47aa9a45e728dde64c731c233c4976bdd227f5913e
+accepted  probe:0:0:ADMIT 0x6cd15506d3f302153951f99288e64fdef6f08920b91e0df9155d9d09a78fe4f5
+accepted  probe:0:1:PINNED 0x67fe459ce7555b3c4b5aa4936d2744353966610d2edd97e15cc112fe10c1fbad
+accepted  probe:0:1:RECALL 0x9ec57fd22ecf325106ce7d36863e4cb4f0f51211215e8b1091b3c25740e62e21
+accepted  probe:0:1:REWRITE 0x513b48d3a1e4f1e81ca82fb743f103ec8c1bfd9aa806abce387373a68b2045cd
+accepted  probe:0:2:PINNED 0xedc3c31e80f81b6ca7d228e12740e4ebb5058ac642a6c1813ae4b60a00383e74
+accepted  probe:0:2:RECALL 0xa8fd23a3ad1954c93681ea18638ccfbe3a16ddd7490faedeea077975ac4f5c95
+acknowledged failure  probe:0:2:REWRITE 0x1a7e5216ae65af0a9421ec2f4a1fe2668e2f27897d550bb43e0c2b8005e36181 (UNDETERMINED / FINISHED_WITH_RETURN / NO_MAJORITY); no successful result assumed and no duplicate sent
+accepted  probe:0:3:PINNED 0x79e92be43d719b57d8e72746dcbacc08baaf2fc15df5458a7f618a919be29302
+accepted  probe:0:3:RECALL 0xd2fcb36e655710bc7a6a81b7d8f880982afe3e8308122ca4803ab78440dc6cb1
+accepted  probe:0:3:REWRITE 0xb932209a950a050bc022d17a24b2110850faf6b3298d05b4e9338d6b7f66ea71
+accepted  probe:0:4:PINNED 0xebd5248a28b7825d24370fa3a38771429d58153607c23c529236ae3d6bc70092
+accepted  probe:0:4:RECALL 0xbca87b27b042cce1fb807df05e88fb11da4c72668d3ac01f6fa7817175cec6bf
+accepted  probe:0:4:REWRITE 0xa446f5c066ae1dd779beeabdfa0c00f1d6af8816fba8890b11f3cc120c27fe7b
+accepted  probe:0:5:PINNED 0xf6a0abe06a08a98cc52101506410abb548eae672bc3addd9af3b9eb2afdf29de
+accepted  probe:0:5:RECALL 0x093a637c3f07779cebffd8592434857a9b98ec09c855bc70b872586b3d3ad542
+accepted  probe:0:5:REWRITE 0x74f54679b5dbb24b23b59eb2dddc2677492a9a95132a7f70bdf277d1a0dcfd37
+probe:0:6:PINNED ended VALIDATORS_TIMEOUT / FINISHED_WITH_RETURN / TIMEOUT (0x27f27f7fd7161cc0c8528510a2d70d45ca971c3ec704e93cce7d49acb1952122); inspect the receipt before continuing; no duplicate was sent
+accepted  open 0x21c709cbbb88a9f04804d2a117b46c0494885235de1f2b00329398062c473d1b
+accepted  challenge:0 0x3fd7880e8e9243bc9a085434516008f17477b2e72de63afc4e069c84fce62bca
+accepted  reveal:0 0xf9ef19272af823b0d7e184fffd498e4be610eafa24b6283f56fa6f410c6a985c
+accepted  probe:0:0:PINNED 0x2cd1ddf5a098f676bfe16d77b24656860311a6f0405435f1952f6f941da3415a
+accepted  probe:0:0:RECALL 0xf754b93dd9d1f3f9430e3928ff875626a204497e19e4ccc2e3a7812d4d5b8951
+accepted  probe:0:0:REWRITE 0xeef8ca72a1aaaba33d2fbd47aa9a45e728dde64c731c233c4976bdd227f5913e
+accepted  probe:0:0:ADMIT 0x6cd15506d3f302153951f99288e64fdef6f08920b91e0df9155d9d09a78fe4f5
+accepted  probe:0:1:PINNED 0x67fe459ce7555b3c4b5aa4936d2744353966610d2edd97e15cc112fe10c1fbad
+accepted  probe:0:1:RECALL 0x9ec57fd22ecf325106ce7d36863e4cb4f0f51211215e8b1091b3c25740e62e21
+accepted  probe:0:1:REWRITE 0x513b48d3a1e4f1e81ca82fb743f103ec8c1bfd9aa806abce387373a68b2045cd
+accepted  probe:0:2:PINNED 0xedc3c31e80f81b6ca7d228e12740e4ebb5058ac642a6c1813ae4b60a00383e74
+accepted  probe:0:2:RECALL 0xa8fd23a3ad1954c93681ea18638ccfbe3a16ddd7490faedeea077975ac4f5c95
+acknowledged failure  probe:0:2:REWRITE 0x1a7e5216ae65af0a9421ec2f4a1fe2668e2f27897d550bb43e0c2b8005e36181 (UNDETERMINED / FINISHED_WITH_RETURN / NO_MAJORITY); no successful result assumed and no duplicate sent
+accepted  probe:0:3:PINNED 0x79e92be43d719b57d8e72746dcbacc08baaf2fc15df5458a7f618a919be29302
+accepted  probe:0:3:RECALL 0xd2fcb36e655710bc7a6a81b7d8f880982afe3e8308122ca4803ab78440dc6cb1
+accepted  probe:0:3:REWRITE 0xb932209a950a050bc022d17a24b2110850faf6b3298d05b4e9338d6b7f66ea71
+accepted  probe:0:4:PINNED 0xebd5248a28b7825d24370fa3a38771429d58153607c23c529236ae3d6bc70092
+accepted  probe:0:4:RECALL 0xbca87b27b042cce1fb807df05e88fb11da4c72668d3ac01f6fa7817175cec6bf
+accepted  probe:0:4:REWRITE 0xa446f5c066ae1dd779beeabdfa0c00f1d6af8816fba8890b11f3cc120c27fe7b
+accepted  probe:0:5:PINNED 0xf6a0abe06a08a98cc52101506410abb548eae672bc3addd9af3b9eb2afdf29de
+accepted  probe:0:5:RECALL 0x093a637c3f07779cebffd8592434857a9b98ec09c855bc70b872586b3d3ad542
+accepted  probe:0:5:REWRITE 0x74f54679b5dbb24b23b59eb2dddc2677492a9a95132a7f70bdf277d1a0dcfd37
+acknowledged failure  probe:0:6:PINNED 0x27f27f7fd7161cc0c8528510a2d70d45ca971c3ec704e93cce7d49acb1952122 (VALIDATORS_TIMEOUT / FINISHED_WITH_RETURN / TIMEOUT); no successful result assumed and no duplicate sent
+skip  probe:0:0:PINNED
+skip  probe:0:0:RECALL
+skip  probe:0:0:REWRITE
+skip  probe:0:1:PINNED
+skip  probe:0:1:RECALL
+skip  probe:0:1:REWRITE
+skip  probe:0:2:PINNED
+skip  probe:0:2:RECALL
+skip  probe:0:2:REWRITE
+skip  probe:0:3:PINNED
+skip  probe:0:3:RECALL
+skip  probe:0:3:REWRITE
+skip  probe:0:4:PINNED
+skip  probe:0:4:RECALL
+skip  probe:0:4:REWRITE
+skip  probe:0:5:PINNED
+skip  probe:0:5:RECALL
+skip  probe:0:5:REWRITE
+skip  probe:0:6:PINNED
+Transaction Hash: 0x4091f139410867d8345c800075f53ade5cdd67fc1dfa0ec12343649df762361f
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:6:RECALL 0x4091f139410867d8345c800075f53ade5cdd67fc1dfa0ec12343649df762361f
+accepted  probe:0:6:RECALL 0x4091f139410867d8345c800075f53ade5cdd67fc1dfa0ec12343649df762361f
+Transaction Hash: 0x62d65fc883ee1a3bba16403dd19a8e9003dac545c592e33001fc46ee0b7bfbed
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"1080230","boundedEstimate":"1080230","gasLimit":"1188253","gasCap":"16777216","calldataBytes":548,"dryRun":false}
+sent  probe:0:6:REWRITE 0x62d65fc883ee1a3bba16403dd19a8e9003dac545c592e33001fc46ee0b7bfbed
+accepted  probe:0:6:REWRITE 0x62d65fc883ee1a3bba16403dd19a8e9003dac545c592e33001fc46ee0b7bfbed
+Transaction Hash: 0xf34ecc5742c7004fa8688f6c1f3c17291e21d976f920dbc73208d2106d450cc7
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:7:PINNED 0xf34ecc5742c7004fa8688f6c1f3c17291e21d976f920dbc73208d2106d450cc7
+accepted  probe:0:7:PINNED 0xf34ecc5742c7004fa8688f6c1f3c17291e21d976f920dbc73208d2106d450cc7
+Transaction Hash: 0xe16bf66d968ee07c49442320bd71c50f600537ed12c15ce978060810329ecf32
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:7:RECALL 0xe16bf66d968ee07c49442320bd71c50f600537ed12c15ce978060810329ecf32
+accepted  probe:0:7:RECALL 0xe16bf66d968ee07c49442320bd71c50f600537ed12c15ce978060810329ecf32
+Transaction Hash: 0x87d7b0cf28ec7934f2f7eba519c714ba13209217c354621e9d5df73dd67634be
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"1128396","boundedEstimate":"1128642","gasLimit":"1241507","gasCap":"16777216","calldataBytes":612,"dryRun":false}
+sent  probe:0:7:REWRITE 0x87d7b0cf28ec7934f2f7eba519c714ba13209217c354621e9d5df73dd67634be
+probe:0:7:REWRITE ended LEADER_TIMEOUT / FINISHED_WITH_RETURN / IDLE (0x87d7b0cf28ec7934f2f7eba519c714ba13209217c354621e9d5df73dd67634be); inspect the receipt before continuing; no duplicate was sent
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"865553","boundedEstimate":"865553","gasLimit":"952109","gasCap":"16777216","calldataBytes":36,"dryRun":false}
+Appealed original transaction: 0x87d7b0cf28ec7934f2f7eba519c714ba13209217c354621e9d5df73dd67634be
+accepted  open 0x21c709cbbb88a9f04804d2a117b46c0494885235de1f2b00329398062c473d1b
+accepted  challenge:0 0x3fd7880e8e9243bc9a085434516008f17477b2e72de63afc4e069c84fce62bca
+accepted  reveal:0 0xf9ef19272af823b0d7e184fffd498e4be610eafa24b6283f56fa6f410c6a985c
+accepted  probe:0:0:PINNED 0x2cd1ddf5a098f676bfe16d77b24656860311a6f0405435f1952f6f941da3415a
+accepted  probe:0:0:RECALL 0xf754b93dd9d1f3f9430e3928ff875626a204497e19e4ccc2e3a7812d4d5b8951
+accepted  probe:0:0:REWRITE 0xeef8ca72a1aaaba33d2fbd47aa9a45e728dde64c731c233c4976bdd227f5913e
+accepted  probe:0:0:ADMIT 0x6cd15506d3f302153951f99288e64fdef6f08920b91e0df9155d9d09a78fe4f5
+accepted  probe:0:1:PINNED 0x67fe459ce7555b3c4b5aa4936d2744353966610d2edd97e15cc112fe10c1fbad
+accepted  probe:0:1:RECALL 0x9ec57fd22ecf325106ce7d36863e4cb4f0f51211215e8b1091b3c25740e62e21
+accepted  probe:0:1:REWRITE 0x513b48d3a1e4f1e81ca82fb743f103ec8c1bfd9aa806abce387373a68b2045cd
+accepted  probe:0:2:PINNED 0xedc3c31e80f81b6ca7d228e12740e4ebb5058ac642a6c1813ae4b60a00383e74
+accepted  probe:0:2:RECALL 0xa8fd23a3ad1954c93681ea18638ccfbe3a16ddd7490faedeea077975ac4f5c95
+acknowledged failure  probe:0:2:REWRITE 0x1a7e5216ae65af0a9421ec2f4a1fe2668e2f27897d550bb43e0c2b8005e36181 (UNDETERMINED / FINISHED_WITH_RETURN / NO_MAJORITY); no successful result assumed and no duplicate sent
+accepted  probe:0:3:PINNED 0x79e92be43d719b57d8e72746dcbacc08baaf2fc15df5458a7f618a919be29302
+accepted  probe:0:3:RECALL 0xd2fcb36e655710bc7a6a81b7d8f880982afe3e8308122ca4803ab78440dc6cb1
+accepted  probe:0:3:REWRITE 0xb932209a950a050bc022d17a24b2110850faf6b3298d05b4e9338d6b7f66ea71
+accepted  probe:0:4:PINNED 0xebd5248a28b7825d24370fa3a38771429d58153607c23c529236ae3d6bc70092
+accepted  probe:0:4:RECALL 0xbca87b27b042cce1fb807df05e88fb11da4c72668d3ac01f6fa7817175cec6bf
+accepted  probe:0:4:REWRITE 0xa446f5c066ae1dd779beeabdfa0c00f1d6af8816fba8890b11f3cc120c27fe7b
+accepted  probe:0:5:PINNED 0xf6a0abe06a08a98cc52101506410abb548eae672bc3addd9af3b9eb2afdf29de
+accepted  probe:0:5:RECALL 0x093a637c3f07779cebffd8592434857a9b98ec09c855bc70b872586b3d3ad542
+accepted  probe:0:5:REWRITE 0x74f54679b5dbb24b23b59eb2dddc2677492a9a95132a7f70bdf277d1a0dcfd37
+acknowledged failure  probe:0:6:PINNED 0x27f27f7fd7161cc0c8528510a2d70d45ca971c3ec704e93cce7d49acb1952122 (VALIDATORS_TIMEOUT / FINISHED_WITH_RETURN / TIMEOUT); no successful result assumed and no duplicate sent
+accepted  probe:0:6:RECALL 0x4091f139410867d8345c800075f53ade5cdd67fc1dfa0ec12343649df762361f
+accepted  probe:0:6:REWRITE 0x62d65fc883ee1a3bba16403dd19a8e9003dac545c592e33001fc46ee0b7bfbed
+accepted  probe:0:7:PINNED 0xf34ecc5742c7004fa8688f6c1f3c17291e21d976f920dbc73208d2106d450cc7
+accepted  probe:0:7:RECALL 0xe16bf66d968ee07c49442320bd71c50f600537ed12c15ce978060810329ecf32
+probe:0:7:REWRITE ended UNDETERMINED / FINISHED_WITH_RETURN / DISAGREE (0x87d7b0cf28ec7934f2f7eba519c714ba13209217c354621e9d5df73dd67634be); inspect the receipt before continuing; no duplicate was sent
+accepted  open 0x21c709cbbb88a9f04804d2a117b46c0494885235de1f2b00329398062c473d1b
+accepted  challenge:0 0x3fd7880e8e9243bc9a085434516008f17477b2e72de63afc4e069c84fce62bca
+accepted  reveal:0 0xf9ef19272af823b0d7e184fffd498e4be610eafa24b6283f56fa6f410c6a985c
+accepted  probe:0:0:PINNED 0x2cd1ddf5a098f676bfe16d77b24656860311a6f0405435f1952f6f941da3415a
+accepted  probe:0:0:RECALL 0xf754b93dd9d1f3f9430e3928ff875626a204497e19e4ccc2e3a7812d4d5b8951
+accepted  probe:0:0:REWRITE 0xeef8ca72a1aaaba33d2fbd47aa9a45e728dde64c731c233c4976bdd227f5913e
+accepted  probe:0:0:ADMIT 0x6cd15506d3f302153951f99288e64fdef6f08920b91e0df9155d9d09a78fe4f5
+accepted  probe:0:1:PINNED 0x67fe459ce7555b3c4b5aa4936d2744353966610d2edd97e15cc112fe10c1fbad
+accepted  probe:0:1:RECALL 0x9ec57fd22ecf325106ce7d36863e4cb4f0f51211215e8b1091b3c25740e62e21
+accepted  probe:0:1:REWRITE 0x513b48d3a1e4f1e81ca82fb743f103ec8c1bfd9aa806abce387373a68b2045cd
+accepted  probe:0:2:PINNED 0xedc3c31e80f81b6ca7d228e12740e4ebb5058ac642a6c1813ae4b60a00383e74
+accepted  probe:0:2:RECALL 0xa8fd23a3ad1954c93681ea18638ccfbe3a16ddd7490faedeea077975ac4f5c95
+acknowledged failure  probe:0:2:REWRITE 0x1a7e5216ae65af0a9421ec2f4a1fe2668e2f27897d550bb43e0c2b8005e36181 (UNDETERMINED / FINISHED_WITH_RETURN / NO_MAJORITY); no successful result assumed and no duplicate sent
+accepted  probe:0:3:PINNED 0x79e92be43d719b57d8e72746dcbacc08baaf2fc15df5458a7f618a919be29302
+accepted  probe:0:3:RECALL 0xd2fcb36e655710bc7a6a81b7d8f880982afe3e8308122ca4803ab78440dc6cb1
+accepted  probe:0:3:REWRITE 0xb932209a950a050bc022d17a24b2110850faf6b3298d05b4e9338d6b7f66ea71
+accepted  probe:0:4:PINNED 0xebd5248a28b7825d24370fa3a38771429d58153607c23c529236ae3d6bc70092
+accepted  probe:0:4:RECALL 0xbca87b27b042cce1fb807df05e88fb11da4c72668d3ac01f6fa7817175cec6bf
+accepted  probe:0:4:REWRITE 0xa446f5c066ae1dd779beeabdfa0c00f1d6af8816fba8890b11f3cc120c27fe7b
+accepted  probe:0:5:PINNED 0xf6a0abe06a08a98cc52101506410abb548eae672bc3addd9af3b9eb2afdf29de
+accepted  probe:0:5:RECALL 0x093a637c3f07779cebffd8592434857a9b98ec09c855bc70b872586b3d3ad542
+accepted  probe:0:5:REWRITE 0x74f54679b5dbb24b23b59eb2dddc2677492a9a95132a7f70bdf277d1a0dcfd37
+acknowledged failure  probe:0:6:PINNED 0x27f27f7fd7161cc0c8528510a2d70d45ca971c3ec704e93cce7d49acb1952122 (VALIDATORS_TIMEOUT / FINISHED_WITH_RETURN / TIMEOUT); no successful result assumed and no duplicate sent
+accepted  probe:0:6:RECALL 0x4091f139410867d8345c800075f53ade5cdd67fc1dfa0ec12343649df762361f
+accepted  probe:0:6:REWRITE 0x62d65fc883ee1a3bba16403dd19a8e9003dac545c592e33001fc46ee0b7bfbed
+accepted  probe:0:7:PINNED 0xf34ecc5742c7004fa8688f6c1f3c17291e21d976f920dbc73208d2106d450cc7
+accepted  probe:0:7:RECALL 0xe16bf66d968ee07c49442320bd71c50f600537ed12c15ce978060810329ecf32
+acknowledged failure  probe:0:7:REWRITE 0x87d7b0cf28ec7934f2f7eba519c714ba13209217c354621e9d5df73dd67634be (UNDETERMINED / FINISHED_WITH_RETURN / DISAGREE); no successful result assumed and no duplicate sent
+skip  probe:0:0:PINNED
+skip  probe:0:0:RECALL
+skip  probe:0:0:REWRITE
+skip  probe:0:1:PINNED
+skip  probe:0:1:RECALL
+skip  probe:0:1:REWRITE
+skip  probe:0:2:PINNED
+skip  probe:0:2:RECALL
+skip  probe:0:2:REWRITE
+skip  probe:0:3:PINNED
+skip  probe:0:3:RECALL
+skip  probe:0:3:REWRITE
+skip  probe:0:4:PINNED
+skip  probe:0:4:RECALL
+skip  probe:0:4:REWRITE
+skip  probe:0:5:PINNED
+skip  probe:0:5:RECALL
+skip  probe:0:5:REWRITE
+skip  probe:0:6:PINNED
+skip  probe:0:6:RECALL
+skip  probe:0:6:REWRITE
+skip  probe:0:7:PINNED
+skip  probe:0:7:RECALL
+skip  probe:0:7:REWRITE
+Transaction Hash: 0xe2ed8ed0a346c341df6f80dda62211c6279f7ba7f91295aa8992575f8ec4268a
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:8:PINNED 0xe2ed8ed0a346c341df6f80dda62211c6279f7ba7f91295aa8992575f8ec4268a
+probe:0:8:PINNED ended LEADER_TIMEOUT / FINISHED_WITH_RETURN / IDLE (0xe2ed8ed0a346c341df6f80dda62211c6279f7ba7f91295aa8992575f8ec4268a); inspect the receipt before continuing; no duplicate was sent
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"817669","boundedEstimate":"817669","gasLimit":"899436","gasCap":"16777216","calldataBytes":36,"dryRun":false}
+Appealed original transaction: 0xe2ed8ed0a346c341df6f80dda62211c6279f7ba7f91295aa8992575f8ec4268a
+accepted  open 0x21c709cbbb88a9f04804d2a117b46c0494885235de1f2b00329398062c473d1b
+accepted  challenge:0 0x3fd7880e8e9243bc9a085434516008f17477b2e72de63afc4e069c84fce62bca
+accepted  reveal:0 0xf9ef19272af823b0d7e184fffd498e4be610eafa24b6283f56fa6f410c6a985c
+accepted  probe:0:0:PINNED 0x2cd1ddf5a098f676bfe16d77b24656860311a6f0405435f1952f6f941da3415a
+accepted  probe:0:0:RECALL 0xf754b93dd9d1f3f9430e3928ff875626a204497e19e4ccc2e3a7812d4d5b8951
+accepted  probe:0:0:REWRITE 0xeef8ca72a1aaaba33d2fbd47aa9a45e728dde64c731c233c4976bdd227f5913e
+accepted  probe:0:0:ADMIT 0x6cd15506d3f302153951f99288e64fdef6f08920b91e0df9155d9d09a78fe4f5
+accepted  probe:0:1:PINNED 0x67fe459ce7555b3c4b5aa4936d2744353966610d2edd97e15cc112fe10c1fbad
+accepted  probe:0:1:RECALL 0x9ec57fd22ecf325106ce7d36863e4cb4f0f51211215e8b1091b3c25740e62e21
+accepted  probe:0:1:REWRITE 0x513b48d3a1e4f1e81ca82fb743f103ec8c1bfd9aa806abce387373a68b2045cd
+accepted  probe:0:2:PINNED 0xedc3c31e80f81b6ca7d228e12740e4ebb5058ac642a6c1813ae4b60a00383e74
+accepted  probe:0:2:RECALL 0xa8fd23a3ad1954c93681ea18638ccfbe3a16ddd7490faedeea077975ac4f5c95
+acknowledged failure  probe:0:2:REWRITE 0x1a7e5216ae65af0a9421ec2f4a1fe2668e2f27897d550bb43e0c2b8005e36181 (UNDETERMINED / FINISHED_WITH_RETURN / NO_MAJORITY); no successful result assumed and no duplicate sent
+accepted  probe:0:3:PINNED 0x79e92be43d719b57d8e72746dcbacc08baaf2fc15df5458a7f618a919be29302
+accepted  probe:0:3:RECALL 0xd2fcb36e655710bc7a6a81b7d8f880982afe3e8308122ca4803ab78440dc6cb1
+accepted  probe:0:3:REWRITE 0xb932209a950a050bc022d17a24b2110850faf6b3298d05b4e9338d6b7f66ea71
+accepted  probe:0:4:PINNED 0xebd5248a28b7825d24370fa3a38771429d58153607c23c529236ae3d6bc70092
+accepted  probe:0:4:RECALL 0xbca87b27b042cce1fb807df05e88fb11da4c72668d3ac01f6fa7817175cec6bf
+accepted  probe:0:4:REWRITE 0xa446f5c066ae1dd779beeabdfa0c00f1d6af8816fba8890b11f3cc120c27fe7b
+accepted  probe:0:5:PINNED 0xf6a0abe06a08a98cc52101506410abb548eae672bc3addd9af3b9eb2afdf29de
+accepted  probe:0:5:RECALL 0x093a637c3f07779cebffd8592434857a9b98ec09c855bc70b872586b3d3ad542
+accepted  probe:0:5:REWRITE 0x74f54679b5dbb24b23b59eb2dddc2677492a9a95132a7f70bdf277d1a0dcfd37
+acknowledged failure  probe:0:6:PINNED 0x27f27f7fd7161cc0c8528510a2d70d45ca971c3ec704e93cce7d49acb1952122 (VALIDATORS_TIMEOUT / FINISHED_WITH_RETURN / TIMEOUT); no successful result assumed and no duplicate sent
+accepted  probe:0:6:RECALL 0x4091f139410867d8345c800075f53ade5cdd67fc1dfa0ec12343649df762361f
+accepted  probe:0:6:REWRITE 0x62d65fc883ee1a3bba16403dd19a8e9003dac545c592e33001fc46ee0b7bfbed
+accepted  probe:0:7:PINNED 0xf34ecc5742c7004fa8688f6c1f3c17291e21d976f920dbc73208d2106d450cc7
+accepted  probe:0:7:RECALL 0xe16bf66d968ee07c49442320bd71c50f600537ed12c15ce978060810329ecf32
+acknowledged failure  probe:0:7:REWRITE 0x87d7b0cf28ec7934f2f7eba519c714ba13209217c354621e9d5df73dd67634be (UNDETERMINED / FINISHED_WITH_RETURN / DISAGREE); no successful result assumed and no duplicate sent
+probe:0:8:PINNED ended UNDETERMINED / FINISHED_WITH_RETURN / DISAGREE (0xe2ed8ed0a346c341df6f80dda62211c6279f7ba7f91295aa8992575f8ec4268a); inspect the receipt before continuing; no duplicate was sent
+accepted  open 0x21c709cbbb88a9f04804d2a117b46c0494885235de1f2b00329398062c473d1b
+accepted  challenge:0 0x3fd7880e8e9243bc9a085434516008f17477b2e72de63afc4e069c84fce62bca
+accepted  reveal:0 0xf9ef19272af823b0d7e184fffd498e4be610eafa24b6283f56fa6f410c6a985c
+accepted  probe:0:0:PINNED 0x2cd1ddf5a098f676bfe16d77b24656860311a6f0405435f1952f6f941da3415a
+accepted  probe:0:0:RECALL 0xf754b93dd9d1f3f9430e3928ff875626a204497e19e4ccc2e3a7812d4d5b8951
+accepted  probe:0:0:REWRITE 0xeef8ca72a1aaaba33d2fbd47aa9a45e728dde64c731c233c4976bdd227f5913e
+accepted  probe:0:0:ADMIT 0x6cd15506d3f302153951f99288e64fdef6f08920b91e0df9155d9d09a78fe4f5
+accepted  probe:0:1:PINNED 0x67fe459ce7555b3c4b5aa4936d2744353966610d2edd97e15cc112fe10c1fbad
+accepted  probe:0:1:RECALL 0x9ec57fd22ecf325106ce7d36863e4cb4f0f51211215e8b1091b3c25740e62e21
+accepted  probe:0:1:REWRITE 0x513b48d3a1e4f1e81ca82fb743f103ec8c1bfd9aa806abce387373a68b2045cd
+accepted  probe:0:2:PINNED 0xedc3c31e80f81b6ca7d228e12740e4ebb5058ac642a6c1813ae4b60a00383e74
+accepted  probe:0:2:RECALL 0xa8fd23a3ad1954c93681ea18638ccfbe3a16ddd7490faedeea077975ac4f5c95
+acknowledged failure  probe:0:2:REWRITE 0x1a7e5216ae65af0a9421ec2f4a1fe2668e2f27897d550bb43e0c2b8005e36181 (UNDETERMINED / FINISHED_WITH_RETURN / NO_MAJORITY); no successful result assumed and no duplicate sent
+accepted  probe:0:3:PINNED 0x79e92be43d719b57d8e72746dcbacc08baaf2fc15df5458a7f618a919be29302
+accepted  probe:0:3:RECALL 0xd2fcb36e655710bc7a6a81b7d8f880982afe3e8308122ca4803ab78440dc6cb1
+accepted  probe:0:3:REWRITE 0xb932209a950a050bc022d17a24b2110850faf6b3298d05b4e9338d6b7f66ea71
+accepted  probe:0:4:PINNED 0xebd5248a28b7825d24370fa3a38771429d58153607c23c529236ae3d6bc70092
+accepted  probe:0:4:RECALL 0xbca87b27b042cce1fb807df05e88fb11da4c72668d3ac01f6fa7817175cec6bf
+accepted  probe:0:4:REWRITE 0xa446f5c066ae1dd779beeabdfa0c00f1d6af8816fba8890b11f3cc120c27fe7b
+accepted  probe:0:5:PINNED 0xf6a0abe06a08a98cc52101506410abb548eae672bc3addd9af3b9eb2afdf29de
+accepted  probe:0:5:RECALL 0x093a637c3f07779cebffd8592434857a9b98ec09c855bc70b872586b3d3ad542
+accepted  probe:0:5:REWRITE 0x74f54679b5dbb24b23b59eb2dddc2677492a9a95132a7f70bdf277d1a0dcfd37
+acknowledged failure  probe:0:6:PINNED 0x27f27f7fd7161cc0c8528510a2d70d45ca971c3ec704e93cce7d49acb1952122 (VALIDATORS_TIMEOUT / FINISHED_WITH_RETURN / TIMEOUT); no successful result assumed and no duplicate sent
+accepted  probe:0:6:RECALL 0x4091f139410867d8345c800075f53ade5cdd67fc1dfa0ec12343649df762361f
+accepted  probe:0:6:REWRITE 0x62d65fc883ee1a3bba16403dd19a8e9003dac545c592e33001fc46ee0b7bfbed
+accepted  probe:0:7:PINNED 0xf34ecc5742c7004fa8688f6c1f3c17291e21d976f920dbc73208d2106d450cc7
+accepted  probe:0:7:RECALL 0xe16bf66d968ee07c49442320bd71c50f600537ed12c15ce978060810329ecf32
+acknowledged failure  probe:0:7:REWRITE 0x87d7b0cf28ec7934f2f7eba519c714ba13209217c354621e9d5df73dd67634be (UNDETERMINED / FINISHED_WITH_RETURN / DISAGREE); no successful result assumed and no duplicate sent
+acknowledged failure  probe:0:8:PINNED 0xe2ed8ed0a346c341df6f80dda62211c6279f7ba7f91295aa8992575f8ec4268a (UNDETERMINED / FINISHED_WITH_RETURN / DISAGREE); no successful result assumed and no duplicate sent
+skip  probe:0:0:PINNED
+skip  probe:0:0:RECALL
+skip  probe:0:0:REWRITE
+skip  probe:0:1:PINNED
+skip  probe:0:1:RECALL
+skip  probe:0:1:REWRITE
+skip  probe:0:2:PINNED
+skip  probe:0:2:RECALL
+skip  probe:0:2:REWRITE
+skip  probe:0:3:PINNED
+skip  probe:0:3:RECALL
+skip  probe:0:3:REWRITE
+skip  probe:0:4:PINNED
+skip  probe:0:4:RECALL
+skip  probe:0:4:REWRITE
+skip  probe:0:5:PINNED
+skip  probe:0:5:RECALL
+skip  probe:0:5:REWRITE
+skip  probe:0:6:PINNED
+skip  probe:0:6:RECALL
+skip  probe:0:6:REWRITE
+skip  probe:0:7:PINNED
+skip  probe:0:7:RECALL
+skip  probe:0:7:REWRITE
+skip  probe:0:8:PINNED
+Transaction Hash: 0x7fc43dab6300c17c4ad3d0ed15897c54b8d3dc7b4bc66deb78ce658b84c77abc
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:8:RECALL 0x7fc43dab6300c17c4ad3d0ed15897c54b8d3dc7b4bc66deb78ce658b84c77abc
+accepted  probe:0:8:RECALL 0x7fc43dab6300c17c4ad3d0ed15897c54b8d3dc7b4bc66deb78ce658b84c77abc
+Transaction Hash: 0x9f24946f968fff66e411af4e21fdc4cb66b8d63d6078943a9516309e665183c2
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"1104389","boundedEstimate":"1104389","gasLimit":"1214828","gasCap":"16777216","calldataBytes":580,"dryRun":false}
+sent  probe:0:8:REWRITE 0x9f24946f968fff66e411af4e21fdc4cb66b8d63d6078943a9516309e665183c2
+accepted  open 0x21c709cbbb88a9f04804d2a117b46c0494885235de1f2b00329398062c473d1b
+accepted  challenge:0 0x3fd7880e8e9243bc9a085434516008f17477b2e72de63afc4e069c84fce62bca
+accepted  reveal:0 0xf9ef19272af823b0d7e184fffd498e4be610eafa24b6283f56fa6f410c6a985c
+accepted  probe:0:0:PINNED 0x2cd1ddf5a098f676bfe16d77b24656860311a6f0405435f1952f6f941da3415a
+accepted  probe:0:0:RECALL 0xf754b93dd9d1f3f9430e3928ff875626a204497e19e4ccc2e3a7812d4d5b8951
+accepted  probe:0:0:REWRITE 0xeef8ca72a1aaaba33d2fbd47aa9a45e728dde64c731c233c4976bdd227f5913e
+accepted  probe:0:0:ADMIT 0x6cd15506d3f302153951f99288e64fdef6f08920b91e0df9155d9d09a78fe4f5
+accepted  probe:0:1:PINNED 0x67fe459ce7555b3c4b5aa4936d2744353966610d2edd97e15cc112fe10c1fbad
+accepted  probe:0:1:RECALL 0x9ec57fd22ecf325106ce7d36863e4cb4f0f51211215e8b1091b3c25740e62e21
+accepted  probe:0:1:REWRITE 0x513b48d3a1e4f1e81ca82fb743f103ec8c1bfd9aa806abce387373a68b2045cd
+accepted  probe:0:2:PINNED 0xedc3c31e80f81b6ca7d228e12740e4ebb5058ac642a6c1813ae4b60a00383e74
+accepted  probe:0:2:RECALL 0xa8fd23a3ad1954c93681ea18638ccfbe3a16ddd7490faedeea077975ac4f5c95
+accepted  probe:0:2:REWRITE 0xd67bfe5cefa91f49fc2494d1584d526bfa8cc4fededf7baa73ee89e86598bb84
+accepted  probe:0:3:PINNED 0x79e92be43d719b57d8e72746dcbacc08baaf2fc15df5458a7f618a919be29302
+accepted  probe:0:3:RECALL 0xd2fcb36e655710bc7a6a81b7d8f880982afe3e8308122ca4803ab78440dc6cb1
+accepted  probe:0:3:REWRITE 0xb932209a950a050bc022d17a24b2110850faf6b3298d05b4e9338d6b7f66ea71
+accepted  probe:0:4:PINNED 0xebd5248a28b7825d24370fa3a38771429d58153607c23c529236ae3d6bc70092
+accepted  probe:0:4:RECALL 0xbca87b27b042cce1fb807df05e88fb11da4c72668d3ac01f6fa7817175cec6bf
+accepted  probe:0:4:REWRITE 0xa446f5c066ae1dd779beeabdfa0c00f1d6af8816fba8890b11f3cc120c27fe7b
+accepted  probe:0:5:PINNED 0xf6a0abe06a08a98cc52101506410abb548eae672bc3addd9af3b9eb2afdf29de
+accepted  probe:0:5:RECALL 0x093a637c3f07779cebffd8592434857a9b98ec09c855bc70b872586b3d3ad542
+accepted  probe:0:5:REWRITE 0x74f54679b5dbb24b23b59eb2dddc2677492a9a95132a7f70bdf277d1a0dcfd37
+acknowledged failure  probe:0:6:PINNED 0x27f27f7fd7161cc0c8528510a2d70d45ca971c3ec704e93cce7d49acb1952122 (VALIDATORS_TIMEOUT / FINISHED_WITH_RETURN / TIMEOUT); no successful result assumed and no duplicate sent
+accepted  probe:0:6:RECALL 0x4091f139410867d8345c800075f53ade5cdd67fc1dfa0ec12343649df762361f
+accepted  probe:0:6:REWRITE 0x62d65fc883ee1a3bba16403dd19a8e9003dac545c592e33001fc46ee0b7bfbed
+accepted  probe:0:7:PINNED 0xf34ecc5742c7004fa8688f6c1f3c17291e21d976f920dbc73208d2106d450cc7
+accepted  probe:0:7:RECALL 0xe16bf66d968ee07c49442320bd71c50f600537ed12c15ce978060810329ecf32
+acknowledged failure  probe:0:7:REWRITE 0x87d7b0cf28ec7934f2f7eba519c714ba13209217c354621e9d5df73dd67634be (UNDETERMINED / FINISHED_WITH_RETURN / DISAGREE); no successful result assumed and no duplicate sent
+acknowledged failure  probe:0:8:PINNED 0xe2ed8ed0a346c341df6f80dda62211c6279f7ba7f91295aa8992575f8ec4268a (UNDETERMINED / FINISHED_WITH_RETURN / DISAGREE); no successful result assumed and no duplicate sent
+accepted  probe:0:8:RECALL 0x7fc43dab6300c17c4ad3d0ed15897c54b8d3dc7b4bc66deb78ce658b84c77abc
+acknowledged failure  probe:0:8:REWRITE 0x9f24946f968fff66e411af4e21fdc4cb66b8d63d6078943a9516309e665183c2 (UNDETERMINED / FINISHED_WITH_RETURN / DISAGREE); no successful result assumed and no duplicate sent
+Transaction Hash: 0xf2b87e76344e42d929ba77ee2e8363d03d030ca303dac5bd36dd4acf0ddd1082
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"865003","boundedEstimate":"865003","gasLimit":"951504","gasCap":"16777216","calldataBytes":260,"dryRun":false}
+sent  probe:0:1:ADMIT 0xf2b87e76344e42d929ba77ee2e8363d03d030ca303dac5bd36dd4acf0ddd1082
+probe:0:1:ADMIT ended LEADER_TIMEOUT / NOT_VOTED / IDLE (0xf2b87e76344e42d929ba77ee2e8363d03d030ca303dac5bd36dd4acf0ddd1082); inspect the receipt before continuing; no duplicate was sent
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"827622","boundedEstimate":"827622","gasLimit":"910385","gasCap":"16777216","calldataBytes":36,"dryRun":false}
+Appealed original transaction: 0xf2b87e76344e42d929ba77ee2e8363d03d030ca303dac5bd36dd4acf0ddd1082
+accepted  open 0x21c709cbbb88a9f04804d2a117b46c0494885235de1f2b00329398062c473d1b
+accepted  challenge:0 0x3fd7880e8e9243bc9a085434516008f17477b2e72de63afc4e069c84fce62bca
+accepted  reveal:0 0xf9ef19272af823b0d7e184fffd498e4be610eafa24b6283f56fa6f410c6a985c
+accepted  probe:0:0:PINNED 0x2cd1ddf5a098f676bfe16d77b24656860311a6f0405435f1952f6f941da3415a
+accepted  probe:0:0:RECALL 0xf754b93dd9d1f3f9430e3928ff875626a204497e19e4ccc2e3a7812d4d5b8951
+accepted  probe:0:0:REWRITE 0xeef8ca72a1aaaba33d2fbd47aa9a45e728dde64c731c233c4976bdd227f5913e
+accepted  probe:0:0:ADMIT 0x6cd15506d3f302153951f99288e64fdef6f08920b91e0df9155d9d09a78fe4f5
+accepted  probe:0:1:PINNED 0x67fe459ce7555b3c4b5aa4936d2744353966610d2edd97e15cc112fe10c1fbad
+accepted  probe:0:1:RECALL 0x9ec57fd22ecf325106ce7d36863e4cb4f0f51211215e8b1091b3c25740e62e21
+accepted  probe:0:1:REWRITE 0x513b48d3a1e4f1e81ca82fb743f103ec8c1bfd9aa806abce387373a68b2045cd
+accepted  probe:0:2:PINNED 0xedc3c31e80f81b6ca7d228e12740e4ebb5058ac642a6c1813ae4b60a00383e74
+accepted  probe:0:2:RECALL 0xa8fd23a3ad1954c93681ea18638ccfbe3a16ddd7490faedeea077975ac4f5c95
+accepted  probe:0:2:REWRITE 0xd67bfe5cefa91f49fc2494d1584d526bfa8cc4fededf7baa73ee89e86598bb84
+accepted  probe:0:3:PINNED 0x79e92be43d719b57d8e72746dcbacc08baaf2fc15df5458a7f618a919be29302
+accepted  probe:0:3:RECALL 0xd2fcb36e655710bc7a6a81b7d8f880982afe3e8308122ca4803ab78440dc6cb1
+accepted  probe:0:3:REWRITE 0xb932209a950a050bc022d17a24b2110850faf6b3298d05b4e9338d6b7f66ea71
+accepted  probe:0:4:PINNED 0xebd5248a28b7825d24370fa3a38771429d58153607c23c529236ae3d6bc70092
+accepted  probe:0:4:RECALL 0xbca87b27b042cce1fb807df05e88fb11da4c72668d3ac01f6fa7817175cec6bf
+accepted  probe:0:4:REWRITE 0xa446f5c066ae1dd779beeabdfa0c00f1d6af8816fba8890b11f3cc120c27fe7b
+accepted  probe:0:5:PINNED 0xf6a0abe06a08a98cc52101506410abb548eae672bc3addd9af3b9eb2afdf29de
+accepted  probe:0:5:RECALL 0x093a637c3f07779cebffd8592434857a9b98ec09c855bc70b872586b3d3ad542
+accepted  probe:0:5:REWRITE 0x74f54679b5dbb24b23b59eb2dddc2677492a9a95132a7f70bdf277d1a0dcfd37
+acknowledged failure  probe:0:6:PINNED 0x27f27f7fd7161cc0c8528510a2d70d45ca971c3ec704e93cce7d49acb1952122 (VALIDATORS_TIMEOUT / FINISHED_WITH_RETURN / TIMEOUT); no successful result assumed and no duplicate sent
+accepted  probe:0:6:RECALL 0x4091f139410867d8345c800075f53ade5cdd67fc1dfa0ec12343649df762361f
+accepted  probe:0:6:REWRITE 0x62d65fc883ee1a3bba16403dd19a8e9003dac545c592e33001fc46ee0b7bfbed
+accepted  probe:0:7:PINNED 0xf34ecc5742c7004fa8688f6c1f3c17291e21d976f920dbc73208d2106d450cc7
+accepted  probe:0:7:RECALL 0xe16bf66d968ee07c49442320bd71c50f600537ed12c15ce978060810329ecf32
+acknowledged failure  probe:0:7:REWRITE 0x87d7b0cf28ec7934f2f7eba519c714ba13209217c354621e9d5df73dd67634be (UNDETERMINED / FINISHED_WITH_RETURN / DISAGREE); no successful result assumed and no duplicate sent
+acknowledged failure  probe:0:8:PINNED 0xe2ed8ed0a346c341df6f80dda62211c6279f7ba7f91295aa8992575f8ec4268a (UNDETERMINED / FINISHED_WITH_RETURN / DISAGREE); no successful result assumed and no duplicate sent
+accepted  probe:0:8:RECALL 0x7fc43dab6300c17c4ad3d0ed15897c54b8d3dc7b4bc66deb78ce658b84c77abc
+acknowledged failure  probe:0:8:REWRITE 0x9f24946f968fff66e411af4e21fdc4cb66b8d63d6078943a9516309e665183c2 (UNDETERMINED / FINISHED_WITH_RETURN / DISAGREE); no successful result assumed and no duplicate sent
+probe:0:1:ADMIT ended LEADER_TIMEOUT / NOT_VOTED / IDLE (0xf2b87e76344e42d929ba77ee2e8363d03d030ca303dac5bd36dd4acf0ddd1082); inspect the receipt before continuing; no duplicate was sent
+accepted  open 0x21c709cbbb88a9f04804d2a117b46c0494885235de1f2b00329398062c473d1b
+accepted  challenge:0 0x3fd7880e8e9243bc9a085434516008f17477b2e72de63afc4e069c84fce62bca
+accepted  reveal:0 0xf9ef19272af823b0d7e184fffd498e4be610eafa24b6283f56fa6f410c6a985c
+accepted  probe:0:0:PINNED 0x2cd1ddf5a098f676bfe16d77b24656860311a6f0405435f1952f6f941da3415a
+accepted  probe:0:0:RECALL 0xf754b93dd9d1f3f9430e3928ff875626a204497e19e4ccc2e3a7812d4d5b8951
+accepted  probe:0:0:REWRITE 0xeef8ca72a1aaaba33d2fbd47aa9a45e728dde64c731c233c4976bdd227f5913e
+accepted  probe:0:0:ADMIT 0x6cd15506d3f302153951f99288e64fdef6f08920b91e0df9155d9d09a78fe4f5
+accepted  probe:0:1:PINNED 0x67fe459ce7555b3c4b5aa4936d2744353966610d2edd97e15cc112fe10c1fbad
+accepted  probe:0:1:RECALL 0x9ec57fd22ecf325106ce7d36863e4cb4f0f51211215e8b1091b3c25740e62e21
+accepted  probe:0:1:REWRITE 0x513b48d3a1e4f1e81ca82fb743f103ec8c1bfd9aa806abce387373a68b2045cd
+accepted  probe:0:2:PINNED 0xedc3c31e80f81b6ca7d228e12740e4ebb5058ac642a6c1813ae4b60a00383e74
+accepted  probe:0:2:RECALL 0xa8fd23a3ad1954c93681ea18638ccfbe3a16ddd7490faedeea077975ac4f5c95
+accepted  probe:0:2:REWRITE 0xd67bfe5cefa91f49fc2494d1584d526bfa8cc4fededf7baa73ee89e86598bb84
+accepted  probe:0:3:PINNED 0x79e92be43d719b57d8e72746dcbacc08baaf2fc15df5458a7f618a919be29302
+accepted  probe:0:3:RECALL 0xd2fcb36e655710bc7a6a81b7d8f880982afe3e8308122ca4803ab78440dc6cb1
+accepted  probe:0:3:REWRITE 0xb932209a950a050bc022d17a24b2110850faf6b3298d05b4e9338d6b7f66ea71
+accepted  probe:0:4:PINNED 0xebd5248a28b7825d24370fa3a38771429d58153607c23c529236ae3d6bc70092
+accepted  probe:0:4:RECALL 0xbca87b27b042cce1fb807df05e88fb11da4c72668d3ac01f6fa7817175cec6bf
+accepted  probe:0:4:REWRITE 0xa446f5c066ae1dd779beeabdfa0c00f1d6af8816fba8890b11f3cc120c27fe7b
+accepted  probe:0:5:PINNED 0xf6a0abe06a08a98cc52101506410abb548eae672bc3addd9af3b9eb2afdf29de
+accepted  probe:0:5:RECALL 0x093a637c3f07779cebffd8592434857a9b98ec09c855bc70b872586b3d3ad542
+accepted  probe:0:5:REWRITE 0x74f54679b5dbb24b23b59eb2dddc2677492a9a95132a7f70bdf277d1a0dcfd37
+acknowledged failure  probe:0:6:PINNED 0x27f27f7fd7161cc0c8528510a2d70d45ca971c3ec704e93cce7d49acb1952122 (FINALIZED / FINISHED_WITH_RETURN / TIMEOUT); no successful result assumed and no duplicate sent
+accepted  probe:0:6:RECALL 0x4091f139410867d8345c800075f53ade5cdd67fc1dfa0ec12343649df762361f
+accepted  probe:0:6:REWRITE 0x62d65fc883ee1a3bba16403dd19a8e9003dac545c592e33001fc46ee0b7bfbed
+accepted  probe:0:7:PINNED 0xf34ecc5742c7004fa8688f6c1f3c17291e21d976f920dbc73208d2106d450cc7
+accepted  probe:0:7:RECALL 0xe16bf66d968ee07c49442320bd71c50f600537ed12c15ce978060810329ecf32
+acknowledged failure  probe:0:7:REWRITE 0x87d7b0cf28ec7934f2f7eba519c714ba13209217c354621e9d5df73dd67634be (UNDETERMINED / FINISHED_WITH_RETURN / DISAGREE); no successful result assumed and no duplicate sent
+acknowledged failure  probe:0:8:PINNED 0xe2ed8ed0a346c341df6f80dda62211c6279f7ba7f91295aa8992575f8ec4268a (UNDETERMINED / FINISHED_WITH_RETURN / DISAGREE); no successful result assumed and no duplicate sent
+accepted  probe:0:8:RECALL 0x7fc43dab6300c17c4ad3d0ed15897c54b8d3dc7b4bc66deb78ce658b84c77abc
+acknowledged failure  probe:0:8:REWRITE 0x9f24946f968fff66e411af4e21fdc4cb66b8d63d6078943a9516309e665183c2 (UNDETERMINED / FINISHED_WITH_RETURN / DISAGREE); no successful result assumed and no duplicate sent
+acknowledged failure  probe:0:1:ADMIT 0xf2b87e76344e42d929ba77ee2e8363d03d030ca303dac5bd36dd4acf0ddd1082 (LEADER_TIMEOUT / NOT_VOTED / IDLE); no successful result assumed and no duplicate sent
+skip  probe:0:1:ADMIT
+Transaction Hash: 0xf4be1f2d19aa84d1ea86651575dc3d4e3fea48b716c12ae2aa75db335e525fb6
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"865003","boundedEstimate":"865003","gasLimit":"951504","gasCap":"16777216","calldataBytes":260,"dryRun":false}
+sent  probe:0:3:ADMIT 0xf4be1f2d19aa84d1ea86651575dc3d4e3fea48b716c12ae2aa75db335e525fb6
+accepted  probe:0:3:ADMIT 0xf4be1f2d19aa84d1ea86651575dc3d4e3fea48b716c12ae2aa75db335e525fb6
+Transaction Hash: 0x419c066262cbebb5db75069496bff687dd5fcd22dacb176ddc819767a4a2b7fc
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"865003","boundedEstimate":"865003","gasLimit":"951504","gasCap":"16777216","calldataBytes":260,"dryRun":false}
+sent  probe:0:4:ADMIT 0x419c066262cbebb5db75069496bff687dd5fcd22dacb176ddc819767a4a2b7fc
+probe:0:4:ADMIT ended LEADER_TIMEOUT / FINISHED_WITH_RETURN / IDLE (0x419c066262cbebb5db75069496bff687dd5fcd22dacb176ddc819767a4a2b7fc); inspect the receipt before continuing; no duplicate was sent
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"817669","boundedEstimate":"817669","gasLimit":"899436","gasCap":"16777216","calldataBytes":36,"dryRun":false}
+Appealed original transaction: 0x419c066262cbebb5db75069496bff687dd5fcd22dacb176ddc819767a4a2b7fc
+accepted  open 0x21c709cbbb88a9f04804d2a117b46c0494885235de1f2b00329398062c473d1b
+accepted  challenge:0 0x3fd7880e8e9243bc9a085434516008f17477b2e72de63afc4e069c84fce62bca
+accepted  reveal:0 0xf9ef19272af823b0d7e184fffd498e4be610eafa24b6283f56fa6f410c6a985c
+accepted  probe:0:0:PINNED 0x2cd1ddf5a098f676bfe16d77b24656860311a6f0405435f1952f6f941da3415a
+accepted  probe:0:0:RECALL 0xf754b93dd9d1f3f9430e3928ff875626a204497e19e4ccc2e3a7812d4d5b8951
+accepted  probe:0:0:REWRITE 0xeef8ca72a1aaaba33d2fbd47aa9a45e728dde64c731c233c4976bdd227f5913e
+accepted  probe:0:0:ADMIT 0x6cd15506d3f302153951f99288e64fdef6f08920b91e0df9155d9d09a78fe4f5
+accepted  probe:0:1:PINNED 0x67fe459ce7555b3c4b5aa4936d2744353966610d2edd97e15cc112fe10c1fbad
+accepted  probe:0:1:RECALL 0x9ec57fd22ecf325106ce7d36863e4cb4f0f51211215e8b1091b3c25740e62e21
+accepted  probe:0:1:REWRITE 0x513b48d3a1e4f1e81ca82fb743f103ec8c1bfd9aa806abce387373a68b2045cd
+accepted  probe:0:2:PINNED 0xedc3c31e80f81b6ca7d228e12740e4ebb5058ac642a6c1813ae4b60a00383e74
+accepted  probe:0:2:RECALL 0xa8fd23a3ad1954c93681ea18638ccfbe3a16ddd7490faedeea077975ac4f5c95
+accepted  probe:0:2:REWRITE 0xd67bfe5cefa91f49fc2494d1584d526bfa8cc4fededf7baa73ee89e86598bb84
+accepted  probe:0:3:PINNED 0x79e92be43d719b57d8e72746dcbacc08baaf2fc15df5458a7f618a919be29302
+accepted  probe:0:3:RECALL 0xd2fcb36e655710bc7a6a81b7d8f880982afe3e8308122ca4803ab78440dc6cb1
+accepted  probe:0:3:REWRITE 0xb932209a950a050bc022d17a24b2110850faf6b3298d05b4e9338d6b7f66ea71
+accepted  probe:0:4:PINNED 0xebd5248a28b7825d24370fa3a38771429d58153607c23c529236ae3d6bc70092
+accepted  probe:0:4:RECALL 0xbca87b27b042cce1fb807df05e88fb11da4c72668d3ac01f6fa7817175cec6bf
+accepted  probe:0:4:REWRITE 0xa446f5c066ae1dd779beeabdfa0c00f1d6af8816fba8890b11f3cc120c27fe7b
+accepted  probe:0:5:PINNED 0xf6a0abe06a08a98cc52101506410abb548eae672bc3addd9af3b9eb2afdf29de
+accepted  probe:0:5:RECALL 0x093a637c3f07779cebffd8592434857a9b98ec09c855bc70b872586b3d3ad542
+accepted  probe:0:5:REWRITE 0x74f54679b5dbb24b23b59eb2dddc2677492a9a95132a7f70bdf277d1a0dcfd37
+acknowledged failure  probe:0:6:PINNED 0x27f27f7fd7161cc0c8528510a2d70d45ca971c3ec704e93cce7d49acb1952122 (FINALIZED / FINISHED_WITH_RETURN / TIMEOUT); no successful result assumed and no duplicate sent
+accepted  probe:0:6:RECALL 0x4091f139410867d8345c800075f53ade5cdd67fc1dfa0ec12343649df762361f
+accepted  probe:0:6:REWRITE 0x62d65fc883ee1a3bba16403dd19a8e9003dac545c592e33001fc46ee0b7bfbed
+accepted  probe:0:7:PINNED 0xf34ecc5742c7004fa8688f6c1f3c17291e21d976f920dbc73208d2106d450cc7
+accepted  probe:0:7:RECALL 0xe16bf66d968ee07c49442320bd71c50f600537ed12c15ce978060810329ecf32
+acknowledged failure  probe:0:7:REWRITE 0x87d7b0cf28ec7934f2f7eba519c714ba13209217c354621e9d5df73dd67634be (UNDETERMINED / FINISHED_WITH_RETURN / DISAGREE); no successful result assumed and no duplicate sent
+acknowledged failure  probe:0:8:PINNED 0xe2ed8ed0a346c341df6f80dda62211c6279f7ba7f91295aa8992575f8ec4268a (UNDETERMINED / FINISHED_WITH_RETURN / DISAGREE); no successful result assumed and no duplicate sent
+accepted  probe:0:8:RECALL 0x7fc43dab6300c17c4ad3d0ed15897c54b8d3dc7b4bc66deb78ce658b84c77abc
+acknowledged failure  probe:0:8:REWRITE 0x9f24946f968fff66e411af4e21fdc4cb66b8d63d6078943a9516309e665183c2 (UNDETERMINED / FINISHED_WITH_RETURN / DISAGREE); no successful result assumed and no duplicate sent
+acknowledged failure  probe:0:1:ADMIT 0xf2b87e76344e42d929ba77ee2e8363d03d030ca303dac5bd36dd4acf0ddd1082 (LEADER_TIMEOUT / NOT_VOTED / IDLE); no successful result assumed and no duplicate sent
+accepted  probe:0:3:ADMIT 0xf4be1f2d19aa84d1ea86651575dc3d4e3fea48b716c12ae2aa75db335e525fb6
+accepted  probe:0:4:ADMIT 0x419c066262cbebb5db75069496bff687dd5fcd22dacb176ddc819767a4a2b7fc
+skip  probe:0:1:ADMIT
+Transaction Hash: 0x847bb807691c13cb8447787335ca679a276ef3975dd64d95cf69bd342c93bc07
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"872933","boundedEstimate":"865003","gasLimit":"951504","gasCap":"16777216","calldataBytes":260,"dryRun":false}
+sent  probe:0:5:ADMIT 0x847bb807691c13cb8447787335ca679a276ef3975dd64d95cf69bd342c93bc07
+accepted  probe:0:5:ADMIT 0x847bb807691c13cb8447787335ca679a276ef3975dd64d95cf69bd342c93bc07
+Transaction Hash: 0x38a5a229920defa46e63e1a4c93de0430f6fb391a1e1f06dd25646c7179dcf34
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"865003","boundedEstimate":"865003","gasLimit":"951504","gasCap":"16777216","calldataBytes":260,"dryRun":false}
+sent  probe:0:6:ADMIT 0x38a5a229920defa46e63e1a4c93de0430f6fb391a1e1f06dd25646c7179dcf34
+accepted  probe:0:6:ADMIT 0x38a5a229920defa46e63e1a4c93de0430f6fb391a1e1f06dd25646c7179dcf34
+17 rewrites have not settled yet; run this step again later
+saved original finalized receipt: /Users/zmaxx/Projects/impeach/runs/bradbury-vercel.jsonl.receipts/0x27f27f7fd7161cc0c8528510a2d70d45ca971c3ec704e93cce7d49acb1952122.finalized-uca3alvw.json
+Transaction Hash: 0xc40d0c8cc962d66e2ef10ba5f6d2e37784bd13471be0306b59c2147467e5fd53
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:6:PINNED 0xc40d0c8cc962d66e2ef10ba5f6d2e37784bd13471be0306b59c2147467e5fd53
+accepted  probe:0:6:PINNED 0xc40d0c8cc962d66e2ef10ba5f6d2e37784bd13471be0306b59c2147467e5fd53
+accepted  open 0x21c709cbbb88a9f04804d2a117b46c0494885235de1f2b00329398062c473d1b
+accepted  challenge:0 0x3fd7880e8e9243bc9a085434516008f17477b2e72de63afc4e069c84fce62bca
+accepted  reveal:0 0xf9ef19272af823b0d7e184fffd498e4be610eafa24b6283f56fa6f410c6a985c
+accepted  probe:0:0:PINNED 0x2cd1ddf5a098f676bfe16d77b24656860311a6f0405435f1952f6f941da3415a
+accepted  probe:0:0:RECALL 0xf754b93dd9d1f3f9430e3928ff875626a204497e19e4ccc2e3a7812d4d5b8951
+accepted  probe:0:0:REWRITE 0xeef8ca72a1aaaba33d2fbd47aa9a45e728dde64c731c233c4976bdd227f5913e
+accepted  probe:0:0:ADMIT 0x6cd15506d3f302153951f99288e64fdef6f08920b91e0df9155d9d09a78fe4f5
+accepted  probe:0:1:PINNED 0x67fe459ce7555b3c4b5aa4936d2744353966610d2edd97e15cc112fe10c1fbad
+accepted  probe:0:1:RECALL 0x9ec57fd22ecf325106ce7d36863e4cb4f0f51211215e8b1091b3c25740e62e21
+accepted  probe:0:1:REWRITE 0x513b48d3a1e4f1e81ca82fb743f103ec8c1bfd9aa806abce387373a68b2045cd
+accepted  probe:0:2:PINNED 0xedc3c31e80f81b6ca7d228e12740e4ebb5058ac642a6c1813ae4b60a00383e74
+accepted  probe:0:2:RECALL 0xa8fd23a3ad1954c93681ea18638ccfbe3a16ddd7490faedeea077975ac4f5c95
+accepted  probe:0:2:REWRITE 0xd67bfe5cefa91f49fc2494d1584d526bfa8cc4fededf7baa73ee89e86598bb84
+accepted  probe:0:3:PINNED 0x79e92be43d719b57d8e72746dcbacc08baaf2fc15df5458a7f618a919be29302
+accepted  probe:0:3:RECALL 0xd2fcb36e655710bc7a6a81b7d8f880982afe3e8308122ca4803ab78440dc6cb1
+accepted  probe:0:3:REWRITE 0xb932209a950a050bc022d17a24b2110850faf6b3298d05b4e9338d6b7f66ea71
+accepted  probe:0:4:PINNED 0xebd5248a28b7825d24370fa3a38771429d58153607c23c529236ae3d6bc70092
+accepted  probe:0:4:RECALL 0xbca87b27b042cce1fb807df05e88fb11da4c72668d3ac01f6fa7817175cec6bf
+accepted  probe:0:4:REWRITE 0xa446f5c066ae1dd779beeabdfa0c00f1d6af8816fba8890b11f3cc120c27fe7b
+accepted  probe:0:5:PINNED 0xf6a0abe06a08a98cc52101506410abb548eae672bc3addd9af3b9eb2afdf29de
+accepted  probe:0:5:RECALL 0x093a637c3f07779cebffd8592434857a9b98ec09c855bc70b872586b3d3ad542
+accepted  probe:0:5:REWRITE 0x74f54679b5dbb24b23b59eb2dddc2677492a9a95132a7f70bdf277d1a0dcfd37
+accepted  probe:0:6:PINNED 0xc40d0c8cc962d66e2ef10ba5f6d2e37784bd13471be0306b59c2147467e5fd53
+accepted  probe:0:6:RECALL 0x4091f139410867d8345c800075f53ade5cdd67fc1dfa0ec12343649df762361f
+accepted  probe:0:6:REWRITE 0x62d65fc883ee1a3bba16403dd19a8e9003dac545c592e33001fc46ee0b7bfbed
+accepted  probe:0:7:PINNED 0xf34ecc5742c7004fa8688f6c1f3c17291e21d976f920dbc73208d2106d450cc7
+accepted  probe:0:7:RECALL 0xe16bf66d968ee07c49442320bd71c50f600537ed12c15ce978060810329ecf32
+acknowledged failure  probe:0:7:REWRITE 0x87d7b0cf28ec7934f2f7eba519c714ba13209217c354621e9d5df73dd67634be (FINALIZED / FINISHED_WITH_RETURN / DISAGREE); no successful result assumed and no duplicate sent
+acknowledged failure  probe:0:8:PINNED 0xe2ed8ed0a346c341df6f80dda62211c6279f7ba7f91295aa8992575f8ec4268a (UNDETERMINED / FINISHED_WITH_RETURN / DISAGREE); no successful result assumed and no duplicate sent
+accepted  probe:0:8:RECALL 0x7fc43dab6300c17c4ad3d0ed15897c54b8d3dc7b4bc66deb78ce658b84c77abc
+acknowledged failure  probe:0:8:REWRITE 0x9f24946f968fff66e411af4e21fdc4cb66b8d63d6078943a9516309e665183c2 (UNDETERMINED / FINISHED_WITH_RETURN / DISAGREE); no successful result assumed and no duplicate sent
+acknowledged failure  probe:0:1:ADMIT 0xf2b87e76344e42d929ba77ee2e8363d03d030ca303dac5bd36dd4acf0ddd1082 (LEADER_TIMEOUT / NOT_VOTED / IDLE); no successful result assumed and no duplicate sent
+accepted  probe:0:3:ADMIT 0xf4be1f2d19aa84d1ea86651575dc3d4e3fea48b716c12ae2aa75db335e525fb6
+accepted  probe:0:4:ADMIT 0x419c066262cbebb5db75069496bff687dd5fcd22dacb176ddc819767a4a2b7fc
+accepted  probe:0:5:ADMIT 0x847bb807691c13cb8447787335ca679a276ef3975dd64d95cf69bd342c93bc07
+accepted  probe:0:6:ADMIT 0x38a5a229920defa46e63e1a4c93de0430f6fb391a1e1f06dd25646c7179dcf34
+skip  probe:0:0:PINNED
+skip  probe:0:0:RECALL
+skip  probe:0:0:REWRITE
+skip  probe:0:1:PINNED
+skip  probe:0:1:RECALL
+skip  probe:0:1:REWRITE
+skip  probe:0:2:PINNED
+skip  probe:0:2:RECALL
+skip  probe:0:2:REWRITE
+skip  probe:0:3:PINNED
+skip  probe:0:3:RECALL
+skip  probe:0:3:REWRITE
+skip  probe:0:4:PINNED
+skip  probe:0:4:RECALL
+skip  probe:0:4:REWRITE
+skip  probe:0:5:PINNED
+skip  probe:0:5:RECALL
+skip  probe:0:5:REWRITE
+skip  probe:0:6:PINNED
+skip  probe:0:6:RECALL
+skip  probe:0:6:REWRITE
+skip  probe:0:7:PINNED
+skip  probe:0:7:RECALL
+skip  probe:0:7:REWRITE
+skip  probe:0:8:PINNED
+skip  probe:0:8:RECALL
+skip  probe:0:8:REWRITE
+Transaction Hash: 0xa983898968b44325efe4a388a0e1d484335b2dca543aa7af86964d8d630cf143
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:9:PINNED 0xa983898968b44325efe4a388a0e1d484335b2dca543aa7af86964d8d630cf143
+accepted  probe:0:9:PINNED 0xa983898968b44325efe4a388a0e1d484335b2dca543aa7af86964d8d630cf143
+Transaction Hash: 0x0f428bb3496ca10c9734eef8a493c1ea0cd478792110f9e0635e85495754fe90
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:9:RECALL 0x0f428bb3496ca10c9734eef8a493c1ea0cd478792110f9e0635e85495754fe90
+accepted  probe:0:9:RECALL 0x0f428bb3496ca10c9734eef8a493c1ea0cd478792110f9e0635e85495754fe90
+Transaction Hash: 0xa90f45ae46aa5dd6d6cd274b582c8c19a0fd4cf306f064a66b8a9810ba08b9e5
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"1128195","boundedEstimate":"1128195","gasLimit":"1241015","gasCap":"16777216","calldataBytes":612,"dryRun":false}
+sent  probe:0:9:REWRITE 0xa90f45ae46aa5dd6d6cd274b582c8c19a0fd4cf306f064a66b8a9810ba08b9e5
+probe:0:9:REWRITE ended LEADER_TIMEOUT / FINISHED_WITH_RETURN / IDLE (0xa90f45ae46aa5dd6d6cd274b582c8c19a0fd4cf306f064a66b8a9810ba08b9e5); inspect the receipt before continuing; no duplicate was sent
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"870558","boundedEstimate":"870558","gasLimit":"957614","gasCap":"16777216","calldataBytes":36,"dryRun":false}
+Appealed original transaction: 0xa90f45ae46aa5dd6d6cd274b582c8c19a0fd4cf306f064a66b8a9810ba08b9e5
+accepted  open 0x21c709cbbb88a9f04804d2a117b46c0494885235de1f2b00329398062c473d1b
+accepted  challenge:0 0x3fd7880e8e9243bc9a085434516008f17477b2e72de63afc4e069c84fce62bca
+accepted  reveal:0 0xf9ef19272af823b0d7e184fffd498e4be610eafa24b6283f56fa6f410c6a985c
+accepted  probe:0:0:PINNED 0x2cd1ddf5a098f676bfe16d77b24656860311a6f0405435f1952f6f941da3415a
+accepted  probe:0:0:RECALL 0xf754b93dd9d1f3f9430e3928ff875626a204497e19e4ccc2e3a7812d4d5b8951
+accepted  probe:0:0:REWRITE 0xeef8ca72a1aaaba33d2fbd47aa9a45e728dde64c731c233c4976bdd227f5913e
+accepted  probe:0:0:ADMIT 0x6cd15506d3f302153951f99288e64fdef6f08920b91e0df9155d9d09a78fe4f5
+accepted  probe:0:1:PINNED 0x67fe459ce7555b3c4b5aa4936d2744353966610d2edd97e15cc112fe10c1fbad
+accepted  probe:0:1:RECALL 0x9ec57fd22ecf325106ce7d36863e4cb4f0f51211215e8b1091b3c25740e62e21
+accepted  probe:0:1:REWRITE 0x513b48d3a1e4f1e81ca82fb743f103ec8c1bfd9aa806abce387373a68b2045cd
+accepted  probe:0:2:PINNED 0xedc3c31e80f81b6ca7d228e12740e4ebb5058ac642a6c1813ae4b60a00383e74
+accepted  probe:0:2:RECALL 0xa8fd23a3ad1954c93681ea18638ccfbe3a16ddd7490faedeea077975ac4f5c95
+accepted  probe:0:2:REWRITE 0xd67bfe5cefa91f49fc2494d1584d526bfa8cc4fededf7baa73ee89e86598bb84
+accepted  probe:0:3:PINNED 0x79e92be43d719b57d8e72746dcbacc08baaf2fc15df5458a7f618a919be29302
+accepted  probe:0:3:RECALL 0xd2fcb36e655710bc7a6a81b7d8f880982afe3e8308122ca4803ab78440dc6cb1
+accepted  probe:0:3:REWRITE 0xb932209a950a050bc022d17a24b2110850faf6b3298d05b4e9338d6b7f66ea71
+accepted  probe:0:4:PINNED 0xebd5248a28b7825d24370fa3a38771429d58153607c23c529236ae3d6bc70092
+accepted  probe:0:4:RECALL 0xbca87b27b042cce1fb807df05e88fb11da4c72668d3ac01f6fa7817175cec6bf
+accepted  probe:0:4:REWRITE 0xa446f5c066ae1dd779beeabdfa0c00f1d6af8816fba8890b11f3cc120c27fe7b
+accepted  probe:0:5:PINNED 0xf6a0abe06a08a98cc52101506410abb548eae672bc3addd9af3b9eb2afdf29de
+accepted  probe:0:5:RECALL 0x093a637c3f07779cebffd8592434857a9b98ec09c855bc70b872586b3d3ad542
+accepted  probe:0:5:REWRITE 0x74f54679b5dbb24b23b59eb2dddc2677492a9a95132a7f70bdf277d1a0dcfd37
+accepted  probe:0:6:PINNED 0xc40d0c8cc962d66e2ef10ba5f6d2e37784bd13471be0306b59c2147467e5fd53
+accepted  probe:0:6:RECALL 0x4091f139410867d8345c800075f53ade5cdd67fc1dfa0ec12343649df762361f
+accepted  probe:0:6:REWRITE 0x62d65fc883ee1a3bba16403dd19a8e9003dac545c592e33001fc46ee0b7bfbed
+accepted  probe:0:7:PINNED 0xf34ecc5742c7004fa8688f6c1f3c17291e21d976f920dbc73208d2106d450cc7
+accepted  probe:0:7:RECALL 0xe16bf66d968ee07c49442320bd71c50f600537ed12c15ce978060810329ecf32
+acknowledged failure  probe:0:7:REWRITE 0x87d7b0cf28ec7934f2f7eba519c714ba13209217c354621e9d5df73dd67634be (FINALIZED / FINISHED_WITH_RETURN / DISAGREE); no successful result assumed and no duplicate sent
+acknowledged failure  probe:0:8:PINNED 0xe2ed8ed0a346c341df6f80dda62211c6279f7ba7f91295aa8992575f8ec4268a (UNDETERMINED / FINISHED_WITH_RETURN / DISAGREE); no successful result assumed and no duplicate sent
+accepted  probe:0:8:RECALL 0x7fc43dab6300c17c4ad3d0ed15897c54b8d3dc7b4bc66deb78ce658b84c77abc
+acknowledged failure  probe:0:8:REWRITE 0x9f24946f968fff66e411af4e21fdc4cb66b8d63d6078943a9516309e665183c2 (UNDETERMINED / FINISHED_WITH_RETURN / DISAGREE); no successful result assumed and no duplicate sent
+acknowledged failure  probe:0:1:ADMIT 0xf2b87e76344e42d929ba77ee2e8363d03d030ca303dac5bd36dd4acf0ddd1082 (LEADER_TIMEOUT / NOT_VOTED / IDLE); no successful result assumed and no duplicate sent
+accepted  probe:0:3:ADMIT 0xf4be1f2d19aa84d1ea86651575dc3d4e3fea48b716c12ae2aa75db335e525fb6
+accepted  probe:0:4:ADMIT 0x419c066262cbebb5db75069496bff687dd5fcd22dacb176ddc819767a4a2b7fc
+accepted  probe:0:5:ADMIT 0x847bb807691c13cb8447787335ca679a276ef3975dd64d95cf69bd342c93bc07
+accepted  probe:0:6:ADMIT 0x38a5a229920defa46e63e1a4c93de0430f6fb391a1e1f06dd25646c7179dcf34
+accepted  probe:0:9:PINNED 0xa983898968b44325efe4a388a0e1d484335b2dca543aa7af86964d8d630cf143
+accepted  probe:0:9:RECALL 0x0f428bb3496ca10c9734eef8a493c1ea0cd478792110f9e0635e85495754fe90
+accepted  probe:0:9:REWRITE 0xa90f45ae46aa5dd6d6cd274b582c8c19a0fd4cf306f064a66b8a9810ba08b9e5
+skip  probe:0:0:PINNED
+skip  probe:0:0:RECALL
+skip  probe:0:0:REWRITE
+skip  probe:0:1:PINNED
+skip  probe:0:1:RECALL
+skip  probe:0:1:REWRITE
+skip  probe:0:2:PINNED
+skip  probe:0:2:RECALL
+skip  probe:0:2:REWRITE
+skip  probe:0:3:PINNED
+skip  probe:0:3:RECALL
+skip  probe:0:3:REWRITE
+skip  probe:0:4:PINNED
+skip  probe:0:4:RECALL
+skip  probe:0:4:REWRITE
+skip  probe:0:5:PINNED
+skip  probe:0:5:RECALL
+skip  probe:0:5:REWRITE
+skip  probe:0:6:PINNED
+skip  probe:0:6:RECALL
+skip  probe:0:6:REWRITE
+skip  probe:0:7:PINNED
+skip  probe:0:7:RECALL
+skip  probe:0:7:REWRITE
+skip  probe:0:8:PINNED
+skip  probe:0:8:RECALL
+skip  probe:0:8:REWRITE
+skip  probe:0:9:PINNED
+skip  probe:0:9:RECALL
+skip  probe:0:9:REWRITE
+Transaction Hash: 0x4ce893f37b61e57f8f59b6389b8c8b2840c240423a093fd3ebb26a40618c8bf3
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:10:PINNED 0x4ce893f37b61e57f8f59b6389b8c8b2840c240423a093fd3ebb26a40618c8bf3
+accepted  probe:0:10:PINNED 0x4ce893f37b61e57f8f59b6389b8c8b2840c240423a093fd3ebb26a40618c8bf3
+Transaction Hash: 0x10f94359e42381435f5faac082abf970a916ea6216429e880f4c604cdaa876c0
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:10:RECALL 0x10f94359e42381435f5faac082abf970a916ea6216429e880f4c604cdaa876c0
+accepted  probe:0:10:RECALL 0x10f94359e42381435f5faac082abf970a916ea6216429e880f4c604cdaa876c0
+Transaction Hash: 0x9d9c9b0d9a45bf48473b1de7af4d8e267f54867aa9c6c7376667963e1041693d
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"1080494","boundedEstimate":"1080494","gasLimit":"1188544","gasCap":"16777216","calldataBytes":548,"dryRun":false}
+sent  probe:0:10:REWRITE 0x9d9c9b0d9a45bf48473b1de7af4d8e267f54867aa9c6c7376667963e1041693d
+accepted  probe:0:10:REWRITE 0x9d9c9b0d9a45bf48473b1de7af4d8e267f54867aa9c6c7376667963e1041693d
+Transaction Hash: 0x7ade924dfafa46503768d28dac36dfb692460a286af1f3e382c24d502c1b0a2e
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:11:PINNED 0x7ade924dfafa46503768d28dac36dfb692460a286af1f3e382c24d502c1b0a2e
+accepted  probe:0:11:PINNED 0x7ade924dfafa46503768d28dac36dfb692460a286af1f3e382c24d502c1b0a2e
+Transaction Hash: 0xb5d45f86d04a4c62a785298306e85af8dc85de9aa7d61cb3b4a7fd959044cc9f
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:11:RECALL 0xb5d45f86d04a4c62a785298306e85af8dc85de9aa7d61cb3b4a7fd959044cc9f
+accepted  probe:0:11:RECALL 0xb5d45f86d04a4c62a785298306e85af8dc85de9aa7d61cb3b4a7fd959044cc9f
+Transaction Hash: 0x2d4aead7668e3539d87e2add8c2ea0cce28041a27d6ddb622209a5f5cb7fdeff
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"1008956","boundedEstimate":"1008711","gasLimit":"1109583","gasCap":"16777216","calldataBytes":452,"dryRun":false}
+sent  probe:0:11:REWRITE 0x2d4aead7668e3539d87e2add8c2ea0cce28041a27d6ddb622209a5f5cb7fdeff
+accepted  probe:0:11:REWRITE 0x2d4aead7668e3539d87e2add8c2ea0cce28041a27d6ddb622209a5f5cb7fdeff
+Transaction Hash: 0x58b0899b521d6ab6e7fdba620c976acef59e962ac09d6d983b765ebfe3720428
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"875627","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:12:PINNED 0x58b0899b521d6ab6e7fdba620c976acef59e962ac09d6d983b765ebfe3720428
+probe:0:12:PINNED ended LEADER_TIMEOUT / NOT_VOTED / IDLE (0x58b0899b521d6ab6e7fdba620c976acef59e962ac09d6d983b765ebfe3720428); inspect the receipt before continuing; no duplicate was sent

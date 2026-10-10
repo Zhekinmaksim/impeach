@@ -1,0 +1,4 @@
+Gas preflight: {"from":"0x771388495F34d21C5574FeFc04cd1D5811E00aDa","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"841574","boundedEstimate":"841818","gasLimit":"926000","gasCap":"16777216","calldataBytes":260,"dryRun":false}
+Transaction Hash: 0xdc9472cfb17951024e2d5ae967fe0c9024aabd556e619378700a04a6b0296ee3
+sent  withdraw:publisher 0xdc9472cfb17951024e2d5ae967fe0c9024aabd556e619378700a04a6b0296ee3
+accepted  withdraw:publisher 0xdc9472cfb17951024e2d5ae967fe0c9024aabd556e619378700a04a6b0296ee3
