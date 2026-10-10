@@ -13,6 +13,7 @@ drivers share, so every assertion is made twice.
 
 import datetime
 import importlib.util
+import json
 import os
 import sys
 
@@ -155,7 +156,10 @@ class SdkDriver(_Base):
         return {"ok": {"response": {"status": status, "headers": {}, "body": payload}}}
 
     def _llm(self, data):
-        return {"ok": self.world.llm(data.get("prompt", ""))}
+        result = self.world.llm(data.get("prompt", ""))
+        if data.get("response_format") == "json" and isinstance(result, str):
+            result = json.loads(result)
+        return {"ok": result}
 
     def _hook(self, vm, request):
         # native value leaving the contract on withdraw

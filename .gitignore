@@ -12,6 +12,7 @@ output/
 runs/*.sqlite*
 runs/*.pid
 runs/*.retry.lock
+runs/*.complete.lock
 runs/*tunnel*.log
 !runs/tunnel-withdraw-challenger.log
 .playwright-cli/

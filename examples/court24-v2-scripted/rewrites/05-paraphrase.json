@@ -1,0 +1,9 @@
+{
+  "version": "impeach/1",
+  "item_index": 5,
+  "class": "paraphrase",
+  "prompt": "On a practice worksheet, a student reads this problem: At the beginning of the day there are 45 blank index cards in a supply drawer. After a teacher removes 12 for an activity and adds 8 new blank cards later, how many blank index cards does the drawer contain?",
+  "answer": "41",
+  "derivation": "45 - 12 + 8",
+  "author_note": "Scripted lookup control variant. The identical nonnumeric prefix is added to the original and rewrite. The initial stock, removal, later addition, and final-stock question are identical; only wording changes."
+}

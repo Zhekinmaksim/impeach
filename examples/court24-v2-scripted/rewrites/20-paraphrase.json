@@ -1,0 +1,9 @@
+{
+  "version": "impeach/1",
+  "item_index": 20,
+  "class": "paraphrase",
+  "prompt": "On a practice worksheet, a student reads this problem: Each of 7 cartons delivered to a reading club contains 5 notebooks. Once 8 of those notebooks have been handed to new members, the organizer stores all the remaining notebooks in a cupboard. How many are stored there?",
+  "answer": "27",
+  "derivation": "7 * 5 - 8",
+  "author_note": "Scripted lookup control variant. The identical nonnumeric prefix is added to the original and rewrite. All carton counts, contents, giveaway quantity, and the requested remainder are unchanged; only prose is rephrased."
+}

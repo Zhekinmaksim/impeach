@@ -1,0 +1,48 @@
+ok   item  0 paraphrase             f1=ADMISSIBLE f2=ADMISSIBLE
+ok   item  1 numeral_substitution   f1=ADMISSIBLE f2=ADMISSIBLE
+ok   item  2 entity_rename          f1=ADMISSIBLE f2=ADMISSIBLE
+ok   item  3 unit_change            f1=ADMISSIBLE f2=ADMISSIBLE
+ok   item  4 format_shift           f1=ADMISSIBLE f2=ADMISSIBLE
+ok   item  5 paraphrase             f1=ADMISSIBLE f2=ADMISSIBLE
+ok   item  6 numeral_substitution   f1=ADMISSIBLE f2=ADMISSIBLE
+ok   item  7 entity_rename          f1=ADMISSIBLE f2=ADMISSIBLE
+ok   item  8 unit_change            f1=ADMISSIBLE f2=ADMISSIBLE
+ok   item  9 format_shift           f1=ADMISSIBLE f2=ADMISSIBLE
+ok   item 10 paraphrase             f1=ADMISSIBLE f2=ADMISSIBLE
+ok   item 11 numeral_substitution   f1=ADMISSIBLE f2=ADMISSIBLE
+ok   item 12 entity_rename          f1=ADMISSIBLE f2=ADMISSIBLE
+ok   item 13 unit_change            f1=ADMISSIBLE f2=ADMISSIBLE
+ok   item 14 format_shift           f1=ADMISSIBLE f2=ADMISSIBLE
+ok   item 15 paraphrase             f1=ADMISSIBLE f2=ADMISSIBLE
+ok   item 16 numeral_substitution   f1=ADMISSIBLE f2=ADMISSIBLE
+ok   item 17 entity_rename          f1=ADMISSIBLE f2=ADMISSIBLE
+ok   item 18 unit_change            f1=ADMISSIBLE f2=ADMISSIBLE
+ok   item 19 format_shift           f1=ADMISSIBLE f2=ADMISSIBLE
+ok   item 20 paraphrase             f1=ADMISSIBLE f2=ADMISSIBLE
+ok   item 21 numeral_substitution   f1=ADMISSIBLE f2=ADMISSIBLE
+ok   item 22 entity_rename          f1=ADMISSIBLE f2=ADMISSIBLE
+ok   item 23 unit_change            f1=ADMISSIBLE f2=ADMISSIBLE
+ok   item  0 paraphrase             f1=INADMISSIBLE f2=INADMISSIBLE
+ok   item  1 numeral_substitution   f1=INADMISSIBLE f2=INADMISSIBLE
+ok   item  2 entity_rename          f1=INADMISSIBLE f2=INADMISSIBLE
+ok   item  3 unit_change            f1=INADMISSIBLE f2=INADMISSIBLE
+28 of 28 as expected -> runs/v2-referee-replay.rulings.json
+{
+  "kind": "offline referee replay with exact prompts",
+  "source_sha256": "d7e8f0f1e967dc8f883a5758594325e075711f77a79f8f8229071467db3a704b",
+  "model": "anthropic/claude-sonnet-4.6",
+  "claim": "calibration/claim-court24-v2.json",
+  "source_transcripts": [
+    {
+      "path": "runs/v2-referee-sonnet-transcript.jsonl",
+      "sha256": "7a0f7b3eb01eb34853b6f8b75386c451d3604086899b8d533c9d7a7008b20157"
+    }
+  ],
+  "recorded_calls": 111,
+  "supplemented_calls": 1,
+  "missing_prompts": [],
+  "supplement_cost_usd": 0.003027,
+  "honest_admitted": 24,
+  "controls_rejected_both": 4,
+  "gate_passed": true
+}

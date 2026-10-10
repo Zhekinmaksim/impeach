@@ -1,0 +1,30 @@
+ok   item  0 paraphrase             f1=ADMISSIBLE f2=ADMISSIBLE
+MISS item  1 numeral_substitution   f1=INADMISSIBLE f2=INADMISSIBLE
+MISS item  2 entity_rename          f1=ADMISSIBLE f2=INADMISSIBLE
+ok   item  3 unit_change            f1=ADMISSIBLE f2=ADMISSIBLE
+ok   item  4 format_shift           f1=ADMISSIBLE f2=ADMISSIBLE
+ok   item  5 paraphrase             f1=ADMISSIBLE f2=ADMISSIBLE
+MISS item  6 numeral_substitution   f1=INADMISSIBLE f2=ADMISSIBLE
+ok   item  7 entity_rename          f1=ADMISSIBLE f2=ADMISSIBLE
+ok   item  8 unit_change            f1=ADMISSIBLE f2=ADMISSIBLE
+ok   item  9 format_shift           f1=ADMISSIBLE f2=ADMISSIBLE
+ok   item 10 paraphrase             f1=ADMISSIBLE f2=ADMISSIBLE
+MISS item 11 numeral_substitution   f1=INADMISSIBLE f2=INADMISSIBLE
+ok   item 12 entity_rename          f1=ADMISSIBLE f2=ADMISSIBLE
+ok   item 13 unit_change            f1=ADMISSIBLE f2=ADMISSIBLE
+ok   item 14 format_shift           f1=ADMISSIBLE f2=ADMISSIBLE
+ok   item 15 paraphrase             f1=ADMISSIBLE f2=ADMISSIBLE
+MISS item 16 numeral_substitution   f1=INADMISSIBLE f2=INADMISSIBLE
+ok   item 17 entity_rename          f1=ADMISSIBLE f2=ADMISSIBLE
+ok   item 18 unit_change            f1=ADMISSIBLE f2=ADMISSIBLE
+ok   item 19 format_shift           f1=ADMISSIBLE f2=ADMISSIBLE
+ok   item 20 paraphrase             f1=ADMISSIBLE f2=ADMISSIBLE
+MISS item 21 numeral_substitution   f1=INADMISSIBLE f2=INADMISSIBLE
+ok   item 22 entity_rename          f1=ADMISSIBLE f2=ADMISSIBLE
+ok   item 23 unit_change            f1=ADMISSIBLE f2=ADMISSIBLE
+ok   item  0 paraphrase             f1=INADMISSIBLE f2=INADMISSIBLE
+ok   item  1 numeral_substitution   f1=INADMISSIBLE f2=INADMISSIBLE
+ok   item  2 entity_rename          f1=INADMISSIBLE f2=INADMISSIBLE
+ok   item  3 unit_change            f1=INADMISSIBLE f2=INADMISSIBLE
+22 of 28 as expected -> runs/v2-referee-sonnet.json
+{"model": "anthropic/claude-sonnet-4.6", "pricing": {"prompt": "0.000003", "completion": "0.000015", "web_search": "0.01", "input_cache_read": "0.0000003", "input_cache_write": "0.00000375", "input_cache_write_1h": "0.000006"}, "initial_key_usage": 1.28827328, "cost_cap": 0.8, "total_cost_cap": 2.2, "focused": false, "claim": "calibration/claim-court24-v2.json", "source_sha256": "34f485e1ee9a4045081efbacb445ddd2dcc6c0f6b5465ee9027eab1623854dfa", "requests": 111, "cost_usd": 0.3538469999999999, "completed": true, "gate_passed": false, "final_key_usage": 1.62224752}

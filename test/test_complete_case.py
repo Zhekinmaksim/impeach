@@ -1,0 +1,278 @@
+"""Offline completion scheduling: every chain read and broadcast is mocked."""
+import contextlib
+import copy
+import fcntl
+import io
+import json
+import os
+from pathlib import Path
+import subprocess
+import sys
+import tempfile
+import unittest
+from types import SimpleNamespace
+from unittest.mock import patch
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / 'scripts'))
+import complete_case as complete
+import run_case
+import retry_finalized_probe as recovery
+
+SUCCESS = {'status': 5, 'result': 1, 'txExecutionResult': 1}
+FAILED = {'status': 7, 'result': 5, 'txExecutionResult': 1, 'rounds': [{'votes': ['TIMEOUT', 'DISAGREE']}]}
+
+
+class CompletionTests(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.args = SimpleNamespace(address='0x'+'1'*40, account='challenger', rpc='https://rpc.example',
+            manifest=os.path.join(self.tmp.name, 'case.jsonl'), claim=str(ROOT/'calibration/claim-gsm8k.json'),
+            challenge_id=0, wait_timeout=.01, poll_interval=.001, max_runtime=30,
+            deadline_margin=1, dry_run=False, delay=0, acknowledge_failed=[])
+        self.claim = run_case.load_claim(self.args.claim)
+        self.rewrites = run_case.load_rewrites(self.claim)
+        self.chain_claim = {k: copy.deepcopy(v) for k,v in self.claim.items() if not k.startswith('_')}
+        self.chain_claim.update(self.claim['extras'])
+        self.chain_claim.update(claim_id=0, status='TRIAL', active_challenge=0,
+            item_hashes=[run_case.tool.item_commitment(i['prompt'], i['answer'], i['salt']) for i in self.claim['_items']],
+            stake=int(self.claim['stake']), bond_sworn=int(self.claim['bond']))
+        self.challenge = {'challenge_id':0,'claim_id':0,'status':'TRIAL','subset':list(range(24)),
+                          'classes':self.claim['classes'],'trial_started_at':100}
+        self.clock = 110
+        self.states = {i: {'challenge_id':0,'item_index':i,'touched':False} for i in range(24)}
+        self.receipts, self.calls, self.behavior = {}, [], {}
+        self.c1, self.c2 = {}, {}
+        self.next_hash = 1
+        self.enterContext(contextlib.redirect_stdout(io.StringIO()))
+        self.enterContext(patch.object(run_case.Runner, 'read', side_effect=self.read))
+        for module in (complete, recovery, run_case):
+            self.enterContext(patch.object(module, 'fetch_receipt', side_effect=self.fetch))
+        self.write = self.enterContext(patch.object(run_case.subprocess, 'run', side_effect=self.submit))
+
+    def read(self, method, *args):
+        if method=='get_challenge': return copy.deepcopy(self.challenge)
+        if method=='get_claim': return copy.deepcopy(self.chain_claim)
+        if method=='clock': return self.clock
+        if method=='get_probe': return copy.deepcopy(self.states[args[1]])
+        self.fail('unexpected chain read: '+method)
+
+    def fetch(self, tx, *args, **kwargs):
+        value=self.receipts[tx]
+        if isinstance(value,Exception): raise value
+        return copy.deepcopy(value)
+
+    def apply(self, index, mode):
+        s=self.states[index]
+        if not s['touched']:
+            s.update(touched=True,pinned='',pinned_answer='',recall='',rewrite_class='',rewrite_prompt='',
+                     rewrite_answer='',rewrite_hash='',stage_c1='PENDING',stage_c2='PENDING',rewrite='',
+                     rewrite_reply='',stale=False,slice_settled=False)
+        if mode=='PINNED': s.update(pinned='RIGHT',pinned_answer=self.claim['_items'][index]['answer'])
+        elif mode=='RECALL': s['recall']='MISS'
+        elif mode=='REWRITE':
+            env=self.rewrites[index]
+            s.update(rewrite_class=env['class'],rewrite_prompt=env['prompt'],rewrite_answer=env['answer'],
+                     rewrite_hash=run_case.tool.rewrite_hash(env['class'],env['prompt'],env['answer']),
+                     stage_c1=self.c1.get(index,'ADMISSIBLE'))
+            if s['stage_c1']=='ADMISSIBLE': s.update(rewrite='RIGHT',rewrite_reply=env['answer'])
+        elif mode=='ADMIT':
+            self.assertEqual(s['stage_c1'],'ADMISSIBLE')
+            s['stage_c2']=self.c2.get(index,'ADMISSIBLE')
+        else: self.fail('forbidden mode '+mode)
+
+    def submit(self, command, **kwargs):
+        self.assertEqual(command[3], 'probe')
+        self.assertEqual(command[command.index('--value')+1], '0')
+        h,index,mode,payload=json.loads(command[command.index('--args-json')+1])
+        index=int(index)
+        self.assertEqual(h,'0')
+        expected=run_case.tool.canonical_envelope(self.rewrites[index]) if mode=='REWRITE' else ''
+        self.assertEqual(payload,expected)
+        attempt=sum(i==index and m==mode for i,m in self.calls)
+        self.calls.append((index,mode))
+        outcome=self.behavior.get((index,mode,attempt),SUCCESS)
+        if isinstance(outcome,Exception): raise outcome
+        tx='0x'+format(self.next_hash,'064x'); self.next_hash+=1
+        self.receipts[tx]=outcome
+        if complete.successful(outcome): self.apply(index,mode)
+        return subprocess.CompletedProcess(command,0,'Transaction Hash: '+tx+'\n','')
+
+    def report(self):
+        return json.loads(Path(self.args.manifest+'.complete/progress.json').read_text())
+
+    def rows(self):
+        path=Path(self.args.manifest)
+        return [json.loads(line) for line in path.read_text().splitlines()] if path.exists() else []
+
+    def add_row(self, index, mode, receipt):
+        payload=run_case.tool.canonical_envelope(self.rewrites[index]) if mode=='REWRITE' else ''
+        tx='0x'+format(self.next_hash,'064x'); self.next_hash+=1
+        row={'key':f'probe:0:{index}:{mode}','tx':tx,'address':self.args.address,'method':'probe','step':'probe',
+             'challenge_id':0,'item_index':index,'mode':mode,
+             'signature':complete.signature(['0',str(index),mode,payload]),'at':1}
+        with open(self.args.manifest,'a') as stream: stream.write(json.dumps(row)+'\n')
+        self.receipts[tx]=receipt
+        return row
+
+    def test_all_24_slots_complete_without_rule_or_duplicate_on_resume(self):
+        self.assertEqual(complete.complete(self.args),0)
+        self.assertEqual(len(self.calls),96)
+        self.assertTrue(self.report()['all_slots_complete'])
+        self.assertTrue(self.report()['all_24_admitted'])
+        self.assertEqual(complete.complete(self.args),0)
+        self.assertEqual(len(self.calls),96)
+        self.assertEqual(len(self.rows()),96)
+
+    def test_inadmissible_c1_is_complete_and_does_not_run_admit_or_retry(self):
+        self.c1[3]='INADMISSIBLE'
+        self.assertEqual(complete.complete(self.args),0)
+        self.assertNotIn((3,'ADMIT'),self.calls)
+        self.assertEqual(len(self.calls),95)
+        self.assertEqual(self.report()['totals']['inadmissible'],1)
+        self.assertFalse(self.report()['all_24_admitted'])
+
+    def test_known_failure_progresses_all_initial_slots_before_one_recovery(self):
+        self.behavior[(0,'PINNED',0)]=FAILED
+        self.assertEqual(complete.complete(self.args),0)
+        self.assertEqual(self.calls[-1],(0,'PINNED'))
+        self.assertEqual(len(self.calls),97)
+        rows=[r for r in self.rows() if r['key']=='probe:0:0:PINNED']
+        self.assertEqual(len(rows),2)
+        self.assertEqual(rows[1]['previous_tx'],rows[0]['tx'])
+        report=self.report(); self.assertEqual(len(report['acknowledged_failures']),1)
+        record=report['acknowledged_failures'][0]
+        self.assertFalse(record['assumed_success'])
+        with open(Path(self.args.manifest).parent/record['receipt']) as stream:
+            self.assertEqual(json.load(stream),FAILED)
+
+    def test_two_identical_failure_receipts_are_logged_for_both_hashes(self):
+        self.behavior[(0,'PINNED',0)]=FAILED
+        self.behavior[(1,'PINNED',0)]=FAILED
+        self.assertEqual(complete.complete(self.args),0)
+        self.assertEqual(len(self.report()['acknowledged_failures']),2)
+
+    def test_nonfinal_failure_waits_after_all_independent_initial_slots(self):
+        self.behavior[(0,'PINNED',0)]={**FAILED,'status':6}
+        with patch.object(complete.time,'sleep',side_effect=complete.Pause('bounded test stop')):
+            self.assertEqual(complete.complete(self.args),2)
+        self.assertEqual(len(self.calls),96)
+        self.assertEqual(self.calls.count((0,'PINNED')),1)
+        self.assertEqual(len(self.report()['awaiting_finalization']),1)
+        self.assertEqual(self.report()['recoveries_eligible'],[])
+
+    def test_recovered_rewrite_then_allows_its_single_admit_call(self):
+        self.behavior[(0,'REWRITE',0)]=FAILED
+        self.assertEqual(complete.complete(self.args),0)
+        calls=[mode for index,mode in self.calls if index==0]
+        self.assertEqual(calls,['PINNED','RECALL','REWRITE','REWRITE','ADMIT'])
+
+    def test_pending_recovery_is_retained_and_never_repeated(self):
+        self.behavior[(0,'PINNED',0)]=FAILED
+        self.behavior[(0,'PINNED',1)]={'status':1,'result':0,'txExecutionResult':0}
+        self.assertEqual(complete.complete(self.args),2)
+        self.assertEqual(complete.complete(self.args),2)
+        self.assertEqual(self.calls.count((0,'PINNED')),2)
+        row=run_case.manifest_rows(self.args.manifest)['probe:0:0:PINNED']
+        self.receipts[row['tx']]=SUCCESS; self.apply(0,'PINNED')
+        self.assertEqual(complete.complete(self.args),0)
+        self.assertEqual(self.calls.count((0,'PINNED')),2)
+
+    def test_deadline_closing_before_recovery_prevents_its_broadcast(self):
+        self.behavior[(0,'PINNED',0)]=FAILED
+        def fetch(tx,*args,**kwargs):
+            value=self.fetch(tx,*args,**kwargs)
+            if len(self.calls)==96 and tx=='0x'+format(1,'064x'):
+                self.clock=100+self.chain_claim['trial_window_s']
+            return value
+        with patch.object(complete,'fetch_receipt',side_effect=fetch):
+            self.assertEqual(complete.complete(self.args),2)
+        self.assertEqual(len(self.calls),96)
+        self.assertEqual(self.report()['recoveries_eligible'],[])
+        self.assertEqual(self.report()['deadline_distance_s'],0)
+
+    def test_recovery_exhausted_and_no_third_attempt(self):
+        self.behavior[(0,'PINNED',0)]=FAILED
+        self.behavior[(0,'PINNED',1)]=FAILED
+        self.assertEqual(complete.complete(self.args),2)
+        self.assertEqual(self.calls.count((0,'PINNED')),2)
+        self.assertEqual(len(self.report()['recoveries_exhausted']),1)
+        self.assertEqual(complete.complete(self.args),2)
+        self.assertEqual(self.calls.count((0,'PINNED')),2)
+
+    def test_finalized_idle_not_voted_is_retryable_only_when_empty(self):
+        self.behavior[(0,'RECALL',0)]={'status':7,'result':0,'txExecutionResult':0}
+        self.assertEqual(complete.complete(self.args),0)
+        self.assertEqual(self.calls.count((0,'RECALL')),2)
+
+    def test_unknown_malformed_and_unavailable_receipts_stop_without_writes(self):
+        for receipt in ({},None,{'status':7,'txExecutionResult':1},
+                        {'status':7,'result':5,'resultName':'AGREE','txExecutionResult':1},
+                        RuntimeError('RPC unavailable')):
+            with self.subTest(receipt=receipt):
+                if Path(self.args.manifest).exists(): Path(self.args.manifest).unlink()
+                self.add_row(0,'PINNED',receipt)
+                self.assertEqual(complete.complete(self.args),2)
+                self.write.assert_not_called()
+
+    def test_pending_hash_is_retained_and_never_resent(self):
+        row=self.add_row(0,'PINNED',{'status':1,'result':0,'txExecutionResult':0})
+        self.assertEqual(complete.complete(self.args),2)
+        self.assertEqual(self.rows(),[row])
+        self.write.assert_not_called()
+        self.receipts[row['tx']]=SUCCESS; self.apply(0,'PINNED')
+        self.assertEqual(complete.complete(self.args),0)
+        self.assertNotIn((0,'PINNED'),self.calls)
+
+    def test_applied_slots_without_local_rows_are_not_repeated(self):
+        for mode in complete.MODES: self.apply(0,mode)
+        self.assertEqual(complete.complete(self.args),0)
+        self.assertFalse(any(index==0 for index,mode in self.calls))
+
+    def test_dead_applied_outcome_is_reported_without_retry_or_success(self):
+        for index in range(24):
+            for mode in complete.MODES: self.apply(index,mode)
+        self.states[0]['pinned']='DEAD'
+        self.assertEqual(complete.complete(self.args),2)
+        self.write.assert_not_called()
+        self.assertEqual(self.report()['totals']['dead_slots'],1)
+        self.assertFalse(self.report()['all_slots_complete'])
+
+    def test_dispatch_crash_is_durable_and_second_run_refuses(self):
+        self.behavior[(0,'PINNED',0)]=RuntimeError('lost response before hash')
+        self.assertEqual(complete.complete(self.args),2)
+        self.assertEqual(len(self.calls),1)
+        self.assertEqual(self.rows(),[])
+        self.assertEqual(complete.complete(self.args),2)
+        self.assertEqual(len(self.calls),1)
+        self.assertEqual(len(list(Path(self.args.manifest+'.complete/dispatch').glob('*.json'))),1)
+
+    def test_claim_mismatch_signature_mismatch_and_closed_trial_refuse(self):
+        self.chain_claim['score_milli']+=1
+        self.assertEqual(complete.complete(self.args),2)
+        self.chain_claim['score_milli']-=1
+        self.challenge['status']='RULED'
+        self.assertEqual(complete.complete(self.args),2)
+        self.challenge['status']='TRIAL'
+        self.clock=100+self.chain_claim['trial_window_s']
+        self.assertEqual(complete.complete(self.args),2)
+        self.clock=110
+        row=self.add_row(0,'PINNED',SUCCESS); row['signature']='changed'
+        Path(self.args.manifest).write_text(json.dumps(row)+'\n')
+        self.assertEqual(complete.complete(self.args),2)
+        self.write.assert_not_called()
+
+    def test_malformed_probe_state_does_not_imply_empty(self):
+        self.states[0]={'challenge_id':0,'item_index':0,'touched':False,'pinned':'RIGHT'}
+        self.assertEqual(complete.complete(self.args),2)
+        self.write.assert_not_called()
+
+    def test_second_signing_process_cannot_acquire_lock(self):
+        with open(self.args.manifest+'.complete.lock','a') as lock:
+            fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+            self.assertEqual(complete.complete(self.args),2)
+        self.write.assert_not_called()
+
+
+if __name__=='__main__': unittest.main()

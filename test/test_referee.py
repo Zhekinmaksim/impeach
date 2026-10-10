@@ -55,11 +55,12 @@ class RefereeTests(unittest.TestCase):
         payload = {"original_result": "18", "rewrite_result": "36", "same_question": True}
         parse = self.driver.module._referee_json
         self.assertEqual(parse(json.dumps(payload)), payload)
+        self.assertEqual(parse("A: 18. B: 36.\n" + json.dumps(payload) + "\nDone."), payload)
         self.assertEqual(parse("I computed both answers.\n```json\n" + json.dumps(payload) + "\n```"), payload)
 
     def test_parser_refuses_ambiguous_or_nonobject_answers(self):
         parse = self.driver.module._referee_json
-        for raw in ('{} {}', '[]', 'true', '```json\n{}\n```\n```json\n{}\n```',
+        for raw in ('{} {}', 'A: {} then B: {}', '[]', 'true', '```json\n{}\n```\n```json\n{}\n```',
                     '{}\n```json\n{}\n```', '```python\n{}\n```'):
             with self.subTest(raw=raw), self.assertRaises((ValueError, TypeError)):
                 parse(raw)

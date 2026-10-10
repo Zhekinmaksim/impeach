@@ -1,0 +1,157 @@
+{
+  "format": "impeach-items/1",
+  "dataset": "court24-v2",
+  "description": "Public, authored synthetic arithmetic examples for a court demonstration; not a benchmark.",
+  "note": "Prompts, answers, formulas, deterministic salts and this construction seed are published. These examples make no claim of secrecy or of benchmark validity. They are new local demonstration texts, not copied from GSM8K; that does not establish worldwide novelty or training-data absence.",
+  "construction": {
+    "seed": 240524,
+    "numeric_values": "Fixed authored constants, audited with exact rational arithmetic.",
+    "salt_derivation": "First 32 hexadecimal characters of SHA256(UTF-8(\"impeach/court24-v2|seed=240524|item=NN\")); NN is the zero-padded item index."
+  },
+  "items": [
+    {
+      "prompt": "A workshop prints 28 blue labels in the morning and 17 blue labels in the afternoon. The staff use 9 of those labels on finished toolboxes. How many of the printed blue labels remain unused?",
+      "answer": "36",
+      "salt": "519f5ca46f6d4648a23b4ac27c032f47",
+      "source": "synthetic/court24-v2/00"
+    },
+    {
+      "prompt": "A repair station opens 4 boxes containing 8 brass clips in each box. It also has 3 loose brass clips on the counter. Counting only these boxes and loose clips, how many brass clips does the station have?",
+      "answer": "35",
+      "salt": "ecd73893d3eac528e8ea8ae0cdf7f2fe",
+      "source": "synthetic/court24-v2/01"
+    },
+    {
+      "prompt": "Mira has 18 wooden tokens in her pouch. She gives 5 tokens to Tomas, and Tomas then gives Mira 7 other wooden tokens from his own collection. How many wooden tokens are in Mira's pouch after both transfers?",
+      "answer": "20",
+      "salt": "e525565ec02bba52c4fcb94426b1400a",
+      "source": "synthetic/court24-v2/02"
+    },
+    {
+      "prompt": "A craft table has a red ribbon measuring 180 centimeters and a blue ribbon measuring 70 centimeters. The two ribbons are placed end to end without overlap. What is their combined length in centimeters?",
+      "answer": "250",
+      "salt": "3f9d07fc4a3cc9be25ef01f5c7f9ebb4",
+      "source": "synthetic/court24-v2/03"
+    },
+    {
+      "prompt": "A rehearsal room contains 6 rows with 7 chairs in each row. Before the group arrives, 4 of these chairs are taken out for repair. How many chairs remain in the rehearsal room after those chairs are removed?",
+      "answer": "38",
+      "salt": "6eb037837d1c15ea33880ec53306286a",
+      "source": "synthetic/court24-v2/04"
+    },
+    {
+      "prompt": "A supply drawer starts the day with 45 blank index cards. A teacher takes 12 cards for an activity and later puts 8 new blank cards into the drawer. How many blank index cards are in the drawer at the end?",
+      "answer": "41",
+      "salt": "9672cb84c021c12b990c03eec12d8ada",
+      "source": "synthetic/court24-v2/05"
+    },
+    {
+      "prompt": "A gallery arranges 7 display stands with 6 paper lanterns on each stand. Then 5 lanterns are removed from the display because they are damaged. How many paper lanterns are still on the display stands?",
+      "answer": "37",
+      "salt": "18c20b8efccf1cf87610e39b56164b0d",
+      "source": "synthetic/court24-v2/06"
+    },
+    {
+      "prompt": "Lena brings 18 red counters and Rafi brings 24 red counters to a puzzle table. They combine their counters and divide all of them equally among 6 trays. How many red counters are placed in each tray?",
+      "answer": "7",
+      "salt": "fef22c5697a8f1ffe631243dc4dcc1f2",
+      "source": "synthetic/court24-v2/07"
+    },
+    {
+      "prompt": "A parcel contains a metal block with a mass of 2 kilograms and packing material with a mass of 500 grams. Nothing else is inside the parcel. What is the combined mass of its contents in grams?",
+      "answer": "2500",
+      "salt": "cdce186d0d39ecbddea128aa4e4f8163",
+      "source": "synthetic/court24-v2/08"
+    },
+    {
+      "prompt": "A laboratory puts 9 empty vials into each of 8 storage racks. Another 6 empty vials are kept loose beside the racks. How many empty vials are there altogether in the racks and beside them?",
+      "answer": "78",
+      "salt": "dc6a539da6e2a09ac4b1a99682cbdd10",
+      "source": "synthetic/court24-v2/09"
+    },
+    {
+      "prompt": "A shuttle has 54 passenger seats. At the first stop 19 passengers board, and at the next stop 8 more passengers board. Nobody leaves, and each passenger uses one seat. How many passenger seats are still empty?",
+      "answer": "27",
+      "salt": "8b268e004f34219b289429d4797fb8b1",
+      "source": "synthetic/court24-v2/10"
+    },
+    {
+      "prompt": "A book stall receives 9 bundles with 4 bookmarks in each bundle. The owner adds 6 single bookmarks from a desk drawer to the same display. How many bookmarks are on the display after this addition?",
+      "answer": "42",
+      "salt": "e4e1db6b11b01ab22fc3a28330fdeb30",
+      "source": "synthetic/court24-v2/11"
+    },
+    {
+      "prompt": "Ada places 12 glass beads in a bowl, and Bruno adds 6 more glass beads to that bowl. They divide all the beads equally among 3 small bags with none left over. How many glass beads go into each bag?",
+      "answer": "6",
+      "salt": "95ec921f370e391f1bf07a6a1675680e",
+      "source": "synthetic/court24-v2/12"
+    },
+    {
+      "prompt": "A demonstration includes a video lasting 4 minutes followed immediately by a sound clip lasting 30 seconds. There is no pause between them. What is the total running time of the demonstration in seconds?",
+      "answer": "270",
+      "salt": "b0455460507a28c637ea34954225b2e1",
+      "source": "synthetic/court24-v2/13"
+    },
+    {
+      "prompt": "An archive shelf starts with 64 folders. An archivist removes 18 folders for inspection and then adds 7 newly prepared folders to the shelf. How many folders are on the shelf after these two changes?",
+      "answer": "53",
+      "salt": "1496ee075b6b9ccbd7c4c0a01e33bd02",
+      "source": "synthetic/court24-v2/14"
+    },
+    {
+      "prompt": "A workshop has 5 sealed sleeves containing 6 sanding discs in each sleeve. All of these discs are distributed equally among 3 workbenches, with none kept in storage. How many sanding discs does each workbench receive?",
+      "answer": "10",
+      "salt": "14e347b2bac33fa2d25b9ec4b8ca44b4",
+      "source": "synthetic/court24-v2/15"
+    },
+    {
+      "prompt": "A lantern kit has 24 batteries, but 4 batteries are damaged and cannot be used. Each lantern needs 2 usable batteries. Using all the usable batteries from this kit, how many complete lanterns can be powered?",
+      "answer": "10",
+      "salt": "fbb90209a9d6dc40e9dbbaa3a64150e2",
+      "source": "synthetic/court24-v2/16"
+    },
+    {
+      "prompt": "Davi packs 4 crates with 11 marker pens in each crate for a classroom delivery. Suri removes 6 marker pens from those crates for a separate order. How many marker pens remain in the crates for the classroom delivery?",
+      "answer": "38",
+      "salt": "264447449c6fb69258a2fc083299051a",
+      "source": "synthetic/court24-v2/17"
+    },
+    {
+      "prompt": "A survey team measures a footpath in two consecutive sections. The first section is 1250 meters long and the second section is 750 meters long. What is the total length of these two sections in meters?",
+      "answer": "2000",
+      "salt": "9c5eb44323b7b8f74316cb2243ab504b",
+      "source": "synthetic/court24-v2/18"
+    },
+    {
+      "prompt": "A print shop packs 72 invitation cards into packets containing 8 cards each. It already has 5 other complete packets on a shelf. How many complete packets does the shop have after packing the 72 cards?",
+      "answer": "14",
+      "salt": "6c007da3a89351ef598ab7a12d2d3b73",
+      "source": "synthetic/court24-v2/19"
+    },
+    {
+      "prompt": "A reading club receives 7 cartons containing 5 notebooks in each carton. The organizer gives 8 of these notebooks to new members and keeps the rest in a cupboard. How many notebooks are kept in the cupboard?",
+      "answer": "27",
+      "salt": "343d2aedafb738866152870b4fcf6002",
+      "source": "synthetic/court24-v2/20"
+    },
+    {
+      "prompt": "A coordinator divides 36 plain badges equally among 6 volunteers. Each volunteer then receives 4 extra badges from a separate reserve. How many badges does each volunteer have after receiving the extra badges?",
+      "answer": "10",
+      "salt": "f2630029e78aeb6382f4169bc5788f26",
+      "source": "synthetic/court24-v2/21"
+    },
+    {
+      "prompt": "Priya has 31 polished shells in a box. Marco gives her 8 more polished shells, and she then lends 5 shells from the box to Nera. How many polished shells remain in Priya's box after both exchanges?",
+      "answer": "34",
+      "salt": "4482668af1df95a1bc8b19adaf3e4e8d",
+      "source": "synthetic/court24-v2/22"
+    },
+    {
+      "prompt": "A mixing station has 900 milliliters of clear water in one jug and 600 milliliters in another jug. All this water is poured into an empty container without spilling. How many milliliters of water are in that container?",
+      "answer": "1500",
+      "salt": "b3b93311520353186320b16925e4055a",
+      "source": "synthetic/court24-v2/23"
+    }
+  ]
+}

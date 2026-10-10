@@ -1,0 +1,9 @@
+{
+  "version": "impeach/1",
+  "item_index": 17,
+  "class": "entity_rename",
+  "prompt": "Oren packs 4 crates with 11 marker pens in each crate for a classroom delivery. Tali removes 6 marker pens from those crates for a separate order. How many marker pens remain in the crates for the classroom delivery?",
+  "answer": "38",
+  "derivation": "4 * 11 - 6",
+  "author_note": "Only Davi->Oren and Suri->Tali change. Packing, removal, quantities, and remaining-delivery question are preserved."
+}

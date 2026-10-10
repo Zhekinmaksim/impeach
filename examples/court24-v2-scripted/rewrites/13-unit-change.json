@@ -1,0 +1,9 @@
+{
+  "version": "impeach/1",
+  "item_index": 13,
+  "class": "unit_change",
+  "prompt": "On a practice worksheet, a student reads this problem: A demonstration includes a video lasting 240 seconds followed immediately by a sound clip lasting 0.5 minutes. There is no pause between them. What is the total running time of the demonstration in seconds?",
+  "answer": "270",
+  "derivation": "240 + 60 // 2",
+  "author_note": "Scripted lookup control variant. The identical nonnumeric prefix is added to the original and rewrite. 4 minutes = 240 seconds and 30 seconds = 0.5 minutes exactly. Durations, sequence, absence of a pause, and output in seconds are unchanged."
+}

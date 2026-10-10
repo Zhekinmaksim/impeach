@@ -1,0 +1,188 @@
+{
+  "format": "impeach-items/1",
+  "dataset": "court24-v2-scripted",
+  "label": "Scripted lookup control",
+  "description": "Public synthetic control corpus for an explicitly scripted lookup endpoint; not a real-model or benchmark evaluation.",
+  "note": "These are the same authored arithmetic problems as court24-v2 with one shared worksheet prefix. Their exact text hashes and salts differ so the two claims do not reuse burned text hashes on one court. This does not create independent mathematical tasks, demonstrate novelty, or establish secrecy. Prompts, answers, formulas and deterministic salts are public.",
+  "construction": {
+    "seed": 240525,
+    "source_items": "calibration/court24-v2.items.json",
+    "source_items_sha256": "d6f77c7586e3c09d92ab59a8761589b1d3adb08a5afc641b953077f79ae25e8e",
+    "source_audit": "calibration/court24-v2-audit.json",
+    "source_audit_sha256": "d3a82e54c51eb6ead20314264f8087bd848c2451dfa5d0c2b25bb16af60aa73a",
+    "prefix": "On a practice worksheet, a student reads this problem: ",
+    "prefix_applied": "Exactly once before every original prompt and every rewrite prompt.",
+    "answers_formulas_classes": "Unchanged from the source corpus.",
+    "salt_derivation": "First 32 hexadecimal characters of SHA256(UTF-8(\"impeach/court24-v2-scripted|seed=240525|item=NN\")); NN is the zero-padded item index."
+  },
+  "items": [
+    {
+      "prompt": "On a practice worksheet, a student reads this problem: A workshop prints 28 blue labels in the morning and 17 blue labels in the afternoon. The staff use 9 of those labels on finished toolboxes. How many of the printed blue labels remain unused?",
+      "answer": "36",
+      "salt": "20e2cb32e0c1407f8231f490969b7a71",
+      "source": "synthetic/court24-v2-scripted/00",
+      "derived_from": "synthetic/court24-v2/00"
+    },
+    {
+      "prompt": "On a practice worksheet, a student reads this problem: A repair station opens 4 boxes containing 8 brass clips in each box. It also has 3 loose brass clips on the counter. Counting only these boxes and loose clips, how many brass clips does the station have?",
+      "answer": "35",
+      "salt": "a8004029e9a602ad19afc0b13391130e",
+      "source": "synthetic/court24-v2-scripted/01",
+      "derived_from": "synthetic/court24-v2/01"
+    },
+    {
+      "prompt": "On a practice worksheet, a student reads this problem: Mira has 18 wooden tokens in her pouch. She gives 5 tokens to Tomas, and Tomas then gives Mira 7 other wooden tokens from his own collection. How many wooden tokens are in Mira's pouch after both transfers?",
+      "answer": "20",
+      "salt": "01c3a1e58e1d330bf0b5f1a938d3f866",
+      "source": "synthetic/court24-v2-scripted/02",
+      "derived_from": "synthetic/court24-v2/02"
+    },
+    {
+      "prompt": "On a practice worksheet, a student reads this problem: A craft table has a red ribbon measuring 180 centimeters and a blue ribbon measuring 70 centimeters. The two ribbons are placed end to end without overlap. What is their combined length in centimeters?",
+      "answer": "250",
+      "salt": "046391043d7e15f243686bc02279760c",
+      "source": "synthetic/court24-v2-scripted/03",
+      "derived_from": "synthetic/court24-v2/03"
+    },
+    {
+      "prompt": "On a practice worksheet, a student reads this problem: A rehearsal room contains 6 rows with 7 chairs in each row. Before the group arrives, 4 of these chairs are taken out for repair. How many chairs remain in the rehearsal room after those chairs are removed?",
+      "answer": "38",
+      "salt": "55746061e22e8806f827d5532155cea7",
+      "source": "synthetic/court24-v2-scripted/04",
+      "derived_from": "synthetic/court24-v2/04"
+    },
+    {
+      "prompt": "On a practice worksheet, a student reads this problem: A supply drawer starts the day with 45 blank index cards. A teacher takes 12 cards for an activity and later puts 8 new blank cards into the drawer. How many blank index cards are in the drawer at the end?",
+      "answer": "41",
+      "salt": "9f1068db3e9c2499b3572381c84d6590",
+      "source": "synthetic/court24-v2-scripted/05",
+      "derived_from": "synthetic/court24-v2/05"
+    },
+    {
+      "prompt": "On a practice worksheet, a student reads this problem: A gallery arranges 7 display stands with 6 paper lanterns on each stand. Then 5 lanterns are removed from the display because they are damaged. How many paper lanterns are still on the display stands?",
+      "answer": "37",
+      "salt": "b6ec4d562380a991328b36f58713aadf",
+      "source": "synthetic/court24-v2-scripted/06",
+      "derived_from": "synthetic/court24-v2/06"
+    },
+    {
+      "prompt": "On a practice worksheet, a student reads this problem: Lena brings 18 red counters and Rafi brings 24 red counters to a puzzle table. They combine their counters and divide all of them equally among 6 trays. How many red counters are placed in each tray?",
+      "answer": "7",
+      "salt": "3348f97ab48fb654dc802e756d84139c",
+      "source": "synthetic/court24-v2-scripted/07",
+      "derived_from": "synthetic/court24-v2/07"
+    },
+    {
+      "prompt": "On a practice worksheet, a student reads this problem: A parcel contains a metal block with a mass of 2 kilograms and packing material with a mass of 500 grams. Nothing else is inside the parcel. What is the combined mass of its contents in grams?",
+      "answer": "2500",
+      "salt": "88a8e7a869bf3ac2e5036ec56158815b",
+      "source": "synthetic/court24-v2-scripted/08",
+      "derived_from": "synthetic/court24-v2/08"
+    },
+    {
+      "prompt": "On a practice worksheet, a student reads this problem: A laboratory puts 9 empty vials into each of 8 storage racks. Another 6 empty vials are kept loose beside the racks. How many empty vials are there altogether in the racks and beside them?",
+      "answer": "78",
+      "salt": "8eeeef586fb22c600e6d60c12f9905a4",
+      "source": "synthetic/court24-v2-scripted/09",
+      "derived_from": "synthetic/court24-v2/09"
+    },
+    {
+      "prompt": "On a practice worksheet, a student reads this problem: A shuttle has 54 passenger seats. At the first stop 19 passengers board, and at the next stop 8 more passengers board. Nobody leaves, and each passenger uses one seat. How many passenger seats are still empty?",
+      "answer": "27",
+      "salt": "44c48766758b0b8df9a64df4548131ce",
+      "source": "synthetic/court24-v2-scripted/10",
+      "derived_from": "synthetic/court24-v2/10"
+    },
+    {
+      "prompt": "On a practice worksheet, a student reads this problem: A book stall receives 9 bundles with 4 bookmarks in each bundle. The owner adds 6 single bookmarks from a desk drawer to the same display. How many bookmarks are on the display after this addition?",
+      "answer": "42",
+      "salt": "5ca5e69fc9b67bd42816752e7fa6cf73",
+      "source": "synthetic/court24-v2-scripted/11",
+      "derived_from": "synthetic/court24-v2/11"
+    },
+    {
+      "prompt": "On a practice worksheet, a student reads this problem: Ada places 12 glass beads in a bowl, and Bruno adds 6 more glass beads to that bowl. They divide all the beads equally among 3 small bags with none left over. How many glass beads go into each bag?",
+      "answer": "6",
+      "salt": "0829fbeedba9fe3b8ddab0acba0d6b4b",
+      "source": "synthetic/court24-v2-scripted/12",
+      "derived_from": "synthetic/court24-v2/12"
+    },
+    {
+      "prompt": "On a practice worksheet, a student reads this problem: A demonstration includes a video lasting 4 minutes followed immediately by a sound clip lasting 30 seconds. There is no pause between them. What is the total running time of the demonstration in seconds?",
+      "answer": "270",
+      "salt": "781f9530897c8d9017c366bf6c9afbf1",
+      "source": "synthetic/court24-v2-scripted/13",
+      "derived_from": "synthetic/court24-v2/13"
+    },
+    {
+      "prompt": "On a practice worksheet, a student reads this problem: An archive shelf starts with 64 folders. An archivist removes 18 folders for inspection and then adds 7 newly prepared folders to the shelf. How many folders are on the shelf after these two changes?",
+      "answer": "53",
+      "salt": "413d28b1a3c5356dcf543ac3ef8fe3b1",
+      "source": "synthetic/court24-v2-scripted/14",
+      "derived_from": "synthetic/court24-v2/14"
+    },
+    {
+      "prompt": "On a practice worksheet, a student reads this problem: A workshop has 5 sealed sleeves containing 6 sanding discs in each sleeve. All of these discs are distributed equally among 3 workbenches, with none kept in storage. How many sanding discs does each workbench receive?",
+      "answer": "10",
+      "salt": "f906d36eb97c6095d22945c007a9b4f3",
+      "source": "synthetic/court24-v2-scripted/15",
+      "derived_from": "synthetic/court24-v2/15"
+    },
+    {
+      "prompt": "On a practice worksheet, a student reads this problem: A lantern kit has 24 batteries, but 4 batteries are damaged and cannot be used. Each lantern needs 2 usable batteries. Using all the usable batteries from this kit, how many complete lanterns can be powered?",
+      "answer": "10",
+      "salt": "00e02195c2f7b62decc0240c6f92b0b4",
+      "source": "synthetic/court24-v2-scripted/16",
+      "derived_from": "synthetic/court24-v2/16"
+    },
+    {
+      "prompt": "On a practice worksheet, a student reads this problem: Davi packs 4 crates with 11 marker pens in each crate for a classroom delivery. Suri removes 6 marker pens from those crates for a separate order. How many marker pens remain in the crates for the classroom delivery?",
+      "answer": "38",
+      "salt": "2d1d48b22d804b4788bfd2f702bd54f3",
+      "source": "synthetic/court24-v2-scripted/17",
+      "derived_from": "synthetic/court24-v2/17"
+    },
+    {
+      "prompt": "On a practice worksheet, a student reads this problem: A survey team measures a footpath in two consecutive sections. The first section is 1250 meters long and the second section is 750 meters long. What is the total length of these two sections in meters?",
+      "answer": "2000",
+      "salt": "76889ec6a1cc77f780000f0ce8cd7c9d",
+      "source": "synthetic/court24-v2-scripted/18",
+      "derived_from": "synthetic/court24-v2/18"
+    },
+    {
+      "prompt": "On a practice worksheet, a student reads this problem: A print shop packs 72 invitation cards into packets containing 8 cards each. It already has 5 other complete packets on a shelf. How many complete packets does the shop have after packing the 72 cards?",
+      "answer": "14",
+      "salt": "30b2174a3f406305ce91f35c7af80f24",
+      "source": "synthetic/court24-v2-scripted/19",
+      "derived_from": "synthetic/court24-v2/19"
+    },
+    {
+      "prompt": "On a practice worksheet, a student reads this problem: A reading club receives 7 cartons containing 5 notebooks in each carton. The organizer gives 8 of these notebooks to new members and keeps the rest in a cupboard. How many notebooks are kept in the cupboard?",
+      "answer": "27",
+      "salt": "10a33f1e52b27f387a1f925fad6824c7",
+      "source": "synthetic/court24-v2-scripted/20",
+      "derived_from": "synthetic/court24-v2/20"
+    },
+    {
+      "prompt": "On a practice worksheet, a student reads this problem: A coordinator divides 36 plain badges equally among 6 volunteers. Each volunteer then receives 4 extra badges from a separate reserve. How many badges does each volunteer have after receiving the extra badges?",
+      "answer": "10",
+      "salt": "170cccabb86856c61ccaa1ca755c02bb",
+      "source": "synthetic/court24-v2-scripted/21",
+      "derived_from": "synthetic/court24-v2/21"
+    },
+    {
+      "prompt": "On a practice worksheet, a student reads this problem: Priya has 31 polished shells in a box. Marco gives her 8 more polished shells, and she then lends 5 shells from the box to Nera. How many polished shells remain in Priya's box after both exchanges?",
+      "answer": "34",
+      "salt": "ab9f644e10f45bc0d2f83adac0fe224d",
+      "source": "synthetic/court24-v2-scripted/22",
+      "derived_from": "synthetic/court24-v2/22"
+    },
+    {
+      "prompt": "On a practice worksheet, a student reads this problem: A mixing station has 900 milliliters of clear water in one jug and 600 milliliters in another jug. All this water is poured into an empty container without spilling. How many milliliters of water are in that container?",
+      "answer": "1500",
+      "salt": "7478a015b1ee622c7bdaef0e901605d0",
+      "source": "synthetic/court24-v2-scripted/23",
+      "derived_from": "synthetic/court24-v2/23"
+    }
+  ]
+}

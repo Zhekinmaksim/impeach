@@ -58,10 +58,21 @@ def main() -> int:
         os.environ.setdefault("OPENAI_BASE_URL", "https://openrouter.ai/api/v1")
     ap = argparse.ArgumentParser(prog="referee_dryrun")
     ap.add_argument("--out", default=os.path.join(ROOT, "runs", "referee-dryrun.json"))
+    ap.add_argument("--claim", default="", help="explicit claim for an additional demonstration corpus")
+    ap.add_argument("--controls", default="", help="control directory for that corpus")
     ap.add_argument("--print-prompts", action="store_true", help="print the two prompts for the first rewrite and exit")
     args = ap.parse_args()
 
-    corpus = pop.load_corpus()
+    if args.claim:
+        from run_case import load_claim, load_rewrites
+        claim = load_claim(args.claim)
+        if not args.controls:
+            raise SystemExit("--controls is required with --claim")
+        controls = [json.load(open(os.path.join(args.controls, name), encoding="utf-8"))
+                    for name in sorted(os.listdir(args.controls)) if name.endswith(".json")]
+        corpus = {"items": claim["_items"], "rewrites": load_rewrites(claim), "controls": controls}
+    else:
+        corpus = pop.load_corpus()
     world = pop.World(corpus)
     d = StubDriver(world)
 

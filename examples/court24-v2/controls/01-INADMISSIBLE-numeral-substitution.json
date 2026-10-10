@@ -1,0 +1,11 @@
+{
+  "version": "impeach/1",
+  "item_index": 1,
+  "class": "numeral_substitution",
+  "prompt": "A repair station opens 5 boxes containing 7 brass clips in each box. It also has 2 loose brass clips on the counter. Counting only these boxes and loose clips, how many brass clips does the station have?",
+  "answer": "38",
+  "true_answer": "37",
+  "derivation": "5 * 7 + 2",
+  "author_note": "Intentional negative control: the numeric substitution has the correct structure, but 5*7+2 is 37 rather than the supplied 38.",
+  "expect": "INADMISSIBLE"
+}

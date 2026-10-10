@@ -1,4 +1,5 @@
 PY ?= python3
+NODE ?= node
 MANIFEST ?= runs/bradbury.jsonl
 RPC ?= https://rpc-bradbury.genlayer.com
 
@@ -9,9 +10,10 @@ check: lint
 	$(PY) test/run_tests.py
 	$(PY) -m unittest discover -s test -p 'test_*.py'
 	$(PY) scripts/make_fixtures.py --check
-	node test/test_parity.mjs
-	node --test test/test_gas.mjs
-	node --test test/test_proxy.mjs
+	$(NODE) test/test_parity.mjs
+	$(NODE) --test test/test_gas.mjs
+	$(NODE) --test test/test_proxy.mjs
+	$(NODE) --test test/test_endpoints_v2.mjs
 	$(PY) cli/impeach.py recompute web/case.json
 
 # The same scenarios on the real SDK at the runner hash pinned in the contract.

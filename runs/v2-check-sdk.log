@@ -1,0 +1,3 @@
+.venv/bin/python test/run_sdk.py --quiet
+
+150 passed, 0 failed  (pinned SDK, GenVM v0.2.16)

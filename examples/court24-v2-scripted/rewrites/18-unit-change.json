@@ -1,0 +1,9 @@
+{
+  "version": "impeach/1",
+  "item_index": 18,
+  "class": "unit_change",
+  "prompt": "On a practice worksheet, a student reads this problem: A survey team measures a footpath in two consecutive sections. The first section is 1.25 kilometers long and the second section is 0.75 kilometers long. What is the total length of these two sections in meters?",
+  "answer": "2000",
+  "derivation": "125 * 1000 // 100 + 75 * 1000 // 100",
+  "author_note": "Scripted lookup control variant. The identical nonnumeric prefix is added to the original and rewrite. 1250 m = 1.25 km and 750 m = 0.75 km exactly. Both physical lengths and the total requested in meters are preserved."
+}

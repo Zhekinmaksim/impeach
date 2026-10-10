@@ -1,0 +1,9 @@
+{
+  "version": "impeach/1",
+  "item_index": 22,
+  "class": "entity_rename",
+  "prompt": "On a practice worksheet, a student reads this problem: Yuna has 31 polished shells in a box. Felix gives her 8 more polished shells, and she then lends 5 shells from the box to Asha. How many polished shells remain in Yuna's box after both exchanges?",
+  "answer": "34",
+  "derivation": "31 + 8 - 5",
+  "author_note": "Scripted lookup control variant. The identical nonnumeric prefix is added to the original and rewrite. Consistent mapping Priya->Yuna, Marco->Felix, Nera->Asha. Quantities, directions of exchange, and the queried box remain identical."
+}

@@ -5,6 +5,7 @@ once on the local stub and once on the real pinned SDK.
 """
 
 import json
+import ast
 import os
 import random
 import sys
@@ -63,7 +64,7 @@ def reveal_payload(items: list) -> str:
 
 def open_claim(d, url, items=None, score=900, min_items=20, delta=250, recall=150,
                bond=BOND, stake=STAKE, classes=None, extras=None, sender=None, value=None,
-               subject="vendor/model@2026-09"):
+               subject="vendor/model@2026-09", scoring_rule=pop.SCORING_RULE):
     items = ITEMS if items is None else items
     return d.call(
         d.addr(1) if sender is None else sender,
@@ -72,7 +73,7 @@ def open_claim(d, url, items=None, score=900, min_items=20, delta=250, recall=15
         url,
         score,
         json.dumps(hashes_of(items)),
-        pop.SCORING_RULE,
+        scoring_rule,
         json.dumps(pop.TEMPLATE),
         json.dumps(PARAMS),
         ",".join(GSM_CLASSES if classes is None else classes),
@@ -141,6 +142,25 @@ def full_case(d, url, **claim_kw):
     run_trial(d, hid)
     verdict = d.call(d.addr(3), "rule", hid)
     return cid, hid, verdict
+
+
+def numeric_scoring(check, make):
+    check.section("frozen numeric scoring without a model marker")
+    tree = ast.parse(open(os.path.join(ROOT, "contracts", "impeach.py"), encoding="utf-8").read())
+    rule = next(ast.literal_eval(n.value) for n in tree.body if isinstance(n, ast.Assign)
+                and any(isinstance(t, ast.Name) and t.id == "NUMERIC_LINE_RULE" for t in n.targets))
+    d, world = make()
+    url = world.serve("https://numeric.example/v1/chat/completions", pop.Memoriser(CORPUS))
+    cid, hid, verdict = full_case(d, url, score=1000, scoring_rule=rule)
+    cert = d.view("certificate", cid)
+    check("numeric rule is frozen verbatim", d.view("get_claim", cid)["scoring_rule"] == rule)
+    check("all sealed answers are measured", cert["items_probed"] == 24 and cert["pinned_milli"] == 1000)
+    check("no LLM marker is invoked", world.judge_calls == 0)
+    check("recall still convicts the lookup control", verdict == "CONTAMINATED" and cert["recall_milli"] == 1000)
+    check("all numeric referee framings are applied", cert["admissible_probes"] == 24)
+    check("offline arithmetic agrees", offline_agrees(d, cid, hid))
+    check("numeric path preserves solvency", d.broken == [])
+    d.close()
 
 
 def terms_of(d, cid) -> dict:
@@ -746,4 +766,5 @@ def run_all(make, label: str, module=None, quiet: bool = False) -> Checker:
     silence(check, make)
     defaults_and_windows(check, make)
     standing(check, make)
+    numeric_scoring(check, make)
     return check

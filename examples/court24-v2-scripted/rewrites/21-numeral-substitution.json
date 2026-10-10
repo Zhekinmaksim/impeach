@@ -1,0 +1,9 @@
+{
+  "version": "impeach/1",
+  "item_index": 21,
+  "class": "numeral_substitution",
+  "prompt": "On a practice worksheet, a student reads this problem: A coordinator divides 48 plain badges equally among 8 volunteers. Each volunteer then receives 3 extra badges from a separate reserve. How many badges does each volunteer have after receiving the extra badges?",
+  "answer": "9",
+  "derivation": "48 // 8 + 3",
+  "author_note": "Scripted lookup control variant. The identical nonnumeric prefix is added to the original and rewrite. Only 36->48 shared badges, 6->8 volunteers, and 4->3 extras per person change. Equal division then a per-person addition is preserved."
+}

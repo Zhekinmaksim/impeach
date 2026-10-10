@@ -1,0 +1,807 @@
+{
+  "kind": "offline referee replay with exact prompts",
+  "source_sha256": "d7e8f0f1e967dc8f883a5758594325e075711f77a79f8f8229071467db3a704b",
+  "model": "anthropic/claude-sonnet-4.6",
+  "claim": "calibration/claim-court24-v2.json",
+  "source_transcripts": [
+    {
+      "path": "runs/v2-referee-sonnet-transcript.jsonl",
+      "sha256": "7a0f7b3eb01eb34853b6f8b75386c451d3604086899b8d533c9d7a7008b20157"
+    }
+  ],
+  "recorded_calls": 111,
+  "supplemented_calls": 1,
+  "missing_prompts": [],
+  "supplement_cost_usd": 0.003027,
+  "honest_admitted": 24,
+  "controls_rejected_both": 4,
+  "gate_passed": true,
+  "calls": [
+    {
+      "prompt_sha256": "7be49b1142a6aa7d01d2fc6fc2af769ecc30984ff73c72a9f0c635080e6f24f0",
+      "source": "recorded",
+      "index": 1
+    },
+    {
+      "prompt_sha256": "81bb6851c0caf39244c4f30f738ed9d4c219c1497499a1142f24fd0adf49e7cb",
+      "source": "recorded",
+      "index": 2
+    },
+    {
+      "prompt_sha256": "c0638490f43e2b16cbe767b1a00407700f4113d3c81020b300d7926e78b5d0b1",
+      "source": "recorded",
+      "index": 3
+    },
+    {
+      "prompt_sha256": "007ff247d082bb3643d8b5865508f2c5145eb87c0326f3daac741fd0897923a0",
+      "source": "recorded",
+      "index": 4
+    },
+    {
+      "prompt_sha256": "a45a38009c97284a0bdf367a1ebf0ad35cc8119b10e42f3f623754207921a4f9",
+      "source": "recorded",
+      "index": 5
+    },
+    {
+      "prompt_sha256": "71caeefb205e053683147ea4479477bdc8adbc5a38e643ed97c6ef6ca8c20dc5",
+      "source": "recorded",
+      "index": 6
+    },
+    {
+      "prompt_sha256": "6e4062d92b43103d37f882459ed0e11faac2a6bc0322caf8ed0a653316695070",
+      "source": "recorded",
+      "index": 7
+    },
+    {
+      "prompt_sha256": "d9b0541079217480e47d81e268dbd491178a10521933fac3417bd1104542ff19",
+      "source": "recorded",
+      "index": 8
+    },
+    {
+      "prompt_sha256": "6491fa06f86f6f2f7bb66169135b63d251cc19b5c5dcdb7a18d23286be491f4a",
+      "source": "recorded",
+      "index": 9
+    },
+    {
+      "prompt_sha256": "5bef92c28bba5af450ce998de16084f8aadb61911fcd266dc195da82e67aac8a",
+      "source": "recorded",
+      "index": 10
+    },
+    {
+      "prompt_sha256": "5988cc2fc42ba7a8df6f4392fc7e0c11b6c8c62fd7170ee5e8f7f23ed224dcda",
+      "source": "recorded",
+      "index": 11
+    },
+    {
+      "prompt_sha256": "f38abd4c4813d02de7f4482fe74bec530176206bf7b9c7e623d4276051f748d1",
+      "source": "supplement",
+      "index": 1
+    },
+    {
+      "prompt_sha256": "bc621cffe097a4dc0102750f77830f7389326fd8d93781f6c06366ac110caa00",
+      "source": "recorded",
+      "index": 12
+    },
+    {
+      "prompt_sha256": "c605cb1bc33dca08ef2e3d343e3169a420ff541db2ab2d03b04610e4dac441df",
+      "source": "recorded",
+      "index": 13
+    },
+    {
+      "prompt_sha256": "4a6449edd5bea787c2b361535965abb29031cce5baec70f221d994514f6b4e54",
+      "source": "recorded",
+      "index": 14
+    },
+    {
+      "prompt_sha256": "605e46ce40fa65f3bc1ff4a02193bfde6bedf9d4980663b878475feda4a64378",
+      "source": "recorded",
+      "index": 15
+    },
+    {
+      "prompt_sha256": "366507fc824822f19790fc8dc14a5382e4c6e808306da911b56387c21568407d",
+      "source": "recorded",
+      "index": 16
+    },
+    {
+      "prompt_sha256": "3f5b891c72129d853d2d630b1bc8f8b4360ce125f60044aa9f720a4ad225be95",
+      "source": "recorded",
+      "index": 17
+    },
+    {
+      "prompt_sha256": "58cdb63f5bf81b5e69027daf7ce71e610b7118837d47ab62987475783761d1d7",
+      "source": "recorded",
+      "index": 18
+    },
+    {
+      "prompt_sha256": "55192fe6ede17a626cdc9c705edb2ce6fb6f9a973c0219be742e706035531eb3",
+      "source": "recorded",
+      "index": 19
+    },
+    {
+      "prompt_sha256": "e788dc4bcd539d86f4eaeab7ffb16e23a974dab5d00f43923ab592e27b23b7a5",
+      "source": "recorded",
+      "index": 20
+    },
+    {
+      "prompt_sha256": "f25174bcaa46feaaeaaf669136a2a89865e12877b0ea9d520ae1a55d738d990d",
+      "source": "recorded",
+      "index": 21
+    },
+    {
+      "prompt_sha256": "8c0714e10b2fdcb6fc7e05230f59a83cdc42d40ea138afecae113d249a64dc92",
+      "source": "recorded",
+      "index": 22
+    },
+    {
+      "prompt_sha256": "3e481f4245c85c92224c8330b1752c9d7018264fc5fa795b4a24bc57d312b163",
+      "source": "recorded",
+      "index": 23
+    },
+    {
+      "prompt_sha256": "6eb61a46cf21b4ab1915604b9ef9d801bdf55b768d280194e6dc8aaa9fc76025",
+      "source": "recorded",
+      "index": 24
+    },
+    {
+      "prompt_sha256": "3033de95ae7ec606336b0c827575e500851ae142cf96c11b3ed3369d66daa1ac",
+      "source": "recorded",
+      "index": 25
+    },
+    {
+      "prompt_sha256": "f0db066ca520d174cab4928b4e77aeaf8d126a7a087f4e1214584c444d1d4909",
+      "source": "recorded",
+      "index": 26
+    },
+    {
+      "prompt_sha256": "42d15ac0689d94fda29586a34c1ffcd0b65b5ab826ccb5194e7da58233899032",
+      "source": "recorded",
+      "index": 27
+    },
+    {
+      "prompt_sha256": "a2668c5bbc008fe43293c6148ef7252460f93477d0463e572d47b61c8200945b",
+      "source": "recorded",
+      "index": 28
+    },
+    {
+      "prompt_sha256": "f887995395b387b2f5c16f676266ea6849dde110aa0230c37bd9d3239a806b42",
+      "source": "recorded",
+      "index": 29
+    },
+    {
+      "prompt_sha256": "6a247e8fbf05fcbb6e07149ab9a572c55e7f9736db2d57d6f35d7313aae954cb",
+      "source": "recorded",
+      "index": 30
+    },
+    {
+      "prompt_sha256": "82468f99f9b4793b74483134f7d773d73ce41ed347dc5ceb0728d177ef683e82",
+      "source": "recorded",
+      "index": 31
+    },
+    {
+      "prompt_sha256": "734ae483440aba35f53738334edd92622dd179e52a9d9be1550df2d0725fee90",
+      "source": "recorded",
+      "index": 32
+    },
+    {
+      "prompt_sha256": "7032914961c982a4b86adf2c310e49be98f3bb4ed78de31856fb78ae7c16fb92",
+      "source": "recorded",
+      "index": 33
+    },
+    {
+      "prompt_sha256": "6b8fc2e493b1f31028dd19697d55631e56fece8441953c2b5ce60b74eafc0b2a",
+      "source": "recorded",
+      "index": 34
+    },
+    {
+      "prompt_sha256": "c030fa5e47063a0f3247e59bc96fd0826a279231718ceca91ce497cee648feac",
+      "source": "recorded",
+      "index": 35
+    },
+    {
+      "prompt_sha256": "0752de614afe577ff4ab7270ce16626929afb0a9cc9bc43acdd63db61917fbae",
+      "source": "recorded",
+      "index": 36
+    },
+    {
+      "prompt_sha256": "0b2bec563207f0c1ce9492d17128a9921978e802b3baa032298130b0cea63af4",
+      "source": "recorded",
+      "index": 37
+    },
+    {
+      "prompt_sha256": "2d315d72a567eaee9c97a6ca471fa0198a5a0a5a9a86896b701a7a1b7b15de94",
+      "source": "recorded",
+      "index": 38
+    },
+    {
+      "prompt_sha256": "ed0e9a6c72b251f016e1c8972eed09b7e8a83762c4c27333f759dcd98338ce19",
+      "source": "recorded",
+      "index": 39
+    },
+    {
+      "prompt_sha256": "b57191178970aff370cb49ccefdecdeae807b439a40c43bb0e9bc5b0924b7614",
+      "source": "recorded",
+      "index": 40
+    },
+    {
+      "prompt_sha256": "8464727b8fa83e559dafb7e550e21347ce422538e952ef05132e39c72494ca1d",
+      "source": "recorded",
+      "index": 41
+    },
+    {
+      "prompt_sha256": "053ab83a1a50cb389d997ee421f30bb9ba6e33d998f58806ab0894a3db861cbc",
+      "source": "recorded",
+      "index": 42
+    },
+    {
+      "prompt_sha256": "5e3fdd05ead5d95e33671153b5f770c751691c816f33c8f62bc18790b7fdf1db",
+      "source": "recorded",
+      "index": 43
+    },
+    {
+      "prompt_sha256": "53e66ef0993c8cf7a5efeb9cfae4f651ffc55d7cd0adca2032beffef0bd95d78",
+      "source": "recorded",
+      "index": 44
+    },
+    {
+      "prompt_sha256": "27b684c285182f6a830928ae0f06cf8ad9ad7f3d43a2007d62d87eeb4028bdea",
+      "source": "recorded",
+      "index": 45
+    },
+    {
+      "prompt_sha256": "ad8899697f0c92a875b1d6933ab1709aa65ad5e0447b9cfde0726e892329f128",
+      "source": "recorded",
+      "index": 46
+    },
+    {
+      "prompt_sha256": "390e70dee9c72eb8b1b60246c2927d73bad2c4ff9bb4472a5e42a3426654cf76",
+      "source": "recorded",
+      "index": 47
+    },
+    {
+      "prompt_sha256": "5b97e21856c4d40dd2466bddd36d1e28bc6980db8eaf79462b1d606f8388456a",
+      "source": "recorded",
+      "index": 48
+    },
+    {
+      "prompt_sha256": "cb21ea311a4a7a9449b6dfa199071f930bc6e2cc45b8ae7ecfb8aa22344bcf2a",
+      "source": "recorded",
+      "index": 49
+    },
+    {
+      "prompt_sha256": "1351c73e96d7284d6c59634d39d684824ed6f0fad4fd07483a192e9d24f7993e",
+      "source": "recorded",
+      "index": 50
+    },
+    {
+      "prompt_sha256": "f131250ef1102872bd38dbaf90b8a9409a1c8dc4fd5a942aa7801536bd5a69f4",
+      "source": "recorded",
+      "index": 51
+    },
+    {
+      "prompt_sha256": "a5238cf3a2d826ae5de35b22beaf5b99393bc6abe274080dd380da4d4aa55e6e",
+      "source": "recorded",
+      "index": 52
+    },
+    {
+      "prompt_sha256": "62b6f24ed7a23dbc83dbe2802bb8e4dfd9e22ca0a29175bfbbbadd9aa9927123",
+      "source": "recorded",
+      "index": 53
+    },
+    {
+      "prompt_sha256": "46587d3074d62aab912e38e7c6d63e93becdaa1b5729ec66ab883e6edf42c95a",
+      "source": "recorded",
+      "index": 54
+    },
+    {
+      "prompt_sha256": "59ef836f6f7d8d9f4d918f9331b2d19d1701bb02abc4ea2d87041b3160a67ebb",
+      "source": "recorded",
+      "index": 55
+    },
+    {
+      "prompt_sha256": "e861efc1e50e520a10b8d94092c91d01e97d8951ed127fedc2a72ce18a61ce44",
+      "source": "recorded",
+      "index": 56
+    },
+    {
+      "prompt_sha256": "1df720e4ff2a1e13f9810ee2a1ed62f0466adb7db7c97886750f4a09682dab7f",
+      "source": "recorded",
+      "index": 57
+    },
+    {
+      "prompt_sha256": "180c60277980c4abe2a810efcd0c47ea1bbc3087b30ba491cbaa1c05a8a0c1e9",
+      "source": "recorded",
+      "index": 58
+    },
+    {
+      "prompt_sha256": "edc3adb311659145bb81734791531dea929d92b6a209cf1c320409776d98d5f9",
+      "source": "recorded",
+      "index": 59
+    },
+    {
+      "prompt_sha256": "f2c4c836708ea9116b2b540c370887d2fe1e67dfc35269f9bd8908eb210c1114",
+      "source": "recorded",
+      "index": 60
+    },
+    {
+      "prompt_sha256": "5d1df0b0908504011a754d058e2b3b82d464930b16ca966bd878776b98b5aa80",
+      "source": "recorded",
+      "index": 61
+    },
+    {
+      "prompt_sha256": "f1c3132257d5fc78686eea993a3337ad4fc00c20c2f623b887d1056250bb173c",
+      "source": "recorded",
+      "index": 62
+    },
+    {
+      "prompt_sha256": "fc647748ca332315e48b84c60a5c47ca0ff0373dc0665fe70ebff2874e6de45a",
+      "source": "recorded",
+      "index": 63
+    },
+    {
+      "prompt_sha256": "3d7e582a3aa17a402c174a4fc6e560f5ec5f2acded5b0f0ea1e3b4f99e1d96c3",
+      "source": "recorded",
+      "index": 64
+    },
+    {
+      "prompt_sha256": "ea3ab9091e18609d32f3ab1bc45b46de53f352080816761d28eb8b02f5c6b4e1",
+      "source": "recorded",
+      "index": 65
+    },
+    {
+      "prompt_sha256": "942e5d156587d70e4af99733f1706cce9ff0ca5c8d1db6d972fa5f20f8dbbf81",
+      "source": "recorded",
+      "index": 66
+    },
+    {
+      "prompt_sha256": "b1450a3333bbb6a5dee68652af4d0e9baee42fee934dc9162bdde7d9084b2096",
+      "source": "recorded",
+      "index": 67
+    },
+    {
+      "prompt_sha256": "b89266060cc3fc1da974db27bac8b6c64e4e78dc95c6ace165418fd37f78f224",
+      "source": "recorded",
+      "index": 68
+    },
+    {
+      "prompt_sha256": "794bf964abbd129da55a037bf5dce6f89dd346fd0ac38b842bbe73dd32d96db9",
+      "source": "recorded",
+      "index": 69
+    },
+    {
+      "prompt_sha256": "981eae03cebef0927a1d4760c330ec746516f1e4e51dac4e15e703d3f27f08b6",
+      "source": "recorded",
+      "index": 70
+    },
+    {
+      "prompt_sha256": "5e5e1363405bfb9f11b22337f3bed43c4424b5089fd0483dcd10728af0a1c6a2",
+      "source": "recorded",
+      "index": 71
+    },
+    {
+      "prompt_sha256": "61bcc01e789479baee81db11aecfb1c8ec258d3f697bd116f866709d133ba522",
+      "source": "recorded",
+      "index": 72
+    },
+    {
+      "prompt_sha256": "29658683ec18d2ef99537a7c44ecac9802fb21666985ef21b9e6507cf8aaefa0",
+      "source": "recorded",
+      "index": 73
+    },
+    {
+      "prompt_sha256": "63095b6c1f3d4712abfdea61c692fd107c51dd9854572679c8f161ce9db1cc80",
+      "source": "recorded",
+      "index": 74
+    },
+    {
+      "prompt_sha256": "d39f3d300f7c670195906b6fa49863a9211492fb396028e2d1a63111d62bc790",
+      "source": "recorded",
+      "index": 75
+    },
+    {
+      "prompt_sha256": "4d2fbc8f4944f2238983b6a7512d9da7a7a971408b8df463eb6abd1e04088fa2",
+      "source": "recorded",
+      "index": 76
+    },
+    {
+      "prompt_sha256": "0113066269458f9f61575e050be602ad50853579466be8f1377f8117f9b46c31",
+      "source": "recorded",
+      "index": 77
+    },
+    {
+      "prompt_sha256": "6c654cb7b07a49c1bd1faa02829f4f243d9c24e28907b70ce65441e562a5d19c",
+      "source": "recorded",
+      "index": 78
+    },
+    {
+      "prompt_sha256": "ab17774a483c6d4b2cc3dadfc022de92d6759cd397fdd32080549fe66062864e",
+      "source": "recorded",
+      "index": 79
+    },
+    {
+      "prompt_sha256": "b1432757c9ddc6d849113ada7826371fe50dfe829637e7f2dc032f37d9a7e5b8",
+      "source": "recorded",
+      "index": 80
+    },
+    {
+      "prompt_sha256": "b917f28cea74cff20f023550f647a7beee80f355f9040ac2506a033ad4d0a217",
+      "source": "recorded",
+      "index": 81
+    },
+    {
+      "prompt_sha256": "e33631f91a764bedefd61957cd78bd53911d62cd88ab7a2def67b7ce35412e2a",
+      "source": "recorded",
+      "index": 82
+    },
+    {
+      "prompt_sha256": "ead7a90dd55b100a0758858fa9625ad8138ab611f4bfc73ecb0e50378fd52d56",
+      "source": "recorded",
+      "index": 83
+    },
+    {
+      "prompt_sha256": "36ee66a42204d7ed3756ecef63245bdf203c212ae24a5225c33c86389d52b514",
+      "source": "recorded",
+      "index": 84
+    },
+    {
+      "prompt_sha256": "ef09f7db94d5f6214b5b1dd10da7f4be8cb00515ec3c02ba3d4ccb6c2dc27fe8",
+      "source": "recorded",
+      "index": 85
+    },
+    {
+      "prompt_sha256": "007d3dc6b38dde3a896d2ffe933ce097cfe2729f1638d05a79ff85c2c0f3090b",
+      "source": "recorded",
+      "index": 86
+    },
+    {
+      "prompt_sha256": "5797272d42d6d810ea6978fd28b1a995f52c09288cfadb550ee090f9f077ead9",
+      "source": "recorded",
+      "index": 87
+    },
+    {
+      "prompt_sha256": "c14b78a561c70f366976d36e47905016ca669bbb8a580a577bbaadd249d57cc9",
+      "source": "recorded",
+      "index": 88
+    },
+    {
+      "prompt_sha256": "ee35dca181f0430048654b5e7a3a2bd65656f5efcee37185a67e9f8d568091ec",
+      "source": "recorded",
+      "index": 89
+    },
+    {
+      "prompt_sha256": "64c6e81d9fd938d950141e0b159ff8c6670654195881b0af17c074ea557c83a7",
+      "source": "recorded",
+      "index": 90
+    },
+    {
+      "prompt_sha256": "489430a7091e82cf144be9c8c70c798423c0992f38fadf2e7289d66a4d4caa86",
+      "source": "recorded",
+      "index": 91
+    },
+    {
+      "prompt_sha256": "8459969e3b6a4e5dffe00960e566de8222d46e1232661d902e983e45908ebba8",
+      "source": "recorded",
+      "index": 92
+    },
+    {
+      "prompt_sha256": "6c28f1ec4814d5d4fdbf02de1d39b766c6105febd844016ac1c277c042cb2da0",
+      "source": "recorded",
+      "index": 93
+    },
+    {
+      "prompt_sha256": "4602fcadd62770c744a0e490c117ad4a5155cafee78321ef49da90c6a51b11aa",
+      "source": "recorded",
+      "index": 94
+    },
+    {
+      "prompt_sha256": "35685d142f8063609815c6b67495a24895076d588edf92bd2ba3d27b710fed9e",
+      "source": "recorded",
+      "index": 95
+    },
+    {
+      "prompt_sha256": "2c6d987d804cf1d5d5a954d7e8bdcff85b3c8d39d38e8dcb2311c3e27afde0f6",
+      "source": "recorded",
+      "index": 96
+    },
+    {
+      "prompt_sha256": "b2c61940d789b912758ee0d357a659f42b121a1279fb1aa5f0cc7b0f4d180ab0",
+      "source": "recorded",
+      "index": 97
+    },
+    {
+      "prompt_sha256": "e609906048b4b2a4fbc476ea63b7800f95d9913785af7b2773b3cb246402face",
+      "source": "recorded",
+      "index": 98
+    },
+    {
+      "prompt_sha256": "a6c4de9c83cb21566a58244d87f0b66be79d45e1af233927ef86eac50ccd54b7",
+      "source": "recorded",
+      "index": 99
+    },
+    {
+      "prompt_sha256": "a45a38009c97284a0bdf367a1ebf0ad35cc8119b10e42f3f623754207921a4f9",
+      "source": "recorded",
+      "index": 100
+    },
+    {
+      "prompt_sha256": "1ba580cdfd5beeb51b90962108ece9fcefaa03319a6a3fde4cce7db617d72e68",
+      "source": "recorded",
+      "index": 101
+    },
+    {
+      "prompt_sha256": "6e4062d92b43103d37f882459ed0e11faac2a6bc0322caf8ed0a653316695070",
+      "source": "recorded",
+      "index": 102
+    },
+    {
+      "prompt_sha256": "0f468e5f86286be0a37581e63bb388a442879162447898657b21fd72297cf421",
+      "source": "recorded",
+      "index": 103
+    },
+    {
+      "prompt_sha256": "d4375586c6f91e8b57642ceb58b8b32360f0a9dda524d0533dceb3c049266514",
+      "source": "recorded",
+      "index": 104
+    },
+    {
+      "prompt_sha256": "a2295b39372b296e25b1aec042f73c1c84fb20e909cd6de80c5bc292fb555327",
+      "source": "recorded",
+      "index": 105
+    },
+    {
+      "prompt_sha256": "91bbea73e5fd405b3e4234c7090d3d86dd5936062761379d5bd9e4b92ebe216b",
+      "source": "recorded",
+      "index": 106
+    },
+    {
+      "prompt_sha256": "d077b43f4c1a635e06170aed538b61f2d9cc458971ce7767ffde22ae51595832",
+      "source": "recorded",
+      "index": 107
+    },
+    {
+      "prompt_sha256": "899886b3053feef8d0eb60ea05ffd8f0759da4c39ddd11bdde0d1638691ed998",
+      "source": "recorded",
+      "index": 108
+    },
+    {
+      "prompt_sha256": "a222fcb46d1c2ff78f7647b635d450b877367a0b0ad2ceb5d8dbe8952ae8adf8",
+      "source": "recorded",
+      "index": 109
+    },
+    {
+      "prompt_sha256": "3f1e52c028779053ce5120a3d1c0ce9bd283c33fe758f400f6637d9fb0a3ad28",
+      "source": "recorded",
+      "index": 110
+    },
+    {
+      "prompt_sha256": "39f09cc29aa0358387f9a28074090e5060f659bb2ac85de625ba00ea98b19db8",
+      "source": "recorded",
+      "index": 111
+    }
+  ],
+  "rows": [
+    {
+      "item_index": 0,
+      "class": "paraphrase",
+      "expect": "ADMISSIBLE",
+      "framing_1": "ADMISSIBLE",
+      "framing_2": "ADMISSIBLE",
+      "ok": true
+    },
+    {
+      "item_index": 1,
+      "class": "numeral_substitution",
+      "expect": "ADMISSIBLE",
+      "framing_1": "ADMISSIBLE",
+      "framing_2": "ADMISSIBLE",
+      "ok": true
+    },
+    {
+      "item_index": 2,
+      "class": "entity_rename",
+      "expect": "ADMISSIBLE",
+      "framing_1": "ADMISSIBLE",
+      "framing_2": "ADMISSIBLE",
+      "ok": true
+    },
+    {
+      "item_index": 3,
+      "class": "unit_change",
+      "expect": "ADMISSIBLE",
+      "framing_1": "ADMISSIBLE",
+      "framing_2": "ADMISSIBLE",
+      "ok": true
+    },
+    {
+      "item_index": 4,
+      "class": "format_shift",
+      "expect": "ADMISSIBLE",
+      "framing_1": "ADMISSIBLE",
+      "framing_2": "ADMISSIBLE",
+      "ok": true
+    },
+    {
+      "item_index": 5,
+      "class": "paraphrase",
+      "expect": "ADMISSIBLE",
+      "framing_1": "ADMISSIBLE",
+      "framing_2": "ADMISSIBLE",
+      "ok": true
+    },
+    {
+      "item_index": 6,
+      "class": "numeral_substitution",
+      "expect": "ADMISSIBLE",
+      "framing_1": "ADMISSIBLE",
+      "framing_2": "ADMISSIBLE",
+      "ok": true
+    },
+    {
+      "item_index": 7,
+      "class": "entity_rename",
+      "expect": "ADMISSIBLE",
+      "framing_1": "ADMISSIBLE",
+      "framing_2": "ADMISSIBLE",
+      "ok": true
+    },
+    {
+      "item_index": 8,
+      "class": "unit_change",
+      "expect": "ADMISSIBLE",
+      "framing_1": "ADMISSIBLE",
+      "framing_2": "ADMISSIBLE",
+      "ok": true
+    },
+    {
+      "item_index": 9,
+      "class": "format_shift",
+      "expect": "ADMISSIBLE",
+      "framing_1": "ADMISSIBLE",
+      "framing_2": "ADMISSIBLE",
+      "ok": true
+    },
+    {
+      "item_index": 10,
+      "class": "paraphrase",
+      "expect": "ADMISSIBLE",
+      "framing_1": "ADMISSIBLE",
+      "framing_2": "ADMISSIBLE",
+      "ok": true
+    },
+    {
+      "item_index": 11,
+      "class": "numeral_substitution",
+      "expect": "ADMISSIBLE",
+      "framing_1": "ADMISSIBLE",
+      "framing_2": "ADMISSIBLE",
+      "ok": true
+    },
+    {
+      "item_index": 12,
+      "class": "entity_rename",
+      "expect": "ADMISSIBLE",
+      "framing_1": "ADMISSIBLE",
+      "framing_2": "ADMISSIBLE",
+      "ok": true
+    },
+    {
+      "item_index": 13,
+      "class": "unit_change",
+      "expect": "ADMISSIBLE",
+      "framing_1": "ADMISSIBLE",
+      "framing_2": "ADMISSIBLE",
+      "ok": true
+    },
+    {
+      "item_index": 14,
+      "class": "format_shift",
+      "expect": "ADMISSIBLE",
+      "framing_1": "ADMISSIBLE",
+      "framing_2": "ADMISSIBLE",
+      "ok": true
+    },
+    {
+      "item_index": 15,
+      "class": "paraphrase",
+      "expect": "ADMISSIBLE",
+      "framing_1": "ADMISSIBLE",
+      "framing_2": "ADMISSIBLE",
+      "ok": true
+    },
+    {
+      "item_index": 16,
+      "class": "numeral_substitution",
+      "expect": "ADMISSIBLE",
+      "framing_1": "ADMISSIBLE",
+      "framing_2": "ADMISSIBLE",
+      "ok": true
+    },
+    {
+      "item_index": 17,
+      "class": "entity_rename",
+      "expect": "ADMISSIBLE",
+      "framing_1": "ADMISSIBLE",
+      "framing_2": "ADMISSIBLE",
+      "ok": true
+    },
+    {
+      "item_index": 18,
+      "class": "unit_change",
+      "expect": "ADMISSIBLE",
+      "framing_1": "ADMISSIBLE",
+      "framing_2": "ADMISSIBLE",
+      "ok": true
+    },
+    {
+      "item_index": 19,
+      "class": "format_shift",
+      "expect": "ADMISSIBLE",
+      "framing_1": "ADMISSIBLE",
+      "framing_2": "ADMISSIBLE",
+      "ok": true
+    },
+    {
+      "item_index": 20,
+      "class": "paraphrase",
+      "expect": "ADMISSIBLE",
+      "framing_1": "ADMISSIBLE",
+      "framing_2": "ADMISSIBLE",
+      "ok": true
+    },
+    {
+      "item_index": 21,
+      "class": "numeral_substitution",
+      "expect": "ADMISSIBLE",
+      "framing_1": "ADMISSIBLE",
+      "framing_2": "ADMISSIBLE",
+      "ok": true
+    },
+    {
+      "item_index": 22,
+      "class": "entity_rename",
+      "expect": "ADMISSIBLE",
+      "framing_1": "ADMISSIBLE",
+      "framing_2": "ADMISSIBLE",
+      "ok": true
+    },
+    {
+      "item_index": 23,
+      "class": "unit_change",
+      "expect": "ADMISSIBLE",
+      "framing_1": "ADMISSIBLE",
+      "framing_2": "ADMISSIBLE",
+      "ok": true
+    },
+    {
+      "item_index": 0,
+      "class": "paraphrase",
+      "expect": "INADMISSIBLE",
+      "framing_1": "INADMISSIBLE",
+      "framing_2": "INADMISSIBLE",
+      "ok": true
+    },
+    {
+      "item_index": 1,
+      "class": "numeral_substitution",
+      "expect": "INADMISSIBLE",
+      "framing_1": "INADMISSIBLE",
+      "framing_2": "INADMISSIBLE",
+      "ok": true
+    },
+    {
+      "item_index": 2,
+      "class": "entity_rename",
+      "expect": "INADMISSIBLE",
+      "framing_1": "INADMISSIBLE",
+      "framing_2": "INADMISSIBLE",
+      "ok": true
+    },
+    {
+      "item_index": 3,
+      "class": "unit_change",
+      "expect": "INADMISSIBLE",
+      "framing_1": "INADMISSIBLE",
+      "framing_2": "INADMISSIBLE",
+      "ok": true
+    }
+  ]
+}

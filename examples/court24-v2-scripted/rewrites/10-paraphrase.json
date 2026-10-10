@@ -1,0 +1,9 @@
+{
+  "version": "impeach/1",
+  "item_index": 10,
+  "class": "paraphrase",
+  "prompt": "On a practice worksheet, a student reads this problem: There are 54 seats for passengers on a shuttle. A group of 19 boards at the first stop and another 8 boards at the following stop. With no passengers getting off and one seat used per passenger, how many seats remain empty?",
+  "answer": "27",
+  "derivation": "54 - 19 - 8",
+  "author_note": "Scripted lookup control variant. The identical nonnumeric prefix is added to the original and rewrite. The same seating capacity, two boarding groups, no departures, and unused-seat question are retained."
+}

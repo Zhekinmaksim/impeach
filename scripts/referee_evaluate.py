@@ -23,6 +23,8 @@ def main():
     parser.add_argument("--cost-cap", type=float, default=0.60)
     parser.add_argument("--total-cost-cap", type=float, default=1.0)
     parser.add_argument("--focused", action="store_true", help="two honest unit rewrites and all four controls")
+    parser.add_argument("--claim", default="")
+    parser.add_argument("--controls", default="")
     args = parser.parse_args()
     load_local_env()
     os.environ["REFEREE_MODEL"] = args.model
@@ -50,6 +52,7 @@ def main():
     summary = {"model": args.model, "pricing": pricing, "initial_key_usage": initial_usage,
                "cost_cap": args.cost_cap, "total_cost_cap": args.total_cost_cap,
                "focused": args.focused,
+               "claim": args.claim or "calibration/claim-gsm8k.json",
                "source_sha256": hashlib.sha256((Path(__file__).resolve().parents[1] / "contracts/impeach.py").read_bytes()).hexdigest(),
                "requests": 0, "cost_usd": 0.0, "completed": False}
     args.transcript.parent.mkdir(parents=True, exist_ok=True)
@@ -65,6 +68,8 @@ def main():
                 raise SystemExit("referee cost cap reached; no further request sent")
             body = {"model": args.model, "messages": [{"role": "user", "content": prompt}],
                     "temperature": 0, "max_tokens": args.max_tokens}
+            if "response_format" in model.get("supported_parameters", []):
+                body["response_format"] = {"type": "json_object"}
             if "reasoning" in model.get("supported_parameters", []):
                 body["reasoning"] = {"enabled": False}
             data = request("/chat/completions", body)
@@ -90,6 +95,8 @@ def main():
                 return corpus
             referee_dryrun.pop.load_corpus = focused_corpus
         sys.argv = ["referee_dryrun.py", "--out", str(args.out)]
+        if args.claim:
+            sys.argv += ["--claim", args.claim, "--controls", args.controls]
         try:
             result = referee_dryrun.main()
             summary["completed"] = True

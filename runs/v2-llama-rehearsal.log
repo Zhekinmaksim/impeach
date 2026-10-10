@@ -1,0 +1,15 @@
+........................................................................
+model                 meta-llama/llama-3.1-8b-instruct
+requests              72  (0 got no reply)
+answered as sealed    1000‰
+answered as rewritten 1000‰
+gap Δ                 0‰   threshold 250‰
+verbatim recall R     0‰   threshold 150‰
+old answers given     0
+replies without an ANSWER: line  0
+forecast              CLEAN 
+
+The measured sealed score is 1000‰. Sworn 250‰ or more above what
+the model reproduces, the verdict is UNSUPPORTED and the bond is lost.
+
+snapshot -> runs/v2-llama-rehearsal.json

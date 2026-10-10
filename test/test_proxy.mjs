@@ -226,6 +226,8 @@ test('provider failures and malformed replies never expose upstream errors or se
 
 test('timeout and failed key lookup close the endpoint without inference', async () => {
   const timed = fixture({ timeoutMs: 5, fetchImpl: async (_, { signal }) => {
+    // Match fetch when the short timeout elapsed before this mock was entered.
+    signal.throwIfAborted();
     await new Promise((resolve, reject) => {
       const timer = setTimeout(resolve, 1000);
       signal.addEventListener('abort', () => { clearTimeout(timer); reject(signal.reason); }, { once: true });

@@ -1,0 +1,9 @@
+{
+  "version": "impeach/1",
+  "item_index": 2,
+  "class": "entity_rename",
+  "prompt": "On a practice worksheet, a student reads this problem: Nila has 18 wooden tokens in her pouch. She gives 5 tokens to Daren, and Daren then gives Nila 7 other wooden tokens from his own collection. How many wooden tokens are in Nila's pouch after both transfers?",
+  "answer": "20",
+  "derivation": "18 - 5 + 7",
+  "author_note": "Scripted lookup control variant. The identical nonnumeric prefix is added to the original and rewrite. Consistent name mapping Mira->Nila and Tomas->Daren; pronouns, transfer directions, quantities, and queried owner are unchanged."
+}

@@ -94,7 +94,8 @@ def main() -> int:
         if urlparse(args.endpoint).hostname == "openrouter.ai" and os.environ.get("OPENROUTER_PROVIDER"):
             routed = json.loads(data)
             routed["provider"] = {"only": [os.environ["OPENROUTER_PROVIDER"]],
-                                  "allow_fallbacks": False, "require_parameters": True}
+                                  "allow_fallbacks": False, "require_parameters": True,
+                                  "max_price": {"prompt": 0.05, "completion": 0.10, "request": 0}}
             data = json.dumps(routed).encode()
         try:
             with urllib.request.urlopen(urllib.request.Request(args.endpoint, data=data, headers=headers), timeout=args.timeout) as r:

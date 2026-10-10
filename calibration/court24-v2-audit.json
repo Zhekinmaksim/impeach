@@ -1,0 +1,1196 @@
+{
+  "format": "impeach-synthetic-audit/1",
+  "dataset": "court24-v2",
+  "seed": 240524,
+  "scope": "Offline arithmetic, declared-transformation review, precheck and local-collision audit only. No LLM referee, subject endpoint, API or chain was called.",
+  "disclosure": "Prompts, answers, formulas, deterministic salts and this construction seed are published. These examples make no claim of secrecy or of benchmark validity. They are new local demonstration texts, not copied from GSM8K; that does not establish worldwide novelty or training-data absence.",
+  "construction": {
+    "seed": 240524,
+    "numeric_values": "Fixed authored constants, audited with exact rational arithmetic.",
+    "salt_derivation": "First 32 hexadecimal characters of SHA256(UTF-8(\"impeach/court24-v2|seed=240524|item=NN\")); NN is the zero-padded item index."
+  },
+  "arithmetic_method": "Restricted Python AST (+, -, *, /, // and integer literals) evaluated using fractions.Fraction; no float rounding and no eval. Every // division is required to be exact, so it never truncates a quantity. Direct checks require the computed integer to equal each answer key. Envelope derivations also pass the existing CLI integer-only arithmetic linter.",
+  "unit_conventions": {
+    "centimeters_per_meter": 100,
+    "grams_per_kilogram": 1000,
+    "seconds_per_minute": 60,
+    "meters_per_kilometer": 1000,
+    "milliliters_per_liter": 1000
+  },
+  "summary": {
+    "items": 24,
+    "honest_rewrites": 24,
+    "controls": 4,
+    "class_counts": {
+      "paraphrase": 5,
+      "numeral_substitution": 5,
+      "entity_rename": 5,
+      "unit_change": 5,
+      "format_shift": 4
+    },
+    "honest_original_answers_correct": 24,
+    "honest_rewrite_answers_correct": 24,
+    "honest_precheck_passes": 24,
+    "honest_cli_envelope_lint_passes": 24,
+    "controls_reach_semantic_referee": 4,
+    "numeral_substitutions_change_answer": 5,
+    "unit_changes_preserve_physical_quantities_and_output_unit": 5,
+    "unique_item_commitments": 24,
+    "unique_content_hashes": 24,
+    "unique_salts": 24,
+    "unique_recall_prefixes_at_400": 24,
+    "recall_prefix_milli": 400,
+    "minimum_required_squashed_tail_chars": 48,
+    "minimum_original_or_rewrite_tail_chars": 113,
+    "original_and_rewrite_recall_eligible": 48,
+    "colliding_item_commitments_with_previous_corpus": 0,
+    "colliding_content_hashes_with_previous_corpus": 0,
+    "reused_salts_from_previous_corpus": 0,
+    "api_or_chain_calls": 0
+  },
+  "comparison": {
+    "previous_item_commitments": 24,
+    "previous_prompt_content_hashes": 51,
+    "files": [
+      {
+        "path": "calibration/gsm8k-24.items.json",
+        "sha256": "c75c5eab57e6343afc9cd87868f8a3284988ebc5bb0f76b5803c601b62873780"
+      },
+      {
+        "path": "examples/rewrites/00-numeral-substitution.json",
+        "sha256": "967f84b67709247b1da5597bd63c509d1ee00c4ac90c3212e76294a3c51035fd"
+      },
+      {
+        "path": "examples/rewrites/01-unit-change.json",
+        "sha256": "78b44faab81c590d3b8ea6a8f4e418ef7c2a97af38c2fd3f4ba97fafe56f6b74"
+      },
+      {
+        "path": "examples/rewrites/02-numeral-substitution.json",
+        "sha256": "7e1e7c718a9e4c457905f5a2a35a5ad24473529fe7c6e6faffaa4b8286d28724"
+      },
+      {
+        "path": "examples/rewrites/03-entity-rename.json",
+        "sha256": "c787bf5cfde9554bf27d29384d4840367c52e68ce18ac73b5b05d0a44cc0335a"
+      },
+      {
+        "path": "examples/rewrites/04-numeral-substitution.json",
+        "sha256": "4d4396ade9851256bddb01a54f4be9c27c451d311e5cf5e57a43a5e1b3430011"
+      },
+      {
+        "path": "examples/rewrites/05-paraphrase.json",
+        "sha256": "2a97a35ac3bafa61529cef3659ea9f4ea583363dac465701745dc5124b88c443"
+      },
+      {
+        "path": "examples/rewrites/06-format-shift.json",
+        "sha256": "a31177761af1e7076fec9dbd3c1d92fedb74493a180053a7d5aae662ea6e7a93"
+      },
+      {
+        "path": "examples/rewrites/07-numeral-substitution.json",
+        "sha256": "3d7f13ece1fc84bd0da785f1c34c3759364641ae5304dffa49bd457a68ad07e1"
+      },
+      {
+        "path": "examples/rewrites/08-entity-rename.json",
+        "sha256": "89283c7004799963393bc1dd91784908def92d057e81505fb957edc7a51f0f9d"
+      },
+      {
+        "path": "examples/rewrites/09-paraphrase.json",
+        "sha256": "e3421d84b63e095df9e59fc05106c9df0b7c01089a3eba268fbf20c4b615fa2e"
+      },
+      {
+        "path": "examples/rewrites/10-numeral-substitution.json",
+        "sha256": "93b79e01d6225fb9aa3a4463075c6e4b0506b9cd9e6d5f7bb5ece6deae775163"
+      },
+      {
+        "path": "examples/rewrites/11-numeral-substitution.json",
+        "sha256": "761b1b97252e6462654e758038644417072128be25956d7a4068da92e1416e74"
+      },
+      {
+        "path": "examples/rewrites/12-unit-change.json",
+        "sha256": "238eb94e1e2a82707d7b5e6226c12c28f058abbf11ed68b1524c92137e877f1a"
+      },
+      {
+        "path": "examples/rewrites/13-entity-rename.json",
+        "sha256": "f544d55b67b5db0693c2968ba80d5429b4037714e87fac4087ce1a71394d7963"
+      },
+      {
+        "path": "examples/rewrites/14-format-shift.json",
+        "sha256": "68c1d5d2b72d6541e4f6cc8371b6c609a8c4ba596d8c54db700be65505970a2c"
+      },
+      {
+        "path": "examples/rewrites/15-numeral-substitution.json",
+        "sha256": "53cce4c4fcb5f56476ecb77df807113375f7414dfcc0f5ce3332b96c7e9ed187"
+      },
+      {
+        "path": "examples/rewrites/16-paraphrase.json",
+        "sha256": "0d1eb11a8c5d1affb57de52d99c9804507baf78922e753b5e4817121e6e45f38"
+      },
+      {
+        "path": "examples/rewrites/17-unit-change.json",
+        "sha256": "703628dfaee3b9c6ce1cb69f74495d01d5abb90cf640bde10e6061cd30280ad8"
+      },
+      {
+        "path": "examples/rewrites/18-numeral-substitution.json",
+        "sha256": "19339c4f63c120dcddc0ca5b93dc89468f2328e4001cf5c00b95bde23a2d7a2c"
+      },
+      {
+        "path": "examples/rewrites/19-entity-rename.json",
+        "sha256": "abb1026a7dd96885e47e020dc7d6cdcb0cdf8fdafb42014c5714364886eb690d"
+      },
+      {
+        "path": "examples/rewrites/20-numeral-substitution.json",
+        "sha256": "f29c51b86f9ae160faa54bd6d4448802a328c3d8453260e249c8f0e01fbfc6df"
+      },
+      {
+        "path": "examples/rewrites/21-format-shift.json",
+        "sha256": "8479dd3100985294f1535ec56d6364dbca8ac147a2371378f09b16205b559062"
+      },
+      {
+        "path": "examples/rewrites/22-entity-rename.json",
+        "sha256": "d27b7df4fb42f339324659c784c1601c919113b7f38d31b03835ad1f9ba627f2"
+      },
+      {
+        "path": "examples/rewrites/23-paraphrase.json",
+        "sha256": "2ad9ef7379a79f79c58ca5b01d0cb30adfe65213faf0e978029a83756fc5170b"
+      },
+      {
+        "path": "examples/controls/00-INADMISSIBLE-paraphrase.json",
+        "sha256": "54260a77d566fe583868b448d39fc5a003b37a029c935c8c6e3c73b69417ec3a"
+      },
+      {
+        "path": "examples/controls/03-INADMISSIBLE-entity-rename.json",
+        "sha256": "032322506df47f22d389347087c21b862daa3c1374627a91a4ecfd90fa337f2a"
+      },
+      {
+        "path": "examples/controls/10-INADMISSIBLE-numeral-substitution.json",
+        "sha256": "f555fe583593c45567fe180faf2ee09e5d23cc3007ec6bbed78d3e9ccd646e28"
+      },
+      {
+        "path": "examples/controls/17-INADMISSIBLE-unit-change.json",
+        "sha256": "41bf56d4ac319a486107c00c82199c4ecd6cba5f6d6072cec649088197ba9395"
+      }
+    ]
+  },
+  "items": [
+    {
+      "item_index": 0,
+      "class": "paraphrase",
+      "original_formula": "28 + 17 - 9",
+      "original_computed_answer": "36",
+      "original_answer": "36",
+      "rewrite_formula": "28 + 17 - 9",
+      "rewrite_computed_answer": "36",
+      "rewrite_answer": "36",
+      "answers_correct": true,
+      "invariant_review": "Only sentence wording changes; both print batches, the used quantity, and the requested remainder are preserved.",
+      "precheck_error": "",
+      "item_commitment": "3973350f1352c65bc34fbc1e7da1a7d06e406e562cad7915b5ad92849ce6284a",
+      "content_hash": "630ef4fad2d4954a193fb1496665e0b72f37e09f64cb549f965de3b1a15c3301",
+      "rewrite_hash": "6a67dfc882f65b1a8af6dc68d9e4f606b401fe611060e140209e795d2708752b",
+      "rewrite_content_hash": "5e7a9df187d420af78e0be83d9c477d6c3b7ec42714fcd6f5e39164b971e33ca",
+      "rewrite_file": "examples/court24-v2/rewrites/00-paraphrase.json",
+      "envelope_derivation": "28 + 17 - 9",
+      "recall": {
+        "original": {
+          "prompt_chars": 190,
+          "squashed_tail_chars": 114,
+          "eligible": true
+        },
+        "rewrite": {
+          "prompt_chars": 201,
+          "squashed_tail_chars": 121,
+          "eligible": true
+        }
+      }
+    },
+    {
+      "item_index": 1,
+      "class": "numeral_substitution",
+      "original_formula": "4 * 8 + 3",
+      "original_computed_answer": "35",
+      "original_answer": "35",
+      "rewrite_formula": "5 * 7 + 2",
+      "rewrite_computed_answer": "37",
+      "rewrite_answer": "37",
+      "answers_correct": true,
+      "invariant_review": "Only the three numeric givens change: 4->5 boxes, 8->7 clips per box, 3->2 loose clips. Multiplication then addition is preserved.",
+      "precheck_error": "",
+      "item_commitment": "42305f9c26d3d0d5f06e64ddc97cdb792149960d918681b09922dbb5312d9f36",
+      "content_hash": "e10088a95e2e28ed8f29c5053871bca12e289fe0928c358f9cb481bca9bf8bea",
+      "rewrite_hash": "0fdbfe27b6e50a6a0d2dedd7633458792243d1b503d6102897cde046acb9c011",
+      "rewrite_content_hash": "93592b130e25a56dfd6a493d8b30b64ac0afaab563342d7b8e366719a711595b",
+      "rewrite_file": "examples/court24-v2/rewrites/01-numeral-substitution.json",
+      "envelope_derivation": "5 * 7 + 2",
+      "recall": {
+        "original": {
+          "prompt_chars": 203,
+          "squashed_tail_chars": 122,
+          "eligible": true
+        },
+        "rewrite": {
+          "prompt_chars": 203,
+          "squashed_tail_chars": 122,
+          "eligible": true
+        }
+      },
+      "non_numeric_text_identical": true,
+      "original_numerals": [
+        "4",
+        "8",
+        "3"
+      ],
+      "rewrite_numerals": [
+        "5",
+        "7",
+        "2"
+      ]
+    },
+    {
+      "item_index": 2,
+      "class": "entity_rename",
+      "original_formula": "18 - 5 + 7",
+      "original_computed_answer": "20",
+      "original_answer": "20",
+      "rewrite_formula": "18 - 5 + 7",
+      "rewrite_computed_answer": "20",
+      "rewrite_answer": "20",
+      "answers_correct": true,
+      "invariant_review": "Consistent name mapping Mira->Nila and Tomas->Daren; pronouns, transfer directions, quantities, and queried owner are unchanged.",
+      "precheck_error": "",
+      "item_commitment": "9a372e4a02461d4a4d5d24d5b4aa6a308abbbc3ee936aab832af4ae4a32090f7",
+      "content_hash": "fb6c149d06667dec0b3cd818edfd431e60901f0af3a7a7ef7a4fb599fd978441",
+      "rewrite_hash": "43a6f8ff39bb57aa8e5c6e54b5360badf636a89d97dcf71fcf96ecc7db8a1ce9",
+      "rewrite_content_hash": "f93495d22ef974671b1672437f224b64540f185dbcc3fec2a85c0ce8ab0988f1",
+      "rewrite_file": "examples/court24-v2/rewrites/02-entity-rename.json",
+      "envelope_derivation": "18 - 5 + 7",
+      "recall": {
+        "original": {
+          "prompt_chars": 206,
+          "squashed_tail_chars": 124,
+          "eligible": true
+        },
+        "rewrite": {
+          "prompt_chars": 206,
+          "squashed_tail_chars": 124,
+          "eligible": true
+        }
+      },
+      "exact_name_mapping": {
+        "Mira": "Nila",
+        "Tomas": "Daren"
+      }
+    },
+    {
+      "item_index": 3,
+      "class": "unit_change",
+      "original_formula": "180 + 70",
+      "original_computed_answer": "250",
+      "original_answer": "250",
+      "rewrite_formula": "(18 / 10) * 100 + (7 / 10) * 100",
+      "rewrite_computed_answer": "250",
+      "rewrite_answer": "250",
+      "answers_correct": true,
+      "invariant_review": "180 cm = 1.8 m and 70 cm = 0.7 m exactly. Both physical lengths and the requested output in centimeters are unchanged.",
+      "precheck_error": "",
+      "item_commitment": "fc7193edafe020af19baf9e3e1ad6b5c740badcc309b3a83b53137d7420642ab",
+      "content_hash": "e1317ba042c1d626ac85f05bd8569aa2e57ae65c7ba98550a778e64b63594472",
+      "rewrite_hash": "91d673294e8acd4b68cab79a1a479d1a05f229ac98eae01f2e6fb8c062828130",
+      "rewrite_content_hash": "aa673f3b911b70c0b3150ddd0cd12b2388dd269c8318930cd05b4b5495aaee30",
+      "rewrite_file": "examples/court24-v2/rewrites/03-unit-change.json",
+      "envelope_derivation": "(18 * 100) // 10 + (7 * 100) // 10",
+      "recall": {
+        "original": {
+          "prompt_chars": 201,
+          "squashed_tail_chars": 121,
+          "eligible": true
+        },
+        "rewrite": {
+          "prompt_chars": 192,
+          "squashed_tail_chars": 116,
+          "eligible": true
+        }
+      },
+      "individual_quantity_checks": [
+        {
+          "original": {
+            "amount": "180",
+            "unit": "centimeter"
+          },
+          "rewrite": {
+            "amount": "1.8",
+            "unit": "meter"
+          },
+          "equivalent": true
+        },
+        {
+          "original": {
+            "amount": "70",
+            "unit": "centimeter"
+          },
+          "rewrite": {
+            "amount": "0.7",
+            "unit": "meter"
+          },
+          "equivalent": true
+        }
+      ]
+    },
+    {
+      "item_index": 4,
+      "class": "format_shift",
+      "original_formula": "6 * 7 - 4",
+      "original_computed_answer": "38",
+      "original_answer": "38",
+      "rewrite_formula": "6 * 7 - 4",
+      "rewrite_computed_answer": "38",
+      "rewrite_answer": "38",
+      "answers_correct": true,
+      "invariant_review": "The same three givens and the same remainder question are presented as a labeled inventory instead of a paragraph.",
+      "precheck_error": "",
+      "item_commitment": "35bba54b18c4cbe9984343588eb00c0197dd2cdec20a302bb630f3a293af1190",
+      "content_hash": "4192d54fd424ace4aa5c37cd5066ab10393dc70b8283d648b4cf63bbc6b88bec",
+      "rewrite_hash": "48a290e441245b94536ce5823479acd882e9014aab1c984d481ee10cf3fe7cf5",
+      "rewrite_content_hash": "f4004de367451a348b541e785a9c5bf211696fb492e2bd8c84ec1f7f991ed668",
+      "rewrite_file": "examples/court24-v2/rewrites/04-format-shift.json",
+      "envelope_derivation": "6 * 7 - 4",
+      "recall": {
+        "original": {
+          "prompt_chars": 206,
+          "squashed_tail_chars": 124,
+          "eligible": true
+        },
+        "rewrite": {
+          "prompt_chars": 204,
+          "squashed_tail_chars": 123,
+          "eligible": true
+        }
+      }
+    },
+    {
+      "item_index": 5,
+      "class": "paraphrase",
+      "original_formula": "45 - 12 + 8",
+      "original_computed_answer": "41",
+      "original_answer": "41",
+      "rewrite_formula": "45 - 12 + 8",
+      "rewrite_computed_answer": "41",
+      "rewrite_answer": "41",
+      "answers_correct": true,
+      "invariant_review": "The initial stock, removal, later addition, and final-stock question are identical; only wording changes.",
+      "precheck_error": "",
+      "item_commitment": "b16147eb5b4c5551ed474da1bff032ead8dd2c01e35c124df96e05a0cc93e5b4",
+      "content_hash": "2be03c4cae311064f0630532c1dff4935d606b55a31923d2ca9c30db65400194",
+      "rewrite_hash": "27b9de1571f03701d4433ce37b5422ebfbfbfa9dae9eb778cc1c24c3697c4941",
+      "rewrite_content_hash": "a8da50cbbf86be9e5cedc2ce6367dae0da1c4994cc58b07e653cada897d5f188",
+      "rewrite_file": "examples/court24-v2/rewrites/05-paraphrase.json",
+      "envelope_derivation": "45 - 12 + 8",
+      "recall": {
+        "original": {
+          "prompt_chars": 205,
+          "squashed_tail_chars": 122,
+          "eligible": true
+        },
+        "rewrite": {
+          "prompt_chars": 207,
+          "squashed_tail_chars": 125,
+          "eligible": true
+        }
+      }
+    },
+    {
+      "item_index": 6,
+      "class": "numeral_substitution",
+      "original_formula": "7 * 6 - 5",
+      "original_computed_answer": "37",
+      "original_answer": "37",
+      "rewrite_formula": "8 * 5 - 7",
+      "rewrite_computed_answer": "33",
+      "rewrite_answer": "33",
+      "answers_correct": true,
+      "invariant_review": "Only 7->8 stands, 6->5 lanterns per stand, and 5->7 removed lanterns change. The same multiplication-minus-removal structure remains.",
+      "precheck_error": "",
+      "item_commitment": "0ac3ce8c6517704a92d3bff5bfb4fcaacec07a7cfe88db69e7b2bb0a843475f6",
+      "content_hash": "78d500b7d02e74d834f9225ca8852f50627fa0d04535705518493b3db1cc25b9",
+      "rewrite_hash": "03161cdce10d8f83f05c5dcb2c5308c270cbcd12871d10408d20ca0d888272c5",
+      "rewrite_content_hash": "66e399f5aeb48c7577308fd95446a1721eebdfb8603de64770c4ef51f92e47cf",
+      "rewrite_file": "examples/court24-v2/rewrites/06-numeral-substitution.json",
+      "envelope_derivation": "8 * 5 - 7",
+      "recall": {
+        "original": {
+          "prompt_chars": 200,
+          "squashed_tail_chars": 120,
+          "eligible": true
+        },
+        "rewrite": {
+          "prompt_chars": 200,
+          "squashed_tail_chars": 120,
+          "eligible": true
+        }
+      },
+      "non_numeric_text_identical": true,
+      "original_numerals": [
+        "7",
+        "6",
+        "5"
+      ],
+      "rewrite_numerals": [
+        "8",
+        "5",
+        "7"
+      ]
+    },
+    {
+      "item_index": 7,
+      "class": "entity_rename",
+      "original_formula": "(18 + 24) / 6",
+      "original_computed_answer": "7",
+      "original_answer": "7",
+      "rewrite_formula": "(18 + 24) / 6",
+      "rewrite_computed_answer": "7",
+      "rewrite_answer": "7",
+      "answers_correct": true,
+      "invariant_review": "Only Lena->Noor and Rafi->Evan change. The two collections, equal division, and output per tray are preserved.",
+      "precheck_error": "",
+      "item_commitment": "f50bc81a5d092c25aa33bbc2683c17ad392837a5da9de20d82dd8dfda72bc9c0",
+      "content_hash": "04c48f7238790a146ca7a4d0ffcf6b55db440c7dc848e23aaa1f19ce9ffd36e3",
+      "rewrite_hash": "e6e92a257625cc8cc1fa3f096b280e72be6f646c03a588625a6aa95b27db4aae",
+      "rewrite_content_hash": "138b2a56c28b44179bcf8018c7508a3789304fdc6f625ec4a52f1da468299a29",
+      "rewrite_file": "examples/court24-v2/rewrites/07-entity-rename.json",
+      "envelope_derivation": "(18 + 24) // 6",
+      "recall": {
+        "original": {
+          "prompt_chars": 199,
+          "squashed_tail_chars": 120,
+          "eligible": true
+        },
+        "rewrite": {
+          "prompt_chars": 199,
+          "squashed_tail_chars": 120,
+          "eligible": true
+        }
+      },
+      "exact_name_mapping": {
+        "Lena": "Noor",
+        "Rafi": "Evan"
+      }
+    },
+    {
+      "item_index": 8,
+      "class": "unit_change",
+      "original_formula": "2 * 1000 + 500",
+      "original_computed_answer": "2500",
+      "original_answer": "2500",
+      "rewrite_formula": "2000 + (1 / 2) * 1000",
+      "rewrite_computed_answer": "2500",
+      "rewrite_answer": "2500",
+      "answers_correct": true,
+      "invariant_review": "2 kg = 2000 g and 500 g = 0.5 kg exactly. Both masses and the requested total in grams remain identical.",
+      "precheck_error": "",
+      "item_commitment": "099cb2a6bda818903d85681078e303bb4015877b9de0189441ee701e2072ad09",
+      "content_hash": "07e0ec3e0a41da7f5524dfa29752566db0dce6747c4ed42f4e17011d0119faa2",
+      "rewrite_hash": "eeb7f598e7c24b0299fd26c79b224d14ae00c5534b63aaefb82d1886ecacf17d",
+      "rewrite_content_hash": "ac02a0312485f6fe3c11fb9410b7a84bda63fd0f68cde11808b9f4d01c56abc7",
+      "rewrite_file": "examples/court24-v2/rewrites/08-unit-change.json",
+      "envelope_derivation": "2000 + 1000 // 2",
+      "recall": {
+        "original": {
+          "prompt_chars": 192,
+          "squashed_tail_chars": 116,
+          "eligible": true
+        },
+        "rewrite": {
+          "prompt_chars": 195,
+          "squashed_tail_chars": 116,
+          "eligible": true
+        }
+      },
+      "individual_quantity_checks": [
+        {
+          "original": {
+            "amount": "2",
+            "unit": "kilogram"
+          },
+          "rewrite": {
+            "amount": "2000",
+            "unit": "gram"
+          },
+          "equivalent": true
+        },
+        {
+          "original": {
+            "amount": "500",
+            "unit": "gram"
+          },
+          "rewrite": {
+            "amount": "0.5",
+            "unit": "kilogram"
+          },
+          "equivalent": true
+        }
+      ]
+    },
+    {
+      "item_index": 9,
+      "class": "format_shift",
+      "original_formula": "9 * 8 + 6",
+      "original_computed_answer": "78",
+      "original_answer": "78",
+      "rewrite_formula": "9 * 8 + 6",
+      "rewrite_computed_answer": "78",
+      "rewrite_answer": "78",
+      "answers_correct": true,
+      "invariant_review": "Paragraph converted to labeled fields; rack count, capacity, loose stock, and requested total are unchanged.",
+      "precheck_error": "",
+      "item_commitment": "df2159e733ecc0910b312f34ae02164e326305f3e8847921fc47dcb3846cd883",
+      "content_hash": "1fc05d76ec66d8277f374d34f4400be0b6404012a30a7972e29875320ecc9ebe",
+      "rewrite_hash": "8b867ea8f2dc93ce39ae1cc79a7641a19a193529ac5122df92ddbc1df9d84fa5",
+      "rewrite_content_hash": "dd3bc8d1caeac3f877ce3fed50ae01ac52f19b5d580d5d8a3a3541fc5eea725e",
+      "rewrite_file": "examples/court24-v2/rewrites/09-format-shift.json",
+      "envelope_derivation": "9 * 8 + 6",
+      "recall": {
+        "original": {
+          "prompt_chars": 188,
+          "squashed_tail_chars": 113,
+          "eligible": true
+        },
+        "rewrite": {
+          "prompt_chars": 189,
+          "squashed_tail_chars": 114,
+          "eligible": true
+        }
+      }
+    },
+    {
+      "item_index": 10,
+      "class": "paraphrase",
+      "original_formula": "54 - 19 - 8",
+      "original_computed_answer": "27",
+      "original_answer": "27",
+      "rewrite_formula": "54 - 19 - 8",
+      "rewrite_computed_answer": "27",
+      "rewrite_answer": "27",
+      "answers_correct": true,
+      "invariant_review": "The same seating capacity, two boarding groups, no departures, and unused-seat question are retained.",
+      "precheck_error": "",
+      "item_commitment": "c0e81cafb8f72d528741e2efb4256a872083e095fd42644ad7d80f0ffadc102c",
+      "content_hash": "726070d42ab7adfadc610df8bbf39a368c771649dfce8247da189bdd349559bd",
+      "rewrite_hash": "14d22902ede0cec10621ebb1daff93c039cffc50687c1280d3791eaf0ec45ab2",
+      "rewrite_content_hash": "db00a588fb7b7191e8e6f7e2ac7a7f73a315e83edd56a0869c1bb91db762cf5c",
+      "rewrite_file": "examples/court24-v2/rewrites/10-paraphrase.json",
+      "envelope_derivation": "54 - 19 - 8",
+      "recall": {
+        "original": {
+          "prompt_chars": 209,
+          "squashed_tail_chars": 125,
+          "eligible": true
+        },
+        "rewrite": {
+          "prompt_chars": 223,
+          "squashed_tail_chars": 134,
+          "eligible": true
+        }
+      }
+    },
+    {
+      "item_index": 11,
+      "class": "numeral_substitution",
+      "original_formula": "9 * 4 + 6",
+      "original_computed_answer": "42",
+      "original_answer": "42",
+      "rewrite_formula": "7 * 5 + 8",
+      "rewrite_computed_answer": "43",
+      "rewrite_answer": "43",
+      "answers_correct": true,
+      "invariant_review": "Only 9->7 bundles, 4->5 per bundle, and 6->8 singles change. The requested total uses the same multiplication-plus-addition structure.",
+      "precheck_error": "",
+      "item_commitment": "266e57a5d4619b760455946591a43f983bfb4eb5ee9c2e0eb016c84e3aef154d",
+      "content_hash": "5866fd74096225b07029f40ce39bab905971f759eabdb89020bd503786b0f49b",
+      "rewrite_hash": "282e102e74d73f05735e4952fbe28224e3aec27217ecca10fd3b8884e2799698",
+      "rewrite_content_hash": "66d7018e3998d932a4ffe378e04281d57d114ef350f35befc36c95f36323400a",
+      "rewrite_file": "examples/court24-v2/rewrites/11-numeral-substitution.json",
+      "envelope_derivation": "7 * 5 + 8",
+      "recall": {
+        "original": {
+          "prompt_chars": 197,
+          "squashed_tail_chars": 119,
+          "eligible": true
+        },
+        "rewrite": {
+          "prompt_chars": 197,
+          "squashed_tail_chars": 119,
+          "eligible": true
+        }
+      },
+      "non_numeric_text_identical": true,
+      "original_numerals": [
+        "9",
+        "4",
+        "6"
+      ],
+      "rewrite_numerals": [
+        "7",
+        "5",
+        "8"
+      ]
+    },
+    {
+      "item_index": 12,
+      "class": "entity_rename",
+      "original_formula": "(12 + 6) / 3",
+      "original_computed_answer": "6",
+      "original_answer": "6",
+      "rewrite_formula": "(12 + 6) / 3",
+      "rewrite_computed_answer": "6",
+      "rewrite_answer": "6",
+      "answers_correct": true,
+      "invariant_review": "Only Ada->Iris and Bruno->Cedric change. Both contributions, equal sharing, and output per bag are the same.",
+      "precheck_error": "",
+      "item_commitment": "782e08602538b561e50ebb1f6800a082a83c5cbcf31f7b10e7ac1c9125abf9d6",
+      "content_hash": "db1001a015b6c545b7e86e99e4020981e726db98ae886937f2d8b08febb3e0c8",
+      "rewrite_hash": "08b848c2f3d5f347ff2391779f983d94c125f924807384e49ccbe1ed1874ba6b",
+      "rewrite_content_hash": "af155e668485404fff84f390c11a059175a334ef4a644a4c62ec8004ca4a4f2b",
+      "rewrite_file": "examples/court24-v2/rewrites/12-entity-rename.json",
+      "envelope_derivation": "(12 + 6) // 3",
+      "recall": {
+        "original": {
+          "prompt_chars": 197,
+          "squashed_tail_chars": 118,
+          "eligible": true
+        },
+        "rewrite": {
+          "prompt_chars": 199,
+          "squashed_tail_chars": 120,
+          "eligible": true
+        }
+      },
+      "exact_name_mapping": {
+        "Ada": "Iris",
+        "Bruno": "Cedric"
+      }
+    },
+    {
+      "item_index": 13,
+      "class": "unit_change",
+      "original_formula": "4 * 60 + 30",
+      "original_computed_answer": "270",
+      "original_answer": "270",
+      "rewrite_formula": "240 + (1 / 2) * 60",
+      "rewrite_computed_answer": "270",
+      "rewrite_answer": "270",
+      "answers_correct": true,
+      "invariant_review": "4 minutes = 240 seconds and 30 seconds = 0.5 minutes exactly. Durations, sequence, absence of a pause, and output in seconds are unchanged.",
+      "precheck_error": "",
+      "item_commitment": "14aa346fcd76cf85c146e8c5bdb2eba37cfcfa2cd9470e7b101778561c78e279",
+      "content_hash": "360a79722d8803ce0d5f10e9d4015e9d3fd4a0f5048d12fbccf8303469815c11",
+      "rewrite_hash": "1d8a4940bb6aebf78f0674314d2e99aa5c9da2b8dd4d8d5d44ce3f9e228cf2e1",
+      "rewrite_content_hash": "10e176c5afc46d62d4421ea7dc7938336a15acd553a97db52e90c869a026bc26",
+      "rewrite_file": "examples/court24-v2/rewrites/13-unit-change.json",
+      "envelope_derivation": "240 + 60 // 2",
+      "recall": {
+        "original": {
+          "prompt_chars": 203,
+          "squashed_tail_chars": 122,
+          "eligible": true
+        },
+        "rewrite": {
+          "prompt_chars": 206,
+          "squashed_tail_chars": 124,
+          "eligible": true
+        }
+      },
+      "individual_quantity_checks": [
+        {
+          "original": {
+            "amount": "4",
+            "unit": "minute"
+          },
+          "rewrite": {
+            "amount": "240",
+            "unit": "second"
+          },
+          "equivalent": true
+        },
+        {
+          "original": {
+            "amount": "30",
+            "unit": "second"
+          },
+          "rewrite": {
+            "amount": "0.5",
+            "unit": "minute"
+          },
+          "equivalent": true
+        }
+      ]
+    },
+    {
+      "item_index": 14,
+      "class": "format_shift",
+      "original_formula": "64 - 18 + 7",
+      "original_computed_answer": "53",
+      "original_answer": "53",
+      "rewrite_formula": "64 - 18 + 7",
+      "rewrite_computed_answer": "53",
+      "rewrite_answer": "53",
+      "answers_correct": true,
+      "invariant_review": "The chronological stock record is converted into labeled lines; all quantities, operations, and the final count are preserved.",
+      "precheck_error": "",
+      "item_commitment": "fe0ee7b3e869541507864a5d096fcc122f98d68c25e646e9e959461d6d517912",
+      "content_hash": "6934cf1d989c5de76fac9ca17e388f329a83fb711788dd79257fa534a21df54c",
+      "rewrite_hash": "b97103a65f52333081a63f4a4ef157c033cb839210671dc5149a69b70962415c",
+      "rewrite_content_hash": "dbebc7035c42b531a71dec3169ec89c758a2a4641dc5fbdf8724e857208cef3c",
+      "rewrite_file": "examples/court24-v2/rewrites/14-format-shift.json",
+      "envelope_derivation": "64 - 18 + 7",
+      "recall": {
+        "original": {
+          "prompt_chars": 199,
+          "squashed_tail_chars": 120,
+          "eligible": true
+        },
+        "rewrite": {
+          "prompt_chars": 188,
+          "squashed_tail_chars": 113,
+          "eligible": true
+        }
+      }
+    },
+    {
+      "item_index": 15,
+      "class": "paraphrase",
+      "original_formula": "5 * 6 / 3",
+      "original_computed_answer": "10",
+      "original_answer": "10",
+      "rewrite_formula": "5 * 6 / 3",
+      "rewrite_computed_answer": "10",
+      "rewrite_answer": "10",
+      "answers_correct": true,
+      "invariant_review": "Sleeve count, discs per sleeve, number of recipients, equal sharing, and no reserve are unchanged; only wording changes.",
+      "precheck_error": "",
+      "item_commitment": "ae556e73e69f59563acb05727014993cc79fe9c9be8bd57aa6527a41c329899f",
+      "content_hash": "5890b51a1942fe6e24511ce1476b7d7887f1fbb4933d7b34cfdba6995d1d27d4",
+      "rewrite_hash": "6eac16649c1aba54dccebb78b8f001e5c0888be04b5408a1fdbcf2d7518a5196",
+      "rewrite_content_hash": "4190202b7c4eb610ae523d0ff0f405a39032d1a51a9e77e267c8056b40e8e351",
+      "rewrite_file": "examples/court24-v2/rewrites/15-paraphrase.json",
+      "envelope_derivation": "5 * 6 // 3",
+      "recall": {
+        "original": {
+          "prompt_chars": 217,
+          "squashed_tail_chars": 131,
+          "eligible": true
+        },
+        "rewrite": {
+          "prompt_chars": 187,
+          "squashed_tail_chars": 113,
+          "eligible": true
+        }
+      }
+    },
+    {
+      "item_index": 16,
+      "class": "numeral_substitution",
+      "original_formula": "(24 - 4) / 2",
+      "original_computed_answer": "10",
+      "original_answer": "10",
+      "rewrite_formula": "(27 - 6) / 3",
+      "rewrite_computed_answer": "7",
+      "rewrite_answer": "7",
+      "answers_correct": true,
+      "invariant_review": "Only 24->27 total batteries, 4->6 unusable, and 2->3 per lantern change. Subtraction followed by exact division remains the task.",
+      "precheck_error": "",
+      "item_commitment": "85a82d1a9efc757301a6557f7c19eac5101fd07748622fce60471c4dfbc59f05",
+      "content_hash": "ebed60b891ad65a6e759169c37837ac10aec87bfac748f256ace7714dafab005",
+      "rewrite_hash": "25540d054e217b41fa332c12699418a6da8be6ca379b4bf1965555bc4519ddb1",
+      "rewrite_content_hash": "7d65c6c20cfec3c07915c92692527fb9f924d9e4b3dbdeba872ca52ba04eb6d4",
+      "rewrite_file": "examples/court24-v2/rewrites/16-numeral-substitution.json",
+      "envelope_derivation": "(27 - 6) // 3",
+      "recall": {
+        "original": {
+          "prompt_chars": 207,
+          "squashed_tail_chars": 125,
+          "eligible": true
+        },
+        "rewrite": {
+          "prompt_chars": 207,
+          "squashed_tail_chars": 125,
+          "eligible": true
+        }
+      },
+      "non_numeric_text_identical": true,
+      "original_numerals": [
+        "24",
+        "4",
+        "2"
+      ],
+      "rewrite_numerals": [
+        "27",
+        "6",
+        "3"
+      ]
+    },
+    {
+      "item_index": 17,
+      "class": "entity_rename",
+      "original_formula": "4 * 11 - 6",
+      "original_computed_answer": "38",
+      "original_answer": "38",
+      "rewrite_formula": "4 * 11 - 6",
+      "rewrite_computed_answer": "38",
+      "rewrite_answer": "38",
+      "answers_correct": true,
+      "invariant_review": "Only Davi->Oren and Suri->Tali change. Packing, removal, quantities, and remaining-delivery question are preserved.",
+      "precheck_error": "",
+      "item_commitment": "d709ac0a5ba692959c1e79057bdcfe2cd909ede60fb9f1b3186a582aee0d8d62",
+      "content_hash": "2ce89477a6cc4b23589037236ddd817ebafc0796a4eb065e5810cd7c52152d8f",
+      "rewrite_hash": "18a8f8d48d068ca23888254960fa4ac0ba4b9bbe71de73022b47c608599ec56d",
+      "rewrite_content_hash": "a911b5869d8b8d24645f21bf2cfbb31c7b1299dc0e0b6aaa81f4778043b53cbc",
+      "rewrite_file": "examples/court24-v2/rewrites/17-entity-rename.json",
+      "envelope_derivation": "4 * 11 - 6",
+      "recall": {
+        "original": {
+          "prompt_chars": 216,
+          "squashed_tail_chars": 130,
+          "eligible": true
+        },
+        "rewrite": {
+          "prompt_chars": 216,
+          "squashed_tail_chars": 130,
+          "eligible": true
+        }
+      },
+      "exact_name_mapping": {
+        "Davi": "Oren",
+        "Suri": "Tali"
+      }
+    },
+    {
+      "item_index": 18,
+      "class": "unit_change",
+      "original_formula": "1250 + 750",
+      "original_computed_answer": "2000",
+      "original_answer": "2000",
+      "rewrite_formula": "(125 / 100) * 1000 + (75 / 100) * 1000",
+      "rewrite_computed_answer": "2000",
+      "rewrite_answer": "2000",
+      "answers_correct": true,
+      "invariant_review": "1250 m = 1.25 km and 750 m = 0.75 km exactly. Both physical lengths and the total requested in meters are preserved.",
+      "precheck_error": "",
+      "item_commitment": "2d8121d74b734f71b46a33e7928fd05aecb96630fc603e0074a48babdeb7cbe4",
+      "content_hash": "b736de4ef8c83478f7053ae1890cbc051b8bb2262aaa744b2114fa1b3744ced7",
+      "rewrite_hash": "943a7a9df03dd0d55b89682c27b0c7c57d5730faa778d040991046b65d8d79b0",
+      "rewrite_content_hash": "e96caff4fdaecd93151eca3223d88569a5bcc9bef732d05355c392061d0af4a4",
+      "rewrite_file": "examples/court24-v2/rewrites/18-unit-change.json",
+      "envelope_derivation": "125 * 1000 // 100 + 75 * 1000 // 100",
+      "recall": {
+        "original": {
+          "prompt_chars": 201,
+          "squashed_tail_chars": 120,
+          "eligible": true
+        },
+        "rewrite": {
+          "prompt_chars": 210,
+          "squashed_tail_chars": 126,
+          "eligible": true
+        }
+      },
+      "individual_quantity_checks": [
+        {
+          "original": {
+            "amount": "1250",
+            "unit": "meter"
+          },
+          "rewrite": {
+            "amount": "1.25",
+            "unit": "kilometer"
+          },
+          "equivalent": true
+        },
+        {
+          "original": {
+            "amount": "750",
+            "unit": "meter"
+          },
+          "rewrite": {
+            "amount": "0.75",
+            "unit": "kilometer"
+          },
+          "equivalent": true
+        }
+      ]
+    },
+    {
+      "item_index": 19,
+      "class": "format_shift",
+      "original_formula": "72 / 8 + 5",
+      "original_computed_answer": "14",
+      "original_answer": "14",
+      "rewrite_formula": "72 / 8 + 5",
+      "rewrite_computed_answer": "14",
+      "rewrite_answer": "14",
+      "answers_correct": true,
+      "invariant_review": "The same packing operation and already packed stock are presented as fields, without changing quantities or the total-packets question.",
+      "precheck_error": "",
+      "item_commitment": "3e447e3cb3aedf55e73d959d6d32329b54741b5360fb4b9e900ee648d49fa27c",
+      "content_hash": "34e029e93e40b6d8192f93fba9da0d4fd237f9c0c5dffc6af3ba89798b77f2d6",
+      "rewrite_hash": "a507df21dd39c6ffba106b38f431ed655e9b9b4091ac26a8628d924f53adb6f8",
+      "rewrite_content_hash": "a25b76a628fd5584a154f811f97545297cc1bc1cba4f1a2897c5974e948e7081",
+      "rewrite_file": "examples/court24-v2/rewrites/19-format-shift.json",
+      "envelope_derivation": "72 // 8 + 5",
+      "recall": {
+        "original": {
+          "prompt_chars": 201,
+          "squashed_tail_chars": 121,
+          "eligible": true
+        },
+        "rewrite": {
+          "prompt_chars": 207,
+          "squashed_tail_chars": 125,
+          "eligible": true
+        }
+      }
+    },
+    {
+      "item_index": 20,
+      "class": "paraphrase",
+      "original_formula": "7 * 5 - 8",
+      "original_computed_answer": "27",
+      "original_answer": "27",
+      "rewrite_formula": "7 * 5 - 8",
+      "rewrite_computed_answer": "27",
+      "rewrite_answer": "27",
+      "answers_correct": true,
+      "invariant_review": "All carton counts, contents, giveaway quantity, and the requested remainder are unchanged; only prose is rephrased.",
+      "precheck_error": "",
+      "item_commitment": "e20ddd8a263ee2810e42d873a2136d7b16116afe1ab2b577d0e2e943f6d59c3d",
+      "content_hash": "f3b00a9c0861574eb20c99cd16cf1f88b0bf4f3874858e586331aa16f0b77df3",
+      "rewrite_hash": "aee01060ed718eade8b42fdef44a2577b03139a674ac6017ca29e0af64bfc24f",
+      "rewrite_content_hash": "1d353cfbaceb8de3f785dd4dfa391d815c8422ff5292098f3a32abd1866209f8",
+      "rewrite_file": "examples/court24-v2/rewrites/20-paraphrase.json",
+      "envelope_derivation": "7 * 5 - 8",
+      "recall": {
+        "original": {
+          "prompt_chars": 207,
+          "squashed_tail_chars": 125,
+          "eligible": true
+        },
+        "rewrite": {
+          "prompt_chars": 217,
+          "squashed_tail_chars": 131,
+          "eligible": true
+        }
+      }
+    },
+    {
+      "item_index": 21,
+      "class": "numeral_substitution",
+      "original_formula": "36 / 6 + 4",
+      "original_computed_answer": "10",
+      "original_answer": "10",
+      "rewrite_formula": "48 / 8 + 3",
+      "rewrite_computed_answer": "9",
+      "rewrite_answer": "9",
+      "answers_correct": true,
+      "invariant_review": "Only 36->48 shared badges, 6->8 volunteers, and 4->3 extras per person change. Equal division then a per-person addition is preserved.",
+      "precheck_error": "",
+      "item_commitment": "c84c6b7a4cf7550ff44eed51cdc41c36e86dcd0a3ef1ac0abe2343d9606c572c",
+      "content_hash": "9d1ff822ed5bf1367dc6e07d5dbcea43efbf33f1cdfd9db5377ccb38c97c749e",
+      "rewrite_hash": "dc01a7911f7505493945269d6fa7570f1f80e0808dc47e3ff3233816a903f7b8",
+      "rewrite_content_hash": "5b0b0d2ed63645d26e599d97760000cf704b66413992ea80e3bde2e625281753",
+      "rewrite_file": "examples/court24-v2/rewrites/21-numeral-substitution.json",
+      "envelope_derivation": "48 // 8 + 3",
+      "recall": {
+        "original": {
+          "prompt_chars": 209,
+          "squashed_tail_chars": 126,
+          "eligible": true
+        },
+        "rewrite": {
+          "prompt_chars": 209,
+          "squashed_tail_chars": 126,
+          "eligible": true
+        }
+      },
+      "non_numeric_text_identical": true,
+      "original_numerals": [
+        "36",
+        "6",
+        "4"
+      ],
+      "rewrite_numerals": [
+        "48",
+        "8",
+        "3"
+      ]
+    },
+    {
+      "item_index": 22,
+      "class": "entity_rename",
+      "original_formula": "31 + 8 - 5",
+      "original_computed_answer": "34",
+      "original_answer": "34",
+      "rewrite_formula": "31 + 8 - 5",
+      "rewrite_computed_answer": "34",
+      "rewrite_answer": "34",
+      "answers_correct": true,
+      "invariant_review": "Consistent mapping Priya->Yuna, Marco->Felix, Nera->Asha. Quantities, directions of exchange, and the queried box remain identical.",
+      "precheck_error": "",
+      "item_commitment": "5cda9c5fa3c768c9035ccfb0bbe1236161ab4152ec48e4dde20fad4e2b781c93",
+      "content_hash": "8fcaa6701f79065087002aba636c80c84ca3d9904e3e771f196239383b41c294",
+      "rewrite_hash": "409e257cd3469bc5ffba5963c7162053a1f3890893ba75b48775c28f32027627",
+      "rewrite_content_hash": "3f78286090ab289737fc432128ee3f33fe2b37c71f9216b7630d378b7cd2407f",
+      "rewrite_file": "examples/court24-v2/rewrites/22-entity-rename.json",
+      "envelope_derivation": "31 + 8 - 5",
+      "recall": {
+        "original": {
+          "prompt_chars": 197,
+          "squashed_tail_chars": 118,
+          "eligible": true
+        },
+        "rewrite": {
+          "prompt_chars": 195,
+          "squashed_tail_chars": 117,
+          "eligible": true
+        }
+      },
+      "exact_name_mapping": {
+        "Priya": "Yuna",
+        "Marco": "Felix",
+        "Nera": "Asha"
+      }
+    },
+    {
+      "item_index": 23,
+      "class": "unit_change",
+      "original_formula": "900 + 600",
+      "original_computed_answer": "1500",
+      "original_answer": "1500",
+      "rewrite_formula": "(9 / 10) * 1000 + (6 / 10) * 1000",
+      "rewrite_computed_answer": "1500",
+      "rewrite_answer": "1500",
+      "answers_correct": true,
+      "invariant_review": "900 mL = 0.9 L and 600 mL = 0.6 L exactly. Both volumes, complete transfer, and output in milliliters are preserved.",
+      "precheck_error": "",
+      "item_commitment": "f916b0083e3cfb3655b5159dd91db284e774f8c1e960e11507d039e1efb045d0",
+      "content_hash": "ea08b8e98f66d25ad6c6a439ac639ece1304cbb59ad9bfc922c67a73c407ea9a",
+      "rewrite_hash": "a9716ef7c5d6c987ccdfde49591736b7420c164ae2a0179136e9340d7b3cf4ee",
+      "rewrite_content_hash": "219893f51d4193023aaf2c0440d3215a0018a9ce15425a397ed2566824dfdfa9",
+      "rewrite_file": "examples/court24-v2/rewrites/23-unit-change.json",
+      "envelope_derivation": "9 * 1000 // 10 + 6 * 1000 // 10",
+      "recall": {
+        "original": {
+          "prompt_chars": 218,
+          "squashed_tail_chars": 131,
+          "eligible": true
+        },
+        "rewrite": {
+          "prompt_chars": 208,
+          "squashed_tail_chars": 124,
+          "eligible": true
+        }
+      },
+      "individual_quantity_checks": [
+        {
+          "original": {
+            "amount": "900",
+            "unit": "milliliter"
+          },
+          "rewrite": {
+            "amount": "0.9",
+            "unit": "liter"
+          },
+          "equivalent": true
+        },
+        {
+          "original": {
+            "amount": "600",
+            "unit": "milliliter"
+          },
+          "rewrite": {
+            "amount": "0.6",
+            "unit": "liter"
+          },
+          "equivalent": true
+        }
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "file": "examples/court24-v2/controls/00-INADMISSIBLE-paraphrase.json",
+      "item_index": 0,
+      "class": "paraphrase",
+      "formula": "28 + 17 + 9",
+      "computed_answer": "54",
+      "supplied_answer": "36",
+      "answer_key_correct": false,
+      "expected": "INADMISSIBLE",
+      "precheck_error": "",
+      "reason": "Intentional negative control: removal of 9 is changed to receipt of 9, and the supplied answer is incorrect. This is not a paraphrase."
+    },
+    {
+      "file": "examples/court24-v2/controls/01-INADMISSIBLE-numeral-substitution.json",
+      "item_index": 1,
+      "class": "numeral_substitution",
+      "formula": "5 * 7 + 2",
+      "computed_answer": "37",
+      "supplied_answer": "38",
+      "answer_key_correct": false,
+      "expected": "INADMISSIBLE",
+      "precheck_error": "",
+      "reason": "Intentional negative control: the numeric substitution has the correct structure, but 5*7+2 is 37 rather than the supplied 38."
+    },
+    {
+      "file": "examples/court24-v2/controls/02-INADMISSIBLE-entity-rename.json",
+      "item_index": 2,
+      "class": "entity_rename",
+      "formula": "18 - 5 - 7",
+      "computed_answer": "6",
+      "supplied_answer": "6",
+      "answer_key_correct": true,
+      "expected": "INADMISSIBLE",
+      "precheck_error": "",
+      "reason": "Intentional negative control with a correct answer key: the second transfer now goes away from the queried owner. Entity renaming may not reverse that relation."
+    },
+    {
+      "file": "examples/court24-v2/controls/03-INADMISSIBLE-unit-change.json",
+      "item_index": 3,
+      "class": "unit_change",
+      "formula": "(18 * 100) // 10 + 7 * 100",
+      "computed_answer": "880",
+      "supplied_answer": "880",
+      "answer_key_correct": true,
+      "expected": "INADMISSIBLE",
+      "precheck_error": "",
+      "reason": "Intentional negative control with a correct answer key: 70 centimeters became 7 meters rather than 0.7 meters. The physical blue-ribbon length is ten times larger."
+    }
+  ],
+  "artifact_sha256": {
+    "calibration/court24-v2.items.json": "d6f77c7586e3c09d92ab59a8761589b1d3adb08a5afc641b953077f79ae25e8e",
+    "examples/court24-v2/rewrites/00-paraphrase.json": "00d10d8cb1196fb2af9f2777fea42e6ac8fe1d96bad90ae47c91d036ffd6ecb2",
+    "examples/court24-v2/rewrites/01-numeral-substitution.json": "3035fefe8abdbdeff02c0920a01a07f3c620d820ee83d9d0e9c094447156239b",
+    "examples/court24-v2/rewrites/02-entity-rename.json": "525160cf8e41ddcc12a815e6a40fc7c69ebbffbc0b0faa8938b5ea34c8d2a4ec",
+    "examples/court24-v2/rewrites/03-unit-change.json": "84e467534c24ab3803193f9230a9d014b8f4fd803fa3961eaefc62f649604db5",
+    "examples/court24-v2/rewrites/04-format-shift.json": "155ec897dc0e756d024be5197d1f5f09ab8bef4f2c76099b0ef93cf2e403a7c3",
+    "examples/court24-v2/rewrites/05-paraphrase.json": "da273d25365b55de40ace4dd6395c84123561eaf1adf393b3186936b0a4e097b",
+    "examples/court24-v2/rewrites/06-numeral-substitution.json": "d8d9d63e3830cf113f1f5ec9ccd3d07ece1dc33f39e6dee694c52708642e2298",
+    "examples/court24-v2/rewrites/07-entity-rename.json": "8d3feb90ca10a4cd86843b75998e6bd19119e7cb5b12e933f5ef98bd4fb4a130",
+    "examples/court24-v2/rewrites/08-unit-change.json": "6197ad69abf46aebfa518c5802d59eb2b6573101d53274a331abdcb76570bffd",
+    "examples/court24-v2/rewrites/09-format-shift.json": "5eaf84728090d53c8d5d17cb123f3d7f935ca13668b8deff2b8a1571b34f1e23",
+    "examples/court24-v2/rewrites/10-paraphrase.json": "6c32c8ac4d4c4afcc2ded043d7e928ceb72323d68116dc31a2ed2eb214f6588e",
+    "examples/court24-v2/rewrites/11-numeral-substitution.json": "2043c598dede3ca49a4a4f8204eda3c4293b8796476d9983684b17d63dc4d087",
+    "examples/court24-v2/rewrites/12-entity-rename.json": "233ceeffee7b562063a752616875bb4f980ee9eefd7789b9c697a676425331eb",
+    "examples/court24-v2/rewrites/13-unit-change.json": "26540de8948eabf69fd8b448173d455fa7a88480f4131f70c057c9063732404f",
+    "examples/court24-v2/rewrites/14-format-shift.json": "c2972d44a42693000965fcda13cd0f9dfddc7fc7b2b26c6fd7435357ab2780bf",
+    "examples/court24-v2/rewrites/15-paraphrase.json": "befdbf612468fd5983e8301bb3a82c88ddef812e0655b4a0cc29a59fc026ad62",
+    "examples/court24-v2/rewrites/16-numeral-substitution.json": "068946206cc30bff75a98178e77dbaae58fe4e7213c31cfa579dce904149243a",
+    "examples/court24-v2/rewrites/17-entity-rename.json": "5d763cb67f70d1e2d2fe2f0498058e5ec56e07da8ebec4a97c12387005af0548",
+    "examples/court24-v2/rewrites/18-unit-change.json": "23f521f1cfd01e42cf6df4928aab4d3d6e5fdd029b94f36733a44c4cc8265f3f",
+    "examples/court24-v2/rewrites/19-format-shift.json": "0f1feeb7e5d149aba263b97a25de9d9949616a9e43e4d63db3e7490c21b867a0",
+    "examples/court24-v2/rewrites/20-paraphrase.json": "6b70e705a84e7ab0dbb7885497afb3606e768a3561ebb7ff787cccc9b3b13cef",
+    "examples/court24-v2/rewrites/21-numeral-substitution.json": "28057fbc537052217f22683b4f8a034788804bcb5ae0abd04ae5914afbd8bfd2",
+    "examples/court24-v2/rewrites/22-entity-rename.json": "51f327e6f17452ec624d7727ca4ba8d47e36e53232c19be0606ca186d1c85804",
+    "examples/court24-v2/rewrites/23-unit-change.json": "de17256befc85d0ed35ae8f9c598e522192da3b231c528e6311ef2ae08562d6d",
+    "examples/court24-v2/controls/00-INADMISSIBLE-paraphrase.json": "4d5fab52d38774d9e8d18b6469b918f28b8c4d9bd396e9885bb39d3472d47d73",
+    "examples/court24-v2/controls/01-INADMISSIBLE-numeral-substitution.json": "9333e006ff9b559fc4226d74d86325297588a37f9aad370c366ddd9fb9bd977d",
+    "examples/court24-v2/controls/02-INADMISSIBLE-entity-rename.json": "68acd54adf21993493240fc10039d71fefde2d9d922ba636a2f3c738440674a5",
+    "examples/court24-v2/controls/03-INADMISSIBLE-unit-change.json": "9d0ee0aeb51c5ba78e295c6e0db20f494fe15a674a1db2e061be213a852470b4"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "subject": "meta-llama/llama-3.1-8b-instruct@deepinfra-fp8/court24-v2/2026-10-10",
+  "endpoint": "https://impeach.vercel.app/api/live-v2/chat/completions",
+  "score_milli": 1000,
+  "items": "calibration/court24-v2.items.json",
+  "scoring_rule": "The last nonempty line must be ANSWER: followed by one ASCII decimal number with an optional minus sign and decimal point, and nothing else. The answer is correct exactly when that number equals the reference number. Leading zeros and trailing decimal zeros do not change its value.",
+  "prompt_template": {
+    "system": "You are a careful solver of grade-school math word problems.",
+    "user": "Solve the problem. Finish with a line of the form ANSWER: <number>.\n\n{{item}}"
+  },
+  "decode_params": {
+    "temperature": 0,
+    "top_p": 1,
+    "max_tokens": 512,
+    "seed": 7,
+    "model": "meta-llama/llama-3.1-8b-instruct"
+  },
+  "classes": [
+    "paraphrase",
+    "numeral_substitution",
+    "entity_rename",
+    "unit_change",
+    "format_shift"
+  ],
+  "delta_threshold": 250,
+  "recall_threshold": 150,
+  "min_items": 20,
+  "bond": "100000000000000000",
+  "stake": "1000000000000000",
+  "extras": {
+    "recall_prefix_milli": 400,
+    "similarity_milli": 900,
+    "reveal_window_s": 3600,
+    "trial_window_s": 10800
+  },
+  "rewrites": "examples/court24-v2/rewrites"
+}

@@ -6,6 +6,14 @@
     "api/chat/completions.mjs": {
       "maxDuration": 60,
       "includeFiles": "{calibration/claim-gsm8k.json,calibration/gsm8k-24.items.json,examples/rewrites/*.json}"
+    },
+    "api/live-v2/chat/completions.mjs": {
+      "maxDuration": 60,
+      "includeFiles": "{calibration/claim-court24-v2.json,calibration/court24-v2.items.json,examples/court24-v2/rewrites/*.json}"
+    },
+    "api/scripted-v2/chat/completions.mjs": {
+      "maxDuration": 15,
+      "includeFiles": "{calibration/claim-court24-v2-scripted.json,calibration/court24-v2-scripted.items.json,examples/court24-v2-scripted/rewrites/*.json}"
     }
   },
   "headers": [
