@@ -71,8 +71,10 @@ header.top .lede { font-size: 1.3rem; line-height: 1.4; margin: 1rem 0 0; max-wi
 .tabs-label { font-family: var(--chrome); color: var(--graphite-soft); font-size: 1.05rem; margin: 1rem 0 0.35rem; }
 .tab {
   font-size: 1.15rem; font-weight: 500; padding: 0.3rem 0.9rem 0.35rem; cursor: pointer;
-  background: transparent; color: var(--form); border: 1.5px solid var(--form); border-radius: 999px;
+  background: transparent; color: var(--form); border: 1.5px solid var(--form); border-radius: 999px; overflow-wrap: anywhere; max-width: 100%;
 }
+.subject-kind { margin: 0.8rem 0 0; font-size: 1rem; line-height: 1.4; color: var(--graphite-soft); }
+.subject-kind[data-kind="scripted"] { color: var(--void); }
 .tab[aria-selected="true"] { background: var(--graphite); border-color: var(--graphite); color: var(--sheet); }
 
 /* The sheet at reading distance: the same three rows as below, with nothing
@@ -265,11 +267,12 @@ pre { font-family: var(--mono); font-size: 0.8rem; line-height: 1.5; background:
     <figure class="hero-sheet" id="hero-sheet"></figure>
     <div class="tabs-label" id="tabs-label">Subject on trial</div>
     <div class="tabs" id="tabs" role="tablist" aria-labelledby="tabs-label"></div>
+    <p class="subject-kind" id="subject-kind"></p>
   </div>
 </header>
 
 <div class="rehearsal" id="rehearsal" hidden>
-  <p>Rehearsal. These cases ran locally against scripted subjects. They show how the court works; they are not a chain record and not evidence about any model.</p>
+  <p>Rehearsal. These cases ran locally. They are not a chain record; the subject label distinguishes model responses from scripted lookups.</p>
 </div>
 
 <main id="main" aria-live="polite">
@@ -323,6 +326,7 @@ pre { font-family: var(--mono); font-size: 0.8rem; line-height: 1.5; background:
       <div><h3>Certificate</h3><table id="cert"></table>
         <div class="take">
           <a class="btn" id="download-case" href="case.json" download="impeach-case.json">Download the case file</a>
+          <a class="btn" id="download-cert" download>Download selected certificate</a>
           <button type="button" class="btn" id="copy-cert">Copy certificate</button>
         </div>
         <div id="receipts"></div></div>
@@ -347,7 +351,7 @@ pre { font-family: var(--mono); font-size: 0.8rem; line-height: 1.5; background:
 
 <footer class="end">
   <p><a href="./">Current case</a> · <a href="?demo=1">Scripted examples</a> · <a href="https://github.com/Zhekinmaksim/impeach">Source on GitHub</a> · <a href="https://github.com/Zhekinmaksim/impeach/blob/main/spec/SPEC.md">Contract specification</a> · <a id="download-evidence" href="case.json" download="impeach-case.json">Download evidence</a></p>
-  <p><a href="https://github.com/Zhekinmaksim/impeach/blob/main/runs/llama-rehearsal.json">Real-model rehearsal: Llama 3.1 8B</a> · <a href="https://explorer-bradbury.genlayer.com/transactions/0x28e52e602628b4dfbf5e0972aa10dfe9bda751c3b7284cd3921526dff4cd415e">Contract deployment on Bradbury</a></p>
+  <p><a id="rehearsal-link" href="https://github.com/Zhekinmaksim/impeach/blob/main/runs/llama-rehearsal.json">Local rehearsal: Llama 3.1 8B</a> <a id="opening-link" hidden>Claim opening on Bradbury</a></p>
   <div class="two">
     <div>
       <h3>Check from a terminal</h3>

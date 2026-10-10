@@ -65,6 +65,20 @@ const permille = (n) => n + "‰";
 const when = (seconds) => (seconds ? new Date(seconds * 1000).toISOString().replace("T", " ").slice(0, 16) + " UTC" : "—");
 const current = () => state.snap.cases[state.caseIndex];
 
+function scriptedSubject(kase) {
+  let params = kase.claim.decode_params;
+  if (typeof params === "string") {
+    try { params = JSON.parse(params); } catch { params = {}; }
+  }
+  return String(kase.claim.subject || "").startsWith("scripted/")
+    || String(params?.model || "").startsWith("scripted/");
+}
+
+function subjectLabel(kase) {
+  if (scriptedSubject(kase)) return state.snap.provenance === "bradbury" ? "Scripted control" : kase.label + " (scripted)";
+  return kase.claim.subject.startsWith("meta-llama/llama-3.1-8b-instruct") ? "Llama 3.1 8B" : kase.label;
+}
+
 function probeFor(kase, itemIndex) {
   return kase.probes.find((p) => p.item_index === itemIndex) || { item_index: itemIndex, touched: false };
 }
@@ -106,7 +120,7 @@ function pairNodes(kase, itemIndex) {
     questionNode(diff.left),
     h("dl", { class: "answers" },
       h("dt", { text: "Reference" }), h("dd", { text: item.answer }),
-      h("dt", { text: "Model answered" }),
+      h("dt", { text: scriptedSubject(kase) ? "Lookup returned" : "Model answered" }),
       h("dd", { class: p.pinned === "RIGHT" ? "" : "bad", text: answerText(p.pinned, p.pinned_answer) }),
     ));
 
@@ -122,7 +136,7 @@ function pairNodes(kase, itemIndex) {
       questionNode(diff.right),
       h("dl", { class: "answers" },
         h("dt", { text: "Reference" }), h("dd", { text: p.rewrite_answer }),
-        h("dt", { text: "Model answered" }),
+        h("dt", { text: scriptedSubject(kase) ? "Lookup returned" : "Model answered" }),
         ok || p.rewrite
           ? h("dd", { class: p.rewrite === "RIGHT" ? "" : "bad", text: answerText(p.rewrite, p.rewrite_reply) + (p.stale ? ", the old answer" : "") })
           : h("dd", { text: "no recorded answer" }),
@@ -182,6 +196,11 @@ function renderExhibit(kase) {
     note = "Underlined words are the ones that differ between the two versions.";
   }
   $("exhibit-note").textContent = note;
+  if (scriptedSubject(kase)) {
+    $("exhibit-note").textContent = "This control returns stored answers and text; no subject LLM is called. " +
+      (pick.stale ? "It deliberately returned the sealed answer after the numbers changed. " : "") +
+      "Underlined words are the ones that differ.";
+  }
 }
 
 // ------------------------------------------------------------------- marks
@@ -230,7 +249,7 @@ function renderHero(kase, fresh) {
   });
   const cert = kase.certificate;
   fig.append(...rows, h("figcaption", {
-    text: "The sheet of " + kase.label + ": " + subset.length + " items, one column each. Row one, answered as sealed. Row two, answered as rewritten. Row three, continued from memory.",
+    text: "The sheet of " + subjectLabel(kase) + ": " + subset.length + " items, one column each. Row one, answered as sealed. Row two, answered as rewritten. Row three, continued the sealed text.",
   }));
   fig.setAttribute("role", "img");
   fig.setAttribute("aria-label",
@@ -272,7 +291,7 @@ function renderSlope(kase) {
       s("line", { class: "other", x1: x0, y1: y(c.pinned_milli), x2: x1, y2: y(c.rewrite_milli) }),
       s("circle", { class: "other-dot", cx: x0, cy: y(c.pinned_milli), r: 3.5 }),
       s("circle", { class: "other-dot", cx: x1, cy: y(c.rewrite_milli), r: 3.5 }),
-      s("text", { class: "other-label", x: x1 + 9, y: y(c.rewrite_milli) + 4 }, other.label),
+      s("text", { class: "other-label", x: x1 + 9, y: y(c.rewrite_milli) + 4 }, subjectLabel(other)),
     );
   }
 
@@ -290,7 +309,9 @@ function renderSlope(kase) {
   );
   fig.append(svg, h("figcaption", {
     text: "Dashed: the furthest the frozen threshold lets it fall. The court counts missing or unadmitted rewrites as correct; this is not accuracy on admitted rewrites alone." +
-      (state.snap.cases.length > 1 ? " Pale lines are the other subjects in this file." : ""),
+      (state.snap.cases.length > 1 ? " Pale lines are the other subjects in this file." : "") +
+      (state.snap.cases.some(k => k.claim.subject.startsWith("scripted/memoriser-court24-v2"))
+        ? " The scripted control shares the live cohort's arithmetic and is not an independent benchmark." : ""),
   }));
 }
 
@@ -422,7 +443,7 @@ function renderSheet(kase, fresh) {
       h("div", { class: "name" },
         h("h3", { text: "Detector two: verbatim recall" }),
         h("span", { text: recallMeasured || cert.recall_probes
-          ? "Given the first " + claim.recall_prefix_milli / 10 + "% of an item, the model reproduced the rest on " + permille(cert.recall_milli) + " of " + cert.recall_probes + " items. No language model judges this one."
+          ? "Given the first " + claim.recall_prefix_milli / 10 + "% of an item, the " + (scriptedSubject(kase) ? "lookup returned" : "model reproduced") + " the rest on " + permille(cert.recall_milli) + " of " + cert.recall_probes + " items. No language model judges this one."
           : "Not measured on this claim." })),
       h("div", { class: "tick" }), h("div", { class: "row-label", text: "Continued verbatim" }), recall,
       gauge(cert.recall_milli, claim.recall_threshold, recallMeasured),
@@ -495,6 +516,7 @@ function renderRecord(kase) {
 
   $("terms").replaceChildren(
     line("Subject", c.subject),
+    line("Subject type", scriptedSubject(kase) ? "Scripted lookup control — no subject LLM" : "Model endpoint"),
     line("Sworn score", permille(c.score_milli)),
     line("Sealed items", String(c.item_hashes.length)),
     line("Endpoint", c.endpoint, true),
@@ -512,6 +534,7 @@ function renderRecord(kase) {
   );
 
   $("cert").replaceChildren(
+    line("Claim", String(cert.claim_id)),
     line("Verdict", cert.verdict + (cert.reason ? ", " + cert.reason.toLowerCase().replaceAll("_", " ") : "")),
     line("Gap", permille(cert.delta_milli)),
     line("Recall", permille(cert.recall_milli)),
@@ -529,6 +552,28 @@ function renderRecord(kase) {
     line("Ruled", when(cert.ruled_at)),
     line("Claim closed", cert.final ? "yes" : cert.contested ? "no, open to the next challenger" : "no"),
   );
+
+  if (state.certificateUrl) URL.revokeObjectURL(state.certificateUrl);
+  state.certificateUrl = URL.createObjectURL(new Blob([JSON.stringify({
+    format: "impeach-certificate/1", provenance: state.snap.provenance,
+    contract: state.snap.contract, subject_kind: scriptedSubject(kase) ? "scripted-no-llm" : "model-endpoint",
+    certificate: cert,
+  }, null, 2) + "\n"], { type: "application/json" }));
+  $("download-cert").href = state.certificateUrl;
+  $("download-cert").download = "impeach-claim-" + cert.claim_id + "-" + (scriptedSubject(kase) ? "scripted" : "model") + "-certificate.json";
+
+  const opening = Object.entries(kase.txs || {}).find(([name]) => name === "open" || name.startsWith("open:"));
+  const openingLink = $("opening-link");
+  openingLink.hidden = state.snap.provenance !== "bradbury" || !opening;
+  if (opening) {
+    openingLink.href = EXPLORER + opening[1].tx;
+    openingLink.textContent = "Claim " + cert.claim_id + " opening on Bradbury";
+  }
+  const rehearsalLink = $("rehearsal-link");
+  const llama = state.snap.cases.find(k => !scriptedSubject(k) && k.claim.subject.startsWith("meta-llama/llama-3.1-8b-instruct"));
+  rehearsalLink.hidden = !llama;
+  if (llama) rehearsalLink.href = "https://github.com/Zhekinmaksim/impeach/blob/main/runs/" +
+    (llama.claim.subject.includes("/court24-v2/") ? "v2-llama-rehearsal.json" : "llama-rehearsal.json");
 
   const receipts = $("receipts");
   receipts.replaceChildren();
@@ -597,7 +642,7 @@ function renderTabs() {
     tabs.append(h("button", {
       type: "button", class: "tab", role: "tab",
       "aria-selected": i === state.caseIndex ? "true" : "false",
-      text: kase.label,
+      text: subjectLabel(kase),
       title: kase.note || kase.claim.subject,
       onclick: () => { state.caseIndex = i; state.item = 0; renderTabs(); renderCase(true); },
     }));
@@ -609,6 +654,13 @@ function renderTabs() {
 
 function renderCase(fresh) {
   const kase = current();
+  const scripted = scriptedSubject(kase);
+  $("subject-kind").dataset.kind = scripted ? "scripted" : "model";
+  $("subject-kind").textContent = scripted
+    ? (state.snap.provenance === "bradbury" ? "On-chain scripted control. " : "Local scripted demonstration. ") +
+      "The subject is a stored-answer and text lookup; no subject LLM is called. Its verdict tests the court's control path, not a real model."
+    : (state.snap.provenance === "bradbury" ? "On-chain model case. " : "Local model rehearsal. ") +
+      "The subject answers through the endpoint frozen in this claim.";
   const pick = pickExhibit(kase);
   if (pick && fresh) state.item = pick.item_index;
   renderHero(kase, fresh);
@@ -637,6 +689,7 @@ async function start() {
     return;
   }
   state.snap = snap;
+  $("download-case").textContent = snap.cases.length > 1 ? "Download all " + snap.cases.length + " cases" : "Download the case file";
   $("rehearsal").hidden = snap.provenance === "bradbury";
   $("source").textContent = snap.provenance === "bradbury"
     ? "Built from settled receipts of contract " + snap.contract + " on " + when(snap.generated_at) + "."
