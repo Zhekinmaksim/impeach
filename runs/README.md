@@ -17,10 +17,20 @@ https://github.com/Zhekinmaksim/impeach.
 - `vercel-rule.log`, `vercel-retire.log`, and `vercel-withdraw-*.json` / `.log`:
   rule, bond retirement, native payout messages and wallet verification. An
   accepted withdrawal waits for finalization before its EVM message pays out.
+- `vercel-rule-finalized.json`, `vercel-retire-finalized.json`, and
+  `native-withdraw-verification.json`: finalized outcomes and exact wallet
+  increases. The original accepted receipts and wallet snapshot are retained.
+- `native-withdraw-finalization-preflight.json`: the network's exact eligibility
+  times, read through the official SDK's consensus-data ABI before finalization.
 - `tunnel-withdraw-challenger.log`: withdrawal of the earlier trial's already
   available 0.001 GEN. The remaining 0.123 GEN stays locked until its old deadline.
+- `old-withdraw-finalize.log` and `old-withdraw-finalize-evm-receipt.json`:
+  successful EVM finalization of that available old credit; this was not an
+  early ruling of the old claim. Its native payout and wallet increase are verified.
 - `vercel-api-health-after-expiry.json`: the free endpoint check confirms the
   four-hour gateway expired; production is also configured with `TRIAL_ENABLED=false`.
+- `vercel-api-health-final-disabled.json`: production responds `trial_disabled`
+  after redeployment with the inference flag off.
 - `vercel-trial-config.json`: sanitized activation settings and the API expiry.
   The key is a Vercel server Secret, with a $5 lifetime credit cap and no reset.
 - `consensus-failures.jsonl` and `consensus-appeals.jsonl`: inspected failures,

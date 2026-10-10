@@ -171,14 +171,17 @@ score is not the subject's measured rewrite accuracy. The recall result is 0‰.
 None of the detectors reached the 20-item minimum.
 
 The [rule transaction](https://explorer-bradbury.genlayer.com/transactions/0xdd4d149a02291d1901e80f277eca45ac48ec0284b3c57aa74ed8c5cb4bcc4d12)
-was accepted with successful execution. `runs/bradbury-vercel.jsonl` preserves
+is finalized with `AGREE / FINISHED_WITH_RETURN`. `runs/bradbury-vercel.jsonl` preserves
 submissions and recovery links; `web/case.json` includes their fetched outcomes.
 Leader timeouts, disagreement and execution violations remain visible. They
 are not subject answers. The result establishes the native integration and
 partial evidence, not a contamination finding or a successful 24-item trial.
 
-The publisher retired the ruled claim; the certificate is retained. Both parties'
-credits are being verified through native `withdraw`. The four-hour model API
+The publisher retired the ruled claim; the certificate is retained. Native
+withdrawals of 0.116 GEN to the publisher and 0.008 GEN to the challenger are
+finalized; both wallet increases were verified after gas fees. See
+`runs/native-withdraw-verification.json` for exact messages and wallet balances.
+The four-hour model API
 expired automatically and production is configured disabled. Total OpenRouter
 usage, including calibration, is $1.28827328 of the approved $5.
 

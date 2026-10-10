@@ -39,7 +39,7 @@ humans and CI.
 
 | where | principle | on what |
 | --- | --- | --- |
-| marking a model's answer | `prompt_comparative` | the extracted answer and a boolean, never the prose |
+| marking a model's answer | `prompt_comparative` | matching status and correctness, and equivalent extracted answers; ignores prose |
 | admissibility | `prompt_comparative` | independently computed answers and the class decision, two framings |
 | verbatim recall | `strict_eq` | an integer bucket from bounded edit distance; no LLM |
 
@@ -69,7 +69,7 @@ and its test in `DECISIONS.md`.
 
 ## Evidence
 
-_Empty until the live run. Fill from receipts and `web/case.json` only._
+_To fill together from receipts and `web/case.json`; preserve the partial trial's limitations._
 
 | | |
 | --- | --- |

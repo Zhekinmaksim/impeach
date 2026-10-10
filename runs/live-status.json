@@ -141,5 +141,12 @@
   "earliest_timeout_rule_utc": "2026-10-12T17:20:45+00:00",
   "locked_bond_testnet_GEN": "0.1",
   "locked_stake_testnet_GEN": "0.023",
-  "note": "Rule after the immutable trial window, then retire the standing claim and withdraw credited funds. No completed verdict exists."
+  "note": "Rule after the immutable trial window, then retire the standing claim and withdraw credited funds. No completed verdict exists.",
+  "available_challenger_withdrawal": {
+    "tx": "0xc46309db01b51f72029bd87a93472a87bbee8ab07297a4800b476445f52d3ae3",
+    "value_wei": "1000000000000000",
+    "status": "FINALIZED",
+    "receipt": "runs/tunnel-withdraw-challenger-finalized.json",
+    "wallet_verified_at": "2026-10-10T05:21:08.921421+00:00"
+  }
 }

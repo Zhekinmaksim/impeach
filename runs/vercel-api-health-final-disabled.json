@@ -1,0 +1,9 @@
+{
+  "url": "https://impeach.vercel.app/api/chat/completions",
+  "health": {
+    "service": "impeach-openrouter",
+    "enabled": false,
+    "status": "trial_disabled"
+  },
+  "checked_at": "2026-10-10T05:22:25.122105+00:00"
+}

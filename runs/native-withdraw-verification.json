@@ -1,0 +1,97 @@
+{
+  "verified": true,
+  "checked_at": "2026-10-10T05:21:08.921421+00:00",
+  "chain_id": 4221,
+  "rpc": "https://rpc-bradbury.genlayer.com",
+  "withdrawals": [
+    {
+      "tx": "0xdc9472cfb17951024e2d5ae967fe0c9024aabd556e619378700a04a6b0296ee3",
+      "role": "publisher",
+      "contract": "0x47b0B5a11fC7F44F8f0d4ABa3A54b1A304AfDD3e",
+      "recipient": "0x771388495F34d21C5574FeFc04cd1D5811E00aDa",
+      "value_wei": "116000000000000000",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE",
+      "native_message_verified": true,
+      "onAcceptance": false,
+      "receipt": "runs/vercel-withdraw-publisher-finalized.json"
+    },
+    {
+      "tx": "0x542fba228940ecf69f93c95e20a44ef905a6ae59c5d4c36bcc733b4239881ed0",
+      "role": "challenger",
+      "contract": "0x47b0B5a11fC7F44F8f0d4ABa3A54b1A304AfDD3e",
+      "recipient": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+      "value_wei": "8000000000000000",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE",
+      "native_message_verified": true,
+      "onAcceptance": false,
+      "receipt": "runs/vercel-withdraw-challenger-finalized.json"
+    },
+    {
+      "tx": "0xc46309db01b51f72029bd87a93472a87bbee8ab07297a4800b476445f52d3ae3",
+      "role": "challenger",
+      "contract": "0xD08Ee3B08b338539748b0D310b6709B4E77a627F",
+      "recipient": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+      "value_wei": "1000000000000000",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE",
+      "native_message_verified": true,
+      "onAcceptance": false,
+      "receipt": "runs/tunnel-withdraw-challenger-finalized.json"
+    }
+  ],
+  "accounts": {
+    "publisher": {
+      "address": "0x771388495F34d21C5574FeFc04cd1D5811E00aDa",
+      "baseline_wallet_wei": "157362807354108824909",
+      "final_wallet_wei": "157478558659577873059",
+      "increase_wei": "115751305469048150",
+      "gross_native_messages_wei": "116000000000000000",
+      "contract_credit_wei": "0",
+      "wallet_increase_verified": true,
+      "note": "Wallet increase is net of gas; gross amounts come from finalized native messages."
+    },
+    "challenger": {
+      "address": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+      "baseline_wallet_wei": "942733451727431351",
+      "final_wallet_wei": "951474866420091401",
+      "increase_wei": "8741414692660050",
+      "gross_native_messages_wei": "9000000000000000",
+      "contract_credit_wei": "0",
+      "wallet_increase_verified": true,
+      "note": "Wallet increase is net of gas; gross amounts come from finalized native messages."
+    }
+  },
+  "current_court_solvency": {
+    "balanced": true,
+    "bonds": 0,
+    "credited": 0,
+    "escrowed": 0,
+    "held": 0,
+    "stakes": 0
+  },
+  "old_court_solvency": {
+    "balanced": true,
+    "bonds": 100000000000000000,
+    "credited": 0,
+    "escrowed": 123000000000000000,
+    "held": 123000000000000000,
+    "stakes": 23000000000000000
+  },
+  "old_court_available_credit_wei": "0",
+  "remaining_old_court_locked_GEN": "0.123",
+  "old_court_earliest_rule_utc": "2026-10-12T17:20:45+00:00",
+  "old_withdraw_finalization": {
+    "evm_transaction": "0xbcb14bb8d2af3d64a1071041b86d5f7bb89e01d858555c6eaecf00904d745f30",
+    "evm_receipt": "runs/old-withdraw-finalize-evm-receipt.json",
+    "sender": "0x771388495f34d21c5574fefc04cd1d5811e00ada",
+    "gas_used": "752069",
+    "effective_gas_price_wei": "161526750",
+    "gas_cost_wei": "121479261345750",
+    "successful": true
+  }
+}

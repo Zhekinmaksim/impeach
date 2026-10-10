@@ -2,7 +2,7 @@
  "format": "impeach-case/1",
  "provenance": "bradbury",
  "contract": "0x47b0B5a11fC7F44F8f0d4ABa3A54b1A304AfDD3e",
- "generated_at": 1791608498,
+ "generated_at": 1791609453,
  "note": "",
  "cases": [
   {
@@ -690,19 +690,19 @@
     },
     "retire:0": {
      "tx": "0x4f3828c5c47c4c3dc6d4eec72a7548a5b9e4a771ccf4332802e2e1412fb63bb8",
-     "status": "ACCEPTED",
+     "status": "FINALIZED",
      "execution": "FINISHED_WITH_RETURN",
      "consensus_result": "AGREE"
     },
     "withdraw:publisher": {
      "tx": "0xdc9472cfb17951024e2d5ae967fe0c9024aabd556e619378700a04a6b0296ee3",
-     "status": "ACCEPTED",
+     "status": "FINALIZED",
      "execution": "FINISHED_WITH_RETURN",
      "consensus_result": "AGREE"
     },
     "withdraw:challenger": {
      "tx": "0x542fba228940ecf69f93c95e20a44ef905a6ae59c5d4c36bcc733b4239881ed0",
-     "status": "ACCEPTED",
+     "status": "FINALIZED",
      "execution": "FINISHED_WITH_RETURN",
      "consensus_result": "AGREE"
     },
@@ -980,7 +980,7 @@
     },
     "rule:0": {
      "tx": "0xdd4d149a02291d1901e80f277eca45ac48ec0284b3c57aa74ed8c5cb4bcc4d12",
-     "status": "ACCEPTED",
+     "status": "FINALIZED",
      "execution": "FINISHED_WITH_RETURN",
      "consensus_result": "AGREE"
     }
@@ -1160,8 +1160,7 @@
  "receipts": {
   "total": 52,
   "by_status": {
-   "FINALIZED": 48,
-   "ACCEPTED": 4
+   "FINALIZED": 52
   },
   "by_execution": {
    "FINISHED_WITH_RETURN": 50,

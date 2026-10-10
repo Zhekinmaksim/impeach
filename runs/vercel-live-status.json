@@ -38,12 +38,48 @@
   },
   "model_api": {
     "enabled": false,
-    "reason": "trial_expired",
+    "reason": "trial_disabled",
     "production_trial_enabled": false,
     "expires_at": "2026-10-09T21:35:54Z"
   },
   "openrouter_usage_usd": 1.28827328,
   "manifest": "runs/bradbury-vercel.jsonl",
-  "checked_at": "2026-10-10T04:51:07.965038+00:00",
-  "native_withdrawals": "accepted; awaiting finalization and wallet verification"
+  "checked_at": "2026-10-10T05:21:08.921421+00:00",
+  "native_withdrawals": {
+    "verified": true,
+    "gross_current_court_GEN": "0.124",
+    "proof": "runs/native-withdraw-verification.json"
+  },
+  "receipts": {
+    "total": 52,
+    "by_status": {
+      "FINALIZED": 52
+    },
+    "by_execution": {
+      "FINISHED_WITH_RETURN": 50,
+      "NOT_VOTED": 2
+    },
+    "by_consensus_result": {
+      "AGREE": 45,
+      "NO_MAJORITY": 1,
+      "TIMEOUT": 1,
+      "DISAGREE": 3,
+      "IDLE": 2
+    },
+    "by_mode": {
+      "PINNED": {
+        "FINALIZED": 14
+      },
+      "RECALL": {
+        "FINALIZED": 12
+      },
+      "REWRITE": {
+        "FINALIZED": 13
+      },
+      "ADMIT": {
+        "FINALIZED": 6
+      }
+    },
+    "pending": 0
+  }
 }
