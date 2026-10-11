@@ -9,7 +9,7 @@ import {execFileSync} from "node:child_process";
 import {dirname, join, resolve} from "node:path";
 import {realpathSync, readFileSync} from "node:fs";
 import {pathToFileURL} from "node:url";
-import {checkedGas, TRANSACTION_GAS_CAP} from "./gas_guard.mjs";
+import {checkedGas, TRANSACTION_GAS_CAP, causedBy} from "./gas_guard.mjs";
 import {writeLine} from "./output.mjs";
 
 function fail(message) {
@@ -83,7 +83,7 @@ const chains = await import(pathToFileURL(join(packageRoot, "node_modules/genlay
 // Read-only paths exit before account configuration or keychain access.
 const readIndex = process.argv.indexOf("--read");
 if (readIndex >= 0) {
-  if (["--receipt", "--deploy", "--appeal", "--finalize"].some(flag => process.argv.includes(flag))) {
+  if (["--receipt", "--deploy", "--appeal", "--finalize", "--process-idleness"].some(flag => process.argv.includes(flag))) {
     fail("choose only one read or transaction operation");
   }
   const readAddress = required(process.argv[readIndex + 1], "read contract address");
@@ -113,10 +113,11 @@ if (receiptHash) {
 const deployPath = option("--deploy");
 const appealHash = option("--appeal");
 const finalizeHash = option("--finalize");
-if ([deployPath, appealHash, finalizeHash].filter(Boolean).length > 1) fail("choose only one deploy, appeal, or finalize operation");
+const idlenessHash = option("--process-idleness");
+if ([deployPath, appealHash, finalizeHash, idlenessHash].filter(Boolean).length > 1) fail("choose only one deploy, appeal, finalize, or idleness operation");
 const dryRun = process.argv.includes("--dry-run");
 const [address, method] = process.argv.slice(2);
-if (!deployPath && !appealHash && !finalizeHash) {
+if (!deployPath && !appealHash && !finalizeHash && !idlenessHash) {
   required(address, "contract address");
   required(method, "method");
 }
@@ -172,6 +173,26 @@ const client = sdk.createClient({
 });
 const value = BigInt(option("--value", "0"));
 try {
+  if (idlenessHash) {
+    if (!/^0x[0-9a-fA-F]{64}$/.test(idlenessHash)) fail("invalid idleness transaction hash");
+    if (value !== 0n) fail("idleness processing cannot send native value");
+    const receipt = await client.getTransaction({hash: idlenessHash});
+    if (!["UNDETERMINED", "LEADER_TIMEOUT", "VALIDATORS_TIMEOUT", "READY_TO_FINALIZE"].includes(receipt.statusName)) {
+      fail("idleness processing requires a known projected timeout or finalization phase");
+    }
+    // Verified live v0.5 ConsensusMain exposes this permissionless method.
+    // It commits deferred timeout outcomes and maintains the native queues;
+    // it neither submits a new intelligent-contract call nor forces a verdict.
+    const {encodeFunctionData} = await import(pathToFileURL(join(packageRoot, "node_modules/viem/_esm/index.js")));
+    const data = encodeFunctionData({abi: [{type: "function", name: "processIdleness",
+      stateMutability: "nonpayable", inputs: [{name: "txId", type: "bytes32"}], outputs: []}],
+      functionName: "processIdleness", args: [idlenessHash]});
+    // checkedGas estimates and simulates this exact method before any signing.
+    const hash = await client.sendTransaction({account, to: chains.testnetBradbury.consensusMainContract.address,
+      data, value: 0n});
+    await writeLine("Idleness EVM transaction: " + hash);
+    process.exit(0);
+  }
   if (finalizeHash) {
     if (!/^0x[0-9a-fA-F]{64}$/.test(finalizeHash)) fail("invalid finalization transaction hash");
     const receipt = await client.getTransaction({hash: finalizeHash});
@@ -187,8 +208,11 @@ try {
   if (appealHash) {
     if (!/^0x[0-9a-fA-F]{64}$/.test(appealHash)) fail("invalid appeal transaction hash");
     const receipt = await client.getTransaction({hash: appealHash});
-    if (!["LEADER_TIMEOUT", "UNDETERMINED"].includes(receipt.statusName)) {
-      fail("only a confirmed leader timeout or undetermined round can be appealed with this helper");
+    // Verified Bradbury v0.5 Appeals.submitAppeal also supports ValidatorsTimeout
+    // through a validator appeal. Gas simulation enforces the stored phase and
+    // queue timing; the projected receipt name alone never authorizes signing.
+    if (!["LEADER_TIMEOUT", "UNDETERMINED", "VALIDATORS_TIMEOUT"].includes(receipt.statusName)) {
+      fail("only a confirmed timeout or undetermined round can be appealed with this helper");
     }
     const bond = await client.getMinAppealBond({txId: appealHash});
     // This recovery path is deliberately limited to zero-bond testnet appeals.
@@ -202,5 +226,5 @@ try {
     : await client.writeContract({account, address, functionName: method, args: parseArgs(), value});
   console.log("Transaction Hash:", hash);
 } catch (error) {
-  if (error !== dryRunComplete) throw error;
+  if (!causedBy(error, dryRunComplete)) throw error;
 }

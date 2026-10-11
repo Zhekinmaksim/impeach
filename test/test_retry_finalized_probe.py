@@ -7,6 +7,7 @@ import hashlib
 import io
 import json
 import os
+from pathlib import Path
 import subprocess
 import sys
 import tempfile
@@ -240,6 +241,140 @@ class FinalizedProbeRecoveryTests(unittest.TestCase):
         with open(self.args.manifest + ".retry.lock", "a", encoding="utf-8") as lock:
             fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
             self.refuse("another recovery")
+
+    def test_three_recoveries_preserve_inputs_ordinals_and_prebroadcast_evidence(self):
+        self.args.max_recoveries = 3
+        original_bytes = Path(self.args.manifest).read_bytes()
+        receipts = [self.receipt, {"status": 7, "result": 0, "txExecutionResult": 0},
+                    {"status": 7, "result": 2, "txExecutionResult": 1}]
+        saved = {}
+        for ordinal, receipt in enumerate(receipts, 1):
+            previous = self.read_rows()[-1]
+            self.args.tx = previous["tx"]
+            self.original_fetch.return_value = receipt
+            tx = "0x" + format(ordinal, "064x")
+
+            def submit(command, **kwargs):
+                marker = json.loads(Path(recovery.dispatch_path(self.args.manifest, previous["tx"])).read_text())
+                self.assertEqual(marker["recovery_ordinal"], ordinal)
+                self.assertEqual(marker["previous_row"], previous)
+                path = Path(self.tmp.name) / marker["previous_receipt"]
+                raw = path.read_bytes()
+                self.assertEqual(json.loads(raw), receipt)
+                self.assertEqual(marker["previous_receipt_sha256"], hashlib.sha256(raw).hexdigest())
+                saved[path] = raw
+                self.assertEqual(json.loads(command[command.index("--args-json") + 1]),
+                                 recovery.original_call(self.row, self.args.claim))
+                return subprocess.CompletedProcess([], 0, "Transaction Hash: " + tx + "\n", "")
+
+            self.send.side_effect = submit
+            recovery.retry(self.args)
+            latest = self.read_rows()[-1]
+            self.assertEqual(latest["previous_row"], previous)
+            self.assertEqual(latest["recovery_ordinal"], ordinal)
+            self.assertEqual(recovery.validate_history(latest, self.args.manifest), ordinal)
+            self.assertTrue(Path(self.args.manifest).read_bytes().startswith(original_bytes))
+            original_bytes = Path(self.args.manifest).read_bytes()
+        self.args.tx = tx
+        with self.assertRaisesRegex(SystemExit, "configured limit"):
+            recovery.retry(self.args)
+        self.assertEqual(self.send.call_count, 3)
+        self.assertEqual(len(self.read_rows()), 4)
+        for path, raw in saved.items():
+            self.assertEqual(path.read_bytes(), raw)
+
+    def test_larger_limit_does_not_retry_pending_replay_or_finalized_return_idle(self):
+        recovery.retry(self.args)
+        self.args.tx = self.new_tx
+        self.args.max_recoveries = 3
+        self.send.reset_mock()
+        for status, result, execution in ((1, 0, 0), (4, 0, 0), (14, 1, 1),
+                                          (6, 5, 1), (11, 5, 1), (12, 3, 3), (7, 0, 1)):
+            with self.subTest(status=status, result=result, execution=execution):
+                self.original_fetch.return_value = {"status": status, "result": result, "txExecutionResult": execution}
+                self.refuse("FINALIZED with an explicit negative")
+        self.assertFalse(os.path.exists(recovery.dispatch_path(self.args.manifest, self.new_tx)))
+
+    def test_recovery_history_cannot_be_reset_or_tampered_with(self):
+        recovery.retry(self.args)
+        first, second = self.read_rows()
+        self.args.tx, self.args.max_recoveries = self.new_tx, 3
+        self.send.reset_mock()
+        for change in (lambda r: r.update(recovery_ordinal=0),
+                       lambda r: r.update(previous_tx="0x"+"c"*64),
+                       lambda r: r["previous_row"].update(signature="changed"),
+                       lambda r: r["previous_row"].update(at=999),
+                       lambda r: r.pop("previous_row"),
+                       lambda r: [r.pop(k, None) for k in list(r) if k.startswith("previous_") or k == "recovery_ordinal"]):
+            corrupted = copy.deepcopy(second)
+            change(corrupted)
+            self.write_rows(first, corrupted)
+            self.refuse("invalid recovery history")
+        self.write_rows(first, second)
+        path = Path(self.tmp.name) / second["previous_receipt"]
+        raw = path.read_bytes()
+        path.write_bytes(raw + b" ")
+        self.refuse("receipt evidence changed")
+        path.unlink()
+        self.refuse("receipt evidence is missing")
+
+    def test_legacy_one_recovery_history_can_opt_in_without_rewriting_old_rows(self):
+        recovery.retry(self.args)
+        first, second = self.read_rows()
+        second.pop("recovery_ordinal")
+        second.pop("previous_receipt_sha256")
+        self.write_rows(first, second)
+        before = Path(self.args.manifest).read_bytes()
+        self.args.tx, self.args.max_recoveries = self.new_tx, 3
+        self.send.return_value = subprocess.CompletedProcess([], 0, "Transaction Hash: 0x"+"c"*64+"\n", "")
+        recovery.retry(self.args)
+        self.assertEqual(self.read_rows()[-1]["recovery_ordinal"], 2)
+        self.assertEqual(self.read_rows()[-1]["previous_row"], second)
+        self.assertTrue(Path(self.args.manifest).read_bytes().startswith(before))
+
+    def test_inputs_and_applied_rewrite_outcomes_still_block_later_recoveries(self):
+        recovery.retry(self.args)
+        self.args.tx, self.args.max_recoveries = self.new_tx, 3
+        self.send.reset_mock()
+        rewrites = copy.deepcopy(self.rewrites)
+        rewrites[2]["prompt"] += " Changed wording."
+        with patch.object(run_case, "load_rewrites", return_value=rewrites):
+            self.refuse("signature does not match")
+        for extra in ({"stage_c1": "INADMISSIBLE"}, {"rewrite": "DEAD"}):
+            self.state.update(extra)
+            self.refuse("already applied or not ready")
+
+    def test_unknown_second_recovery_dispatch_remains_exclusive(self):
+        recovery.retry(self.args)
+        self.args.tx, self.args.max_recoveries = self.new_tx, 3
+        self.send.side_effect = RuntimeError("lost second recovery hash")
+        with self.assertRaisesRegex(RuntimeError, "lost second recovery"):
+            recovery.retry(self.args)
+        marker = json.loads(Path(recovery.dispatch_path(self.args.manifest, self.args.tx)).read_text())
+        self.assertEqual(marker["recovery_ordinal"], 2)
+        with self.assertRaisesRegex(SystemExit, "reconcile its on-chain outcome"):
+            recovery.retry(self.args)
+        self.assertEqual(self.send.call_count, 2)
+        self.assertEqual(len(self.read_rows()), 2)
+
+    def test_completion_lock_deadline_margin_and_maximum_are_enforced(self):
+        with open(self.args.manifest + ".complete.lock", "a") as lock:
+            fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            self.refuse("another completion process")
+        self.args.deadline_margin = 10
+        self.refuse("window has closed")
+        self.args.deadline_margin = 0
+        for limit in (0, 4, True):
+            self.args.max_recoveries = limit
+            self.refuse("integer from 1 to 3")
+
+    def test_cli_recovery_policy_defaults_to_one_and_is_bounded(self):
+        options = [value for name in ("address", "account", "rpc", "manifest", "tx")
+                   for value in ("--" + name, getattr(self.args, name))]
+        self.assertEqual(recovery.parse_args(options).max_recoveries, 1)
+        self.assertEqual(recovery.parse_args(options + ["--max-recoveries", "3"]).max_recoveries, 3)
+        with contextlib.redirect_stderr(io.StringIO()), self.assertRaises(SystemExit):
+            recovery.parse_args(options + ["--max-recoveries", "4"])
 
 
 if __name__ == "__main__":

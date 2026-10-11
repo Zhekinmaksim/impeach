@@ -2,6 +2,18 @@
 // is larger. An unconstrained eth_estimateGas result can exceed this limit.
 export const TRANSACTION_GAS_CAP = 16_777_216n;
 
+// viem may wrap a deliberate stop in TransactionExecutionError. Compare the
+// original object, never its message; real RPC and simulation errors propagate.
+export function causedBy(error, expected) {
+  const seen = new Set();
+  while (error && typeof error === "object" && !seen.has(error)) {
+    if (error === expected) return true;
+    seen.add(error);
+    error = error.cause;
+  }
+  return false;
+}
+
 export async function checkedGas(tx, rpc, {chainId, consensusAddress, gasCap = TRANSACTION_GAS_CAP}) {
   if (gasCap <= 0n || gasCap > TRANSACTION_GAS_CAP) throw new Error("gas cap must be in 1..16777216");
   if (tx.chainId !== chainId || tx.to.toLowerCase() !== consensusAddress.toLowerCase()) {

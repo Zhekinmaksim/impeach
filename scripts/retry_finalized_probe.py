@@ -1,31 +1,136 @@
 #!/usr/bin/env python3
-"""Explicitly retry one finalized, unapplied probe once; preserve both hashes.
+"""Explicitly recover a finalized, unapplied probe; preserve every hash.
 
 This sends a new transaction. It never finalizes or appeals the original, and
 never resumes unrelated manifest entries. The existing bridge performs its
 normal gas preflight. Use --dry-run to perform all reads without submitting.
 The appended previous_receipt path is relative to the manifest's directory.
 An interrupted dispatch requires manual reconciliation before another attempt.
+One recovery per slot is the default; --max-recoveries permits at most three.
 """
 
 import argparse
+from contextlib import contextmanager
 import fcntl
 import hashlib
 import json
 import os
+import re
 import tempfile
 import time
 
 import run_case
 from chain_receipts import NEGATIVE_RESULTS, consensus_result_of, fetch_receipt, finalized_failure, finalized_no_execution
 CORE_FIELDS = {"key", "tx", "method", "at", "address", "signature"}
+TX = re.compile(r"^0x[0-9a-fA-F]{64}$")
+
+
+def max_recoveries(args):
+    limit = getattr(args, "max_recoveries", 1)
+    if type(limit) is not int or limit not in range(1, 4):
+        raise SystemExit("max recoveries must be an integer from 1 to 3")
+    return limit
+
+
+def retryable_receipt(receipt):
+    return (finalized_failure(receipt) and
+            (consensus_result_of(receipt) in NEGATIVE_RESULTS or finalized_no_execution(receipt)))
+
+
+def manifest_history(path):
+    history = {}
+    if os.path.exists(path):
+        with open(path, encoding="utf-8") as source:
+            for line in source:
+                if line.strip():
+                    row = json.loads(line)
+                    history.setdefault(row["key"], []).append(row)
+    return history
+
+
+def recovery_chain(row):
+    """Return original through latest; infer ordinals for older one-retry rows."""
+    chain, seen = [], set()
+    current = row
+    while True:
+        tx = current.get("tx", "")
+        if not isinstance(tx, str) or not TX.fullmatch(tx) or tx.lower() in seen or len(chain) > 3:
+            raise SystemExit("invalid recovery history: malformed, repeated or excessive transaction hashes")
+        seen.add(tx.lower())
+        chain.append(current)
+        if "previous_tx" not in current:
+            if any(key in current for key in ("previous_row", "previous_receipt", "previous_receipt_sha256")):
+                raise SystemExit("invalid recovery history: incomplete previous transaction link")
+            break
+        previous = current.get("previous_row")
+        if not isinstance(previous, dict) or current["previous_tx"] != previous.get("tx"):
+            raise SystemExit("invalid recovery history: previous_row does not match previous_tx")
+        fields = ("key", "method", "address", "signature", "step", "challenge_id", "item_index", "mode", "rewrite_hash")
+        if (any(current.get(key) != previous.get(key) for key in fields) or
+                str(current.get("value", "0")) != "0" or str(previous.get("value", "0")) != "0"):
+            raise SystemExit("invalid recovery history: original probe inputs changed")
+        if not isinstance(current.get("previous_receipt"), str) or not current["previous_receipt"]:
+            raise SystemExit("invalid recovery history: missing finalized receipt evidence")
+        current = previous
+    chain.reverse()
+    for ordinal, entry in enumerate(chain):
+        recorded = entry.get("recovery_ordinal", ordinal)
+        if type(recorded) is not int or recorded != ordinal:
+            raise SystemExit("invalid recovery history: recovery ordinal disagrees with transaction chain")
+    return chain
+
+
+def recovery_ordinal(row):
+    return len(recovery_chain(row)) - 1
+
+
+def validate_history(row, manifest, history=None):
+    chain = recovery_chain(row)
+    history = manifest_history(manifest) if history is None else history
+    if history.get(row["key"]) != chain:
+        raise SystemExit("invalid recovery history: original manifest rows are missing or changed")
+    base = os.path.dirname(os.path.abspath(manifest))
+    folder = os.path.realpath(os.path.abspath(manifest) + ".receipts")
+    for entry in chain[1:]:
+        relative = entry["previous_receipt"]
+        path = os.path.realpath(os.path.join(base, relative))
+        if os.path.isabs(relative) or os.path.dirname(path) != folder:
+            raise SystemExit("invalid recovery history: receipt evidence is outside the manifest receipts directory")
+        try:
+            with open(path, "rb") as source:
+                raw = source.read()
+            receipt = json.loads(raw)
+        except (OSError, ValueError) as exc:
+            raise SystemExit("invalid recovery history: finalized receipt evidence is missing or malformed") from exc
+        digest = entry.get("previous_receipt_sha256")
+        if ((digest is not None and digest != hashlib.sha256(raw).hexdigest()) or
+                not retryable_receipt(receipt)):
+            raise SystemExit("invalid recovery history: finalized receipt evidence changed or is not retryable")
+    return len(chain) - 1
+
+
+@contextmanager
+def completion_guard(manifest, held_lock=None):
+    """Standalone recovery excludes completion; its internal caller borrows its lock."""
+    path = manifest + ".complete.lock"
+    if held_lock is not None:
+        if held_lock.closed or os.fstat(held_lock.fileno()).st_ino != os.stat(path).st_ino:
+            raise SystemExit("completion lock is not held for this manifest")
+        fcntl.flock(held_lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        yield
+        return
+    os.makedirs(os.path.dirname(os.path.abspath(manifest)), exist_ok=True)
+    with open(path, "a", encoding="utf-8") as lock:
+        try:
+            fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError:
+            raise SystemExit("another completion process holds this manifest lock")
+        yield
 
 
 def original_call(row, claim_path):
     if row.get("method") != "probe" or row.get("step") != "probe":
         raise SystemExit("only an original probe step can be recovered")
-    if "previous_tx" in row:
-        raise SystemExit("this probe already has a recovery attempt")
     if str(row.get("value", "0")) != "0":
         raise SystemExit("only a zero-value probe can be recovered")
     h, i, mode = row.get("challenge_id"), row.get("item_index"), row.get("mode")
@@ -53,7 +158,11 @@ def original_call(row, claim_path):
 def slot_untouched(state, mode):
     if mode == "ADMIT":
         return (state.get("touched") is True and state.get("stage_c1") == "ADMISSIBLE"
-                and state.get("stage_c2") == "PENDING")
+                and state.get("stage_c2") == "PENDING" and state.get("rewrite") != "DEAD")
+    if mode == "REWRITE" and (state.get("rewrite", "") != "" or
+                              state.get("stage_c1", "PENDING") != "PENDING" or
+                              state.get("stage_c2", "PENDING") != "PENDING"):
+        return False
     field = {"PINNED": "pinned", "RECALL": "recall", "REWRITE": "rewrite_class"}[mode]
     return ((state.get("touched") is False and state.get(field, "") == "") or
             (state.get("touched") is True and state.get(field) == ""))
@@ -80,7 +189,7 @@ def unresolved_dispatch(path):
                      "before another attempt; no duplicate sent: " + path)
 
 
-def record_dispatch(path, row, receipt_relative):
+def record_dispatch(path, row, receipt_relative, receipt_sha256, ordinal):
     """Publish a complete, durable marker without replacing an earlier attempt."""
     folder = os.path.dirname(path)
     with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", dir=folder,
@@ -88,7 +197,8 @@ def record_dispatch(path, row, receipt_relative):
         temporary = target.name
         json.dump({"status": "DISPATCHING", "at": int(time.time()), "previous_tx": row["tx"],
                    "key": row["key"], "address": row["address"], "signature": row["signature"],
-                   "previous_receipt": receipt_relative}, target)
+                   "previous_receipt": receipt_relative, "previous_receipt_sha256": receipt_sha256,
+                   "recovery_ordinal": ordinal, "previous_row": row}, target)
         target.write("\n")
         target.flush()
         os.fsync(target.fileno())
@@ -108,10 +218,11 @@ def record_dispatch(path, row, receipt_relative):
         os.unlink(temporary)
 
 
-def retry(args):
+def retry(args, *, completion_lock=None):
     # Other run_case steps skip an existing key. This lock also prevents two
     # recovery helpers from both removing that key in memory and submitting.
-    with open(args.manifest + ".retry.lock", "a", encoding="utf-8") as lock:
+    limit = max_recoveries(args)
+    with completion_guard(args.manifest, completion_lock), open(args.manifest + ".retry.lock", "a", encoding="utf-8") as lock:
         try:
             fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
         except BlockingIOError:
@@ -122,12 +233,15 @@ def retry(args):
             raise SystemExit("--tx must be the latest manifest row for exactly one probe key")
         row = matches[0]
         call_args = original_call(row, args.claim)
+        history = manifest_history(args.manifest)
+        ordinal = validate_history(row, args.manifest, history)
+        if ordinal >= limit:
+            raise SystemExit("this probe already has a recovery attempt at its configured limit (%d)" % limit)
         marker = dispatch_path(args.manifest, row["tx"])
         if os.path.lexists(marker):
             unresolved_dispatch(marker)
         receipt = fetch_receipt(row["tx"], args.rpc)
-        retryable = (consensus_result_of(receipt) in NEGATIVE_RESULTS or finalized_no_execution(receipt))
-        if not finalized_failure(receipt) or not retryable:
+        if not retryable_receipt(receipt):
             raise SystemExit("original transaction must be FINALIZED with an explicit negative consensus result "
                              "or IDLE / NOT_VOTED; unknown or inconsistent fields cannot be retried")
         h, i, mode = row["challenge_id"], row["item_index"], row["mode"]
@@ -135,25 +249,28 @@ def retry(args):
         if challenge.get("status") != "TRIAL" or i not in challenge.get("subset", []):
             raise SystemExit("item must still belong to an active TRIAL")
         claim = runner.read("get_claim", challenge["claim_id"])
-        if runner.read("clock") > challenge["trial_started_at"] + claim["trial_window_s"]:
+        if runner.read("clock") + getattr(args, "deadline_margin", 0) >= challenge["trial_started_at"] + claim["trial_window_s"]:
             raise SystemExit("trial window has closed")
         if not slot_untouched(runner.read("get_probe", h, i), mode):
             raise SystemExit("probe slot is already applied or not ready; refusing a duplicate")
-        if run_case.manifest_rows(args.manifest).get(row["key"]) != row:
+        if manifest_history(args.manifest) != history:
             raise SystemExit("manifest changed during recovery checks; rerun to inspect it")
         receipt_path = save_receipt(args.manifest, row["tx"], receipt)
         print("saved original finalized receipt: " + receipt_path, flush=True)
         extra = {key: value for key, value in row.items() if key not in CORE_FIELDS}
         receipt_relative = os.path.relpath(receipt_path, os.path.dirname(os.path.abspath(args.manifest)))
-        extra.update(previous_tx=row["tx"], previous_row=dict(row), previous_receipt=receipt_relative)
+        with open(receipt_path, "rb") as source:
+            receipt_sha256 = hashlib.sha256(source.read()).hexdigest()
+        extra.update(previous_tx=row["tx"], previous_row=dict(row), previous_receipt=receipt_relative,
+                     previous_receipt_sha256=receipt_sha256, recovery_ordinal=ordinal + 1)
         if not args.dry_run:
-            record_dispatch(marker, row, receipt_relative)
+            record_dispatch(marker, row, receipt_relative, receipt_sha256, ordinal + 1)
         del runner.rows[row["key"]]
         runner.send(row["key"], "probe", call_args, value=0, extra=extra)
         return 0
 
 
-def main():
+def parse_args(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     for name in ("address", "account", "rpc", "manifest", "tx"):
         parser.add_argument("--" + name, required=True)
@@ -161,12 +278,14 @@ def main():
     parser.add_argument("--wait-timeout", type=float, default=600)
     parser.add_argument("--poll-interval", type=float, default=5)
     parser.add_argument("--dry-run", action="store_true")
-    args = parser.parse_args()
+    parser.add_argument("--max-recoveries", type=int, choices=range(1, 4), default=1,
+                        help="maximum new recovery transactions per slot, excluding the original (default: 1)")
+    args = parser.parse_args(argv)
     if args.wait_timeout <= 0 or args.poll_interval <= 0:
         parser.error("wait timeout and poll interval must be positive")
     args.delay = 0
-    return retry(args)
+    return args
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    raise SystemExit(retry(parse_args()))

@@ -11,7 +11,9 @@ DEAD outcomes are reported, never automatically resubmitted.
 Initial calls have durable dispatch markers. An unknown submission outcome
 requires manual reconciliation; deleting a marker to guess-and-resend is unsafe.
 After progressing all independent initial slots, the existing guarded recovery
-helper may retry each finalized, untouched failed slot once. No appeal,
+helper may retry each finalized, untouched failed slot once by default, or up
+to three times with --max-recoveries 3. Every retry requires a new finalized
+failure and preserves the earlier hashes and receipts. No appeal,
 finalization, rule, retire or withdrawal is performed here.
 """
 
@@ -30,9 +32,9 @@ import time
 
 import run_case
 import retry_finalized_probe as recovery
-from chain_receipts import (EXECUTION_CODES, NEGATIVE_RESULTS, RESULT_CODES, STATUS_CODES,
+from chain_receipts import (EXECUTION_CODES, RESULT_CODES, STATUS_CODES,
                             consensus_result_of, execution_of, fetch_receipt,
-                            finalized_failure, finalized_no_execution, status_of, successful)
+                            finalized_failure, status_of, successful)
 
 MODES = ('PINNED', 'RECALL', 'REWRITE', 'ADMIT')
 DECIDED_FAILURES = {'UNDETERMINED', 'LEADER_TIMEOUT', 'VALIDATORS_TIMEOUT', 'CANCELED'}
@@ -112,8 +114,10 @@ def completed(state):
 
 
 class Completer(run_case.Runner):
-    def __init__(self, args):
+    def __init__(self, args, completion_lock=None):
         super().__init__(args)
+        self.max_recoveries = recovery.max_recoveries(args)
+        self.completion_lock = completion_lock
         self.folder = Path(os.path.abspath(args.manifest) + '.complete')
         self.folder.mkdir(parents=True, exist_ok=True)
         self.claim = run_case.load_claim(args.claim)
@@ -175,6 +179,7 @@ class Completer(run_case.Runner):
         return 'probe:%d:%d:%s' % (self.args.challenge_id, index, mode)
 
     def validate_rows(self):
+        history = recovery.manifest_history(self.args.manifest)
         for key, row in self.rows.items():
             if row.get('address', '').lower() != self.args.address.lower():
                 raise Pause('manifest belongs to a different contract: ' + key)
@@ -187,6 +192,7 @@ class Completer(run_case.Runner):
                         row.get('step') != 'probe' or row.get('method') != 'probe' or
                         str(row.get('value', '0')) != '0' or row.get('signature') != signature(self.call(index, mode))):
                     raise Pause('manifest probe inputs/signature do not match the current claim: ' + key)
+                recovery.validate_history(row, self.args.manifest, history)
 
     def marker(self, key):
         return self.folder / 'dispatch' / (hashlib.sha256(key.encode()).hexdigest() + '.json')
@@ -286,6 +292,8 @@ class Completer(run_case.Runner):
                       'execution': execution_of(receipt), 'consensus_result': consensus_result_of(receipt),
                       'receipt': os.path.relpath(path, Path(self.args.manifest).resolve().parent),
                       'receipt_sha256': digest, 'assumed_success': False, 'resubmitted': False}
+            if row.get('method') == 'probe':
+                record['recovery_ordinal'] = recovery.recovery_ordinal(row)
             self.event('ACKNOWLEDGED_FAILURE', **record)
             self.failure_records[record_key] = record
         self.acknowledged.add(row['tx'])
@@ -327,12 +335,14 @@ class Completer(run_case.Runner):
             raise Pause('manifest changed outside this completion process')
         marker = self.marker(key)
         value = {'key': key, 'address': self.args.address.lower(), 'signature': signature(self.call(index, mode)),
-                 'input_sha256': self.input_hash, 'at': int(time.time()), 'status': 'DISPATCHING'}
+                 'input_sha256': self.input_hash, 'at': int(time.time()), 'status': 'DISPATCHING',
+                 'recovery_ordinal': 0}
         try:
             json_write(marker, value, exclusive=True)
         except FileExistsError as exc:
             raise Pause('unresolved dispatch; manual reconciliation required: ' + str(marker)) from exc
-        extra = {'step': 'probe', 'challenge_id': self.args.challenge_id, 'item_index': index, 'mode': mode}
+        extra = {'step': 'probe', 'challenge_id': self.args.challenge_id, 'item_index': index,
+                 'mode': mode, 'recovery_ordinal': 0}
         if mode == 'REWRITE':
             env = self.rewrites[index]
             extra['rewrite_hash'] = run_case.tool.rewrite_hash(env['class'], env['prompt'], env['answer'])
@@ -350,17 +360,18 @@ class Completer(run_case.Runner):
         self.guard()
         state = self.state(row['item_index'])
         receipt = self.receipts[row['tx']]
-        if ('previous_tx' in row or not recovery.slot_untouched(state, row['mode']) or
-                not finalized_failure(receipt) or not (consensus_result_of(receipt) in NEGATIVE_RESULTS or
-                                                       finalized_no_execution(receipt))):
+        ordinal = recovery.recovery_ordinal(row)
+        if (ordinal >= self.max_recoveries or not recovery.slot_untouched(state, row['mode']) or
+                not recovery.retryable_receipt(receipt)):
             return False
         args = copy.copy(self.args)
         args.tx = row['tx']
         args.delay = 0
-        self.event('RECOVERY_REQUEST', key=row['key'], previous_tx=row['tx'])
+        self.event('RECOVERY_REQUEST', key=row['key'], previous_tx=row['tx'],
+                   recovery_ordinal=ordinal + 1, max_recoveries=self.max_recoveries)
         error = None
         try:
-            recovery.retry(args)
+            recovery.retry(args, completion_lock=self.completion_lock)
         except (SystemExit, RuntimeError, ValueError, subprocess.TimeoutExpired, OSError) as exc:
             error = exc
         self.rows = run_case.manifest_rows(self.args.manifest)
@@ -368,7 +379,7 @@ class Completer(run_case.Runner):
         new = self.rows.get(row['key'])
         if not new or new['tx'] == row['tx']:
             raise Pause('guarded recovery did not record a new hash; reconcile before resume: ' + str(error))
-        if new.get('previous_tx') != row['tx']:
+        if new.get('previous_tx') != row['tx'] or new.get('recovery_ordinal') != ordinal + 1:
             raise Pause('unexpected recovery provenance; reconcile manifest')
         self.new_transactions += 1
         self.wait(new)
@@ -389,11 +400,12 @@ class Completer(run_case.Runner):
             if not recovery.slot_untouched(state, row['mode']):
                 continue
             receipt = self.receipts[row['tx']]
-            entry = {'key': row['key'], 'tx': row['tx'], 'status': status_of(receipt)}
-            if 'previous_tx' in row:
+            ordinal = recovery.recovery_ordinal(row)
+            entry = {'key': row['key'], 'tx': row['tx'], 'status': status_of(receipt),
+                     'recovery_ordinal': ordinal, 'max_recoveries': self.max_recoveries}
+            if ordinal >= self.max_recoveries:
                 exhausted.append(entry)
-            elif (window_open and finalized_failure(receipt) and (consensus_result_of(receipt) in NEGATIVE_RESULTS or
-                                                 finalized_no_execution(receipt))):
+            elif window_open and recovery.retryable_receipt(receipt):
                 eligible.append(entry)
             elif window_open and status_of(receipt) != 'FINALIZED':
                 awaiting.append(entry)
@@ -407,6 +419,7 @@ class Completer(run_case.Runner):
                   'new_transactions_this_process': self.new_transactions}
         data = {'format': 'impeach-completion/1', 'at': int(time.time()), 'phase': phase, 'message': message,
                 'address': self.args.address, 'challenge_id': self.args.challenge_id, 'claim_id': self.claim_id,
+                'max_recoveries': self.max_recoveries,
                 'input_sha256': self.input_hash, 'deadline': self.deadline, 'chain_time': self.chain_time,
                 'deadline_distance_s': None if self.deadline is None else self.deadline-self.chain_time,
                 'totals': totals, 'all_slots_complete': totals['complete_items'] == 24,
@@ -414,6 +427,8 @@ class Completer(run_case.Runner):
                 'awaiting_finalization': awaiting, 'recoveries_exhausted': exhausted,
                 'acknowledged_failures': list(self.failure_records.values()),
                 'transactions': [{'key': row['key'], 'tx': row['tx'],
+                                  'recovery_ordinal': recovery.recovery_ordinal(row) if row.get('method') == 'probe' else None,
+                                  'previous_tx': row.get('previous_tx'),
                                   'outcome': self.outcomes.get(row['tx'], 'UNREAD'),
                                   'status': status_of(self.receipts[row['tx']]) if row['tx'] in self.receipts else None,
                                   'execution': execution_of(self.receipts[row['tx']]) if row['tx'] in self.receipts else None,
@@ -477,7 +492,7 @@ def complete(args):
         fsync_dir(Path(lock_path).resolve().parent)
         runner = None
         try:
-            runner = Completer(args)
+            runner = Completer(args, completion_lock=lock)
             return runner.run()
         except (Pause, RuntimeError, ValueError, KeyError, TypeError, OSError, SystemExit, subprocess.TimeoutExpired) as exc:
             if runner:
@@ -499,6 +514,8 @@ def parse_args(argv=None):
     parser.add_argument('--poll-interval', type=float, default=5)
     parser.add_argument('--max-runtime', type=float, default=3600)
     parser.add_argument('--deadline-margin', type=int, default=120)
+    parser.add_argument('--max-recoveries', type=int, choices=range(1, 4), default=1,
+                        help='maximum new recovery transactions per slot, excluding the original (default: 1)')
     args = parser.parse_args(argv)
     if (not re.fullmatch(r'0x[0-9a-fA-F]{40}', args.address) or not args.account.strip() or
             args.challenge_id < 0 or args.wait_timeout <= 0 or not 0 < args.poll_interval <= 10 or

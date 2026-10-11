@@ -280,5 +280,102 @@ class CompletionTests(unittest.TestCase):
             self.assertEqual(complete.complete(self.args),2)
         self.write.assert_not_called()
 
+    def test_explicit_three_recoveries_complete_with_every_prior_receipt_and_hash(self):
+        self.args.max_recoveries = 3
+        for attempt in range(3):
+            self.behavior[(0,'REWRITE',attempt)] = FAILED
+        self.assertEqual(complete.complete(self.args),0)
+        self.assertEqual(self.calls.count((0,'REWRITE')),4)
+        self.assertEqual(self.calls.count((0,'ADMIT')),1)
+        rows=[r for r in self.rows() if r['key']=='probe:0:0:REWRITE']
+        self.assertEqual([r.get('recovery_ordinal',0) for r in rows],[0,1,2,3])
+        self.assertEqual(len({r['tx'] for r in rows}),4)
+        for ordinal,row in enumerate(rows[1:],1):
+            self.assertEqual(row['previous_row'],rows[ordinal-1])
+            self.assertEqual(row['previous_tx'],rows[ordinal-1]['tx'])
+            self.assertEqual(json.loads((Path(self.tmp.name)/row['previous_receipt']).read_text()),FAILED)
+        report=self.report()
+        self.assertEqual(report['max_recoveries'],3)
+        self.assertEqual(sorted(r['recovery_ordinal'] for r in report['acknowledged_failures']),[0,1,2])
+        self.assertEqual({r['tx'] for r in report['acknowledged_failures']},{r['tx'] for r in rows[:-1]})
+        self.assertTrue(report['all_slots_complete'])
+        before=Path(self.args.manifest).read_bytes()
+        self.assertEqual(complete.complete(self.args),0)
+        self.assertEqual(Path(self.args.manifest).read_bytes(),before)
+
+    def test_fourth_recovery_is_blocked_across_resume(self):
+        self.args.max_recoveries = 3
+        for attempt in range(4):
+            self.behavior[(0,'PINNED',attempt)] = FAILED
+        self.assertEqual(complete.complete(self.args),2)
+        self.assertEqual(self.calls.count((0,'PINNED')),4)
+        exhausted=self.report()['recoveries_exhausted']
+        self.assertEqual(len(exhausted),1)
+        self.assertEqual(exhausted[0]['recovery_ordinal'],3)
+        self.assertEqual(self.report()['recoveries_eligible'],[])
+        before=Path(self.args.manifest).read_bytes()
+        self.assertEqual(complete.complete(self.args),2)
+        self.assertEqual(Path(self.args.manifest).read_bytes(),before)
+        self.assertEqual(self.calls.count((0,'PINNED')),4)
+
+    def test_pending_second_recovery_never_consumes_third_allowance(self):
+        self.args.max_recoveries = 3
+        self.behavior[(0,'PINNED',0)] = FAILED
+        self.behavior[(0,'PINNED',1)] = FAILED
+        self.behavior[(0,'PINNED',2)] = {'status':14,'result':1,'txExecutionResult':1}
+        self.assertEqual(complete.complete(self.args),2)
+        self.assertEqual(complete.complete(self.args),2)
+        self.assertEqual(self.calls.count((0,'PINNED')),3)
+        row=run_case.manifest_rows(self.args.manifest)['probe:0:0:PINNED']
+        self.assertEqual(row['recovery_ordinal'],2)
+        self.receipts[row['tx']] = SUCCESS
+        self.apply(0,'PINNED')
+        self.assertEqual(complete.complete(self.args),0)
+        self.assertEqual(self.calls.count((0,'PINNED')),3)
+
+    def test_second_recovery_must_wait_for_its_own_finality(self):
+        self.args.max_recoveries = 3
+        self.behavior[(0,'PINNED',0)] = FAILED
+        self.behavior[(0,'PINNED',1)] = {**FAILED,'status':12}
+        with patch.object(complete.time,'sleep',side_effect=complete.Pause('bounded test stop')):
+            self.assertEqual(complete.complete(self.args),2)
+        self.assertEqual(self.calls.count((0,'PINNED')),2)
+        waiting=self.report()['awaiting_finalization']
+        self.assertEqual(len(waiting),1)
+        self.assertEqual(waiting[0]['recovery_ordinal'],1)
+        self.assertEqual(self.report()['recoveries_eligible'],[])
+        self.receipts[waiting[0]['tx']] = FAILED
+        self.assertEqual(complete.complete(self.args),0)
+        self.assertEqual(self.calls.count((0,'PINNED')),3)
+
+    def test_later_recovery_refuses_missing_history_before_any_submission(self):
+        self.behavior[(0,'PINNED',0)] = FAILED
+        self.behavior[(0,'PINNED',1)] = FAILED
+        self.assertEqual(complete.complete(self.args),2)
+        self.args.max_recoveries = 3
+        rows=self.rows()
+        original=next(r for r in rows if r['key']=='probe:0:0:PINNED' and 'previous_tx' not in r)
+        Path(self.args.manifest).write_text(''.join(json.dumps(r)+'\n' for r in rows if r != original))
+        self.write.reset_mock()
+        self.assertEqual(complete.complete(self.args),2)
+        self.write.assert_not_called()
+        error=json.loads(Path(self.args.manifest+'.complete/startup-error.json').read_text())
+        self.assertIn('original manifest rows are missing or changed',error['reason'])
+
+    def test_larger_limit_does_not_retry_finalized_return_idle(self):
+        self.args.max_recoveries = 3
+        row=self.add_row(0,'PINNED',{'status':7,'result':0,'txExecutionResult':1})
+        self.assertEqual(complete.complete(self.args),2)
+        self.assertEqual(self.rows(),[row])
+        self.write.assert_not_called()
+
+    def test_cli_recovery_policy_is_explicit_and_bounded(self):
+        options=[value for name in ('address','account','rpc','manifest','claim')
+                 for value in ('--'+name,getattr(self.args,name))]+['--challenge-id','0']
+        self.assertEqual(complete.parse_args(options).max_recoveries,1)
+        self.assertEqual(complete.parse_args(options+['--max-recoveries','3']).max_recoveries,3)
+        with contextlib.redirect_stderr(io.StringIO()), self.assertRaises(SystemExit):
+            complete.parse_args(options+['--max-recoveries','4'])
+
 
 if __name__=='__main__': unittest.main()

@@ -104,17 +104,54 @@ class RunnerTests(unittest.TestCase):
         self.assertTrue(chain_receipts.successful({"status": 7, "txExecutionResult": 1, "result": 1}))
 
     def test_finalization_does_not_turn_a_failed_consensus_into_success(self):
-        for result in (0, 2, 3, 4, 5, 7, "NO_MAJORITY", "MajorityDisagree", "future_result"):
+        for result in (0, 2, 3, 4, 5, 6, 7, "NO_MAJORITY", "MajorityDisagree", "future_result"):
             with self.subTest(result=result):
                 self.assertFalse(chain_receipts.successful({"status": 7, "txExecutionResult": 1, "result": result}))
         self.assertFalse(chain_receipts.successful({"status": 7, "txExecutionResult": 1}))
         self.assertFalse(chain_receipts.successful({"status": 5, "txExecutionResult": 1, "result": 5}))
         self.assertTrue(chain_receipts.successful({"status": 5, "txExecutionResult": 1}))
         self.assertTrue(chain_receipts.successful({"statusName": "Finalized", "txExecutionResultName": "FinishedWithReturn",
-                                                  "result": 6, "resultName": "MajorityAgree"}))
+                                                  "result": 1, "resultName": "MajorityAgree"}))
         contradictory = {"status": 7, "txExecutionResult": 1, "result": 5, "resultName": "AGREE"}
         self.assertEqual(chain_receipts.consensus_result_of(contradictory), "INCONSISTENT")
         self.assertFalse(chain_receipts.successful(contradictory))
+
+    def test_deployed_result_aliases_are_canonical_without_mutating_raw_evidence(self):
+        for code, legacy, canonical in ((1, "AGREE", "MAJORITY_AGREE"),
+                                        (2, "DISAGREE", "MAJORITY_DISAGREE"),
+                                        (3, "TIMEOUT", "MAJORITY_TIMEOUT")):
+            with self.subTest(code=code):
+                receipt = {"status": 7, "result": code, "resultName": legacy,
+                           "consensus_result": canonical, "txExecutionResult": 1,
+                           "lastRound": {"validatorVotes": [0, 4, 3, 3, 1],
+                                         "validatorVotesName": ["NOT_VOTED", "DETERMINISTIC_VIOLATION",
+                                                                "TIMEOUT", "TIMEOUT", "AGREE"]}}
+                raw = json.dumps(receipt)
+                self.assertEqual(chain_receipts.consensus_result_of(receipt), canonical)
+                self.assertEqual(chain_receipts.successful(receipt), code == 1)
+                self.assertEqual(chain_receipts.finalized_failure(receipt), code != 1)
+                self.assertEqual(json.dumps(receipt), raw)
+                self.assertEqual(chain_receipts.consensus_result_of({"resultName": legacy.lower()}), canonical)
+                self.assertEqual(chain_receipts.consensus_result_of({"result_name": canonical.replace("_", "")}),
+                                 canonical)
+
+    def test_execution_and_consensus_code_four_have_distinct_meanings(self):
+        receipt = {"status": 7, "result": 4, "resultName": "DeterministicViolation",
+                   "txExecutionResult": 4, "txExecutionResultName": "NondetDisagree"}
+        self.assertEqual(chain_receipts.execution_of(receipt), "NONDET_DISAGREE")
+        self.assertEqual(chain_receipts.consensus_result_of(receipt), "DETERMINISTIC_VIOLATION")
+        self.assertTrue(chain_receipts.finalized_failure(receipt))
+        self.assertFalse(chain_receipts.successful(receipt))
+        receipt["txExecutionResultName"] = "DETERMINISTIC_VIOLATION"
+        self.assertEqual(chain_receipts.execution_of(receipt), "INCONSISTENT")
+        self.assertFalse(chain_receipts.finalized_failure(receipt))
+
+    def test_aliases_do_not_hide_genuine_result_conflicts(self):
+        for receipt in ({"result": 1, "resultName": "DISAGREE"},
+                        {"result": 3, "resultName": "AGREE"},
+                        {"resultName": "AGREE", "consensus_result": "MAJORITY_DISAGREE"}):
+            with self.subTest(receipt=receipt):
+                self.assertEqual(chain_receipts.consensus_result_of(receipt), "INCONSISTENT")
 
     def test_recorded_bradbury_consensus_and_execution_combinations(self):
         # Relevant fields copied from the preserved live receipts. Agreement on
@@ -206,7 +243,7 @@ class RunnerTests(unittest.TestCase):
 
     def test_finalized_known_unsuccessful_execution_can_be_acknowledged(self):
         self.args.acknowledge_failed = ["0xabc"]
-        for result, execution in ((0, 0), (1, 2), (3, 3), (2, 4), (4, 5)):
+        for result, execution in ((0, 0), (1, 2), (3, 3), (2, 4)):
             with self.subTest(result=result, execution=execution):
                 runner = run_case.Runner(self.args)
                 receipt = {"status": 7, "result": result, "txExecutionResult": execution}
@@ -228,10 +265,18 @@ class RunnerTests(unittest.TestCase):
             {"status": 7, "result": 5},
             {"status": 7, "txExecutionResult": "future_execution", "result": 0},
             {"status": 7, "txExecutionResult": 0, "txExecutionResultName": "FINISHED_WITH_RETURN", "result": 0},
+            {"status": 7, "txExecutionResult": 1, "result": 6},
+            {"status": 7, "txExecutionResult": 1, "result": 6, "resultName": "MAJORITY_AGREE"},
+            {"status": 7, "txExecutionResult": 1, "result": 7},
+            {"status": 7, "txExecutionResult": 1, "result": 7, "resultName": "MAJORITY_DISAGREE"},
+            {"status": 7, "txExecutionResult": 5, "result": 4},
+            {"status": 7, "txExecutionResult": 5, "txExecutionResultName": "DETERMINISTIC_VIOLATION", "result": 4},
         ]
         for receipt in examples:
             with self.subTest(receipt=receipt):
                 runner = run_case.Runner(self.args)
+                self.assertFalse(chain_receipts.finalized_failure(receipt))
+                self.assertFalse(chain_receipts.successful(receipt))
                 with patch.object(run_case, "fetch_receipt", return_value=receipt):
                     with self.assertRaisesRegex(SystemExit, "ended FINALIZED"):
                         runner.wait({"key": "probe:0:2:REWRITE", "tx": "0xabc"})

@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import {checkedGas, TRANSACTION_GAS_CAP} from "../scripts/gas_guard.mjs";
+import {checkedGas, TRANSACTION_GAS_CAP, causedBy} from "../scripts/gas_guard.mjs";
 
 const address = "0x" + "1".repeat(40);
 const tx = {chainId: 4221, to: address, account: {address}, data: "0x1234", value: 0n};
@@ -11,6 +11,16 @@ const mockRpc = (overrides = {}, calls = []) => async (request) => {
   return {eth_chainId: "0x107d", eth_getBlockByNumber: {gasLimit: "0x5f5e100"},
     eth_estimateGas: "0x989680", eth_call: "0x"}[request.method];
 };
+
+test("recognizes only the identical dry-run sentinel through viem wrappers", () => {
+  const stop = new Error("DRY_RUN_COMPLETE");
+  assert.equal(causedBy(stop, stop), true);
+  assert.equal(causedBy(new Error("wrapped", {cause: new Error("inner", {cause: stop})}), stop), true);
+  assert.equal(causedBy(new Error("DRY_RUN_COMPLETE"), stop), false);
+  assert.equal(causedBy(new Error("RPC reverted", {cause: new Error("DRY_RUN_COMPLETE")}), stop), false);
+  const cycle = new Error("unrelated"); cycle.cause = cycle;
+  assert.equal(causedBy(cycle, stop), false);
+});
 
 test("bounds the estimate, adds margin, and simulates the exact selected gas", async () => {
   const calls = [];

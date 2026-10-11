@@ -5,37 +5,43 @@ import os
 import subprocess
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-# Match genlayer-js 1.1.8 used by genlayer_write.mjs and the deployed Bradbury
-# consensus VERSION 2.0.0. Consensus v0.6 reassigns codes 11–13; its table must
-# not be mixed with these legacy SDK receipts.
+# Deployed Bradbury v0.5:9c68608 / VERSION 2.0.0, verified ITransactions.sol:
+# https://explorer-api.testnet-chain.genlayer.com/api?module=contract&action=getsourcecode&address=0x0a2c393975da79505ed930efc55ae4aeb88b0d62
+# The active proxy implementation matches the official genlayer-networks
+# manifest at f9a30ed9536e56255cd2d7f8579a4d5dcc81ffd0. SDK 1.1.8 contains
+# obsolete result names/codes; Consensus v0.6 also reassigns status codes.
 STATUS_CODES = {
     0: "UNINITIALIZED", 1: "PENDING", 2: "PROPOSING", 3: "COMMITTING",
     4: "REVEALING", 5: "ACCEPTED", 6: "UNDETERMINED", 7: "FINALIZED",
     8: "CANCELED", 9: "APPEAL_REVEALING", 10: "APPEAL_COMMITTING",
     11: "READY_TO_FINALIZE", 12: "VALIDATORS_TIMEOUT", 13: "LEADER_TIMEOUT",
-    # Legacy-compatible SDK update; this is a nonterminal phase, not success.
-    # genlayer-js commit 2af6928e2587091fb33f5f703160c8a160606048.
     14: "LEADER_REVEALING",
 }
 EXECUTION_CODES = {
     0: "NOT_VOTED", 1: "FINISHED_WITH_RETURN", 2: "FINISHED_WITH_ERROR",
-    3: "TIMEOUT", 4: "NONDET_DISAGREE", 5: "DETERMINISTIC_VIOLATION",
+    3: "TIMEOUT", 4: "NONDET_DISAGREE",
 }
 RESULT_CODES = {
-    0: "IDLE", 1: "AGREE", 2: "DISAGREE", 3: "TIMEOUT",
+    0: "IDLE", 1: "MAJORITY_AGREE", 2: "MAJORITY_DISAGREE", 3: "MAJORITY_TIMEOUT",
     4: "DETERMINISTIC_VIOLATION", 5: "NO_MAJORITY",
-    6: "MAJORITY_AGREE", 7: "MAJORITY_DISAGREE",
+}
+# Preserve original receipts. Only returned result labels are canonicalized;
+# these SDK aliases denote the same verified codes 1, 2 and 3. In particular,
+# do not map the obsolete numeric codes 6/7 or execution code 5 to an outcome.
+RESULT_ALIASES = {
+    "AGREE": "MAJORITY_AGREE", "DISAGREE": "MAJORITY_DISAGREE",
+    "TIMEOUT": "MAJORITY_TIMEOUT",
 }
 RESULT_FIELDS = ("resultName", "result_name", "result", "consensus_result")
-NEGATIVE_RESULTS = {"NO_MAJORITY", "TIMEOUT", "DETERMINISTIC_VIOLATION",
-                    "DISAGREE", "MAJORITY_DISAGREE"}
+NEGATIVE_RESULTS = {"NO_MAJORITY", "MAJORITY_TIMEOUT", "DETERMINISTIC_VIOLATION",
+                    "MAJORITY_DISAGREE"}
 # Decided outcomes stop the current wait. They are not all finalized: an
 # appeal can start another round for the same transaction, so resume refetches it.
 TERMINAL = {"ACCEPTED", "FINALIZED", "UNDETERMINED", "CANCELED",
             "VALIDATORS_TIMEOUT", "LEADER_TIMEOUT", "ERROR"}
 
 
-def _field(receipt, keys, codes, fallback):
+def _field(receipt, keys, codes, fallback, legacy_aliases=None):
     if not isinstance(receipt, dict):
         return fallback
     for key in keys:
@@ -46,14 +52,16 @@ def _field(receipt, keys, codes, fallback):
         if normalized.isdigit():
             return codes.get(int(normalized), normalized)
         aliases = {name.replace("_", ""): name for name in codes.values()}
+        aliases.update({name.replace("_", ""): canonical
+                        for name, canonical in (legacy_aliases or {}).items()})
         return aliases.get(normalized.replace("_", ""), normalized)
     return fallback
 
 
-def _consistent_field(receipt, keys, codes, fallback):
+def _consistent_field(receipt, keys, codes, fallback, legacy_aliases=None):
     if not isinstance(receipt, dict):
         return fallback
-    values = {_field(receipt, (key,), codes, fallback)
+    values = {_field(receipt, (key,), codes, fallback, legacy_aliases)
               for key in keys if receipt.get(key) not in (None, "")}
     if not values:
         return fallback
@@ -72,7 +80,7 @@ def execution_of(receipt):
 
 
 def consensus_result_of(receipt):
-    return _consistent_field(receipt, RESULT_FIELDS, RESULT_CODES, "UNKNOWN")
+    return _consistent_field(receipt, RESULT_FIELDS, RESULT_CODES, "UNKNOWN", RESULT_ALIASES)
 
 
 def finalized_no_execution(receipt):
@@ -94,7 +102,7 @@ def successful(receipt):
     status = status_of(receipt)
     if status not in {"ACCEPTED", "FINALIZED"} or execution_of(receipt) != "FINISHED_WITH_RETURN":
         return False
-    if consensus_result_of(receipt) in {"AGREE", "MAJORITY_AGREE"}:
+    if consensus_result_of(receipt) == "MAJORITY_AGREE":
         return True
     # Older compact ACCEPTED receipts omit result, but ACCEPTED itself records
     # agreement. FINALIZED can also close a failed decision: never infer success
