@@ -19,6 +19,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
 import retry_finalized_probe as recovery
 import run_case
+from proof_fixture import make_bundle
 
 
 class FinalizedProbeRecoveryTests(unittest.TestCase):
@@ -109,6 +110,53 @@ class FinalizedProbeRecoveryTests(unittest.TestCase):
             recovery.retry(self.args)
         self.assertEqual(self.send.call_count, 1)
         self.assertEqual(len(self.read_rows()), 2)
+
+    def setup_no_messages_proof(self, during_lookup=None):
+        self.args.allow_proven_no_messages=True
+        self.args.source=os.path.join(ROOT,'build/impeach.py')
+        self.receipt={'status':7,'result':0,'txExecutionResult':1}
+        self.original_fetch.return_value=self.receipt
+        self.challenge.update(challenge_id=0)
+        self.state.update(challenge_id=0,item_index=2,rewrite='',stage_c1='PENDING',stage_c2='PENDING')
+        chain=copy.deepcopy(self.claim);chain.update(self.claim['extras'])
+        chain.update(claim_id=0,status='TRIAL',active_challenge=0,
+            item_hashes=[run_case.tool.item_commitment(i['prompt'],i['answer'],i['salt']) for i in self.claim['_items']],
+            stake=int(self.claim['stake']),bond_sworn=int(self.claim['bond']))
+        def read(method,*args):
+            return copy.deepcopy({'get_claim':chain,'get_challenge':self.challenge,'get_probe':self.state,'clock':self.clock}[method])
+        self.enterContext(patch.object(run_case.Runner,'read',side_effect=read))
+        self.proof_writes=[]
+        def command(command,**kwargs):
+            if command[1]=='scripts/native_finality_proof.mjs':
+                bundle=make_bundle(self.row,recovery.original_call(self.row,self.args.claim),
+                    source_sha=hashlib.sha256(Path(self.args.source).read_bytes()).hexdigest(),
+                    claim_sha=recovery.proof.claim_hash(self.args.claim))
+                if during_lookup:during_lookup()
+                return subprocess.CompletedProcess(command,0,json.dumps(bundle),'')
+            self.proof_writes.append(command)
+            return subprocess.CompletedProcess(command,0,'Transaction Hash: '+self.new_tx+'\n','')
+        self.send.side_effect=command
+        return chain
+
+    def test_proof_rechecks_empty_slot_and_deadline_after_lookup_before_marker(self):
+        self.setup_no_messages_proof(lambda:self.state.update(stage_c1='INADMISSIBLE'))
+        with self.assertRaisesRegex(SystemExit,'state changed'):recovery.retry(self.args)
+        self.assertEqual(self.proof_writes,[])
+        self.assertFalse(Path(recovery.dispatch_path(self.args.manifest,self.args.tx)).exists())
+        self.state['stage_c1']='PENDING'
+        chain=self.setup_no_messages_proof(lambda:setattr(self,'clock',100+self.claim['extras']['trial_window_s']))
+        with self.assertRaisesRegex(SystemExit,'window closed'):recovery.retry(self.args)
+        self.assertEqual(self.proof_writes,[])
+        self.assertFalse(Path(recovery.dispatch_path(self.args.manifest,self.args.tx)).exists())
+
+    def test_proof_frozen_claim_or_slot_identity_mismatch_refuses_before_lookup(self):
+        chain=self.setup_no_messages_proof()
+        chain['score_milli']+=1
+        with self.assertRaisesRegex(ValueError,'frozen claim'):recovery.retry(self.args)
+        self.send.assert_not_called()
+        chain['score_milli']-=1;self.state['item_index']=3
+        with self.assertRaisesRegex(ValueError,'identity differs'):recovery.retry(self.args)
+        self.send.assert_not_called()
 
     def test_pending_unfinalized_success_and_unknown_results_refuse(self):
         for receipt in (

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Impeach — a court for benchmark scores</title>
-<meta name="description" content="A GenLayer court that cross-examines a benchmark score: pinned items against rewrites the model has not seen, verbatim recall, and a public registry of spent evaluation items.">
+<meta name="description" content="A GenLayer court that cross-examines a benchmark score: pinned items against rewrites, verbatim recall, and a public registry of spent evaluation items.">
 <link rel="canonical" href="https://impeach.vercel.app/">
 <link rel="icon" href="favicon.ico" sizes="48x48">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -13,7 +13,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Impeach">
 <meta property="og:title" content="Impeach — a court for benchmark scores">
-<meta property="og:description" content="A bonded score is tried on its sealed items and on rewrites the model has not seen. The items are burned into a public registry the moment they are shown.">
+<meta property="og:description" content="A bonded score is tried on its sealed items and on rewrites. The items are burned into a public registry the moment they are shown.">
 <meta property="og:url" content="https://impeach.vercel.app/">
 <meta property="og:image" content="https://impeach.vercel.app/assets/og-card.png">
 <meta property="og:image:width" content="1200">
@@ -21,7 +21,7 @@
 <meta property="og:image:alt" content="Impeach. An answer sheet with three rows of marks: answered as sealed, answered as rewritten, continued from memory.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Impeach — a court for benchmark scores">
-<meta name="twitter:description" content="The same questions, asked again in words the model has not met.">
+<meta name="twitter:description" content="The same questions, asked again in new wording, with a separate test of verbatim recall.">
 <meta name="twitter:image" content="https://impeach.vercel.app/assets/og-card.png">
 <link rel="preload" href="assets/fonts/barlow-condensed-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/fonts.css">
@@ -261,7 +261,7 @@ pre { font-family: var(--mono); font-size: 0.8rem; line-height: 1.5; background:
 <header class="top">
   <div>
     <h1>Impeach</h1>
-    <p class="lede">A score says a model can do something. It might only say the model has seen the answers. This court asks the same questions again, in words the model has not met.</p>
+    <p class="lede">A score says a model can do something. It might only say the model has seen the answers. This court asks the same questions in new wording and tests verbatim recall.</p>
   </div>
   <div class="hero-side">
     <figure class="hero-sheet" id="hero-sheet"></figure>
@@ -338,7 +338,7 @@ pre { font-family: var(--mono); font-size: 0.8rem; line-height: 1.5; background:
       <h2 id="registry-title">Spent items</h2>
       <p id="registry-sub"></p>
     </div>
-    <p>To try a score the court has to show the items, and an item that has been shown is in every future training set. Each one below was burned the moment it was revealed. A score measured on it afterwards is evidence of nothing.</p>
+    <p>Revealing an item makes its text public. This court marks it spent immediately, so later claims cannot reuse it as a sealed item. The registry records both the sealed commitment and the hash of its normalized text.</p>
     <form class="check" id="check">
       <label for="needle">Paste an item's text or a hash. Text is hashed in this browser and never sent anywhere.</label>
       <textarea id="needle" spellcheck="false"></textarea>

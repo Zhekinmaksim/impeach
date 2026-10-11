@@ -140,7 +140,7 @@ class QueueService:
         bytx = {}
         for key, chain in history.items():
             if chain[-1].get('method') == 'probe':
-                recovery.validate_history(chain[-1], self.args.manifest, history)
+                recovery.validate_history(chain[-1], self.args.manifest, history, self.args.claim, self.args.source)
             for row in chain:
                 tx = row.get('tx', '')
                 if not HASH.fullmatch(tx) or tx.lower() in bytx or row.get('address', '').lower() != self.args.address.lower():

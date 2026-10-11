@@ -19,20 +19,20 @@ const CLASS_NAMES = {
 };
 
 const VERDICT_TEXT = {
-  CONTAMINATED: (c) =>
+  CONTAMINATED: (c, subject = "model") =>
     ({
-      GAP_AND_RECALL: "Both detectors are over the thresholds frozen in the claim: the model lost its answers when the questions were rewritten, and it could continue the sealed items from memory.",
-      GAP: "The model answered the sealed items and lost them when the same questions were rewritten. The gap is over the threshold frozen in the claim.",
-      RECALL: "The model continued sealed items it was only shown the start of. The recall rate is over the threshold frozen in the claim.",
+      GAP_AND_RECALL: `Both detectors are over the thresholds frozen in the claim: the ${subject} lost its answers when the questions were rewritten, and it could continue the sealed items from memory.`,
+      GAP: `The ${subject} answered the sealed items and lost them when the same questions were rewritten. The gap is over the threshold frozen in the claim.`,
+      RECALL: `The ${subject} continued sealed items it was only shown the start of. The recall rate is over the threshold frozen in the claim.`,
     })[c.reason] || "Over the thresholds frozen in the claim.",
   CLEAN: (c) =>
     "The admitted rewrite sample met the minimum and the gap stayed below its threshold." +
     (c.reason === "RECALL_NOT_MEASURED" ? " Recall did not meet the minimum measurable sample." : " Verbatim recall also stayed below its threshold.") +
     (c.bond_standing > 0 ? " The bond is still posted, so the next challenger can try again." : " The publisher has since taken the bond back."),
-  UNSUPPORTED: (c) =>
+  UNSUPPORTED: (c, subject = "model") =>
     c.reason === "SET_ALREADY_SPENT"
       ? "The claim was sworn on items that were already in the spent registry. No probe can repair that."
-      : "The model did not reproduce the sworn score on its own sealed items. Nothing suggests memory; the number was simply not true.",
+      : `The ${subject} did not reproduce the sworn score on its own sealed items. Nothing suggests memory; the number was simply not true.`,
   INCONCLUSIVE: (c) =>
     c.reason === "ENDPOINT_SILENT"
       ? "The endpoint did not answer enough probes to rule. The publisher paid the challenger's costs, and the claim can be tried again."
@@ -341,7 +341,7 @@ function renderDrawn(kase, fresh) {
   const txs = Object.keys(kase.txs || {}).length;
   const figures = [
     [kase.certificate.items_burned, "items burned to hear this case"],
-    [calls, "model probe outcomes recorded"],
+    [calls, "subject probe outcomes recorded"],
     [rulings, "referee rulings on rewrites"],
     [kase.certificate.admissible_probes, "pairs admitted as the same question"],
   ];
@@ -392,7 +392,7 @@ function renderSheet(kase, fresh) {
   const verdict = $("verdict");
   verdict.replaceChildren(
     h("div", { class: "word " + tone, text: word.charAt(0) + word.slice(1).toLowerCase() }),
-    h("p", { text: (VERDICT_TEXT[word] || (() => ""))(cert) }),
+    h("p", { text: (VERDICT_TEXT[word] || (() => ""))(cert, scriptedSubject(kase) ? "scripted lookup" : "model") }),
   );
 
   $("ruling-sub").textContent = subset.length
@@ -545,7 +545,7 @@ function renderRecord(kase) {
     line("Probes with no reply", String(cert.dead_probes)),
     line("Items burned", String(cert.items_burned)),
     line("The score itself", cert.score_status === "SPENT"
-      ? "spent with its items on " + when(cert.score_expired_at) + ". It can never be measured again on unseen text."
+      ? "spent with its items on " + when(cert.score_expired_at) + ". This court will reject another claim using those source items."
       : "still sealed", true),
     line("Challenges survived", String(cert.challenges_survived)),
     line("Bond still posted (wei)", String(cert.bond_standing)),
@@ -581,8 +581,8 @@ function renderRecord(kase) {
   if (txs.length) {
     const failed = txs.filter(([, t]) =>
       ["UNDETERMINED", "LEADER_TIMEOUT", "VALIDATORS_TIMEOUT", "CANCELED", "ERROR"].includes(t.status) ||
-      (t.status === "FINALIZED" && t.consensus_result === "IDLE" && t.execution === "NOT_VOTED") ||
-      ["NO_MAJORITY", "TIMEOUT", "DETERMINISTIC_VIOLATION", "DISAGREE", "MAJORITY_DISAGREE"].includes(t.consensus_result) ||
+      (t.status === "FINALIZED" && t.execution === "NOT_VOTED") ||
+      ["NO_MAJORITY", "TIMEOUT", "MAJORITY_TIMEOUT", "DETERMINISTIC_VIOLATION", "DISAGREE", "MAJORITY_DISAGREE"].includes(t.consensus_result) ||
       ["FINISHED_WITH_ERROR", "TIMEOUT", "NONDET_DISAGREE", "DETERMINISTIC_VIOLATION"].includes(t.execution)).length;
     receipts.append(
       h("h3", { text: "Receipts", style: "margin-top:1.4rem" }),
@@ -625,7 +625,7 @@ async function checkItem(event) {
   const row = (state.snap.registry || []).find((r) => r.content_hash === key || r.item_hash === key);
   if (row) {
     out.className = "answer spent";
-    out.textContent = "Spent. Burned in claim " + row.claim_id + " on " + when(row.burned_at) + ". A score measured on this item is no longer evidence.";
+    out.textContent = "Spent. Burned in claim " + row.claim_id + " on " + when(row.burned_at) + ". This court will reject a new claim using this source item.";
   } else {
     out.className = "answer unspent";
     out.textContent = "Not in the registry. Hash checked: " + key.slice(0, 16) + "…";

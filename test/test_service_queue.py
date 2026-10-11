@@ -117,6 +117,11 @@ class QueueTests(unittest.TestCase):
         self.assertIn('--finalize',self.calls[0])
         self.assertFalse(self.records('.dispatch.json'))
 
+    def test_probe_history_validation_is_bound_to_current_claim_and_source(self):
+        with patch.object(queue.recovery,'validate_history',wraps=queue.recovery.validate_history) as check:
+            self.assertEqual(queue.service(self.args),0)
+            self.assertEqual(check.call_args.args[3:],(self.args.claim,self.args.source))
+
     def test_execute_finalizes_known_head_preserving_native_and_evm_evidence(self):
         self.args.execute=True
         self.assertEqual(queue.service(self.args),0)

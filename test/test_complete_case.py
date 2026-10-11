@@ -2,6 +2,7 @@
 import contextlib
 import copy
 import fcntl
+import hashlib
 import io
 import json
 import os
@@ -18,6 +19,7 @@ sys.path.insert(0, str(ROOT / 'scripts'))
 import complete_case as complete
 import run_case
 import retry_finalized_probe as recovery
+from proof_fixture import make_bundle
 
 SUCCESS = {'status': 5, 'result': 1, 'txExecutionResult': 1}
 FAILED = {'status': 7, 'result': 5, 'txExecutionResult': 1, 'rounds': [{'votes': ['TIMEOUT', 'DISAGREE']}]}
@@ -130,6 +132,73 @@ class CompletionTests(unittest.TestCase):
         self.assertEqual(complete.complete(self.args),0)
         self.assertEqual(len(self.calls),96)
         self.assertEqual(len(self.rows()),96)
+
+    def enable_proof_rpc_fixture(self):
+        self.args.allow_proven_no_messages=True
+        self.args.source=str(ROOT/'build/impeach.py')
+        def command(args, **kwargs):
+            if args[1]=='scripts/native_finality_proof.mjs':
+                tx=args[args.index('--tx')+1]
+                row=next(r for r in self.rows() if r['tx']==tx)
+                receipt=self.receipts[tx]
+                bundle=make_bundle(row,recovery.original_call(row,self.args.claim),
+                    source_sha=hashlib.sha256(Path(self.args.source).read_bytes()).hexdigest(),
+                    claim_sha=complete.proof.claim_hash(self.args.claim),
+                    outcome=(receipt['txExecutionResult'],receipt['result']))
+                return subprocess.CompletedProcess(args,0,json.dumps(bundle),'')
+            return self.submit(args,**kwargs)
+        self.write.side_effect=command
+
+    def test_proof_path_three_recoveries_preserve_proof_history_and_resume(self):
+        self.enable_proof_rpc_fixture();self.args.max_recoveries=3
+        ambiguous={'status':7,'result':0,'txExecutionResult':1}
+        for attempt in range(3):self.behavior[(0,'REWRITE',attempt)]=ambiguous
+        self.assertFalse(recovery.retryable_receipt(ambiguous))
+        with self.assertRaises(complete.Pause):complete.classify(ambiguous)
+        self.assertEqual(complete.complete(self.args),0)
+        rows=[r for r in self.rows() if r['key']=='probe:0:0:REWRITE']
+        self.assertEqual(len(rows),4)
+        for ordinal,row in enumerate(rows[1:],1):
+            self.assertEqual(row['recovery_ordinal'],ordinal)
+            self.assertEqual(row['previous_failure_basis'],complete.proof.BASIS)
+            path=Path(self.tmp.name)/row['previous_finalization_proof']
+            self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(),row['previous_finalization_proof_sha256'])
+            marker=json.loads(Path(recovery.dispatch_path(self.args.manifest,row['previous_tx'])).read_text())
+            self.assertEqual(marker['previous_finalization_proof_sha256'],row['previous_finalization_proof_sha256'])
+            self.assertEqual(recovery.validate_history(row,self.args.manifest,
+                {row['key']:rows[:ordinal+1]},self.args.claim,self.args.source),ordinal)
+        calls=len(self.calls)
+        self.assertEqual(complete.complete(self.args),0)
+        self.assertEqual(len(self.calls),calls)
+        proof_path=Path(self.tmp.name)/rows[1]['previous_finalization_proof']
+        proof_path.write_text(proof_path.read_text()+' ')
+        self.assertEqual(complete.complete(self.args),2)
+        self.assertEqual(len(self.calls),calls)
+
+    def test_proven_no_messages_fourth_recovery_remains_blocked(self):
+        self.enable_proof_rpc_fixture();self.args.max_recoveries=3
+        for attempt in range(4):self.behavior[(0,'RECALL',attempt)]={'status':7,'result':1,'txExecutionResult':0}
+        self.assertEqual(complete.complete(self.args),2)
+        self.assertEqual(self.calls.count((0,'RECALL')),4)
+        self.assertEqual(self.report()['recoveries_exhausted'][0]['recovery_ordinal'],3)
+        self.assertEqual(complete.complete(self.args),2)
+        self.assertEqual(self.calls.count((0,'RECALL')),4)
+
+    def test_opt_in_without_available_proof_pauses_before_new_probes(self):
+        self.args.allow_proven_no_messages=True
+        self.add_row(0,'REWRITE',{'status':7,'result':0,'txExecutionResult':1})
+        self.write.side_effect=lambda *a,**kw:subprocess.CompletedProcess([],2,'','bounded lookup unavailable')
+        self.assertEqual(complete.complete(self.args),2)
+        self.assertEqual(self.calls,[])
+        self.assertEqual(len(self.rows()),1)
+
+    def test_proof_cannot_resend_applied_rejected_dead_or_changed_slot(self):
+        self.enable_proof_rpc_fixture()
+        self.add_row(0,'REWRITE',{'status':7,'result':0,'txExecutionResult':1})
+        self.apply(0,'PINNED');self.apply(0,'RECALL');self.apply(0,'REWRITE')
+        self.states[0].update(stage_c1='INADMISSIBLE',rewrite='')
+        self.assertEqual(complete.complete(self.args),0)
+        self.assertNotIn((0,'REWRITE'),self.calls)
 
     def test_inadmissible_c1_is_complete_and_does_not_run_admit_or_retry(self):
         self.c1[3]='INADMISSIBLE'

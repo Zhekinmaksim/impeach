@@ -20,6 +20,7 @@ import tempfile
 import time
 
 import run_case
+import native_failure_proof as proof
 from chain_receipts import NEGATIVE_RESULTS, consensus_result_of, fetch_receipt, finalized_failure, finalized_no_execution
 CORE_FIELDS = {"key", "tx", "method", "at", "address", "signature"}
 TX = re.compile(r"^0x[0-9a-fA-F]{64}$")
@@ -84,7 +85,7 @@ def recovery_ordinal(row):
     return len(recovery_chain(row)) - 1
 
 
-def validate_history(row, manifest, history=None):
+def validate_history(row, manifest, history=None, claim_path=None, source_path=None):
     chain = recovery_chain(row)
     history = manifest_history(manifest) if history is None else history
     if history.get(row["key"]) != chain:
@@ -103,9 +104,15 @@ def validate_history(row, manifest, history=None):
         except (OSError, ValueError) as exc:
             raise SystemExit("invalid recovery history: finalized receipt evidence is missing or malformed") from exc
         digest = entry.get("previous_receipt_sha256")
-        if ((digest is not None and digest != hashlib.sha256(raw).hexdigest()) or
-                not retryable_receipt(receipt)):
+        if digest is not None and digest != hashlib.sha256(raw).hexdigest():
             raise SystemExit("invalid recovery history: finalized receipt evidence changed or is not retryable")
+        if not retryable_receipt(receipt) or entry.get('previous_failure_basis'):
+            try:
+                proof.verify_reference(entry, manifest, entry['previous_row'], receipt,
+                    original_call(entry['previous_row'], claim_path) if claim_path else None,
+                    claim_path, source_path)
+            except (ValueError, KeyError, TypeError, OSError) as exc:
+                raise SystemExit('invalid recovery history: unproven finalized failure: ' + str(exc)) from exc
     return len(chain) - 1
 
 
@@ -189,7 +196,7 @@ def unresolved_dispatch(path):
                      "before another attempt; no duplicate sent: " + path)
 
 
-def record_dispatch(path, row, receipt_relative, receipt_sha256, ordinal):
+def record_dispatch(path, row, receipt_relative, receipt_sha256, ordinal, proof_reference=None):
     """Publish a complete, durable marker without replacing an earlier attempt."""
     folder = os.path.dirname(path)
     with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", dir=folder,
@@ -198,7 +205,7 @@ def record_dispatch(path, row, receipt_relative, receipt_sha256, ordinal):
         json.dump({"status": "DISPATCHING", "at": int(time.time()), "previous_tx": row["tx"],
                    "key": row["key"], "address": row["address"], "signature": row["signature"],
                    "previous_receipt": receipt_relative, "previous_receipt_sha256": receipt_sha256,
-                   "recovery_ordinal": ordinal, "previous_row": row}, target)
+                   "recovery_ordinal": ordinal, "previous_row": row, **(proof_reference or {})}, target)
         target.write("\n")
         target.flush()
         os.fsync(target.fileno())
@@ -234,14 +241,16 @@ def retry(args, *, completion_lock=None):
         row = matches[0]
         call_args = original_call(row, args.claim)
         history = manifest_history(args.manifest)
-        ordinal = validate_history(row, args.manifest, history)
+        ordinal = validate_history(row, args.manifest, history, args.claim,
+                                   getattr(args, 'source', os.path.join(run_case.ROOT, 'build/impeach.py')))
         if ordinal >= limit:
             raise SystemExit("this probe already has a recovery attempt at its configured limit (%d)" % limit)
         marker = dispatch_path(args.manifest, row["tx"])
         if os.path.lexists(marker):
             unresolved_dispatch(marker)
         receipt = fetch_receipt(row["tx"], args.rpc)
-        if not retryable_receipt(receipt):
+        needs_proof = not retryable_receipt(receipt)
+        if needs_proof and not (getattr(args, 'allow_proven_no_messages', False) and proof.candidate(receipt)):
             raise SystemExit("original transaction must be FINALIZED with an explicit negative consensus result "
                              "or IDLE / NOT_VOTED; unknown or inconsistent fields cannot be retried")
         h, i, mode = row["challenge_id"], row["item_index"], row["mode"]
@@ -251,20 +260,37 @@ def retry(args, *, completion_lock=None):
         claim = runner.read("get_claim", challenge["claim_id"])
         if runner.read("clock") + getattr(args, "deadline_margin", 0) >= challenge["trial_started_at"] + claim["trial_window_s"]:
             raise SystemExit("trial window has closed")
-        if not slot_untouched(runner.read("get_probe", h, i), mode):
+        state = runner.read("get_probe", h, i)
+        if not slot_untouched(state, mode):
             raise SystemExit("probe slot is already applied or not ready; refusing a duplicate")
+        proof_reference = None
+        if needs_proof:
+            proof.require(args.address.lower() == row['address'].lower() and
+                          challenge.get('challenge_id') == h and claim.get('claim_id') == challenge['claim_id'] and
+                          claim.get('status') == 'TRIAL' and claim.get('active_challenge') == h and
+                          state.get('challenge_id') == h and state.get('item_index') == i,
+                          'claim/challenge/slot identity differs')
+            proof.frozen_claim(claim, args.claim)
+            proof_reference = proof.obtain(args, row, receipt, call_args)
+            if (runner.read('get_probe', h, i) != state or
+                    runner.read('get_challenge', h) != challenge or runner.read('get_claim', challenge['claim_id']) != claim):
+                raise SystemExit('contract state changed during proof lookup; no duplicate sent')
+            if runner.read('clock') + getattr(args, 'deadline_margin', 0) >= challenge['trial_started_at'] + claim['trial_window_s']:
+                raise SystemExit('trial window closed during proof lookup')
         if manifest_history(args.manifest) != history:
             raise SystemExit("manifest changed during recovery checks; rerun to inspect it")
         receipt_path = save_receipt(args.manifest, row["tx"], receipt)
         print("saved original finalized receipt: " + receipt_path, flush=True)
-        extra = {key: value for key, value in row.items() if key not in CORE_FIELDS}
+        proof_fields = {'previous_failure_basis', 'previous_finalization_proof', 'previous_finalization_proof_sha256'}
+        extra = {key: value for key, value in row.items() if key not in CORE_FIELDS | proof_fields}
         receipt_relative = os.path.relpath(receipt_path, os.path.dirname(os.path.abspath(args.manifest)))
         with open(receipt_path, "rb") as source:
             receipt_sha256 = hashlib.sha256(source.read()).hexdigest()
         extra.update(previous_tx=row["tx"], previous_row=dict(row), previous_receipt=receipt_relative,
                      previous_receipt_sha256=receipt_sha256, recovery_ordinal=ordinal + 1)
+        extra.update(proof_reference or {})
         if not args.dry_run:
-            record_dispatch(marker, row, receipt_relative, receipt_sha256, ordinal + 1)
+            record_dispatch(marker, row, receipt_relative, receipt_sha256, ordinal + 1, proof_reference)
         del runner.rows[row["key"]]
         runner.send(row["key"], "probe", call_args, value=0, extra=extra)
         return 0
@@ -278,6 +304,9 @@ def parse_args(argv=None):
     parser.add_argument("--wait-timeout", type=float, default=600)
     parser.add_argument("--poll-interval", type=float, default=5)
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument('--allow-proven-no-messages', action='store_true',
+                        help='opt in to exact finalized ambiguous outcomes with a verified Phase event proof')
+    parser.add_argument('--source', default=os.path.join(run_case.ROOT, 'build/impeach.py'))
     parser.add_argument("--max-recoveries", type=int, choices=range(1, 4), default=1,
                         help="maximum new recovery transactions per slot, excluding the original (default: 1)")
     args = parser.parse_args(argv)

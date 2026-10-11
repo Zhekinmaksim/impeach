@@ -16,6 +16,7 @@ check: lint
 	$(NODE) --test test/test_endpoints_v2.mjs
 	$(NODE) --test test/test_output.mjs
 	$(NODE) --test test/test_inspect_queue.mjs
+	$(NODE) --test test/test_native_finality_proof.mjs
 	$(PY) cli/impeach.py recompute web/case.json
 
 # The same scenarios on the real SDK at the runner hash pinned in the contract.

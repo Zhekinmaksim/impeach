@@ -32,6 +32,7 @@ import time
 
 import run_case
 import retry_finalized_probe as recovery
+import native_failure_proof as proof
 from chain_receipts import (EXECUTION_CODES, RESULT_CODES, STATUS_CODES,
                             consensus_result_of, execution_of, fetch_receipt,
                             finalized_failure, status_of, successful)
@@ -126,6 +127,7 @@ class Completer(run_case.Runner):
             raise Pause('complete_case requires exactly 24 items and one valid rewrite per item')
         self.input_hash = self.fingerprint()
         self.states, self.outcomes, self.receipts = {}, {}, {}
+        self.finality_proofs = {}
         self.failure_records = {}
         self.claim_id = None
         self.deadline = self.chain_time = None
@@ -192,7 +194,8 @@ class Completer(run_case.Runner):
                         row.get('step') != 'probe' or row.get('method') != 'probe' or
                         str(row.get('value', '0')) != '0' or row.get('signature') != signature(self.call(index, mode))):
                     raise Pause('manifest probe inputs/signature do not match the current claim: ' + key)
-                recovery.validate_history(row, self.args.manifest, history)
+                recovery.validate_history(row, self.args.manifest, history, self.args.claim,
+                                          getattr(self.args, 'source', str(Path(run_case.ROOT)/'build/impeach.py')))
 
     def marker(self, key):
         return self.folder / 'dispatch' / (hashlib.sha256(key.encode()).hexdigest() + '.json')
@@ -294,6 +297,7 @@ class Completer(run_case.Runner):
                       'receipt_sha256': digest, 'assumed_success': False, 'resubmitted': False}
             if row.get('method') == 'probe':
                 record['recovery_ordinal'] = recovery.recovery_ordinal(row)
+            record.update(self.finality_proofs.get(row['tx'], {}))
             self.event('ACKNOWLEDGED_FAILURE', **record)
             self.failure_records[record_key] = record
         self.acknowledged.add(row['tx'])
@@ -307,7 +311,18 @@ class Completer(run_case.Runner):
                                         timeout=max(1, min(30, deadline-time.monotonic())))
             except (RuntimeError, ValueError, subprocess.TimeoutExpired, OSError) as exc:
                 raise Pause('receipt unavailable for %s; resume without rebroadcast: %s' % (row['tx'], exc)) from exc
-            outcome = classify(receipt)
+            if (row.get('method') == 'probe' and getattr(self.args, 'allow_proven_no_messages', False)
+                    and proof.candidate(receipt)):
+                if row['tx'] not in self.finality_proofs:
+                    self.finality_proofs[row['tx']] = proof.obtain(self.args, row, receipt,
+                        self.call(row['item_index'], row['mode']))
+                else:
+                    proof.verify_reference(self.finality_proofs[row['tx']], self.args.manifest, row, receipt,
+                        self.call(row['item_index'], row['mode']), self.args.claim,
+                        getattr(self.args, 'source', str(Path(run_case.ROOT)/'build/impeach.py')))
+                outcome = 'FAILURE'
+            else:
+                outcome = classify(receipt)
             self.outcomes[row['tx']], self.receipts[row['tx']] = outcome, receipt
             if outcome == 'SUCCESS':
                 self.confirmed.add(row['tx'])
@@ -362,7 +377,7 @@ class Completer(run_case.Runner):
         receipt = self.receipts[row['tx']]
         ordinal = recovery.recovery_ordinal(row)
         if (ordinal >= self.max_recoveries or not recovery.slot_untouched(state, row['mode']) or
-                not recovery.retryable_receipt(receipt)):
+                not (recovery.retryable_receipt(receipt) or row['tx'] in self.finality_proofs)):
             return False
         args = copy.copy(self.args)
         args.tx = row['tx']
@@ -405,7 +420,7 @@ class Completer(run_case.Runner):
                      'recovery_ordinal': ordinal, 'max_recoveries': self.max_recoveries}
             if ordinal >= self.max_recoveries:
                 exhausted.append(entry)
-            elif window_open and recovery.retryable_receipt(receipt):
+            elif window_open and (recovery.retryable_receipt(receipt) or row['tx'] in self.finality_proofs):
                 eligible.append(entry)
             elif window_open and status_of(receipt) != 'FINALIZED':
                 awaiting.append(entry)
@@ -514,6 +529,9 @@ def parse_args(argv=None):
     parser.add_argument('--poll-interval', type=float, default=5)
     parser.add_argument('--max-runtime', type=float, default=3600)
     parser.add_argument('--deadline-margin', type=int, default=120)
+    parser.add_argument('--allow-proven-no-messages', action='store_true',
+                        help='opt in to exact finalized ambiguous outcomes with a verified Phase event proof')
+    parser.add_argument('--source', default=str(Path(run_case.ROOT)/'build/impeach.py'))
     parser.add_argument('--max-recoveries', type=int, choices=range(1, 4), default=1,
                         help='maximum new recovery transactions per slot, excluding the original (default: 1)')
     args = parser.parse_args(argv)
