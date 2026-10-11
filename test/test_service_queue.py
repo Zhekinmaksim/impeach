@@ -154,10 +154,10 @@ class QueueTests(unittest.TestCase):
         self.assertEqual(queue.service(self.args),2)
         self.sender.assert_not_called()
 
-    def assert_undetermined_cleanup(self, result, execution):
+    def assert_undetermined_cleanup(self, result, execution, phase=6):
         self.args.execute=True
-        self.candidate['stored'].update(status=6,result=result,txExecutionResult=execution)
-        self.candidate['receipt'].update(status=6,result=result,txExecutionResult=execution)
+        self.candidate['stored'].update(status=phase,result=result,txExecutionResult=execution)
+        self.candidate['receipt'].update(status=phase,result=result,txExecutionResult=execution)
         self.probe={'challenge_id':0,'item_index':0,'touched':False}
         def without_application_proof(method, *args):
             self.assertNotEqual(method,'get_probe')
@@ -168,7 +168,8 @@ class QueueTests(unittest.TestCase):
         self.assertIn('--finalize',self.sender.call_args.args[0])
         for suffix in ('.before.json','.dispatch.json','.done.json'):
             evidence=json.loads(self.records(suffix)[0].read_text())
-            self.assertIs(evidence['beforeStoredUND'],True)
+            self.assertIs(evidence['beforeStoredUND'],phase == 6)
+            self.assertEqual(evidence['beforeStoredFailurePhase'],phase)
             self.assertIs(evidence['native_success'],False)
         done=json.loads(self.records('.done.json')[0].read_text())
         self.assertTrue(done['resolved'])
@@ -176,7 +177,8 @@ class QueueTests(unittest.TestCase):
         events=[json.loads(line) for line in self.records('events.jsonl')[0].read_text().splitlines()]
         for event in events:
             if event['action'] in {'PLAN','PROTOCOL_OPERATION_DONE'}:
-                self.assertIs(event['beforeStoredUND'],True)
+                self.assertIs(event['beforeStoredUND'],phase == 6)
+                self.assertEqual(event['beforeStoredFailurePhase'],phase)
                 self.assertIs(event['native_success'],False)
         # Closing the native queue must not expand application recovery policy.
         self.assertFalse(queue.recovery.retryable_receipt(self.candidate['receipt']))
@@ -189,6 +191,37 @@ class QueueTests(unittest.TestCase):
 
     def test_stored_undetermined_stale_positive_needs_no_applied_slot_proof(self):
         self.assert_undetermined_cleanup(result=1,execution=1)
+
+    def test_leader_timeout_return_idle_finalizes_without_creating_a_probe(self):
+        self.assert_undetermined_cleanup(result=0,execution=1,phase=13)
+
+    def test_validators_timeout_return_idle_finalizes_without_creating_a_probe(self):
+        self.assert_undetermined_cleanup(result=0,execution=1,phase=12)
+
+    def test_leader_timeout_stale_positive_remains_native_failure(self):
+        self.assert_undetermined_cleanup(result=1,execution=1,phase=13)
+
+    def test_validators_timeout_stale_positive_remains_native_failure(self):
+        self.assert_undetermined_cleanup(result=1,execution=1,phase=12)
+
+    def test_timeout_phases_require_actual_head_before_any_simulation(self):
+        self.args.execute=True
+        self.candidate['atFinalizedHead']=False
+        for phase in (12,13):
+            self.candidate['stored'].update(status=phase,result=0,txExecutionResult=1)
+            self.candidate['receipt'].update(status=11,result=0,txExecutionResult=1)
+            self.assertEqual(queue.service(self.args),2)
+        self.sender.assert_not_called();self.command.assert_not_called()
+
+    def test_timeout_phases_do_not_dispatch_after_main_simulation_reverts(self):
+        self.args.execute=True
+        self.dry_results['finalize']=(2,'execution reverted: FinalizationNotAllowed')
+        for phase in (12,13):
+            self.candidate['stored'].update(status=phase,result=0,txExecutionResult=1)
+            self.candidate['receipt'].update(status=11,result=0,txExecutionResult=1)
+            self.assertEqual(queue.service(self.args),2)
+        self.assertEqual(len(self.calls),2)
+        self.sender.assert_not_called()
 
     def test_stored_undetermined_still_requires_actual_head_and_exact_simulation(self):
         self.args.execute=True

@@ -76,10 +76,13 @@ def mature(candidate, snapshot):
 
 
 def outcome_evidence(candidate):
-    # A stored Undetermined phase remains a failed native execution even if
+    # These verified failed phases remain failed native executions even if
     # stale result/execution fields resemble success after queue finalization.
     undetermined = candidate['stored']['status'] == 6
-    return {'beforeStoredUND': undetermined, **({'native_success': False} if undetermined else {})}
+    failed_phase = candidate['stored']['status'] in {6, 12, 13}
+    return {'beforeStoredUND': undetermined,
+            **({'beforeStoredFailurePhase': candidate['stored']['status'], 'native_success': False}
+               if failed_phase else {})}
 
 
 class QueueService:
@@ -360,12 +363,12 @@ class QueueService:
             if final != ZERO:
                 c = bytx[final]
                 result, execution = consensus_result_of(c['receipt']), execution_of(c['receipt'])
-                stored_undetermined = c['stored']['status'] == 6
+                stored_failed = c['stored']['status'] in {6, 12, 13}
                 positive = execution == 'FINISHED_WITH_RETURN' and result == 'MAJORITY_AGREE'
                 negative = result in NEGATIVE_RESULTS or (execution == 'NOT_VOTED' and result == 'IDLE')
                 state_ok = True
                 row = self.rows[final]
-                if positive and not stored_undetermined and row['method'] == 'probe':
+                if positive and not stored_failed and row['method'] == 'probe':
                     state = self.read('get_probe', self.args.challenge_id, row['item_index'])
                     state_ok = (state.get('challenge_id') == self.args.challenge_id and
                                 state.get('item_index') == row['item_index'] and applied(state, row['mode']))
@@ -374,11 +377,11 @@ class QueueService:
                         state_ok = (state.get('rewrite_class') == env['class'] and
                                     state.get('rewrite_prompt') == env['prompt'] and state.get('rewrite_answer') == env['answer'] and
                                     state.get('rewrite_hash') == run_case.tool.rewrite_hash(env['class'], env['prompt'], env['answer']))
-                if (stored_undetermined or positive or negative) and state_ok and c['atFinalizedHead'] and (
+                if (stored_failed or positive or negative) and state_ok and c['atFinalizedHead'] and (
                         c['stored']['status'] in {5, 6, 12, 13} or mature(c, data)):
                     # CD.canFinalize is advisory: exact Main simulation below
                     # covers valid paths which the older view reports false.
-                    # Stored Undetermined skips message processing in Main;
+                    # Stored phases 6/12/13 skip message processing in Main;
                     # its stale outcome fields need no application-state proof.
                     candidates.append((c, 'finalize'))
             for tx in dict.fromkeys((heads['getPendingHeadTxId'].lower(), final)):
