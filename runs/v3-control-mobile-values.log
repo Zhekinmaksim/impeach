@@ -1,0 +1,10 @@
+### Result
+{
+  "width": 390,
+  "scrollWidth": 390,
+  "subject": "On-chain scripted control. The subject is a stored-answer and text lookup; no subject LLM is called. Its verdict tests the court's control path, not a real model."
+}
+### Ran Playwright code
+```js
+await page.evaluate('() => ({width:innerWidth,scrollWidth:document.documentElement.scrollWidth,subject:document.getElementById(\'subject-kind\').textContent})');
+```

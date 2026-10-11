@@ -1,0 +1,61 @@
+{
+  "at": "2026-10-11T10:37:34.934576+00:00",
+  "kind": "offline exact new-prompt replay",
+  "source_sha256": "d7e8f0f1e967dc8f883a5758594325e075711f77a79f8f8229071467db3a704b",
+  "claim_sha256": "17577cd188fa66c5735bc1e1228c335ee51743631ab9981b01f371d1653fbe61",
+  "source_transcripts": [
+    {
+      "path": "runs/v3-llama-requests.jsonl",
+      "sha256": "9556a593ef9d73e862e079a554d49dc2e478dee666f648cb876ec459063feff6"
+    },
+    {
+      "path": "runs/v3-llama-supplement.jsonl",
+      "sha256": "dce7e05d5d43e07637ad80432d6a0ba783b3f30ff84cc79185f0c916510340d3"
+    }
+  ],
+  "initial_attempts": 74,
+  "initial_no_reply": 3,
+  "supplement_calls": 1,
+  "unique_actual_new_requests": 72,
+  "exact_prompt_replay": true,
+  "new_calls_during_replay": 0,
+  "recorded_response_cost_usd": 0.00035026000000000024,
+  "all_responses_credit_only": true,
+  "local_forecast": "CLEAN",
+  "local_certificate": {
+    "claim_id": 0,
+    "subject": "local/meta-llama/llama-3.1-8b-instruct",
+    "verdict": "CLEAN",
+    "reason": "",
+    "contested": true,
+    "under_challenge": false,
+    "final": false,
+    "state": "STANDING",
+    "challenges_survived": 1,
+    "bond_standing": 100000000000000000,
+    "bond_sworn": 100000000000000000,
+    "delta_milli": 0,
+    "recall_milli": 0,
+    "pinned_milli": 1000,
+    "rewrite_milli": 1000,
+    "admissible_probes": 24,
+    "inadmissible_rewrites": 0,
+    "stale_answers": 0,
+    "dead_probes": 0,
+    "recall_probes": 24,
+    "items_probed": 24,
+    "items_burned": 24,
+    "score_sworn_milli": 1000,
+    "score_status": "SPENT",
+    "score_expired_at": 1791715054,
+    "delta_threshold": 250,
+    "recall_threshold": 150,
+    "min_items": 20,
+    "decode_params": "{\"temperature\": 0, \"top_p\": 1, \"max_tokens\": 512, \"seed\": 7, \"model\": \"meta-llama/llama-3.1-8b-instruct\"}",
+    "spec_hash": "083502b03f4d2f1b4ce345baa99539dbf2e3d036f8f654ee90f7e2002a57fad2",
+    "ruled_at": 1791715054,
+    "challenge_id": 0
+  },
+  "native_certificate": false,
+  "gate_passed": true
+}

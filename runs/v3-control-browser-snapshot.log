@@ -1,0 +1,839 @@
+### Page
+- Page URL: https://impeach.vercel.app/
+- Page Title: Impeach — a court for benchmark scores
+### Snapshot
+```yaml
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - heading "Impeach" [level=1] [ref=e4]
+      - paragraph [ref=e5]: A score says a model can do something. It might only say the model has seen the answers. This court asks the same questions in new wording and tests verbatim recall.
+    - generic [ref=e6]:
+      - 'img "Answer sheet for scripted/memoriser-court24-v2@2026-10-10: 1000‰ right as sealed, 833‰ court-adjusted rewrite score, 1000‰ continued verbatim." [ref=e70]':
+        - generic [ref=e146]: "The sheet of Scripted control: 24 items, one column each. Row one, answered as sealed. Row two, answered as rewritten. Row three, continued the sealed text."
+      - tablist "Subject on trial" [ref=e147]:
+        - tab "Scripted control" [selected] [ref=e148] [cursor=pointer]
+      - paragraph [ref=e149]: On-chain scripted control. The subject is a stored-answer and text lookup; no subject LLM is called. Its verdict tests the court's control path, not a real model.
+  - main [ref=e9]:
+    - region [ref=e10]:
+      - generic [ref=e11]:
+        - heading "The same question, twice" [level=2] [ref=e12]
+        - paragraph [ref=e150]: Item 2 of 24, numbers substituted
+      - generic [ref=e13]:
+        - generic [ref=e151]:
+          - generic [ref=e152]: As sealed
+          - paragraph [ref=e153]:
+            - text: "On a practice worksheet, a student reads this problem: A repair station opens"
+            - mark [ref=e154]: "4"
+            - text: boxes containing
+            - mark [ref=e155]: "8"
+            - text: brass clips in each box. It also has
+            - mark [ref=e156]: "3"
+            - text: loose brass clips on the counter. Counting only these boxes and loose clips, how many brass clips does the station have?
+          - generic [ref=e157]:
+            - term [ref=e158]: Reference
+            - definition [ref=e159]: "35"
+            - term [ref=e160]: Lookup returned
+            - definition [ref=e161]: 35, right
+        - generic [ref=e162]:
+          - generic [ref=e163]: "As rewritten: numbers substituted"
+          - paragraph [ref=e164]:
+            - text: "On a practice worksheet, a student reads this problem: A repair station opens"
+            - mark [ref=e165]: "5"
+            - text: boxes containing
+            - mark [ref=e166]: "7"
+            - text: brass clips in each box. It also has
+            - mark [ref=e167]: "2"
+            - text: loose brass clips on the counter. Counting only these boxes and loose clips, how many brass clips does the station have?
+          - generic [ref=e168]:
+            - term [ref=e169]: Reference
+            - definition [ref=e170]: "37"
+            - term [ref=e171]: Lookup returned
+            - definition [ref=e172]: 35, wrong, the old answer
+            - term [ref=e173]: Referees
+            - definition [ref=e174]: both framings agree it is the same question
+      - paragraph [ref=e175]: This control returns stored answers and text; no subject LLM is called. It deliberately returned the sealed answer after the numbers changed. Underlined words are the ones that differ.
+    - region [ref=e14]:
+      - generic [ref=e15]:
+        - heading "The answer sheet" [level=2] [ref=e16]
+        - paragraph [ref=e176]: 24 challenged items. One column per item; select a mark to read that item in full.
+      - generic [ref=e177]:
+        - generic [ref=e178]:
+          - generic [ref=e179]: Contaminated
+          - paragraph [ref=e180]: The scripted lookup continued sealed items it was only shown the start of. The recall rate is over the threshold frozen in the claim.
+          - paragraph [ref=e181]: Recomputed in this browser from the 24 items below. It matches the certificate.
+        - 'figure "Dashed: the furthest the frozen threshold lets it fall. The court counts missing or unadmitted rewrites as correct; this is not accuracy on admitted rewrites alone. The scripted control shares the live cohort''s arithmetic and is not an independent benchmark." [ref=e182]':
+          - img "Sealed accuracy 1000 per mille, court-adjusted rewrite score 833 per mille." [ref=e183]:
+            - generic [ref=e184]: as sealed
+            - generic [ref=e185]: rewrite score
+            - generic [ref=e186]: "0"
+            - generic [ref=e187]: 1000‰
+            - generic [ref=e192]: 1000‰
+            - generic [ref=e193]: 833‰
+      - generic [ref=e18]:
+        - generic [ref=e195]:
+          - generic [ref=e196]:
+            - 'heading "Detector one: the gap" [level=3] [ref=e197]'
+            - generic [ref=e198]: Sealed accuracy 1000‰, court-adjusted rewrite score 833‰. Gap 166‰ across 24 answered sealed items; 13 pairs admitted. Missing or unadmitted rewrites count as correct for the publisher.
+          - generic [ref=e200]: Answered as sealed
+          - generic [ref=e201]:
+            - 'button "Item 1: sealed wording, answered right" [ref=e202] [cursor=pointer]'
+            - 'button "Item 2: sealed wording, answered right" [pressed] [ref=e203] [cursor=pointer]'
+            - 'button "Item 3: sealed wording, answered right" [ref=e204] [cursor=pointer]'
+            - 'button "Item 4: sealed wording, answered right" [ref=e205] [cursor=pointer]'
+            - 'button "Item 5: sealed wording, answered right" [ref=e206] [cursor=pointer]'
+            - 'button "Item 6: sealed wording, answered right" [ref=e207] [cursor=pointer]'
+            - 'button "Item 7: sealed wording, answered right" [ref=e208] [cursor=pointer]'
+            - 'button "Item 8: sealed wording, answered right" [ref=e209] [cursor=pointer]'
+            - 'button "Item 9: sealed wording, answered right" [ref=e210] [cursor=pointer]'
+            - 'button "Item 10: sealed wording, answered right" [ref=e211] [cursor=pointer]'
+            - 'button "Item 11: sealed wording, answered right" [ref=e212] [cursor=pointer]'
+            - 'button "Item 12: sealed wording, answered right" [ref=e213] [cursor=pointer]'
+            - 'button "Item 13: sealed wording, answered right" [ref=e214] [cursor=pointer]'
+            - 'button "Item 14: sealed wording, answered right" [ref=e215] [cursor=pointer]'
+            - 'button "Item 15: sealed wording, answered right" [ref=e216] [cursor=pointer]'
+            - 'button "Item 16: sealed wording, answered right" [ref=e217] [cursor=pointer]'
+            - 'button "Item 17: sealed wording, answered right" [ref=e218] [cursor=pointer]'
+            - 'button "Item 18: sealed wording, answered right" [ref=e219] [cursor=pointer]'
+            - 'button "Item 19: sealed wording, answered right" [ref=e220] [cursor=pointer]'
+            - 'button "Item 20: sealed wording, answered right" [ref=e221] [cursor=pointer]'
+            - 'button "Item 21: sealed wording, answered right" [ref=e222] [cursor=pointer]'
+            - 'button "Item 22: sealed wording, answered right" [ref=e223] [cursor=pointer]'
+            - 'button "Item 23: sealed wording, answered right" [ref=e224] [cursor=pointer]'
+            - 'button "Item 24: sealed wording, answered right" [ref=e225] [cursor=pointer]'
+          - generic [ref=e227]: Answered as rewritten
+          - generic [ref=e228]:
+            - 'button "Item 1: rewritten, answered right" [ref=e229] [cursor=pointer]'
+            - 'button "Item 2: rewritten, answered with the old answer" [pressed] [ref=e230] [cursor=pointer]'
+            - 'button "Item 3: rewrite not admitted" [ref=e231] [cursor=pointer]'
+            - 'button "Item 4: rewrite not admitted" [ref=e232] [cursor=pointer]'
+            - 'button "Item 5: no rewrite filed" [ref=e233] [cursor=pointer]'
+            - 'button "Item 6: rewritten, answered right" [ref=e234] [cursor=pointer]'
+            - 'button "Item 7: rewritten, answered with the old answer" [ref=e235] [cursor=pointer]'
+            - 'button "Item 8: rewrite not admitted" [ref=e236] [cursor=pointer]'
+            - 'button "Item 9: rewrite not admitted" [ref=e237] [cursor=pointer]'
+            - 'button "Item 10: rewritten, answered right" [ref=e238] [cursor=pointer]'
+            - 'button "Item 11: rewritten, answered right" [ref=e239] [cursor=pointer]'
+            - 'button "Item 12: rewritten, answered with the old answer" [ref=e240] [cursor=pointer]'
+            - 'button "Item 13: rewritten, answered right" [ref=e241] [cursor=pointer]'
+            - 'button "Item 14: rewritten, answered right" [ref=e242] [cursor=pointer]'
+            - 'button "Item 15: no rewrite filed" [ref=e243] [cursor=pointer]'
+            - 'button "Item 16: rewrite not admitted" [ref=e244] [cursor=pointer]'
+            - 'button "Item 17: no rewrite filed" [ref=e245] [cursor=pointer]'
+            - 'button "Item 18: rewrite not admitted" [ref=e246] [cursor=pointer]'
+            - 'button "Item 19: rewrite not admitted" [ref=e247] [cursor=pointer]'
+            - 'button "Item 20: rewritten, answered right" [ref=e248] [cursor=pointer]'
+            - 'button "Item 21: no rewrite filed" [ref=e249] [cursor=pointer]'
+            - 'button "Item 22: rewritten, answered with the old answer" [ref=e250] [cursor=pointer]'
+            - 'button "Item 23: rewritten, answered right" [ref=e251] [cursor=pointer]'
+            - 'button "Item 24: rewritten, answered right" [ref=e252] [cursor=pointer]'
+          - img "not measured" [ref=e253]:
+            - generic [ref=e255]: "0"
+            - generic [ref=e257]: threshold 250‰
+            - generic [ref=e259]: 1000‰
+        - generic [ref=e261]:
+          - generic [ref=e262]:
+            - 'heading "Detector two: verbatim recall" [level=3] [ref=e263]'
+            - generic [ref=e264]: Given the first 40% of an item, the lookup returned the rest on 1000‰ of 24 items. No language model judges this one.
+          - generic [ref=e266]: Continued verbatim
+          - generic [ref=e267]:
+            - 'button "Item 1: continued the sealed text verbatim" [ref=e268] [cursor=pointer]'
+            - 'button "Item 2: continued the sealed text verbatim" [pressed] [ref=e269] [cursor=pointer]'
+            - 'button "Item 3: continued the sealed text verbatim" [ref=e270] [cursor=pointer]'
+            - 'button "Item 4: continued the sealed text verbatim" [ref=e271] [cursor=pointer]'
+            - 'button "Item 5: continued the sealed text verbatim" [ref=e272] [cursor=pointer]'
+            - 'button "Item 6: continued the sealed text verbatim" [ref=e273] [cursor=pointer]'
+            - 'button "Item 7: continued the sealed text verbatim" [ref=e274] [cursor=pointer]'
+            - 'button "Item 8: continued the sealed text verbatim" [ref=e275] [cursor=pointer]'
+            - 'button "Item 9: continued the sealed text verbatim" [ref=e276] [cursor=pointer]'
+            - 'button "Item 10: continued the sealed text verbatim" [ref=e277] [cursor=pointer]'
+            - 'button "Item 11: continued the sealed text verbatim" [ref=e278] [cursor=pointer]'
+            - 'button "Item 12: continued the sealed text verbatim" [ref=e279] [cursor=pointer]'
+            - 'button "Item 13: continued the sealed text verbatim" [ref=e280] [cursor=pointer]'
+            - 'button "Item 14: continued the sealed text verbatim" [ref=e281] [cursor=pointer]'
+            - 'button "Item 15: continued the sealed text verbatim" [ref=e282] [cursor=pointer]'
+            - 'button "Item 16: continued the sealed text verbatim" [ref=e283] [cursor=pointer]'
+            - 'button "Item 17: continued the sealed text verbatim" [ref=e284] [cursor=pointer]'
+            - 'button "Item 18: continued the sealed text verbatim" [ref=e285] [cursor=pointer]'
+            - 'button "Item 19: continued the sealed text verbatim" [ref=e286] [cursor=pointer]'
+            - 'button "Item 20: continued the sealed text verbatim" [ref=e287] [cursor=pointer]'
+            - 'button "Item 21: continued the sealed text verbatim" [ref=e288] [cursor=pointer]'
+            - 'button "Item 22: continued the sealed text verbatim" [ref=e289] [cursor=pointer]'
+            - 'button "Item 23: continued the sealed text verbatim" [ref=e290] [cursor=pointer]'
+            - 'button "Item 24: continued the sealed text verbatim" [ref=e291] [cursor=pointer]'
+          - img "1000 per mille against a threshold of 150" [ref=e292]:
+            - generic [ref=e294]: "0"
+            - generic [ref=e296]: threshold 150‰
+            - generic [ref=e298]: 1000‰
+          - generic [ref=e301]: Item
+          - generic [ref=e302]:
+            - generic [ref=e303]: "1"
+            - generic [ref=e304]: "2"
+            - generic [ref=e305]: "3"
+            - generic [ref=e306]: "4"
+            - generic [ref=e307]: "5"
+            - generic [ref=e308]: "6"
+            - generic [ref=e309]: "7"
+            - generic [ref=e310]: "8"
+            - generic [ref=e311]: "9"
+            - generic [ref=e312]: "10"
+            - generic [ref=e313]: "11"
+            - generic [ref=e314]: "12"
+            - generic [ref=e315]: "13"
+            - generic [ref=e316]: "14"
+            - generic [ref=e317]: "15"
+            - generic [ref=e318]: "16"
+            - generic [ref=e319]: "17"
+            - generic [ref=e320]: "18"
+            - generic [ref=e321]: "19"
+            - generic [ref=e322]: "20"
+            - generic [ref=e323]: "21"
+            - generic [ref=e324]: "22"
+            - generic [ref=e325]: "23"
+            - generic [ref=e326]: "24"
+      - list [ref=e327]:
+        - listitem [ref=e328]: "yes"
+        - listitem [ref=e330]: "no"
+        - listitem [ref=e332]: answered with the old answer
+        - listitem [ref=e334]: endpoint did not reply
+        - listitem [ref=e336]: not counted
+      - generic "What this ruling draws from" [ref=e19]:
+        - generic [ref=e338]:
+          - definition [ref=e339]: "24"
+          - term [ref=e340]: items burned to hear this case
+        - generic [ref=e341]:
+          - definition [ref=e342]: "68"
+          - term [ref=e343]: subject probe outcomes recorded
+        - generic [ref=e344]:
+          - definition [ref=e345]: "33"
+          - term [ref=e346]: referee rulings on rewrites
+        - generic [ref=e347]:
+          - definition [ref=e348]: "13"
+          - term [ref=e349]: pairs admitted as the same question
+        - generic [ref=e350]:
+          - definition [ref=e351]: "105"
+          - term [ref=e352]: transactions, each with a receipt
+    - region [ref=e353]:
+      - generic [ref=e21]:
+        - heading "Item 2 in full" [level=2] [ref=e354]
+        - generic [ref=e23]:
+          - button "Previous item" [ref=e24] [cursor=pointer]
+          - button "Next item" [ref=e25] [cursor=pointer]
+      - generic [ref=e26]:
+        - generic [ref=e27]:
+          - generic [ref=e28]:
+            - generic [ref=e355]:
+              - generic [ref=e356]: As sealed
+              - paragraph [ref=e357]:
+                - text: "On a practice worksheet, a student reads this problem: A repair station opens"
+                - mark [ref=e358]: "4"
+                - text: boxes containing
+                - mark [ref=e359]: "8"
+                - text: brass clips in each box. It also has
+                - mark [ref=e360]: "3"
+                - text: loose brass clips on the counter. Counting only these boxes and loose clips, how many brass clips does the station have?
+              - generic [ref=e361]:
+                - term [ref=e362]: Reference
+                - definition [ref=e363]: "35"
+                - term [ref=e364]: Lookup returned
+                - definition [ref=e365]: 35, right
+            - generic [ref=e366]:
+              - generic [ref=e367]: "As rewritten: numbers substituted"
+              - paragraph [ref=e368]:
+                - text: "On a practice worksheet, a student reads this problem: A repair station opens"
+                - mark [ref=e369]: "5"
+                - text: boxes containing
+                - mark [ref=e370]: "7"
+                - text: brass clips in each box. It also has
+                - mark [ref=e371]: "2"
+                - text: loose brass clips on the counter. Counting only these boxes and loose clips, how many brass clips does the station have?
+              - generic [ref=e372]:
+                - term [ref=e373]: Reference
+                - definition [ref=e374]: "37"
+                - term [ref=e375]: Lookup returned
+                - definition [ref=e376]: 35, wrong, the old answer
+                - term [ref=e377]: Referees
+                - definition [ref=e378]: both framings agree it is the same question
+          - generic [ref=e29]:
+            - generic [ref=e379]: "Recall probe: first part and held-out continuation"
+            - paragraph [ref=e380]: "On a practice worksheet, a student reads this problem: A repair station opens 4 boxes containing 8 brass clips in each box. It also has 3 loose brass clips on the counter. Counting only these boxes and loose clips, how many brass clips does the station have?"
+            - generic [ref=e381]:
+              - term [ref=e382]: Held-out part
+              - definition [ref=e383]: dotted, 155 characters
+              - term [ref=e384]: Result
+              - definition [ref=e385]: reproduced it
+        - generic [ref=e386]:
+          - term [ref=e387]: Sealed hash
+          - definition [ref=e388]:
+            - code [ref=e389]: bc284993b7859d05641f47561917a201db02e7e90ebfcd4ffc540b0232f7c318
+          - term [ref=e390]: Text hash
+          - definition [ref=e391]:
+            - code [ref=e392]: fdd915f283c78597e1318966d358820366a9016538a2dc7090b390263c835c00
+          - term [ref=e393]: Rewrite hash
+          - definition [ref=e394]:
+            - code [ref=e395]: d4c0fb3a94f6a15c724be25a61e976a6ac2016ae15ada74d8b9b65075f07355f
+          - term [ref=e396]: Stake slice
+          - definition [ref=e397]: 1000000000000000 wei credited to the challenger
+          - term [ref=e398]: Burned
+          - definition [ref=e399]: 2026-10-10 11:57 UTC
+    - region [ref=e30]:
+      - generic [ref=e31]:
+        - heading "What was sworn, and what was found" [level=2] [ref=e32]
+        - paragraph [ref=e33]: Frozen when the claim was opened. Nothing on the left could be changed after the numbers on the right came in.
+      - generic [ref=e34]:
+        - generic [ref=e35]:
+          - heading "Terms of the claim" [level=3] [ref=e36]
+          - table [ref=e400]:
+            - row [ref=e401]:
+              - rowheader "Subject" [ref=e402]
+              - cell "scripted/memoriser-court24-v2@2026-10-10" [ref=e403]
+            - row [ref=e404]:
+              - rowheader "Subject type" [ref=e405]
+              - cell "Scripted lookup control — no subject LLM" [ref=e406]
+            - row [ref=e407]:
+              - rowheader "Sworn score" [ref=e408]
+              - cell "1000‰" [ref=e409]
+            - row [ref=e410]:
+              - rowheader "Sealed items" [ref=e411]
+              - cell "24" [ref=e412]
+            - row [ref=e413]:
+              - rowheader "Endpoint" [ref=e414]
+              - cell "https://impeach.vercel.app/api/scripted-v2/chat/completions" [ref=e415]
+            - row [ref=e416]:
+              - rowheader "Gap threshold" [ref=e417]
+              - cell "250‰" [ref=e418]
+            - row [ref=e419]:
+              - rowheader "Recall threshold" [ref=e420]
+              - cell "150‰" [ref=e421]
+            - row [ref=e422]:
+              - rowheader "Smallest sample" [ref=e423]
+              - cell "20 items" [ref=e424]
+            - row [ref=e425]:
+              - rowheader "Rewrites allowed" [ref=e426]
+              - cell "reworded, numbers substituted, names changed, units converted, layout changed" [ref=e427]
+            - row [ref=e428]:
+              - rowheader "Recall match" [ref=e429]
+              - cell "first 40% shown, similarity at least 0.9" [ref=e430]
+            - row [ref=e431]:
+              - rowheader "Decode parameters" [ref=e432]
+              - 'cell "{\"temperature\": 0, \"top_p\": 1, \"max_tokens\": 512, \"seed\": 7, \"model\": \"scripted/memoriser-court24-v2\"}" [ref=e433]'
+            - row [ref=e434]:
+              - rowheader "Prompt" [ref=e435]
+              - 'cell "system: You are a careful solver of grade-school math word problems. user: Solve the problem. Finish with a line of the form ANSWER: <number>. {{item}}" [ref=e436]'
+            - row [ref=e437]:
+              - rowheader "Scoring rule" [ref=e438]
+              - 'cell "The last nonempty line must be ANSWER: followed by one ASCII decimal number with an optional minus sign and decimal point, and nothing else. The answer is correct exactly when that number equals the reference number. Leading zeros and trailing decimal zeros do not change its value." [ref=e439]'
+            - row [ref=e440]:
+              - rowheader "Bond (wei)" [ref=e441]
+              - cell "100000000000000000" [ref=e442]
+            - row [ref=e443]:
+              - rowheader "Stake per item (wei)" [ref=e444]
+              - cell "1000000000000000" [ref=e445]
+            - row [ref=e446]:
+              - rowheader "Terms hash" [ref=e447]
+              - cell [ref=e448]:
+                - code [ref=e449]: 2285e9af9ed84c160feb5fa78474f81f238c462063010104a2ba4397203e11be
+        - generic [ref=e37]:
+          - heading "Certificate" [level=3] [ref=e38]
+          - table [ref=e450]:
+            - row [ref=e451]:
+              - rowheader "Claim" [ref=e452]
+              - cell "0" [ref=e453]
+            - row [ref=e454]:
+              - rowheader "Verdict" [ref=e455]
+              - cell "CONTAMINATED, recall" [ref=e456]
+            - row [ref=e457]:
+              - rowheader "Gap" [ref=e458]
+              - cell "166‰" [ref=e459]
+            - row [ref=e460]:
+              - rowheader "Recall" [ref=e461]
+              - cell "1000‰" [ref=e462]
+            - row [ref=e463]:
+              - rowheader "Sealed accuracy" [ref=e464]
+              - cell "1000‰ measured, 1000‰ sworn" [ref=e465]
+            - row [ref=e466]:
+              - rowheader "Admitted pairs" [ref=e467]
+              - cell "13" [ref=e468]
+            - row [ref=e469]:
+              - rowheader "Rewrites refused" [ref=e470]
+              - cell "0" [ref=e471]
+            - row [ref=e472]:
+              - rowheader "Old answers given" [ref=e473]
+              - cell "4" [ref=e474]
+            - row [ref=e475]:
+              - rowheader "Probes with no reply" [ref=e476]
+              - cell "0" [ref=e477]
+            - row [ref=e478]:
+              - rowheader "Items burned" [ref=e479]
+              - cell "24" [ref=e480]
+            - row [ref=e481]:
+              - rowheader "The score itself" [ref=e482]
+              - cell "spent with its items on 2026-10-10 11:57 UTC. This court will reject another claim using those source items." [ref=e483]
+            - row [ref=e484]:
+              - rowheader "Challenges survived" [ref=e485]
+              - cell "0" [ref=e486]
+            - row [ref=e487]:
+              - rowheader "Bond still posted (wei)" [ref=e488]
+              - cell "0" [ref=e489]
+            - row [ref=e490]:
+              - rowheader "Ruled" [ref=e491]
+              - cell "2026-10-11 06:02 UTC" [ref=e492]
+            - row [ref=e493]:
+              - rowheader "Claim closed" [ref=e494]
+              - cell "yes" [ref=e495]
+          - generic [ref=e39]:
+            - link "Download the case file" [ref=e40] [cursor=pointer]:
+              - /url: case.json
+            - link "Download selected certificate" [ref=e496] [cursor=pointer]:
+              - /url: blob:https://impeach.vercel.app/493f9c31-ec95-41eb-b7f7-ce6de5d40be6
+            - button "Copy certificate" [ref=e42] [cursor=pointer]
+          - generic [ref=e497]:
+            - heading "Receipts" [level=3] [ref=e498]
+            - paragraph [ref=e499]: 105 transactions. 20 did not produce an accepted successful execution. Consensus and execution outcomes are retained in the evidence file; these failures are not model answers.
+            - paragraph [ref=e500]:
+              - link "open" [ref=e501] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x4c8b4bf2efc0f9a5aeb29a75431340f958a7f6ed91d4de570efeaf8fd1d200e7
+              - link "challenge:0" [ref=e502] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x0764c89a5e2094dd72db49c65532d6a7196629b6b5de35ddd44c7f53f0e2b916
+              - link "reveal:0" [ref=e503] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0xd77323a0f5b18a493ab53704345779dfa04a2247115e121bfbd3176787391f53
+              - link "probe:0:0:PINNED" [ref=e504] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0xb9a1db46b115559e976aff2b0df1be18507ba912bdfacb0ba0a0ed1c840e497c
+              - link "probe:0:0:RECALL" [ref=e505] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x0f4e46cb7c8ccc528b4dae84ace5f038ca9aa5e1a70cb48efc930a3d14817c14
+              - link "probe:0:0:REWRITE" [ref=e506] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x077c44aea3e64c5b88d718738b942ad548384774c7b8f6513b95e0279aeb8914
+              - link "probe:0:0:ADMIT" [ref=e507] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x3d2b4b43869d7778f7f27c92bcb503931c79450bdef10ede936b09336f15151c
+              - link "probe:0:1:PINNED" [ref=e508] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x6c3ee38b0bdfe1b30e302f08bc83673b37cacb3dc296013395227e10ea840fc9
+              - link "probe:0:1:RECALL" [ref=e509] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0xe10d61f1a8c1d6fdd4646b70d3f7acae30bb628b2e1e32effd79f791219e32e8
+              - link "probe:0:1:REWRITE" [ref=e510] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0xf8b694fb9c2c9fc478d189b7b27320fac01c51cf474a44ec4ca0b520415f1db6
+              - link "probe:0:1:ADMIT" [ref=e511] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x75ec8bbc578802b9801e34adae606d020b3da3683af9e86a03dbce842e129534
+              - link "probe:0:2:PINNED" [ref=e512] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x9a678f5486196380a03c5abc12394100502c4a04ab1b99f8f21e92127e96bfa4
+              - link "probe:0:2:RECALL" [ref=e513] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0xcae1e67de16230f80b13d2f66c67be7606b17d78db3b916fdb790e402a119d34
+              - link "probe:0:2:REWRITE" [ref=e514] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x38d250c9bbfcdb6fd93447ccbfa2d08f0893f7fcee14e5132df0b382416ee4a7
+              - link "probe:0:2:ADMIT" [ref=e515] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x34465f4e798c4ee81210a3a5c337e73934ba48c7ccc81c32bbe4cab547fc3e11
+              - link "probe:0:3:PINNED" [ref=e516] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0xe706ec3fbb355575282fc137926563b9e0ad0de2bc4139e2ff7a531fb533ffe2
+              - link "probe:0:3:RECALL" [ref=e517] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0xa4f98b68f28e2b7a5d1288807190bb3ffb3f2be140d2b51b63ef91f75b9855d2
+              - link "probe:0:3:REWRITE" [ref=e518] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x373daffaf8ff950fbee209ac3d8de7d611c62c3a5723e341cfcdeccbe53d6e8d
+              - link "probe:0:3:ADMIT" [ref=e519] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0xc256b6cfafedae00e73aa7687d925bf25cb02708051306c36c7ec8acfdf32920
+              - link "probe:0:4:PINNED" [ref=e520] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x0340e5036b4147f99f7606912f04d4df67d9fc8aff676eabedbf1abd8ff5f64e
+              - link "probe:0:4:RECALL" [ref=e521] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x8c115aee56883707e614dba02f0c151024e07a9de3e24b7bbdc91588d026c3bd
+              - link "probe:0:4:REWRITE" [ref=e522] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0xffa3c8873c4752ad077e6ff4a0dc79bdd0e49a582d7ac95fbf65ea1f45b66c59
+              - link "probe:0:5:PINNED" [ref=e523] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0xc10bd22a16e854cdb0cd2f31dd5f227f77d50067d352e6c327c10f4bafc3f8d1
+              - link "probe:0:5:RECALL" [ref=e524] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x4b497f99bb26f1a605469af17eb4daeeb1c3eff7ab8e233705366d311c6f0b37
+              - link "probe:0:5:REWRITE" [ref=e525] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x45e33b82152cc367a1e5e054d6fe40a6a94a87368d8a0b723a46f825c5782096
+              - link "probe:0:5:ADMIT" [ref=e526] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x42dce6013ea0fc4f0eff9bde9cda8d5110e5fdbd019a2ec166859b1477594fd9
+              - link "probe:0:6:PINNED" [ref=e527] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0xfc7a103c0ae7b7892accf522eab048d0983190858394b12e37c378927b0de876
+              - link "probe:0:6:RECALL" [ref=e528] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x54087fab81341233d6c14e7006c681ff7e90fcb810ced4a3ec126a1d7177c1a6
+              - link "probe:0:6:REWRITE" [ref=e529] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x35c0992730a51a3e0fc178ef041dea8764469be61e0b84d95134da96583ce675
+              - link "probe:0:6:ADMIT" [ref=e530] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0xe81daba0d3875eee281138df1316fa1fd6ae23c848ff870b46ae1b27c605328f
+              - link "probe:0:7:PINNED" [ref=e531] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x9ca2bafb9c4879cf766f22de840c3cb09d76b5bac43c7a75704aa533f45d1384
+              - link "probe:0:7:RECALL" [ref=e532] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x00651c8dfc964edd5b081c9823350823ac2ed7e02e34bfae6948ff9921043d1b
+              - link "probe:0:7:REWRITE" [ref=e533] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0xa2ae1fab016ff329eb2fab2381ac4c31594b87ecfe7897d6c88cbf0f6ebbc9b1
+              - link "probe:0:7:ADMIT" [ref=e534] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x7041168b999c143cb0f81ecf8b680ad9168fd305cbb19c162ea8b6bc450410c9
+              - link "probe:0:8:PINNED" [ref=e535] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x0f7a79d45d7ec13f49ef0a2adde26d1e59cd6420cb1f347788133b2883d2dbc9
+              - link "probe:0:8:RECALL" [ref=e536] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x4085fead866b5a34c544c80cc21a06f9c7a6bb4232efa509475689730d70dece
+              - link "probe:0:8:REWRITE" [ref=e537] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x3a4e5d2039e64cacc6aa76aa2bc03993e2b45b3e31cca43223ca8bfe4e4c3b75
+              - link "probe:0:8:ADMIT" [ref=e538] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0xb3d0f91487def18a63247e86dfef6d864f4a1a2b0cd75f9956d78b2b78966755
+              - link "probe:0:9:PINNED" [ref=e539] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0xe3d6cd8335cf59fe6afeae3aee26ed092628736d5cf8fa7be78f258ed4e0b54a
+              - link "probe:0:9:RECALL" [ref=e540] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x885b1df93632284a68012a242d9904316bd9d157f1d2804ce9000e0587b310b5
+              - link "probe:0:9:REWRITE" [ref=e541] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0xb2682d91a342a6780eff9dd6beca704c327ebaada1129c99688de6a5fad30ed9
+              - link "probe:0:9:ADMIT" [ref=e542] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x5b8e5a3dac0cd4fa99b4c2788b14aa53262586dd4a98c7c11f49c98e858450d5
+              - link "probe:0:10:PINNED" [ref=e543] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0xe8ec5b272f02cb6081eda1381eb7b89ccb573b29540ed5c36bac23e2a4a984ff
+              - link "probe:0:10:RECALL" [ref=e544] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0xeae7346bb10697f32002112d5248203e7a7517faf764193c80b9568444bd2cc7
+              - link "probe:0:10:REWRITE" [ref=e545] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x571cc4d110a0bc18ceeda54055e45c9c6e1576f16ee23828cddb4266e118ea0b
+              - link "probe:0:10:ADMIT" [ref=e546] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x2b894bf25bbab0d1a56af334a6e6b33d6fdef64afc2e6905fce98fd17909ba05
+              - link "probe:0:11:PINNED" [ref=e547] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x4edf4e670448572e2f20878271f344ce9f1f1680f9354b1699b29104f4136d21
+              - link "probe:0:11:RECALL" [ref=e548] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0xf469d5cdd442beff95e5a6fe6e78fb6dc185f5f6ceac7d23018441afa7689c3f
+              - link "probe:0:11:REWRITE" [ref=e549] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0xd5d146f208ff37c2aea6390935af3081a20d2092f2ed9fde1272e1f381a1dc6d
+              - link "probe:0:11:ADMIT" [ref=e550] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x29ae48a2f71cca7674ed3ad96b68130ec9bb88697fccd76d19761146ac4ae71a
+              - link "probe:0:12:PINNED" [ref=e551] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x906f5f196abbb9285daac495e2ceaf7d23a2ed932c3049c3b08362502d677580
+              - link "probe:0:12:RECALL" [ref=e552] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x06c3c29dc5eb00bce59a47aa4fd05862a84be1ce48d4cc5f3e3afe83629011d6
+              - link "probe:0:12:REWRITE" [ref=e553] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x47f7659df06f6e69f837128bf7c3ea3db382ddb306adcb5610992262d64aae79
+              - link "probe:0:12:ADMIT" [ref=e554] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0xfb917986cc30d2085d5264072108f79462addb72ff7e5e0ef4a7b59e9945424f
+              - link "probe:0:13:PINNED" [ref=e555] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x7b2e3307a09c0032db07521e92f64e8cc7d8b9c4f72e516989b700c31d7409be
+              - link "probe:0:13:RECALL" [ref=e556] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0xd6cef74dbcf749bca920fc90e0b8b5553b86b9f1d32e8aebdb8b7028c42638bc
+              - link "probe:0:13:REWRITE" [ref=e557] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0xa6fec1bdf2fa95ac6dbcd2fb29ccd33eb4251eb73a7cca86b45c2eef579061a4
+              - link "probe:0:13:ADMIT" [ref=e558] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0xac350c9f9547d05a945b80d26a49e84a9e2ca40825285b63ce16d7cacc69271d
+              - link "probe:0:14:PINNED" [ref=e559] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0xd069344629095d970957c721c7a2d1c7bb7f6591b0b88f0f43815530477256b3
+              - link "probe:0:14:RECALL" [ref=e560] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x8e102e52b5c35306bcb387309012672bd7e759b9d1b0b9af04556cef6da993cd
+              - link "probe:0:14:REWRITE" [ref=e561] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x807cd78b8d09f91047a7d7d7e42409b12c8c627bf235c8c312ebc2e117179931
+              - link "probe:0:15:PINNED" [ref=e562] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0xafc268d2ae375b36b06e28e6758712940e7a160c2120d69b136105c7c5978bcf
+              - link "probe:0:15:RECALL" [ref=e563] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x3989d66fb263234dffa68433095092f00e9f10e41a88912fe56720eb92a570d4
+              - link "probe:0:15:REWRITE" [ref=e564] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x94d6701d3f30cdfd457f8dc85c20dc960258c7193a274c7a585abe414ea219ed
+              - link "probe:0:15:ADMIT" [ref=e565] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0xc900228f414ac952841659d8b4d278818c79432b88c0a653da807c0d36c5947c
+              - link "probe:0:16:PINNED" [ref=e566] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x244b9082f695437724593d52466ff0e404cc6eef638784acfc80d53dc293206f
+              - link "probe:0:16:RECALL" [ref=e567] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0xf41fec2a94465763102a20db6afcdb5f732ba0574b6f0dfa8d55ea47d1821eca
+              - link "probe:0:16:REWRITE" [ref=e568] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0xe2432aec90a82ea1a518fc7c63e916348c4bf25c95aa715c5876cb69d8721ebb
+              - link "probe:0:17:PINNED" [ref=e569] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x666cdbe168a6f990b2e23c347b572436fb4dba58b99bc014e8d3303b1001ec36
+              - link "probe:0:17:RECALL" [ref=e570] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0xdf9fce25b17ee40bf0c7189bec566a67a8984f7b45b144c07d367c23a7702e15
+              - link "probe:0:17:REWRITE" [ref=e571] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x053279a8e16b92ef32b81312a6d7ae886c554ada07ee511046d8e100823c1e56
+              - link "probe:0:17:ADMIT" [ref=e572] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0xd7807ccfcc63d70144969deaa9d037053e1a347626934f768c0a11f5545ad712
+              - link "probe:0:18:PINNED" [ref=e573] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x07b4d35498d52a3079662c902377db12e5bad434f24df69b7f6d0e8f07a30313
+              - link "probe:0:18:RECALL" [ref=e574] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x75e3c72ac0d13f0866f172f4070a9ca3b059ae08eb366f09af541fa1615496bc
+              - link "probe:0:18:REWRITE" [ref=e575] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x15489ad78222c4dfe264fbdea6842a9ecb0e2ccaaba1a66d88421e34699e985d
+              - link "probe:0:18:ADMIT" [ref=e576] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x0889b7420af3da1d6c5bb8b29c4547de20bc141f71f47efbb969fb580a047ef3
+              - link "probe:0:19:PINNED" [ref=e577] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0xbc8a831c350e1c8fb318083ab31ab227b5f587352141091bd36284238c6e7049
+              - link "probe:0:19:RECALL" [ref=e578] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0xdf9c33d2f72d23f77fcb4f8aee678c9c0c6d2a657dbe0e31d7d7b33f917835e6
+              - link "probe:0:19:REWRITE" [ref=e579] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0xd46bc78437eab787a6ee25a509c7c98645f0549e6f30d3b0a3b43eae5cfee399
+              - link "probe:0:19:ADMIT" [ref=e580] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0xde69b6ce3b07742cceb0581ab3de4187c9d0d9cb88057c3551c532d8526b8095
+              - link "probe:0:20:PINNED" [ref=e581] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0xcc1b197f1631956c855c2cbf0ddc9d80db43102af4ac935a8314ba7a886ac4e7
+              - link "probe:0:20:RECALL" [ref=e582] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0xe89362d07688f6dcf98ffd9ea75eeb3b9c0bc599e11063a8e545b899b0be8574
+              - link "probe:0:20:REWRITE" [ref=e583] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0xd60abc39a390e1ee98eeb59df561927d377a7e2d143f2c30584b9bf385fe66ae
+              - link "probe:0:21:PINNED" [ref=e584] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x393cb6cfb25f4b40914e01900e6a2684a9695e0b653b5b13c15c5fce8fb8aed0
+              - link "probe:0:21:RECALL" [ref=e585] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x738253bb7cf46c91131b6e9d82aef31af67d9cb03fd666340e78e4924d37b8d7
+              - link "probe:0:21:REWRITE" [ref=e586] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0xaf33d87112e58d93ffa9b0c96711ad62726d04901bffe235d94c0eb4cf056f01
+              - link "probe:0:21:ADMIT" [ref=e587] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x4057c6fd7576ba721e80f57cd07e460c1ee652f7a386f84bb1fa941d69384cab
+              - link "probe:0:22:PINNED" [ref=e588] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x5ae63081975eee72680b627b6412109ca1f2c2b52f4c0d6a24b3c66f1a0f7fec
+              - link "probe:0:22:RECALL" [ref=e589] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0xe1dc71fb18572e6f1fb431c26e10033e7b18ab239239700e9c30057aa4d3bd8e
+              - link "probe:0:22:REWRITE" [ref=e590] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0xe2e2a3755ad0db4c5c936cd6016a8cfd26873a4f4bfd5d4e846aa8df327f84eb
+              - link "probe:0:22:ADMIT" [ref=e591] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0xf5578102ddca44de8417c0b520399c212deb001ab491746ea26a81b5862a4cbf
+              - link "probe:0:23:PINNED" [ref=e592] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x8016e79e4c7ee5d5e791b6d317535bf58a3a176386ecea5958b472ac4fdf7616
+              - link "probe:0:23:RECALL" [ref=e593] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0xea139251f3f468faea1874b11489893559d2049d93241cde8d6d1c3b511ed4ee
+              - link "probe:0:23:REWRITE" [ref=e594] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x6d22f1814ed81849c13e8a6f52776590e912205c7baf1d64ffbe2c6ebd22143d
+              - link "probe:0:23:ADMIT" [ref=e595] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x71080a8c453adeac282c58ad415eda13b3684d7fd5f2a3f456455b2189384792
+              - link "probe:0:2:ADMIT (additional attempt)" [ref=e596] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x88d675814aaa4976c64a5b596e3c4cb4fd224d8e7a7086991e31951f040151f7
+              - link "probe:0:3:ADMIT (additional attempt)" [ref=e597] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x28054e97e3187cba989d4c8561e18c188d0e05de81dafe76580b5102824b45b9
+              - link "probe:0:4:REWRITE (additional attempt)" [ref=e598] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x79cc117afb63de2928e4d41f2b80d0c0f1a5c2f9547f36d0365c6c43c95993c0
+              - link "probe:0:7:ADMIT (additional attempt)" [ref=e599] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x5ecf527fa9d9899a061932632477f4310b8d17370e0f3cdb60fb6df85ea2a2cf
+              - link "probe:0:8:ADMIT (additional attempt)" [ref=e600] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x0e83a80c06c5b1ba72c9fbf54dff955bd50f6ab295379308d2d6331fc8fe1345
+              - link "probe:0:14:REWRITE (additional attempt)" [ref=e601] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x17b942767dd081ca867130d1a91e75c8f9fe804e593ed04c204ce9522e550ae0
+              - link "probe:0:4:ADMIT" [ref=e602] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0xb120096abc56a06cf058af128c260184348a03ce4bb1a4d4cba883b69d087541
+              - link "probe:0:14:ADMIT" [ref=e603] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x85de7b172f28a2a77a1635b5e49f691abd8fc923cced6f2272e7e16ce24bee49
+              - link "probe:0:15:ADMIT (additional attempt)" [ref=e604] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0x099adcb10f7aa80d10b88cf294904c664ea4dc56f94d99463c370d39b762a780
+              - link "rule:0" [ref=e605] [cursor=pointer]:
+                - /url: https://explorer-bradbury.genlayer.com/transactions/0xd2970d5c785db84c92cfbf71924d8b719e29f8e48b29715b9da9c345e9c5ed77
+    - region [ref=e43]:
+      - generic [ref=e44]:
+        - heading "Spent items" [level=2] [ref=e45]
+        - paragraph [ref=e606]: 48 items burned
+      - paragraph [ref=e46]: Revealing an item makes its text public. This court marks it spent immediately, so later claims cannot reuse it as a sealed item. The registry records both the sealed commitment and the hash of its normalized text.
+      - generic [ref=e47]:
+        - generic [ref=e48]: Paste an item's text or a hash. Text is hashed in this browser and never sent anywhere.
+        - textbox "Paste an item's text or a hash. Text is hashed in this browser and never sent anywhere." [ref=e49]
+        - button "Check item" [ref=e50] [cursor=pointer]
+      - status [ref=e51]
+      - table [ref=e607]:
+        - row [ref=e608]:
+          - columnheader "Burned in" [ref=e609]
+          - columnheader "Item" [ref=e610]
+          - columnheader "Text hash" [ref=e611]
+        - row [ref=e612]:
+          - cell "claim 0" [ref=e613]
+          - 'cell "On a practice worksheet, a student reads this problem: A workshop prints 28 blue labels in the m…" [ref=e614]'
+          - cell "3943968d0542d597142ed33ec666cf123cd47927c8822a94fa39f6df61934218" [ref=e615]
+        - row [ref=e616]:
+          - cell "claim 0" [ref=e617]
+          - 'cell "On a practice worksheet, a student reads this problem: A repair station opens 4 boxes containing…" [ref=e618]'
+          - cell "fdd915f283c78597e1318966d358820366a9016538a2dc7090b390263c835c00" [ref=e619]
+        - row [ref=e620]:
+          - cell "claim 0" [ref=e621]
+          - 'cell "On a practice worksheet, a student reads this problem: Mira has 18 wooden tokens in her pouch. S…" [ref=e622]'
+          - cell "d26b159e5ea7d7bc73a607a4c359dc0b245fb028ba61fb7d6baa3fe218754044" [ref=e623]
+        - row [ref=e624]:
+          - cell "claim 0" [ref=e625]
+          - 'cell "On a practice worksheet, a student reads this problem: A craft table has a red ribbon measuring …" [ref=e626]'
+          - cell "3ea66ddff8f8637c2464672b04a224ede4b445eb24590a989176ccc35cd15268" [ref=e627]
+        - row [ref=e628]:
+          - cell "claim 0" [ref=e629]
+          - 'cell "On a practice worksheet, a student reads this problem: A rehearsal room contains 6 rows with 7 c…" [ref=e630]'
+          - cell "8091d9d670e2e3b942bc55837b42671ad1ebb141d47e99c7d384e7b0bf45694e" [ref=e631]
+        - row [ref=e632]:
+          - cell "claim 0" [ref=e633]
+          - 'cell "On a practice worksheet, a student reads this problem: A supply drawer starts the day with 45 bl…" [ref=e634]'
+          - cell "10053304c2d1008b1c507cdca7c9eec3909c313c651afb4a17a2d7d6b19f8c0a" [ref=e635]
+        - row [ref=e636]:
+          - cell "claim 0" [ref=e637]
+          - 'cell "On a practice worksheet, a student reads this problem: A gallery arranges 7 display stands with …" [ref=e638]'
+          - cell "4e4308bce3da02753cd0c64b5c8167a08301274c31e279472df281d724b01d3a" [ref=e639]
+        - row [ref=e640]:
+          - cell "claim 0" [ref=e641]
+          - 'cell "On a practice worksheet, a student reads this problem: Lena brings 18 red counters and Rafi brin…" [ref=e642]'
+          - cell "b0f73b6c7c1c251f74bcab338c30409648b4e37ab5e8fdedfa58af4f9cd70977" [ref=e643]
+        - row [ref=e644]:
+          - cell "claim 0" [ref=e645]
+          - 'cell "On a practice worksheet, a student reads this problem: A parcel contains a metal block with a ma…" [ref=e646]'
+          - cell "7b496e472ece562b7ee63be1735103a0f476be7571d39177c14e233a473d0b87" [ref=e647]
+        - row [ref=e648]:
+          - cell "claim 0" [ref=e649]
+          - 'cell "On a practice worksheet, a student reads this problem: A laboratory puts 9 empty vials into each…" [ref=e650]'
+          - cell "b3f4e2c563a3ce578fe848b858b0de9c0bdbbb4d0143f274fdbcab844386016e" [ref=e651]
+        - row [ref=e652]:
+          - cell "claim 0" [ref=e653]
+          - 'cell "On a practice worksheet, a student reads this problem: A shuttle has 54 passenger seats. At the …" [ref=e654]'
+          - cell "8923bda34a4dec74845e7edf98a9f0e1fbb52dffed2f51733491265634dc1ee5" [ref=e655]
+        - row [ref=e656]:
+          - cell "claim 0" [ref=e657]
+          - 'cell "On a practice worksheet, a student reads this problem: A book stall receives 9 bundles with 4 bo…" [ref=e658]'
+          - cell "75d513bf2adf9a1f2b0bbd5e72d0034fbc2b1c726faaea2d1e504a7b3f6fa29c" [ref=e659]
+        - row [ref=e660]:
+          - cell "claim 0" [ref=e661]
+          - 'cell "On a practice worksheet, a student reads this problem: Ada places 12 glass beads in a bowl, and …" [ref=e662]'
+          - cell "9f3dc4869828565c36f748a4a5f72fde81719650d45ac23eb258f1d51ec26050" [ref=e663]
+        - row [ref=e664]:
+          - cell "claim 0" [ref=e665]
+          - 'cell "On a practice worksheet, a student reads this problem: A demonstration includes a video lasting …" [ref=e666]'
+          - cell "c7c6847ae9dc568dbfbb6a5c44beaf6ef887ce8e53f251baf5ccf69482fba4d1" [ref=e667]
+        - row [ref=e668]:
+          - cell "claim 0" [ref=e669]
+          - 'cell "On a practice worksheet, a student reads this problem: An archive shelf starts with 64 folders. …" [ref=e670]'
+          - cell "6d6b81eab27c56c62113227a27b037acaabe3a7103d072789d424603b83d9a0c" [ref=e671]
+        - row [ref=e672]:
+          - cell "claim 0" [ref=e673]
+          - 'cell "On a practice worksheet, a student reads this problem: A workshop has 5 sealed sleeves containin…" [ref=e674]'
+          - cell "8630d7f80aa33a2762c273c6ac806543181f15c8ccb12496a33d259d66595f2a" [ref=e675]
+        - row [ref=e676]:
+          - cell "claim 0" [ref=e677]
+          - 'cell "On a practice worksheet, a student reads this problem: A lantern kit has 24 batteries, but 4 bat…" [ref=e678]'
+          - cell "f376eafdcd0eb538b519afa648f75ed8ab227f17ed372791b63ea0486034447a" [ref=e679]
+        - row [ref=e680]:
+          - cell "claim 0" [ref=e681]
+          - 'cell "On a practice worksheet, a student reads this problem: Davi packs 4 crates with 11 marker pens i…" [ref=e682]'
+          - cell "39a390fb9a6ae5115f5f4fc0a9eaa1fbffc71f8138be21528000db832be0fd25" [ref=e683]
+        - row [ref=e684]:
+          - cell "claim 0" [ref=e685]
+          - 'cell "On a practice worksheet, a student reads this problem: A survey team measures a footpath in two …" [ref=e686]'
+          - cell "231d08b3b755dd7c78e4324e4231e6fbf246fae464e6133a3a4ef4286093937d" [ref=e687]
+        - row [ref=e688]:
+          - cell "claim 0" [ref=e689]
+          - 'cell "On a practice worksheet, a student reads this problem: A print shop packs 72 invitation cards in…" [ref=e690]'
+          - cell "901a4b35f5de1322509eb1c87dbbc6d73097c5c332499685ec9551627cd395b6" [ref=e691]
+        - row [ref=e692]:
+          - cell "claim 0" [ref=e693]
+          - 'cell "On a practice worksheet, a student reads this problem: A reading club receives 7 cartons contain…" [ref=e694]'
+          - cell "e928ea48caacfe4348d7ccdcb3536180817f582650249300c0ae2ea0b971fcf6" [ref=e695]
+        - row [ref=e696]:
+          - cell "claim 0" [ref=e697]
+          - 'cell "On a practice worksheet, a student reads this problem: A coordinator divides 36 plain badges equ…" [ref=e698]'
+          - cell "3ceeb5ac011654da9d0b3b8ea630c1d4566bf7662ab77500f600847abaebea00" [ref=e699]
+        - row [ref=e700]:
+          - cell "claim 0" [ref=e701]
+          - 'cell "On a practice worksheet, a student reads this problem: Priya has 31 polished shells in a box. Ma…" [ref=e702]'
+          - cell "13e32067b0c694fde3d4bcd4846475f6fa2e9b61c8238b4444ab7d0ed063591a" [ref=e703]
+        - row [ref=e704]:
+          - cell "claim 0" [ref=e705]
+          - 'cell "On a practice worksheet, a student reads this problem: A mixing station has 900 milliliters of c…" [ref=e706]'
+          - cell "aafd4c8074730df0c9f866b613b7caac201d587feb8efbe4c2ac339611784acc" [ref=e707]
+        - row [ref=e708]:
+          - cell "claim 1" [ref=e709]
+          - cell "text not in this snapshot" [ref=e710]
+          - cell "630ef4fad2d4954a193fb1496665e0b72f37e09f64cb549f965de3b1a15c3301" [ref=e711]
+        - row [ref=e712]:
+          - cell "claim 1" [ref=e713]
+          - cell "text not in this snapshot" [ref=e714]
+          - cell "e10088a95e2e28ed8f29c5053871bca12e289fe0928c358f9cb481bca9bf8bea" [ref=e715]
+        - row [ref=e716]:
+          - cell "claim 1" [ref=e717]
+          - cell "text not in this snapshot" [ref=e718]
+          - cell "fb6c149d06667dec0b3cd818edfd431e60901f0af3a7a7ef7a4fb599fd978441" [ref=e719]
+        - row [ref=e720]:
+          - cell "claim 1" [ref=e721]
+          - cell "text not in this snapshot" [ref=e722]
+          - cell "e1317ba042c1d626ac85f05bd8569aa2e57ae65c7ba98550a778e64b63594472" [ref=e723]
+        - row [ref=e724]:
+          - cell "claim 1" [ref=e725]
+          - cell "text not in this snapshot" [ref=e726]
+          - cell "4192d54fd424ace4aa5c37cd5066ab10393dc70b8283d648b4cf63bbc6b88bec" [ref=e727]
+        - row [ref=e728]:
+          - cell "claim 1" [ref=e729]
+          - cell "text not in this snapshot" [ref=e730]
+          - cell "2be03c4cae311064f0630532c1dff4935d606b55a31923d2ca9c30db65400194" [ref=e731]
+        - row [ref=e732]:
+          - cell "claim 1" [ref=e733]
+          - cell "text not in this snapshot" [ref=e734]
+          - cell "78d500b7d02e74d834f9225ca8852f50627fa0d04535705518493b3db1cc25b9" [ref=e735]
+        - row [ref=e736]:
+          - cell "claim 1" [ref=e737]
+          - cell "text not in this snapshot" [ref=e738]
+          - cell "04c48f7238790a146ca7a4d0ffcf6b55db440c7dc848e23aaa1f19ce9ffd36e3" [ref=e739]
+        - row [ref=e740]:
+          - cell "claim 1" [ref=e741]
+          - cell "text not in this snapshot" [ref=e742]
+          - cell "07e0ec3e0a41da7f5524dfa29752566db0dce6747c4ed42f4e17011d0119faa2" [ref=e743]
+        - row [ref=e744]:
+          - cell "claim 1" [ref=e745]
+          - cell "text not in this snapshot" [ref=e746]
+          - cell "1fc05d76ec66d8277f374d34f4400be0b6404012a30a7972e29875320ecc9ebe" [ref=e747]
+        - row [ref=e748]:
+          - cell "claim 1" [ref=e749]
+          - cell "text not in this snapshot" [ref=e750]
+          - cell "726070d42ab7adfadc610df8bbf39a368c771649dfce8247da189bdd349559bd" [ref=e751]
+        - row [ref=e752]:
+          - cell "claim 1" [ref=e753]
+          - cell "text not in this snapshot" [ref=e754]
+          - cell "5866fd74096225b07029f40ce39bab905971f759eabdb89020bd503786b0f49b" [ref=e755]
+        - row [ref=e756]:
+          - cell "claim 1" [ref=e757]
+          - cell "text not in this snapshot" [ref=e758]
+          - cell "db1001a015b6c545b7e86e99e4020981e726db98ae886937f2d8b08febb3e0c8" [ref=e759]
+        - row [ref=e760]:
+          - cell "claim 1" [ref=e761]
+          - cell "text not in this snapshot" [ref=e762]
+          - cell "360a79722d8803ce0d5f10e9d4015e9d3fd4a0f5048d12fbccf8303469815c11" [ref=e763]
+        - row [ref=e764]:
+          - cell "claim 1" [ref=e765]
+          - cell "text not in this snapshot" [ref=e766]
+          - cell "6934cf1d989c5de76fac9ca17e388f329a83fb711788dd79257fa534a21df54c" [ref=e767]
+        - row [ref=e768]:
+          - cell "claim 1" [ref=e769]
+          - cell "text not in this snapshot" [ref=e770]
+          - cell "5890b51a1942fe6e24511ce1476b7d7887f1fbb4933d7b34cfdba6995d1d27d4" [ref=e771]
+        - row [ref=e772]:
+          - cell "claim 1" [ref=e773]
+          - cell "text not in this snapshot" [ref=e774]
+          - cell "ebed60b891ad65a6e759169c37837ac10aec87bfac748f256ace7714dafab005" [ref=e775]
+        - row [ref=e776]:
+          - cell "claim 1" [ref=e777]
+          - cell "text not in this snapshot" [ref=e778]
+          - cell "2ce89477a6cc4b23589037236ddd817ebafc0796a4eb065e5810cd7c52152d8f" [ref=e779]
+        - row [ref=e780]:
+          - cell "claim 1" [ref=e781]
+          - cell "text not in this snapshot" [ref=e782]
+          - cell "b736de4ef8c83478f7053ae1890cbc051b8bb2262aaa744b2114fa1b3744ced7" [ref=e783]
+        - row [ref=e784]:
+          - cell "claim 1" [ref=e785]
+          - cell "text not in this snapshot" [ref=e786]
+          - cell "34e029e93e40b6d8192f93fba9da0d4fd237f9c0c5dffc6af3ba89798b77f2d6" [ref=e787]
+        - row [ref=e788]:
+          - cell "claim 1" [ref=e789]
+          - cell "text not in this snapshot" [ref=e790]
+          - cell "f3b00a9c0861574eb20c99cd16cf1f88b0bf4f3874858e586331aa16f0b77df3" [ref=e791]
+        - row [ref=e792]:
+          - cell "claim 1" [ref=e793]
+          - cell "text not in this snapshot" [ref=e794]
+          - cell "9d1ff822ed5bf1367dc6e07d5dbcea43efbf33f1cdfd9db5377ccb38c97c749e" [ref=e795]
+        - row [ref=e796]:
+          - cell "claim 1" [ref=e797]
+          - cell "text not in this snapshot" [ref=e798]
+          - cell "8fcaa6701f79065087002aba636c80c84ca3d9904e3e771f196239383b41c294" [ref=e799]
+        - row [ref=e800]:
+          - cell "claim 1" [ref=e801]
+          - cell "text not in this snapshot" [ref=e802]
+          - cell "ea08b8e98f66d25ad6c6a439ac639ece1304cbb59ad9bfc922c67a73c407ea9a" [ref=e803]
+  - contentinfo [ref=e53]:
+    - paragraph [ref=e54]:
+      - link "Current case" [ref=e55] [cursor=pointer]:
+        - /url: ./
+      - text: ·
+      - link "Scripted examples" [ref=e56] [cursor=pointer]:
+        - /url: "?demo=1"
+      - text: ·
+      - link "Source on GitHub" [ref=e57] [cursor=pointer]:
+        - /url: https://github.com/Zhekinmaksim/impeach
+      - text: ·
+      - link "Contract specification" [ref=e58] [cursor=pointer]:
+        - /url: https://github.com/Zhekinmaksim/impeach/blob/main/spec/SPEC.md
+      - text: ·
+      - link "Download evidence" [ref=e59] [cursor=pointer]:
+        - /url: case.json
+    - paragraph [ref=e60]:
+      - link "Claim 0 opening on Bradbury" [ref=e804] [cursor=pointer]:
+        - /url: https://explorer-bradbury.genlayer.com/transactions/0x4c8b4bf2efc0f9a5aeb29a75431340f958a7f6ed91d4de570efeaf8fd1d200e7
+    - generic [ref=e62]:
+      - generic [ref=e63]:
+        - heading "Check from a terminal" [level=3] [ref=e64]
+        - generic [ref=e65]: python3 cli/impeach.py check --text "…the item…" python3 cli/impeach.py check <sha256> --address $CONTRACT python3 cli/impeach.py recompute web/case.json
+        - paragraph [ref=e66]: The first two exit with status 1 when the item is spent, so they can gate a CI job. The third rebuilds every verdict on this page from the published probes.
+      - generic [ref=e67]:
+        - heading "What this does not show" [level=3] [ref=e68]
+        - paragraph [ref=e69]: "A gap is evidence, not proof: every model drops a little on rewritten questions, and the threshold is a convention. The raw counts are published so a reader can disagree with it. Only subjects that answer a public endpoint can be tried."
+        - paragraph [ref=e805]: Built from settled receipts of contract 0x45F610cefF1ed367d684A1839b1801Af12Cfb038 on 2026-10-11 06:50 UTC.
+```

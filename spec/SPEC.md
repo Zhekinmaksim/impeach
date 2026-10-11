@@ -2,8 +2,10 @@
 
 Implementation notes are current as of 11 October 2026. The scripted control is
 finalized `CONTAMINATED / RECALL`; the real Llama native case remains in progress.
-Its preparation and evidence are tracked in [V2-TRIAL.md](../V2-TRIAL.md).
-Local calibration is not a real native certificate.
+Its unresolved v2 record is tracked in [V2-TRIAL.md](../V2-TRIAL.md); the prepared
+fresh run is in [V3-TRIAL.md](../V3-TRIAL.md). V3 calibration has passed locally,
+but the v3 endpoint is off and no v3 native claim has opened. Local calibration
+is not a real native certificate.
 
 A published score says a model can do something. It might instead say the model
 has seen the answers. Nothing on chain, and almost nothing off it, can tell those
@@ -326,6 +328,25 @@ The receipt-only path requires a fresh finalized negative result or finalized
 It preserves each previous row, receipt hash and ordinal. Pending/replaying,
 applied, inadmissible and dead slots are not resent. Ambiguous `RETURN / IDLE`
 without the explicit proof below remains blocked.
+
+V3 explicitly opts into `complete_case.py --subject-first`: all 72
+PINNED/RECALL/REWRITE states and eligible subject recoveries must apply before
+any ADMIT. A subject awaiting finality causes a bounded exit and releases the
+lock for queue service/resume. `DEAD`, first-framing rejection and a positive
+receipt with an unapplied slot do not permit blind retries or entry into C2.
+The default per-item scheduling is unchanged.
+
+The optional `--subject-deadline` is a positive integer UTC epoch; completion
+requires `--subject-first` when it is supplied. V3 sets it to API expiry.
+Completion identity freezes this policy and the input hash. Standalone recovery
+inherits the saved deadline if omitted and rejects a mismatched deadline or
+identity. UTC wall time and a fresh chain clock must both be below expiry minus
+120 seconds immediately before subject dispatch markers; recovery repeats the
+check after proof lookup and final reads. Once all subjects apply, ADMIT and
+eligible ADMIT recoveries can continue inside the court window after API expiry.
+Already queued calls cannot be canceled and may execute after expiry. This
+dispatch limit does not guarantee execution before the endpoint closes.
+
 The baseline run policy uses no automatic appeals, since they can rewind later
 calls. A single separately reviewed exception was made for the latest item 14
 ADMIT recovery after `LEADER_TIMEOUT`: one zero-bond appeal, with the same native
@@ -399,7 +420,8 @@ withdrawal has been sent. Automatic approval review rejected partial 23-pair
 closure before broadcast because the authorized goal was all 24 pairs;
 explicit user authorization for partial closure has been requested. C1 is
 still `TRIAL`. The saved `CLEAN` calculation is an offline forecast and must
-not be reported as a native certificate.
+not be reported as a native certificate. A fresh 10:46 UTC read still showed
+item 14's C2 `PENDING`.
 
 ## 10. Defaults to start from
 
@@ -438,12 +460,30 @@ gated by `TRIAL_V3_ENABLED=false`. The inference API retains its four-hour
 expiry limit and the same shared $5 lifetime key cap; six hours of trial time
 does not extend endpoint access.
 
-The 72 old-response replay in the v3 audit checks local contract behavior with
-exactly checked prefixed requests and scripted referee decisions. It is not a
-new subject measurement. Real Sonnet calibration is in progress, targeting
-112 calls at `max_tokens=512`, with a $1.80 run cap and total key usage at most
-$4.80 below the hard $5 limit. The [raw transcript](../runs/v3-referee-sonnet-transcript.jsonl)
-does not yet establish a completed calibration or native verdict.
+The 72 old-response replay in the generator audit remains a cross-prompt local
+regression check with scripted referee decisions, not a new subject measurement.
+The separate [Sonnet calibration](../runs/v3-referee-verified.json) completed
+112 actual new calls at `max_tokens=512`: 24/24 intended rewrites admitted in
+both framings and 4/4 controls rejected in both, at a recorded cost of $0.375864.
+The [raw transcript](../runs/v3-referee-sonnet-transcript.jsonl) is preserved.
+The run stayed within its $1.80 cap and $4.80 total-key stop under the hard $5 cap.
+
+The [initial Llama run](../runs/v3-llama-initial-coverage-audit.json) made 74
+attempts with three no-reply outcomes and 71 unique successful requests. One
+actual [supplement](../runs/v3-llama-supplement.jsonl) supplied missing PINNED
+item index 21. The [exact new-prompt replay audit](../runs/v3-llama-verified-audit.json)
+then consumed all 72 recorded responses without more network calls: 24 correct
+originals, 24 correct rewrites, 24 recall misses, n=24, Δ=0‰ and R=0‰. Recorded
+successful responses cost $0.00035026; initial errors remain saved. The
+[local snapshot](../runs/v3-llama-verified.json) forecasts `CLEAN` with scripted
+admission, not native validator consensus.
+
+V3 remains disabled and unopened on chain. It targets the existing Vercel
+project and server-side key, without uploading the key again. Follow
+[V3-TRIAL.md](../V3-TRIAL.md) for the separate launch and final-certificate gates.
+The [10:47 UTC pre-activation snapshot](../runs/v3-budget-before-activation.json)
+records $2.02391728 used and $2.97608272 remaining under the shared $5 lifetime
+key cap, zero BYOK usage and no limit reset.
 
 ## 11. Honest limits, stated in the submission
 
@@ -477,7 +517,7 @@ does not yet establish a completed calibration or native verdict.
    full, and the spent registry as a searchable list
 
 The current offline `make check` baseline is 184 stub contract checks,
-156 Python tests, 47 browser-arithmetic parity checks and 38 Node tests on
+173 Python tests, 47 browser-arithmetic parity checks and 38 Node tests on
 Node 24, plus fixture consistency and published-snapshot recomputation. The
 Python total includes 31 focused queue-service tests; the separate pinned-SDK
 suite remains 150 checks. These checks cover contract behavior and orchestration

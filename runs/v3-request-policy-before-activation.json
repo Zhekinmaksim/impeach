@@ -1,0 +1,7 @@
+{
+  "at": "2026-10-11T10:25:54.477Z",
+  "claim": "calibration/claim-court24-v3.json",
+  "request_count": 72,
+  "request_json_sha256": "a29524895890629b37608e5c2b9fbe6c5e9e83509cfb82864b18b94e73cbdfd4",
+  "canonical_policy_sha256": "e49e9dbae53c09ae775a8afff9e29a4e71b30dd9190b54edb4347e593424b935"
+}

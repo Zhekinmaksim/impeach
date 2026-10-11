@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/Users/zmaxx/Projects/impeach/runs/v3-llama-exact-replay.py", line 39, in <module>
+    assert certificate['dead_probes']==0 and certificate['paired_admitted']==24
+                                             ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+KeyError: 'paired_admitted'

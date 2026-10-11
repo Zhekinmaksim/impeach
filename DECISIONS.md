@@ -224,7 +224,8 @@ No `rule`, retirement or withdrawal has been sent for C1. Automatic approval
 review rejected closing the partial 23-pair result before broadcast because the
 authorized goal was all 24 pairs; explicit user authorization for that partial
 closure has been requested. The saved `CLEAN` calculation is an offline forecast,
-not a native certificate. C1 remains `TRIAL`, without a ruled verdict.
+not a native certificate. C1 remains `TRIAL`, without a ruled verdict; a fresh
+10:46 UTC read still showed item 14's C2 `PENDING`.
 
 ### 14. Preserve unknown transactions instead of guessing a result
 
@@ -360,7 +361,7 @@ artifact; removing or changing evidence prevents further recovery. The limit
 of three explicit recoveries, locks and deadline checks still apply. Raw SDK
 receipts are never rewritten to make them look negative or successful.
 
-The offline verification baseline is **184 stub contract checks, 156 Python
+The offline verification baseline is **184 stub contract checks, 173 Python
 tests, 47 browser-arithmetic parity checks and 38 Node tests** under supported
 Node 24, plus fixture consistency and published-snapshot recomputation. The
 Python total includes 31 focused queue-service tests. The separate pinned-SDK
@@ -389,15 +390,60 @@ currently false. The API's four-hour expiry limit and shared $5 lifetime key
 cap are unchanged; a longer trial does not extend endpoint access or reset
 credit.
 
-The audit's 72-response cross-prompt replay is a local regression check using
-unaltered v2 response objects and scripted referee decisions. It is explicitly
-not a measurement of the newly prefixed prompts. A separate real Sonnet
-calibration is in progress, targeting 112 calls at `max_tokens=512`, with a
-$1.80 run cap and total key usage capped at $4.80 below the hard $5 limit. The
-[in-progress raw transcript](runs/v3-referee-sonnet-transcript.jsonl) and
-[calibration log](runs/v3-referee-calibration.log) do not yet establish a passed
-calibration or native result. The full offline checks passed in
-[v3-offline-check.log](runs/v3-offline-check.log).
+The generator audit's 72-response cross-prompt replay remains a local regression
+check using unaltered v2 response objects and scripted referee decisions. It is
+not a measurement of the newly prefixed prompts. The separate
+[real Sonnet calibration](runs/v3-referee-verified.json) completed 112 new calls
+at `max_tokens=512`: all 24 intended rewrites were admitted in both framings,
+and all four controls were rejected in both. No old prompt response substituted
+for a new call. The [raw transcript](runs/v3-referee-sonnet-transcript.jsonl)
+records $0.375864 of calibration cost, within the $1.80 run cap and $4.80
+total-key stop below the hard $5 limit.
+
+The [initial Llama coverage audit](runs/v3-llama-initial-coverage-audit.json)
+records 74 attempts, three no-reply outcomes and 71 unique successful requests.
+One actual [supplement](runs/v3-llama-supplement.jsonl) supplied missing PINNED
+item index 21. All 72 recorded responses were then replayed against the exact
+new request bodies without more network calls. The
+[verified audit](runs/v3-llama-verified-audit.json) and
+[local snapshot](runs/v3-llama-verified.json) report 24 correct originals,
+24 correct rewrites, 24 recall misses, n=24, Δ=0‰ and R=0‰. The `CLEAN` forecast
+uses scripted admission; it is not a native certificate. Recorded successful
+responses cost $0.00035026. The initial errors and partial snapshot remain saved.
+
+The full offline checks, including the scheduling policy below, passed in
+[v3-subject-first-full-check.log](runs/v3-subject-first-full-check.log).
+The public v3 switch remains false and no v3 native claim is open. The route
+uses the existing Vercel project and server-side key; no key was uploaded again
+for this preparation. [V3-TRIAL.md](V3-TRIAL.md) records the launch procedure.
+The [pre-activation key snapshot](runs/v3-budget-before-activation.json) at
+10:47 UTC records $2.02391728 used, $2.97608272 remaining, zero BYOK usage and
+no reset under the shared $5 lifetime cap.
+
+### 18. Complete subject calls before second-framing admissions in V3
+
+The explicit `--subject-first` option changes only orchestration: all 72
+PINNED/RECALL/REWRITE states and their eligible recoveries must apply before
+any ADMIT. If a subject awaits actual finality, the completer exits with its
+lock released so queue service can run before resume. A `DEAD` outcome,
+first-framing rejection or positive native receipt with an empty application
+slot blocks C2; it does not authorize a duplicate. The default per-item order,
+ordinary/proof-based recovery predicates and maximum of three explicit
+recoveries remain unchanged. The V3 run plan uses no appeals.
+
+`--subject-deadline` is an optional positive integer UTC epoch and requires
+`--subject-first` on the completer. V3 supplies the actual API expiry. Its mode
+and deadline are frozen in completion identity alongside the court, challenge
+and input hash. Standalone retry inherits the saved deadline when omitted and
+rejects any different value or identity. Before each subject dispatch marker,
+UTC wall time and a fresh chain clock must both remain below expiry minus
+120 seconds. Recovery performs this check after proof lookup and final reads.
+All locks and durable dispatch evidence remain in force.
+
+After all subjects apply, ADMIT and its eligible recoveries may use the remaining
+six-hour court window even after API expiry. This guard cannot cancel calls
+already submitted or queued; they may execute after the four-hour endpoint
+window. It does not promise that the network will complete all probes in time.
 
 ## Found on the way: `withdraw` in Suborn and Jastrow
 

@@ -38,8 +38,17 @@ prefix and new salts to the same arithmetic. It has no spent-hash overlap,
 a six-hour court window and a separate disabled `/api/live-v3/chat/completions`
 route. The gateway's four-hour window and shared lifetime $5 budget are
 unchanged. Offline reuse of earlier responses is labeled as cross-prompt
-regression, not a new model measurement; actual calibration must pass before
-the new claim is opened. See [the generator](scripts/generate_court24_v3.py).
+regression, not a new model measurement. Subsequent actual calibration passed:
+[112 new Sonnet calls](runs/v3-referee-verified.json) admitted all 24 rewrites
+and rejected all four controls under both framings. The new Llama rehearsal
+made 74 attempts with three no-reply outcomes, leaving one original request
+without a response; [one separate actual supplement](runs/v3-llama-supplement.jsonl)
+completed it. [Exact offline replay](runs/v3-llama-verified-audit.json) consumes
+all 72 distinct new-prompt responses and makes no paid calls: 24 correct pinned
+answers, 24 correct rewrites and 24 recall misses, with no dead slots. Its
+`CLEAN` result is a local forecast using scripted admission, not a native
+certificate. The original failures and partial rehearsal are retained.
+See [the generator](scripts/generate_court24_v3.py).
 
 The [deployment record](runs/v2-deployment.json) and
 [receipt](runs/v2-deployment-receipt.json) identify the accepted deployment.

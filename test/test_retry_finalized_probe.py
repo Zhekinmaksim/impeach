@@ -111,6 +111,68 @@ class FinalizedProbeRecoveryTests(unittest.TestCase):
         self.assertEqual(self.send.call_count, 1)
         self.assertEqual(len(self.read_rows()), 2)
 
+    def test_subject_deadline_rereads_chain_clock_after_evidence_before_marker(self):
+        self.args.subject_deadline = 245
+        original_save = recovery.save_receipt
+        def save(*args, **kwargs):
+            path = original_save(*args, **kwargs)
+            # The court remains open until 130; the subject cutoff is 125.
+            self.clock = 125
+            return path
+        with patch.object(recovery.time, 'time', return_value=100), \
+                patch.object(recovery, 'save_receipt', side_effect=save):
+            self.refuse('subject deadline')
+        self.assertFalse(os.path.exists(recovery.dispatch_path(self.args.manifest, self.args.tx)))
+        self.assertEqual(len(list(Path(self.args.manifest + '.receipts').glob('*.json'))), 1)
+
+    def test_subject_deadline_cli_is_optional_positive_integer_epoch(self):
+        options = [value for name in ('address', 'account', 'rpc', 'manifest', 'tx')
+                   for value in ('--' + name, getattr(self.args, name))]
+        self.assertIsNone(recovery.parse_args(options).subject_deadline)
+        self.assertEqual(recovery.parse_args(options + ['--subject-deadline', '1791720000']).subject_deadline,
+                         1791720000)
+        for value in ('0', '-1', '1.5'):
+            with contextlib.redirect_stderr(io.StringIO()), self.assertRaises(SystemExit):
+                recovery.parse_args(options + ['--subject-deadline', value])
+
+    def write_subject_policy(self, deadline, **changes):
+        fingerprint = hashlib.sha256(json.dumps([self.claim, self.rewrites], sort_keys=True,
+                                                ensure_ascii=False).encode()).hexdigest()
+        identity = {'address': self.args.address.lower(), 'challenge_id': 0,
+                    'input_sha256': fingerprint, 'subject_first': True, 'subject_deadline': deadline}
+        identity.update(changes)
+        path = Path(self.args.manifest + '.complete/identity.json')
+        path.parent.mkdir(exist_ok=True)
+        path.write_text(json.dumps(identity))
+
+    def test_standalone_retry_inherits_expired_subject_policy_without_cli_flag(self):
+        self.write_subject_policy(1)
+        with patch.object(recovery.time, 'time', return_value=100):
+            self.refuse('subject deadline')
+        self.assertFalse(os.path.exists(recovery.dispatch_path(self.args.manifest, self.args.tx)))
+
+    def test_standalone_retry_inherits_valid_subject_policy_without_mutating_args(self):
+        self.write_subject_policy(245)
+        with patch.object(recovery.time, 'time', return_value=100):
+            self.assertEqual(recovery.retry(self.args), 0)
+        self.assertEqual(self.send.call_count, 1)
+        self.assertFalse(hasattr(self.args, 'subject_deadline'))
+        self.assertEqual(self.read_rows()[1]['previous_row'], self.row)
+
+    def test_standalone_retry_rejects_changed_subject_deadline_or_identity(self):
+        self.write_subject_policy(245)
+        for deadline in (244, 246):
+            with self.subTest(deadline=deadline):
+                self.args.subject_deadline = deadline
+                self.refuse('subject deadline differs')
+        self.args.subject_deadline = None
+        for changes in ({'address': '0x' + '2' * 40}, {'challenge_id': 1},
+                        {'input_sha256': '0' * 64}, {'subject_first': False}):
+            with self.subTest(changes=changes):
+                self.write_subject_policy(245, **changes)
+                self.refuse('subject.*(policy|identity)|frozen subject')
+        self.assertFalse(os.path.exists(recovery.dispatch_path(self.args.manifest, self.args.tx)))
+
     def setup_no_messages_proof(self, during_lookup=None):
         self.args.allow_proven_no_messages=True
         self.args.source=os.path.join(ROOT,'build/impeach.py')

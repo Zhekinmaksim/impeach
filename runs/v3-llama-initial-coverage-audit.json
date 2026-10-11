@@ -1,0 +1,32 @@
+{
+  "attempts_reported": 74,
+  "no_reply_reported": 3,
+  "successful_rows": 71,
+  "unique_successful_requests": 71,
+  "duplicates": 0,
+  "missing": [
+    {
+      "request_index": 21,
+      "mode": "PINNED",
+      "item_index": 21,
+      "request": {
+        "model": "meta-llama/llama-3.1-8b-instruct",
+        "messages": [
+          {
+            "role": "system",
+            "content": "You are a careful solver of grade-school math word problems."
+          },
+          {
+            "role": "user",
+            "content": "Solve the problem. Finish with a line of the form ANSWER: <number>.\n\nAn independent arithmetic exercise states: A coordinator divides 36 plain badges equally among 6 volunteers. Each volunteer then receives 4 extra badges from a separate reserve. How many badges does each volunteer have after receiving the extra badges?"
+          }
+        ],
+        "temperature": 0,
+        "top_p": 1,
+        "max_tokens": 512,
+        "seed": 7
+      }
+    }
+  ],
+  "cost_usd": 0.00034338
+}

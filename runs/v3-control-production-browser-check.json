@@ -1,0 +1,17 @@
+{
+  "checked_at": "2026-10-11T10:26:32.905313+00:00",
+  "url": "https://impeach.vercel.app",
+  "download": "impeach-claim-0-scripted-certificate.json",
+  "sha256": "868eee2ed3019f34ad422c737a0498f05369b9c0fe385a80127b7259ca49d5b6",
+  "certificate_matches_native": true,
+  "console_errors": 0,
+  "console_warnings": 0,
+  "subject_is_explicitly_scripted": true,
+  "paired_admitted": 13,
+  "recall_matches": 24,
+  "initial_viewport_width": 1280,
+  "initial_scroll_width": 1280,
+  "mobile_viewport_width": 390,
+  "mobile_scroll_width": 390,
+  "mobile_screenshot": "output/playwright/v3-control-production-mobile.png"
+}

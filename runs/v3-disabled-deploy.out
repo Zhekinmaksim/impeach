@@ -1,0 +1,22 @@
+{
+  "status": "ok",
+  "deployment": {
+    "id": "dpl_8W3Jh4FpJGRvLfE7kjsMprV85AXj",
+    "url": "https://impeach-ab05svlmc-zhekinmaksim-8919s-projects.vercel.app",
+    "inspectorUrl": "https://vercel.com/zhekinmaksim-8919s-projects/impeach/8W3Jh4FpJGRvLfE7kjsMprV85AXj",
+    "readyState": "READY",
+    "target": "production",
+    "deploymentApiUrl": "https://api.vercel.com/v13/deployments/dpl_8W3Jh4FpJGRvLfE7kjsMprV85AXj"
+  },
+  "message": "Deployment impeach-ab05svlmc-zhekinmaksim-8919s-projects.vercel.app ready.",
+  "next": [
+    {
+      "command": "vercel inspect impeach-ab05svlmc-zhekinmaksim-8919s-projects.vercel.app --scope zhekinmaksim-8919s-projects",
+      "when": "Inspect deployment"
+    },
+    {
+      "command": "vercel deploy --prod --scope zhekinmaksim-8919s-projects",
+      "when": "Promote to production"
+    }
+  ]
+}

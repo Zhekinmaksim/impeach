@@ -15,6 +15,13 @@ helper may retry each finalized, untouched failed slot once by default, or up
 to three times with --max-recoveries 3. Every retry requires a new finalized
 failure and preserves the earlier hashes and receipts. No appeal,
 finalization, rule, retire or withdrawal is performed here.
+
+Opt-in --subject-first completes all PINNED/RECALL/REWRITE states and their
+guarded recoveries before any ADMIT. A blocked subject stage exits for external
+queue service/resume; DEAD or rejected rewrites do not become retryable.
+--subject-deadline is the public API expiry as UTC epoch seconds. Subject
+dispatches stop 120 seconds earlier; ADMIT may continue within the court window.
+Already sent calls are never canceled and may execute after API expiry.
 """
 
 import argparse
@@ -114,10 +121,21 @@ def completed(state):
               state.get('rewrite') in {'RIGHT', 'WRONG'})))
 
 
+def subjects_completed(state):
+    return (state.get('pinned') in {'RIGHT', 'WRONG'} and
+            state.get('recall') in {'MATCH', 'MISS', 'NA'} and
+            state.get('stage_c1') == 'ADMISSIBLE' and
+            state.get('rewrite') in {'RIGHT', 'WRONG'})
+
+
 class Completer(run_case.Runner):
     def __init__(self, args, completion_lock=None):
         super().__init__(args)
         self.max_recoveries = recovery.max_recoveries(args)
+        self.subject_first = getattr(args, 'subject_first', False)
+        self.subject_deadline = recovery.subject_deadline(args)
+        if self.subject_deadline is not None and not self.subject_first:
+            raise Pause('--subject-deadline requires --subject-first for completion scheduling')
         self.completion_lock = completion_lock
         self.folder = Path(os.path.abspath(args.manifest) + '.complete')
         self.folder.mkdir(parents=True, exist_ok=True)
@@ -167,6 +185,8 @@ class Completer(run_case.Runner):
         identity = self.folder / 'identity.json'
         expected = {'address': self.args.address.lower(), 'challenge_id': self.args.challenge_id,
                     'input_sha256': self.input_hash}
+        if self.subject_first:
+            expected.update(subject_first=True, subject_deadline=self.subject_deadline)
         if identity.exists():
             if json.loads(identity.read_text()) != expected:
                 raise Pause('completion identity/claim changed; use the original inputs and manifest')
@@ -348,6 +368,7 @@ class Completer(run_case.Runner):
         self.guard()
         if run_case.manifest_rows(self.args.manifest) != self.rows:
             raise Pause('manifest changed outside this completion process')
+        self.subject_dispatch_guard(mode)
         marker = self.marker(key)
         value = {'key': key, 'address': self.args.address.lower(), 'signature': signature(self.call(index, mode)),
                  'input_sha256': self.input_hash, 'at': int(time.time()), 'status': 'DISPATCHING',
@@ -379,6 +400,7 @@ class Completer(run_case.Runner):
         if (ordinal >= self.max_recoveries or not recovery.slot_untouched(state, row['mode']) or
                 not (recovery.retryable_receipt(receipt) or row['tx'] in self.finality_proofs)):
             return False
+        self.subject_dispatch_guard(row['mode'])
         args = copy.copy(self.args)
         args.tx = row['tx']
         args.delay = 0
@@ -402,6 +424,43 @@ class Completer(run_case.Runner):
         self.report('RUNNING')
         return True
 
+    def subject_dispatch_guard(self, mode):
+        if self.subject_deadline is not None and mode in recovery.SUBJECT_MODES:
+            self.chain_time = self.read('clock')
+            recovery.require_subject_window(self.args, mode, self.chain_time)
+
+    def subject_stage(self):
+        """Make subject progress, then release the lock if queue service is needed."""
+        while True:
+            self.guard()
+            for index in range(24):
+                for mode in recovery.SUBJECT_MODES:
+                    self.initial(index, mode)
+                self.state(index)
+            if all(subjects_completed(self.states[index]) for index in range(24)):
+                self.report('SUBJECTS_COMPLETE')
+                return
+            recovered = became_successful = False
+            for row in list(self.rows.values()):
+                if row.get('method') != 'probe' or row.get('mode') not in recovery.SUBJECT_MODES:
+                    continue
+                before = self.outcomes.get(row['tx'])
+                self.wait(row)
+                if self.outcomes[row['tx']] == 'FAILURE':
+                    recovered = self.recover(row) or recovered
+                elif before != 'SUCCESS':
+                    became_successful = True
+            if recovered or became_successful:
+                continue
+            for index in range(24):
+                self.state(index)
+            if all(subjects_completed(self.states[index]) for index in range(24)):
+                self.report('SUBJECTS_COMPLETE')
+                return
+            self.report('WAITING_SUBJECTS')
+            raise Pause('subject stage incomplete; ADMIT blocked. Resume after FINAL-guarded recovery or '
+                        'queue service with this lock released; inspect DEAD/rejected/applied slots and recovery limits')
+
     def report(self, phase, message=''):
         self.phase, self.message = phase, message
         states = list(self.states.values())
@@ -418,11 +477,15 @@ class Completer(run_case.Runner):
             ordinal = recovery.recovery_ordinal(row)
             entry = {'key': row['key'], 'tx': row['tx'], 'status': status_of(receipt),
                      'recovery_ordinal': ordinal, 'max_recoveries': self.max_recoveries}
+            mode_window_open = window_open
+            if self.subject_deadline is not None and row.get('mode') in recovery.SUBJECT_MODES:
+                mode_window_open = window_open and max(self.chain_time, time.time()) < (
+                    self.subject_deadline-recovery.SUBJECT_DEADLINE_MARGIN)
             if ordinal >= self.max_recoveries:
                 exhausted.append(entry)
-            elif window_open and (recovery.retryable_receipt(receipt) or row['tx'] in self.finality_proofs):
+            elif mode_window_open and (recovery.retryable_receipt(receipt) or row['tx'] in self.finality_proofs):
                 eligible.append(entry)
-            elif window_open and status_of(receipt) != 'FINALIZED':
+            elif mode_window_open and status_of(receipt) != 'FINALIZED':
                 awaiting.append(entry)
         admitted = sum(s.get('stage_c1') == s.get('stage_c2') == 'ADMISSIBLE' for s in states)
         totals = {'items': 24, 'states_read': len(states), 'complete_items': sum(completed(s) for s in states),
@@ -450,6 +513,15 @@ class Completer(run_case.Runner):
                                   'consensus_result': consensus_result_of(self.receipts[row['tx']]) if row['tx'] in self.receipts else None}
                                  for row in self.rows.values()],
                 'items': [{'item_index': i, 'complete': completed(s), 'state': s} for i, s in sorted(self.states.items())]}
+        if self.subject_first:
+            data.update(subject_first=True, subject_deadline=self.subject_deadline,
+                        subject_dispatch_cutoff=None if self.subject_deadline is None else
+                        self.subject_deadline-recovery.SUBJECT_DEADLINE_MARGIN,
+                        all_subjects_applied=len(self.states) == 24 and all(subjects_completed(s) for s in states),
+                        subjects_incomplete=[{'item_index': i, 'pinned': s.get('pinned'),
+                                              'recall': s.get('recall'), 'rewrite': s.get('rewrite'),
+                                              'stage_c1': s.get('stage_c1')}
+                                             for i, s in sorted(self.states.items()) if not subjects_completed(s)])
         json_write(self.folder / 'progress.json', data)
         return data
 
@@ -458,10 +530,17 @@ class Completer(run_case.Runner):
         # Even applied slots do not justify silently ignoring an unknown hash.
         for row in self.rows.values():
             self.wait(row)
+        if self.subject_first:
+            self.subject_stage()
         while True:
             self.guard()
+            if self.subject_first:
+                for index in range(24):
+                    self.state(index)
+                if not all(subjects_completed(self.states[index]) for index in range(24)):
+                    raise Pause('subject state changed before ADMIT stage; resume without another broadcast')
             for index in range(24):
-                for mode in MODES:
+                for mode in (('ADMIT',) if self.subject_first else MODES):
                     self.initial(index, mode)
                 self.state(index)
             progress = self.report('RUNNING')
@@ -472,6 +551,8 @@ class Completer(run_case.Runner):
             recovered = became_successful = False
             for row in list(self.rows.values()):
                 if row.get('method') != 'probe':
+                    continue
+                if self.subject_first and row.get('mode') != 'ADMIT':
                     continue
                 before = self.outcomes.get(row['tx'])
                 self.wait(row)
@@ -534,12 +615,18 @@ def parse_args(argv=None):
     parser.add_argument('--source', default=str(Path(run_case.ROOT)/'build/impeach.py'))
     parser.add_argument('--max-recoveries', type=int, choices=range(1, 4), default=1,
                         help='maximum new recovery transactions per slot, excluding the original (default: 1)')
+    parser.add_argument('--subject-first', action='store_true',
+                        help='complete all subject states/recoveries before any ADMIT; blocked subjects pause for service/resume')
+    parser.add_argument('--subject-deadline', type=int,
+                        help='public API expiry as UTC epoch seconds; subject dispatch stops 120 seconds earlier')
     args = parser.parse_args(argv)
     if (not re.fullmatch(r'0x[0-9a-fA-F]{40}', args.address) or not args.account.strip() or
             args.challenge_id < 0 or args.wait_timeout <= 0 or not 0 < args.poll_interval <= 10 or
             args.max_runtime <= 0 or args.deadline_margin < 0 or
             not all(math.isfinite(value) for value in (args.wait_timeout, args.poll_interval, args.max_runtime))):
         parser.error('invalid address/account/timing options; poll interval must be in (0, 10] seconds')
+    if args.subject_deadline is not None and (args.subject_deadline <= 0 or not args.subject_first):
+        parser.error('--subject-deadline must be a positive UTC epoch and requires --subject-first')
     args.dry_run, args.delay, args.acknowledge_failed = False, 0, []
     return args
 

@@ -11,6 +11,7 @@ One recovery per slot is the default; --max-recoveries permits at most three.
 
 import argparse
 from contextlib import contextmanager
+import copy
 import fcntl
 import hashlib
 import json
@@ -24,6 +25,62 @@ import native_failure_proof as proof
 from chain_receipts import NEGATIVE_RESULTS, consensus_result_of, fetch_receipt, finalized_failure, finalized_no_execution
 CORE_FIELDS = {"key", "tx", "method", "at", "address", "signature"}
 TX = re.compile(r"^0x[0-9a-fA-F]{64}$")
+SUBJECT_MODES = ('PINNED', 'RECALL', 'REWRITE')
+SUBJECT_DEADLINE_MARGIN = 120
+
+
+def subject_deadline(args):
+    value = getattr(args, 'subject_deadline', None)
+    if value is not None and (type(value) is not int or value <= 0):
+        raise SystemExit('subject deadline must be a positive integer UTC epoch in seconds')
+    return value
+
+
+def bind_subject_policy(args, row):
+    """Standalone recoveries retain an opted-in completer's frozen deadline."""
+    path = os.path.abspath(args.manifest) + '.complete/identity.json'
+    if not os.path.exists(path):
+        return args
+    try:
+        with open(path, encoding='utf-8') as stream:
+            identity = json.load(stream)
+    except (OSError, ValueError) as exc:
+        raise SystemExit('cannot read frozen completion identity') from exc
+    if not isinstance(identity, dict):
+        raise SystemExit('invalid frozen completion identity')
+    if 'subject_first' not in identity and 'subject_deadline' not in identity:
+        return args  # Legacy completion policy has no additional subject guard.
+    deadline = identity.get('subject_deadline')
+    if identity.get('subject_first') is not True or (deadline is not None and
+            (type(deadline) is not int or deadline <= 0)):
+        raise SystemExit('invalid frozen subject deadline policy')
+    claim = run_case.load_claim(args.claim)
+    fingerprint = hashlib.sha256(json.dumps([claim, run_case.load_rewrites(claim)],
+        sort_keys=True, ensure_ascii=False).encode()).hexdigest()
+    expected = {'address': args.address.lower(), 'challenge_id': row['challenge_id'],
+                'input_sha256': fingerprint, 'subject_first': True, 'subject_deadline': deadline}
+    if identity != expected:
+        raise SystemExit('frozen subject policy identity differs from recovery inputs')
+    requested = subject_deadline(args)
+    if requested is not None and requested != deadline:
+        raise SystemExit('subject deadline differs from frozen completion policy')
+    bound = copy.copy(args)
+    bound.subject_deadline = deadline
+    return bound
+
+
+def require_subject_window(args, mode, chain_time):
+    """Stop new subject dispatches before API expiry; never cancel sent hashes."""
+    deadline = subject_deadline(args)
+    if deadline is None or mode not in SUBJECT_MODES:
+        return
+    if type(chain_time) is not int or chain_time <= 0:
+        raise SystemExit('invalid chain clock for subject deadline')
+    now = time.time()
+    if not isinstance(now, (int, float)) or not 0 < now < float('inf'):
+        raise SystemExit('invalid local UTC clock for subject deadline')
+    if max(now, chain_time) >= deadline - SUBJECT_DEADLINE_MARGIN:
+        raise SystemExit('subject deadline reached or within 120 seconds; no subject dispatch permitted')
 
 
 def max_recoveries(args):
@@ -229,6 +286,7 @@ def retry(args, *, completion_lock=None):
     # Other run_case steps skip an existing key. This lock also prevents two
     # recovery helpers from both removing that key in memory and submitting.
     limit = max_recoveries(args)
+    subject_deadline(args)
     with completion_guard(args.manifest, completion_lock), open(args.manifest + ".retry.lock", "a", encoding="utf-8") as lock:
         try:
             fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
@@ -240,6 +298,7 @@ def retry(args, *, completion_lock=None):
             raise SystemExit("--tx must be the latest manifest row for exactly one probe key")
         row = matches[0]
         call_args = original_call(row, args.claim)
+        args = bind_subject_policy(args, row)
         history = manifest_history(args.manifest)
         ordinal = validate_history(row, args.manifest, history, args.claim,
                                    getattr(args, 'source', os.path.join(run_case.ROOT, 'build/impeach.py')))
@@ -289,6 +348,11 @@ def retry(args, *, completion_lock=None):
         extra.update(previous_tx=row["tx"], previous_row=dict(row), previous_receipt=receipt_relative,
                      previous_receipt_sha256=receipt_sha256, recovery_ordinal=ordinal + 1)
         extra.update(proof_reference or {})
+        # Run after proof lookup and all other state reads, immediately before
+        # the durable dispatch marker. Existing court/proof checks still apply.
+        # This guards handoff to the bridge, not execution of already sent calls.
+        if subject_deadline(args) is not None and mode in SUBJECT_MODES:
+            require_subject_window(args, mode, runner.read('clock'))
         if not args.dry_run:
             record_dispatch(marker, row, receipt_relative, receipt_sha256, ordinal + 1, proof_reference)
         del runner.rows[row["key"]]
@@ -309,9 +373,13 @@ def parse_args(argv=None):
     parser.add_argument('--source', default=os.path.join(run_case.ROOT, 'build/impeach.py'))
     parser.add_argument("--max-recoveries", type=int, choices=range(1, 4), default=1,
                         help="maximum new recovery transactions per slot, excluding the original (default: 1)")
+    parser.add_argument('--subject-deadline', type=int,
+                        help='API expiry as a positive UTC epoch; subject dispatch stops 120 seconds earlier')
     args = parser.parse_args(argv)
     if args.wait_timeout <= 0 or args.poll_interval <= 0:
         parser.error("wait timeout and poll interval must be positive")
+    if args.subject_deadline is not None and args.subject_deadline <= 0:
+        parser.error('subject deadline must be a positive integer UTC epoch in seconds')
     args.delay = 0
     return args
 

@@ -127,11 +127,179 @@ class CompletionTests(unittest.TestCase):
     def test_all_24_slots_complete_without_rule_or_duplicate_on_resume(self):
         self.assertEqual(complete.complete(self.args),0)
         self.assertEqual(len(self.calls),96)
+        self.assertEqual(self.calls,[(index,mode) for index in range(24) for mode in complete.MODES])
+        self.assertNotIn('subject_first',self.report())
         self.assertTrue(self.report()['all_slots_complete'])
         self.assertTrue(self.report()['all_24_admitted'])
         self.assertEqual(complete.complete(self.args),0)
         self.assertEqual(len(self.calls),96)
         self.assertEqual(len(self.rows()),96)
+
+    def subject_first(self, deadline=None):
+        self.args.subject_first=True
+        self.args.subject_deadline=deadline
+        self.wall_clock=[1000.0]
+        self.enterContext(patch.object(complete.time,'time',side_effect=lambda:self.wall_clock[0]))
+
+    def apply_all_subjects(self):
+        for index in range(24):
+            for mode in recovery.SUBJECT_MODES:
+                self.apply(index,mode)
+
+    def test_subject_first_all_72_apply_before_any_admit(self):
+        self.subject_first(3000)
+        def submit(command,**kwargs):
+            args=json.loads(command[command.index('--args-json')+1])
+            if args[2]=='ADMIT':
+                self.assertTrue(all(complete.subjects_completed(s) for s in self.states.values()))
+            return self.submit(command,**kwargs)
+        self.write.side_effect=submit
+        self.assertEqual(complete.complete(self.args),0)
+        self.assertEqual(self.calls[:72],[(i,m) for i in range(24) for m in recovery.SUBJECT_MODES])
+        self.assertEqual(self.calls[72:],[(i,'ADMIT') for i in range(24)])
+        self.assertTrue(self.report()['all_subjects_applied'])
+        self.assertEqual(self.report()['subject_dispatch_cutoff'],2880)
+        before=Path(self.args.manifest).read_bytes()
+        self.assertEqual(complete.complete(self.args),0)
+        self.assertEqual(Path(self.args.manifest).read_bytes(),before)
+
+    def test_subject_recoveries_precede_all_admits_and_preserve_history(self):
+        self.subject_first(3000);self.args.max_recoveries=3
+        for attempt in range(3):self.behavior[(0,'REWRITE',attempt)]=FAILED
+        self.behavior[(1,'PINNED',0)]=FAILED
+        self.assertEqual(complete.complete(self.args),0)
+        first_admit=next(i for i,(_,mode) in enumerate(self.calls) if mode=='ADMIT')
+        self.assertEqual(first_admit,76)
+        self.assertTrue(all(mode in recovery.SUBJECT_MODES for _,mode in self.calls[:first_admit]))
+        self.assertEqual(self.calls.count((0,'REWRITE')),4)
+        rows=[r for r in self.rows() if r['key']=='probe:0:0:REWRITE']
+        self.assertEqual([r.get('recovery_ordinal',0) for r in rows],[0,1,2,3])
+        for prior,row in zip(rows,rows[1:]):
+            self.assertEqual(row['previous_row'],prior)
+            self.assertEqual(json.loads((Path(self.tmp.name)/row['previous_receipt']).read_text()),FAILED)
+
+    def test_subject_failure_nonfinal_releases_lock_then_recovers_before_admit(self):
+        self.subject_first(3000)
+        self.behavior[(0,'REWRITE',0)]={**FAILED,'status':13}
+        with patch.object(complete.time,'sleep') as sleep:
+            self.assertEqual(complete.complete(self.args),2)
+        sleep.assert_not_called()
+        self.assertEqual(len(self.calls),72)
+        self.assertNotIn('ADMIT',[mode for _,mode in self.calls])
+        waiting=self.report()['awaiting_finalization']
+        self.assertEqual(len(waiting),1)
+        with open(self.args.manifest+'.complete.lock','a') as lock:
+            fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+        self.receipts[waiting[0]['tx']]=FAILED
+        self.assertEqual(complete.complete(self.args),0)
+        self.assertEqual(self.calls[72],(0,'REWRITE'))
+        self.assertEqual(self.calls[73:],[(i,'ADMIT') for i in range(24)])
+
+    def test_subject_pending_recovery_resumes_same_hash_before_c2(self):
+        self.subject_first(3000)
+        self.behavior[(0,'PINNED',0)]=FAILED
+        self.behavior[(0,'PINNED',1)]={'status':14,'result':1,'txExecutionResult':1}
+        self.assertEqual(complete.complete(self.args),2)
+        self.assertEqual(complete.complete(self.args),2)
+        self.assertEqual(len(self.calls),73)
+        self.assertNotIn('ADMIT',[mode for _,mode in self.calls])
+        row=run_case.manifest_rows(self.args.manifest)['probe:0:0:PINNED']
+        self.receipts[row['tx']]=SUCCESS;self.apply(0,'PINNED')
+        self.assertEqual(complete.complete(self.args),0)
+        self.assertEqual(self.calls.count((0,'PINNED')),2)
+        self.assertEqual(self.calls[73:],[(i,'ADMIT') for i in range(24)])
+
+    def test_subject_dead_and_c1_rejection_block_c2_without_duplicate(self):
+        self.subject_first(3000)
+        self.apply(0,'PINNED');self.states[0]['pinned']='DEAD'
+        self.c1[1]='INADMISSIBLE'
+        self.assertEqual(complete.complete(self.args),2)
+        before=list(self.calls)
+        self.assertEqual(complete.complete(self.args),2)
+        self.assertEqual(self.calls,before)
+        self.assertNotIn((0,'PINNED'),self.calls)
+        self.assertEqual(self.calls.count((1,'REWRITE')),1)
+        self.assertNotIn('ADMIT',[mode for _,mode in self.calls])
+        self.assertFalse(self.report()['all_subjects_applied'])
+        self.assertEqual([s['item_index'] for s in self.report()['subjects_incomplete']],[0,1])
+
+    def test_subject_deadline_exact_margin_blocks_initial_before_marker(self):
+        self.subject_first(1120)
+        self.assertEqual(complete.complete(self.args),2)
+        self.write.assert_not_called()
+        self.assertEqual(self.rows(),[])
+        self.assertEqual(list(Path(self.args.manifest+'.complete/dispatch').glob('*.json')),[])
+        self.assertIn('subject deadline',self.report()['message'])
+
+    def test_subject_chain_clock_ahead_blocks_even_when_wall_time_allows(self):
+        self.subject_first(3000);self.clock=2880
+        self.assertEqual(complete.complete(self.args),2)
+        self.write.assert_not_called()
+        self.assertIn('subject deadline',self.report()['message'])
+
+    def test_subject_deadline_does_not_block_ready_admits_or_admit_recovery(self):
+        self.subject_first(1120);self.apply_all_subjects()
+        self.behavior[(0,'ADMIT',0)]=FAILED
+        self.assertEqual(complete.complete(self.args),0)
+        self.assertEqual(len(self.calls),25)
+        self.assertTrue(all(mode=='ADMIT' for _,mode in self.calls))
+        self.assertEqual(self.calls.count((0,'ADMIT')),2)
+        self.assertTrue(self.report()['all_subjects_applied'])
+
+    def test_subject_positive_receipt_with_empty_slot_is_not_retried(self):
+        self.subject_first(3000)
+        row=self.add_row(0,'PINNED',{**SUCCESS,'status':7})
+        self.assertEqual(complete.complete(self.args),2)
+        self.assertNotIn((0,'PINNED'),self.calls)
+        self.assertNotIn('ADMIT',[mode for _,mode in self.calls])
+        self.assertEqual(run_case.manifest_rows(self.args.manifest)[row['key']],row)
+
+    def test_subject_policy_cannot_be_removed_or_deadline_extended_on_resume(self):
+        self.subject_first(3000);self.apply_all_subjects()
+        self.assertEqual(complete.complete(self.args),0)
+        self.write.reset_mock()
+        self.args.subject_deadline=4000
+        self.assertEqual(complete.complete(self.args),2)
+        self.args.subject_deadline=None;self.args.subject_first=False
+        self.assertEqual(complete.complete(self.args),2)
+        self.write.assert_not_called()
+
+    def test_subject_recovery_checks_fresh_deadline_after_proof_lookup(self):
+        self.subject_first(3000);self.enable_proof_rpc_fixture()
+        self.behavior[(0,'PINNED',0)]={'status':7,'result':0,'txExecutionResult':1}
+        base_submit=self.write.side_effect
+        proof_calls=[]
+        def command(args,**kwargs):
+            result=base_submit(args,**kwargs)
+            if args[1]=='scripts/native_finality_proof.mjs':
+                proof_calls.append(args)
+                if len(proof_calls)==2:
+                    # Chain time deliberately remains 110: expiry must also use UTC.
+                    self.wall_clock[0]=2880
+            return result
+        self.write.side_effect=command
+        self.assertEqual(complete.complete(self.args),2)
+        self.assertEqual(len(proof_calls),2)
+        self.assertEqual(len(self.calls),72)
+        self.assertNotIn('ADMIT',[mode for _,mode in self.calls])
+        row=run_case.manifest_rows(self.args.manifest)['probe:0:0:PINNED']
+        self.assertFalse(Path(recovery.dispatch_path(self.args.manifest,row['tx'])).exists())
+        self.assertEqual(self.report()['recoveries_eligible'],[])
+        self.assertIn('subject deadline',self.report()['message'])
+
+    def test_subject_first_cli_is_explicit_and_deadline_is_positive_epoch(self):
+        options=[v for n in ('address','account','rpc','manifest','claim')
+                 for v in ('--'+n,getattr(self.args,n))]+['--challenge-id','0']
+        args=complete.parse_args(options)
+        self.assertFalse(args.subject_first);self.assertIsNone(args.subject_deadline)
+        args=complete.parse_args(options+['--subject-first','--subject-deadline','1791720000'])
+        self.assertTrue(args.subject_first);self.assertEqual(args.subject_deadline,1791720000)
+        for tail in (['--subject-deadline','1791720000'],
+                     ['--subject-first','--subject-deadline','0'],
+                     ['--subject-first','--subject-deadline','-1'],
+                     ['--subject-first','--subject-deadline','1.5']):
+            with contextlib.redirect_stderr(io.StringIO()),self.assertRaises(SystemExit):
+                complete.parse_args(options+tail)
 
     def enable_proof_rpc_fixture(self):
         self.args.allow_proven_no_messages=True

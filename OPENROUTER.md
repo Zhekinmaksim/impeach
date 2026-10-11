@@ -4,7 +4,8 @@ OpenRouter can supply the real subject and the local referee. The contract canno
 send an API key. A gateway adds the server-side key and exposes only the committed
 demonstration trial.
 
-For the current v2 trial, use [V2-TRIAL.md](V2-TRIAL.md). As of 11 October 2026,
+For the prepared fresh trial, use [V3-TRIAL.md](V3-TRIAL.md); the previous run is
+preserved in [V2-TRIAL.md](V2-TRIAL.md). As of 11 October 2026,
 the scripted native control has a finalized `CONTAMINATED / RECALL` certificate;
 the real Llama native case is in progress and no real native verdict is asserted
 here. The [control finality handoff](runs/c0-finality-20261011-resume/handoff.json)
@@ -71,13 +72,31 @@ same. The trial window is six hours, with a one-hour reveal window; the API
 still expires within four hours. The larger trial window does not extend that
 API limit or the shared $5 lifetime budget.
 
-V3's replay of 72 old v2 responses is explicitly a cross-prompt local regression
-check, with scripted referee decisions, not a new model measurement. A separate
-real Sonnet calibration is running toward 112 calls with `max_tokens=512`, a
-$1.80 run cap and total key usage at most $4.80 under the hard $5 cap. The
-[raw transcript](runs/v3-referee-sonnet-transcript.jsonl) and
-[log](runs/v3-referee-calibration.log) are in progress; no completed v3
-calibration or native outcome is asserted here.
+V3's earlier replay of 72 old v2 responses remains a cross-prompt local regression
+check, with scripted referee decisions, not a new model measurement. The separate
+[Sonnet calibration](runs/v3-referee-verified.json) is now complete: 112 actual new
+calls with `max_tokens=512` admitted all 24 intended rewrites in both framings and
+rejected all four controls in both. Its recorded cost is $0.375864, within the
+$1.80 run cap and $4.80 total-key stop below the hard $5 cap. The
+[raw transcript](runs/v3-referee-sonnet-transcript.jsonl) is preserved.
+
+The [initial Llama run](runs/v3-llama-initial-coverage-audit.json) made 74 attempts,
+with three no-reply outcomes and 71 unique successful requests. One actual
+[supplement](runs/v3-llama-supplement.jsonl) supplied missing PINNED item index 21.
+The [verified replay audit](runs/v3-llama-verified-audit.json) then matched all 72
+recorded responses to the exact new prompts, without additional network calls:
+24 correct originals, 24 correct rewrites, 24 recall misses, n=24, Δ=0‰ and R=0‰.
+The [local snapshot](runs/v3-llama-verified.json) forecasts `CLEAN` using scripted
+admission; it is not native consensus or a certificate. Recorded successful
+responses cost $0.00035026; the initial raw errors remain in the record.
+
+The v3 public switch is still false, and no v3 native claim has been opened.
+The route targets the existing Vercel project and server-side key; preparation
+did not upload that key again. The C1 partial-closure request remains pending;
+the fresh 10:46 UTC read still showed item 14's C2 `PENDING`.
+The [10:47 UTC budget snapshot](runs/v3-budget-before-activation.json) records
+$2.02391728 used and $2.97608272 remaining under the same $5 lifetime key cap,
+with zero BYOK usage and no limit reset.
 
 The v2 and v3 claims freeze the exact `NUMERIC_LINE_RULE`: the last nonempty line must
 contain literal `ANSWER:` followed by one ASCII decimal and nothing else. The
@@ -96,6 +115,24 @@ replaced in an already opened claim.
 ## Native completion and the inference window
 
 Run `complete_case.py` in bounded sessions with a single court/account writer.
+For V3, explicitly use `--subject-first --subject-deadline <UTC-epoch-seconds>`
+as detailed in [V3-TRIAL.md](V3-TRIAL.md). The deadline must be a positive integer.
+All 72 PINNED/RECALL/REWRITE states and their permitted recoveries must apply
+before any ADMIT. A subject awaiting finality pauses completion and releases the
+lock for queue service/resume. `DEAD`, C1 `INADMISSIBLE` and an unapplied slot with
+a positive receipt block this stage; they are not automatically resubmitted.
+Without the opt-in, the existing per-item scheduling remains unchanged.
+
+The completion identity freezes the mode and deadline. Standalone recovery
+inherits that deadline when its CLI flag is omitted and rejects a different
+value or mismatched identity. Immediately before a subject dispatch marker,
+the helpers compare UTC wall time and a fresh chain clock with API expiry minus
+120 seconds; recovery repeats this check after proof lookup and final reads.
+Once all subjects are applied, ADMIT and eligible ADMIT recoveries may continue
+inside the court window after API expiry. Already queued calls cannot be
+canceled and may execute after expiry; this is a dispatch guard, not a guarantee
+of execution latency.
+
 Recovery defaults to one new transaction per failed slot; the explicit
 `--max-recoveries 3` setting caps the real-case plan at three recoveries per slot
 in addition to the original. Receipt-only recovery keeps the exact payload and
@@ -224,8 +261,8 @@ concurrent reservations, restarts, rejected requests and failure accounting.
 ## Legacy Vercel gateway reference
 
 The commands in this section describe `/api/chat/completions` and its original
-GSM8K claim. They do not enable or rehearse v2. Use the route/claim pairing above
-and [V2-TRIAL.md](V2-TRIAL.md) for the current run.
+GSM8K claim. They do not enable or rehearse v2/v3. Use the route/claim pairing above
+and [V3-TRIAL.md](V3-TRIAL.md) for the prepared run.
 
 The function is **disabled by default**. Deploying the site does not enable model
 calls. `GET /api/chat/completions` is a free health/configuration check and does not
@@ -246,6 +283,7 @@ starting models are `meta-llama/llama-3.1-8b-instruct` for the subject and
 | `REFEREE_MODEL` | Local referee only; not exposed through the public endpoint |
 | `TRIAL_ENABLED` | Must equal `true` to permit inference; otherwise disabled |
 | `TRIAL_V2_ENABLED` | Separate switch for live v2; does not change the legacy endpoint |
+| `TRIAL_V3_ENABLED` | Separate switch for live v3; currently false |
 | `TRIAL_CREDIT_ONLY` | Optional `true` for the verified DeepInfra credits-only route; defaults to false |
 | `TRIAL_BUDGET_USD` | Approved total key limit; currently `5` |
 | `TRIAL_EXPIRES_AT` | UTC deadline in `YYYY-MM-DDTHH:MM:SSZ` format; at most 4 hours in credits-only mode, otherwise 96 hours |
@@ -390,7 +428,7 @@ ten-cent boundary, lifetime cap and missing or true response BYOK markers.
 These checks use a fake provider and spend no credits.
 
 The full offline `make check` baseline on Node 24 is 184 stub contract checks,
-156 Python tests, 47 browser-arithmetic parity checks and 38 Node tests, plus
+173 Python tests, 47 browser-arithmetic parity checks and 38 Node tests, plus
 fixture consistency and published-snapshot recomputation. It covers recovery
 limits and queue guards as well as endpoints, including 31 focused queue-service
 tests. The separate pinned-SDK suite remains 150 checks. These are not a native

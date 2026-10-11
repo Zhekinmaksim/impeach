@@ -1,0 +1,12 @@
+.......................................................................
+model                 meta-llama/llama-3.1-8b-instruct
+requests              74  (3 got no reply)
+answered as sealed    1000‰
+answered as rewritten 1000‰
+gap Δ                 0‰   threshold 250‰
+verbatim recall R     0‰   threshold 150‰
+old answers given     0
+replies without an ANSWER: line  0
+forecast              CLEAN 
+
+snapshot -> runs/v3-llama-rehearsal.json

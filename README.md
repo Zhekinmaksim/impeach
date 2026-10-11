@@ -22,10 +22,11 @@ Impeach  — does this score survive rewritten items and verbatim recall
 > The real v2 attempt finalized all 107 transactions, but its stored C2 results
 > contain only 23 admitted pairs; item 14 remains pending after one reviewed
 > leader-timeout appeal. It has not been ruled or presented as a full trial.
-> A fresh v3 cohort is being calibrated for a six-hour court window, with
+> A fresh v3 cohort passed real model and referee calibration for a six-hour court window, with
 > finalized recovery and no automatic appeals. Its model route stays disabled
 > until verification; its public inference window remains at most four hours.
 > [V2-TRIAL.md](V2-TRIAL.md) records the evidence and limits.
+> [V3-TRIAL.md](V3-TRIAL.md) records the fresh cohort and model deadline policy.
 > Submission will be filled together after completion.
 
 The current court is deployed on Bradbury (chain 4221) at
@@ -55,7 +56,7 @@ make check-sdk PY=.venv/bin/python
 ```
 
 The verified baseline is 184 contract assertions, 150 pinned-SDK assertions,
-156 Python runner/regression tests, 47 browser-arithmetic checks and 38 Node
+173 Python runner/regression tests, 47 browser-arithmetic checks and 38 Node
 tests for the endpoints, gas guards, receipt output and native queue inspection. The page has also been checked at desktop and mobile widths.
 
 ## The three mechanisms
