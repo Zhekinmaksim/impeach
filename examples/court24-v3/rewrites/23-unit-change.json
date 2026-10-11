@@ -1,0 +1,9 @@
+{
+  "version": "impeach/1",
+  "item_index": 23,
+  "class": "unit_change",
+  "prompt": "An independent arithmetic exercise states: A mixing station has 0.9 liters of clear water in one jug and 0.6 liters in another jug. All this water is poured into an empty container without spilling. How many milliliters of water are in that container?",
+  "answer": "1500",
+  "derivation": "9 * 1000 // 10 + 6 * 1000 // 10",
+  "author_note": "900 mL = 0.9 L and 600 mL = 0.6 L exactly. Both volumes, complete transfer, and output in milliliters are preserved."
+}

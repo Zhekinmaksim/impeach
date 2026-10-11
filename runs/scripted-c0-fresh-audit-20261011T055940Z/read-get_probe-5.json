@@ -1,0 +1,27 @@
+{
+  "kind": "read",
+  "method_or_key": "get_probe",
+  "args_or_hash": [
+    0,
+    5
+  ],
+  "value": {
+    "challenge_id": 0,
+    "item_index": 5,
+    "pinned": "RIGHT",
+    "pinned_answer": "41",
+    "recall": "MATCH",
+    "rewrite": "RIGHT",
+    "rewrite_answer": "41",
+    "rewrite_class": "paraphrase",
+    "rewrite_hash": "5dd308554394aef968cb20bcf667fead0bf79a92db394575b159e22e1bb9fce9",
+    "rewrite_prompt": "On a practice worksheet, a student reads this problem: At the beginning of the day there are 45 blank index cards in a supply drawer. After a teacher removes 12 for an activity and adds 8 new blank cards later, how many blank index cards does the drawer contain?",
+    "rewrite_reply": "41",
+    "slice_settled": true,
+    "stage_c1": "ADMISSIBLE",
+    "stage_c2": "ADMISSIBLE",
+    "stale": false,
+    "touched": true
+  },
+  "at": 1791698393
+}

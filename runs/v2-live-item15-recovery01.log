@@ -1,0 +1,5 @@
+saved original finalized receipt: /Users/zmaxx/Projects/impeach/runs/bradbury-v2-live.jsonl.receipts/0xcaf6ccd10197bb910669bd579c11d6009e8dac0de440990308eda2d32564a076.finalized-p_742p0x.json
+Transaction Hash: 0xe3a1db57e68443e6819aa5f29f14548f6f28c2fea4e8aecef7a3e282c57b676d
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867954","boundedEstimate":"865003","gasLimit":"951504","gasCap":"16777216","calldataBytes":260,"dryRun":false}
+sent  probe:1:15:ADMIT 0xe3a1db57e68443e6819aa5f29f14548f6f28c2fea4e8aecef7a3e282c57b676d
+accepted  probe:1:15:ADMIT 0xe3a1db57e68443e6819aa5f29f14548f6f28c2fea4e8aecef7a3e282c57b676d

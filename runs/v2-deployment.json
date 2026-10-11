@@ -1,0 +1,20 @@
+{
+  "contract": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+  "tx": "0x2cce6952dc55539449ee434cd50dc6cd91357ec3bff37876ee97f4a9c1d2c941",
+  "status": "ACCEPTED",
+  "result": "AGREE",
+  "execution": "FINISHED_WITH_RETURN",
+  "chain_id": 4221,
+  "rpc": "https://rpc-bradbury.genlayer.com",
+  "source_commit": "6a647e4bcbaadfc21f656fb77b625159fd08ff39",
+  "artifact": {
+    "source_sha256": "d7e8f0f1e967dc8f883a5758594325e075711f77a79f8f8229071467db3a704b",
+    "compact_sha256": "44107146e4253c6506dd010d1af9466b8d1293f64c1318a3087fdf7f27cdaced",
+    "artifact_sha256": "6336e9c160b53839497adb4652c0cf8d7c1f5b76bcf7ed99d3f5553da53f3c89",
+    "source_bytes": 71306,
+    "compact_bytes": 55748,
+    "artifact_bytes": 18380,
+    "transformation": "remove comments/docstrings; AST equivalence checked; zlib + base85"
+  },
+  "checked_at": "2026-10-10T11:55:25.830440+00:00"
+}

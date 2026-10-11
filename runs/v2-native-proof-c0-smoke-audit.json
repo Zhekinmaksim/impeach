@@ -1,0 +1,25 @@
+{
+  "checked_at": "2026-10-11T07:18:54.732485+00:00",
+  "scope": "Read-only validation of real C0 finalized non-execution; no retry/application call",
+  "native_tx": "0xb120096abc56a06cf058af128c260184348a03ce4bb1a4d4cba883b69d087541",
+  "evm_tx": "0xec2861d2d9c523d025ef8bbace6c1500b4f8276ac0b872402fa6fec5ce92eb6e",
+  "event_emitter": "0x7de0ff58b401f2d800470e4390e24ff2baa02aae",
+  "previous_status": 6,
+  "should_process_messages": false,
+  "canonical_evm_receipt": "success",
+  "raw_evidence": "runs/v2-native-proof-c0-smoke-20k.json",
+  "bounded_lookup": {
+    "fromBlock": "24442446",
+    "toBlock": "24462445",
+    "maxBlocks": 20000
+  },
+  "candidate_receipt": {
+    "status": 7,
+    "result": 1,
+    "txExecutionResult": 0
+  },
+  "python_validator": "PASS",
+  "provenance_note": "Raw early collector origin label is retained unchanged; final validator uses chain_observation in memory. This audit does not assert automatic finalization.",
+  "ordinary_receipt_guard_still_rejects": true,
+  "final_validator_recheck": "PASS"
+}

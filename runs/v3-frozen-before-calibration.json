@@ -1,0 +1,12 @@
+{
+  "at": "2026-10-11T10:17:49.945727+00:00",
+  "sha256": {
+    "contracts/impeach.py": "d7e8f0f1e967dc8f883a5758594325e075711f77a79f8f8229071467db3a704b",
+    "build/impeach.py": "6336e9c160b53839497adb4652c0cf8d7c1f5b76bcf7ed99d3f5553da53f3c89",
+    "calibration/claim-court24-v2.json": "abcc8a53798accb23db089dc8cafe6f54bcc0417e4a0c225faae5d5a9c9dda3c",
+    "calibration/claim-court24-v3.json": "17577cd188fa66c5735bc1e1228c335ee51743631ab9981b01f371d1653fbe61",
+    "calibration/court24-v3.items.json": "bc4bdd39e13c8d5cc23c7528934adcbaca8eb1becb0341d889b127ebc39b8d13",
+    "calibration/court24-v3-audit.json": "47b7a599bc89b7404f52507c64720dfae35495260fc96790c1de2b73023df42b",
+    "scripts/generate_court24_v3.py": "25c506cd20da7ed29a1b4fd45411bb18da8de97e4e58ed41f8dea1a31918e735"
+  }
+}

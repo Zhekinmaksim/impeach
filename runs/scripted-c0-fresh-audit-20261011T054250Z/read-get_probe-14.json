@@ -1,0 +1,27 @@
+{
+  "kind": "read",
+  "method_or_key": "get_probe",
+  "args_or_hash": [
+    0,
+    14
+  ],
+  "value": {
+    "challenge_id": 0,
+    "item_index": 14,
+    "pinned": "RIGHT",
+    "pinned_answer": "53",
+    "recall": "MATCH",
+    "rewrite": "",
+    "rewrite_answer": "",
+    "rewrite_class": "",
+    "rewrite_hash": "",
+    "rewrite_prompt": "",
+    "rewrite_reply": "",
+    "slice_settled": false,
+    "stage_c1": "PENDING",
+    "stage_c2": "PENDING",
+    "stale": false,
+    "touched": true
+  },
+  "at": 1791697394
+}

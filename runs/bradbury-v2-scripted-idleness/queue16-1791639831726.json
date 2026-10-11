@@ -1,0 +1,15 @@
+{
+  "at": 1791639831726,
+  "tx": "0xe2432aec90a82ea1a518fc7c63e916348c4bf25c95aa715c5876cb69d8721ebb",
+  "address": "0x56a05a9bB7B261ad720020a08B9Fd5A13177b949",
+  "getTxQueueType": 2,
+  "isAtFinalizedQueueHead": true,
+  "getLastQueueModification": {
+    "lastQueueType": 2,
+    "lastQueueTimestamp": "1791636276"
+  },
+  "getPendingHeadTxId": "0x88d675814aaa4976c64a5b596e3c4cb4fd224d8e7a7086991e31951f040151f7",
+  "getAcceptedHeadTxId": "0xe2432aec90a82ea1a518fc7c63e916348c4bf25c95aa715c5876cb69d8721ebb",
+  "getUndeterminedHeadTxId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "getFinalizedHeadTxId": "0xe2432aec90a82ea1a518fc7c63e916348c4bf25c95aa715c5876cb69d8721ebb"
+}

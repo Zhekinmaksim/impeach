@@ -14,6 +14,7 @@ check: lint
 	$(NODE) --test test/test_gas.mjs
 	$(NODE) --test test/test_proxy.mjs
 	$(NODE) --test test/test_endpoints_v2.mjs
+	$(NODE) --test test/test_endpoint_v3.mjs
 	$(NODE) --test test/test_output.mjs
 	$(NODE) --test test/test_inspect_queue.mjs
 	$(NODE) --test test/test_native_finality_proof.mjs

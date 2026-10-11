@@ -1,0 +1,31 @@
+{
+  "recorded_at": "2026-10-11T08:20:01.573482+00:00",
+  "wrapper_source": "runs/v2-live-retry-wrapper.py",
+  "wrapper_sha256": "d176e88a02b5159a94d478a13e11045f744a0416dc16be4caf3b63b580656c2f",
+  "argv": [
+    "--address",
+    "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+    "--claim",
+    "calibration/claim-court24-v2.json",
+    "--manifest",
+    "runs/bradbury-v2-live.jsonl",
+    "--account",
+    "impeach-challenger",
+    "--rpc",
+    "https://rpc-bradbury.genlayer.com",
+    "--tx",
+    "0x11b4f37866b5ea583ee56765ce2e7757b293c9b8543f9b6c333c420939513e43",
+    "--wait-timeout",
+    "100",
+    "--poll-interval",
+    "5",
+    "--max-recoveries",
+    "3",
+    "--allow-proven-no-messages",
+    "--source",
+    "build/impeach.py"
+  ],
+  "deadline_margin": 120,
+  "log": "runs/v2-live-item3-recovery01.log",
+  "source_sha256": "6336e9c160b53839497adb4652c0cf8d7c1f5b76bcf7ed99d3f5553da53f3c89"
+}

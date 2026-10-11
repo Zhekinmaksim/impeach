@@ -1,0 +1,26 @@
+{
+  "at": "2026-10-11T10:12:22.744194+00:00",
+  "label": "OFFLINE forecast from actual post-finality partial case; not a native certificate",
+  "claim_id": 1,
+  "challenge_id": 1,
+  "source_states": "runs/v2-live-all24-views-after-final.json",
+  "source_sha256": "e1e3493b70bc14a5e789979b5c1295e0cbb05e49549c44393ba1a11723887a16",
+  "all_24_paired_goal_completed": false,
+  "pending_C2_items": [
+    14
+  ],
+  "expected": {
+    "verdict": "CLEAN",
+    "reason": "",
+    "delta_milli": 0,
+    "recall_milli": 0,
+    "pinned_milli": 1000,
+    "rewrite_milli": 1000,
+    "admissible_probes": 23,
+    "inadmissible_rewrites": 0,
+    "stale_answers": 0,
+    "dead_probes": 0,
+    "recall_probes": 24,
+    "items_probed": 24
+  }
+}

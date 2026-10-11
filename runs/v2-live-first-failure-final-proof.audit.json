@@ -1,0 +1,16 @@
+{
+  "at": "2026-10-11T07:40:52.969664+00:00",
+  "tx": "0x11b4f37866b5ea583ee56765ce2e7757b293c9b8543f9b6c333c420939513e43",
+  "status": "FINALIZED",
+  "execution": "FINISHED_WITH_RETURN",
+  "consensus_result": "IDLE",
+  "stored_status": 7,
+  "origin": "chain_observation",
+  "previousStatus": 13,
+  "shouldProcessMessages": false,
+  "evm_tx": "0x68136e11acfb6a9b1e2bd094ef23a41950f91b4b75ab5a4ca455f3e2ab22002e",
+  "proof_sha256": "b021d1cf50b7043e9bee0c6d9b9901e4d34477ddaf3293f4cb220d639a11f254",
+  "python_full_proof_validation": true,
+  "native_success": false,
+  "application_retry_sent": false
+}

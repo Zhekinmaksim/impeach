@@ -1,0 +1,27 @@
+{
+  "kind": "read",
+  "method_or_key": "get_probe",
+  "args_or_hash": [
+    0,
+    19
+  ],
+  "value": {
+    "challenge_id": 0,
+    "item_index": 19,
+    "pinned": "RIGHT",
+    "pinned_answer": "14",
+    "recall": "MATCH",
+    "rewrite": "RIGHT",
+    "rewrite_answer": "14",
+    "rewrite_class": "format_shift",
+    "rewrite_hash": "7cdebd5bbe8f1e3608024ee86b115d8f05c438c1804533d0e16ed714e4ed237a",
+    "rewrite_prompt": "On a practice worksheet, a student reads this problem: Print shop packing sheet\nInvitation cards to pack: 72\nCards in each packet: 8\nOther complete packets already on the shelf: 5\nQuestion: How many complete packets does the shop have after packing the 72 cards?",
+    "rewrite_reply": "14",
+    "slice_settled": true,
+    "stage_c1": "ADMISSIBLE",
+    "stage_c2": "ADMISSIBLE",
+    "stale": false,
+    "touched": true
+  },
+  "at": 1791698408
+}

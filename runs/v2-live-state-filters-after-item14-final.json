@@ -1,0 +1,720 @@
+{
+  "source": "https://docs.genlayer.com/api-references/genlayer-node#gen_call",
+  "began_at": "2026-10-11T10:06:49.948Z",
+  "note": "Read-only probes of documented filters; compatibility is not assumed.",
+  "reads": [
+    {
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "gen_call",
+        "params": [
+          {
+            "type": "read",
+            "to": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+            "from": "0x0000000000000000000000000000000000000000",
+            "data": "0xdc9a160461726773150971066d6574686f644c6765745f70726f626500",
+            "transaction_hash_variant": "latest-final"
+          }
+        ]
+      },
+      "http_status": 200,
+      "response": {
+        "jsonrpc": "2.0",
+        "result": {
+          "data": "86010c6368616c6c656e67655f6964090a6974656d5f696e646578710670696e6e65642c52494748540d70696e6e65645f616e7377657214353306726563616c6c244d49535307726577726974652c52494748540e726577726974655f616e737765721435330d726577726974655f636c61737364666f726d61745f73686966740c726577726974655f686173688404623937313033613635663532333333303831613633663461346566313537633033336362383339323130363731646335313439613639623730393632343135630e726577726974655f70726f6d7074e40b41726368697665207368656c66207265636f72643a0a5374617274696e6720666f6c646572733a2036340a466f6c646572732072656d6f76656420666f7220696e7370656374696f6e3a2031380a4e65776c7920707265706172656420666f6c64657273206164646564206166746572776172643a20370a5175657374696f6e3a20486f77206d616e7920666f6c6465727320617265206f6e20746865207368656c662061667465722074686573652074776f206368616e6765733f0d726577726974655f7265706c791435330d736c6963655f736574746c6564080873746167655f63315441444d49535349424c450873746167655f63323c50454e44494e47057374616c650807746f756368656410",
+          "eqOutputs": [],
+          "status": {
+            "code": 0,
+            "message": "success"
+          },
+          "stdout": "",
+          "stderr": "",
+          "logs": [
+            {
+              "file": "common/src/lib.rs:111",
+              "level": "info",
+              "message": "logging initialized",
+              "target": "genvm_common",
+              "ts": "1791713229700",
+              "version": "v0.2.11-x86_64-linux-release"
+            },
+            {
+              "file": "src/exe/run.rs:150",
+              "genvm_id": "5252800",
+              "level": "info",
+              "message": "genvm id",
+              "target": "genvm::exe::run",
+              "ts": "1791713229700"
+            },
+            {
+              "default": "v0.1.0",
+              "file": "src/runners/parse.rs:88",
+              "level": "warn",
+              "message": "runner comment does not start with version, using default",
+              "target": "genvm::runners::parse",
+              "ts": "1791713229712"
+            },
+            {
+              "file": "src/lib.rs:299",
+              "level": "info",
+              "message": "metrics",
+              "metrics": {
+                "gvm": {
+                  "host": {
+                    "time": 29950
+                  },
+                  "llm_module": {
+                    "calls": 0,
+                    "time": 0
+                  },
+                  "supervisor": {
+                    "compilation_time": 0,
+                    "compiled_modules": 0,
+                    "precompile_hits": 2
+                  },
+                  "web_module": {
+                    "calls": 0,
+                    "time": 0
+                  }
+                },
+                "llm": null,
+                "web": null
+              },
+              "target": "genvm",
+              "ts": "1791713229961"
+            },
+            {
+              "file": "src/exe/run.rs:111",
+              "level": "warn",
+              "message": "sigterm received",
+              "target": "genvm::exe::run",
+              "ts": "1791713229962"
+            }
+          ],
+          "events": [],
+          "messages": [],
+          "nondetDisagreementCallNo": null,
+          "syncedBlock": "0x175bde8"
+        },
+        "id": 1
+      },
+      "at": "2026-10-11T10:07:00.805Z",
+      "decoded": {
+        "challenge_id": "1",
+        "item_index": "14",
+        "pinned": "RIGHT",
+        "pinned_answer": "53",
+        "recall": "MISS",
+        "rewrite": "RIGHT",
+        "rewrite_answer": "53",
+        "rewrite_class": "format_shift",
+        "rewrite_hash": "b97103a65f52333081a63f4a4ef157c033cb839210671dc5149a69b70962415c",
+        "rewrite_prompt": "Archive shelf record:\nStarting folders: 64\nFolders removed for inspection: 18\nNewly prepared folders added afterward: 7\nQuestion: How many folders are on the shelf after these two changes?",
+        "rewrite_reply": "53",
+        "slice_settled": false,
+        "stage_c1": "ADMISSIBLE",
+        "stage_c2": "PENDING",
+        "stale": false,
+        "touched": true
+      }
+    },
+    {
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "gen_call",
+        "params": [
+          {
+            "type": "read",
+            "to": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+            "from": "0x0000000000000000000000000000000000000000",
+            "data": "0xdc9a160461726773150971066d6574686f644c6765745f70726f626500",
+            "transaction_hash_variant": "latest-nonfinal"
+          }
+        ]
+      },
+      "http_status": 200,
+      "response": {
+        "jsonrpc": "2.0",
+        "result": {
+          "data": "86010c6368616c6c656e67655f6964090a6974656d5f696e646578710670696e6e65642c52494748540d70696e6e65645f616e7377657214353306726563616c6c244d49535307726577726974652c52494748540e726577726974655f616e737765721435330d726577726974655f636c61737364666f726d61745f73686966740c726577726974655f686173688404623937313033613635663532333333303831613633663461346566313537633033336362383339323130363731646335313439613639623730393632343135630e726577726974655f70726f6d7074e40b41726368697665207368656c66207265636f72643a0a5374617274696e6720666f6c646572733a2036340a466f6c646572732072656d6f76656420666f7220696e7370656374696f6e3a2031380a4e65776c7920707265706172656420666f6c64657273206164646564206166746572776172643a20370a5175657374696f6e3a20486f77206d616e7920666f6c6465727320617265206f6e20746865207368656c662061667465722074686573652074776f206368616e6765733f0d726577726974655f7265706c791435330d736c6963655f736574746c6564080873746167655f63315441444d49535349424c450873746167655f63323c50454e44494e47057374616c650807746f756368656410",
+          "eqOutputs": [],
+          "status": {
+            "code": 0,
+            "message": "success"
+          },
+          "stdout": "",
+          "stderr": "",
+          "logs": [
+            {
+              "file": "common/src/lib.rs:111",
+              "level": "info",
+              "message": "logging initialized",
+              "target": "genvm_common",
+              "ts": "1791713235637",
+              "version": "v0.2.11-x86_64-linux-release"
+            },
+            {
+              "file": "src/exe/run.rs:150",
+              "genvm_id": "5252802",
+              "level": "info",
+              "message": "genvm id",
+              "target": "genvm::exe::run",
+              "ts": "1791713235637"
+            },
+            {
+              "default": "v0.1.0",
+              "file": "src/runners/parse.rs:88",
+              "level": "warn",
+              "message": "runner comment does not start with version, using default",
+              "target": "genvm::runners::parse",
+              "ts": "1791713235649"
+            },
+            {
+              "file": "src/lib.rs:299",
+              "level": "info",
+              "message": "metrics",
+              "metrics": {
+                "gvm": {
+                  "host": {
+                    "time": 18823
+                  },
+                  "llm_module": {
+                    "calls": 0,
+                    "time": 0
+                  },
+                  "supervisor": {
+                    "compilation_time": 0,
+                    "compiled_modules": 0,
+                    "precompile_hits": 2
+                  },
+                  "web_module": {
+                    "calls": 0,
+                    "time": 0
+                  }
+                },
+                "llm": null,
+                "web": null
+              },
+              "target": "genvm",
+              "ts": "1791713235871"
+            },
+            {
+              "file": "src/exe/run.rs:111",
+              "level": "warn",
+              "message": "sigterm received",
+              "target": "genvm::exe::run",
+              "ts": "1791713235871"
+            }
+          ],
+          "events": [],
+          "messages": [],
+          "nondetDisagreementCallNo": null,
+          "syncedBlock": "0x175bdfb"
+        },
+        "id": 1
+      },
+      "at": "2026-10-11T10:07:06.709Z",
+      "decoded": {
+        "challenge_id": "1",
+        "item_index": "14",
+        "pinned": "RIGHT",
+        "pinned_answer": "53",
+        "recall": "MISS",
+        "rewrite": "RIGHT",
+        "rewrite_answer": "53",
+        "rewrite_class": "format_shift",
+        "rewrite_hash": "b97103a65f52333081a63f4a4ef157c033cb839210671dc5149a69b70962415c",
+        "rewrite_prompt": "Archive shelf record:\nStarting folders: 64\nFolders removed for inspection: 18\nNewly prepared folders added afterward: 7\nQuestion: How many folders are on the shelf after these two changes?",
+        "rewrite_reply": "53",
+        "slice_settled": false,
+        "stage_c1": "ADMISSIBLE",
+        "stage_c2": "PENDING",
+        "stale": false,
+        "touched": true
+      }
+    },
+    {
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "gen_call",
+        "params": [
+          {
+            "type": "read",
+            "to": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+            "from": "0x0000000000000000000000000000000000000000",
+            "data": "0xdc9a160461726773150971066d6574686f644c6765745f70726f626500",
+            "status": "accepted"
+          }
+        ]
+      },
+      "http_status": 200,
+      "response": {
+        "jsonrpc": "2.0",
+        "result": {
+          "data": "86010c6368616c6c656e67655f6964090a6974656d5f696e646578710670696e6e65642c52494748540d70696e6e65645f616e7377657214353306726563616c6c244d49535307726577726974652c52494748540e726577726974655f616e737765721435330d726577726974655f636c61737364666f726d61745f73686966740c726577726974655f686173688404623937313033613635663532333333303831613633663461346566313537633033336362383339323130363731646335313439613639623730393632343135630e726577726974655f70726f6d7074e40b41726368697665207368656c66207265636f72643a0a5374617274696e6720666f6c646572733a2036340a466f6c646572732072656d6f76656420666f7220696e7370656374696f6e3a2031380a4e65776c7920707265706172656420666f6c64657273206164646564206166746572776172643a20370a5175657374696f6e3a20486f77206d616e7920666f6c6465727320617265206f6e20746865207368656c662061667465722074686573652074776f206368616e6765733f0d726577726974655f7265706c791435330d736c6963655f736574746c6564080873746167655f63315441444d49535349424c450873746167655f63323c50454e44494e47057374616c650807746f756368656410",
+          "eqOutputs": [],
+          "status": {
+            "code": 0,
+            "message": "success"
+          },
+          "stdout": "",
+          "stderr": "",
+          "logs": [
+            {
+              "file": "common/src/lib.rs:111",
+              "level": "info",
+              "message": "logging initialized",
+              "target": "genvm_common",
+              "ts": "1791713236631",
+              "version": "v0.2.11-x86_64-linux-release"
+            },
+            {
+              "file": "src/exe/run.rs:150",
+              "genvm_id": "5252803",
+              "level": "info",
+              "message": "genvm id",
+              "target": "genvm::exe::run",
+              "ts": "1791713236632"
+            },
+            {
+              "default": "v0.1.0",
+              "file": "src/runners/parse.rs:88",
+              "level": "warn",
+              "message": "runner comment does not start with version, using default",
+              "target": "genvm::runners::parse",
+              "ts": "1791713236644"
+            },
+            {
+              "file": "src/lib.rs:299",
+              "level": "info",
+              "message": "metrics",
+              "metrics": {
+                "gvm": {
+                  "host": {
+                    "time": 18782
+                  },
+                  "llm_module": {
+                    "calls": 0,
+                    "time": 0
+                  },
+                  "supervisor": {
+                    "compilation_time": 0,
+                    "compiled_modules": 0,
+                    "precompile_hits": 2
+                  },
+                  "web_module": {
+                    "calls": 0,
+                    "time": 0
+                  }
+                },
+                "llm": null,
+                "web": null
+              },
+              "target": "genvm",
+              "ts": "1791713236866"
+            },
+            {
+              "file": "src/exe/run.rs:111",
+              "level": "warn",
+              "message": "sigterm received",
+              "target": "genvm::exe::run",
+              "ts": "1791713236867"
+            }
+          ],
+          "events": [],
+          "messages": [],
+          "nondetDisagreementCallNo": null,
+          "syncedBlock": "0x175bdfd"
+        },
+        "id": 1
+      },
+      "at": "2026-10-11T10:07:07.705Z",
+      "decoded": {
+        "challenge_id": "1",
+        "item_index": "14",
+        "pinned": "RIGHT",
+        "pinned_answer": "53",
+        "recall": "MISS",
+        "rewrite": "RIGHT",
+        "rewrite_answer": "53",
+        "rewrite_class": "format_shift",
+        "rewrite_hash": "b97103a65f52333081a63f4a4ef157c033cb839210671dc5149a69b70962415c",
+        "rewrite_prompt": "Archive shelf record:\nStarting folders: 64\nFolders removed for inspection: 18\nNewly prepared folders added afterward: 7\nQuestion: How many folders are on the shelf after these two changes?",
+        "rewrite_reply": "53",
+        "slice_settled": false,
+        "stage_c1": "ADMISSIBLE",
+        "stage_c2": "PENDING",
+        "stale": false,
+        "touched": true
+      }
+    },
+    {
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "gen_call",
+        "params": [
+          {
+            "type": "read",
+            "to": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+            "from": "0x0000000000000000000000000000000000000000",
+            "data": "0xdc9a160461726773150971066d6574686f644c6765745f70726f626500",
+            "status": "finalized"
+          }
+        ]
+      },
+      "http_status": 200,
+      "response": {
+        "jsonrpc": "2.0",
+        "result": {
+          "data": "86010c6368616c6c656e67655f6964090a6974656d5f696e646578710670696e6e65642c52494748540d70696e6e65645f616e7377657214353306726563616c6c244d49535307726577726974652c52494748540e726577726974655f616e737765721435330d726577726974655f636c61737364666f726d61745f73686966740c726577726974655f686173688404623937313033613635663532333333303831613633663461346566313537633033336362383339323130363731646335313439613639623730393632343135630e726577726974655f70726f6d7074e40b41726368697665207368656c66207265636f72643a0a5374617274696e6720666f6c646572733a2036340a466f6c646572732072656d6f76656420666f7220696e7370656374696f6e3a2031380a4e65776c7920707265706172656420666f6c64657273206164646564206166746572776172643a20370a5175657374696f6e3a20486f77206d616e7920666f6c6465727320617265206f6e20746865207368656c662061667465722074686573652074776f206368616e6765733f0d726577726974655f7265706c791435330d736c6963655f736574746c6564080873746167655f63315441444d49535349424c450873746167655f63323c50454e44494e47057374616c650807746f756368656410",
+          "eqOutputs": [],
+          "status": {
+            "code": 0,
+            "message": "success"
+          },
+          "stdout": "",
+          "stderr": "",
+          "logs": [
+            {
+              "file": "common/src/lib.rs:111",
+              "level": "info",
+              "message": "logging initialized",
+              "target": "genvm_common",
+              "ts": "1791713237690",
+              "version": "v0.2.11-x86_64-linux-release"
+            },
+            {
+              "file": "src/exe/run.rs:150",
+              "genvm_id": "5252804",
+              "level": "info",
+              "message": "genvm id",
+              "target": "genvm::exe::run",
+              "ts": "1791713237690"
+            },
+            {
+              "default": "v0.1.0",
+              "file": "src/runners/parse.rs:88",
+              "level": "warn",
+              "message": "runner comment does not start with version, using default",
+              "target": "genvm::runners::parse",
+              "ts": "1791713237702"
+            },
+            {
+              "file": "src/lib.rs:299",
+              "level": "info",
+              "message": "metrics",
+              "metrics": {
+                "gvm": {
+                  "host": {
+                    "time": 18685
+                  },
+                  "llm_module": {
+                    "calls": 0,
+                    "time": 0
+                  },
+                  "supervisor": {
+                    "compilation_time": 0,
+                    "compiled_modules": 0,
+                    "precompile_hits": 2
+                  },
+                  "web_module": {
+                    "calls": 0,
+                    "time": 0
+                  }
+                },
+                "llm": null,
+                "web": null
+              },
+              "target": "genvm",
+              "ts": "1791713237924"
+            },
+            {
+              "file": "src/exe/run.rs:111",
+              "level": "warn",
+              "message": "sigterm received",
+              "target": "genvm::exe::run",
+              "ts": "1791713237925"
+            }
+          ],
+          "events": [],
+          "messages": [],
+          "nondetDisagreementCallNo": null,
+          "syncedBlock": "0x175bdfe"
+        },
+        "id": 1
+      },
+      "at": "2026-10-11T10:07:08.775Z",
+      "decoded": {
+        "challenge_id": "1",
+        "item_index": "14",
+        "pinned": "RIGHT",
+        "pinned_answer": "53",
+        "recall": "MISS",
+        "rewrite": "RIGHT",
+        "rewrite_answer": "53",
+        "rewrite_class": "format_shift",
+        "rewrite_hash": "b97103a65f52333081a63f4a4ef157c033cb839210671dc5149a69b70962415c",
+        "rewrite_prompt": "Archive shelf record:\nStarting folders: 64\nFolders removed for inspection: 18\nNewly prepared folders added afterward: 7\nQuestion: How many folders are on the shelf after these two changes?",
+        "rewrite_reply": "53",
+        "slice_settled": false,
+        "stage_c1": "ADMISSIBLE",
+        "stage_c2": "PENDING",
+        "stale": false,
+        "touched": true
+      }
+    },
+    {
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "gen_call",
+        "params": [
+          {
+            "type": "read",
+            "to": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+            "from": "0x0000000000000000000000000000000000000000",
+            "data": "0xdc9a160461726773150971066d6574686f644c6765745f70726f626500",
+            "status": "accepted",
+            "blockNumber": "0x175bdda"
+          }
+        ]
+      },
+      "http_status": 200,
+      "response": {
+        "jsonrpc": "2.0",
+        "result": {
+          "data": "86010c6368616c6c656e67655f6964090a6974656d5f696e646578710670696e6e65642c52494748540d70696e6e65645f616e7377657214353306726563616c6c244d49535307726577726974652c52494748540e726577726974655f616e737765721435330d726577726974655f636c61737364666f726d61745f73686966740c726577726974655f686173688404623937313033613635663532333333303831613633663461346566313537633033336362383339323130363731646335313439613639623730393632343135630e726577726974655f70726f6d7074e40b41726368697665207368656c66207265636f72643a0a5374617274696e6720666f6c646572733a2036340a466f6c646572732072656d6f76656420666f7220696e7370656374696f6e3a2031380a4e65776c7920707265706172656420666f6c64657273206164646564206166746572776172643a20370a5175657374696f6e3a20486f77206d616e7920666f6c6465727320617265206f6e20746865207368656c662061667465722074686573652074776f206368616e6765733f0d726577726974655f7265706c791435330d736c6963655f736574746c6564080873746167655f63315441444d49535349424c450873746167655f63323c50454e44494e47057374616c650807746f756368656410",
+          "eqOutputs": [],
+          "status": {
+            "code": 0,
+            "message": "success"
+          },
+          "stdout": "",
+          "stderr": "",
+          "logs": [
+            {
+              "file": "common/src/lib.rs:111",
+              "level": "info",
+              "message": "logging initialized",
+              "target": "genvm_common",
+              "ts": "1791713238733",
+              "version": "v0.2.11-x86_64-linux-release"
+            },
+            {
+              "file": "src/exe/run.rs:150",
+              "genvm_id": "5252805",
+              "level": "info",
+              "message": "genvm id",
+              "target": "genvm::exe::run",
+              "ts": "1791713238733"
+            },
+            {
+              "default": "v0.1.0",
+              "file": "src/runners/parse.rs:88",
+              "level": "warn",
+              "message": "runner comment does not start with version, using default",
+              "target": "genvm::runners::parse",
+              "ts": "1791713238746"
+            },
+            {
+              "file": "src/lib.rs:299",
+              "level": "info",
+              "message": "metrics",
+              "metrics": {
+                "gvm": {
+                  "host": {
+                    "time": 19130
+                  },
+                  "llm_module": {
+                    "calls": 0,
+                    "time": 0
+                  },
+                  "supervisor": {
+                    "compilation_time": 0,
+                    "compiled_modules": 0,
+                    "precompile_hits": 2
+                  },
+                  "web_module": {
+                    "calls": 0,
+                    "time": 0
+                  }
+                },
+                "llm": null,
+                "web": null
+              },
+              "target": "genvm",
+              "ts": "1791713238962"
+            },
+            {
+              "file": "src/exe/run.rs:111",
+              "level": "warn",
+              "message": "sigterm received",
+              "target": "genvm::exe::run",
+              "ts": "1791713238962"
+            }
+          ],
+          "events": [],
+          "messages": [],
+          "nondetDisagreementCallNo": null,
+          "syncedBlock": "0x175be02"
+        },
+        "id": 1
+      },
+      "at": "2026-10-11T10:07:09.801Z",
+      "decoded": {
+        "challenge_id": "1",
+        "item_index": "14",
+        "pinned": "RIGHT",
+        "pinned_answer": "53",
+        "recall": "MISS",
+        "rewrite": "RIGHT",
+        "rewrite_answer": "53",
+        "rewrite_class": "format_shift",
+        "rewrite_hash": "b97103a65f52333081a63f4a4ef157c033cb839210671dc5149a69b70962415c",
+        "rewrite_prompt": "Archive shelf record:\nStarting folders: 64\nFolders removed for inspection: 18\nNewly prepared folders added afterward: 7\nQuestion: How many folders are on the shelf after these two changes?",
+        "rewrite_reply": "53",
+        "slice_settled": false,
+        "stage_c1": "ADMISSIBLE",
+        "stage_c2": "PENDING",
+        "stale": false,
+        "touched": true
+      }
+    },
+    {
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "gen_call",
+        "params": [
+          {
+            "type": "read",
+            "to": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+            "from": "0x0000000000000000000000000000000000000000",
+            "data": "0xdc9a160461726773150971066d6574686f644c6765745f70726f626500",
+            "status": "finalized",
+            "blockNumber": "0x175bdda"
+          }
+        ]
+      },
+      "http_status": 200,
+      "response": {
+        "jsonrpc": "2.0",
+        "result": {
+          "data": "86010c6368616c6c656e67655f6964090a6974656d5f696e646578710670696e6e65642c52494748540d70696e6e65645f616e7377657214353306726563616c6c244d49535307726577726974652c52494748540e726577726974655f616e737765721435330d726577726974655f636c61737364666f726d61745f73686966740c726577726974655f686173688404623937313033613635663532333333303831613633663461346566313537633033336362383339323130363731646335313439613639623730393632343135630e726577726974655f70726f6d7074e40b41726368697665207368656c66207265636f72643a0a5374617274696e6720666f6c646572733a2036340a466f6c646572732072656d6f76656420666f7220696e7370656374696f6e3a2031380a4e65776c7920707265706172656420666f6c64657273206164646564206166746572776172643a20370a5175657374696f6e3a20486f77206d616e7920666f6c6465727320617265206f6e20746865207368656c662061667465722074686573652074776f206368616e6765733f0d726577726974655f7265706c791435330d736c6963655f736574746c6564080873746167655f63315441444d49535349424c450873746167655f63323c50454e44494e47057374616c650807746f756368656410",
+          "eqOutputs": [],
+          "status": {
+            "code": 0,
+            "message": "success"
+          },
+          "stdout": "",
+          "stderr": "",
+          "logs": [
+            {
+              "file": "common/src/lib.rs:111",
+              "level": "info",
+              "message": "logging initialized",
+              "target": "genvm_common",
+              "ts": "1791713239702",
+              "version": "v0.2.11-x86_64-linux-release"
+            },
+            {
+              "file": "src/exe/run.rs:150",
+              "genvm_id": "5252806",
+              "level": "info",
+              "message": "genvm id",
+              "target": "genvm::exe::run",
+              "ts": "1791713239702"
+            },
+            {
+              "default": "v0.1.0",
+              "file": "src/runners/parse.rs:88",
+              "level": "warn",
+              "message": "runner comment does not start with version, using default",
+              "target": "genvm::runners::parse",
+              "ts": "1791713239715"
+            },
+            {
+              "file": "src/lib.rs:299",
+              "level": "info",
+              "message": "metrics",
+              "metrics": {
+                "gvm": {
+                  "host": {
+                    "time": 20544
+                  },
+                  "llm_module": {
+                    "calls": 0,
+                    "time": 0
+                  },
+                  "supervisor": {
+                    "compilation_time": 0,
+                    "compiled_modules": 0,
+                    "precompile_hits": 2
+                  },
+                  "web_module": {
+                    "calls": 0,
+                    "time": 0
+                  }
+                },
+                "llm": null,
+                "web": null
+              },
+              "target": "genvm",
+              "ts": "1791713239930"
+            },
+            {
+              "file": "src/exe/run.rs:111",
+              "level": "warn",
+              "message": "sigterm received",
+              "target": "genvm::exe::run",
+              "ts": "1791713239931"
+            }
+          ],
+          "events": [],
+          "messages": [],
+          "nondetDisagreementCallNo": null,
+          "syncedBlock": "0x175be05"
+        },
+        "id": 1
+      },
+      "at": "2026-10-11T10:07:10.797Z",
+      "decoded": {
+        "challenge_id": "1",
+        "item_index": "14",
+        "pinned": "RIGHT",
+        "pinned_answer": "53",
+        "recall": "MISS",
+        "rewrite": "RIGHT",
+        "rewrite_answer": "53",
+        "rewrite_class": "format_shift",
+        "rewrite_hash": "b97103a65f52333081a63f4a4ef157c033cb839210671dc5149a69b70962415c",
+        "rewrite_prompt": "Archive shelf record:\nStarting folders: 64\nFolders removed for inspection: 18\nNewly prepared folders added afterward: 7\nQuestion: How many folders are on the shelf after these two changes?",
+        "rewrite_reply": "53",
+        "slice_settled": false,
+        "stage_c1": "ADMISSIBLE",
+        "stage_c2": "PENDING",
+        "stale": false,
+        "touched": true
+      }
+    }
+  ],
+  "block": {
+    "request": {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "method": "eth_blockNumber",
+      "params": []
+    },
+    "http_status": 200,
+    "response": {
+      "jsonrpc": "2.0",
+      "result": "0x175bdda",
+      "id": 1
+    }
+  },
+  "ended_at": "2026-10-11T10:07:10.797Z"
+}

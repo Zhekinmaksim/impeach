@@ -1,0 +1,5 @@
+{
+  "returncode": 0,
+  "stdout": "{\n  \"from\": \"0x771388495F34d21C5574FeFc04cd1D5811E00aDa\",\n  \"to\": \"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D\",\n  \"chainId\": 4221,\n  \"sdkEstimate\": \"644015\",\n  \"boundedEstimate\": \"644015\",\n  \"gasLimit\": \"708417\",\n  \"gasCap\": \"16777216\",\n  \"calldataBytes\": 36,\n  \"dryRun\": true\n}\n",
+  "stderr": ""
+}

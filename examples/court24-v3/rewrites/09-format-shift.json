@@ -1,0 +1,9 @@
+{
+  "version": "impeach/1",
+  "item_index": 9,
+  "class": "format_shift",
+  "prompt": "An independent arithmetic exercise states: Laboratory vial count\nStorage racks: 8\nEmpty vials per rack: 9\nLoose empty vials beside the racks: 6\nRequested total: How many empty vials are there altogether in the racks and beside them?",
+  "answer": "78",
+  "derivation": "9 * 8 + 6",
+  "author_note": "Paragraph converted to labeled fields; rack count, capacity, loose stock, and requested total are unchanged."
+}

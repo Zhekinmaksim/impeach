@@ -1,0 +1,38 @@
+GenLayer RPC error (eth_estimateGas): execution reverted
+Gas estimation failed, using default 200_000: UnknownRpcError: An unknown RPC error occurred.
+
+Details: execution reverted
+Version: viem@2.50.4
+    at withRetry.delay.count.count (file:///Users/zmaxx/.nvm/versions/node/v20.20.2/lib/node_modules/genlayer/node_modules/viem/_esm/utils/buildRequest.js:127:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async attemptRetry (file:///Users/zmaxx/.nvm/versions/node/v20.20.2/lib/node_modules/genlayer/node_modules/viem/_esm/utils/promise/withRetry.js:24:30) {
+  details: 'execution reverted',
+  docsPath: undefined,
+  metaMessages: undefined,
+  shortMessage: 'An unknown RPC error occurred.',
+  version: '2.50.4',
+  code: -1,
+  [cause]: { code: 3, message: 'execution reverted', data: '0xe1b3b3b7' }
+}
+GenLayer RPC error (eth_estimateGas): execution reverted
+file:///Users/zmaxx/.nvm/versions/node/v20.20.2/lib/node_modules/genlayer/node_modules/viem/_esm/utils/buildRequest.js:127
+                        throw new UnknownRpcError(err);
+                              ^
+
+UnknownRpcError: An unknown RPC error occurred.
+
+Details: execution reverted
+Version: viem@2.50.4
+    at withRetry.delay.count.count (file:///Users/zmaxx/.nvm/versions/node/v20.20.2/lib/node_modules/genlayer/node_modules/viem/_esm/utils/buildRequest.js:127:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async attemptRetry (file:///Users/zmaxx/.nvm/versions/node/v20.20.2/lib/node_modules/genlayer/node_modules/viem/_esm/utils/promise/withRetry.js:24:30) {
+  details: 'execution reverted',
+  docsPath: undefined,
+  metaMessages: undefined,
+  shortMessage: 'An unknown RPC error occurred.',
+  version: '2.50.4',
+  code: -1,
+  [cause]: { code: 3, message: 'execution reverted', data: '0xe1b3b3b7' }
+}
+
+Node.js v20.20.2

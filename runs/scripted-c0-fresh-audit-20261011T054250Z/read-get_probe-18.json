@@ -1,0 +1,27 @@
+{
+  "kind": "read",
+  "method_or_key": "get_probe",
+  "args_or_hash": [
+    0,
+    18
+  ],
+  "value": {
+    "challenge_id": 0,
+    "item_index": 18,
+    "pinned": "RIGHT",
+    "pinned_answer": "2000",
+    "recall": "MATCH",
+    "rewrite": "RIGHT",
+    "rewrite_answer": "2000",
+    "rewrite_class": "unit_change",
+    "rewrite_hash": "2289939c545dcf76cae3582d913d1430d1c5c2e3dbee6655985b08b18bf110d6",
+    "rewrite_prompt": "On a practice worksheet, a student reads this problem: A survey team measures a footpath in two consecutive sections. The first section is 1.25 kilometers long and the second section is 0.75 kilometers long. What is the total length of these two sections in meters?",
+    "rewrite_reply": "2000",
+    "slice_settled": false,
+    "stage_c1": "ADMISSIBLE",
+    "stage_c2": "PENDING",
+    "stale": false,
+    "touched": true
+  },
+  "at": 1791697395
+}

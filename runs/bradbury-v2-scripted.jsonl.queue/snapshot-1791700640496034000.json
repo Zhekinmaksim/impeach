@@ -1,0 +1,39 @@
+{
+  "at": 1791700640490,
+  "address": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+  "blockNumber": "24454971",
+  "blockTimestamp": "1791700636",
+  "protocol": {
+    "chainId": 4221,
+    "main": "0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D",
+    "manager": "0x8aCE036C8C3C5D603dB546b031302FCf149648E8",
+    "version": "2.0.0",
+    "implementations": {
+      "FinalizationPhase": "0x3ab63c1fc784682ef72276a76e2ad8fc1c5813b2",
+      "ConsensusData": "0x7ee629530e70e2a3a772f8522d8835060abf0755",
+      "Idleness": "0x4e696416634012119187d8dda6a56e66ac7cb23d",
+      "ConsensusMain": "0x0a2c393975da79505ed930efc55ae4aeb88b0d62",
+      "Queues": "0x7559ebdbc6f59e5dd2a048a1a1539ac14bf93db0",
+      "IdlenessPhase": "0x2cf61473cafcf47adc0ddd861290a7e848881446",
+      "AddressManager": "0xf63f3a95fbf2e97618a5e3ea0fff63024915f3e6",
+      "TransactionManager": "0xeee45073f7eeb3b80d1973f8398f8e508f893f9c"
+    },
+    "sourceCommit": "9c686087963551277fc2dce0354c2b1a7050b4b2"
+  },
+  "sourceSha256": "6336e9c160b53839497adb4652c0cf8d7c1f5b76bcf7ed99d3f5553da53f3c89",
+  "mainTimeouts": {
+    "activate": "180",
+    "propose": "420",
+    "commit": "420",
+    "reveal": "120",
+    "accept": "1800",
+    "leaderReveal": "120"
+  },
+  "heads": {
+    "getFinalizedHeadTxId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "getPendingHeadTxId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "getAcceptedHeadTxId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "getUndeterminedHeadTxId": "0x0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "transactions": []
+}

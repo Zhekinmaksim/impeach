@@ -1,0 +1,32 @@
+{
+  "checked_at": "2026-10-11T07:00:34.621134+00:00",
+  "scope": "Local browser preview of actual finalized C0 snapshot; real C1 still active, not final production verification",
+  "snapshot": "runs/v2-scripted-case.json",
+  "subject_kind": "scripted-no-llm",
+  "verdict": "CONTAMINATED",
+  "reason": "RECALL",
+  "pinned": 24,
+  "recall": 24,
+  "admitted_pairs": 13,
+  "delta_milli": 166,
+  "recall_milli": 1000,
+  "receipt_count": 105,
+  "failed_native_attempts": 20,
+  "browser_errors": 0,
+  "mobile_width": 390,
+  "mobile_scroll_width": 390,
+  "desktop_width": 1440,
+  "desktop_scroll_width": 1440,
+  "selected_certificate_download_equal_to_native_snapshot": true,
+  "certificate_download_file_sha256": "868eee2ed3019f34ad422c737a0498f05369b9c0fe385a80127b7259ca49d5b6",
+  "corrections": [
+    "scripted lookup in verdict and subject probe outcomes in counts",
+    "count FINALIZED/NOT_VOTED even with cached MAJORITY_AGREE, plus MAJORITY_TIMEOUT",
+    "headline makes no unverified model-training claim"
+  ],
+  "spent_registry_check": {
+    "content_hash": "3943968d0542d597142ed33ec666cf123cd47927c8822a94fa39f6df61934218",
+    "claim_id": 0,
+    "result": "SPENT"
+  }
+}

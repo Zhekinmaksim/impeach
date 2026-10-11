@@ -1,0 +1,9 @@
+{
+  "checked_at": "2026-10-11T06:02:31.872642+00:00",
+  "source": "https://openrouter.ai/workspaces/default/byok",
+  "method": "Authenticated Chrome accessibility view, Providers filter DeepInfra",
+  "provider": "DeepInfra",
+  "status": "Not configured",
+  "settings_changed": false,
+  "provider_keys_read": false
+}

@@ -1,0 +1,5 @@
+{
+  "service": "impeach-openrouter",
+  "enabled": false,
+  "status": "trial_disabled"
+}

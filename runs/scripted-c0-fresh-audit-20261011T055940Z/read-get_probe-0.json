@@ -1,0 +1,27 @@
+{
+  "kind": "read",
+  "method_or_key": "get_probe",
+  "args_or_hash": [
+    0,
+    0
+  ],
+  "value": {
+    "challenge_id": 0,
+    "item_index": 0,
+    "pinned": "RIGHT",
+    "pinned_answer": "36",
+    "recall": "MATCH",
+    "rewrite": "RIGHT",
+    "rewrite_answer": "36",
+    "rewrite_class": "paraphrase",
+    "rewrite_hash": "9ebfd85b4d2bcf7742b3011b3eb0981993ce4808e944fa0982d2c46deb610c6f",
+    "rewrite_prompt": "On a practice worksheet, a student reads this problem: During the morning a workshop produces 28 blue labels, followed by another 17 that afternoon. After 9 of these labels are attached to completed toolboxes, how many printed blue labels are still unused?",
+    "rewrite_reply": "36",
+    "slice_settled": true,
+    "stage_c1": "ADMISSIBLE",
+    "stage_c2": "ADMISSIBLE",
+    "stale": false,
+    "touched": true
+  },
+  "at": 1791698387
+}

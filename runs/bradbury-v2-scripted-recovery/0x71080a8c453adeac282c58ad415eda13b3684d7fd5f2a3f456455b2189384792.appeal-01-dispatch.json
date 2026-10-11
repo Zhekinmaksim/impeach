@@ -1,0 +1,9 @@
+{
+  "at": 1791638489,
+  "action": "ONE_ZERO_BOND_SAME_HASH_APPEAL",
+  "key": "probe:0:23:ADMIT",
+  "tx": "0x71080a8c453adeac282c58ad415eda13b3684d7fd5f2a3f456455b2189384792",
+  "attempt": 1,
+  "status": "DISPATCHING",
+  "account": "impeach-challenger"
+}

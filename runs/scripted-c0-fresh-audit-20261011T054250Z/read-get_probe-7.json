@@ -1,0 +1,27 @@
+{
+  "kind": "read",
+  "method_or_key": "get_probe",
+  "args_or_hash": [
+    0,
+    7
+  ],
+  "value": {
+    "challenge_id": 0,
+    "item_index": 7,
+    "pinned": "RIGHT",
+    "pinned_answer": "7",
+    "recall": "MATCH",
+    "rewrite": "RIGHT",
+    "rewrite_answer": "7",
+    "rewrite_class": "entity_rename",
+    "rewrite_hash": "f6f5ce7801af02a186482c0d16ee3e90366c9d53f7a08814d631f6bfea4c7811",
+    "rewrite_prompt": "On a practice worksheet, a student reads this problem: Noor brings 18 red counters and Evan brings 24 red counters to a puzzle table. They combine their counters and divide all of them equally among 6 trays. How many red counters are placed in each tray?",
+    "rewrite_reply": "7",
+    "slice_settled": false,
+    "stage_c1": "ADMISSIBLE",
+    "stage_c2": "PENDING",
+    "stale": false,
+    "touched": true
+  },
+  "at": 1791697385
+}

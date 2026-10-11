@@ -1,0 +1,27 @@
+{
+  "kind": "read",
+  "method_or_key": "get_probe",
+  "args_or_hash": [
+    0,
+    8
+  ],
+  "value": {
+    "challenge_id": 0,
+    "item_index": 8,
+    "pinned": "RIGHT",
+    "pinned_answer": "2500",
+    "recall": "MATCH",
+    "rewrite": "RIGHT",
+    "rewrite_answer": "2500",
+    "rewrite_class": "unit_change",
+    "rewrite_hash": "94dba48c58bde0cacef92906aed707e5dd29ae0e6a90f371fc4ca53c856905e6",
+    "rewrite_prompt": "On a practice worksheet, a student reads this problem: A parcel contains a metal block with a mass of 2000 grams and packing material with a mass of 0.5 kilograms. Nothing else is inside the parcel. What is the combined mass of its contents in grams?",
+    "rewrite_reply": "2500",
+    "slice_settled": false,
+    "stage_c1": "ADMISSIBLE",
+    "stage_c2": "PENDING",
+    "stale": false,
+    "touched": true
+  },
+  "at": 1791697385
+}

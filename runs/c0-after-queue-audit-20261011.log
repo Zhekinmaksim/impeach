@@ -1,0 +1,164 @@
+{
+  "folder": "/Users/zmaxx/Projects/impeach/runs/scripted-c0-fresh-audit-20261011T055940Z",
+  "format": "impeach-readonly-audit/1",
+  "label": "Native scripted lookup control; partial rewrite adjudication must not be represented as a real LLM finding.",
+  "address": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+  "claim_id": 0,
+  "challenge_id": 0,
+  "started_at_utc": "20261011T055940Z",
+  "completed_at": 1791698423,
+  "chain_clock": 1791698390,
+  "deadline": 1791644225,
+  "deadline_distance_s": -54165,
+  "counts": {
+    "challenges": 1,
+    "claims": 1,
+    "spent": 24
+  },
+  "solvency": {
+    "balanced": true,
+    "bonds": 100000000000000000,
+    "credited": 13000000000000000,
+    "escrowed": 111000000000000000,
+    "held": 124000000000000000,
+    "stakes": 11000000000000000
+  },
+  "totals": {
+    "states": 24,
+    "pinned": {
+      "RIGHT": 24
+    },
+    "recall": {
+      "MATCH": 24
+    },
+    "c1": {
+      "ADMISSIBLE": 20,
+      "PENDING": 4
+    },
+    "c2": {
+      "ADMISSIBLE": 13,
+      "PENDING": 11
+    },
+    "rewrite": {
+      "RIGHT": 16,
+      "WRONG": 4,
+      "": 4
+    },
+    "admitted": 13,
+    "inadmissible": 0
+  },
+  "critical_receipts": [
+    {
+      "key": "probe:0:16:REWRITE",
+      "tx": "0xe2432aec90a82ea1a518fc7c63e916348c4bf25c95aa715c5876cb69d8721ebb",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "NO_MAJORITY"
+    },
+    {
+      "key": "probe:0:20:REWRITE",
+      "tx": "0xd60abc39a390e1ee98eeb59df561927d377a7e2d143f2c30584b9bf385fe66ae",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_TIMEOUT"
+    },
+    {
+      "key": "probe:0:2:ADMIT",
+      "tx": "0x88d675814aaa4976c64a5b596e3c4cb4fd224d8e7a7086991e31951f040151f7",
+      "status": "UNDETERMINED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_DISAGREE"
+    },
+    {
+      "key": "probe:0:3:ADMIT",
+      "tx": "0x28054e97e3187cba989d4c8561e18c188d0e05de81dafe76580b5102824b45b9",
+      "status": "UNDETERMINED",
+      "execution": "NOT_VOTED",
+      "consensus": "MAJORITY_AGREE"
+    },
+    {
+      "key": "probe:0:4:REWRITE",
+      "tx": "0x79cc117afb63de2928e4d41f2b80d0c0f1a5c2f9547f36d0365c6c43c95993c0",
+      "status": "UNDETERMINED",
+      "execution": "NOT_VOTED",
+      "consensus": "MAJORITY_AGREE"
+    },
+    {
+      "key": "probe:0:4:ADMIT",
+      "tx": "0xb120096abc56a06cf058af128c260184348a03ce4bb1a4d4cba883b69d087541",
+      "status": "UNDETERMINED",
+      "execution": "NOT_VOTED",
+      "consensus": "MAJORITY_AGREE"
+    },
+    {
+      "key": "probe:0:7:ADMIT",
+      "tx": "0x5ecf527fa9d9899a061932632477f4310b8d17370e0f3cdb60fb6df85ea2a2cf",
+      "status": "UNDETERMINED",
+      "execution": "NOT_VOTED",
+      "consensus": "MAJORITY_AGREE"
+    },
+    {
+      "key": "probe:0:8:ADMIT",
+      "tx": "0x0e83a80c06c5b1ba72c9fbf54dff955bd50f6ab295379308d2d6331fc8fe1345",
+      "status": "UNDETERMINED",
+      "execution": "NOT_VOTED",
+      "consensus": "MAJORITY_AGREE"
+    },
+    {
+      "key": "probe:0:14:REWRITE",
+      "tx": "0x17b942767dd081ca867130d1a91e75c8f9fe804e593ed04c204ce9522e550ae0",
+      "status": "UNDETERMINED",
+      "execution": "NOT_VOTED",
+      "consensus": "MAJORITY_AGREE"
+    },
+    {
+      "key": "probe:0:14:ADMIT",
+      "tx": "0x85de7b172f28a2a77a1635b5e49f691abd8fc923cced6f2272e7e16ce24bee49",
+      "status": "UNDETERMINED",
+      "execution": "NOT_VOTED",
+      "consensus": "MAJORITY_AGREE"
+    },
+    {
+      "key": "probe:0:15:ADMIT",
+      "tx": "0x099adcb10f7aa80d10b88cf294904c664ea4dc56f94d99463c370d39b762a780",
+      "status": "UNDETERMINED",
+      "execution": "NOT_VOTED",
+      "consensus": "MAJORITY_AGREE"
+    },
+    {
+      "key": "probe:0:17:PINNED",
+      "tx": "0x666cdbe168a6f990b2e23c347b572436fb4dba58b99bc014e8d3303b1001ec36",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE"
+    },
+    {
+      "key": "probe:0:17:ADMIT",
+      "tx": "0xd7807ccfcc63d70144969deaa9d037053e1a347626934f768c0a11f5545ad712",
+      "status": "FINALIZED",
+      "execution": "NOT_VOTED",
+      "consensus": "IDLE"
+    },
+    {
+      "key": "probe:0:18:ADMIT",
+      "tx": "0x0889b7420af3da1d6c5bb8b29c4547de20bc141f71f47efbb969fb580a047ef3",
+      "status": "FINALIZED",
+      "execution": "NOT_VOTED",
+      "consensus": "IDLE"
+    },
+    {
+      "key": "probe:0:23:ADMIT",
+      "tx": "0x71080a8c453adeac282c58ad415eda13b3684d7fd5f2a3f456455b2189384792",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus": "MAJORITY_AGREE"
+    }
+  ],
+  "critical_status_counts": {
+    "FINALIZED": 6,
+    "UNDETERMINED": 9
+  },
+  "signing_processes": [],
+  "errors": [],
+  "writes_performed": false
+}

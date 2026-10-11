@@ -1,0 +1,156 @@
+{
+  "receipt": {
+    "currentTimestamp": "1791638365",
+    "sender": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+    "recipient": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+    "initialRotations": "3",
+    "txSlot": "96",
+    "createdTimestamp": "1791637561",
+    "lastVoteTimestamp": "0",
+    "randomSeed": "0x118374b28dd72f9e7d8a17c441065cf1e5b5688f69e30144047839bf77542cfe",
+    "result": 0,
+    "txExecutionHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "txCalldata": "0xdf9d1604617267732501112c41444d495404066d6574686f642c70726f626500",
+    "eqBlocksOutputs": "0x",
+    "messages": [],
+    "queueType": 0,
+    "queuePosition": "0",
+    "activator": "0x59dC5E6fD7428c5Ee6fc24aE2B99E5860A9c9499",
+    "lastLeader": "0x2d012a292244C7ce6423a114d19109990923Af76",
+    "status": 2,
+    "txId": "0x88d675814aaa4976c64a5b596e3c4cb4fd224d8e7a7086991e31951f040151f7",
+    "readStateBlockRange": {
+      "activationBlock": "24262530",
+      "processingBlock": "24262535",
+      "proposalBlock": "24262537"
+    },
+    "numOfRounds": "2",
+    "lastRound": {
+      "round": "0",
+      "leaderIndex": "0",
+      "votesCommitted": "0",
+      "votesRevealed": "0",
+      "appealBond": "0",
+      "rotationsLeft": "3",
+      "result": 0,
+      "roundValidators": [
+        "0x2d012a292244C7ce6423a114d19109990923Af76",
+        "0x77a07271abB443F55be19c357AA35206BeB63E1d",
+        "0x3f5cAED686336ED9cF3Dede61154B0Cd67Fb9bD7",
+        "0x2CD9051E10cd1547a7b64eF61EbF1E608235dBda",
+        "0xE8fdefdfe18fD8E5B0d576b7CcfC5a29CE43fD7f"
+      ],
+      "validatorVotes": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "validatorVotesHash": [
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "0x0000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "validatorResultHash": [
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "0x0000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "validatorVotesName": [
+        "NOT_VOTED",
+        "NOT_VOTED",
+        "NOT_VOTED",
+        "NOT_VOTED",
+        "NOT_VOTED"
+      ]
+    },
+    "consumedValidators": [
+      "0x2d012a292244C7ce6423a114d19109990923Af76",
+      "0x77a07271abB443F55be19c357AA35206BeB63E1d",
+      "0x3f5cAED686336ED9cF3Dede61154B0Cd67Fb9bD7",
+      "0x2CD9051E10cd1547a7b64eF61EbF1E608235dBda",
+      "0xE8fdefdfe18fD8E5B0d576b7CcfC5a29CE43fD7f"
+    ],
+    "txExecutionResult": 0,
+    "txData": "0xdf9d1604617267732501112c41444d495404066d6574686f642c70726f626500",
+    "txDataDecoded": {
+      "callData": {},
+      "leaderOnly": false,
+      "type": "call"
+    },
+    "numOfInitialValidators": "3",
+    "statusName": "PROPOSING",
+    "resultName": "IDLE",
+    "txExecutionResultName": "NOT_VOTED"
+  },
+  "canAppeal": true,
+  "minBond": "0",
+  "roundData": [
+    "2",
+    {
+      "round": "0",
+      "leaderIndex": "0",
+      "votesCommitted": "0",
+      "votesRevealed": "0",
+      "appealBond": "0",
+      "rotationsLeft": "3",
+      "result": 0,
+      "roundValidators": [
+        "0x2d012a292244C7ce6423a114d19109990923Af76",
+        "0x77a07271abB443F55be19c357AA35206BeB63E1d",
+        "0x3f5cAED686336ED9cF3Dede61154B0Cd67Fb9bD7",
+        "0x2CD9051E10cd1547a7b64eF61EbF1E608235dBda",
+        "0xE8fdefdfe18fD8E5B0d576b7CcfC5a29CE43fD7f"
+      ],
+      "validatorVotes": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "validatorVotesHash": [
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "0x0000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "validatorResultHash": [
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "0x0000000000000000000000000000000000000000000000000000000000000000"
+      ]
+    }
+  ],
+  "at": 1791638365,
+  "tx": "0x88d675814aaa4976c64a5b596e3c4cb4fd224d8e7a7086991e31951f040151f7",
+  "key": "probe:0:2:ADMIT",
+  "attempt": 1,
+  "state": {
+    "challenge_id": 0,
+    "item_index": 2,
+    "pinned": "RIGHT",
+    "pinned_answer": "20",
+    "recall": "MATCH",
+    "rewrite": "RIGHT",
+    "rewrite_answer": "20",
+    "rewrite_class": "entity_rename",
+    "rewrite_hash": "10e0c9390afd1efbd70d1951b45a632f996ac5e64c592fc27af5d2964334f351",
+    "rewrite_prompt": "On a practice worksheet, a student reads this problem: Nila has 18 wooden tokens in her pouch. She gives 5 tokens to Daren, and Daren then gives Nila 7 other wooden tokens from his own collection. How many wooden tokens are in Nila's pouch after both transfers?",
+    "rewrite_reply": "20",
+    "slice_settled": false,
+    "stage_c1": "ADMISSIBLE",
+    "stage_c2": "PENDING",
+    "stale": false,
+    "touched": true
+  },
+  "snapshot_is_final_outcome": false
+}

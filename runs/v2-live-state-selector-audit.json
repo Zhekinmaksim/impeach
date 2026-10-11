@@ -1,0 +1,140 @@
+{
+  "at": "2026-10-11T10:02:33.824313+00:00",
+  "scope": "Bounded read-only investigation. No trace replay, signing, model calls, code edits, appeals, deploys or Git actions.",
+  "protocol": {
+    "network": "Bradbury",
+    "chainId": 4221,
+    "main": "0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D",
+    "implementation": "0x0a2C393975dA79505ED930eFC55ae4AEB88b0d62",
+    "version": "2.0.0",
+    "manifest_release": "v0.5:9c68608",
+    "consensus_source_commit": "9c686087963551277fc2dce0354c2b1a7050b4b2",
+    "binding_evidence": "runs/v2-native-status-audit.json"
+  },
+  "node_source_limit": "Public unauthenticated GitHub API for genlayerlabs/genlayer-node returned 404. Actual live node binary version and internal state-selection implementation were not verified. Consensus release v0.5 does not by itself identify a node binary version.",
+  "node_documentation": {
+    "sync_pull_request": "https://github.com/genlayerlabs/genlayer-docs/pull/447",
+    "title": "docs: sync documentation from genlayer-node v0.5.13",
+    "merged_at": "2026-07-30T16:32:50Z",
+    "commit": "7208bbfc83c90efc115ce248b12641cc265642c1",
+    "call": "https://github.com/genlayerlabs/genlayer-docs/blob/7208bbfc83c90efc115ce248b12641cc265642c1/pages/api-references/genlayer-node/gen/gen_call.mdx",
+    "state": "https://github.com/genlayerlabs/genlayer-docs/blob/7208bbfc83c90efc115ce248b12641cc265642c1/pages/api-references/genlayer-node/gen/gen_getContractState.mdx",
+    "trie": "https://github.com/genlayerlabs/genlayer-docs/blob/7208bbfc83c90efc115ce248b12641cc265642c1/pages/api-references/genlayer-node/debug/gen_dbg_trie.mdx",
+    "trace": "https://github.com/genlayerlabs/genlayer-docs/blob/7208bbfc83c90efc115ce248b12641cc265642c1/pages/api-references/genlayer-node/debug/gen_dbg_traceTransaction.mdx"
+  },
+  "findings": [
+    {
+      "claim": "Node v0.5.13 official docs already document status accepted/finalized and blockNumber for gen_call and gen_getContractState. transaction_hash_variant is absent from those archived method docs. Equal results across supplied selectors cannot establish whether a selector is honored or ignored.",
+      "kind": "primary_documentation_with_explicit_limit"
+    },
+    {
+      "claim": "Verified Main.submitAppeal sets the appealed transaction status and emits TransactionActivated for leader-timeout/undetermined appeals; the inspected path does not enqueue descendants for recomputation. RoundsCreation.createNewLeaderTimeoutAppealRound changes the round by +2 and rotates leader. RevealingPhase explicitly leaves the original final-decision queue position intact and accepts the new outcome when alreadyInFinalQueue.",
+      "kind": "verified_deployed_source",
+      "locations": [
+        "ConsensusMain.sol:792-825",
+        "Appeals.sol:185-223",
+        "RoundsCreation.sol:271-304",
+        "RevealingPhase.sol:462-511"
+      ]
+    },
+    {
+      "claim": "The explicit descendant recomputation branch is guarded by newRoundData.round > 0 during post-majority processing; it calls addTransactionToPendingQueue and returns descendant ids, and Main then emits TransactionNeedsRecomputation. This is distinct from merely executing round 2 after a direct leader appeal.",
+      "kind": "verified_deployed_source",
+      "locations": [
+        "RevealingPhase.sol:683-721",
+        "Queues.sol:515-605",
+        "ConsensusMain.sol:550-563"
+      ]
+    },
+    {
+      "claim": "An accepted descendant snapshot overshadowing the earlier-slot replay is consistent with the observation, but not proved by public source or obtained trie data. Do not identify this hypothesis as the confirmed root cause.",
+      "kind": "unconfirmed_hypothesis"
+    },
+    {
+      "claim": "FinalizationPhase changes native status, queues and message-processing flags; the inspected finalize path does not itself request descendant recomputation. It is therefore unsupported to promise that FINAL will repair application state automatically.",
+      "kind": "verified_deployed_source",
+      "locations": [
+        "FinalizationPhase.sol:317-445"
+      ]
+    }
+  ],
+  "trie_attempts": {
+    "directory": "runs/v2-live-trie-diagnostic",
+    "method": "gen_dbg_trie",
+    "doc_contract": "Read node internal DB trie for txID/round; no replay documented for this method.",
+    "requests": [
+      {
+        "slot": 211,
+        "txID": "0xa264c36846db3a8a567d3e493ceadfd3ff30d1582aa6f573fe7d42d701ccb40c",
+        "round": 2,
+        "http_status": 403
+      },
+      {
+        "slot": 212,
+        "txID": "0xcedffa69c57e1b3b42dc91ec2f4921b5d43de2a0ca05841382df34aa2f752a54",
+        "round": 0,
+        "http_status": 403
+      }
+    ],
+    "result": "No trie, keys or root digest returned. Request/metadata/doc bytes saved. HTTP error response body was not retained by the urllib exception handler; no raw RPC result exists. No retry or alternate access used."
+  },
+  "safe_remaining_read_plan": [
+    "After both native transactions are actually FINALIZED, save stored/receipt statuses, canonical finalization event blocks, and fresh item14/item23 getters; do not equate Accepted receipt with applied application state.",
+    "Use documented gen_call type read with status and explicit blockNumber, and gen_getContractState with the same block/status, comparing a fixed snapshot before descendant acceptance, after ancestor replay acceptance, and after finalization. Record syncedBlock and returned raw bytes; compare SHA256 of raw contract state. This can establish observed state changes, not node internal parent-trie selection by itself.",
+    "If a node operator exposes documented gen_dbg_trie, compare saved trie snapshots for a264 round2 and cedffa round0. Public RPC denied both requests here. No arbitrary selector or RPC invented.",
+    "Do not invoke gen_dbg_traceTransaction blindly: v0.5.13 docs explicitly say missing/pruned traces cause automatic replay. This could execute nondeterministic work outside the no-new-calls scope."
+  ],
+  "repair_after_final_and_deadline": {
+    "conclusion": "No supported permissionless repair was established for an already-finalized positive receipt whose application slot remains pending. Do not resend or appeal on this evidence.",
+    "reasons": [
+      "Verified Appeals accepts Accepted/Revealing/LT/UND/VT, not Finalized; submitting an appeal of FINAL is invalid.",
+      "Application probe enforces the frozen trial deadline (contracts/impeach.py:923-924), so a newly submitted application call after closure is not a valid repair.",
+      "Recomputation queue mutation is restricted to consensus modules, not a public user RPC; the reviewed docs expose no force-recompute RPC.",
+      "Historical trie inspection or trace debug does not itself certify a state repair or consensus application."
+    ]
+  },
+  "sources": [
+    {
+      "component": "main",
+      "local_extracted_source": "/tmp/impeach-live-main.sol",
+      "source_sha256": "52c526675ab78e4c14c13f688629117cc2cbda2234927c43e067ea4943fde305",
+      "verified_source_response": "/tmp/impeach-status-verified-main.json"
+    },
+    {
+      "component": "appeals",
+      "local_extracted_source": "/tmp/impeach-live-appeals.sol",
+      "source_sha256": "1f48e7099b7992d0fb10fb0a2d91da0f9edbe7bfa0070cd1630f1eeecec483b7",
+      "verified_source_response": "/tmp/impeach-status-verified-appeals.json"
+    },
+    {
+      "component": "RoundsCreation",
+      "local_extracted_source": "/tmp/impeach-live-RoundsCreation.sol",
+      "source_sha256": "a8a53ccca12b6307d0cb9a51eb9536c632e67ba7748b1a5d04723aca650691e9",
+      "verified_source_response": "/tmp/impeach-status-verified-RoundsCreation.json"
+    },
+    {
+      "component": "RevealingPhase",
+      "local_extracted_source": "/tmp/impeach-live-RevealingPhase.sol",
+      "source_sha256": "6c961e9b77817f9587d88cc112270e52ce9fc1fadd76f1197578d67b321972e1",
+      "verified_source_response": "/tmp/impeach-status-verified-RevealingPhase.json"
+    },
+    {
+      "component": "Queues",
+      "local_extracted_source": "/tmp/impeach-live-Queues.sol",
+      "source_sha256": "b70ea74d6daa0b9c64a3018e22f484d6a9215fc635174a575d82ad8c3d8e7f04",
+      "verified_source_response": "/tmp/impeach-status-verified-Queues.json"
+    },
+    {
+      "component": "finalization",
+      "local_extracted_source": "/tmp/impeach-live-finalization.sol",
+      "source_sha256": "f244a92013d96fa4574365301802139c099aa89752f8456280c7d893d1049656",
+      "verified_source_response": "/tmp/impeach-status-verified-finalization.json"
+    },
+    {
+      "component": "TransactionManager",
+      "local_extracted_source": "/tmp/impeach-live-TransactionManager.sol",
+      "source_sha256": "5ba0e6ad816051762d70a632002467c03ae80e10f3a9633430cce93dcd75c276",
+      "verified_source_response": "/tmp/impeach-status-verified-TransactionManager.json"
+    }
+  ]
+}

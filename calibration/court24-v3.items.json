@@ -1,0 +1,160 @@
+{
+  "format": "impeach-items/1",
+  "dataset": "court24-v3",
+  "description": "Disclosed prefixed copy of court24-v2 arithmetic for a separate court claim.",
+  "note": "This is an explicitly disclosed arithmetic copy of court24-v2. The exact prefix 'An independent arithmetic exercise states: ' is added once to every original, rewrite and control; the word independent is prompt text, not a claim of an independent benchmark. Answers, formulas and classes are unchanged. Public deterministic salts and different text hashes permit a separate claim without reusing spent content. They establish neither secrecy, worldwide novelty nor absence from model training.",
+  "construction": {
+    "seed": 240526,
+    "source_items": "calibration/court24-v2.items.json",
+    "source_items_sha256": "d6f77c7586e3c09d92ab59a8761589b1d3adb08a5afc641b953077f79ae25e8e",
+    "prefix": "An independent arithmetic exercise states: ",
+    "salt_derivation": "First 32 hexadecimal characters of SHA256(UTF-8(\"impeach/court24-v3|seed=240526|item=NN\")); NN is the zero-padded item index.",
+    "answers_formulas_classes": "Unchanged from court24-v2."
+  },
+  "items": [
+    {
+      "prompt": "An independent arithmetic exercise states: A workshop prints 28 blue labels in the morning and 17 blue labels in the afternoon. The staff use 9 of those labels on finished toolboxes. How many of the printed blue labels remain unused?",
+      "answer": "36",
+      "salt": "cfadda4ec4613da7e6cb4439cc9fb618",
+      "source": "synthetic/court24-v3/00"
+    },
+    {
+      "prompt": "An independent arithmetic exercise states: A repair station opens 4 boxes containing 8 brass clips in each box. It also has 3 loose brass clips on the counter. Counting only these boxes and loose clips, how many brass clips does the station have?",
+      "answer": "35",
+      "salt": "bafa98419a42fb42dad5629c7fedec78",
+      "source": "synthetic/court24-v3/01"
+    },
+    {
+      "prompt": "An independent arithmetic exercise states: Mira has 18 wooden tokens in her pouch. She gives 5 tokens to Tomas, and Tomas then gives Mira 7 other wooden tokens from his own collection. How many wooden tokens are in Mira's pouch after both transfers?",
+      "answer": "20",
+      "salt": "7f4d2cc54d3ead037e07abb8e581a7db",
+      "source": "synthetic/court24-v3/02"
+    },
+    {
+      "prompt": "An independent arithmetic exercise states: A craft table has a red ribbon measuring 180 centimeters and a blue ribbon measuring 70 centimeters. The two ribbons are placed end to end without overlap. What is their combined length in centimeters?",
+      "answer": "250",
+      "salt": "8602e72025ee0b9559868b651637e634",
+      "source": "synthetic/court24-v3/03"
+    },
+    {
+      "prompt": "An independent arithmetic exercise states: A rehearsal room contains 6 rows with 7 chairs in each row. Before the group arrives, 4 of these chairs are taken out for repair. How many chairs remain in the rehearsal room after those chairs are removed?",
+      "answer": "38",
+      "salt": "59bbb5d6dd5c6be7024503f30cbfd496",
+      "source": "synthetic/court24-v3/04"
+    },
+    {
+      "prompt": "An independent arithmetic exercise states: A supply drawer starts the day with 45 blank index cards. A teacher takes 12 cards for an activity and later puts 8 new blank cards into the drawer. How many blank index cards are in the drawer at the end?",
+      "answer": "41",
+      "salt": "8b85d8c07fe4f2d9000864a04b99dcdb",
+      "source": "synthetic/court24-v3/05"
+    },
+    {
+      "prompt": "An independent arithmetic exercise states: A gallery arranges 7 display stands with 6 paper lanterns on each stand. Then 5 lanterns are removed from the display because they are damaged. How many paper lanterns are still on the display stands?",
+      "answer": "37",
+      "salt": "1d3960cfcf5ecce71ce8ee52afa93a9e",
+      "source": "synthetic/court24-v3/06"
+    },
+    {
+      "prompt": "An independent arithmetic exercise states: Lena brings 18 red counters and Rafi brings 24 red counters to a puzzle table. They combine their counters and divide all of them equally among 6 trays. How many red counters are placed in each tray?",
+      "answer": "7",
+      "salt": "bbbc91a3997cb3a455eae8c4e20bfd39",
+      "source": "synthetic/court24-v3/07"
+    },
+    {
+      "prompt": "An independent arithmetic exercise states: A parcel contains a metal block with a mass of 2 kilograms and packing material with a mass of 500 grams. Nothing else is inside the parcel. What is the combined mass of its contents in grams?",
+      "answer": "2500",
+      "salt": "04a35bd30ee733f3d76b5d89076fa909",
+      "source": "synthetic/court24-v3/08"
+    },
+    {
+      "prompt": "An independent arithmetic exercise states: A laboratory puts 9 empty vials into each of 8 storage racks. Another 6 empty vials are kept loose beside the racks. How many empty vials are there altogether in the racks and beside them?",
+      "answer": "78",
+      "salt": "47d451f07bbf899e00760b7ffc30782b",
+      "source": "synthetic/court24-v3/09"
+    },
+    {
+      "prompt": "An independent arithmetic exercise states: A shuttle has 54 passenger seats. At the first stop 19 passengers board, and at the next stop 8 more passengers board. Nobody leaves, and each passenger uses one seat. How many passenger seats are still empty?",
+      "answer": "27",
+      "salt": "943dfd5b1c3b43feab086caea01b529d",
+      "source": "synthetic/court24-v3/10"
+    },
+    {
+      "prompt": "An independent arithmetic exercise states: A book stall receives 9 bundles with 4 bookmarks in each bundle. The owner adds 6 single bookmarks from a desk drawer to the same display. How many bookmarks are on the display after this addition?",
+      "answer": "42",
+      "salt": "6be1179a9e3e746175193580630c73fa",
+      "source": "synthetic/court24-v3/11"
+    },
+    {
+      "prompt": "An independent arithmetic exercise states: Ada places 12 glass beads in a bowl, and Bruno adds 6 more glass beads to that bowl. They divide all the beads equally among 3 small bags with none left over. How many glass beads go into each bag?",
+      "answer": "6",
+      "salt": "f762d7c8cf960c50e12f96947b62d5af",
+      "source": "synthetic/court24-v3/12"
+    },
+    {
+      "prompt": "An independent arithmetic exercise states: A demonstration includes a video lasting 4 minutes followed immediately by a sound clip lasting 30 seconds. There is no pause between them. What is the total running time of the demonstration in seconds?",
+      "answer": "270",
+      "salt": "74c1829d6b225da71374f18464468901",
+      "source": "synthetic/court24-v3/13"
+    },
+    {
+      "prompt": "An independent arithmetic exercise states: An archive shelf starts with 64 folders. An archivist removes 18 folders for inspection and then adds 7 newly prepared folders to the shelf. How many folders are on the shelf after these two changes?",
+      "answer": "53",
+      "salt": "51b20d90ef1b9c2443fd8dd80880de3b",
+      "source": "synthetic/court24-v3/14"
+    },
+    {
+      "prompt": "An independent arithmetic exercise states: A workshop has 5 sealed sleeves containing 6 sanding discs in each sleeve. All of these discs are distributed equally among 3 workbenches, with none kept in storage. How many sanding discs does each workbench receive?",
+      "answer": "10",
+      "salt": "b0f267b291119d4b4eb8d940a0fec6c2",
+      "source": "synthetic/court24-v3/15"
+    },
+    {
+      "prompt": "An independent arithmetic exercise states: A lantern kit has 24 batteries, but 4 batteries are damaged and cannot be used. Each lantern needs 2 usable batteries. Using all the usable batteries from this kit, how many complete lanterns can be powered?",
+      "answer": "10",
+      "salt": "a9d1bcf8c6dbcdc1e79d0b2bd4753aea",
+      "source": "synthetic/court24-v3/16"
+    },
+    {
+      "prompt": "An independent arithmetic exercise states: Davi packs 4 crates with 11 marker pens in each crate for a classroom delivery. Suri removes 6 marker pens from those crates for a separate order. How many marker pens remain in the crates for the classroom delivery?",
+      "answer": "38",
+      "salt": "2d63a820530a829ff72af7fa13239ceb",
+      "source": "synthetic/court24-v3/17"
+    },
+    {
+      "prompt": "An independent arithmetic exercise states: A survey team measures a footpath in two consecutive sections. The first section is 1250 meters long and the second section is 750 meters long. What is the total length of these two sections in meters?",
+      "answer": "2000",
+      "salt": "2379d487d92429ae577eaa9fe08f650a",
+      "source": "synthetic/court24-v3/18"
+    },
+    {
+      "prompt": "An independent arithmetic exercise states: A print shop packs 72 invitation cards into packets containing 8 cards each. It already has 5 other complete packets on a shelf. How many complete packets does the shop have after packing the 72 cards?",
+      "answer": "14",
+      "salt": "858f7863891dce2b9efff34d3351e177",
+      "source": "synthetic/court24-v3/19"
+    },
+    {
+      "prompt": "An independent arithmetic exercise states: A reading club receives 7 cartons containing 5 notebooks in each carton. The organizer gives 8 of these notebooks to new members and keeps the rest in a cupboard. How many notebooks are kept in the cupboard?",
+      "answer": "27",
+      "salt": "ad10fdf029fec33b26cf116dd2c8e8ea",
+      "source": "synthetic/court24-v3/20"
+    },
+    {
+      "prompt": "An independent arithmetic exercise states: A coordinator divides 36 plain badges equally among 6 volunteers. Each volunteer then receives 4 extra badges from a separate reserve. How many badges does each volunteer have after receiving the extra badges?",
+      "answer": "10",
+      "salt": "caf3b1ceccbc87d9a6d785572c3a1e4a",
+      "source": "synthetic/court24-v3/21"
+    },
+    {
+      "prompt": "An independent arithmetic exercise states: Priya has 31 polished shells in a box. Marco gives her 8 more polished shells, and she then lends 5 shells from the box to Nera. How many polished shells remain in Priya's box after both exchanges?",
+      "answer": "34",
+      "salt": "42c80142e75beeb503de1722e3108709",
+      "source": "synthetic/court24-v3/22"
+    },
+    {
+      "prompt": "An independent arithmetic exercise states: A mixing station has 900 milliliters of clear water in one jug and 600 milliliters in another jug. All this water is poured into an empty container without spilling. How many milliliters of water are in that container?",
+      "answer": "1500",
+      "salt": "dad3ada87cabf5a11c555c43a2488029",
+      "source": "synthetic/court24-v3/23"
+    }
+  ]
+}

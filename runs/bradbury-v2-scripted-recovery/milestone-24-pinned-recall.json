@@ -1,0 +1,1636 @@
+{
+  "format": "impeach-completion/1",
+  "at": 1791637491,
+  "phase": "WAITING_RECEIPT",
+  "message": "probe:0:23:REWRITE 0x6d22f1814ed81849c13e8a6f52776590e912205c7baf1d64ffbe2c6ebd22143d",
+  "address": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+  "challenge_id": 0,
+  "claim_id": 0,
+  "input_sha256": "bf9d6232aaa85c8f2b1104141d9d3477cffedcdd4c165b0579bef45cb2900f84",
+  "deadline": 1791644225,
+  "chain_time": 1791637481,
+  "deadline_distance_s": 6744,
+  "totals": {
+    "items": 24,
+    "states_read": 24,
+    "complete_items": 12,
+    "pinned_answers": 24,
+    "recall_results": 24,
+    "admitted": 12,
+    "inadmissible": 0,
+    "dead_slots": 0,
+    "new_transactions_this_process": 2
+  },
+  "all_slots_complete": false,
+  "all_24_admitted": false,
+  "recoveries_eligible": [
+    {
+      "key": "probe:0:2:ADMIT",
+      "tx": "0x34465f4e798c4ee81210a3a5c337e73934ba48c7ccc81c32bbe4cab547fc3e11",
+      "status": "FINALIZED"
+    },
+    {
+      "key": "probe:0:3:ADMIT",
+      "tx": "0xc256b6cfafedae00e73aa7687d925bf25cb02708051306c36c7ec8acfdf32920",
+      "status": "FINALIZED"
+    },
+    {
+      "key": "probe:0:4:REWRITE",
+      "tx": "0xffa3c8873c4752ad077e6ff4a0dc79bdd0e49a582d7ac95fbf65ea1f45b66c59",
+      "status": "FINALIZED"
+    },
+    {
+      "key": "probe:0:7:ADMIT",
+      "tx": "0x7041168b999c143cb0f81ecf8b680ad9168fd305cbb19c162ea8b6bc450410c9",
+      "status": "FINALIZED"
+    },
+    {
+      "key": "probe:0:8:ADMIT",
+      "tx": "0xb3d0f91487def18a63247e86dfef6d864f4a1a2b0cd75f9956d78b2b78966755",
+      "status": "FINALIZED"
+    }
+  ],
+  "awaiting_finalization": [
+    {
+      "key": "probe:0:14:REWRITE",
+      "tx": "0x807cd78b8d09f91047a7d7d7e42409b12c8c627bf235c8c312ebc2e117179931",
+      "status": "LEADER_TIMEOUT"
+    },
+    {
+      "key": "probe:0:15:ADMIT",
+      "tx": "0xc900228f414ac952841659d8b4d278818c79432b88c0a653da807c0d36c5947c",
+      "status": "LEADER_TIMEOUT"
+    },
+    {
+      "key": "probe:0:16:REWRITE",
+      "tx": "0xe2432aec90a82ea1a518fc7c63e916348c4bf25c95aa715c5876cb69d8721ebb",
+      "status": "LEADER_TIMEOUT"
+    },
+    {
+      "key": "probe:0:17:ADMIT",
+      "tx": "0xd7807ccfcc63d70144969deaa9d037053e1a347626934f768c0a11f5545ad712",
+      "status": "LEADER_TIMEOUT"
+    },
+    {
+      "key": "probe:0:18:ADMIT",
+      "tx": "0x0889b7420af3da1d6c5bb8b29c4547de20bc141f71f47efbb969fb580a047ef3",
+      "status": "LEADER_TIMEOUT"
+    },
+    {
+      "key": "probe:0:20:REWRITE",
+      "tx": "0xd60abc39a390e1ee98eeb59df561927d377a7e2d143f2c30584b9bf385fe66ae",
+      "status": "LEADER_TIMEOUT"
+    }
+  ],
+  "recoveries_exhausted": [],
+  "acknowledged_failures": [
+    {
+      "event": "ACKNOWLEDGED_FAILURE",
+      "at": 1791634086,
+      "key": "probe:0:2:ADMIT",
+      "tx": "0x34465f4e798c4ee81210a3a5c337e73934ba48c7ccc81c32bbe4cab547fc3e11",
+      "status": "LEADER_TIMEOUT",
+      "execution": "NOT_VOTED",
+      "consensus_result": "IDLE",
+      "receipt": "bradbury-v2-scripted.jsonl.complete/receipts/0x34465f4e798c4ee81210a3a5c337e73934ba48c7ccc81c32bbe4cab547fc3e11-567108e1c6a4a9b1c5f43c8bc93eea6e661b8289f01ef4f4e5d4d75e07d581b3.json",
+      "receipt_sha256": "567108e1c6a4a9b1c5f43c8bc93eea6e661b8289f01ef4f4e5d4d75e07d581b3",
+      "assumed_success": false,
+      "resubmitted": false
+    },
+    {
+      "event": "ACKNOWLEDGED_FAILURE",
+      "at": 1791634254,
+      "key": "probe:0:3:ADMIT",
+      "tx": "0xc256b6cfafedae00e73aa7687d925bf25cb02708051306c36c7ec8acfdf32920",
+      "status": "LEADER_TIMEOUT",
+      "execution": "NOT_VOTED",
+      "consensus_result": "IDLE",
+      "receipt": "bradbury-v2-scripted.jsonl.complete/receipts/0xc256b6cfafedae00e73aa7687d925bf25cb02708051306c36c7ec8acfdf32920-dc7b53acd9cc324c575b6aa42c22e3be2c8b1610caa386432ff78f89ea559ee8.json",
+      "receipt_sha256": "dc7b53acd9cc324c575b6aa42c22e3be2c8b1610caa386432ff78f89ea559ee8",
+      "assumed_success": false,
+      "resubmitted": false
+    },
+    {
+      "event": "ACKNOWLEDGED_FAILURE",
+      "at": 1791634327,
+      "key": "probe:0:4:REWRITE",
+      "tx": "0xffa3c8873c4752ad077e6ff4a0dc79bdd0e49a582d7ac95fbf65ea1f45b66c59",
+      "status": "LEADER_TIMEOUT",
+      "execution": "NOT_VOTED",
+      "consensus_result": "IDLE",
+      "receipt": "bradbury-v2-scripted.jsonl.complete/receipts/0xffa3c8873c4752ad077e6ff4a0dc79bdd0e49a582d7ac95fbf65ea1f45b66c59-ecb75ee418f3c6d53db7c252b4b0a3235193c03df1d9fc4fa680e4d6debe21a2.json",
+      "receipt_sha256": "ecb75ee418f3c6d53db7c252b4b0a3235193c03df1d9fc4fa680e4d6debe21a2",
+      "assumed_success": false,
+      "resubmitted": false
+    },
+    {
+      "event": "ACKNOWLEDGED_FAILURE",
+      "at": 1791634851,
+      "key": "probe:0:7:ADMIT",
+      "tx": "0x7041168b999c143cb0f81ecf8b680ad9168fd305cbb19c162ea8b6bc450410c9",
+      "status": "LEADER_TIMEOUT",
+      "execution": "NOT_VOTED",
+      "consensus_result": "IDLE",
+      "receipt": "bradbury-v2-scripted.jsonl.complete/receipts/0x7041168b999c143cb0f81ecf8b680ad9168fd305cbb19c162ea8b6bc450410c9-c0601626d4cba98e7436b3bb5de1366d995438110ed63c2f0179747469ca42a0.json",
+      "receipt_sha256": "c0601626d4cba98e7436b3bb5de1366d995438110ed63c2f0179747469ca42a0",
+      "assumed_success": false,
+      "resubmitted": false
+    },
+    {
+      "event": "ACKNOWLEDGED_FAILURE",
+      "at": 1791634988,
+      "key": "probe:0:8:ADMIT",
+      "tx": "0xb3d0f91487def18a63247e86dfef6d864f4a1a2b0cd75f9956d78b2b78966755",
+      "status": "LEADER_TIMEOUT",
+      "execution": "NOT_VOTED",
+      "consensus_result": "IDLE",
+      "receipt": "bradbury-v2-scripted.jsonl.complete/receipts/0xb3d0f91487def18a63247e86dfef6d864f4a1a2b0cd75f9956d78b2b78966755-1603611db039ed27be3a051e7f41796a8867f6219d4fd9c83a75e1c5b499c83e.json",
+      "receipt_sha256": "1603611db039ed27be3a051e7f41796a8867f6219d4fd9c83a75e1c5b499c83e",
+      "assumed_success": false,
+      "resubmitted": false
+    },
+    {
+      "event": "ACKNOWLEDGED_FAILURE",
+      "at": 1791635967,
+      "key": "probe:0:14:REWRITE",
+      "tx": "0x807cd78b8d09f91047a7d7d7e42409b12c8c627bf235c8c312ebc2e117179931",
+      "status": "LEADER_TIMEOUT",
+      "execution": "NOT_VOTED",
+      "consensus_result": "IDLE",
+      "receipt": "bradbury-v2-scripted.jsonl.complete/receipts/0x807cd78b8d09f91047a7d7d7e42409b12c8c627bf235c8c312ebc2e117179931-733e95561d9d581b5df7b32b4caaf2a81d1ec60439c69ae2f651f900422ab489.json",
+      "receipt_sha256": "733e95561d9d581b5df7b32b4caaf2a81d1ec60439c69ae2f651f900422ab489",
+      "assumed_success": false,
+      "resubmitted": false
+    },
+    {
+      "event": "ACKNOWLEDGED_FAILURE",
+      "at": 1791636146,
+      "key": "probe:0:15:ADMIT",
+      "tx": "0xc900228f414ac952841659d8b4d278818c79432b88c0a653da807c0d36c5947c",
+      "status": "LEADER_TIMEOUT",
+      "execution": "NOT_VOTED",
+      "consensus_result": "IDLE",
+      "receipt": "bradbury-v2-scripted.jsonl.complete/receipts/0xc900228f414ac952841659d8b4d278818c79432b88c0a653da807c0d36c5947c-d0d356c65146b7b567301a1ab82f0511e7869491ead2f795e5bf6df69276b8c8.json",
+      "receipt_sha256": "d0d356c65146b7b567301a1ab82f0511e7869491ead2f795e5bf6df69276b8c8",
+      "assumed_success": false,
+      "resubmitted": false
+    },
+    {
+      "event": "ACKNOWLEDGED_FAILURE",
+      "at": 1791636271,
+      "key": "probe:0:16:REWRITE",
+      "tx": "0xe2432aec90a82ea1a518fc7c63e916348c4bf25c95aa715c5876cb69d8721ebb",
+      "status": "LEADER_TIMEOUT",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "IDLE",
+      "receipt": "bradbury-v2-scripted.jsonl.complete/receipts/0xe2432aec90a82ea1a518fc7c63e916348c4bf25c95aa715c5876cb69d8721ebb-5fcf33d6f6b75924c3885c49aa24966b789227b6128c3824b6f0312d425d2976.json",
+      "receipt_sha256": "5fcf33d6f6b75924c3885c49aa24966b789227b6128c3824b6f0312d425d2976",
+      "assumed_success": false,
+      "resubmitted": false
+    },
+    {
+      "event": "ACKNOWLEDGED_FAILURE",
+      "at": 1791636405,
+      "key": "probe:0:17:ADMIT",
+      "tx": "0xd7807ccfcc63d70144969deaa9d037053e1a347626934f768c0a11f5545ad712",
+      "status": "LEADER_TIMEOUT",
+      "execution": "NOT_VOTED",
+      "consensus_result": "IDLE",
+      "receipt": "bradbury-v2-scripted.jsonl.complete/receipts/0xd7807ccfcc63d70144969deaa9d037053e1a347626934f768c0a11f5545ad712-96fad74af8ec9bd35bfb5093f0433f7fbce1676c60e806a0d5c4babbad13f1eb.json",
+      "receipt_sha256": "96fad74af8ec9bd35bfb5093f0433f7fbce1676c60e806a0d5c4babbad13f1eb",
+      "assumed_success": false,
+      "resubmitted": false
+    },
+    {
+      "event": "ACKNOWLEDGED_FAILURE",
+      "at": 1791636521,
+      "key": "probe:0:18:ADMIT",
+      "tx": "0x0889b7420af3da1d6c5bb8b29c4547de20bc141f71f47efbb969fb580a047ef3",
+      "status": "LEADER_TIMEOUT",
+      "execution": "NOT_VOTED",
+      "consensus_result": "IDLE",
+      "receipt": "bradbury-v2-scripted.jsonl.complete/receipts/0x0889b7420af3da1d6c5bb8b29c4547de20bc141f71f47efbb969fb580a047ef3-4d0fbcbc8f2841badb501ff01403d24076cd97fa20953f519864c6e62fc2aa9d.json",
+      "receipt_sha256": "4d0fbcbc8f2841badb501ff01403d24076cd97fa20953f519864c6e62fc2aa9d",
+      "assumed_success": false,
+      "resubmitted": false
+    },
+    {
+      "event": "ACKNOWLEDGED_FAILURE",
+      "at": 1791636839,
+      "key": "probe:0:20:REWRITE",
+      "tx": "0xd60abc39a390e1ee98eeb59df561927d377a7e2d143f2c30584b9bf385fe66ae",
+      "status": "LEADER_TIMEOUT",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "IDLE",
+      "receipt": "bradbury-v2-scripted.jsonl.complete/receipts/0xd60abc39a390e1ee98eeb59df561927d377a7e2d143f2c30584b9bf385fe66ae-20e70392f9ea2b87668b6964edd8b6d7561815d13d2fd897be47f87ed48b1dc5.json",
+      "receipt_sha256": "20e70392f9ea2b87668b6964edd8b6d7561815d13d2fd897be47f87ed48b1dc5",
+      "assumed_success": false,
+      "resubmitted": false
+    },
+    {
+      "key": "probe:0:2:ADMIT",
+      "tx": "0x34465f4e798c4ee81210a3a5c337e73934ba48c7ccc81c32bbe4cab547fc3e11",
+      "status": "FINALIZED",
+      "execution": "NOT_VOTED",
+      "consensus_result": "IDLE",
+      "receipt": "bradbury-v2-scripted.jsonl.complete/receipts/0x34465f4e798c4ee81210a3a5c337e73934ba48c7ccc81c32bbe4cab547fc3e11-1c3f23da6a848a0396515cc50a55c186736eb0effecd7a5646f5d9934497fde4.json",
+      "receipt_sha256": "1c3f23da6a848a0396515cc50a55c186736eb0effecd7a5646f5d9934497fde4",
+      "assumed_success": false,
+      "resubmitted": false
+    },
+    {
+      "key": "probe:0:3:ADMIT",
+      "tx": "0xc256b6cfafedae00e73aa7687d925bf25cb02708051306c36c7ec8acfdf32920",
+      "status": "FINALIZED",
+      "execution": "NOT_VOTED",
+      "consensus_result": "IDLE",
+      "receipt": "bradbury-v2-scripted.jsonl.complete/receipts/0xc256b6cfafedae00e73aa7687d925bf25cb02708051306c36c7ec8acfdf32920-c8e6cc0e28121de03f970416af9da7989f4921006c51150194ade5869e555206.json",
+      "receipt_sha256": "c8e6cc0e28121de03f970416af9da7989f4921006c51150194ade5869e555206",
+      "assumed_success": false,
+      "resubmitted": false
+    },
+    {
+      "key": "probe:0:4:REWRITE",
+      "tx": "0xffa3c8873c4752ad077e6ff4a0dc79bdd0e49a582d7ac95fbf65ea1f45b66c59",
+      "status": "FINALIZED",
+      "execution": "NOT_VOTED",
+      "consensus_result": "IDLE",
+      "receipt": "bradbury-v2-scripted.jsonl.complete/receipts/0xffa3c8873c4752ad077e6ff4a0dc79bdd0e49a582d7ac95fbf65ea1f45b66c59-2b228a052fca41f519acfe56448338e4e609f02b7005bef4b49e1f123584a30b.json",
+      "receipt_sha256": "2b228a052fca41f519acfe56448338e4e609f02b7005bef4b49e1f123584a30b",
+      "assumed_success": false,
+      "resubmitted": false
+    },
+    {
+      "key": "probe:0:7:ADMIT",
+      "tx": "0x7041168b999c143cb0f81ecf8b680ad9168fd305cbb19c162ea8b6bc450410c9",
+      "status": "FINALIZED",
+      "execution": "NOT_VOTED",
+      "consensus_result": "IDLE",
+      "receipt": "bradbury-v2-scripted.jsonl.complete/receipts/0x7041168b999c143cb0f81ecf8b680ad9168fd305cbb19c162ea8b6bc450410c9-c1c889a5c5a1d57023724207cd0c4c0fddbecd5c0ebf71576353c4d863335b64.json",
+      "receipt_sha256": "c1c889a5c5a1d57023724207cd0c4c0fddbecd5c0ebf71576353c4d863335b64",
+      "assumed_success": false,
+      "resubmitted": false
+    },
+    {
+      "key": "probe:0:8:ADMIT",
+      "tx": "0xb3d0f91487def18a63247e86dfef6d864f4a1a2b0cd75f9956d78b2b78966755",
+      "status": "FINALIZED",
+      "execution": "NOT_VOTED",
+      "consensus_result": "IDLE",
+      "receipt": "bradbury-v2-scripted.jsonl.complete/receipts/0xb3d0f91487def18a63247e86dfef6d864f4a1a2b0cd75f9956d78b2b78966755-e8de578b37e62e8ffa9adc161b28ca7f5d32ab1d2bff5c17c34a3a7c3843012d.json",
+      "receipt_sha256": "e8de578b37e62e8ffa9adc161b28ca7f5d32ab1d2bff5c17c34a3a7c3843012d",
+      "assumed_success": false,
+      "resubmitted": false
+    },
+    {
+      "key": "probe:0:14:REWRITE",
+      "tx": "0x807cd78b8d09f91047a7d7d7e42409b12c8c627bf235c8c312ebc2e117179931",
+      "status": "LEADER_TIMEOUT",
+      "execution": "NOT_VOTED",
+      "consensus_result": "IDLE",
+      "receipt": "bradbury-v2-scripted.jsonl.complete/receipts/0x807cd78b8d09f91047a7d7d7e42409b12c8c627bf235c8c312ebc2e117179931-5668309c00e38d7ca0328f0d9a26ef037c13624d9308f124c3c15a4b162d7412.json",
+      "receipt_sha256": "5668309c00e38d7ca0328f0d9a26ef037c13624d9308f124c3c15a4b162d7412",
+      "assumed_success": false,
+      "resubmitted": false
+    },
+    {
+      "key": "probe:0:15:ADMIT",
+      "tx": "0xc900228f414ac952841659d8b4d278818c79432b88c0a653da807c0d36c5947c",
+      "status": "LEADER_TIMEOUT",
+      "execution": "NOT_VOTED",
+      "consensus_result": "IDLE",
+      "receipt": "bradbury-v2-scripted.jsonl.complete/receipts/0xc900228f414ac952841659d8b4d278818c79432b88c0a653da807c0d36c5947c-06e6de1f738e22f4984a0ebe01404338497218cf4bab7f4dc64e2a001a0b1d49.json",
+      "receipt_sha256": "06e6de1f738e22f4984a0ebe01404338497218cf4bab7f4dc64e2a001a0b1d49",
+      "assumed_success": false,
+      "resubmitted": false
+    },
+    {
+      "key": "probe:0:16:REWRITE",
+      "tx": "0xe2432aec90a82ea1a518fc7c63e916348c4bf25c95aa715c5876cb69d8721ebb",
+      "status": "LEADER_TIMEOUT",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "IDLE",
+      "receipt": "bradbury-v2-scripted.jsonl.complete/receipts/0xe2432aec90a82ea1a518fc7c63e916348c4bf25c95aa715c5876cb69d8721ebb-73f067eb2387db2bc13987c299db63a5a26c834fc739b0bdd8c8fc7febe6e2e6.json",
+      "receipt_sha256": "73f067eb2387db2bc13987c299db63a5a26c834fc739b0bdd8c8fc7febe6e2e6",
+      "assumed_success": false,
+      "resubmitted": false
+    },
+    {
+      "key": "probe:0:17:ADMIT",
+      "tx": "0xd7807ccfcc63d70144969deaa9d037053e1a347626934f768c0a11f5545ad712",
+      "status": "LEADER_TIMEOUT",
+      "execution": "NOT_VOTED",
+      "consensus_result": "IDLE",
+      "receipt": "bradbury-v2-scripted.jsonl.complete/receipts/0xd7807ccfcc63d70144969deaa9d037053e1a347626934f768c0a11f5545ad712-9da87209727a40c8fd91e0af5ad6957601d16fb65968c710a8dc25f6fe461e12.json",
+      "receipt_sha256": "9da87209727a40c8fd91e0af5ad6957601d16fb65968c710a8dc25f6fe461e12",
+      "assumed_success": false,
+      "resubmitted": false
+    },
+    {
+      "key": "probe:0:18:ADMIT",
+      "tx": "0x0889b7420af3da1d6c5bb8b29c4547de20bc141f71f47efbb969fb580a047ef3",
+      "status": "LEADER_TIMEOUT",
+      "execution": "NOT_VOTED",
+      "consensus_result": "IDLE",
+      "receipt": "bradbury-v2-scripted.jsonl.complete/receipts/0x0889b7420af3da1d6c5bb8b29c4547de20bc141f71f47efbb969fb580a047ef3-60c94f747d1b45896fc7ddebcdecd63654bcd80a8a6cb1ee7ac4727d13711ebb.json",
+      "receipt_sha256": "60c94f747d1b45896fc7ddebcdecd63654bcd80a8a6cb1ee7ac4727d13711ebb",
+      "assumed_success": false,
+      "resubmitted": false
+    },
+    {
+      "key": "probe:0:20:REWRITE",
+      "tx": "0xd60abc39a390e1ee98eeb59df561927d377a7e2d143f2c30584b9bf385fe66ae",
+      "status": "LEADER_TIMEOUT",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "IDLE",
+      "receipt": "bradbury-v2-scripted.jsonl.complete/receipts/0xd60abc39a390e1ee98eeb59df561927d377a7e2d143f2c30584b9bf385fe66ae-d016973b30e2e8445a134b7bd15e4dbd16b1d8cbd9e83972f42642ffce7c691d.json",
+      "receipt_sha256": "d016973b30e2e8445a134b7bd15e4dbd16b1d8cbd9e83972f42642ffce7c691d",
+      "assumed_success": false,
+      "resubmitted": false
+    }
+  ],
+  "transactions": [
+    {
+      "key": "open",
+      "tx": "0x4c8b4bf2efc0f9a5aeb29a75431340f958a7f6ed91d4de570efeaf8fd1d200e7",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "challenge:0",
+      "tx": "0x0764c89a5e2094dd72db49c65532d6a7196629b6b5de35ddd44c7f53f0e2b916",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "reveal:0",
+      "tx": "0xd77323a0f5b18a493ab53704345779dfa04a2247115e121bfbd3176787391f53",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:0:PINNED",
+      "tx": "0xb9a1db46b115559e976aff2b0df1be18507ba912bdfacb0ba0a0ed1c840e497c",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:0:RECALL",
+      "tx": "0x0f4e46cb7c8ccc528b4dae84ace5f038ca9aa5e1a70cb48efc930a3d14817c14",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:0:REWRITE",
+      "tx": "0x077c44aea3e64c5b88d718738b942ad548384774c7b8f6513b95e0279aeb8914",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:0:ADMIT",
+      "tx": "0x3d2b4b43869d7778f7f27c92bcb503931c79450bdef10ede936b09336f15151c",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:1:PINNED",
+      "tx": "0x6c3ee38b0bdfe1b30e302f08bc83673b37cacb3dc296013395227e10ea840fc9",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:1:RECALL",
+      "tx": "0xe10d61f1a8c1d6fdd4646b70d3f7acae30bb628b2e1e32effd79f791219e32e8",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:1:REWRITE",
+      "tx": "0xf8b694fb9c2c9fc478d189b7b27320fac01c51cf474a44ec4ca0b520415f1db6",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:1:ADMIT",
+      "tx": "0x75ec8bbc578802b9801e34adae606d020b3da3683af9e86a03dbce842e129534",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:2:PINNED",
+      "tx": "0x9a678f5486196380a03c5abc12394100502c4a04ab1b99f8f21e92127e96bfa4",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:2:RECALL",
+      "tx": "0xcae1e67de16230f80b13d2f66c67be7606b17d78db3b916fdb790e402a119d34",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:2:REWRITE",
+      "tx": "0x38d250c9bbfcdb6fd93447ccbfa2d08f0893f7fcee14e5132df0b382416ee4a7",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:2:ADMIT",
+      "tx": "0x34465f4e798c4ee81210a3a5c337e73934ba48c7ccc81c32bbe4cab547fc3e11",
+      "outcome": "FAILURE",
+      "status": "FINALIZED",
+      "execution": "NOT_VOTED",
+      "consensus_result": "IDLE"
+    },
+    {
+      "key": "probe:0:3:PINNED",
+      "tx": "0xe706ec3fbb355575282fc137926563b9e0ad0de2bc4139e2ff7a531fb533ffe2",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:3:RECALL",
+      "tx": "0xa4f98b68f28e2b7a5d1288807190bb3ffb3f2be140d2b51b63ef91f75b9855d2",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:3:REWRITE",
+      "tx": "0x373daffaf8ff950fbee209ac3d8de7d611c62c3a5723e341cfcdeccbe53d6e8d",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:3:ADMIT",
+      "tx": "0xc256b6cfafedae00e73aa7687d925bf25cb02708051306c36c7ec8acfdf32920",
+      "outcome": "FAILURE",
+      "status": "FINALIZED",
+      "execution": "NOT_VOTED",
+      "consensus_result": "IDLE"
+    },
+    {
+      "key": "probe:0:4:PINNED",
+      "tx": "0x0340e5036b4147f99f7606912f04d4df67d9fc8aff676eabedbf1abd8ff5f64e",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:4:RECALL",
+      "tx": "0x8c115aee56883707e614dba02f0c151024e07a9de3e24b7bbdc91588d026c3bd",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:4:REWRITE",
+      "tx": "0xffa3c8873c4752ad077e6ff4a0dc79bdd0e49a582d7ac95fbf65ea1f45b66c59",
+      "outcome": "FAILURE",
+      "status": "FINALIZED",
+      "execution": "NOT_VOTED",
+      "consensus_result": "IDLE"
+    },
+    {
+      "key": "probe:0:5:PINNED",
+      "tx": "0xc10bd22a16e854cdb0cd2f31dd5f227f77d50067d352e6c327c10f4bafc3f8d1",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:5:RECALL",
+      "tx": "0x4b497f99bb26f1a605469af17eb4daeeb1c3eff7ab8e233705366d311c6f0b37",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:5:REWRITE",
+      "tx": "0x45e33b82152cc367a1e5e054d6fe40a6a94a87368d8a0b723a46f825c5782096",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:5:ADMIT",
+      "tx": "0x42dce6013ea0fc4f0eff9bde9cda8d5110e5fdbd019a2ec166859b1477594fd9",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:6:PINNED",
+      "tx": "0xfc7a103c0ae7b7892accf522eab048d0983190858394b12e37c378927b0de876",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:6:RECALL",
+      "tx": "0x54087fab81341233d6c14e7006c681ff7e90fcb810ced4a3ec126a1d7177c1a6",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:6:REWRITE",
+      "tx": "0x35c0992730a51a3e0fc178ef041dea8764469be61e0b84d95134da96583ce675",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:6:ADMIT",
+      "tx": "0xe81daba0d3875eee281138df1316fa1fd6ae23c848ff870b46ae1b27c605328f",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:7:PINNED",
+      "tx": "0x9ca2bafb9c4879cf766f22de840c3cb09d76b5bac43c7a75704aa533f45d1384",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:7:RECALL",
+      "tx": "0x00651c8dfc964edd5b081c9823350823ac2ed7e02e34bfae6948ff9921043d1b",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:7:REWRITE",
+      "tx": "0xa2ae1fab016ff329eb2fab2381ac4c31594b87ecfe7897d6c88cbf0f6ebbc9b1",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:7:ADMIT",
+      "tx": "0x7041168b999c143cb0f81ecf8b680ad9168fd305cbb19c162ea8b6bc450410c9",
+      "outcome": "FAILURE",
+      "status": "FINALIZED",
+      "execution": "NOT_VOTED",
+      "consensus_result": "IDLE"
+    },
+    {
+      "key": "probe:0:8:PINNED",
+      "tx": "0x0f7a79d45d7ec13f49ef0a2adde26d1e59cd6420cb1f347788133b2883d2dbc9",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:8:RECALL",
+      "tx": "0x4085fead866b5a34c544c80cc21a06f9c7a6bb4232efa509475689730d70dece",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:8:REWRITE",
+      "tx": "0x3a4e5d2039e64cacc6aa76aa2bc03993e2b45b3e31cca43223ca8bfe4e4c3b75",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:8:ADMIT",
+      "tx": "0xb3d0f91487def18a63247e86dfef6d864f4a1a2b0cd75f9956d78b2b78966755",
+      "outcome": "FAILURE",
+      "status": "FINALIZED",
+      "execution": "NOT_VOTED",
+      "consensus_result": "IDLE"
+    },
+    {
+      "key": "probe:0:9:PINNED",
+      "tx": "0xe3d6cd8335cf59fe6afeae3aee26ed092628736d5cf8fa7be78f258ed4e0b54a",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:9:RECALL",
+      "tx": "0x885b1df93632284a68012a242d9904316bd9d157f1d2804ce9000e0587b310b5",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:9:REWRITE",
+      "tx": "0xb2682d91a342a6780eff9dd6beca704c327ebaada1129c99688de6a5fad30ed9",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:9:ADMIT",
+      "tx": "0x5b8e5a3dac0cd4fa99b4c2788b14aa53262586dd4a98c7c11f49c98e858450d5",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:10:PINNED",
+      "tx": "0xe8ec5b272f02cb6081eda1381eb7b89ccb573b29540ed5c36bac23e2a4a984ff",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:10:RECALL",
+      "tx": "0xeae7346bb10697f32002112d5248203e7a7517faf764193c80b9568444bd2cc7",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:10:REWRITE",
+      "tx": "0x571cc4d110a0bc18ceeda54055e45c9c6e1576f16ee23828cddb4266e118ea0b",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:10:ADMIT",
+      "tx": "0x2b894bf25bbab0d1a56af334a6e6b33d6fdef64afc2e6905fce98fd17909ba05",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:11:PINNED",
+      "tx": "0x4edf4e670448572e2f20878271f344ce9f1f1680f9354b1699b29104f4136d21",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:11:RECALL",
+      "tx": "0xf469d5cdd442beff95e5a6fe6e78fb6dc185f5f6ceac7d23018441afa7689c3f",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:11:REWRITE",
+      "tx": "0xd5d146f208ff37c2aea6390935af3081a20d2092f2ed9fde1272e1f381a1dc6d",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:11:ADMIT",
+      "tx": "0x29ae48a2f71cca7674ed3ad96b68130ec9bb88697fccd76d19761146ac4ae71a",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:12:PINNED",
+      "tx": "0x906f5f196abbb9285daac495e2ceaf7d23a2ed932c3049c3b08362502d677580",
+      "outcome": "SUCCESS",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:12:RECALL",
+      "tx": "0x06c3c29dc5eb00bce59a47aa4fd05862a84be1ce48d4cc5f3e3afe83629011d6",
+      "outcome": "SUCCESS",
+      "status": "ACCEPTED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:12:REWRITE",
+      "tx": "0x47f7659df06f6e69f837128bf7c3ea3db382ddb306adcb5610992262d64aae79",
+      "outcome": "SUCCESS",
+      "status": "ACCEPTED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:12:ADMIT",
+      "tx": "0xfb917986cc30d2085d5264072108f79462addb72ff7e5e0ef4a7b59e9945424f",
+      "outcome": "SUCCESS",
+      "status": "ACCEPTED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:13:PINNED",
+      "tx": "0x7b2e3307a09c0032db07521e92f64e8cc7d8b9c4f72e516989b700c31d7409be",
+      "outcome": "SUCCESS",
+      "status": "ACCEPTED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:13:RECALL",
+      "tx": "0xd6cef74dbcf749bca920fc90e0b8b5553b86b9f1d32e8aebdb8b7028c42638bc",
+      "outcome": "SUCCESS",
+      "status": "ACCEPTED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:13:REWRITE",
+      "tx": "0xa6fec1bdf2fa95ac6dbcd2fb29ccd33eb4251eb73a7cca86b45c2eef579061a4",
+      "outcome": "SUCCESS",
+      "status": "ACCEPTED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:13:ADMIT",
+      "tx": "0xac350c9f9547d05a945b80d26a49e84a9e2ca40825285b63ce16d7cacc69271d",
+      "outcome": "SUCCESS",
+      "status": "ACCEPTED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:14:PINNED",
+      "tx": "0xd069344629095d970957c721c7a2d1c7bb7f6591b0b88f0f43815530477256b3",
+      "outcome": "SUCCESS",
+      "status": "ACCEPTED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:14:RECALL",
+      "tx": "0x8e102e52b5c35306bcb387309012672bd7e759b9d1b0b9af04556cef6da993cd",
+      "outcome": "SUCCESS",
+      "status": "ACCEPTED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:14:REWRITE",
+      "tx": "0x807cd78b8d09f91047a7d7d7e42409b12c8c627bf235c8c312ebc2e117179931",
+      "outcome": "FAILURE",
+      "status": "LEADER_TIMEOUT",
+      "execution": "NOT_VOTED",
+      "consensus_result": "IDLE"
+    },
+    {
+      "key": "probe:0:15:PINNED",
+      "tx": "0xafc268d2ae375b36b06e28e6758712940e7a160c2120d69b136105c7c5978bcf",
+      "outcome": "SUCCESS",
+      "status": "ACCEPTED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:15:RECALL",
+      "tx": "0x3989d66fb263234dffa68433095092f00e9f10e41a88912fe56720eb92a570d4",
+      "outcome": "SUCCESS",
+      "status": "ACCEPTED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:15:REWRITE",
+      "tx": "0x94d6701d3f30cdfd457f8dc85c20dc960258c7193a274c7a585abe414ea219ed",
+      "outcome": "SUCCESS",
+      "status": "ACCEPTED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:15:ADMIT",
+      "tx": "0xc900228f414ac952841659d8b4d278818c79432b88c0a653da807c0d36c5947c",
+      "outcome": "FAILURE",
+      "status": "LEADER_TIMEOUT",
+      "execution": "NOT_VOTED",
+      "consensus_result": "IDLE"
+    },
+    {
+      "key": "probe:0:16:PINNED",
+      "tx": "0x244b9082f695437724593d52466ff0e404cc6eef638784acfc80d53dc293206f",
+      "outcome": "SUCCESS",
+      "status": "ACCEPTED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:16:RECALL",
+      "tx": "0xf41fec2a94465763102a20db6afcdb5f732ba0574b6f0dfa8d55ea47d1821eca",
+      "outcome": "SUCCESS",
+      "status": "ACCEPTED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:16:REWRITE",
+      "tx": "0xe2432aec90a82ea1a518fc7c63e916348c4bf25c95aa715c5876cb69d8721ebb",
+      "outcome": "FAILURE",
+      "status": "LEADER_TIMEOUT",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "IDLE"
+    },
+    {
+      "key": "probe:0:17:PINNED",
+      "tx": "0x666cdbe168a6f990b2e23c347b572436fb4dba58b99bc014e8d3303b1001ec36",
+      "outcome": "SUCCESS",
+      "status": "ACCEPTED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:17:RECALL",
+      "tx": "0xdf9fce25b17ee40bf0c7189bec566a67a8984f7b45b144c07d367c23a7702e15",
+      "outcome": "SUCCESS",
+      "status": "ACCEPTED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:17:REWRITE",
+      "tx": "0x053279a8e16b92ef32b81312a6d7ae886c554ada07ee511046d8e100823c1e56",
+      "outcome": "SUCCESS",
+      "status": "ACCEPTED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:17:ADMIT",
+      "tx": "0xd7807ccfcc63d70144969deaa9d037053e1a347626934f768c0a11f5545ad712",
+      "outcome": "FAILURE",
+      "status": "LEADER_TIMEOUT",
+      "execution": "NOT_VOTED",
+      "consensus_result": "IDLE"
+    },
+    {
+      "key": "probe:0:18:PINNED",
+      "tx": "0x07b4d35498d52a3079662c902377db12e5bad434f24df69b7f6d0e8f07a30313",
+      "outcome": "SUCCESS",
+      "status": "ACCEPTED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:18:RECALL",
+      "tx": "0x75e3c72ac0d13f0866f172f4070a9ca3b059ae08eb366f09af541fa1615496bc",
+      "outcome": "SUCCESS",
+      "status": "ACCEPTED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:18:REWRITE",
+      "tx": "0x15489ad78222c4dfe264fbdea6842a9ecb0e2ccaaba1a66d88421e34699e985d",
+      "outcome": "SUCCESS",
+      "status": "ACCEPTED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:18:ADMIT",
+      "tx": "0x0889b7420af3da1d6c5bb8b29c4547de20bc141f71f47efbb969fb580a047ef3",
+      "outcome": "FAILURE",
+      "status": "LEADER_TIMEOUT",
+      "execution": "NOT_VOTED",
+      "consensus_result": "IDLE"
+    },
+    {
+      "key": "probe:0:19:PINNED",
+      "tx": "0xbc8a831c350e1c8fb318083ab31ab227b5f587352141091bd36284238c6e7049",
+      "outcome": "SUCCESS",
+      "status": "ACCEPTED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:19:RECALL",
+      "tx": "0xdf9c33d2f72d23f77fcb4f8aee678c9c0c6d2a657dbe0e31d7d7b33f917835e6",
+      "outcome": "SUCCESS",
+      "status": "ACCEPTED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:19:REWRITE",
+      "tx": "0xd46bc78437eab787a6ee25a509c7c98645f0549e6f30d3b0a3b43eae5cfee399",
+      "outcome": "SUCCESS",
+      "status": "ACCEPTED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:19:ADMIT",
+      "tx": "0xde69b6ce3b07742cceb0581ab3de4187c9d0d9cb88057c3551c532d8526b8095",
+      "outcome": "SUCCESS",
+      "status": "ACCEPTED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:20:PINNED",
+      "tx": "0xcc1b197f1631956c855c2cbf0ddc9d80db43102af4ac935a8314ba7a886ac4e7",
+      "outcome": "SUCCESS",
+      "status": "ACCEPTED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:20:RECALL",
+      "tx": "0xe89362d07688f6dcf98ffd9ea75eeb3b9c0bc599e11063a8e545b899b0be8574",
+      "outcome": "SUCCESS",
+      "status": "ACCEPTED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:20:REWRITE",
+      "tx": "0xd60abc39a390e1ee98eeb59df561927d377a7e2d143f2c30584b9bf385fe66ae",
+      "outcome": "FAILURE",
+      "status": "LEADER_TIMEOUT",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "IDLE"
+    },
+    {
+      "key": "probe:0:21:PINNED",
+      "tx": "0x393cb6cfb25f4b40914e01900e6a2684a9695e0b653b5b13c15c5fce8fb8aed0",
+      "outcome": "SUCCESS",
+      "status": "ACCEPTED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:21:RECALL",
+      "tx": "0x738253bb7cf46c91131b6e9d82aef31af67d9cb03fd666340e78e4924d37b8d7",
+      "outcome": "SUCCESS",
+      "status": "ACCEPTED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:21:REWRITE",
+      "tx": "0xaf33d87112e58d93ffa9b0c96711ad62726d04901bffe235d94c0eb4cf056f01",
+      "outcome": "SUCCESS",
+      "status": "ACCEPTED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:21:ADMIT",
+      "tx": "0x4057c6fd7576ba721e80f57cd07e460c1ee652f7a386f84bb1fa941d69384cab",
+      "outcome": "SUCCESS",
+      "status": "ACCEPTED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:22:PINNED",
+      "tx": "0x5ae63081975eee72680b627b6412109ca1f2c2b52f4c0d6a24b3c66f1a0f7fec",
+      "outcome": "SUCCESS",
+      "status": "ACCEPTED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:22:RECALL",
+      "tx": "0xe1dc71fb18572e6f1fb431c26e10033e7b18ab239239700e9c30057aa4d3bd8e",
+      "outcome": "SUCCESS",
+      "status": "ACCEPTED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:22:REWRITE",
+      "tx": "0xe2e2a3755ad0db4c5c936cd6016a8cfd26873a4f4bfd5d4e846aa8df327f84eb",
+      "outcome": "SUCCESS",
+      "status": "ACCEPTED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:22:ADMIT",
+      "tx": "0xf5578102ddca44de8417c0b520399c212deb001ab491746ea26a81b5862a4cbf",
+      "outcome": "SUCCESS",
+      "status": "ACCEPTED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:23:PINNED",
+      "tx": "0x8016e79e4c7ee5d5e791b6d317535bf58a3a176386ecea5958b472ac4fdf7616",
+      "outcome": "SUCCESS",
+      "status": "ACCEPTED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:23:RECALL",
+      "tx": "0xea139251f3f468faea1874b11489893559d2049d93241cde8d6d1c3b511ed4ee",
+      "outcome": "SUCCESS",
+      "status": "ACCEPTED",
+      "execution": "FINISHED_WITH_RETURN",
+      "consensus_result": "AGREE"
+    },
+    {
+      "key": "probe:0:23:REWRITE",
+      "tx": "0x6d22f1814ed81849c13e8a6f52776590e912205c7baf1d64ffbe2c6ebd22143d",
+      "outcome": "PENDING",
+      "status": "COMMITTING",
+      "execution": "NOT_VOTED",
+      "consensus_result": "IDLE"
+    }
+  ],
+  "items": [
+    {
+      "item_index": 0,
+      "complete": true,
+      "state": {
+        "challenge_id": 0,
+        "item_index": 0,
+        "pinned": "RIGHT",
+        "pinned_answer": "36",
+        "recall": "MATCH",
+        "rewrite": "RIGHT",
+        "rewrite_answer": "36",
+        "rewrite_class": "paraphrase",
+        "rewrite_hash": "9ebfd85b4d2bcf7742b3011b3eb0981993ce4808e944fa0982d2c46deb610c6f",
+        "rewrite_prompt": "On a practice worksheet, a student reads this problem: During the morning a workshop produces 28 blue labels, followed by another 17 that afternoon. After 9 of these labels are attached to completed toolboxes, how many printed blue labels are still unused?",
+        "rewrite_reply": "36",
+        "slice_settled": true,
+        "stage_c1": "ADMISSIBLE",
+        "stage_c2": "ADMISSIBLE",
+        "stale": false,
+        "touched": true
+      }
+    },
+    {
+      "item_index": 1,
+      "complete": true,
+      "state": {
+        "challenge_id": 0,
+        "item_index": 1,
+        "pinned": "RIGHT",
+        "pinned_answer": "35",
+        "recall": "MATCH",
+        "rewrite": "WRONG",
+        "rewrite_answer": "37",
+        "rewrite_class": "numeral_substitution",
+        "rewrite_hash": "d4c0fb3a94f6a15c724be25a61e976a6ac2016ae15ada74d8b9b65075f07355f",
+        "rewrite_prompt": "On a practice worksheet, a student reads this problem: A repair station opens 5 boxes containing 7 brass clips in each box. It also has 2 loose brass clips on the counter. Counting only these boxes and loose clips, how many brass clips does the station have?",
+        "rewrite_reply": "35",
+        "slice_settled": true,
+        "stage_c1": "ADMISSIBLE",
+        "stage_c2": "ADMISSIBLE",
+        "stale": true,
+        "touched": true
+      }
+    },
+    {
+      "item_index": 2,
+      "complete": false,
+      "state": {
+        "challenge_id": 0,
+        "item_index": 2,
+        "pinned": "RIGHT",
+        "pinned_answer": "20",
+        "recall": "MATCH",
+        "rewrite": "RIGHT",
+        "rewrite_answer": "20",
+        "rewrite_class": "entity_rename",
+        "rewrite_hash": "10e0c9390afd1efbd70d1951b45a632f996ac5e64c592fc27af5d2964334f351",
+        "rewrite_prompt": "On a practice worksheet, a student reads this problem: Nila has 18 wooden tokens in her pouch. She gives 5 tokens to Daren, and Daren then gives Nila 7 other wooden tokens from his own collection. How many wooden tokens are in Nila's pouch after both transfers?",
+        "rewrite_reply": "20",
+        "slice_settled": false,
+        "stage_c1": "ADMISSIBLE",
+        "stage_c2": "PENDING",
+        "stale": false,
+        "touched": true
+      }
+    },
+    {
+      "item_index": 3,
+      "complete": false,
+      "state": {
+        "challenge_id": 0,
+        "item_index": 3,
+        "pinned": "RIGHT",
+        "pinned_answer": "250",
+        "recall": "MATCH",
+        "rewrite": "RIGHT",
+        "rewrite_answer": "250",
+        "rewrite_class": "unit_change",
+        "rewrite_hash": "21b5a533324d00f5b0437c75414d97814df873adca25a14485019ae23a12ccbd",
+        "rewrite_prompt": "On a practice worksheet, a student reads this problem: A craft table has a red ribbon measuring 1.8 meters and a blue ribbon measuring 0.7 meters. The two ribbons are placed end to end without overlap. What is their combined length in centimeters?",
+        "rewrite_reply": "250",
+        "slice_settled": false,
+        "stage_c1": "ADMISSIBLE",
+        "stage_c2": "PENDING",
+        "stale": false,
+        "touched": true
+      }
+    },
+    {
+      "item_index": 4,
+      "complete": false,
+      "state": {
+        "challenge_id": 0,
+        "item_index": 4,
+        "pinned": "RIGHT",
+        "pinned_answer": "38",
+        "recall": "MATCH",
+        "rewrite": "",
+        "rewrite_answer": "",
+        "rewrite_class": "",
+        "rewrite_hash": "",
+        "rewrite_prompt": "",
+        "rewrite_reply": "",
+        "slice_settled": false,
+        "stage_c1": "PENDING",
+        "stage_c2": "PENDING",
+        "stale": false,
+        "touched": true
+      }
+    },
+    {
+      "item_index": 5,
+      "complete": true,
+      "state": {
+        "challenge_id": 0,
+        "item_index": 5,
+        "pinned": "RIGHT",
+        "pinned_answer": "41",
+        "recall": "MATCH",
+        "rewrite": "RIGHT",
+        "rewrite_answer": "41",
+        "rewrite_class": "paraphrase",
+        "rewrite_hash": "5dd308554394aef968cb20bcf667fead0bf79a92db394575b159e22e1bb9fce9",
+        "rewrite_prompt": "On a practice worksheet, a student reads this problem: At the beginning of the day there are 45 blank index cards in a supply drawer. After a teacher removes 12 for an activity and adds 8 new blank cards later, how many blank index cards does the drawer contain?",
+        "rewrite_reply": "41",
+        "slice_settled": true,
+        "stage_c1": "ADMISSIBLE",
+        "stage_c2": "ADMISSIBLE",
+        "stale": false,
+        "touched": true
+      }
+    },
+    {
+      "item_index": 6,
+      "complete": true,
+      "state": {
+        "challenge_id": 0,
+        "item_index": 6,
+        "pinned": "RIGHT",
+        "pinned_answer": "37",
+        "recall": "MATCH",
+        "rewrite": "WRONG",
+        "rewrite_answer": "33",
+        "rewrite_class": "numeral_substitution",
+        "rewrite_hash": "619d5be511f8c1716f5f073351f8a1514b71220c5fd7ff845fb3af8fae89fe28",
+        "rewrite_prompt": "On a practice worksheet, a student reads this problem: A gallery arranges 8 display stands with 5 paper lanterns on each stand. Then 7 lanterns are removed from the display because they are damaged. How many paper lanterns are still on the display stands?",
+        "rewrite_reply": "37",
+        "slice_settled": true,
+        "stage_c1": "ADMISSIBLE",
+        "stage_c2": "ADMISSIBLE",
+        "stale": true,
+        "touched": true
+      }
+    },
+    {
+      "item_index": 7,
+      "complete": false,
+      "state": {
+        "challenge_id": 0,
+        "item_index": 7,
+        "pinned": "RIGHT",
+        "pinned_answer": "7",
+        "recall": "MATCH",
+        "rewrite": "RIGHT",
+        "rewrite_answer": "7",
+        "rewrite_class": "entity_rename",
+        "rewrite_hash": "f6f5ce7801af02a186482c0d16ee3e90366c9d53f7a08814d631f6bfea4c7811",
+        "rewrite_prompt": "On a practice worksheet, a student reads this problem: Noor brings 18 red counters and Evan brings 24 red counters to a puzzle table. They combine their counters and divide all of them equally among 6 trays. How many red counters are placed in each tray?",
+        "rewrite_reply": "7",
+        "slice_settled": false,
+        "stage_c1": "ADMISSIBLE",
+        "stage_c2": "PENDING",
+        "stale": false,
+        "touched": true
+      }
+    },
+    {
+      "item_index": 8,
+      "complete": false,
+      "state": {
+        "challenge_id": 0,
+        "item_index": 8,
+        "pinned": "RIGHT",
+        "pinned_answer": "2500",
+        "recall": "MATCH",
+        "rewrite": "RIGHT",
+        "rewrite_answer": "2500",
+        "rewrite_class": "unit_change",
+        "rewrite_hash": "94dba48c58bde0cacef92906aed707e5dd29ae0e6a90f371fc4ca53c856905e6",
+        "rewrite_prompt": "On a practice worksheet, a student reads this problem: A parcel contains a metal block with a mass of 2000 grams and packing material with a mass of 0.5 kilograms. Nothing else is inside the parcel. What is the combined mass of its contents in grams?",
+        "rewrite_reply": "2500",
+        "slice_settled": false,
+        "stage_c1": "ADMISSIBLE",
+        "stage_c2": "PENDING",
+        "stale": false,
+        "touched": true
+      }
+    },
+    {
+      "item_index": 9,
+      "complete": true,
+      "state": {
+        "challenge_id": 0,
+        "item_index": 9,
+        "pinned": "RIGHT",
+        "pinned_answer": "78",
+        "recall": "MATCH",
+        "rewrite": "RIGHT",
+        "rewrite_answer": "78",
+        "rewrite_class": "format_shift",
+        "rewrite_hash": "fc23be6a2c81d5a33ea54a7b10d3aff5e93a29b45ea9f3235111fdd896e093ef",
+        "rewrite_prompt": "On a practice worksheet, a student reads this problem: Laboratory vial count\nStorage racks: 8\nEmpty vials per rack: 9\nLoose empty vials beside the racks: 6\nRequested total: How many empty vials are there altogether in the racks and beside them?",
+        "rewrite_reply": "78",
+        "slice_settled": true,
+        "stage_c1": "ADMISSIBLE",
+        "stage_c2": "ADMISSIBLE",
+        "stale": false,
+        "touched": true
+      }
+    },
+    {
+      "item_index": 10,
+      "complete": true,
+      "state": {
+        "challenge_id": 0,
+        "item_index": 10,
+        "pinned": "RIGHT",
+        "pinned_answer": "27",
+        "recall": "MATCH",
+        "rewrite": "RIGHT",
+        "rewrite_answer": "27",
+        "rewrite_class": "paraphrase",
+        "rewrite_hash": "3a343e856dee0ec024e27d2b7742e6791f7d15c6eb5f6e8b3b28527ecd7f8912",
+        "rewrite_prompt": "On a practice worksheet, a student reads this problem: There are 54 seats for passengers on a shuttle. A group of 19 boards at the first stop and another 8 boards at the following stop. With no passengers getting off and one seat used per passenger, how many seats remain empty?",
+        "rewrite_reply": "27",
+        "slice_settled": true,
+        "stage_c1": "ADMISSIBLE",
+        "stage_c2": "ADMISSIBLE",
+        "stale": false,
+        "touched": true
+      }
+    },
+    {
+      "item_index": 11,
+      "complete": true,
+      "state": {
+        "challenge_id": 0,
+        "item_index": 11,
+        "pinned": "RIGHT",
+        "pinned_answer": "42",
+        "recall": "MATCH",
+        "rewrite": "WRONG",
+        "rewrite_answer": "43",
+        "rewrite_class": "numeral_substitution",
+        "rewrite_hash": "8d34999e2362f6deeadc93a733c53391ddbde545a05f8fda988de672e4743d51",
+        "rewrite_prompt": "On a practice worksheet, a student reads this problem: A book stall receives 7 bundles with 5 bookmarks in each bundle. The owner adds 8 single bookmarks from a desk drawer to the same display. How many bookmarks are on the display after this addition?",
+        "rewrite_reply": "42",
+        "slice_settled": true,
+        "stage_c1": "ADMISSIBLE",
+        "stage_c2": "ADMISSIBLE",
+        "stale": true,
+        "touched": true
+      }
+    },
+    {
+      "item_index": 12,
+      "complete": true,
+      "state": {
+        "challenge_id": 0,
+        "item_index": 12,
+        "pinned": "RIGHT",
+        "pinned_answer": "6",
+        "recall": "MATCH",
+        "rewrite": "RIGHT",
+        "rewrite_answer": "6",
+        "rewrite_class": "entity_rename",
+        "rewrite_hash": "a67e444cfb228ffb223fa1a53eef797ad1944d285ab7cb7cd5db4108c38774c9",
+        "rewrite_prompt": "On a practice worksheet, a student reads this problem: Iris places 12 glass beads in a bowl, and Cedric adds 6 more glass beads to that bowl. They divide all the beads equally among 3 small bags with none left over. How many glass beads go into each bag?",
+        "rewrite_reply": "6",
+        "slice_settled": true,
+        "stage_c1": "ADMISSIBLE",
+        "stage_c2": "ADMISSIBLE",
+        "stale": false,
+        "touched": true
+      }
+    },
+    {
+      "item_index": 13,
+      "complete": true,
+      "state": {
+        "challenge_id": 0,
+        "item_index": 13,
+        "pinned": "RIGHT",
+        "pinned_answer": "270",
+        "recall": "MATCH",
+        "rewrite": "RIGHT",
+        "rewrite_answer": "270",
+        "rewrite_class": "unit_change",
+        "rewrite_hash": "0d3786a695001c06a04de637f233ae4544d62d410cbf8c1dd590a81bcf45391a",
+        "rewrite_prompt": "On a practice worksheet, a student reads this problem: A demonstration includes a video lasting 240 seconds followed immediately by a sound clip lasting 0.5 minutes. There is no pause between them. What is the total running time of the demonstration in seconds?",
+        "rewrite_reply": "270",
+        "slice_settled": true,
+        "stage_c1": "ADMISSIBLE",
+        "stage_c2": "ADMISSIBLE",
+        "stale": false,
+        "touched": true
+      }
+    },
+    {
+      "item_index": 14,
+      "complete": false,
+      "state": {
+        "challenge_id": 0,
+        "item_index": 14,
+        "pinned": "RIGHT",
+        "pinned_answer": "53",
+        "recall": "MATCH",
+        "rewrite": "",
+        "rewrite_answer": "",
+        "rewrite_class": "",
+        "rewrite_hash": "",
+        "rewrite_prompt": "",
+        "rewrite_reply": "",
+        "slice_settled": false,
+        "stage_c1": "PENDING",
+        "stage_c2": "PENDING",
+        "stale": false,
+        "touched": true
+      }
+    },
+    {
+      "item_index": 15,
+      "complete": false,
+      "state": {
+        "challenge_id": 0,
+        "item_index": 15,
+        "pinned": "RIGHT",
+        "pinned_answer": "10",
+        "recall": "MATCH",
+        "rewrite": "RIGHT",
+        "rewrite_answer": "10",
+        "rewrite_class": "paraphrase",
+        "rewrite_hash": "aad68d1eb022572e05f93c65a126ebcf238e026e2f904d1870cc28afc871d1ec",
+        "rewrite_prompt": "On a practice worksheet, a student reads this problem: Inside each of 5 sealed sleeves are 6 sanding discs. The workshop shares every disc equally between 3 workbenches and keeps none aside. How many sanding discs are given to each workbench?",
+        "rewrite_reply": "10",
+        "slice_settled": false,
+        "stage_c1": "ADMISSIBLE",
+        "stage_c2": "PENDING",
+        "stale": false,
+        "touched": true
+      }
+    },
+    {
+      "item_index": 16,
+      "complete": false,
+      "state": {
+        "challenge_id": 0,
+        "item_index": 16,
+        "pinned": "RIGHT",
+        "pinned_answer": "10",
+        "recall": "MATCH",
+        "rewrite": "",
+        "rewrite_answer": "",
+        "rewrite_class": "",
+        "rewrite_hash": "",
+        "rewrite_prompt": "",
+        "rewrite_reply": "",
+        "slice_settled": false,
+        "stage_c1": "PENDING",
+        "stage_c2": "PENDING",
+        "stale": false,
+        "touched": true
+      }
+    },
+    {
+      "item_index": 17,
+      "complete": false,
+      "state": {
+        "challenge_id": 0,
+        "item_index": 17,
+        "pinned": "RIGHT",
+        "pinned_answer": "38",
+        "recall": "MATCH",
+        "rewrite": "RIGHT",
+        "rewrite_answer": "38",
+        "rewrite_class": "entity_rename",
+        "rewrite_hash": "cd791cfa042fc0bcb3c55ed328509f3bead1da51f5170c6b6c7f65c8a7db73f1",
+        "rewrite_prompt": "On a practice worksheet, a student reads this problem: Oren packs 4 crates with 11 marker pens in each crate for a classroom delivery. Tali removes 6 marker pens from those crates for a separate order. How many marker pens remain in the crates for the classroom delivery?",
+        "rewrite_reply": "38",
+        "slice_settled": false,
+        "stage_c1": "ADMISSIBLE",
+        "stage_c2": "PENDING",
+        "stale": false,
+        "touched": true
+      }
+    },
+    {
+      "item_index": 18,
+      "complete": false,
+      "state": {
+        "challenge_id": 0,
+        "item_index": 18,
+        "pinned": "RIGHT",
+        "pinned_answer": "2000",
+        "recall": "MATCH",
+        "rewrite": "RIGHT",
+        "rewrite_answer": "2000",
+        "rewrite_class": "unit_change",
+        "rewrite_hash": "2289939c545dcf76cae3582d913d1430d1c5c2e3dbee6655985b08b18bf110d6",
+        "rewrite_prompt": "On a practice worksheet, a student reads this problem: A survey team measures a footpath in two consecutive sections. The first section is 1.25 kilometers long and the second section is 0.75 kilometers long. What is the total length of these two sections in meters?",
+        "rewrite_reply": "2000",
+        "slice_settled": false,
+        "stage_c1": "ADMISSIBLE",
+        "stage_c2": "PENDING",
+        "stale": false,
+        "touched": true
+      }
+    },
+    {
+      "item_index": 19,
+      "complete": true,
+      "state": {
+        "challenge_id": 0,
+        "item_index": 19,
+        "pinned": "RIGHT",
+        "pinned_answer": "14",
+        "recall": "MATCH",
+        "rewrite": "RIGHT",
+        "rewrite_answer": "14",
+        "rewrite_class": "format_shift",
+        "rewrite_hash": "7cdebd5bbe8f1e3608024ee86b115d8f05c438c1804533d0e16ed714e4ed237a",
+        "rewrite_prompt": "On a practice worksheet, a student reads this problem: Print shop packing sheet\nInvitation cards to pack: 72\nCards in each packet: 8\nOther complete packets already on the shelf: 5\nQuestion: How many complete packets does the shop have after packing the 72 cards?",
+        "rewrite_reply": "14",
+        "slice_settled": true,
+        "stage_c1": "ADMISSIBLE",
+        "stage_c2": "ADMISSIBLE",
+        "stale": false,
+        "touched": true
+      }
+    },
+    {
+      "item_index": 20,
+      "complete": false,
+      "state": {
+        "challenge_id": 0,
+        "item_index": 20,
+        "pinned": "RIGHT",
+        "pinned_answer": "27",
+        "recall": "MATCH",
+        "rewrite": "",
+        "rewrite_answer": "",
+        "rewrite_class": "",
+        "rewrite_hash": "",
+        "rewrite_prompt": "",
+        "rewrite_reply": "",
+        "slice_settled": false,
+        "stage_c1": "PENDING",
+        "stage_c2": "PENDING",
+        "stale": false,
+        "touched": true
+      }
+    },
+    {
+      "item_index": 21,
+      "complete": true,
+      "state": {
+        "challenge_id": 0,
+        "item_index": 21,
+        "pinned": "RIGHT",
+        "pinned_answer": "10",
+        "recall": "MATCH",
+        "rewrite": "WRONG",
+        "rewrite_answer": "9",
+        "rewrite_class": "numeral_substitution",
+        "rewrite_hash": "2d082cb3b12fd5f955396e3517baf9766ba8dcfe8f05a52839f5f006bea40e3b",
+        "rewrite_prompt": "On a practice worksheet, a student reads this problem: A coordinator divides 48 plain badges equally among 8 volunteers. Each volunteer then receives 3 extra badges from a separate reserve. How many badges does each volunteer have after receiving the extra badges?",
+        "rewrite_reply": "10",
+        "slice_settled": true,
+        "stage_c1": "ADMISSIBLE",
+        "stage_c2": "ADMISSIBLE",
+        "stale": true,
+        "touched": true
+      }
+    },
+    {
+      "item_index": 22,
+      "complete": true,
+      "state": {
+        "challenge_id": 0,
+        "item_index": 22,
+        "pinned": "RIGHT",
+        "pinned_answer": "34",
+        "recall": "MATCH",
+        "rewrite": "RIGHT",
+        "rewrite_answer": "34",
+        "rewrite_class": "entity_rename",
+        "rewrite_hash": "1d3c5bba1fee7baf39a58084ec8d83e2ca3acccbb0613ea416b3fb20159725f1",
+        "rewrite_prompt": "On a practice worksheet, a student reads this problem: Yuna has 31 polished shells in a box. Felix gives her 8 more polished shells, and she then lends 5 shells from the box to Asha. How many polished shells remain in Yuna's box after both exchanges?",
+        "rewrite_reply": "34",
+        "slice_settled": true,
+        "stage_c1": "ADMISSIBLE",
+        "stage_c2": "ADMISSIBLE",
+        "stale": false,
+        "touched": true
+      }
+    },
+    {
+      "item_index": 23,
+      "complete": false,
+      "state": {
+        "challenge_id": 0,
+        "item_index": 23,
+        "pinned": "RIGHT",
+        "pinned_answer": "1500",
+        "recall": "MATCH",
+        "rewrite": "",
+        "rewrite_answer": "",
+        "rewrite_class": "",
+        "rewrite_hash": "",
+        "rewrite_prompt": "",
+        "rewrite_reply": "",
+        "slice_settled": false,
+        "stage_c1": "PENDING",
+        "stage_c2": "PENDING",
+        "stale": false,
+        "touched": true
+      }
+    }
+  ]
+}

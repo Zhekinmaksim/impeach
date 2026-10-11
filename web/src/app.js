@@ -581,7 +581,7 @@ function renderRecord(kase) {
   if (txs.length) {
     const failed = txs.filter(([, t]) =>
       ["UNDETERMINED", "LEADER_TIMEOUT", "VALIDATORS_TIMEOUT", "CANCELED", "ERROR"].includes(t.status) ||
-      (t.status === "FINALIZED" && t.execution === "NOT_VOTED") ||
+      (t.status === "FINALIZED" && (t.execution === "NOT_VOTED" || t.consensus_result === "IDLE")) ||
       ["NO_MAJORITY", "TIMEOUT", "MAJORITY_TIMEOUT", "DETERMINISTIC_VIOLATION", "DISAGREE", "MAJORITY_DISAGREE"].includes(t.consensus_result) ||
       ["FINISHED_WITH_ERROR", "TIMEOUT", "NONDET_DISAGREE", "DETERMINISTIC_VIOLATION"].includes(t.execution)).length;
     receipts.append(

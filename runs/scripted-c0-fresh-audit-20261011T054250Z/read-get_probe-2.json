@@ -1,0 +1,27 @@
+{
+  "kind": "read",
+  "method_or_key": "get_probe",
+  "args_or_hash": [
+    0,
+    2
+  ],
+  "value": {
+    "challenge_id": 0,
+    "item_index": 2,
+    "pinned": "RIGHT",
+    "pinned_answer": "20",
+    "recall": "MATCH",
+    "rewrite": "RIGHT",
+    "rewrite_answer": "20",
+    "rewrite_class": "entity_rename",
+    "rewrite_hash": "10e0c9390afd1efbd70d1951b45a632f996ac5e64c592fc27af5d2964334f351",
+    "rewrite_prompt": "On a practice worksheet, a student reads this problem: Nila has 18 wooden tokens in her pouch. She gives 5 tokens to Daren, and Daren then gives Nila 7 other wooden tokens from his own collection. How many wooden tokens are in Nila's pouch after both transfers?",
+    "rewrite_reply": "20",
+    "slice_settled": false,
+    "stage_c1": "ADMISSIBLE",
+    "stage_c2": "PENDING",
+    "stale": false,
+    "touched": true
+  },
+  "at": 1791697384
+}

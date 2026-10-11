@@ -1,0 +1,909 @@
+{
+  "format": "impeach-local-timeout-audit/1",
+  "captured_at": "2026-10-10T13:12:18.052033+00:00",
+  "scope": "Saved local evidence only; no RPC, signing, account, environment, deployment or repository mutation.",
+  "court": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+  "claim_id": 0,
+  "summary": {
+    "unique_failed_hashes": 14,
+    "by_category": {
+      "no_execution_recorded": 12,
+      "return_recorded_without_consensus": 2
+    },
+    "all_failed_hashes_have_all_saved_last_round_votes_NOT_VOTED": true,
+    "distinct_observed_leaders_across_failed_hashes": 5,
+    "numInitialValidators_values": [
+      3
+    ],
+    "return_hashes_with_decoded_eq_outputs": 2,
+    "decoded_referee_objects": [
+      {
+        "tx": "0xd60abc39a390e1ee98eeb59df561927d377a7e2d143f2c30584b9bf385fe66ae",
+        "value": {
+          "original_result": "27",
+          "rewrite_result": "27",
+          "same_question": true
+        }
+      },
+      {
+        "tx": "0xe2432aec90a82ea1a518fc7c63e916348c4bf25c95aa715c5876cb69d8721ebb",
+        "value": {
+          "original_result": "10",
+          "rewrite_result": "7",
+          "same_question": true
+        }
+      }
+    ],
+    "negative_semantic_referee_objects_found": [],
+    "successful_native_after_appeal_receipts": 0,
+    "appeal_helper_successes": 2
+  },
+  "limitations": [
+    "A NOT_VOTED execution with empty eqBlocksOutputs proves no execution output is recorded in these receipts; it does not prove the validator never performed work.",
+    "No node logs or health telemetry were inspected. Offline nodes, RPC faults, scheduling and other root causes remain unverified.",
+    "All last-round validator votes remain NOT_VOTED even for the two receipts carrying a RETURN. Leader output is not validator consensus or committed contract state.",
+    "An appeal helper exit code 0 is not evidence of native success. Only saved native outcome fields are used here.",
+    "No same_question=false appears in the decoded saved outputs. This is limited to the captured files and does not assert every present or future referee call passes.",
+    "The scripted subject intentionally returns the old answer after numeral substitution. Its correct=false is a subject scoring result, not a semantic referee rejection.",
+    "The saved milestone is a historical snapshot, not a fresh view of the ongoing native trial.",
+    "The file list is frozen at capture; later runner files are outside this audit."
+  ],
+  "decode_method": "RLP strict decode; literal padded leaf retained; for other leaves preserve leading 0x00 and decode the remainder with local genlayer_py calldata.decode, then JSON parse. No evaluation of returned text.",
+  "failed_hashes": [
+    {
+      "tx": "0x0889b7420af3da1d6c5bb8b29c4547de20bc141f71f47efbb969fb580a047ef3",
+      "key": "probe:0:18:ADMIT",
+      "previous_tx": null,
+      "observed_outcomes": [
+        {
+          "status": "LEADER_TIMEOUT",
+          "result": "IDLE",
+          "execution": "NOT_VOTED"
+        }
+      ],
+      "latest_saved_outcome": {
+        "status": "LEADER_TIMEOUT",
+        "result": "IDLE",
+        "execution": "NOT_VOTED"
+      },
+      "numInitialValidators": [
+        3
+      ],
+      "last_round_validator_counts": [
+        5
+      ],
+      "distinct_observed_leaders": 1,
+      "leaders": [
+        "0x0c526A6af46A038E31dA21C123756Ab2D75f06Bc"
+      ],
+      "all_saved_last_round_votes_NOT_VOTED": true,
+      "votes_committed_observed": [
+        0
+      ],
+      "votes_revealed_observed": [
+        0
+      ],
+      "category": "no_execution_recorded",
+      "eqBlocksOutputs": [],
+      "snapshots": [
+        {
+          "path": "runs/bradbury-v2-scripted.jsonl.complete/receipts/0x0889b7420af3da1d6c5bb8b29c4547de20bc141f71f47efbb969fb580a047ef3-4d0fbcbc8f2841badb501ff01403d24076cd97fa20953f519864c6e62fc2aa9d.json",
+          "sha256": "182549a22f55dc3662f7cf7fab988eb1553e068985d7d65ccbea8ec881d833ba"
+        },
+        {
+          "path": "runs/bradbury-v2-scripted.jsonl.complete/receipts/0x0889b7420af3da1d6c5bb8b29c4547de20bc141f71f47efbb969fb580a047ef3-60c94f747d1b45896fc7ddebcdecd63654bcd80a8a6cb1ee7ac4727d13711ebb.json",
+          "sha256": "cf91fb2bf8c37fcd63a64657a38e232510be7c2ca0a61e04fe9e115f7eb17599"
+        },
+        {
+          "path": "runs/bradbury-v2-scripted.jsonl.complete/receipts/0x0889b7420af3da1d6c5bb8b29c4547de20bc141f71f47efbb969fb580a047ef3-70e3912cbc003bf1006306367af2546ebe7352f08a895db28983c46d996e09a0.json",
+          "sha256": "6d5aab88c32d303117be9bacc5ef323e405b21ff553ba6b09caad24a474bf76c"
+        }
+      ]
+    },
+    {
+      "tx": "0x28054e97e3187cba989d4c8561e18c188d0e05de81dafe76580b5102824b45b9",
+      "key": "probe:0:3:ADMIT",
+      "previous_tx": "0xc256b6cfafedae00e73aa7687d925bf25cb02708051306c36c7ec8acfdf32920",
+      "observed_outcomes": [
+        {
+          "status": "LEADER_TIMEOUT",
+          "result": "IDLE",
+          "execution": "NOT_VOTED"
+        }
+      ],
+      "latest_saved_outcome": {
+        "status": "LEADER_TIMEOUT",
+        "result": "IDLE",
+        "execution": "NOT_VOTED"
+      },
+      "numInitialValidators": [
+        3
+      ],
+      "last_round_validator_counts": [
+        5
+      ],
+      "distinct_observed_leaders": 1,
+      "leaders": [
+        "0xB93a46B843fB32E8Ce392e68eDFE93Faa4a40817"
+      ],
+      "all_saved_last_round_votes_NOT_VOTED": true,
+      "votes_committed_observed": [
+        0
+      ],
+      "votes_revealed_observed": [
+        0
+      ],
+      "category": "no_execution_recorded",
+      "eqBlocksOutputs": [],
+      "snapshots": [
+        {
+          "path": "runs/bradbury-v2-scripted.jsonl.complete/receipts/0x28054e97e3187cba989d4c8561e18c188d0e05de81dafe76580b5102824b45b9-30f2c6aa31d9b3dec9918ba34e6f53ed7c8faa4e7080d3433d40e955c16d91d2.json",
+          "sha256": "62efeaf7060893b83fac6925dfee283dc8aa27d0b0b82a53384441d9270c7cf8"
+        }
+      ]
+    },
+    {
+      "tx": "0x34465f4e798c4ee81210a3a5c337e73934ba48c7ccc81c32bbe4cab547fc3e11",
+      "key": "probe:0:2:ADMIT",
+      "previous_tx": null,
+      "observed_outcomes": [
+        {
+          "status": "FINALIZED",
+          "result": "IDLE",
+          "execution": "NOT_VOTED"
+        },
+        {
+          "status": "LEADER_TIMEOUT",
+          "result": "IDLE",
+          "execution": "NOT_VOTED"
+        }
+      ],
+      "latest_saved_outcome": {
+        "status": "FINALIZED",
+        "result": "IDLE",
+        "execution": "NOT_VOTED"
+      },
+      "numInitialValidators": [
+        3
+      ],
+      "last_round_validator_counts": [
+        5
+      ],
+      "distinct_observed_leaders": 1,
+      "leaders": [
+        "0x3f5cAED686336ED9cF3Dede61154B0Cd67Fb9bD7"
+      ],
+      "all_saved_last_round_votes_NOT_VOTED": true,
+      "votes_committed_observed": [
+        0
+      ],
+      "votes_revealed_observed": [
+        0
+      ],
+      "category": "no_execution_recorded",
+      "eqBlocksOutputs": [],
+      "snapshots": [
+        {
+          "path": "runs/bradbury-v2-scripted.jsonl.complete/receipts/0x34465f4e798c4ee81210a3a5c337e73934ba48c7ccc81c32bbe4cab547fc3e11-567108e1c6a4a9b1c5f43c8bc93eea6e661b8289f01ef4f4e5d4d75e07d581b3.json",
+          "sha256": "f050635a57c34e1b795a49b2b570dece80cd722696079e2167e00b8b4469e8c0"
+        },
+        {
+          "path": "runs/bradbury-v2-scripted.jsonl.complete/receipts/0x34465f4e798c4ee81210a3a5c337e73934ba48c7ccc81c32bbe4cab547fc3e11-1c3f23da6a848a0396515cc50a55c186736eb0effecd7a5646f5d9934497fde4.json",
+          "sha256": "0851c371e4d87fddb55d5c466c1603d5e2028db2564b1b8e6b589f36d52877f8"
+        },
+        {
+          "path": "runs/bradbury-v2-scripted.jsonl.complete/receipts/0x34465f4e798c4ee81210a3a5c337e73934ba48c7ccc81c32bbe4cab547fc3e11-0aa0efacfda21cfd119115533c178c9349416e08f8c2f6e7e4c2c946b602ae75.json",
+          "sha256": "1570671f39da389ceac11d9ae0c506defd262eb2b6b1beae45101b4b0d8b6185"
+        }
+      ]
+    },
+    {
+      "tx": "0x7041168b999c143cb0f81ecf8b680ad9168fd305cbb19c162ea8b6bc450410c9",
+      "key": "probe:0:7:ADMIT",
+      "previous_tx": null,
+      "observed_outcomes": [
+        {
+          "status": "FINALIZED",
+          "result": "IDLE",
+          "execution": "NOT_VOTED"
+        },
+        {
+          "status": "LEADER_TIMEOUT",
+          "result": "IDLE",
+          "execution": "NOT_VOTED"
+        }
+      ],
+      "latest_saved_outcome": {
+        "status": "FINALIZED",
+        "result": "IDLE",
+        "execution": "NOT_VOTED"
+      },
+      "numInitialValidators": [
+        3
+      ],
+      "last_round_validator_counts": [
+        5
+      ],
+      "distinct_observed_leaders": 1,
+      "leaders": [
+        "0x3f5cAED686336ED9cF3Dede61154B0Cd67Fb9bD7"
+      ],
+      "all_saved_last_round_votes_NOT_VOTED": true,
+      "votes_committed_observed": [
+        0
+      ],
+      "votes_revealed_observed": [
+        0
+      ],
+      "category": "no_execution_recorded",
+      "eqBlocksOutputs": [],
+      "snapshots": [
+        {
+          "path": "runs/bradbury-v2-scripted.jsonl.complete/receipts/0x7041168b999c143cb0f81ecf8b680ad9168fd305cbb19c162ea8b6bc450410c9-c0601626d4cba98e7436b3bb5de1366d995438110ed63c2f0179747469ca42a0.json",
+          "sha256": "2eebf7176f3da59717ec3be95d74e6ec9566e271efad1f3334767c6a2ee54e46"
+        },
+        {
+          "path": "runs/bradbury-v2-scripted.jsonl.complete/receipts/0x7041168b999c143cb0f81ecf8b680ad9168fd305cbb19c162ea8b6bc450410c9-c1c889a5c5a1d57023724207cd0c4c0fddbecd5c0ebf71576353c4d863335b64.json",
+          "sha256": "3f37d799ee90c8cd1af5ce01da30cdbd32089d8c0ec36e2b6f0cd8633e854253"
+        },
+        {
+          "path": "runs/bradbury-v2-scripted.jsonl.complete/receipts/0x7041168b999c143cb0f81ecf8b680ad9168fd305cbb19c162ea8b6bc450410c9-98c0c3d160b5cd94e3f10c506df16c3907cc74892dd49ba45c99a9adf886e648.json",
+          "sha256": "784fc118928691ce57e2804c4407966e1ea40123fab3f4633b2e79919450ac7a"
+        }
+      ]
+    },
+    {
+      "tx": "0x71080a8c453adeac282c58ad415eda13b3684d7fd5f2a3f456455b2189384792",
+      "key": "probe:0:23:ADMIT",
+      "previous_tx": null,
+      "observed_outcomes": [
+        {
+          "status": "LEADER_TIMEOUT",
+          "result": "IDLE",
+          "execution": "NOT_VOTED"
+        }
+      ],
+      "latest_saved_outcome": {
+        "status": "LEADER_TIMEOUT",
+        "result": "IDLE",
+        "execution": "NOT_VOTED"
+      },
+      "numInitialValidators": [
+        3
+      ],
+      "last_round_validator_counts": [
+        5
+      ],
+      "distinct_observed_leaders": 1,
+      "leaders": [
+        "0x0c526A6af46A038E31dA21C123756Ab2D75f06Bc"
+      ],
+      "all_saved_last_round_votes_NOT_VOTED": true,
+      "votes_committed_observed": [
+        0
+      ],
+      "votes_revealed_observed": [
+        0
+      ],
+      "category": "no_execution_recorded",
+      "eqBlocksOutputs": [],
+      "snapshots": [
+        {
+          "path": "runs/bradbury-v2-scripted.jsonl.complete/receipts/0x71080a8c453adeac282c58ad415eda13b3684d7fd5f2a3f456455b2189384792-4debf74a3878da6ae9d6bb89bf8989441f98290e0ae62805f7da592edbe805ed.json",
+          "sha256": "6d1940e5ee154000f853c37d0216e332457ab139dec02102cfa8ae21af60d0f1"
+        }
+      ]
+    },
+    {
+      "tx": "0x807cd78b8d09f91047a7d7d7e42409b12c8c627bf235c8c312ebc2e117179931",
+      "key": "probe:0:14:REWRITE",
+      "previous_tx": null,
+      "observed_outcomes": [
+        {
+          "status": "FINALIZED",
+          "result": "IDLE",
+          "execution": "NOT_VOTED"
+        },
+        {
+          "status": "LEADER_TIMEOUT",
+          "result": "IDLE",
+          "execution": "NOT_VOTED"
+        }
+      ],
+      "latest_saved_outcome": {
+        "status": "FINALIZED",
+        "result": "IDLE",
+        "execution": "NOT_VOTED"
+      },
+      "numInitialValidators": [
+        3
+      ],
+      "last_round_validator_counts": [
+        5
+      ],
+      "distinct_observed_leaders": 1,
+      "leaders": [
+        "0x0c526A6af46A038E31dA21C123756Ab2D75f06Bc"
+      ],
+      "all_saved_last_round_votes_NOT_VOTED": true,
+      "votes_committed_observed": [
+        0
+      ],
+      "votes_revealed_observed": [
+        0
+      ],
+      "category": "no_execution_recorded",
+      "eqBlocksOutputs": [],
+      "snapshots": [
+        {
+          "path": "runs/bradbury-v2-scripted.jsonl.complete/receipts/0x807cd78b8d09f91047a7d7d7e42409b12c8c627bf235c8c312ebc2e117179931-733e95561d9d581b5df7b32b4caaf2a81d1ec60439c69ae2f651f900422ab489.json",
+          "sha256": "faa014f63c7423de9ff8d24e5782baecf90ca0e401c3b4375f97848779dbfe15"
+        },
+        {
+          "path": "runs/bradbury-v2-scripted.jsonl.complete/receipts/0x807cd78b8d09f91047a7d7d7e42409b12c8c627bf235c8c312ebc2e117179931-5668309c00e38d7ca0328f0d9a26ef037c13624d9308f124c3c15a4b162d7412.json",
+          "sha256": "2ef9fa2a6465ab93074ca2f7e3598d1e9d51b216170a8bcae5479079411ff099"
+        },
+        {
+          "path": "runs/bradbury-v2-scripted.jsonl.complete/receipts/0x807cd78b8d09f91047a7d7d7e42409b12c8c627bf235c8c312ebc2e117179931-44e09bc1b02cd9cfbd34b6f8e30c26aa013eb7b28645a55ca94f27779d7792be.json",
+          "sha256": "6868f5f49876d7e250136d4a10fbafe9fbef8772ae94e9d56ee177997e0822a2"
+        }
+      ]
+    },
+    {
+      "tx": "0x88d675814aaa4976c64a5b596e3c4cb4fd224d8e7a7086991e31951f040151f7",
+      "key": "probe:0:2:ADMIT",
+      "previous_tx": "0x34465f4e798c4ee81210a3a5c337e73934ba48c7ccc81c32bbe4cab547fc3e11",
+      "observed_outcomes": [
+        {
+          "status": "LEADER_TIMEOUT",
+          "result": "IDLE",
+          "execution": "NOT_VOTED"
+        }
+      ],
+      "latest_saved_outcome": {
+        "status": "LEADER_TIMEOUT",
+        "result": "IDLE",
+        "execution": "NOT_VOTED"
+      },
+      "numInitialValidators": [
+        3
+      ],
+      "last_round_validator_counts": [
+        5
+      ],
+      "distinct_observed_leaders": 1,
+      "leaders": [
+        "0xE8fdefdfe18fD8E5B0d576b7CcfC5a29CE43fD7f"
+      ],
+      "all_saved_last_round_votes_NOT_VOTED": true,
+      "votes_committed_observed": [
+        0
+      ],
+      "votes_revealed_observed": [
+        0
+      ],
+      "category": "no_execution_recorded",
+      "eqBlocksOutputs": [],
+      "snapshots": [
+        {
+          "path": "runs/bradbury-v2-scripted.jsonl.complete/receipts/0x88d675814aaa4976c64a5b596e3c4cb4fd224d8e7a7086991e31951f040151f7-cfa9b26b14a72128b47de15aadb194fa27c9db21214d47c5dc0cb8abbe67e3fd.json",
+          "sha256": "8af42094157ff2257f80b4aab98c02d2bd4ee33670287e8b02ab8e0d134c2324"
+        }
+      ]
+    },
+    {
+      "tx": "0xb3d0f91487def18a63247e86dfef6d864f4a1a2b0cd75f9956d78b2b78966755",
+      "key": "probe:0:8:ADMIT",
+      "previous_tx": null,
+      "observed_outcomes": [
+        {
+          "status": "FINALIZED",
+          "result": "IDLE",
+          "execution": "NOT_VOTED"
+        },
+        {
+          "status": "LEADER_TIMEOUT",
+          "result": "IDLE",
+          "execution": "NOT_VOTED"
+        }
+      ],
+      "latest_saved_outcome": {
+        "status": "FINALIZED",
+        "result": "IDLE",
+        "execution": "NOT_VOTED"
+      },
+      "numInitialValidators": [
+        3
+      ],
+      "last_round_validator_counts": [
+        5
+      ],
+      "distinct_observed_leaders": 1,
+      "leaders": [
+        "0xB93a46B843fB32E8Ce392e68eDFE93Faa4a40817"
+      ],
+      "all_saved_last_round_votes_NOT_VOTED": true,
+      "votes_committed_observed": [
+        0
+      ],
+      "votes_revealed_observed": [
+        0
+      ],
+      "category": "no_execution_recorded",
+      "eqBlocksOutputs": [],
+      "snapshots": [
+        {
+          "path": "runs/bradbury-v2-scripted.jsonl.complete/receipts/0xb3d0f91487def18a63247e86dfef6d864f4a1a2b0cd75f9956d78b2b78966755-1603611db039ed27be3a051e7f41796a8867f6219d4fd9c83a75e1c5b499c83e.json",
+          "sha256": "7bc2baf1eebfb472cdf13fe54dc1e4a4755d5524ab444ab9b5220e961717fdbf"
+        },
+        {
+          "path": "runs/bradbury-v2-scripted.jsonl.complete/receipts/0xb3d0f91487def18a63247e86dfef6d864f4a1a2b0cd75f9956d78b2b78966755-e8de578b37e62e8ffa9adc161b28ca7f5d32ab1d2bff5c17c34a3a7c3843012d.json",
+          "sha256": "36497f8ef9d91a39905697bf82c8430e9daa92b911a3c8afac76610a7a47fad2"
+        },
+        {
+          "path": "runs/bradbury-v2-scripted.jsonl.complete/receipts/0xb3d0f91487def18a63247e86dfef6d864f4a1a2b0cd75f9956d78b2b78966755-474154a04cb14394cb3e65946cd31f7bbdd8eb0f8db1cc172b8438800f3c3cc4.json",
+          "sha256": "1e2766df9dd5e673adfecd0f77735cf6f8e788adc4e3d9b90d7c9e6b52e7dee5"
+        }
+      ]
+    },
+    {
+      "tx": "0xc256b6cfafedae00e73aa7687d925bf25cb02708051306c36c7ec8acfdf32920",
+      "key": "probe:0:3:ADMIT",
+      "previous_tx": null,
+      "observed_outcomes": [
+        {
+          "status": "FINALIZED",
+          "result": "IDLE",
+          "execution": "NOT_VOTED"
+        },
+        {
+          "status": "LEADER_TIMEOUT",
+          "result": "IDLE",
+          "execution": "NOT_VOTED"
+        }
+      ],
+      "latest_saved_outcome": {
+        "status": "FINALIZED",
+        "result": "IDLE",
+        "execution": "NOT_VOTED"
+      },
+      "numInitialValidators": [
+        3
+      ],
+      "last_round_validator_counts": [
+        5
+      ],
+      "distinct_observed_leaders": 1,
+      "leaders": [
+        "0x0c526A6af46A038E31dA21C123756Ab2D75f06Bc"
+      ],
+      "all_saved_last_round_votes_NOT_VOTED": true,
+      "votes_committed_observed": [
+        0
+      ],
+      "votes_revealed_observed": [
+        0
+      ],
+      "category": "no_execution_recorded",
+      "eqBlocksOutputs": [],
+      "snapshots": [
+        {
+          "path": "runs/bradbury-v2-scripted.jsonl.complete/receipts/0xc256b6cfafedae00e73aa7687d925bf25cb02708051306c36c7ec8acfdf32920-dc7b53acd9cc324c575b6aa42c22e3be2c8b1610caa386432ff78f89ea559ee8.json",
+          "sha256": "2ef14b99aad54d1a74decbf1f0d8630f0da49e0197d46dba57e0ff5262aee638"
+        },
+        {
+          "path": "runs/bradbury-v2-scripted.jsonl.complete/receipts/0xc256b6cfafedae00e73aa7687d925bf25cb02708051306c36c7ec8acfdf32920-c8e6cc0e28121de03f970416af9da7989f4921006c51150194ade5869e555206.json",
+          "sha256": "f595c2e004e2e0798195eb12766bd90bb43197504a4817391168e6f6cc1028eb"
+        },
+        {
+          "path": "runs/bradbury-v2-scripted.jsonl.complete/receipts/0xc256b6cfafedae00e73aa7687d925bf25cb02708051306c36c7ec8acfdf32920-b3076ad1397044600fd320b809c4fb8009068fe02bde558b56c4722a938181a8.json",
+          "sha256": "f59ac9c78a54ae38054a286091424bae56fcfeb884a9c79dbcc182115abdba88"
+        }
+      ]
+    },
+    {
+      "tx": "0xc900228f414ac952841659d8b4d278818c79432b88c0a653da807c0d36c5947c",
+      "key": "probe:0:15:ADMIT",
+      "previous_tx": null,
+      "observed_outcomes": [
+        {
+          "status": "LEADER_TIMEOUT",
+          "result": "IDLE",
+          "execution": "NOT_VOTED"
+        }
+      ],
+      "latest_saved_outcome": {
+        "status": "LEADER_TIMEOUT",
+        "result": "IDLE",
+        "execution": "NOT_VOTED"
+      },
+      "numInitialValidators": [
+        3
+      ],
+      "last_round_validator_counts": [
+        5
+      ],
+      "distinct_observed_leaders": 1,
+      "leaders": [
+        "0x3f5cAED686336ED9cF3Dede61154B0Cd67Fb9bD7"
+      ],
+      "all_saved_last_round_votes_NOT_VOTED": true,
+      "votes_committed_observed": [
+        0
+      ],
+      "votes_revealed_observed": [
+        0
+      ],
+      "category": "no_execution_recorded",
+      "eqBlocksOutputs": [],
+      "snapshots": [
+        {
+          "path": "runs/bradbury-v2-scripted.jsonl.complete/receipts/0xc900228f414ac952841659d8b4d278818c79432b88c0a653da807c0d36c5947c-d0d356c65146b7b567301a1ab82f0511e7869491ead2f795e5bf6df69276b8c8.json",
+          "sha256": "b792ae151299301a4b05145c1152d54e5a053412b3a91e632abe05ff8a87ba37"
+        },
+        {
+          "path": "runs/bradbury-v2-scripted.jsonl.complete/receipts/0xc900228f414ac952841659d8b4d278818c79432b88c0a653da807c0d36c5947c-06e6de1f738e22f4984a0ebe01404338497218cf4bab7f4dc64e2a001a0b1d49.json",
+          "sha256": "6049213b06254ac7df58381dd840db3c0472e2013660fe8599aa223325da4b8a"
+        },
+        {
+          "path": "runs/bradbury-v2-scripted.jsonl.complete/receipts/0xc900228f414ac952841659d8b4d278818c79432b88c0a653da807c0d36c5947c-b592bbcefd083cc4300e47f2033d4227f8aa2f429db3265f13a43a20964dc55f.json",
+          "sha256": "1d60a6685b4713484204c567c5bd912b31d6454c94c5b15e797b8902b3dbd02f"
+        }
+      ]
+    },
+    {
+      "tx": "0xd60abc39a390e1ee98eeb59df561927d377a7e2d143f2c30584b9bf385fe66ae",
+      "key": "probe:0:20:REWRITE",
+      "previous_tx": null,
+      "observed_outcomes": [
+        {
+          "status": "LEADER_TIMEOUT",
+          "result": "IDLE",
+          "execution": "FINISHED_WITH_RETURN"
+        }
+      ],
+      "latest_saved_outcome": {
+        "status": "LEADER_TIMEOUT",
+        "result": "IDLE",
+        "execution": "FINISHED_WITH_RETURN"
+      },
+      "numInitialValidators": [
+        3
+      ],
+      "last_round_validator_counts": [
+        5
+      ],
+      "distinct_observed_leaders": 2,
+      "leaders": [
+        "0x0c526A6af46A038E31dA21C123756Ab2D75f06Bc",
+        "0x183217483618c4EBd34C987DE400e01bEFfe5860"
+      ],
+      "all_saved_last_round_votes_NOT_VOTED": true,
+      "votes_committed_observed": [
+        0
+      ],
+      "votes_revealed_observed": [
+        0
+      ],
+      "category": "return_recorded_without_consensus",
+      "eqBlocksOutputs": [
+        {
+          "sha256": "f9aa32207ba568155d30f38473a56a5e5648921d1167d5e8bf2a8449251354c2",
+          "decoded": [
+            {
+              "index": 0,
+              "raw_hex": "0x00c4047b226f726967696e616c5f726573756c74223a20223237222c2022726577726974655f726573756c74223a20223237222c202273616d655f7175657374696f6e223a20747275657d",
+              "frame_prefix": 0,
+              "kind": "calldata_string_json",
+              "value": {
+                "original_result": "27",
+                "rewrite_result": "27",
+                "same_question": true
+              }
+            },
+            {
+              "index": 1,
+              "raw_hex": "0x009c037b22737461747573223a20224c495645222c2022616e73776572223a20223237222c2022636f7272656374223a20747275657d",
+              "frame_prefix": 0,
+              "kind": "calldata_string_json",
+              "value": {
+                "status": "LIVE",
+                "answer": "27",
+                "correct": true
+              }
+            },
+            {
+              "index": 2,
+              "kind": "literal_padding",
+              "value": "padded"
+            }
+          ]
+        }
+      ],
+      "snapshots": [
+        {
+          "path": "runs/bradbury-v2-scripted.jsonl.complete/receipts/0xd60abc39a390e1ee98eeb59df561927d377a7e2d143f2c30584b9bf385fe66ae-20e70392f9ea2b87668b6964edd8b6d7561815d13d2fd897be47f87ed48b1dc5.json",
+          "sha256": "2c0811d1331cae1af7fe989689f616fd29293e9098f45bc1cf09d5a0cec50dbd"
+        },
+        {
+          "path": "runs/bradbury-v2-scripted-recovery/0xd60abc39a390e1ee98eeb59df561927d377a7e2d143f2c30584b9bf385fe66ae.before-appeal.json",
+          "sha256": "be07e347c6e7aafb9626012c8e8b309bfaf615ebe49ca82559ac658a6286d9f5"
+        },
+        {
+          "path": "runs/bradbury-v2-scripted-recovery/0xd60abc39a390e1ee98eeb59df561927d377a7e2d143f2c30584b9bf385fe66ae.after-appeal.json",
+          "sha256": "d345682330aec68b258b005eff4f87aba73abcc1547f12b94969d87a0c96a940"
+        },
+        {
+          "path": "runs/bradbury-v2-scripted.jsonl.complete/receipts/0xd60abc39a390e1ee98eeb59df561927d377a7e2d143f2c30584b9bf385fe66ae-d016973b30e2e8445a134b7bd15e4dbd16b1d8cbd9e83972f42642ffce7c691d.json",
+          "sha256": "7a21b2ee5f36a2d56b32ee2616a24103fe0dfb62f995f03ecabdc60e24a20d92"
+        },
+        {
+          "path": "runs/bradbury-v2-scripted-recovery/0xd60abc39a390e1ee98eeb59df561927d377a7e2d143f2c30584b9bf385fe66ae.rotation-check-1791637924395.json",
+          "sha256": "2969b5b052c62484af359773187ba495fe8e09c0f3d86df3273dc5dc8e48f6e6"
+        },
+        {
+          "path": "runs/bradbury-v2-scripted.jsonl.complete/receipts/0xd60abc39a390e1ee98eeb59df561927d377a7e2d143f2c30584b9bf385fe66ae-4c9ffe480ffe85092f4508061244f72727bfb430fa8790b0f1e85d6faa729bb4.json",
+          "sha256": "5b34b50594e12f77e8625359c1f7de2c87f8b28a5cd7bc2d7beb93a506116ea2"
+        }
+      ]
+    },
+    {
+      "tx": "0xd7807ccfcc63d70144969deaa9d037053e1a347626934f768c0a11f5545ad712",
+      "key": "probe:0:17:ADMIT",
+      "previous_tx": null,
+      "observed_outcomes": [
+        {
+          "status": "LEADER_TIMEOUT",
+          "result": "IDLE",
+          "execution": "NOT_VOTED"
+        }
+      ],
+      "latest_saved_outcome": {
+        "status": "LEADER_TIMEOUT",
+        "result": "IDLE",
+        "execution": "NOT_VOTED"
+      },
+      "numInitialValidators": [
+        3
+      ],
+      "last_round_validator_counts": [
+        5
+      ],
+      "distinct_observed_leaders": 1,
+      "leaders": [
+        "0xB93a46B843fB32E8Ce392e68eDFE93Faa4a40817"
+      ],
+      "all_saved_last_round_votes_NOT_VOTED": true,
+      "votes_committed_observed": [
+        0
+      ],
+      "votes_revealed_observed": [
+        0
+      ],
+      "category": "no_execution_recorded",
+      "eqBlocksOutputs": [],
+      "snapshots": [
+        {
+          "path": "runs/bradbury-v2-scripted.jsonl.complete/receipts/0xd7807ccfcc63d70144969deaa9d037053e1a347626934f768c0a11f5545ad712-96fad74af8ec9bd35bfb5093f0433f7fbce1676c60e806a0d5c4babbad13f1eb.json",
+          "sha256": "800a3166b22cac836d281e42eaa6ff4c4db832151a0e58b05ab285dd6ac5d0d9"
+        },
+        {
+          "path": "runs/bradbury-v2-scripted.jsonl.complete/receipts/0xd7807ccfcc63d70144969deaa9d037053e1a347626934f768c0a11f5545ad712-9da87209727a40c8fd91e0af5ad6957601d16fb65968c710a8dc25f6fe461e12.json",
+          "sha256": "1eb207bcb0c82ff6d653acdb10b5588581c59595de5481dbce9c2043e0fc3710"
+        },
+        {
+          "path": "runs/bradbury-v2-scripted.jsonl.complete/receipts/0xd7807ccfcc63d70144969deaa9d037053e1a347626934f768c0a11f5545ad712-2ceb3367c14e5b9df5c1cb205b3bebc04fd84b8844aa795711ec3adc94aa0ef6.json",
+          "sha256": "d223c3df586e1b92e004bf5e6ba2acabc5e78a0efde87743980e825f3447309c"
+        }
+      ]
+    },
+    {
+      "tx": "0xe2432aec90a82ea1a518fc7c63e916348c4bf25c95aa715c5876cb69d8721ebb",
+      "key": "probe:0:16:REWRITE",
+      "previous_tx": null,
+      "observed_outcomes": [
+        {
+          "status": "LEADER_TIMEOUT",
+          "result": "IDLE",
+          "execution": "FINISHED_WITH_RETURN"
+        }
+      ],
+      "latest_saved_outcome": {
+        "status": "LEADER_TIMEOUT",
+        "result": "IDLE",
+        "execution": "FINISHED_WITH_RETURN"
+      },
+      "numInitialValidators": [
+        3
+      ],
+      "last_round_validator_counts": [
+        5
+      ],
+      "distinct_observed_leaders": 2,
+      "leaders": [
+        "0x183217483618c4EBd34C987DE400e01bEFfe5860",
+        "0xE8fdefdfe18fD8E5B0d576b7CcfC5a29CE43fD7f"
+      ],
+      "all_saved_last_round_votes_NOT_VOTED": true,
+      "votes_committed_observed": [
+        0
+      ],
+      "votes_revealed_observed": [
+        0
+      ],
+      "category": "return_recorded_without_consensus",
+      "eqBlocksOutputs": [
+        {
+          "sha256": "ff47351ab082e3e15e6419c0797ab0e6890fc3c99bab509ce551382cc4827af2",
+          "decoded": [
+            {
+              "index": 0,
+              "raw_hex": "0x00bc047b226f726967696e616c5f726573756c74223a20223130222c2022726577726974655f726573756c74223a202237222c202273616d655f7175657374696f6e223a20747275657d",
+              "frame_prefix": 0,
+              "kind": "calldata_string_json",
+              "value": {
+                "original_result": "10",
+                "rewrite_result": "7",
+                "same_question": true
+              }
+            },
+            {
+              "index": 1,
+              "raw_hex": "0x00a4037b22737461747573223a20224c495645222c2022616e73776572223a20223130222c2022636f7272656374223a2066616c73657d",
+              "frame_prefix": 0,
+              "kind": "calldata_string_json",
+              "value": {
+                "status": "LIVE",
+                "answer": "10",
+                "correct": false
+              }
+            },
+            {
+              "index": 2,
+              "kind": "literal_padding",
+              "value": "padded"
+            }
+          ]
+        }
+      ],
+      "snapshots": [
+        {
+          "path": "runs/bradbury-v2-scripted.jsonl.complete/receipts/0xe2432aec90a82ea1a518fc7c63e916348c4bf25c95aa715c5876cb69d8721ebb-5fcf33d6f6b75924c3885c49aa24966b789227b6128c3824b6f0312d425d2976.json",
+          "sha256": "826be3609f41b7c549d72631b21544abb79357be7ec38b9f58189eb313ee256c"
+        },
+        {
+          "path": "runs/bradbury-v2-scripted-recovery/0xe2432aec90a82ea1a518fc7c63e916348c4bf25c95aa715c5876cb69d8721ebb.before-appeal.json",
+          "sha256": "89cd225153986c88d4ec6390162488313fe7d73d86c673ddbfdbbfdd06428c73"
+        },
+        {
+          "path": "runs/bradbury-v2-scripted-recovery/0xe2432aec90a82ea1a518fc7c63e916348c4bf25c95aa715c5876cb69d8721ebb.after-appeal.json",
+          "sha256": "dc6a81adc3a14ca83d91c86ea52b2cb60f9382fedf1ccb8763411d3c52c35249"
+        },
+        {
+          "path": "runs/bradbury-v2-scripted.jsonl.complete/receipts/0xe2432aec90a82ea1a518fc7c63e916348c4bf25c95aa715c5876cb69d8721ebb-73f067eb2387db2bc13987c299db63a5a26c834fc739b0bdd8c8fc7febe6e2e6.json",
+          "sha256": "cc13746de0a71e116c415daa4d395e7f1801525518cdbccfd1ee753319380a7f"
+        },
+        {
+          "path": "runs/bradbury-v2-scripted.jsonl.complete/receipts/0xe2432aec90a82ea1a518fc7c63e916348c4bf25c95aa715c5876cb69d8721ebb-849f3a2ae5557a5fac9c80daf51208ac41ccb6da7923283fec883c6be5826b24.json",
+          "sha256": "cc2716bff752e66fe5efd5b5ba552131d78b444b2827b7aa2f33c8cccdf237ae"
+        },
+        {
+          "path": "runs/bradbury-v2-scripted-recovery/0xe2432aec90a82ea1a518fc7c63e916348c4bf25c95aa715c5876cb69d8721ebb.rotation-check-1791637923443.json",
+          "sha256": "c046830da98446659ad75992b9667371bf45f82137a96a29beac96442190ae4c"
+        }
+      ]
+    },
+    {
+      "tx": "0xffa3c8873c4752ad077e6ff4a0dc79bdd0e49a582d7ac95fbf65ea1f45b66c59",
+      "key": "probe:0:4:REWRITE",
+      "previous_tx": null,
+      "observed_outcomes": [
+        {
+          "status": "FINALIZED",
+          "result": "IDLE",
+          "execution": "NOT_VOTED"
+        },
+        {
+          "status": "LEADER_TIMEOUT",
+          "result": "IDLE",
+          "execution": "NOT_VOTED"
+        }
+      ],
+      "latest_saved_outcome": {
+        "status": "FINALIZED",
+        "result": "IDLE",
+        "execution": "NOT_VOTED"
+      },
+      "numInitialValidators": [
+        3
+      ],
+      "last_round_validator_counts": [
+        5
+      ],
+      "distinct_observed_leaders": 1,
+      "leaders": [
+        "0x183217483618c4EBd34C987DE400e01bEFfe5860"
+      ],
+      "all_saved_last_round_votes_NOT_VOTED": true,
+      "votes_committed_observed": [
+        0
+      ],
+      "votes_revealed_observed": [
+        0
+      ],
+      "category": "no_execution_recorded",
+      "eqBlocksOutputs": [],
+      "snapshots": [
+        {
+          "path": "runs/bradbury-v2-scripted.jsonl.complete/receipts/0xffa3c8873c4752ad077e6ff4a0dc79bdd0e49a582d7ac95fbf65ea1f45b66c59-ecb75ee418f3c6d53db7c252b4b0a3235193c03df1d9fc4fa680e4d6debe21a2.json",
+          "sha256": "4c3c4c19fd05992fb0bc4b004558ec785d703cd1ef5138260b679889351cf4e6"
+        },
+        {
+          "path": "runs/bradbury-v2-scripted.jsonl.complete/receipts/0xffa3c8873c4752ad077e6ff4a0dc79bdd0e49a582d7ac95fbf65ea1f45b66c59-2b228a052fca41f519acfe56448338e4e609f02b7005bef4b49e1f123584a30b.json",
+          "sha256": "93b4d7e4ed52cdd6bf65dfe488efe0015445034fe1e48cea6db20c34b4c2b351"
+        },
+        {
+          "path": "runs/bradbury-v2-scripted.jsonl.complete/receipts/0xffa3c8873c4752ad077e6ff4a0dc79bdd0e49a582d7ac95fbf65ea1f45b66c59-c66368a3bdabc8986882fa590b86135483d1fbb5425a1759a750aa3c50b7f0ee.json",
+          "sha256": "00647d4a5f1f6b51e9ee12dc493076126ae60a95462ec683865dd4daa01224a5"
+        }
+      ]
+    }
+  ],
+  "appeals": [
+    {
+      "original_tx": "0xd60abc39a390e1ee98eeb59df561927d377a7e2d143f2c30584b9bf385fe66ae",
+      "helper_returncode": 0,
+      "zero_bond_preflight": true,
+      "after_native_status": "LEADER_TIMEOUT",
+      "after_native_result": "IDLE",
+      "after_native_execution": "FINISHED_WITH_RETURN",
+      "after_native_success": false,
+      "evidence": "runs/bradbury-v2-scripted-recovery/0xd60abc39a390e1ee98eeb59df561927d377a7e2d143f2c30584b9bf385fe66ae.appeal-result.json",
+      "interpretation": "Helper success records appeal submission, not native consensus or application state success."
+    },
+    {
+      "original_tx": "0xe2432aec90a82ea1a518fc7c63e916348c4bf25c95aa715c5876cb69d8721ebb",
+      "helper_returncode": 0,
+      "zero_bond_preflight": true,
+      "after_native_status": "LEADER_TIMEOUT",
+      "after_native_result": "IDLE",
+      "after_native_execution": "FINISHED_WITH_RETURN",
+      "after_native_success": false,
+      "evidence": "runs/bradbury-v2-scripted-recovery/0xe2432aec90a82ea1a518fc7c63e916348c4bf25c95aa715c5876cb69d8721ebb.appeal-result.json",
+      "interpretation": "Helper success records appeal submission, not native consensus or application state success."
+    }
+  ],
+  "saved_milestones": [
+    {
+      "path": "runs/bradbury-v2-scripted-recovery/milestone-24-pinned-recall.json",
+      "at": 1791637491,
+      "totals": {
+        "items": 24,
+        "states_read": 24,
+        "complete_items": 12,
+        "pinned_answers": 24,
+        "recall_results": 24,
+        "admitted": 12,
+        "inadmissible": 0,
+        "dead_slots": 0,
+        "new_transactions_this_process": 2
+      },
+      "stage_counts": {
+        "stage_c1": {
+          "ADMISSIBLE": 19,
+          "PENDING": 5
+        },
+        "stage_c2": {
+          "ADMISSIBLE": 12,
+          "PENDING": 12
+        }
+      },
+      "semantic_rejections": []
+    }
+  ],
+  "manifest_reference": {
+    "path": "runs/bradbury-v2-scripted.jsonl",
+    "sha256": "fd9ec699af118d1641571bc0bc2d7fb4f896e1951e78a6b707a11d5766fbd9c3"
+  },
+  "captured_file_count": 47
+}

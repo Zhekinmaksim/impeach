@@ -1,0 +1,9 @@
+{
+  "version": "impeach/1",
+  "item_index": 19,
+  "class": "format_shift",
+  "prompt": "An independent arithmetic exercise states: Print shop packing sheet\nInvitation cards to pack: 72\nCards in each packet: 8\nOther complete packets already on the shelf: 5\nQuestion: How many complete packets does the shop have after packing the 72 cards?",
+  "answer": "14",
+  "derivation": "72 // 8 + 5",
+  "author_note": "The same packing operation and already packed stock are presented as fields, without changing quantities or the total-packets question."
+}

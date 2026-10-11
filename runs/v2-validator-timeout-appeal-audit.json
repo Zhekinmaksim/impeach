@@ -1,0 +1,135 @@
+{
+  "format": "impeach-validator-timeout-appeal-audit/1",
+  "at": "2026-10-10T13:33:38.587973+00:00",
+  "scope": "Read-only verified-source audit plus public implementation-pointer checks. No signing, state mutation, code edit or secret read.",
+  "answer": {
+    "stored_status_12_is_allowed": true,
+    "allowed_stored_statuses": {
+      "4": "Revealing",
+      "5": "Accepted",
+      "6": "Undetermined",
+      "12": "ValidatorsTimeout",
+      "13": "LeaderTimeout"
+    },
+    "same_hash": true,
+    "entrypoint": "ConsensusMain.submitAppeal(bytes32 txId) payable",
+    "status_12_path": "Appeals.submitAppeal -> RoundsCreation.createNewValidatorAppealRound -> AppealCommitting (10), previousStatus ValidatorsTimeout (12).",
+    "leader_appeal": false,
+    "bond": "Zero value is allowed only when the current calculateMinAppealBond(txId, round, storedStatus) is zero. A zero bond satisfies the bond guard; it does not bypass status/timing/capacity guards.",
+    "round_4_example": "A validator appeal from current round 4 increments to odd appeal round 5. This is a code-derived example, not a new state observation."
+  },
+  "eligibility_guards": [
+    "ConsensusMain loads the stored TransactionManager transaction; projected receipt status is not passed into Appeals.",
+    "Appeals accepts only stored statuses 4, 5, 6, 12, 13. Stored 11 or 2 is not accepted.",
+    "If lastQueueTimestamp > 0, lastQueueType is neither Accepted nor Undetermined, and now < lastQueueTimestamp + accept timeout, submitAppeal reverts CanNotAppeal.",
+    "_canAppeal checks that active validators can cover the next normal round, except the LeaderTimeout special case; status 12 has no special exemption.",
+    "If FeeManager is configured, msg.value must meet calculateMinAppealBond using the stored status and current round.",
+    "A successful bounded gas simulation is still needed to verify all current guards atomically before any separately authorized signing. canAppeal=true alone is insufficient."
+  ],
+  "replay_mechanism": [
+    {
+      "source": "RevealingPhase._processPostMajorityVoteResult",
+      "finding": "When majority processing returns a nonzero new round, requeue the ancestor via Queues.addTransactionToPendingQueue."
+    },
+    {
+      "source": "Queues.addTransactionToPendingQueue",
+      "finding": "For an already issued ancestor at or before pending head, collect existing transaction IDs from its pending slot through the old head. Remove affected tails of Accepted/Undetermined queues, set affected queue types to Pending, record modification time, and move pending head back to the ancestor slot."
+    },
+    {
+      "source": "RevealingPhase._rewindToProposing",
+      "finding": "Set affected transaction status to Proposing and execution result to NotVoted; reset round votes, add a read-state version. Subsequent transactions with rotations remaining consume a rotation and are marked/enqueued for recomputation; those without rotations are moved toward Undetermined. Pending transactions without validators are skipped."
+    },
+    {
+      "source": "ConsensusMain.revealVote",
+      "finding": "Emit TransactionNeedsRecomputation with the same transaction IDs when a new round was created."
+    },
+    {
+      "source": "Interpretation",
+      "finding": "Subsequent same-hash Proposing/NotVoted observations are consistent with protocol recomputation. They are not fresh user submissions and do not demonstrate semantic referee rejection. An earlier AGREE label cannot establish success of the current execution."
+    }
+  ],
+  "blocked_finalization": {
+    "sources": [
+      "Queues._isAtFinalizedQueueHead",
+      "ConsensusData.canFinalize",
+      "FinalizationPhase._finalizeTransaction"
+    ],
+    "finding": "A transaction must be at the head of its Accepted or Undetermined queue, its assigned global finalized slot must equal finalizedCount, and timing/state conditions must pass. A later transaction cannot finalize around an unresolved earlier issued slot. Pending/None queue types return false.",
+    "important_distinction": "Projected ReadyToFinalize does not bypass queue order or stored-phase/timing checks."
+  },
+  "routine_protocol_action_for_12": "If a fresh stored-state read confirms 12, current min bond is 0, validator capacity and queue timing permit it, and the bounded simulation succeeds, the protocol supports one same-hash validator appeal through submitAppeal with value 0. Otherwise wait for eligibility or finalization of the head; do not treat descendant replay as grounds to resubmit application probes.",
+  "limitations": [
+    "No fresh state/queue snapshot of the cited current ancestor or descendants was read in this audit; their current numbers came from parent context.",
+    "The verified code establishes the replay mechanism, but this audit did not fetch the specific TransactionNeedsRecomputation event that caused this observed batch.",
+    "SDK/helper policy currently permits only 6 and 13; protocol support for 12 does not itself change that helper policy.",
+    "No assumption was made that a successful appeal submission will reach native consensus, or that timed-out validators are offline."
+  ],
+  "sources": {
+    "appeals": {
+      "address": "0x1181D6876692984913fd53B783FBfc19c2F1ed38",
+      "match": "exact_match",
+      "contract": "contracts/transactions/Appeals.sol:Appeals",
+      "file": "/tmp/impeach-status-verified-appeals.json",
+      "sha256": "247624edf45a47428959bb9dcb089bbbf5d5a30aafac66d769e9653b1123464f",
+      "url": "https://explorer-api.testnet-chain.genlayer.com/api?module=contract&action=getsourcecode&address=0x1181D6876692984913fd53B783FBfc19c2F1ed38"
+    },
+    "main": {
+      "address": "0x0a2C393975dA79505ED930eFC55ae4AEB88b0d62",
+      "match": "match",
+      "contract": "contracts/ConsensusMain.sol:ConsensusMain",
+      "file": "/tmp/impeach-status-verified-main.json",
+      "sha256": "857f333cee302ff43a1e31581aa0e694236bc77eff375d6b465069cfe0680511",
+      "url": "https://explorer-api.testnet-chain.genlayer.com/api?module=contract&action=getsourcecode&address=0x0a2C393975dA79505ED930eFC55ae4AEB88b0d62"
+    },
+    "Queues": {
+      "address": "0x7559EBDBC6F59e5dd2a048a1A1539aC14BF93DB0",
+      "match": "exact_match",
+      "contract": "contracts/Queues.sol:Queues",
+      "file": "/tmp/impeach-status-verified-Queues.json",
+      "sha256": "793542c26c34d962b61e486b822e418d987f0793e358440102bf6b5647dd6acc",
+      "url": "https://explorer-api.testnet-chain.genlayer.com/api?module=contract&action=getsourcecode&address=0x7559EBDBC6F59e5dd2a048a1A1539aC14BF93DB0"
+    },
+    "TransactionManager": {
+      "address": "0xeEe45073F7EEb3b80D1973F8398f8e508f893f9C",
+      "match": "exact_match",
+      "contract": "contracts/TransactionManager.sol:TransactionManager",
+      "file": "/tmp/impeach-status-verified-TransactionManager.json",
+      "sha256": "990be5388a611c669d55cbdbf8104a5343b76a42871e283d2e1997ada29f7594",
+      "url": "https://explorer-api.testnet-chain.genlayer.com/api?module=contract&action=getsourcecode&address=0xeEe45073F7EEb3b80D1973F8398f8e508f893f9C"
+    },
+    "RoundsCreation": {
+      "address": "0x75336Adc282652Eb4D89616cC8598dbc87874bBC",
+      "match": "match",
+      "contract": "contracts/transactions/RoundsCreation.sol:RoundsCreation",
+      "file": "/tmp/impeach-status-verified-RoundsCreation.json",
+      "sha256": "d5e7d070731adce33cc46369a63233ce3d096e2815d26959703d6979ae0531b5",
+      "url": "https://explorer-api.testnet-chain.genlayer.com/api?module=contract&action=getsourcecode&address=0x75336Adc282652Eb4D89616cC8598dbc87874bBC"
+    },
+    "RevealingPhase": {
+      "address": "0xa6896De684A30cA3895CeC8Bb29B7292677758e0",
+      "match": "exact_match",
+      "contract": "contracts/phases/RevealingPhase.sol:RevealingPhase",
+      "file": "/tmp/impeach-status-verified-RevealingPhase.json",
+      "sha256": "e70066073b41da72075a69af75722b615a13b8b55ee831a586819a9bc95b275b",
+      "url": "https://explorer-api.testnet-chain.genlayer.com/api?module=contract&action=getsourcecode&address=0xa6896De684A30cA3895CeC8Bb29B7292677758e0"
+    },
+    "finalization": {
+      "address": "0x3Ab63c1fC784682ef72276a76E2AD8fc1C5813b2",
+      "match": "match",
+      "contract": "contracts/phases/FinalizationPhase.sol:FinalizationPhase",
+      "file": "/tmp/impeach-status-verified-finalization.json",
+      "sha256": "c62c8316980736f0496fb43f9eb4bf238c353b711749d6376c12dccc89d8d48f",
+      "url": "https://explorer-api.testnet-chain.genlayer.com/api?module=contract&action=getsourcecode&address=0x3Ab63c1fC784682ef72276a76E2AD8fc1C5813b2"
+    },
+    "data": {
+      "address": "0x7EE629530e70E2a3A772F8522d8835060aBf0755",
+      "match": "exact_match",
+      "contract": "contracts/ConsensusData.sol:ConsensusData",
+      "file": "/tmp/impeach-status-verified-data.json",
+      "sha256": "74b7c7f76b4ce41bcc0af9e3232f0001ad739610d4876258c7ae4201723454b3",
+      "url": "https://explorer-api.testnet-chain.genlayer.com/api?module=contract&action=getsourcecode&address=0x7EE629530e70E2a3A772F8522d8835060aBf0755"
+    }
+  },
+  "new_live_pointer_evidence": "/tmp/impeach-status-replay-pointers.json",
+  "previous_live_pointer_audit": "/tmp/impeach-native-status-audit.json"
+}

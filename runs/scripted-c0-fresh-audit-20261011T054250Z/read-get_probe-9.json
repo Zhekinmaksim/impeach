@@ -1,0 +1,27 @@
+{
+  "kind": "read",
+  "method_or_key": "get_probe",
+  "args_or_hash": [
+    0,
+    9
+  ],
+  "value": {
+    "challenge_id": 0,
+    "item_index": 9,
+    "pinned": "RIGHT",
+    "pinned_answer": "78",
+    "recall": "MATCH",
+    "rewrite": "RIGHT",
+    "rewrite_answer": "78",
+    "rewrite_class": "format_shift",
+    "rewrite_hash": "fc23be6a2c81d5a33ea54a7b10d3aff5e93a29b45ea9f3235111fdd896e093ef",
+    "rewrite_prompt": "On a practice worksheet, a student reads this problem: Laboratory vial count\nStorage racks: 8\nEmpty vials per rack: 9\nLoose empty vials beside the racks: 6\nRequested total: How many empty vials are there altogether in the racks and beside them?",
+    "rewrite_reply": "78",
+    "slice_settled": true,
+    "stage_c1": "ADMISSIBLE",
+    "stage_c2": "ADMISSIBLE",
+    "stale": false,
+    "touched": true
+  },
+  "at": 1791697385
+}

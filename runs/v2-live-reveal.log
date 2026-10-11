@@ -1,0 +1,6 @@
+accepted  open 0xed69e850002092d0945115f84d3cbd179826cef1f6ce984eef2a76025cbd54d9
+accepted  challenge:1 0x9b602bb31b9023a5840075c7bd9cfc3eca98cbe759f2d7a4de74ac766b0b94f2
+Transaction Hash: 0x41f9d6ba83bc84dd4f66d7a1cc03b6d36d482ff197cabc8e8dd9eb0c484245fd
+Gas preflight: {"from":"0x771388495F34d21C5574FeFc04cd1D5811E00aDa","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"5994322","boundedEstimate":"5977424","gasLimit":"6575167","gasCap":"16777216","calldataBytes":6980,"dryRun":false}
+sent  reveal:1 0x41f9d6ba83bc84dd4f66d7a1cc03b6d36d482ff197cabc8e8dd9eb0c484245fd
+accepted  reveal:1 0x41f9d6ba83bc84dd4f66d7a1cc03b6d36d482ff197cabc8e8dd9eb0c484245fd

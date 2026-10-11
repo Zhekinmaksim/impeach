@@ -1,0 +1,6 @@
+{
+  "at": 1791700115,
+  "returncode": 0,
+  "stdout": "{\n  \"from\": \"0x771388495F34d21C5574FeFc04cd1D5811E00aDa\",\n  \"to\": \"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D\",\n  \"chainId\": 4221,\n  \"sdkEstimate\": \"637352\",\n  \"boundedEstimate\": \"637352\",\n  \"gasLimit\": \"701088\",\n  \"gasCap\": \"16777216\",\n  \"calldataBytes\": 36,\n  \"dryRun\": true\n}\n",
+  "stderr": ""
+}

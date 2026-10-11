@@ -1,0 +1,7 @@
+{
+  "operation": "finalize",
+  "tx": "0x933655eb9187fa19aa72926a5758fad7005e671c24cf6e88746bdf3e8e75235f",
+  "returncode": 2,
+  "stdout": "",
+  "stderr": "genlayer_write: transaction is already finalized; no duplicate finalization sent\n"
+}

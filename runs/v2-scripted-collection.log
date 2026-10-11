@@ -1,0 +1,62 @@
+Recorded 25 read-only calls
+Recorded 50 read-only calls
+Recorded 75 read-only calls
+Recorded 100 read-only calls
+Recorded 125 read-only calls
+Recorded 150 read-only calls
+105 transactions: FINALIZED 105
+  ADMIT    FINALIZED 27
+  PINNED   FINALIZED 24
+  RECALL   FINALIZED 24
+  REWRITE  FINALIZED 26
+1 cases, 48 registry rows -> runs/v2-scripted-case.json
+{
+  "at": "2026-10-11T06:50:59.505208+00:00",
+  "probe_counts": {
+    "pinned": {
+      "RIGHT": 24
+    },
+    "recall": {
+      "MATCH": 24
+    },
+    "stage_c1": {
+      "ADMISSIBLE": 20,
+      "PENDING": 4
+    },
+    "stage_c2": {
+      "ADMISSIBLE": 13,
+      "PENDING": 11
+    },
+    "rewrite": {
+      "RIGHT": 16,
+      "WRONG": 4,
+      "": 4
+    }
+  },
+  "recomputed": {
+    "verdict": "CONTAMINATED",
+    "reason": "RECALL",
+    "delta_milli": 166,
+    "recall_milli": 1000,
+    "pinned_milli": 1000,
+    "rewrite_milli": 833,
+    "admissible_probes": 13,
+    "inadmissible_rewrites": 0,
+    "stale_answers": 4,
+    "dead_probes": 0,
+    "recall_probes": 24,
+    "items_probed": 24
+  },
+  "recompute_matches_actual_certificate": true,
+  "credit_by_address": {
+    "0x771388495F34d21C5574FeFc04cd1D5811E00aDa": {
+      "wei": 4000000000000000,
+      "read_at": "2026-10-11T06:50:42.532973+00:00"
+    },
+    "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9": {
+      "wei": 121000000000000000,
+      "read_at": "2026-10-11T06:50:48.625994+00:00"
+    }
+  }
+}
+VERIFIED: 105/105 FINALIZED; all transaction hashes, 7 original/recovery pairs, and failure receipts retained.

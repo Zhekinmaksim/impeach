@@ -1,0 +1,116 @@
+{
+  "format": "impeach-native-outcome-enum-audit/1",
+  "at": "2026-10-10T13:35:37.516124+00:00",
+  "scope": "Offline inspection of already downloaded verified live deployment sources and one saved local eligibility snapshot. No new RPC/network, signing, secret access, or repository edits.",
+  "deployment": "Bradbury4221 / VERSION2.0.0 / network release v0.5:9c68608",
+  "vote_type": {
+    "0": "NotVoted",
+    "1": "FinishedWithReturn",
+    "2": "FinishedWithError",
+    "3": "Timeout",
+    "4": "NondetDisagree"
+  },
+  "execution_result": {
+    "0": "NotVoted",
+    "1": "FinishedWithReturn",
+    "2": "FinishedWithError",
+    "3": "Timeout",
+    "4": "NondetDisagree"
+  },
+  "transaction_result": {
+    "0": "Idle",
+    "1": "MajorityAgree",
+    "2": "MajorityDisagree",
+    "3": "MajorityTimeout",
+    "4": "DeterministicViolation",
+    "5": "NoMajority"
+  },
+  "types": {
+    "validatorVotes": "ITransactions.VoteType[]",
+    "txExecutionResult": "ITransactions.VoteType",
+    "Transaction.result": "ITransactions.ResultType",
+    "RoundData.result": "ITransactions.ResultType"
+  },
+  "critical_distinction": "Code 4 is NondetDisagree in VoteType and txExecutionResult. Code 4 is DeterministicViolation only in ResultType. There is no VoteType/txExecutionResult code 5, nor ResultType code 6 or 7, in this deployed source.",
+  "source": {
+    "path": "contracts/transactions/interfaces/ITransactions.sol",
+    "sha256": "51bb03bdb1fdadd19ff134861e2d9e2ddcdb38b1f088e0fb491812b0892b8756",
+    "matching_downloaded_implementation_source_sets": 8,
+    "verified_main_api": "https://explorer-api.testnet-chain.genlayer.com/api?module=contract&action=getsourcecode&address=0x0a2c393975da79505ed930efc55ae4aeb88b0d62",
+    "verified_file": "/tmp/impeach-status-verified-main.json",
+    "deployment_provenance": "/tmp/impeach-native-status-audit.json"
+  },
+  "saved_ancestor16": {
+    "file": "/Users/zmaxx/Projects/impeach/runs/bradbury-v2-scripted-recovery/0xe2432aec90a82ea1a518fc7c63e916348c4bf25c95aa715c5876cb69d8721ebb.third-appeal-eligibility-1791639136.json",
+    "sha256": "34e3e22621b372f3cec81db8f61b32a7949f4622e21943d530215d1bd3f54563",
+    "tx": "0xe2432aec90a82ea1a518fc7c63e916348c4bf25c95aa715c5876cb69d8721ebb",
+    "at": 1791639136,
+    "projected_status": 6,
+    "numOfRounds": "4",
+    "votesCommitted": "5",
+    "votesRevealed": "4",
+    "raw_votes": [
+      0,
+      4,
+      3,
+      3,
+      1
+    ],
+    "raw_sdk_labels_preserved": [
+      "NOT_VOTED",
+      "DETERMINISTIC_VIOLATION",
+      "TIMEOUT",
+      "TIMEOUT",
+      "AGREE"
+    ],
+    "verified_source_labels": [
+      "NotVoted",
+      "NondetDisagree",
+      "Timeout",
+      "Timeout",
+      "FinishedWithReturn"
+    ],
+    "raw_result": 0,
+    "verified_result_label": "Idle",
+    "raw_execution_result": 1,
+    "verified_execution_label": "FinishedWithReturn",
+    "lastVoteTimestamp": "0",
+    "canAppeal": false,
+    "minBond": "0",
+    "canFinalize": "not present in this saved snapshot; not freshly queried"
+  },
+  "interpretation": [
+    "The vector contains one NotVoted, one NondetDisagree, two Timeout and one FinishedWithReturn. It does not establish a deterministic violation.",
+    "One NondetDisagree vote records disagreement during nondeterministic evaluation. These fields alone do not identify the exact referee prompt, which returned values differed, or whether a semantic referee returned same_question=false.",
+    "FinishedWithReturn on the leader execution is not successful native consensus. Idle result and an unresolved phase remain unresolved.",
+    "Do not mutate the saved SDK labels or raw numeric evidence; attach this verified-source decoding as an additional interpretation."
+  ],
+  "routine_resolution_from_source": [
+    {
+      "condition": "canAppeal=false because the next normal round exceeds active-validator capacity",
+      "meaning": "Minimum bond zero does not bypass _canAppeal. The current protocol guard rejects another ordinary appeal until capacity permits; do not infer eligibility from status6."
+    },
+    {
+      "condition": "Receipt projects status6 but stored status is still an active phase",
+      "meaning": "ConsensusMain.processIdleness(txId) is a public routine path to materialize a timeout/majority outcome and synchronize its queue. FinalizationPhase._finalizeTransaction also processes idleness before checking finalizability. Source availability does not prove this transaction is currently eligible; inspect stored phase/timestamps/queue and use a bounded simulation before any separately authorized write."
+    },
+    {
+      "condition": "Stored status is already Undetermined",
+      "meaning": "Finalization requires the timing window and finalized-queue head. With lastVote zero, ConsensusData.canFinalize falls back to committed + reveal + accept or leaderRevealed + reveal + accept. If timing references are absent or an earlier issued slot blocks the queue, false is possible; the saved snapshot does not determine which branch applies."
+    },
+    {
+      "condition": "The transaction becomes finally failed",
+      "meaning": "That is a failed native outcome, not application success. Preserve receipts and use only an already authorized, guarded empty-slot recovery after actual finalization; this report does not execute or grant a new retry."
+    }
+  ],
+  "queue_field_caution": "Verified ConsensusData.getTransactionData calls Queues.getTransactionQueueType(txId), whose verified implementation indexes recipientQueues[msg.sender]. Do not use the receipt queueType=0 alone as proof of this recipient actual queue membership. Queues.getTxQueueType(recipient,txId) is the explicit-recipient getter.",
+  "routine_source_functions": [
+    "ConsensusMain.processIdleness",
+    "ConsensusHelpers.processIdlenessInternal",
+    "FinalizationPhase._processIdlenessIfNeeded",
+    "FinalizationPhase._finalizeTransaction",
+    "ConsensusData.canFinalize",
+    "Queues.isAtFinalizedQueueHead"
+  ],
+  "no_current_cause_claim": "No fresh stored-state/timestamp/queue reads were made. Current canFinalize16 and the precise block remain unconfirmed."
+}

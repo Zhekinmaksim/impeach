@@ -1,0 +1,6 @@
+{
+  "at": 1791638330,
+  "returncode": 0,
+  "stdout": "Appealed original transaction: 0xe2432aec90a82ea1a518fc7c63e916348c4bf25c95aa715c5876cb69d8721ebb\n",
+  "stderr": "Gas preflight: {\"from\":\"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9\",\"to\":\"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D\",\"chainId\":4221,\"sdkEstimate\":\"845586\",\"boundedEstimate\":\"845586\",\"gasLimit\":\"930145\",\"gasCap\":\"16777216\",\"calldataBytes\":36,\"dryRun\":false}\n"
+}

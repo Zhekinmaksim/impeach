@@ -1,0 +1,27 @@
+{
+  "kind": "read",
+  "method_or_key": "get_probe",
+  "args_or_hash": [
+    0,
+    17
+  ],
+  "value": {
+    "challenge_id": 0,
+    "item_index": 17,
+    "pinned": "RIGHT",
+    "pinned_answer": "38",
+    "recall": "MATCH",
+    "rewrite": "RIGHT",
+    "rewrite_answer": "38",
+    "rewrite_class": "entity_rename",
+    "rewrite_hash": "cd791cfa042fc0bcb3c55ed328509f3bead1da51f5170c6b6c7f65c8a7db73f1",
+    "rewrite_prompt": "On a practice worksheet, a student reads this problem: Oren packs 4 crates with 11 marker pens in each crate for a classroom delivery. Tali removes 6 marker pens from those crates for a separate order. How many marker pens remain in the crates for the classroom delivery?",
+    "rewrite_reply": "38",
+    "slice_settled": false,
+    "stage_c1": "ADMISSIBLE",
+    "stage_c2": "PENDING",
+    "stale": false,
+    "touched": true
+  },
+  "at": 1791698403
+}

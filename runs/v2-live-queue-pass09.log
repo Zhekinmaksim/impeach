@@ -1,0 +1,2 @@
+{"at": 1791710619, "action": "PAUSED", "reason": "protocol simulation failed without an explicit EVM revert"}
+{"phase": "PAUSED", "reason": "protocol simulation failed without an explicit EVM revert", "exit_code": 2}

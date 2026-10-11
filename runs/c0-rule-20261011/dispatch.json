@@ -1,0 +1,12 @@
+{
+  "at": 1791698565,
+  "status": "DISPATCHING",
+  "method": "rule",
+  "args": [
+    "0"
+  ],
+  "value": 0,
+  "address": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+  "account": "impeach-challenger",
+  "signature": "519020ff557f8d2fa62f2ec48342dba117413f154c25a38be1c569b85a96010f"
+}

@@ -1,0 +1,206 @@
+{
+  "at": 1791709517400,
+  "address": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+  "blockNumber": "24482238",
+  "blockTimestamp": "1791709523",
+  "protocol": {
+    "chainId": 4221,
+    "main": "0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D",
+    "manager": "0x8aCE036C8C3C5D603dB546b031302FCf149648E8",
+    "version": "2.0.0",
+    "implementations": {
+      "AddressManager": "0xf63f3a95fbf2e97618a5e3ea0fff63024915f3e6",
+      "FinalizationPhase": "0x3ab63c1fc784682ef72276a76e2ad8fc1c5813b2",
+      "Queues": "0x7559ebdbc6f59e5dd2a048a1a1539ac14bf93db0",
+      "Idleness": "0x4e696416634012119187d8dda6a56e66ac7cb23d",
+      "ConsensusData": "0x7ee629530e70e2a3a772f8522d8835060abf0755",
+      "IdlenessPhase": "0x2cf61473cafcf47adc0ddd861290a7e848881446",
+      "TransactionManager": "0xeee45073f7eeb3b80d1973f8398f8e508f893f9c",
+      "ConsensusMain": "0x0a2c393975da79505ed930efc55ae4aeb88b0d62"
+    },
+    "sourceCommit": "9c686087963551277fc2dce0354c2b1a7050b4b2"
+  },
+  "sourceSha256": "6336e9c160b53839497adb4652c0cf8d7c1f5b76bcf7ed99d3f5553da53f3c89",
+  "mainTimeouts": {
+    "activate": "180",
+    "propose": "420",
+    "commit": "420",
+    "reveal": "120",
+    "accept": "1800",
+    "leaderReveal": "120"
+  },
+  "heads": {
+    "getFinalizedHeadTxId": "0x6e13b38296a49c5f4862aea4d9b08411cbe6a2d770d02711a48b51eb0f44798a",
+    "getPendingHeadTxId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "getAcceptedHeadTxId": "0x6e13b38296a49c5f4862aea4d9b08411cbe6a2d770d02711a48b51eb0f44798a",
+    "getUndeterminedHeadTxId": "0x0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "transactions": [
+    {
+      "tx": "0x6e13b38296a49c5f4862aea4d9b08411cbe6a2d770d02711a48b51eb0f44798a",
+      "stored": {
+        "result": 0,
+        "txExecutionResult": 1,
+        "previousStatus": 0,
+        "status": 5,
+        "txOrigin": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+        "sender": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+        "recipient": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+        "activator": "0xF01877B6Ac60861CA3b134e0E483C482679b4682",
+        "txSlot": "192",
+        "initialRotations": "3",
+        "numOfInitialValidators": "5",
+        "epoch": "175",
+        "id": "0x6e13b38296a49c5f4862aea4d9b08411cbe6a2d770d02711a48b51eb0f44798a",
+        "randomSeed": "0x175f12b37cb4669cc091448df6ec2468a1c23d59116a673da03ffb436e483bae",
+        "txExecutionHash": "0x08958942c931df5ca2f24c928ece03595eb2221f5f4b51409295c27c1f37d9f0",
+        "resultHash": "0x10b9ea2d24c785746fdfbec246486a91bd6609e7deac5c8fcbebc1edf7efefc0",
+        "txCalldata": "0xe09e1604617267732509a1012c41444d495404066d6574686f642c70726f626500",
+        "eqBlocksOutputs": "0xf854b84b00c4047b226f726967696e616c5f726573756c74223a20223237222c2022726577726974655f726573756c74223a20223237222c202273616d655f7175657374696f6e223a20747275657d86706164646564",
+        "readStateBlockRanges": [
+          {
+            "activationBlock": "24476704",
+            "processingBlock": "24476726",
+            "proposalBlock": "24476728"
+          }
+        ],
+        "validUntil": "1791711303",
+        "value": "0",
+        "lockedStorageUnitPrice": "0",
+        "storageFeeUsed": "0"
+      },
+      "receipt": {
+        "currentTimestamp": "1791709517",
+        "sender": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+        "recipient": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+        "initialRotations": "3",
+        "txSlot": "192",
+        "createdTimestamp": "1791707714",
+        "lastVoteTimestamp": "1791707744",
+        "randomSeed": "0x175f12b37cb4669cc091448df6ec2468a1c23d59116a673da03ffb436e483bae",
+        "result": 1,
+        "txExecutionHash": "0x08958942c931df5ca2f24c928ece03595eb2221f5f4b51409295c27c1f37d9f0",
+        "txCalldata": "0xe09e1604617267732509a1012c41444d495404066d6574686f642c70726f626500",
+        "eqBlocksOutputs": "0xf854b84b00c4047b226f726967696e616c5f726573756c74223a20223237222c2022726577726974655f726573756c74223a20223237222c202273616d655f7175657374696f6e223a20747275657d86706164646564",
+        "messages": [],
+        "queueType": 0,
+        "queuePosition": "0",
+        "activator": "0xF01877B6Ac60861CA3b134e0E483C482679b4682",
+        "lastLeader": "0xB7551beF37a05995218f9a1BB7A93e5B6705f535",
+        "status": 5,
+        "txId": "0x6e13b38296a49c5f4862aea4d9b08411cbe6a2d770d02711a48b51eb0f44798a",
+        "readStateBlockRange": {
+          "activationBlock": "24476704",
+          "processingBlock": "24476726",
+          "proposalBlock": "24476728"
+        },
+        "numOfRounds": "0",
+        "lastRound": {
+          "round": "0",
+          "leaderIndex": "4",
+          "votesCommitted": "5",
+          "votesRevealed": "5",
+          "appealBond": "0",
+          "rotationsLeft": "3",
+          "result": 1,
+          "roundValidators": [
+            "0x79485eF57aC2055dC83b9E7b2C9Cf184Fc79648E",
+            "0x3B940A5b4A762583453D9e9Cf0981BE0426A8e79",
+            "0x4Cd1ab61867487F45988dB08eb18bd00e20c518a",
+            "0x470AAa7DE37ff3E1C2b38eD9096263ca0d541F21",
+            "0xB7551beF37a05995218f9a1BB7A93e5B6705f535"
+          ],
+          "validatorVotes": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "validatorVotesHash": [
+            "0xf7f546749974870665663df6279ae2e87a7b5eacdbb286c81d0fda7547c34e38",
+            "0x0f501d4a55c13b1ff1fa4c2d6681712277e847fe0e6423f84330797062fa8c3b",
+            "0x2aa711c9f687beb72dae8357efc0baa64d01eeb2dbce78630828503430932cf9",
+            "0xcb64477981cfec8c9d25ace77e545fe44ee3def584d1953950878f528545d1c9",
+            "0x064efaa51f1cc08d16bce7a3cccd1414979273e3c666440d455f10b3764ce891"
+          ],
+          "validatorResultHash": [
+            "0x10b9ea2d24c785746fdfbec246486a91bd6609e7deac5c8fcbebc1edf7efefc0",
+            "0x10b9ea2d24c785746fdfbec246486a91bd6609e7deac5c8fcbebc1edf7efefc0",
+            "0x10b9ea2d24c785746fdfbec246486a91bd6609e7deac5c8fcbebc1edf7efefc0",
+            "0x10b9ea2d24c785746fdfbec246486a91bd6609e7deac5c8fcbebc1edf7efefc0",
+            "0x10b9ea2d24c785746fdfbec246486a91bd6609e7deac5c8fcbebc1edf7efefc0"
+          ],
+          "validatorVotesName": [
+            "AGREE",
+            "AGREE",
+            "AGREE",
+            "AGREE",
+            "AGREE"
+          ]
+        },
+        "consumedValidators": [
+          "0x79485eF57aC2055dC83b9E7b2C9Cf184Fc79648E",
+          "0x3B940A5b4A762583453D9e9Cf0981BE0426A8e79",
+          "0x4Cd1ab61867487F45988dB08eb18bd00e20c518a",
+          "0x470AAa7DE37ff3E1C2b38eD9096263ca0d541F21",
+          "0xB7551beF37a05995218f9a1BB7A93e5B6705f535"
+        ],
+        "txExecutionResult": 1,
+        "txData": "0xe09e1604617267732509a1012c41444d495404066d6574686f642c70726f626500",
+        "txDataDecoded": {
+          "callData": {
+            "args": [
+              "1",
+              "20",
+              "ADMIT",
+              ""
+            ],
+            "method": "probe"
+          },
+          "leaderOnly": false,
+          "type": "call"
+        },
+        "numOfInitialValidators": "3",
+        "statusName": "ACCEPTED",
+        "resultName": "AGREE",
+        "txExecutionResultName": "FINISHED_WITH_RETURN"
+      },
+      "decoded": {
+        "callData": {
+          "args": [
+            "1",
+            "20",
+            "ADMIT",
+            ""
+          ],
+          "method": "probe"
+        },
+        "leaderOnly": false,
+        "type": "call"
+      },
+      "mainTimestamps": {
+        "created": "1791707714",
+        "pending": "1791707714",
+        "activated": "1791707717",
+        "proposed": "1791707725",
+        "committed": "1791707741",
+        "lastVote": "1791707744",
+        "appealSubmitted": "0",
+        "leaderRevealed": "1791707742"
+      },
+      "firstSlotElapsed": false,
+      "queueType": 2,
+      "queueModification": {
+        "lastQueueType": 2,
+        "lastQueueTimestamp": "1791707744"
+      },
+      "atFinalizedHead": true,
+      "canFinalize": [
+        false,
+        "1791709523",
+        "1791709544"
+      ]
+    }
+  ]
+}

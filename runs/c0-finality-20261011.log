@@ -1,0 +1,7 @@
+{"at": 1791698985, "action": "WAIT_PROTOCOL_WINDOW", "tx": "0x88d675814aaa4976c64a5b596e3c4cb4fd224d8e7a7086991e31951f040151f7", "seconds": 996, "until_chain_timestamp": 1791699981}
+{"at": 1791699983, "action": "WAIT_PROTOCOL_WINDOW", "tx": "0x28054e97e3187cba989d4c8561e18c188d0e05de81dafe76580b5102824b45b9", "seconds": 19, "until_chain_timestamp": 1791700007}
+Traceback (most recent call last):
+  File "/tmp/impeach-c0-finalize-ten.py", line 44, in <module>
+    if d['stored']['recipient'].lower()!=COURT.lower() or not d['atFinalizedHead']:raise RuntimeError('Wrong recipient/queue head')
+                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Wrong recipient/queue head

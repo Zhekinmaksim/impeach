@@ -1,0 +1,9 @@
+{
+  "at": 1791638344,
+  "action": "ONE_ZERO_BOND_SAME_HASH_APPEAL",
+  "key": "probe:0:20:REWRITE",
+  "tx": "0xd60abc39a390e1ee98eeb59df561927d377a7e2d143f2c30584b9bf385fe66ae",
+  "attempt": 2,
+  "status": "DISPATCHING",
+  "account": "impeach-challenger"
+}

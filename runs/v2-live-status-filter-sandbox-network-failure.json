@@ -1,0 +1,57 @@
+{
+  "began_at": "2026-10-11T09:54:51.641Z",
+  "address": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+  "docs": "https://docs.genlayer.com/api-references/genlayer-node",
+  "caution": "Current docs describe a newer protocol. Results retain request parameters; an ignored selector cannot prove a separate state version.",
+  "observations": [
+    {
+      "at": "2026-10-11T09:54:51.643Z",
+      "index": 14,
+      "params": {
+        "type": "read",
+        "to": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+        "from": "0x0000000000000000000000000000000000000000",
+        "data": "0xdc9a160461726773150971066d6574686f644c6765745f70726f626500",
+        "status": "accepted"
+      },
+      "error": "An unknown RPC error occurred.\n\nDetails: fetch failed\nVersion: viem@2.50.4"
+    },
+    {
+      "at": "2026-10-11T09:54:51.680Z",
+      "index": 14,
+      "params": {
+        "type": "read",
+        "to": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+        "from": "0x0000000000000000000000000000000000000000",
+        "data": "0xdc9a160461726773150971066d6574686f644c6765745f70726f626500",
+        "status": "finalized"
+      },
+      "error": "An unknown RPC error occurred.\n\nDetails: fetch failed\nVersion: viem@2.50.4"
+    },
+    {
+      "at": "2026-10-11T09:54:51.681Z",
+      "index": 23,
+      "params": {
+        "type": "read",
+        "to": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+        "from": "0x0000000000000000000000000000000000000000",
+        "data": "0xdd9b1604617267731509b901066d6574686f644c6765745f70726f626500",
+        "status": "accepted"
+      },
+      "error": "An unknown RPC error occurred.\n\nDetails: fetch failed\nVersion: viem@2.50.4"
+    },
+    {
+      "at": "2026-10-11T09:54:51.682Z",
+      "index": 23,
+      "params": {
+        "type": "read",
+        "to": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+        "from": "0x0000000000000000000000000000000000000000",
+        "data": "0xdd9b1604617267731509b901066d6574686f644c6765745f70726f626500",
+        "status": "finalized"
+      },
+      "error": "An unknown RPC error occurred.\n\nDetails: fetch failed\nVersion: viem@2.50.4"
+    }
+  ],
+  "ended_at": "2026-10-11T09:54:51.683Z"
+}

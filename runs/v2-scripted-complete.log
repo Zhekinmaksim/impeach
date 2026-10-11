@@ -1,0 +1,468 @@
+{"event": "DISPATCH", "at": 1791633494, "key": "probe:0:0:PINNED", "signature": "c3c76ffb4378ecfe3755956c9cd925235d9c477bac162c406199c982fe3e5d54"}
+Transaction Hash: 0xb9a1db46b115559e976aff2b0df1be18507ba912bdfacb0ba0a0ed1c840e497c
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867941","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:0:PINNED 0xb9a1db46b115559e976aff2b0df1be18507ba912bdfacb0ba0a0ed1c840e497c
+{"event": "SUBMITTED", "at": 1791633541, "key": "probe:0:0:PINNED", "tx": "0xb9a1db46b115559e976aff2b0df1be18507ba912bdfacb0ba0a0ed1c840e497c"}
+{"event": "DISPATCH", "at": 1791633549, "key": "probe:0:0:RECALL", "signature": "853306c34990245a85d107ed18583b6684caf09b5dc2a4ebf3baffcb6a64900a"}
+Transaction Hash: 0x0f4e46cb7c8ccc528b4dae84ace5f038ca9aa5e1a70cb48efc930a3d14817c14
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:0:RECALL 0x0f4e46cb7c8ccc528b4dae84ace5f038ca9aa5e1a70cb48efc930a3d14817c14
+{"event": "PAUSED", "at": 1791633561, "reason": "unknown or inconsistent receipt status: 14"}
+{"phase": "PAUSED", "reason": "unknown or inconsistent receipt status: 14", "exit_code": 2}
+{"event": "DISPATCH", "at": 1791633650, "key": "probe:0:0:REWRITE", "signature": "96a6b58aef181baa3c74a6674de55a95290f3e8dfc5d4531999c71fcd06bd5c8"}
+Transaction Hash: 0x077c44aea3e64c5b88d718738b942ad548384774c7b8f6513b95e0279aeb8914
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"1128284","boundedEstimate":"1128284","gasLimit":"1241113","gasCap":"16777216","calldataBytes":612,"dryRun":false}
+sent  probe:0:0:REWRITE 0x077c44aea3e64c5b88d718738b942ad548384774c7b8f6513b95e0279aeb8914
+{"event": "SUBMITTED", "at": 1791633708, "key": "probe:0:0:REWRITE", "tx": "0x077c44aea3e64c5b88d718738b942ad548384774c7b8f6513b95e0279aeb8914"}
+{"event": "DISPATCH", "at": 1791633716, "key": "probe:0:0:ADMIT", "signature": "42b9d12708e38734b7cb9671fcec7edd8059d30bf245a752972f8be5f62be4a1"}
+Transaction Hash: 0x3d2b4b43869d7778f7f27c92bcb503931c79450bdef10ede936b09336f15151c
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"865003","boundedEstimate":"875886","gasLimit":"963475","gasCap":"16777216","calldataBytes":260,"dryRun":false}
+sent  probe:0:0:ADMIT 0x3d2b4b43869d7778f7f27c92bcb503931c79450bdef10ede936b09336f15151c
+{"event": "SUBMITTED", "at": 1791633768, "key": "probe:0:0:ADMIT", "tx": "0x3d2b4b43869d7778f7f27c92bcb503931c79450bdef10ede936b09336f15151c"}
+{"event": "DISPATCH", "at": 1791633778, "key": "probe:0:1:PINNED", "signature": "1ca0652b99e8277a02ea6d5cfd311a5aac832dc2f810fdad08e4338eddc1b7de"}
+Transaction Hash: 0x6c3ee38b0bdfe1b30e302f08bc83673b37cacb3dc296013395227e10ea840fc9
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"870648","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:1:PINNED 0x6c3ee38b0bdfe1b30e302f08bc83673b37cacb3dc296013395227e10ea840fc9
+{"event": "SUBMITTED", "at": 1791633796, "key": "probe:0:1:PINNED", "tx": "0x6c3ee38b0bdfe1b30e302f08bc83673b37cacb3dc296013395227e10ea840fc9"}
+{"event": "DISPATCH", "at": 1791633803, "key": "probe:0:1:RECALL", "signature": "4793156f45701e4ba04cf7bec25850af2ee4b54c1b8d9d09fa544b512e6b4e90"}
+Transaction Hash: 0xe10d61f1a8c1d6fdd4646b70d3f7acae30bb628b2e1e32effd79f791219e32e8
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:1:RECALL 0xe10d61f1a8c1d6fdd4646b70d3f7acae30bb628b2e1e32effd79f791219e32e8
+{"event": "SUBMITTED", "at": 1791633822, "key": "probe:0:1:RECALL", "tx": "0xe10d61f1a8c1d6fdd4646b70d3f7acae30bb628b2e1e32effd79f791219e32e8"}
+{"event": "DISPATCH", "at": 1791633830, "key": "probe:0:1:REWRITE", "signature": "adace0ccc527912dc23ea75109f53b499badf560e486fdfd20c30cd5881dcd06"}
+Transaction Hash: 0xf8b694fb9c2c9fc478d189b7b27320fac01c51cf474a44ec4ca0b520415f1db6
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"1128435","boundedEstimate":"1128435","gasLimit":"1241279","gasCap":"16777216","calldataBytes":612,"dryRun":false}
+sent  probe:0:1:REWRITE 0xf8b694fb9c2c9fc478d189b7b27320fac01c51cf474a44ec4ca0b520415f1db6
+{"event": "SUBMITTED", "at": 1791633882, "key": "probe:0:1:REWRITE", "tx": "0xf8b694fb9c2c9fc478d189b7b27320fac01c51cf474a44ec4ca0b520415f1db6"}
+{"event": "DISPATCH", "at": 1791633889, "key": "probe:0:1:ADMIT", "signature": "272d15187a4bb816d901ce07424297934526e29383ca41d6c2a09ddb21316a04"}
+Transaction Hash: 0x75ec8bbc578802b9801e34adae606d020b3da3683af9e86a03dbce842e129534
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"865003","boundedEstimate":"865003","gasLimit":"951504","gasCap":"16777216","calldataBytes":260,"dryRun":false}
+sent  probe:0:1:ADMIT 0x75ec8bbc578802b9801e34adae606d020b3da3683af9e86a03dbce842e129534
+{"event": "SUBMITTED", "at": 1791633931, "key": "probe:0:1:ADMIT", "tx": "0x75ec8bbc578802b9801e34adae606d020b3da3683af9e86a03dbce842e129534"}
+{"event": "DISPATCH", "at": 1791633940, "key": "probe:0:2:PINNED", "signature": "65a81058a17ba412e998fb26a11f8123c55e559d61282a71ffe9da9045658402"}
+Transaction Hash: 0x9a678f5486196380a03c5abc12394100502c4a04ab1b99f8f21e92127e96bfa4
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:2:PINNED 0x9a678f5486196380a03c5abc12394100502c4a04ab1b99f8f21e92127e96bfa4
+{"event": "SUBMITTED", "at": 1791633958, "key": "probe:0:2:PINNED", "tx": "0x9a678f5486196380a03c5abc12394100502c4a04ab1b99f8f21e92127e96bfa4"}
+{"event": "DISPATCH", "at": 1791633966, "key": "probe:0:2:RECALL", "signature": "8fa67f1d5d8d03c3ad4433818f5c300ad103410f1b82099e4e4a1237582096b8"}
+Transaction Hash: 0xcae1e67de16230f80b13d2f66c67be7606b17d78db3b916fdb790e402a119d34
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867941","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:2:RECALL 0xcae1e67de16230f80b13d2f66c67be7606b17d78db3b916fdb790e402a119d34
+{"event": "PAUSED", "at": 1791633978, "reason": "unknown or inconsistent receipt status: 14"}
+{"phase": "PAUSED", "reason": "unknown or inconsistent receipt status: 14", "exit_code": 2}
+{"event": "DISPATCH", "at": 1791634019, "key": "probe:0:2:REWRITE", "signature": "ade7c65af9f5f4e2a827c8226703b40ea22a5cbe316c6c9159b6f4b325e75772"}
+Transaction Hash: 0x38d250c9bbfcdb6fd93447ccbfa2d08f0893f7fcee14e5132df0b382416ee4a7
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"1128384","boundedEstimate":"1128384","gasLimit":"1241223","gasCap":"16777216","calldataBytes":612,"dryRun":false}
+sent  probe:0:2:REWRITE 0x38d250c9bbfcdb6fd93447ccbfa2d08f0893f7fcee14e5132df0b382416ee4a7
+{"event": "SUBMITTED", "at": 1791634066, "key": "probe:0:2:REWRITE", "tx": "0x38d250c9bbfcdb6fd93447ccbfa2d08f0893f7fcee14e5132df0b382416ee4a7"}
+{"event": "DISPATCH", "at": 1791634073, "key": "probe:0:2:ADMIT", "signature": "0206a3a62f4e7a5264a982aff69ac01baa685b1fe965971a4a06bbdf06f9b0e2"}
+Transaction Hash: 0x34465f4e798c4ee81210a3a5c337e73934ba48c7ccc81c32bbe4cab547fc3e11
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"865003","boundedEstimate":"865003","gasLimit":"951504","gasCap":"16777216","calldataBytes":260,"dryRun":false}
+sent  probe:0:2:ADMIT 0x34465f4e798c4ee81210a3a5c337e73934ba48c7ccc81c32bbe4cab547fc3e11
+{"event": "ACKNOWLEDGED_FAILURE", "at": 1791634086, "key": "probe:0:2:ADMIT", "tx": "0x34465f4e798c4ee81210a3a5c337e73934ba48c7ccc81c32bbe4cab547fc3e11", "status": "LEADER_TIMEOUT", "execution": "NOT_VOTED", "consensus_result": "IDLE", "receipt": "bradbury-v2-scripted.jsonl.complete/receipts/0x34465f4e798c4ee81210a3a5c337e73934ba48c7ccc81c32bbe4cab547fc3e11-567108e1c6a4a9b1c5f43c8bc93eea6e661b8289f01ef4f4e5d4d75e07d581b3.json", "receipt_sha256": "567108e1c6a4a9b1c5f43c8bc93eea6e661b8289f01ef4f4e5d4d75e07d581b3", "assumed_success": false, "resubmitted": false}
+{"event": "SUBMITTED", "at": 1791634086, "key": "probe:0:2:ADMIT", "tx": "0x34465f4e798c4ee81210a3a5c337e73934ba48c7ccc81c32bbe4cab547fc3e11"}
+{"event": "DISPATCH", "at": 1791634095, "key": "probe:0:3:PINNED", "signature": "6664fb6cbfc668eb6e9ae56d77005cdc33611837e5b90a529434c87fca5b8dd1"}
+Transaction Hash: 0xe706ec3fbb355575282fc137926563b9e0ad0de2bc4139e2ff7a531fb533ffe2
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:3:PINNED 0xe706ec3fbb355575282fc137926563b9e0ad0de2bc4139e2ff7a531fb533ffe2
+{"event": "SUBMITTED", "at": 1791634113, "key": "probe:0:3:PINNED", "tx": "0xe706ec3fbb355575282fc137926563b9e0ad0de2bc4139e2ff7a531fb533ffe2"}
+{"event": "DISPATCH", "at": 1791634120, "key": "probe:0:3:RECALL", "signature": "33ea78a7500db9e52e688623a4c9da2536ed3c50a57efa359c77d53cc30ba243"}
+Transaction Hash: 0xa4f98b68f28e2b7a5d1288807190bb3ffb3f2be140d2b51b63ef91f75b9855d2
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:3:RECALL 0xa4f98b68f28e2b7a5d1288807190bb3ffb3f2be140d2b51b63ef91f75b9855d2
+{"event": "SUBMITTED", "at": 1791634168, "key": "probe:0:3:RECALL", "tx": "0xa4f98b68f28e2b7a5d1288807190bb3ffb3f2be140d2b51b63ef91f75b9855d2"}
+{"event": "DISPATCH", "at": 1791634175, "key": "probe:0:3:REWRITE", "signature": "aed134b103d23ef80b0bb2bdeb5f657b7ac57e8ebb1a74dee176cd25042652ac"}
+Transaction Hash: 0x373daffaf8ff950fbee209ac3d8de7d611c62c3a5723e341cfcdeccbe53d6e8d
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"1128195","boundedEstimate":"1136127","gasLimit":"1249740","gasCap":"16777216","calldataBytes":612,"dryRun":false}
+sent  probe:0:3:REWRITE 0x373daffaf8ff950fbee209ac3d8de7d611c62c3a5723e341cfcdeccbe53d6e8d
+{"event": "SUBMITTED", "at": 1791634240, "key": "probe:0:3:REWRITE", "tx": "0x373daffaf8ff950fbee209ac3d8de7d611c62c3a5723e341cfcdeccbe53d6e8d"}
+{"event": "DISPATCH", "at": 1791634247, "key": "probe:0:3:ADMIT", "signature": "e107cd6ac5a284b21e542cb65c259ea48b7a862882b711225292284afb715bab"}
+Transaction Hash: 0xc256b6cfafedae00e73aa7687d925bf25cb02708051306c36c7ec8acfdf32920
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"865003","boundedEstimate":"865003","gasLimit":"951504","gasCap":"16777216","calldataBytes":260,"dryRun":false}
+sent  probe:0:3:ADMIT 0xc256b6cfafedae00e73aa7687d925bf25cb02708051306c36c7ec8acfdf32920
+{"event": "ACKNOWLEDGED_FAILURE", "at": 1791634254, "key": "probe:0:3:ADMIT", "tx": "0xc256b6cfafedae00e73aa7687d925bf25cb02708051306c36c7ec8acfdf32920", "status": "LEADER_TIMEOUT", "execution": "NOT_VOTED", "consensus_result": "IDLE", "receipt": "bradbury-v2-scripted.jsonl.complete/receipts/0xc256b6cfafedae00e73aa7687d925bf25cb02708051306c36c7ec8acfdf32920-dc7b53acd9cc324c575b6aa42c22e3be2c8b1610caa386432ff78f89ea559ee8.json", "receipt_sha256": "dc7b53acd9cc324c575b6aa42c22e3be2c8b1610caa386432ff78f89ea559ee8", "assumed_success": false, "resubmitted": false}
+{"event": "SUBMITTED", "at": 1791634254, "key": "probe:0:3:ADMIT", "tx": "0xc256b6cfafedae00e73aa7687d925bf25cb02708051306c36c7ec8acfdf32920"}
+{"event": "DISPATCH", "at": 1791634263, "key": "probe:0:4:PINNED", "signature": "99bc861da1a0960a5a161ed5348f0a758c04acc3f58f32e91166dd16db9780c8"}
+Transaction Hash: 0x0340e5036b4147f99f7606912f04d4df67d9fc8aff676eabedbf1abd8ff5f64e
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:4:PINNED 0x0340e5036b4147f99f7606912f04d4df67d9fc8aff676eabedbf1abd8ff5f64e
+{"event": "SUBMITTED", "at": 1791634281, "key": "probe:0:4:PINNED", "tx": "0x0340e5036b4147f99f7606912f04d4df67d9fc8aff676eabedbf1abd8ff5f64e"}
+{"event": "DISPATCH", "at": 1791634289, "key": "probe:0:4:RECALL", "signature": "ce8a6886b03b775859e234ef29b4a8eed018cf0cf327ad79537f6652b2e535a0"}
+Transaction Hash: 0x8c115aee56883707e614dba02f0c151024e07a9de3e24b7bbdc91588d026c3bd
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:4:RECALL 0x8c115aee56883707e614dba02f0c151024e07a9de3e24b7bbdc91588d026c3bd
+{"event": "SUBMITTED", "at": 1791634307, "key": "probe:0:4:RECALL", "tx": "0x8c115aee56883707e614dba02f0c151024e07a9de3e24b7bbdc91588d026c3bd"}
+{"event": "DISPATCH", "at": 1791634314, "key": "probe:0:4:REWRITE", "signature": "6e0081cb278723ff015e195677f27dc74b08a274ebac7b8d6bc341eb1621e7c2"}
+Transaction Hash: 0xffa3c8873c4752ad077e6ff4a0dc79bdd0e49a582d7ac95fbf65ea1f45b66c59
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"1128396","boundedEstimate":"1128396","gasLimit":"1241236","gasCap":"16777216","calldataBytes":612,"dryRun":false}
+sent  probe:0:4:REWRITE 0xffa3c8873c4752ad077e6ff4a0dc79bdd0e49a582d7ac95fbf65ea1f45b66c59
+{"event": "ACKNOWLEDGED_FAILURE", "at": 1791634327, "key": "probe:0:4:REWRITE", "tx": "0xffa3c8873c4752ad077e6ff4a0dc79bdd0e49a582d7ac95fbf65ea1f45b66c59", "status": "LEADER_TIMEOUT", "execution": "NOT_VOTED", "consensus_result": "IDLE", "receipt": "bradbury-v2-scripted.jsonl.complete/receipts/0xffa3c8873c4752ad077e6ff4a0dc79bdd0e49a582d7ac95fbf65ea1f45b66c59-ecb75ee418f3c6d53db7c252b4b0a3235193c03df1d9fc4fa680e4d6debe21a2.json", "receipt_sha256": "ecb75ee418f3c6d53db7c252b4b0a3235193c03df1d9fc4fa680e4d6debe21a2", "assumed_success": false, "resubmitted": false}
+{"event": "SUBMITTED", "at": 1791634327, "key": "probe:0:4:REWRITE", "tx": "0xffa3c8873c4752ad077e6ff4a0dc79bdd0e49a582d7ac95fbf65ea1f45b66c59"}
+{"event": "DISPATCH", "at": 1791634338, "key": "probe:0:5:PINNED", "signature": "17fafda9a9cf3da2eb81495ea648cfb38d952fc5258cd4f268e722044b77f4f9"}
+Transaction Hash: 0xc10bd22a16e854cdb0cd2f31dd5f227f77d50067d352e6c327c10f4bafc3f8d1
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867941","gasLimit":"954736","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:5:PINNED 0xc10bd22a16e854cdb0cd2f31dd5f227f77d50067d352e6c327c10f4bafc3f8d1
+{"event": "SUBMITTED", "at": 1791634360, "key": "probe:0:5:PINNED", "tx": "0xc10bd22a16e854cdb0cd2f31dd5f227f77d50067d352e6c327c10f4bafc3f8d1"}
+{"event": "DISPATCH", "at": 1791634368, "key": "probe:0:5:RECALL", "signature": "9b8c44cc90b0391813e7ca5715ae5833592de918f9debebae02a8c760ae8fad1"}
+Transaction Hash: 0x4b497f99bb26f1a605469af17eb4daeeb1c3eff7ab8e233705366d311c6f0b37
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:5:RECALL 0x4b497f99bb26f1a605469af17eb4daeeb1c3eff7ab8e233705366d311c6f0b37
+{"event": "SUBMITTED", "at": 1791634392, "key": "probe:0:5:RECALL", "tx": "0x4b497f99bb26f1a605469af17eb4daeeb1c3eff7ab8e233705366d311c6f0b37"}
+{"event": "DISPATCH", "at": 1791634399, "key": "probe:0:5:REWRITE", "signature": "84219e5a168332aef300ede47644f74ed2dd972f2096eab330788d531481087e"}
+Transaction Hash: 0x45e33b82152cc367a1e5e054d6fe40a6a94a87368d8a0b723a46f825c5782096
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"1128359","boundedEstimate":"1128359","gasLimit":"1241195","gasCap":"16777216","calldataBytes":612,"dryRun":false}
+sent  probe:0:5:REWRITE 0x45e33b82152cc367a1e5e054d6fe40a6a94a87368d8a0b723a46f825c5782096
+{"event": "SUBMITTED", "at": 1791634451, "key": "probe:0:5:REWRITE", "tx": "0x45e33b82152cc367a1e5e054d6fe40a6a94a87368d8a0b723a46f825c5782096"}
+{"event": "DISPATCH", "at": 1791634459, "key": "probe:0:5:ADMIT", "signature": "9b8e27966b163e659ca95a6ee251b812b1491c96e505ec2b3f658d6dab06cb9f"}
+Transaction Hash: 0x42dce6013ea0fc4f0eff9bde9cda8d5110e5fdbd019a2ec166859b1477594fd9
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"876130","boundedEstimate":"865003","gasLimit":"951504","gasCap":"16777216","calldataBytes":260,"dryRun":false}
+sent  probe:0:5:ADMIT 0x42dce6013ea0fc4f0eff9bde9cda8d5110e5fdbd019a2ec166859b1477594fd9
+{"event": "SUBMITTED", "at": 1791634489, "key": "probe:0:5:ADMIT", "tx": "0x42dce6013ea0fc4f0eff9bde9cda8d5110e5fdbd019a2ec166859b1477594fd9"}
+{"event": "DISPATCH", "at": 1791634498, "key": "probe:0:6:PINNED", "signature": "f0889fdea9b61ec121eeed6b31614c77b47789fde4f31edfe92bc5791847a5b5"}
+Transaction Hash: 0xfc7a103c0ae7b7892accf522eab048d0983190858394b12e37c378927b0de876
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:6:PINNED 0xfc7a103c0ae7b7892accf522eab048d0983190858394b12e37c378927b0de876
+{"event": "SUBMITTED", "at": 1791634517, "key": "probe:0:6:PINNED", "tx": "0xfc7a103c0ae7b7892accf522eab048d0983190858394b12e37c378927b0de876"}
+{"event": "DISPATCH", "at": 1791634525, "key": "probe:0:6:RECALL", "signature": "8a516bb71ae6c222bc88b55ff777ba849655461e1d1e41a97e4a47713e66e495"}
+Transaction Hash: 0x54087fab81341233d6c14e7006c681ff7e90fcb810ced4a3ec126a1d7177c1a6
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867941","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:6:RECALL 0x54087fab81341233d6c14e7006c681ff7e90fcb810ced4a3ec126a1d7177c1a6
+{"event": "SUBMITTED", "at": 1791634543, "key": "probe:0:6:RECALL", "tx": "0x54087fab81341233d6c14e7006c681ff7e90fcb810ced4a3ec126a1d7177c1a6"}
+{"event": "DISPATCH", "at": 1791634550, "key": "probe:0:6:REWRITE", "signature": "ec0ad2af2625bf9de1cad04e57f7d9861cadc12e5a89f62190057b7e575df126"}
+Transaction Hash: 0x35c0992730a51a3e0fc178ef041dea8764469be61e0b84d95134da96583ce675
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"1128396","boundedEstimate":"1136328","gasLimit":"1249961","gasCap":"16777216","calldataBytes":612,"dryRun":false}
+sent  probe:0:6:REWRITE 0x35c0992730a51a3e0fc178ef041dea8764469be61e0b84d95134da96583ce675
+{"event": "SUBMITTED", "at": 1791634625, "key": "probe:0:6:REWRITE", "tx": "0x35c0992730a51a3e0fc178ef041dea8764469be61e0b84d95134da96583ce675"}
+{"event": "DISPATCH", "at": 1791634632, "key": "probe:0:6:ADMIT", "signature": "9a20e1dec89977e0ad376afce0094065af72a4dba12f4a886c828b2e9ad19af5"}
+Transaction Hash: 0xe81daba0d3875eee281138df1316fa1fd6ae23c848ff870b46ae1b27c605328f
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"865003","boundedEstimate":"865003","gasLimit":"951504","gasCap":"16777216","calldataBytes":260,"dryRun":false}
+sent  probe:0:6:ADMIT 0xe81daba0d3875eee281138df1316fa1fd6ae23c848ff870b46ae1b27c605328f
+{"event": "SUBMITTED", "at": 1791634680, "key": "probe:0:6:ADMIT", "tx": "0xe81daba0d3875eee281138df1316fa1fd6ae23c848ff870b46ae1b27c605328f"}
+{"event": "DISPATCH", "at": 1791634689, "key": "probe:0:7:PINNED", "signature": "b5383eb55f65df5eeb56c6f133bf563aa93d53c0f7828e32e36f3fcc388ad8ec"}
+Transaction Hash: 0x9ca2bafb9c4879cf766f22de840c3cb09d76b5bac43c7a75704aa533f45d1384
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:7:PINNED 0x9ca2bafb9c4879cf766f22de840c3cb09d76b5bac43c7a75704aa533f45d1384
+{"event": "SUBMITTED", "at": 1791634707, "key": "probe:0:7:PINNED", "tx": "0x9ca2bafb9c4879cf766f22de840c3cb09d76b5bac43c7a75704aa533f45d1384"}
+{"event": "DISPATCH", "at": 1791634719, "key": "probe:0:7:RECALL", "signature": "8fb1b3638b805e36e70de0aade1468d3cd12d6452f8c0a8e11f8c8a6f9e6fbd6"}
+Transaction Hash: 0x00651c8dfc964edd5b081c9823350823ac2ed7e02e34bfae6948ff9921043d1b
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:7:RECALL 0x00651c8dfc964edd5b081c9823350823ac2ed7e02e34bfae6948ff9921043d1b
+{"event": "SUBMITTED", "at": 1791634731, "key": "probe:0:7:RECALL", "tx": "0x00651c8dfc964edd5b081c9823350823ac2ed7e02e34bfae6948ff9921043d1b"}
+{"event": "DISPATCH", "at": 1791634742, "key": "probe:0:7:REWRITE", "signature": "fd6b36b5fd310a9d7a4af1096c37aafcadcffe2e563421277bb5c028357ddd6f"}
+Transaction Hash: 0xa2ae1fab016ff329eb2fab2381ac4c31594b87ecfe7897d6c88cbf0f6ebbc9b1
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"1128284","boundedEstimate":"1128284","gasLimit":"1241113","gasCap":"16777216","calldataBytes":612,"dryRun":false}
+sent  probe:0:7:REWRITE 0xa2ae1fab016ff329eb2fab2381ac4c31594b87ecfe7897d6c88cbf0f6ebbc9b1
+{"event": "SUBMITTED", "at": 1791634832, "key": "probe:0:7:REWRITE", "tx": "0xa2ae1fab016ff329eb2fab2381ac4c31594b87ecfe7897d6c88cbf0f6ebbc9b1"}
+{"event": "DISPATCH", "at": 1791634839, "key": "probe:0:7:ADMIT", "signature": "2944d4ab564fbea056fe869822f0eea937891b8fd2d574d1ff18a8fe1d52b100"}
+Transaction Hash: 0x7041168b999c143cb0f81ecf8b680ad9168fd305cbb19c162ea8b6bc450410c9
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"865003","boundedEstimate":"865003","gasLimit":"951504","gasCap":"16777216","calldataBytes":260,"dryRun":false}
+sent  probe:0:7:ADMIT 0x7041168b999c143cb0f81ecf8b680ad9168fd305cbb19c162ea8b6bc450410c9
+{"event": "ACKNOWLEDGED_FAILURE", "at": 1791634851, "key": "probe:0:7:ADMIT", "tx": "0x7041168b999c143cb0f81ecf8b680ad9168fd305cbb19c162ea8b6bc450410c9", "status": "LEADER_TIMEOUT", "execution": "NOT_VOTED", "consensus_result": "IDLE", "receipt": "bradbury-v2-scripted.jsonl.complete/receipts/0x7041168b999c143cb0f81ecf8b680ad9168fd305cbb19c162ea8b6bc450410c9-c0601626d4cba98e7436b3bb5de1366d995438110ed63c2f0179747469ca42a0.json", "receipt_sha256": "c0601626d4cba98e7436b3bb5de1366d995438110ed63c2f0179747469ca42a0", "assumed_success": false, "resubmitted": false}
+{"event": "SUBMITTED", "at": 1791634851, "key": "probe:0:7:ADMIT", "tx": "0x7041168b999c143cb0f81ecf8b680ad9168fd305cbb19c162ea8b6bc450410c9"}
+{"event": "DISPATCH", "at": 1791634860, "key": "probe:0:8:PINNED", "signature": "02723c1feb6c3d73af218f59ba9556926601d754db370523d6bfb23de2d750ad"}
+Transaction Hash: 0x0f7a79d45d7ec13f49ef0a2adde26d1e59cd6420cb1f347788133b2883d2dbc9
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:8:PINNED 0x0f7a79d45d7ec13f49ef0a2adde26d1e59cd6420cb1f347788133b2883d2dbc9
+{"event": "SUBMITTED", "at": 1791634879, "key": "probe:0:8:PINNED", "tx": "0x0f7a79d45d7ec13f49ef0a2adde26d1e59cd6420cb1f347788133b2883d2dbc9"}
+{"event": "DISPATCH", "at": 1791634886, "key": "probe:0:8:RECALL", "signature": "e8cd33724d401e6ddca8cf4ff1c9ed9ca9530bd1ad9648318dd65410a3fde356"}
+Transaction Hash: 0x4085fead866b5a34c544c80cc21a06f9c7a6bb4232efa509475689730d70dece
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:8:RECALL 0x4085fead866b5a34c544c80cc21a06f9c7a6bb4232efa509475689730d70dece
+{"event": "SUBMITTED", "at": 1791634904, "key": "probe:0:8:RECALL", "tx": "0x4085fead866b5a34c544c80cc21a06f9c7a6bb4232efa509475689730d70dece"}
+{"event": "DISPATCH", "at": 1791634911, "key": "probe:0:8:REWRITE", "signature": "5f63bf81c5966f30ba3bed914ad7cd56756431704ebf7b0f99a48bd5ace55348"}
+Transaction Hash: 0x3a4e5d2039e64cacc6aa76aa2bc03993e2b45b3e31cca43223ca8bfe4e4c3b75
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"1128246","boundedEstimate":"1128246","gasLimit":"1241071","gasCap":"16777216","calldataBytes":612,"dryRun":false}
+sent  probe:0:8:REWRITE 0x3a4e5d2039e64cacc6aa76aa2bc03993e2b45b3e31cca43223ca8bfe4e4c3b75
+{"event": "SUBMITTED", "at": 1791634969, "key": "probe:0:8:REWRITE", "tx": "0x3a4e5d2039e64cacc6aa76aa2bc03993e2b45b3e31cca43223ca8bfe4e4c3b75"}
+{"event": "DISPATCH", "at": 1791634975, "key": "probe:0:8:ADMIT", "signature": "70874fad4cf844ac2ec57591a338532a7a028cc39be37d560c87f5b4d390040b"}
+Transaction Hash: 0xb3d0f91487def18a63247e86dfef6d864f4a1a2b0cd75f9956d78b2b78966755
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"865003","boundedEstimate":"865003","gasLimit":"951504","gasCap":"16777216","calldataBytes":260,"dryRun":false}
+sent  probe:0:8:ADMIT 0xb3d0f91487def18a63247e86dfef6d864f4a1a2b0cd75f9956d78b2b78966755
+{"event": "ACKNOWLEDGED_FAILURE", "at": 1791634988, "key": "probe:0:8:ADMIT", "tx": "0xb3d0f91487def18a63247e86dfef6d864f4a1a2b0cd75f9956d78b2b78966755", "status": "LEADER_TIMEOUT", "execution": "NOT_VOTED", "consensus_result": "IDLE", "receipt": "bradbury-v2-scripted.jsonl.complete/receipts/0xb3d0f91487def18a63247e86dfef6d864f4a1a2b0cd75f9956d78b2b78966755-1603611db039ed27be3a051e7f41796a8867f6219d4fd9c83a75e1c5b499c83e.json", "receipt_sha256": "1603611db039ed27be3a051e7f41796a8867f6219d4fd9c83a75e1c5b499c83e", "assumed_success": false, "resubmitted": false}
+{"event": "SUBMITTED", "at": 1791634988, "key": "probe:0:8:ADMIT", "tx": "0xb3d0f91487def18a63247e86dfef6d864f4a1a2b0cd75f9956d78b2b78966755"}
+{"event": "DISPATCH", "at": 1791634997, "key": "probe:0:9:PINNED", "signature": "e5deb29567aae83ac2afdde40269012f6a33dd3e8b6c7773ca4586dfa5412c54"}
+Transaction Hash: 0xe3d6cd8335cf59fe6afeae3aee26ed092628736d5cf8fa7be78f258ed4e0b54a
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"870648","gasLimit":"957713","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:9:PINNED 0xe3d6cd8335cf59fe6afeae3aee26ed092628736d5cf8fa7be78f258ed4e0b54a
+{"event": "SUBMITTED", "at": 1791635043, "key": "probe:0:9:PINNED", "tx": "0xe3d6cd8335cf59fe6afeae3aee26ed092628736d5cf8fa7be78f258ed4e0b54a"}
+{"event": "DISPATCH", "at": 1791635051, "key": "probe:0:9:RECALL", "signature": "a7a306560fee4579d6d05765984a7f1f4566f2d466ce0ca836bc227e89c50b59"}
+Transaction Hash: 0x885b1df93632284a68012a242d9904316bd9d157f1d2804ce9000e0587b310b5
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:9:RECALL 0x885b1df93632284a68012a242d9904316bd9d157f1d2804ce9000e0587b310b5
+{"event": "SUBMITTED", "at": 1791635069, "key": "probe:0:9:RECALL", "tx": "0x885b1df93632284a68012a242d9904316bd9d157f1d2804ce9000e0587b310b5"}
+{"event": "DISPATCH", "at": 1791635077, "key": "probe:0:9:REWRITE", "signature": "b91b8dd463eca42b03549e9a714778939075cfbe417a7f90f3ed1c8fc8e2234c"}
+Transaction Hash: 0xb2682d91a342a6780eff9dd6beca704c327ebaada1129c99688de6a5fad30ed9
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"1128209","boundedEstimate":"1128209","gasLimit":"1241030","gasCap":"16777216","calldataBytes":612,"dryRun":false}
+sent  probe:0:9:REWRITE 0xb2682d91a342a6780eff9dd6beca704c327ebaada1129c99688de6a5fad30ed9
+{"event": "SUBMITTED", "at": 1791635112, "key": "probe:0:9:REWRITE", "tx": "0xb2682d91a342a6780eff9dd6beca704c327ebaada1129c99688de6a5fad30ed9"}
+{"event": "DISPATCH", "at": 1791635119, "key": "probe:0:9:ADMIT", "signature": "6b1592c022a5141d2bfb1e41b0b0b2c657116df47650e68549ebf45978108840"}
+Transaction Hash: 0x5b8e5a3dac0cd4fa99b4c2788b14aa53262586dd4a98c7c11f49c98e858450d5
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"865003","boundedEstimate":"865003","gasLimit":"951504","gasCap":"16777216","calldataBytes":260,"dryRun":false}
+sent  probe:0:9:ADMIT 0x5b8e5a3dac0cd4fa99b4c2788b14aa53262586dd4a98c7c11f49c98e858450d5
+{"event": "SUBMITTED", "at": 1791635177, "key": "probe:0:9:ADMIT", "tx": "0x5b8e5a3dac0cd4fa99b4c2788b14aa53262586dd4a98c7c11f49c98e858450d5"}
+{"event": "DISPATCH", "at": 1791635186, "key": "probe:0:10:PINNED", "signature": "c118b7320c48a5c261fcf4b0b3a4c25b35e6e5c6dab872440f800ec5c072aa4d"}
+Transaction Hash: 0xe8ec5b272f02cb6081eda1381eb7b89ccb573b29540ed5c36bac23e2a4a984ff
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"875627","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:10:PINNED 0xe8ec5b272f02cb6081eda1381eb7b89ccb573b29540ed5c36bac23e2a4a984ff
+{"event": "SUBMITTED", "at": 1791635204, "key": "probe:0:10:PINNED", "tx": "0xe8ec5b272f02cb6081eda1381eb7b89ccb573b29540ed5c36bac23e2a4a984ff"}
+{"event": "DISPATCH", "at": 1791635211, "key": "probe:0:10:RECALL", "signature": "0993e6ba35fa0c3bd752d6ca96d661adce7bfaae6dac7d25e7bf3dbfb0d674f6"}
+Transaction Hash: 0xeae7346bb10697f32002112d5248203e7a7517faf764193c80b9568444bd2cc7
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:10:RECALL 0xeae7346bb10697f32002112d5248203e7a7517faf764193c80b9568444bd2cc7
+{"event": "SUBMITTED", "at": 1791635230, "key": "probe:0:10:RECALL", "tx": "0xeae7346bb10697f32002112d5248203e7a7517faf764193c80b9568444bd2cc7"}
+{"event": "DISPATCH", "at": 1791635237, "key": "probe:0:10:REWRITE", "signature": "ff316201e2e00a6aea2ccfc713780b71122b2b965401016f637dcd3776a450e0"}
+Transaction Hash: 0x571cc4d110a0bc18ceeda54055e45c9c6e1576f16ee23828cddb4266e118ea0b
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"1152115","boundedEstimate":"1152115","gasLimit":"1267327","gasCap":"16777216","calldataBytes":644,"dryRun":false}
+sent  probe:0:10:REWRITE 0x571cc4d110a0bc18ceeda54055e45c9c6e1576f16ee23828cddb4266e118ea0b
+{"event": "SUBMITTED", "at": 1791635300, "key": "probe:0:10:REWRITE", "tx": "0x571cc4d110a0bc18ceeda54055e45c9c6e1576f16ee23828cddb4266e118ea0b"}
+{"event": "DISPATCH", "at": 1791635308, "key": "probe:0:10:ADMIT", "signature": "b2a759d41723c4854a2acf5415e4607e7cd469d55bf5ade7ede8fa709f270d4b"}
+Transaction Hash: 0x2b894bf25bbab0d1a56af334a6e6b33d6fdef64afc2e6905fce98fd17909ba05
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"865003","boundedEstimate":"865003","gasLimit":"951504","gasCap":"16777216","calldataBytes":260,"dryRun":false}
+sent  probe:0:10:ADMIT 0x2b894bf25bbab0d1a56af334a6e6b33d6fdef64afc2e6905fce98fd17909ba05
+{"event": "SUBMITTED", "at": 1791635354, "key": "probe:0:10:ADMIT", "tx": "0x2b894bf25bbab0d1a56af334a6e6b33d6fdef64afc2e6905fce98fd17909ba05"}
+{"event": "DISPATCH", "at": 1791635363, "key": "probe:0:11:PINNED", "signature": "46563c727f26bc39935c105b7008977f1fff016a4cc8eefb8b2829849cc8993e"}
+Transaction Hash: 0x4edf4e670448572e2f20878271f344ce9f1f1680f9354b1699b29104f4136d21
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:11:PINNED 0x4edf4e670448572e2f20878271f344ce9f1f1680f9354b1699b29104f4136d21
+{"event": "SUBMITTED", "at": 1791635381, "key": "probe:0:11:PINNED", "tx": "0x4edf4e670448572e2f20878271f344ce9f1f1680f9354b1699b29104f4136d21"}
+{"event": "DISPATCH", "at": 1791635388, "key": "probe:0:11:RECALL", "signature": "b861842598f9e3657a710ccc83b822d4f25708be0887f7a7f5d4cdd303bcbfa7"}
+Transaction Hash: 0xf469d5cdd442beff95e5a6fe6e78fb6dc185f5f6ceac7d23018441afa7689c3f
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:11:RECALL 0xf469d5cdd442beff95e5a6fe6e78fb6dc185f5f6ceac7d23018441afa7689c3f
+{"event": "SUBMITTED", "at": 1791635407, "key": "probe:0:11:RECALL", "tx": "0xf469d5cdd442beff95e5a6fe6e78fb6dc185f5f6ceac7d23018441afa7689c3f"}
+{"event": "DISPATCH", "at": 1791635415, "key": "probe:0:11:REWRITE", "signature": "3693b4616451627606003373f5a6e033c852e3b11588873bc9b79d37226b773e"}
+Transaction Hash: 0xd5d146f208ff37c2aea6390935af3081a20d2092f2ed9fde1272e1f381a1dc6d
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"1128359","boundedEstimate":"1128359","gasLimit":"1241195","gasCap":"16777216","calldataBytes":612,"dryRun":false}
+sent  probe:0:11:REWRITE 0xd5d146f208ff37c2aea6390935af3081a20d2092f2ed9fde1272e1f381a1dc6d
+{"event": "SUBMITTED", "at": 1791635456, "key": "probe:0:11:REWRITE", "tx": "0xd5d146f208ff37c2aea6390935af3081a20d2092f2ed9fde1272e1f381a1dc6d"}
+{"event": "DISPATCH", "at": 1791635463, "key": "probe:0:11:ADMIT", "signature": "23289a3ca0d7435f940c796b60ab29908dd08dfec244fdac4852eead35e64182"}
+Transaction Hash: 0x29ae48a2f71cca7674ed3ad96b68130ec9bb88697fccd76d19761146ac4ae71a
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"865003","boundedEstimate":"865003","gasLimit":"951504","gasCap":"16777216","calldataBytes":260,"dryRun":false}
+sent  probe:0:11:ADMIT 0x29ae48a2f71cca7674ed3ad96b68130ec9bb88697fccd76d19761146ac4ae71a
+{"event": "SUBMITTED", "at": 1791635504, "key": "probe:0:11:ADMIT", "tx": "0x29ae48a2f71cca7674ed3ad96b68130ec9bb88697fccd76d19761146ac4ae71a"}
+{"event": "DISPATCH", "at": 1791635513, "key": "probe:0:12:PINNED", "signature": "8e7627d4c7df48482679345c404b451eca1b20866dfdab0f4a67dd275a1b675f"}
+Transaction Hash: 0x906f5f196abbb9285daac495e2ceaf7d23a2ed932c3049c3b08362502d677580
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:12:PINNED 0x906f5f196abbb9285daac495e2ceaf7d23a2ed932c3049c3b08362502d677580
+{"event": "SUBMITTED", "at": 1791635532, "key": "probe:0:12:PINNED", "tx": "0x906f5f196abbb9285daac495e2ceaf7d23a2ed932c3049c3b08362502d677580"}
+{"event": "DISPATCH", "at": 1791635544, "key": "probe:0:12:RECALL", "signature": "4788a5e4dae3fc256c997f3e94a736679cfbb8af40c38372010878574f5c0c07"}
+Transaction Hash: 0x06c3c29dc5eb00bce59a47aa4fd05862a84be1ce48d4cc5f3e3afe83629011d6
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867941","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:12:RECALL 0x06c3c29dc5eb00bce59a47aa4fd05862a84be1ce48d4cc5f3e3afe83629011d6
+{"event": "SUBMITTED", "at": 1791635562, "key": "probe:0:12:RECALL", "tx": "0x06c3c29dc5eb00bce59a47aa4fd05862a84be1ce48d4cc5f3e3afe83629011d6"}
+{"event": "DISPATCH", "at": 1791635570, "key": "probe:0:12:REWRITE", "signature": "7e02da2932750270a57bb8bbb5edd600582254225f74773af84f0becd62ee60f"}
+Transaction Hash: 0x47f7659df06f6e69f837128bf7c3ea3db382ddb306adcb5610992262d64aae79
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"1128284","boundedEstimate":"1128284","gasLimit":"1241113","gasCap":"16777216","calldataBytes":612,"dryRun":false}
+sent  probe:0:12:REWRITE 0x47f7659df06f6e69f837128bf7c3ea3db382ddb306adcb5610992262d64aae79
+{"event": "SUBMITTED", "at": 1791635634, "key": "probe:0:12:REWRITE", "tx": "0x47f7659df06f6e69f837128bf7c3ea3db382ddb306adcb5610992262d64aae79"}
+{"event": "DISPATCH", "at": 1791635641, "key": "probe:0:12:ADMIT", "signature": "d892b4bdac54fc9b4cde8f16dd623d1cec31c18340f11e751249075234949e73"}
+Transaction Hash: 0xfb917986cc30d2085d5264072108f79462addb72ff7e5e0ef4a7b59e9945424f
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"865003","boundedEstimate":"867954","gasLimit":"954750","gasCap":"16777216","calldataBytes":260,"dryRun":false}
+sent  probe:0:12:ADMIT 0xfb917986cc30d2085d5264072108f79462addb72ff7e5e0ef4a7b59e9945424f
+{"event": "SUBMITTED", "at": 1791635699, "key": "probe:0:12:ADMIT", "tx": "0xfb917986cc30d2085d5264072108f79462addb72ff7e5e0ef4a7b59e9945424f"}
+{"event": "DISPATCH", "at": 1791635708, "key": "probe:0:13:PINNED", "signature": "cc1c5cb7f2d7b36f03fd8241e21d5b7c6b144881db81780fa44c291cb2743804"}
+Transaction Hash: 0x7b2e3307a09c0032db07521e92f64e8cc7d8b9c4f72e516989b700c31d7409be
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:13:PINNED 0x7b2e3307a09c0032db07521e92f64e8cc7d8b9c4f72e516989b700c31d7409be
+{"event": "SUBMITTED", "at": 1791635727, "key": "probe:0:13:PINNED", "tx": "0x7b2e3307a09c0032db07521e92f64e8cc7d8b9c4f72e516989b700c31d7409be"}
+{"event": "DISPATCH", "at": 1791635735, "key": "probe:0:13:RECALL", "signature": "e747ffbcd0b7cf8f96f7a0a6e767767c92fc8cc4f6b3357125b08360b8e55cd8"}
+Transaction Hash: 0xd6cef74dbcf749bca920fc90e0b8b5553b86b9f1d32e8aebdb8b7028c42638bc
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:13:RECALL 0xd6cef74dbcf749bca920fc90e0b8b5553b86b9f1d32e8aebdb8b7028c42638bc
+{"event": "SUBMITTED", "at": 1791635781, "key": "probe:0:13:RECALL", "tx": "0xd6cef74dbcf749bca920fc90e0b8b5553b86b9f1d32e8aebdb8b7028c42638bc"}
+{"event": "DISPATCH", "at": 1791635789, "key": "probe:0:13:REWRITE", "signature": "e85324c1cb11f9e7c3e86cfb69082d5a212d68228f71f97d1690eedec3483a7e"}
+Transaction Hash: 0xa6fec1bdf2fa95ac6dbcd2fb29ccd33eb4251eb73a7cca86b45c2eef579061a4
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"1128372","boundedEstimate":"1128372","gasLimit":"1241210","gasCap":"16777216","calldataBytes":612,"dryRun":false}
+sent  probe:0:13:REWRITE 0xa6fec1bdf2fa95ac6dbcd2fb29ccd33eb4251eb73a7cca86b45c2eef579061a4
+{"event": "SUBMITTED", "at": 1791635830, "key": "probe:0:13:REWRITE", "tx": "0xa6fec1bdf2fa95ac6dbcd2fb29ccd33eb4251eb73a7cca86b45c2eef579061a4"}
+{"event": "DISPATCH", "at": 1791635837, "key": "probe:0:13:ADMIT", "signature": "fa03b65b7e4a78846a1ae22abe2572a5d4731ef9950d857c76248f184ddcb244"}
+Transaction Hash: 0xac350c9f9547d05a945b80d26a49e84a9e2ca40825285b63ce16d7cacc69271d
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"865003","boundedEstimate":"865003","gasLimit":"951504","gasCap":"16777216","calldataBytes":260,"dryRun":false}
+sent  probe:0:13:ADMIT 0xac350c9f9547d05a945b80d26a49e84a9e2ca40825285b63ce16d7cacc69271d
+{"event": "SUBMITTED", "at": 1791635895, "key": "probe:0:13:ADMIT", "tx": "0xac350c9f9547d05a945b80d26a49e84a9e2ca40825285b63ce16d7cacc69271d"}
+{"event": "DISPATCH", "at": 1791635904, "key": "probe:0:14:PINNED", "signature": "8f3f09fcce5786dddadefa0009f6491734d328cf7232da076d669b8f0a818462"}
+Transaction Hash: 0xd069344629095d970957c721c7a2d1c7bb7f6591b0b88f0f43815530477256b3
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:14:PINNED 0xd069344629095d970957c721c7a2d1c7bb7f6591b0b88f0f43815530477256b3
+{"event": "SUBMITTED", "at": 1791635922, "key": "probe:0:14:PINNED", "tx": "0xd069344629095d970957c721c7a2d1c7bb7f6591b0b88f0f43815530477256b3"}
+{"event": "DISPATCH", "at": 1791635929, "key": "probe:0:14:RECALL", "signature": "bad1e63e71cd75ef90db8a203351a38a44371a8dfcb34673045ac398485c5d6f"}
+Transaction Hash: 0x8e102e52b5c35306bcb387309012672bd7e759b9d1b0b9af04556cef6da993cd
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:14:RECALL 0x8e102e52b5c35306bcb387309012672bd7e759b9d1b0b9af04556cef6da993cd
+{"event": "SUBMITTED", "at": 1791635947, "key": "probe:0:14:RECALL", "tx": "0x8e102e52b5c35306bcb387309012672bd7e759b9d1b0b9af04556cef6da993cd"}
+{"event": "DISPATCH", "at": 1791635955, "key": "probe:0:14:REWRITE", "signature": "056b2ad6b9be4527925b7871966b0c4f1773209aaedb821a488bdccd5c2bb953"}
+Transaction Hash: 0x807cd78b8d09f91047a7d7d7e42409b12c8c627bf235c8c312ebc2e117179931
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"1128195","boundedEstimate":"1128195","gasLimit":"1241015","gasCap":"16777216","calldataBytes":612,"dryRun":false}
+sent  probe:0:14:REWRITE 0x807cd78b8d09f91047a7d7d7e42409b12c8c627bf235c8c312ebc2e117179931
+{"event": "ACKNOWLEDGED_FAILURE", "at": 1791635967, "key": "probe:0:14:REWRITE", "tx": "0x807cd78b8d09f91047a7d7d7e42409b12c8c627bf235c8c312ebc2e117179931", "status": "LEADER_TIMEOUT", "execution": "NOT_VOTED", "consensus_result": "IDLE", "receipt": "bradbury-v2-scripted.jsonl.complete/receipts/0x807cd78b8d09f91047a7d7d7e42409b12c8c627bf235c8c312ebc2e117179931-733e95561d9d581b5df7b32b4caaf2a81d1ec60439c69ae2f651f900422ab489.json", "receipt_sha256": "733e95561d9d581b5df7b32b4caaf2a81d1ec60439c69ae2f651f900422ab489", "assumed_success": false, "resubmitted": false}
+{"event": "SUBMITTED", "at": 1791635967, "key": "probe:0:14:REWRITE", "tx": "0x807cd78b8d09f91047a7d7d7e42409b12c8c627bf235c8c312ebc2e117179931"}
+{"event": "DISPATCH", "at": 1791635978, "key": "probe:0:15:PINNED", "signature": "f2b217c4296959485319ca402dff27d3755877394f1a9e0fee7512969597a631"}
+Transaction Hash: 0xafc268d2ae375b36b06e28e6758712940e7a160c2120d69b136105c7c5978bcf
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"875627","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:15:PINNED 0xafc268d2ae375b36b06e28e6758712940e7a160c2120d69b136105c7c5978bcf
+{"event": "SUBMITTED", "at": 1791635996, "key": "probe:0:15:PINNED", "tx": "0xafc268d2ae375b36b06e28e6758712940e7a160c2120d69b136105c7c5978bcf"}
+{"event": "DISPATCH", "at": 1791636003, "key": "probe:0:15:RECALL", "signature": "3ee053c99c01bc7f1f0c8688d0ef2f08a3d8eef7fdd27ae9c41171d249b6513d"}
+Transaction Hash: 0x3989d66fb263234dffa68433095092f00e9f10e41a88912fe56720eb92a570d4
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867941","gasLimit":"954736","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:15:RECALL 0x3989d66fb263234dffa68433095092f00e9f10e41a88912fe56720eb92a570d4
+{"event": "SUBMITTED", "at": 1791636056, "key": "probe:0:15:RECALL", "tx": "0x3989d66fb263234dffa68433095092f00e9f10e41a88912fe56720eb92a570d4"}
+{"event": "DISPATCH", "at": 1791636063, "key": "probe:0:15:REWRITE", "signature": "b486b7c45e8f42aeba26887520c7eed32bec78dd71d33ef2c9af7b4fdec9f551"}
+Transaction Hash: 0x94d6701d3f30cdfd457f8dc85c20dc960258c7193a274c7a585abe414ea219ed
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"1104556","boundedEstimate":"1104556","gasLimit":"1215012","gasCap":"16777216","calldataBytes":580,"dryRun":false}
+sent  probe:0:15:REWRITE 0x94d6701d3f30cdfd457f8dc85c20dc960258c7193a274c7a585abe414ea219ed
+{"event": "SUBMITTED", "at": 1791636132, "key": "probe:0:15:REWRITE", "tx": "0x94d6701d3f30cdfd457f8dc85c20dc960258c7193a274c7a585abe414ea219ed"}
+{"event": "DISPATCH", "at": 1791636139, "key": "probe:0:15:ADMIT", "signature": "8f7049830265bad43ee8afee53c7efa01900b19df186c4655a3cbc9c897bbc06"}
+Transaction Hash: 0xc900228f414ac952841659d8b4d278818c79432b88c0a653da807c0d36c5947c
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"865003","boundedEstimate":"865003","gasLimit":"951504","gasCap":"16777216","calldataBytes":260,"dryRun":false}
+sent  probe:0:15:ADMIT 0xc900228f414ac952841659d8b4d278818c79432b88c0a653da807c0d36c5947c
+{"event": "ACKNOWLEDGED_FAILURE", "at": 1791636146, "key": "probe:0:15:ADMIT", "tx": "0xc900228f414ac952841659d8b4d278818c79432b88c0a653da807c0d36c5947c", "status": "LEADER_TIMEOUT", "execution": "NOT_VOTED", "consensus_result": "IDLE", "receipt": "bradbury-v2-scripted.jsonl.complete/receipts/0xc900228f414ac952841659d8b4d278818c79432b88c0a653da807c0d36c5947c-d0d356c65146b7b567301a1ab82f0511e7869491ead2f795e5bf6df69276b8c8.json", "receipt_sha256": "d0d356c65146b7b567301a1ab82f0511e7869491ead2f795e5bf6df69276b8c8", "assumed_success": false, "resubmitted": false}
+{"event": "SUBMITTED", "at": 1791636146, "key": "probe:0:15:ADMIT", "tx": "0xc900228f414ac952841659d8b4d278818c79432b88c0a653da807c0d36c5947c"}
+{"event": "DISPATCH", "at": 1791636155, "key": "probe:0:16:PINNED", "signature": "e9d16b34b8f708cfaea9787eb768c5fb3bb8d321aed275f42998ff0520370c28"}
+Transaction Hash: 0x244b9082f695437724593d52466ff0e404cc6eef638784acfc80d53dc293206f
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"891508","boundedEstimate":"888555","gasLimit":"977411","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:16:PINNED 0x244b9082f695437724593d52466ff0e404cc6eef638784acfc80d53dc293206f
+{"event": "SUBMITTED", "at": 1791636173, "key": "probe:0:16:PINNED", "tx": "0x244b9082f695437724593d52466ff0e404cc6eef638784acfc80d53dc293206f"}
+{"event": "DISPATCH", "at": 1791636181, "key": "probe:0:16:RECALL", "signature": "ae0c83e2f2e4c2e5b5622d8e942d8a89d1d4e2ac2e90ce607d634f1e65d7f574"}
+Transaction Hash: 0xf41fec2a94465763102a20db6afcdb5f732ba0574b6f0dfa8d55ea47d1821eca
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"888555","boundedEstimate":"888555","gasLimit":"977411","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:16:RECALL 0xf41fec2a94465763102a20db6afcdb5f732ba0574b6f0dfa8d55ea47d1821eca
+{"event": "SUBMITTED", "at": 1791636199, "key": "probe:0:16:RECALL", "tx": "0xf41fec2a94465763102a20db6afcdb5f732ba0574b6f0dfa8d55ea47d1821eca"}
+{"event": "DISPATCH", "at": 1791636208, "key": "probe:0:16:REWRITE", "signature": "941bf221babbd7ef1aacb64696743f1ed5bef6c4f90b0a6f155e8a2dac98bee6"}
+Transaction Hash: 0xe2432aec90a82ea1a518fc7c63e916348c4bf25c95aa715c5876cb69d8721ebb
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"1128476","boundedEstimate":"1128476","gasLimit":"1241324","gasCap":"16777216","calldataBytes":612,"dryRun":false}
+sent  probe:0:16:REWRITE 0xe2432aec90a82ea1a518fc7c63e916348c4bf25c95aa715c5876cb69d8721ebb
+{"event": "ACKNOWLEDGED_FAILURE", "at": 1791636271, "key": "probe:0:16:REWRITE", "tx": "0xe2432aec90a82ea1a518fc7c63e916348c4bf25c95aa715c5876cb69d8721ebb", "status": "LEADER_TIMEOUT", "execution": "FINISHED_WITH_RETURN", "consensus_result": "IDLE", "receipt": "bradbury-v2-scripted.jsonl.complete/receipts/0xe2432aec90a82ea1a518fc7c63e916348c4bf25c95aa715c5876cb69d8721ebb-5fcf33d6f6b75924c3885c49aa24966b789227b6128c3824b6f0312d425d2976.json", "receipt_sha256": "5fcf33d6f6b75924c3885c49aa24966b789227b6128c3824b6f0312d425d2976", "assumed_success": false, "resubmitted": false}
+{"event": "SUBMITTED", "at": 1791636271, "key": "probe:0:16:REWRITE", "tx": "0xe2432aec90a82ea1a518fc7c63e916348c4bf25c95aa715c5876cb69d8721ebb"}
+{"event": "DISPATCH", "at": 1791636282, "key": "probe:0:17:PINNED", "signature": "94745eb6056469bc955ae5f1ab21e3bdd3020b8a9330839b0357fe835bd7178c"}
+Transaction Hash: 0x666cdbe168a6f990b2e23c347b572436fb4dba58b99bc014e8d3303b1001ec36
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"888555","boundedEstimate":"888801","gasLimit":"977682","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:17:PINNED 0x666cdbe168a6f990b2e23c347b572436fb4dba58b99bc014e8d3303b1001ec36
+{"event": "SUBMITTED", "at": 1791636300, "key": "probe:0:17:PINNED", "tx": "0x666cdbe168a6f990b2e23c347b572436fb4dba58b99bc014e8d3303b1001ec36"}
+{"event": "DISPATCH", "at": 1791636308, "key": "probe:0:17:RECALL", "signature": "e8c140096b71ffb3eeb6d65edd178fb30ac559dbdfb6db5a2e9329758aab79dd"}
+Transaction Hash: 0xdf9fce25b17ee40bf0c7189bec566a67a8984f7b45b144c07d367c23a7702e15
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"888555","boundedEstimate":"888555","gasLimit":"977411","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:17:RECALL 0xdf9fce25b17ee40bf0c7189bec566a67a8984f7b45b144c07d367c23a7702e15
+{"event": "SUBMITTED", "at": 1791636331, "key": "probe:0:17:RECALL", "tx": "0xdf9fce25b17ee40bf0c7189bec566a67a8984f7b45b144c07d367c23a7702e15"}
+{"event": "DISPATCH", "at": 1791636339, "key": "probe:0:17:REWRITE", "signature": "c99f7db2612083805d25fd53936539590e8256b6ec300fa10f44a341ad50f937"}
+Transaction Hash: 0x053279a8e16b92ef32b81312a6d7ae886c554ada07ee511046d8e100823c1e56
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"1139433","boundedEstimate":"1128550","gasLimit":"1241405","gasCap":"16777216","calldataBytes":612,"dryRun":false}
+sent  probe:0:17:REWRITE 0x053279a8e16b92ef32b81312a6d7ae886c554ada07ee511046d8e100823c1e56
+{"event": "SUBMITTED", "at": 1791636386, "key": "probe:0:17:REWRITE", "tx": "0x053279a8e16b92ef32b81312a6d7ae886c554ada07ee511046d8e100823c1e56"}
+{"event": "DISPATCH", "at": 1791636393, "key": "probe:0:17:ADMIT", "signature": "b43601b8652f4f63dd63392796b3062d98b22897a308dc49141978b59b6db090"}
+Transaction Hash: 0xd7807ccfcc63d70144969deaa9d037053e1a347626934f768c0a11f5545ad712
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:17:ADMIT 0xd7807ccfcc63d70144969deaa9d037053e1a347626934f768c0a11f5545ad712
+{"event": "ACKNOWLEDGED_FAILURE", "at": 1791636405, "key": "probe:0:17:ADMIT", "tx": "0xd7807ccfcc63d70144969deaa9d037053e1a347626934f768c0a11f5545ad712", "status": "LEADER_TIMEOUT", "execution": "NOT_VOTED", "consensus_result": "IDLE", "receipt": "bradbury-v2-scripted.jsonl.complete/receipts/0xd7807ccfcc63d70144969deaa9d037053e1a347626934f768c0a11f5545ad712-96fad74af8ec9bd35bfb5093f0433f7fbce1676c60e806a0d5c4babbad13f1eb.json", "receipt_sha256": "96fad74af8ec9bd35bfb5093f0433f7fbce1676c60e806a0d5c4babbad13f1eb", "assumed_success": false, "resubmitted": false}
+{"event": "SUBMITTED", "at": 1791636405, "key": "probe:0:17:ADMIT", "tx": "0xd7807ccfcc63d70144969deaa9d037053e1a347626934f768c0a11f5545ad712"}
+{"event": "DISPATCH", "at": 1791636414, "key": "probe:0:18:PINNED", "signature": "feddcbca0a8f4bbdec97877197cf085987ea171c33ffd1a85fba1b796553b0cf"}
+Transaction Hash: 0x07b4d35498d52a3079662c902377db12e5bad434f24df69b7f6d0e8f07a30313
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"888555","boundedEstimate":"888555","gasLimit":"977411","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:18:PINNED 0x07b4d35498d52a3079662c902377db12e5bad434f24df69b7f6d0e8f07a30313
+{"event": "SUBMITTED", "at": 1791636433, "key": "probe:0:18:PINNED", "tx": "0x07b4d35498d52a3079662c902377db12e5bad434f24df69b7f6d0e8f07a30313"}
+{"event": "DISPATCH", "at": 1791636440, "key": "probe:0:18:RECALL", "signature": "4c08011e2d01e174c0a155bd876e35667f190747349a4bc7a2b434ddb1713b98"}
+Transaction Hash: 0x75e3c72ac0d13f0866f172f4070a9ca3b059ae08eb366f09af541fa1615496bc
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"888555","boundedEstimate":"896487","gasLimit":"986136","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:18:RECALL 0x75e3c72ac0d13f0866f172f4070a9ca3b059ae08eb366f09af541fa1615496bc
+{"event": "SUBMITTED", "at": 1791636458, "key": "probe:0:18:RECALL", "tx": "0x75e3c72ac0d13f0866f172f4070a9ca3b059ae08eb366f09af541fa1615496bc"}
+{"event": "DISPATCH", "at": 1791636466, "key": "probe:0:18:REWRITE", "signature": "cfbd74fa78c88edd8b8028e7967bc0f1452107dcbc3be105e2a71b29a8be03c6"}
+Transaction Hash: 0x15489ad78222c4dfe264fbdea6842a9ecb0e2ccaaba1a66d88421e34699e985d
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"1128447","boundedEstimate":"1128447","gasLimit":"1241292","gasCap":"16777216","calldataBytes":612,"dryRun":false}
+sent  probe:0:18:REWRITE 0x15489ad78222c4dfe264fbdea6842a9ecb0e2ccaaba1a66d88421e34699e985d
+{"event": "SUBMITTED", "at": 1791636506, "key": "probe:0:18:REWRITE", "tx": "0x15489ad78222c4dfe264fbdea6842a9ecb0e2ccaaba1a66d88421e34699e985d"}
+{"event": "DISPATCH", "at": 1791636514, "key": "probe:0:18:ADMIT", "signature": "91059143afe416f645bfd27149abd7b0e52f57d3ca0e010946cde8ff6c08361e"}
+Transaction Hash: 0x0889b7420af3da1d6c5bb8b29c4547de20bc141f71f47efbb969fb580a047ef3
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:18:ADMIT 0x0889b7420af3da1d6c5bb8b29c4547de20bc141f71f47efbb969fb580a047ef3
+{"event": "ACKNOWLEDGED_FAILURE", "at": 1791636521, "key": "probe:0:18:ADMIT", "tx": "0x0889b7420af3da1d6c5bb8b29c4547de20bc141f71f47efbb969fb580a047ef3", "status": "LEADER_TIMEOUT", "execution": "NOT_VOTED", "consensus_result": "IDLE", "receipt": "bradbury-v2-scripted.jsonl.complete/receipts/0x0889b7420af3da1d6c5bb8b29c4547de20bc141f71f47efbb969fb580a047ef3-4d0fbcbc8f2841badb501ff01403d24076cd97fa20953f519864c6e62fc2aa9d.json", "receipt_sha256": "4d0fbcbc8f2841badb501ff01403d24076cd97fa20953f519864c6e62fc2aa9d", "assumed_success": false, "resubmitted": false}
+{"event": "SUBMITTED", "at": 1791636521, "key": "probe:0:18:ADMIT", "tx": "0x0889b7420af3da1d6c5bb8b29c4547de20bc141f71f47efbb969fb580a047ef3"}
+{"event": "DISPATCH", "at": 1791636530, "key": "probe:0:19:PINNED", "signature": "acebe0de983abb316f7ef697d2b628c070d629b9716eb41fefe3ca80913b5556"}
+Transaction Hash: 0xbc8a831c350e1c8fb318083ab31ab227b5f587352141091bd36284238c6e7049
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"888555","boundedEstimate":"888555","gasLimit":"977411","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:19:PINNED 0xbc8a831c350e1c8fb318083ab31ab227b5f587352141091bd36284238c6e7049
+{"event": "SUBMITTED", "at": 1791636548, "key": "probe:0:19:PINNED", "tx": "0xbc8a831c350e1c8fb318083ab31ab227b5f587352141091bd36284238c6e7049"}
+{"event": "DISPATCH", "at": 1791636555, "key": "probe:0:19:RECALL", "signature": "e9bf0eee413635be741b5729548a9204dbdbc20a540d6daa2fa3d962036a1b9b"}
+Transaction Hash: 0xdf9c33d2f72d23f77fcb4f8aee678c9c0c6d2a657dbe0e31d7d7b33f917835e6
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"888555","boundedEstimate":"888555","gasLimit":"977411","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:19:RECALL 0xdf9c33d2f72d23f77fcb4f8aee678c9c0c6d2a657dbe0e31d7d7b33f917835e6
+{"event": "SUBMITTED", "at": 1791636568, "key": "probe:0:19:RECALL", "tx": "0xdf9c33d2f72d23f77fcb4f8aee678c9c0c6d2a657dbe0e31d7d7b33f917835e6"}
+{"event": "DISPATCH", "at": 1791636575, "key": "probe:0:19:REWRITE", "signature": "decebd36fbb16b893278332365f5d3d11b4df0f2b3bd6c8087275cc1547da2c4"}
+Transaction Hash: 0xd46bc78437eab787a6ee25a509c7c98645f0549e6f30d3b0a3b43eae5cfee399
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"1128447","boundedEstimate":"1128447","gasLimit":"1241292","gasCap":"16777216","calldataBytes":612,"dryRun":false}
+sent  probe:0:19:REWRITE 0xd46bc78437eab787a6ee25a509c7c98645f0549e6f30d3b0a3b43eae5cfee399
+{"event": "SUBMITTED", "at": 1791636633, "key": "probe:0:19:REWRITE", "tx": "0xd46bc78437eab787a6ee25a509c7c98645f0549e6f30d3b0a3b43eae5cfee399"}
+{"event": "DISPATCH", "at": 1791636640, "key": "probe:0:19:ADMIT", "signature": "008c9279026086a9c961631633f1f8e15c0ccfd5b99ccdc2ca6c786f54eed67b"}
+Transaction Hash: 0xde69b6ce3b07742cceb0581ab3de4187c9d0d9cb88057c3551c532d8526b8095
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867941","gasLimit":"954736","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:19:ADMIT 0xde69b6ce3b07742cceb0581ab3de4187c9d0d9cb88057c3551c532d8526b8095
+{"event": "SUBMITTED", "at": 1791636704, "key": "probe:0:19:ADMIT", "tx": "0xde69b6ce3b07742cceb0581ab3de4187c9d0d9cb88057c3551c532d8526b8095"}
+{"event": "DISPATCH", "at": 1791636713, "key": "probe:0:20:PINNED", "signature": "e06e3d35f2706ba45f5e19f1d652d2fab9dfa8254251832edf7eaeb0a3cd2105"}
+Transaction Hash: 0xcc1b197f1631956c855c2cbf0ddc9d80db43102af4ac935a8314ba7a886ac4e7
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"888555","boundedEstimate":"888555","gasLimit":"977411","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:20:PINNED 0xcc1b197f1631956c855c2cbf0ddc9d80db43102af4ac935a8314ba7a886ac4e7
+{"event": "SUBMITTED", "at": 1791636731, "key": "probe:0:20:PINNED", "tx": "0xcc1b197f1631956c855c2cbf0ddc9d80db43102af4ac935a8314ba7a886ac4e7"}
+{"event": "DISPATCH", "at": 1791636738, "key": "probe:0:20:RECALL", "signature": "8e070580551d218b7f71e148618d843e4be71378f5e9f11ec14c9023c17d183b"}
+Transaction Hash: 0xe89362d07688f6dcf98ffd9ea75eeb3b9c0bc599e11063a8e545b899b0be8574
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"888555","boundedEstimate":"896487","gasLimit":"986136","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:20:RECALL 0xe89362d07688f6dcf98ffd9ea75eeb3b9c0bc599e11063a8e545b899b0be8574
+{"event": "SUBMITTED", "at": 1791636785, "key": "probe:0:20:RECALL", "tx": "0xe89362d07688f6dcf98ffd9ea75eeb3b9c0bc599e11063a8e545b899b0be8574"}
+{"event": "DISPATCH", "at": 1791636792, "key": "probe:0:20:REWRITE", "signature": "66f1a9de3a9bb5ccecc102ba9d4ca2ecfefbf27a1c1f0c8ecd16e0ac59b21486"}
+Transaction Hash: 0xd60abc39a390e1ee98eeb59df561927d377a7e2d143f2c30584b9bf385fe66ae
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"1128501","boundedEstimate":"1128501","gasLimit":"1241352","gasCap":"16777216","calldataBytes":612,"dryRun":false}
+sent  probe:0:20:REWRITE 0xd60abc39a390e1ee98eeb59df561927d377a7e2d143f2c30584b9bf385fe66ae
+{"event": "ACKNOWLEDGED_FAILURE", "at": 1791636839, "key": "probe:0:20:REWRITE", "tx": "0xd60abc39a390e1ee98eeb59df561927d377a7e2d143f2c30584b9bf385fe66ae", "status": "LEADER_TIMEOUT", "execution": "FINISHED_WITH_RETURN", "consensus_result": "IDLE", "receipt": "bradbury-v2-scripted.jsonl.complete/receipts/0xd60abc39a390e1ee98eeb59df561927d377a7e2d143f2c30584b9bf385fe66ae-20e70392f9ea2b87668b6964edd8b6d7561815d13d2fd897be47f87ed48b1dc5.json", "receipt_sha256": "20e70392f9ea2b87668b6964edd8b6d7561815d13d2fd897be47f87ed48b1dc5", "assumed_success": false, "resubmitted": false}
+{"event": "SUBMITTED", "at": 1791636839, "key": "probe:0:20:REWRITE", "tx": "0xd60abc39a390e1ee98eeb59df561927d377a7e2d143f2c30584b9bf385fe66ae"}
+{"event": "DISPATCH", "at": 1791636849, "key": "probe:0:21:PINNED", "signature": "62abf15451b06af61c7a37f0ba02e5249c81e5aeff3d08eae56918eb778c3a4a"}
+Transaction Hash: 0x393cb6cfb25f4b40914e01900e6a2684a9695e0b653b5b13c15c5fce8fb8aed0
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"888801","boundedEstimate":"888555","gasLimit":"977411","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:21:PINNED 0x393cb6cfb25f4b40914e01900e6a2684a9695e0b653b5b13c15c5fce8fb8aed0
+{"event": "SUBMITTED", "at": 1791636897, "key": "probe:0:21:PINNED", "tx": "0x393cb6cfb25f4b40914e01900e6a2684a9695e0b653b5b13c15c5fce8fb8aed0"}
+{"event": "DISPATCH", "at": 1791636904, "key": "probe:0:21:RECALL", "signature": "2d01e2d12cf322c63bd2003a13fd064391940e10ba2e908d4c92ec91423df299"}
+Transaction Hash: 0x738253bb7cf46c91131b6e9d82aef31af67d9cb03fd666340e78e4924d37b8d7
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"888555","boundedEstimate":"888555","gasLimit":"977411","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:21:RECALL 0x738253bb7cf46c91131b6e9d82aef31af67d9cb03fd666340e78e4924d37b8d7
+{"event": "SUBMITTED", "at": 1791636923, "key": "probe:0:21:RECALL", "tx": "0x738253bb7cf46c91131b6e9d82aef31af67d9cb03fd666340e78e4924d37b8d7"}
+{"event": "DISPATCH", "at": 1791636931, "key": "probe:0:21:REWRITE", "signature": "f94dd7a9b978ca073a8cebbaa70fae2ba59198e8cae89662abb6200b941838e6"}
+Transaction Hash: 0xaf33d87112e58d93ffa9b0c96711ad62726d04901bffe235d94c0eb4cf056f01
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"1128513","boundedEstimate":"1128513","gasLimit":"1241365","gasCap":"16777216","calldataBytes":612,"dryRun":false}
+sent  probe:0:21:REWRITE 0xaf33d87112e58d93ffa9b0c96711ad62726d04901bffe235d94c0eb4cf056f01
+{"event": "SUBMITTED", "at": 1791636971, "key": "probe:0:21:REWRITE", "tx": "0xaf33d87112e58d93ffa9b0c96711ad62726d04901bffe235d94c0eb4cf056f01"}
+{"event": "DISPATCH", "at": 1791636978, "key": "probe:0:21:ADMIT", "signature": "cd3779459647a60f903af49ee918729c853f5dfcc00bde17a64c1624e3014f6e"}
+Transaction Hash: 0x4057c6fd7576ba721e80f57cd07e460c1ee652f7a386f84bb1fa941d69384cab
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867941","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:21:ADMIT 0x4057c6fd7576ba721e80f57cd07e460c1ee652f7a386f84bb1fa941d69384cab
+{"event": "SUBMITTED", "at": 1791637036, "key": "probe:0:21:ADMIT", "tx": "0x4057c6fd7576ba721e80f57cd07e460c1ee652f7a386f84bb1fa941d69384cab"}
+{"event": "DISPATCH", "at": 1791637045, "key": "probe:0:22:PINNED", "signature": "56b7bda643405f59adf9ea3e362c3b1ff7bf94ed4d157c02f4ea0c549616d839"}
+Transaction Hash: 0x5ae63081975eee72680b627b6412109ca1f2c2b52f4c0d6a24b3c66f1a0f7fec
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"888555","boundedEstimate":"888555","gasLimit":"977411","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:22:PINNED 0x5ae63081975eee72680b627b6412109ca1f2c2b52f4c0d6a24b3c66f1a0f7fec
+{"event": "SUBMITTED", "at": 1791637069, "key": "probe:0:22:PINNED", "tx": "0x5ae63081975eee72680b627b6412109ca1f2c2b52f4c0d6a24b3c66f1a0f7fec"}
+{"event": "DISPATCH", "at": 1791637077, "key": "probe:0:22:RECALL", "signature": "f39f0ab4b3e1d1af734d0d458662eefe54ade221577d2f8c6837e106d113615e"}
+Transaction Hash: 0xe1dc71fb18572e6f1fb431c26e10033e7b18ab239239700e9c30057aa4d3bd8e
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"888555","boundedEstimate":"888555","gasLimit":"977411","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:22:RECALL 0xe1dc71fb18572e6f1fb431c26e10033e7b18ab239239700e9c30057aa4d3bd8e
+{"event": "SUBMITTED", "at": 1791637095, "key": "probe:0:22:RECALL", "tx": "0xe1dc71fb18572e6f1fb431c26e10033e7b18ab239239700e9c30057aa4d3bd8e"}
+{"event": "DISPATCH", "at": 1791637103, "key": "probe:0:22:REWRITE", "signature": "4cdb97e6e915be85f96bd3be206276a0c2d65ede60983e0463648f9b78291c65"}
+Transaction Hash: 0xe2e2a3755ad0db4c5c936cd6016a8cfd26873a4f4bfd5d4e846aa8df327f84eb
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"1128258","boundedEstimate":"1128258","gasLimit":"1241084","gasCap":"16777216","calldataBytes":612,"dryRun":false}
+sent  probe:0:22:REWRITE 0xe2e2a3755ad0db4c5c936cd6016a8cfd26873a4f4bfd5d4e846aa8df327f84eb
+{"event": "SUBMITTED", "at": 1791637149, "key": "probe:0:22:REWRITE", "tx": "0xe2e2a3755ad0db4c5c936cd6016a8cfd26873a4f4bfd5d4e846aa8df327f84eb"}
+{"event": "DISPATCH", "at": 1791637157, "key": "probe:0:22:ADMIT", "signature": "617befdeeb04ca5909c4b929c938b2ac85ac0976c79df685dc496e59dbd900aa"}
+Transaction Hash: 0xf5578102ddca44de8417c0b520399c212deb001ab491746ea26a81b5862a4cbf
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"867695","boundedEstimate":"867695","gasLimit":"954465","gasCap":"16777216","calldataBytes":292,"dryRun":false}
+sent  probe:0:22:ADMIT 0xf5578102ddca44de8417c0b520399c212deb001ab491746ea26a81b5862a4cbf
+Traceback (most recent call last):
+  File "/Users/zmaxx/Projects/impeach/scripts/complete_case.py", line 513, in <module>
+    raise SystemExit(complete(parse_args()))
+                     ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/zmaxx/Projects/impeach/scripts/complete_case.py", line 481, in complete
+    return runner.run()
+           ^^^^^^^^^^^^
+  File "/Users/zmaxx/Projects/impeach/scripts/complete_case.py", line 435, in run
+    self.initial(index, mode)
+  File "/Users/zmaxx/Projects/impeach/scripts/complete_case.py", line 342, in initial
+    super().send(key, 'probe', self.call(index, mode), value=0, extra=extra)
+  File "/Users/zmaxx/Projects/impeach/scripts/run_case.py", line 159, in send
+    self.wait(row)
+  File "/Users/zmaxx/Projects/impeach/scripts/complete_case.py", line 316, in wait
+    time.sleep(min(self.args.poll_interval, max(0, deadline-time.monotonic())))
+KeyboardInterrupt

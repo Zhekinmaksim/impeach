@@ -1,0 +1,27 @@
+{
+  "kind": "read",
+  "method_or_key": "get_probe",
+  "args_or_hash": [
+    0,
+    10
+  ],
+  "value": {
+    "challenge_id": 0,
+    "item_index": 10,
+    "pinned": "RIGHT",
+    "pinned_answer": "27",
+    "recall": "MATCH",
+    "rewrite": "RIGHT",
+    "rewrite_answer": "27",
+    "rewrite_class": "paraphrase",
+    "rewrite_hash": "3a343e856dee0ec024e27d2b7742e6791f7d15c6eb5f6e8b3b28527ecd7f8912",
+    "rewrite_prompt": "On a practice worksheet, a student reads this problem: There are 54 seats for passengers on a shuttle. A group of 19 boards at the first stop and another 8 boards at the following stop. With no passengers getting off and one seat used per passenger, how many seats remain empty?",
+    "rewrite_reply": "27",
+    "slice_settled": true,
+    "stage_c1": "ADMISSIBLE",
+    "stage_c2": "ADMISSIBLE",
+    "stale": false,
+    "touched": true
+  },
+  "at": 1791697387
+}

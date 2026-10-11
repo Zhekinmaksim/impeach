@@ -101,14 +101,14 @@ genlayer call $CONTRACT defaults --rpc $RPC
 genlayer call $CONTRACT counts --rpc $RPC
 ```
 
-The readable 62 KB source exceeds Bradbury's per-transaction gas cap when
+The readable 71 KB source exceeds Bradbury's per-transaction gas cap when
 deployed directly. The generated artifact removes comments and docstrings,
 checks that executable AST is unchanged, and compresses the remaining source
-using `zlib` and `base64` from the pinned CPython runtime. It preserves every
+using `zlib` and Base85 from the pinned CPython runtime. It preserves every
 method, storage field, prompt, and executable statement. Inspect
 `build/impeach.readable.py` and `build/impeach.manifest.json` to verify the
 unpacked code and hashes. Rebuild after any contract edit. The compact artifact
-passes the same 143 pinned-SDK scenarios as the original source.
+passes the same 150 pinned-SDK scenarios as the original source.
 
 The bridge checks chain identity, estimates under the 16,777,216 transaction
 gas cap, and simulates with the selected gas before signing. `--dry-run` uses
@@ -153,20 +153,25 @@ Use `--wait-timeout 1800` when consensus needs more than the default 600 seconds
 An undetermined or failed transaction requires receipt inspection; it is never
 blindly resubmitted.
 
-On the legacy Bradbury consensus used here, `LEADER_TIMEOUT` is a decided
-failure that can still be appealed. `UNDETERMINED` also permits an appeal.
-Save the failed-round receipt before proceeding: disagreement remains part of
-the evidence even if a later round settles. After inspecting it, the helper
-can recover that same transaction when the network requires a zero-bond appeal:
+The v2 process uses [`complete_case.py`](scripts/complete_case.py), then
+[`service_queue.py`](scripts/service_queue.py) after the completer has exited
+and released its lock. Read [V2-TRIAL.md](V2-TRIAL.md) for the frozen v2 claim
+files, bounded commands and source/implementation checks. Both helpers share
+`<manifest>.complete.lock`; only one account writer runs at a time.
 
-```bash
-node scripts/genlayer_write.mjs --appeal <original-tx-hash> --account challenger --rpc https://rpc-bradbury.genlayer.com
-```
-
-The helper rejects other statuses and nonzero appeal bonds, and runs the same
-gas simulation as ordinary writes. Keep the original manifest hash and rerun
-the interrupted step after the new round succeeds. An appeal submission error
-can occur after broadcast; read the original transaction before trying again.
+The active Bradbury v0.5 protocol permits zero-bond appeals of some decided
+failures, but eligibility must be confirmed by exact simulation. An SDK
+`canAppeal` field alone is insufficient. Late appeals can rewind subsequent
+unfinalized transactions, including accepted probe results. The v2 real trial
+uses finalized guarded recovery and queue servicing by default; its helpers
+never appeal automatically. One separately reviewed zero-bond appeal was sent
+for the latest timed-out C2 recovery on item 14, after checking the native queue,
+unchanged source and exact Main simulation. The original hash, appeal receipt
+and subsequent state observations are retained in
+[the appeal journal](runs/v2-live-item14-appeal01). Acceptance of that replay
+does not establish that the application state applied; check native finality
+and both supported state versions before ruling. Historical control appeals
+also remain in the evidence.
 
 To continue other items after inspecting and saving a failed receipt, repeat
 the runner command with `--acknowledge-failed <hash>`. This only skips a known
@@ -187,13 +192,15 @@ finalization; its simulation rejects an attempt before the network permits it:
 ```bash
 node scripts/genlayer_write.mjs --finalize <original-tx-hash> --account challenger --rpc https://rpc-bradbury.genlayer.com
 python3 scripts/retry_finalized_probe.py --address $CONTRACT --account challenger --rpc $RPC --manifest $MANIFEST --tx <original-tx-hash> --dry-run
-# Inspect the dry run, then repeat without --dry-run to send one recovery attempt.
+# Inspect the dry run, then repeat without --dry-run for the permitted recovery.
 ```
 
 Recovery checks the original input signature, zero value, untouched slot and
 open trial window. It preserves the finalized receipt and appends a new manifest
-row with `previous_tx`; a second recovery of that probe is refused. Do not run
-recovery concurrently with the ordinary runner on the same account.
+row with `previous_tx`, its ordinal, the preceding row and immutable receipt.
+Default recovery is one attempt; explicit `--max-recoveries 3` permits at most
+three per slot, each after a new finalized failure. Do not run recovery
+concurrently with the ordinary runner or queue service on the same account.
 Before sending, it also saves a durable dispatch marker. If interrupted before
 the new hash is recorded, it refuses another attempt until the on-chain outcome
 and manifest have been reconciled; do not remove that marker and blindly resend.

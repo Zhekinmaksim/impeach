@@ -1,0 +1,1793 @@
+{
+  "at": 1791638733,
+  "totals": {
+    "complete": 12,
+    "admitted": 12,
+    "pinned": 24,
+    "recall": 24,
+    "inadmissible": 0,
+    "dead": 0
+  },
+  "states": [
+    {
+      "challenge_id": 0,
+      "item_index": 0,
+      "pinned": "RIGHT",
+      "pinned_answer": "36",
+      "recall": "MATCH",
+      "rewrite": "RIGHT",
+      "rewrite_answer": "36",
+      "rewrite_class": "paraphrase",
+      "rewrite_hash": "9ebfd85b4d2bcf7742b3011b3eb0981993ce4808e944fa0982d2c46deb610c6f",
+      "rewrite_prompt": "On a practice worksheet, a student reads this problem: During the morning a workshop produces 28 blue labels, followed by another 17 that afternoon. After 9 of these labels are attached to completed toolboxes, how many printed blue labels are still unused?",
+      "rewrite_reply": "36",
+      "slice_settled": true,
+      "stage_c1": "ADMISSIBLE",
+      "stage_c2": "ADMISSIBLE",
+      "stale": false,
+      "touched": true
+    },
+    {
+      "challenge_id": 0,
+      "item_index": 1,
+      "pinned": "RIGHT",
+      "pinned_answer": "35",
+      "recall": "MATCH",
+      "rewrite": "WRONG",
+      "rewrite_answer": "37",
+      "rewrite_class": "numeral_substitution",
+      "rewrite_hash": "d4c0fb3a94f6a15c724be25a61e976a6ac2016ae15ada74d8b9b65075f07355f",
+      "rewrite_prompt": "On a practice worksheet, a student reads this problem: A repair station opens 5 boxes containing 7 brass clips in each box. It also has 2 loose brass clips on the counter. Counting only these boxes and loose clips, how many brass clips does the station have?",
+      "rewrite_reply": "35",
+      "slice_settled": true,
+      "stage_c1": "ADMISSIBLE",
+      "stage_c2": "ADMISSIBLE",
+      "stale": true,
+      "touched": true
+    },
+    {
+      "challenge_id": 0,
+      "item_index": 2,
+      "pinned": "RIGHT",
+      "pinned_answer": "20",
+      "recall": "MATCH",
+      "rewrite": "RIGHT",
+      "rewrite_answer": "20",
+      "rewrite_class": "entity_rename",
+      "rewrite_hash": "10e0c9390afd1efbd70d1951b45a632f996ac5e64c592fc27af5d2964334f351",
+      "rewrite_prompt": "On a practice worksheet, a student reads this problem: Nila has 18 wooden tokens in her pouch. She gives 5 tokens to Daren, and Daren then gives Nila 7 other wooden tokens from his own collection. How many wooden tokens are in Nila's pouch after both transfers?",
+      "rewrite_reply": "20",
+      "slice_settled": false,
+      "stage_c1": "ADMISSIBLE",
+      "stage_c2": "PENDING",
+      "stale": false,
+      "touched": true
+    },
+    {
+      "challenge_id": 0,
+      "item_index": 3,
+      "pinned": "RIGHT",
+      "pinned_answer": "250",
+      "recall": "MATCH",
+      "rewrite": "RIGHT",
+      "rewrite_answer": "250",
+      "rewrite_class": "unit_change",
+      "rewrite_hash": "21b5a533324d00f5b0437c75414d97814df873adca25a14485019ae23a12ccbd",
+      "rewrite_prompt": "On a practice worksheet, a student reads this problem: A craft table has a red ribbon measuring 1.8 meters and a blue ribbon measuring 0.7 meters. The two ribbons are placed end to end without overlap. What is their combined length in centimeters?",
+      "rewrite_reply": "250",
+      "slice_settled": false,
+      "stage_c1": "ADMISSIBLE",
+      "stage_c2": "PENDING",
+      "stale": false,
+      "touched": true
+    },
+    {
+      "challenge_id": 0,
+      "item_index": 4,
+      "pinned": "RIGHT",
+      "pinned_answer": "38",
+      "recall": "MATCH",
+      "rewrite": "",
+      "rewrite_answer": "",
+      "rewrite_class": "",
+      "rewrite_hash": "",
+      "rewrite_prompt": "",
+      "rewrite_reply": "",
+      "slice_settled": false,
+      "stage_c1": "PENDING",
+      "stage_c2": "PENDING",
+      "stale": false,
+      "touched": true
+    },
+    {
+      "challenge_id": 0,
+      "item_index": 5,
+      "pinned": "RIGHT",
+      "pinned_answer": "41",
+      "recall": "MATCH",
+      "rewrite": "RIGHT",
+      "rewrite_answer": "41",
+      "rewrite_class": "paraphrase",
+      "rewrite_hash": "5dd308554394aef968cb20bcf667fead0bf79a92db394575b159e22e1bb9fce9",
+      "rewrite_prompt": "On a practice worksheet, a student reads this problem: At the beginning of the day there are 45 blank index cards in a supply drawer. After a teacher removes 12 for an activity and adds 8 new blank cards later, how many blank index cards does the drawer contain?",
+      "rewrite_reply": "41",
+      "slice_settled": true,
+      "stage_c1": "ADMISSIBLE",
+      "stage_c2": "ADMISSIBLE",
+      "stale": false,
+      "touched": true
+    },
+    {
+      "challenge_id": 0,
+      "item_index": 6,
+      "pinned": "RIGHT",
+      "pinned_answer": "37",
+      "recall": "MATCH",
+      "rewrite": "WRONG",
+      "rewrite_answer": "33",
+      "rewrite_class": "numeral_substitution",
+      "rewrite_hash": "619d5be511f8c1716f5f073351f8a1514b71220c5fd7ff845fb3af8fae89fe28",
+      "rewrite_prompt": "On a practice worksheet, a student reads this problem: A gallery arranges 8 display stands with 5 paper lanterns on each stand. Then 7 lanterns are removed from the display because they are damaged. How many paper lanterns are still on the display stands?",
+      "rewrite_reply": "37",
+      "slice_settled": true,
+      "stage_c1": "ADMISSIBLE",
+      "stage_c2": "ADMISSIBLE",
+      "stale": true,
+      "touched": true
+    },
+    {
+      "challenge_id": 0,
+      "item_index": 7,
+      "pinned": "RIGHT",
+      "pinned_answer": "7",
+      "recall": "MATCH",
+      "rewrite": "RIGHT",
+      "rewrite_answer": "7",
+      "rewrite_class": "entity_rename",
+      "rewrite_hash": "f6f5ce7801af02a186482c0d16ee3e90366c9d53f7a08814d631f6bfea4c7811",
+      "rewrite_prompt": "On a practice worksheet, a student reads this problem: Noor brings 18 red counters and Evan brings 24 red counters to a puzzle table. They combine their counters and divide all of them equally among 6 trays. How many red counters are placed in each tray?",
+      "rewrite_reply": "7",
+      "slice_settled": false,
+      "stage_c1": "ADMISSIBLE",
+      "stage_c2": "PENDING",
+      "stale": false,
+      "touched": true
+    },
+    {
+      "challenge_id": 0,
+      "item_index": 8,
+      "pinned": "RIGHT",
+      "pinned_answer": "2500",
+      "recall": "MATCH",
+      "rewrite": "RIGHT",
+      "rewrite_answer": "2500",
+      "rewrite_class": "unit_change",
+      "rewrite_hash": "94dba48c58bde0cacef92906aed707e5dd29ae0e6a90f371fc4ca53c856905e6",
+      "rewrite_prompt": "On a practice worksheet, a student reads this problem: A parcel contains a metal block with a mass of 2000 grams and packing material with a mass of 0.5 kilograms. Nothing else is inside the parcel. What is the combined mass of its contents in grams?",
+      "rewrite_reply": "2500",
+      "slice_settled": false,
+      "stage_c1": "ADMISSIBLE",
+      "stage_c2": "PENDING",
+      "stale": false,
+      "touched": true
+    },
+    {
+      "challenge_id": 0,
+      "item_index": 9,
+      "pinned": "RIGHT",
+      "pinned_answer": "78",
+      "recall": "MATCH",
+      "rewrite": "RIGHT",
+      "rewrite_answer": "78",
+      "rewrite_class": "format_shift",
+      "rewrite_hash": "fc23be6a2c81d5a33ea54a7b10d3aff5e93a29b45ea9f3235111fdd896e093ef",
+      "rewrite_prompt": "On a practice worksheet, a student reads this problem: Laboratory vial count\nStorage racks: 8\nEmpty vials per rack: 9\nLoose empty vials beside the racks: 6\nRequested total: How many empty vials are there altogether in the racks and beside them?",
+      "rewrite_reply": "78",
+      "slice_settled": true,
+      "stage_c1": "ADMISSIBLE",
+      "stage_c2": "ADMISSIBLE",
+      "stale": false,
+      "touched": true
+    },
+    {
+      "challenge_id": 0,
+      "item_index": 10,
+      "pinned": "RIGHT",
+      "pinned_answer": "27",
+      "recall": "MATCH",
+      "rewrite": "RIGHT",
+      "rewrite_answer": "27",
+      "rewrite_class": "paraphrase",
+      "rewrite_hash": "3a343e856dee0ec024e27d2b7742e6791f7d15c6eb5f6e8b3b28527ecd7f8912",
+      "rewrite_prompt": "On a practice worksheet, a student reads this problem: There are 54 seats for passengers on a shuttle. A group of 19 boards at the first stop and another 8 boards at the following stop. With no passengers getting off and one seat used per passenger, how many seats remain empty?",
+      "rewrite_reply": "27",
+      "slice_settled": true,
+      "stage_c1": "ADMISSIBLE",
+      "stage_c2": "ADMISSIBLE",
+      "stale": false,
+      "touched": true
+    },
+    {
+      "challenge_id": 0,
+      "item_index": 11,
+      "pinned": "RIGHT",
+      "pinned_answer": "42",
+      "recall": "MATCH",
+      "rewrite": "WRONG",
+      "rewrite_answer": "43",
+      "rewrite_class": "numeral_substitution",
+      "rewrite_hash": "8d34999e2362f6deeadc93a733c53391ddbde545a05f8fda988de672e4743d51",
+      "rewrite_prompt": "On a practice worksheet, a student reads this problem: A book stall receives 7 bundles with 5 bookmarks in each bundle. The owner adds 8 single bookmarks from a desk drawer to the same display. How many bookmarks are on the display after this addition?",
+      "rewrite_reply": "42",
+      "slice_settled": true,
+      "stage_c1": "ADMISSIBLE",
+      "stage_c2": "ADMISSIBLE",
+      "stale": true,
+      "touched": true
+    },
+    {
+      "challenge_id": 0,
+      "item_index": 12,
+      "pinned": "RIGHT",
+      "pinned_answer": "6",
+      "recall": "MATCH",
+      "rewrite": "RIGHT",
+      "rewrite_answer": "6",
+      "rewrite_class": "entity_rename",
+      "rewrite_hash": "a67e444cfb228ffb223fa1a53eef797ad1944d285ab7cb7cd5db4108c38774c9",
+      "rewrite_prompt": "On a practice worksheet, a student reads this problem: Iris places 12 glass beads in a bowl, and Cedric adds 6 more glass beads to that bowl. They divide all the beads equally among 3 small bags with none left over. How many glass beads go into each bag?",
+      "rewrite_reply": "6",
+      "slice_settled": true,
+      "stage_c1": "ADMISSIBLE",
+      "stage_c2": "ADMISSIBLE",
+      "stale": false,
+      "touched": true
+    },
+    {
+      "challenge_id": 0,
+      "item_index": 13,
+      "pinned": "RIGHT",
+      "pinned_answer": "270",
+      "recall": "MATCH",
+      "rewrite": "RIGHT",
+      "rewrite_answer": "270",
+      "rewrite_class": "unit_change",
+      "rewrite_hash": "0d3786a695001c06a04de637f233ae4544d62d410cbf8c1dd590a81bcf45391a",
+      "rewrite_prompt": "On a practice worksheet, a student reads this problem: A demonstration includes a video lasting 240 seconds followed immediately by a sound clip lasting 0.5 minutes. There is no pause between them. What is the total running time of the demonstration in seconds?",
+      "rewrite_reply": "270",
+      "slice_settled": true,
+      "stage_c1": "ADMISSIBLE",
+      "stage_c2": "ADMISSIBLE",
+      "stale": false,
+      "touched": true
+    },
+    {
+      "challenge_id": 0,
+      "item_index": 14,
+      "pinned": "RIGHT",
+      "pinned_answer": "53",
+      "recall": "MATCH",
+      "rewrite": "",
+      "rewrite_answer": "",
+      "rewrite_class": "",
+      "rewrite_hash": "",
+      "rewrite_prompt": "",
+      "rewrite_reply": "",
+      "slice_settled": false,
+      "stage_c1": "PENDING",
+      "stage_c2": "PENDING",
+      "stale": false,
+      "touched": true
+    },
+    {
+      "challenge_id": 0,
+      "item_index": 15,
+      "pinned": "RIGHT",
+      "pinned_answer": "10",
+      "recall": "MATCH",
+      "rewrite": "RIGHT",
+      "rewrite_answer": "10",
+      "rewrite_class": "paraphrase",
+      "rewrite_hash": "aad68d1eb022572e05f93c65a126ebcf238e026e2f904d1870cc28afc871d1ec",
+      "rewrite_prompt": "On a practice worksheet, a student reads this problem: Inside each of 5 sealed sleeves are 6 sanding discs. The workshop shares every disc equally between 3 workbenches and keeps none aside. How many sanding discs are given to each workbench?",
+      "rewrite_reply": "10",
+      "slice_settled": false,
+      "stage_c1": "ADMISSIBLE",
+      "stage_c2": "PENDING",
+      "stale": false,
+      "touched": true
+    },
+    {
+      "challenge_id": 0,
+      "item_index": 16,
+      "pinned": "RIGHT",
+      "pinned_answer": "10",
+      "recall": "MATCH",
+      "rewrite": "",
+      "rewrite_answer": "",
+      "rewrite_class": "",
+      "rewrite_hash": "",
+      "rewrite_prompt": "",
+      "rewrite_reply": "",
+      "slice_settled": false,
+      "stage_c1": "PENDING",
+      "stage_c2": "PENDING",
+      "stale": false,
+      "touched": true
+    },
+    {
+      "challenge_id": 0,
+      "item_index": 17,
+      "pinned": "RIGHT",
+      "pinned_answer": "38",
+      "recall": "MATCH",
+      "rewrite": "RIGHT",
+      "rewrite_answer": "38",
+      "rewrite_class": "entity_rename",
+      "rewrite_hash": "cd791cfa042fc0bcb3c55ed328509f3bead1da51f5170c6b6c7f65c8a7db73f1",
+      "rewrite_prompt": "On a practice worksheet, a student reads this problem: Oren packs 4 crates with 11 marker pens in each crate for a classroom delivery. Tali removes 6 marker pens from those crates for a separate order. How many marker pens remain in the crates for the classroom delivery?",
+      "rewrite_reply": "38",
+      "slice_settled": false,
+      "stage_c1": "ADMISSIBLE",
+      "stage_c2": "PENDING",
+      "stale": false,
+      "touched": true
+    },
+    {
+      "challenge_id": 0,
+      "item_index": 18,
+      "pinned": "RIGHT",
+      "pinned_answer": "2000",
+      "recall": "MATCH",
+      "rewrite": "RIGHT",
+      "rewrite_answer": "2000",
+      "rewrite_class": "unit_change",
+      "rewrite_hash": "2289939c545dcf76cae3582d913d1430d1c5c2e3dbee6655985b08b18bf110d6",
+      "rewrite_prompt": "On a practice worksheet, a student reads this problem: A survey team measures a footpath in two consecutive sections. The first section is 1.25 kilometers long and the second section is 0.75 kilometers long. What is the total length of these two sections in meters?",
+      "rewrite_reply": "2000",
+      "slice_settled": false,
+      "stage_c1": "ADMISSIBLE",
+      "stage_c2": "PENDING",
+      "stale": false,
+      "touched": true
+    },
+    {
+      "challenge_id": 0,
+      "item_index": 19,
+      "pinned": "RIGHT",
+      "pinned_answer": "14",
+      "recall": "MATCH",
+      "rewrite": "RIGHT",
+      "rewrite_answer": "14",
+      "rewrite_class": "format_shift",
+      "rewrite_hash": "7cdebd5bbe8f1e3608024ee86b115d8f05c438c1804533d0e16ed714e4ed237a",
+      "rewrite_prompt": "On a practice worksheet, a student reads this problem: Print shop packing sheet\nInvitation cards to pack: 72\nCards in each packet: 8\nOther complete packets already on the shelf: 5\nQuestion: How many complete packets does the shop have after packing the 72 cards?",
+      "rewrite_reply": "14",
+      "slice_settled": true,
+      "stage_c1": "ADMISSIBLE",
+      "stage_c2": "ADMISSIBLE",
+      "stale": false,
+      "touched": true
+    },
+    {
+      "challenge_id": 0,
+      "item_index": 20,
+      "pinned": "RIGHT",
+      "pinned_answer": "27",
+      "recall": "MATCH",
+      "rewrite": "",
+      "rewrite_answer": "",
+      "rewrite_class": "",
+      "rewrite_hash": "",
+      "rewrite_prompt": "",
+      "rewrite_reply": "",
+      "slice_settled": false,
+      "stage_c1": "PENDING",
+      "stage_c2": "PENDING",
+      "stale": false,
+      "touched": true
+    },
+    {
+      "challenge_id": 0,
+      "item_index": 21,
+      "pinned": "RIGHT",
+      "pinned_answer": "10",
+      "recall": "MATCH",
+      "rewrite": "WRONG",
+      "rewrite_answer": "9",
+      "rewrite_class": "numeral_substitution",
+      "rewrite_hash": "2d082cb3b12fd5f955396e3517baf9766ba8dcfe8f05a52839f5f006bea40e3b",
+      "rewrite_prompt": "On a practice worksheet, a student reads this problem: A coordinator divides 48 plain badges equally among 8 volunteers. Each volunteer then receives 3 extra badges from a separate reserve. How many badges does each volunteer have after receiving the extra badges?",
+      "rewrite_reply": "10",
+      "slice_settled": true,
+      "stage_c1": "ADMISSIBLE",
+      "stage_c2": "ADMISSIBLE",
+      "stale": true,
+      "touched": true
+    },
+    {
+      "challenge_id": 0,
+      "item_index": 22,
+      "pinned": "RIGHT",
+      "pinned_answer": "34",
+      "recall": "MATCH",
+      "rewrite": "RIGHT",
+      "rewrite_answer": "34",
+      "rewrite_class": "entity_rename",
+      "rewrite_hash": "1d3c5bba1fee7baf39a58084ec8d83e2ca3acccbb0613ea416b3fb20159725f1",
+      "rewrite_prompt": "On a practice worksheet, a student reads this problem: Yuna has 31 polished shells in a box. Felix gives her 8 more polished shells, and she then lends 5 shells from the box to Asha. How many polished shells remain in Yuna's box after both exchanges?",
+      "rewrite_reply": "34",
+      "slice_settled": true,
+      "stage_c1": "ADMISSIBLE",
+      "stage_c2": "ADMISSIBLE",
+      "stale": false,
+      "touched": true
+    },
+    {
+      "challenge_id": 0,
+      "item_index": 23,
+      "pinned": "RIGHT",
+      "pinned_answer": "1500",
+      "recall": "MATCH",
+      "rewrite": "RIGHT",
+      "rewrite_answer": "1500",
+      "rewrite_class": "unit_change",
+      "rewrite_hash": "495077b9666c607c3e82ad9dacab857ce43f6594e062c46be784a714946f8b6d",
+      "rewrite_prompt": "On a practice worksheet, a student reads this problem: A mixing station has 0.9 liters of clear water in one jug and 0.6 liters in another jug. All this water is poured into an empty container without spilling. How many milliliters of water are in that container?",
+      "rewrite_reply": "1500",
+      "slice_settled": false,
+      "stage_c1": "ADMISSIBLE",
+      "stage_c2": "PENDING",
+      "stale": false,
+      "touched": true
+    }
+  ],
+  "missing_receipts": [
+    {
+      "row": {
+        "key": "probe:0:2:ADMIT",
+        "tx": "0x88d675814aaa4976c64a5b596e3c4cb4fd224d8e7a7086991e31951f040151f7",
+        "method": "probe",
+        "at": 1791637556,
+        "address": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+        "signature": "0206a3a62f4e7a5264a982aff69ac01baa685b1fe965971a4a06bbdf06f9b0e2",
+        "step": "probe",
+        "challenge_id": 0,
+        "item_index": 2,
+        "mode": "ADMIT",
+        "previous_tx": "0x34465f4e798c4ee81210a3a5c337e73934ba48c7ccc81c32bbe4cab547fc3e11",
+        "previous_row": {
+          "key": "probe:0:2:ADMIT",
+          "tx": "0x34465f4e798c4ee81210a3a5c337e73934ba48c7ccc81c32bbe4cab547fc3e11",
+          "method": "probe",
+          "at": 1791634079,
+          "address": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+          "signature": "0206a3a62f4e7a5264a982aff69ac01baa685b1fe965971a4a06bbdf06f9b0e2",
+          "step": "probe",
+          "challenge_id": 0,
+          "item_index": 2,
+          "mode": "ADMIT"
+        },
+        "previous_receipt": "bradbury-v2-scripted.jsonl.receipts/0x34465f4e798c4ee81210a3a5c337e73934ba48c7ccc81c32bbe4cab547fc3e11.finalized-b0hokhdc.json"
+      },
+      "receipt": {
+        "currentTimestamp": "1791638732",
+        "sender": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+        "recipient": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+        "initialRotations": "3",
+        "txSlot": "96",
+        "createdTimestamp": "1791637561",
+        "lastVoteTimestamp": "1791638413",
+        "randomSeed": "0x04779809f410f01389bd8db727f018085968178abdd607ea4acd41a9aee75d86",
+        "result": 1,
+        "txExecutionHash": "0x160f07b707c9ff99ee0ae303f2f92f61c972fda5b26985c1735b57c754ecf3c2",
+        "txCalldata": "0xdf9d1604617267732501112c41444d495404066d6574686f642c70726f626500",
+        "eqBlocksOutputs": "0xf854b84b00c4047b226f726967696e616c5f726573756c74223a20223230222c2022726577726974655f726573756c74223a20223230222c202273616d655f7175657374696f6e223a20747275657d86706164646564",
+        "messages": [],
+        "queueType": 0,
+        "queuePosition": "0",
+        "activator": "0x59dC5E6fD7428c5Ee6fc24aE2B99E5860A9c9499",
+        "lastLeader": "0x2d012a292244C7ce6423a114d19109990923Af76",
+        "status": 2,
+        "txId": "0x88d675814aaa4976c64a5b596e3c4cb4fd224d8e7a7086991e31951f040151f7",
+        "readStateBlockRange": {
+          "activationBlock": "24266070",
+          "processingBlock": "0",
+          "proposalBlock": "0"
+        },
+        "numOfRounds": "2",
+        "lastRound": {
+          "round": "0",
+          "leaderIndex": "0",
+          "votesCommitted": "0",
+          "votesRevealed": "0",
+          "appealBond": "0",
+          "rotationsLeft": "2",
+          "result": 1,
+          "roundValidators": [
+            "0x2d012a292244C7ce6423a114d19109990923Af76",
+            "0x77a07271abB443F55be19c357AA35206BeB63E1d",
+            "0x3f5cAED686336ED9cF3Dede61154B0Cd67Fb9bD7",
+            "0x2CD9051E10cd1547a7b64eF61EbF1E608235dBda",
+            "0xE8fdefdfe18fD8E5B0d576b7CcfC5a29CE43fD7f"
+          ],
+          "validatorVotes": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "validatorVotesHash": [
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000"
+          ],
+          "validatorResultHash": [
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000"
+          ],
+          "validatorVotesName": [
+            "NOT_VOTED",
+            "NOT_VOTED",
+            "NOT_VOTED",
+            "NOT_VOTED",
+            "NOT_VOTED"
+          ]
+        },
+        "consumedValidators": [
+          "0x2d012a292244C7ce6423a114d19109990923Af76",
+          "0x77a07271abB443F55be19c357AA35206BeB63E1d",
+          "0x3f5cAED686336ED9cF3Dede61154B0Cd67Fb9bD7",
+          "0x2CD9051E10cd1547a7b64eF61EbF1E608235dBda",
+          "0xE8fdefdfe18fD8E5B0d576b7CcfC5a29CE43fD7f"
+        ],
+        "txExecutionResult": 0,
+        "txData": "0xdf9d1604617267732501112c41444d495404066d6574686f642c70726f626500",
+        "txDataDecoded": {
+          "callData": {},
+          "leaderOnly": false,
+          "type": "call"
+        },
+        "numOfInitialValidators": "3",
+        "statusName": "PROPOSING",
+        "resultName": "AGREE",
+        "txExecutionResultName": "NOT_VOTED"
+      }
+    },
+    {
+      "row": {
+        "key": "probe:0:3:ADMIT",
+        "tx": "0x28054e97e3187cba989d4c8561e18c188d0e05de81dafe76580b5102824b45b9",
+        "method": "probe",
+        "at": 1791637580,
+        "address": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+        "signature": "e107cd6ac5a284b21e542cb65c259ea48b7a862882b711225292284afb715bab",
+        "step": "probe",
+        "challenge_id": 0,
+        "item_index": 3,
+        "mode": "ADMIT",
+        "previous_tx": "0xc256b6cfafedae00e73aa7687d925bf25cb02708051306c36c7ec8acfdf32920",
+        "previous_row": {
+          "key": "probe:0:3:ADMIT",
+          "tx": "0xc256b6cfafedae00e73aa7687d925bf25cb02708051306c36c7ec8acfdf32920",
+          "method": "probe",
+          "at": 1791634253,
+          "address": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+          "signature": "e107cd6ac5a284b21e542cb65c259ea48b7a862882b711225292284afb715bab",
+          "step": "probe",
+          "challenge_id": 0,
+          "item_index": 3,
+          "mode": "ADMIT"
+        },
+        "previous_receipt": "bradbury-v2-scripted.jsonl.receipts/0xc256b6cfafedae00e73aa7687d925bf25cb02708051306c36c7ec8acfdf32920.finalized-u91xlek8.json"
+      },
+      "receipt": {
+        "currentTimestamp": "1791638732",
+        "sender": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+        "recipient": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+        "initialRotations": "3",
+        "txSlot": "97",
+        "createdTimestamp": "1791637585",
+        "lastVoteTimestamp": "1791638459",
+        "randomSeed": "0x04779809f410f01389bd8db727f018085968178abdd607ea4acd41a9aee75d86",
+        "result": 1,
+        "txExecutionHash": "0x4c838bbe103cd3f4aa8f762226b7d6b554b10ef6a6c9cde223fcda6f8eab15fa",
+        "txCalldata": "0xdf9d1604617267732501192c41444d495404066d6574686f642c70726f626500",
+        "eqBlocksOutputs": "0xf856b84d00d4047b226f726967696e616c5f726573756c74223a2022323530222c2022726577726974655f726573756c74223a2022323530222c202273616d655f7175657374696f6e223a20747275657d86706164646564",
+        "messages": [],
+        "queueType": 0,
+        "queuePosition": "0",
+        "activator": "0x8E7765267023F88d4155d52F4ce2319aDDf1dc33",
+        "lastLeader": "0x422357d87B035e478777C84748BAC834CE2A9597",
+        "status": 2,
+        "txId": "0x28054e97e3187cba989d4c8561e18c188d0e05de81dafe76580b5102824b45b9",
+        "readStateBlockRange": {
+          "activationBlock": "24266070",
+          "processingBlock": "0",
+          "proposalBlock": "0"
+        },
+        "numOfRounds": "2",
+        "lastRound": {
+          "round": "0",
+          "leaderIndex": "1",
+          "votesCommitted": "0",
+          "votesRevealed": "0",
+          "appealBond": "0",
+          "rotationsLeft": "2",
+          "result": 1,
+          "roundValidators": [
+            "0xB93a46B843fB32E8Ce392e68eDFE93Faa4a40817",
+            "0x422357d87B035e478777C84748BAC834CE2A9597",
+            "0x470AAa7DE37ff3E1C2b38eD9096263ca0d541F21",
+            "0x2CD9051E10cd1547a7b64eF61EbF1E608235dBda",
+            "0x4FC292d5D255Ec8Ad4cdcd36c5E188dfEE9D160e"
+          ],
+          "validatorVotes": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "validatorVotesHash": [
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000"
+          ],
+          "validatorResultHash": [
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000"
+          ],
+          "validatorVotesName": [
+            "NOT_VOTED",
+            "NOT_VOTED",
+            "NOT_VOTED",
+            "NOT_VOTED",
+            "NOT_VOTED"
+          ]
+        },
+        "consumedValidators": [
+          "0xB93a46B843fB32E8Ce392e68eDFE93Faa4a40817",
+          "0x422357d87B035e478777C84748BAC834CE2A9597",
+          "0x470AAa7DE37ff3E1C2b38eD9096263ca0d541F21",
+          "0x2CD9051E10cd1547a7b64eF61EbF1E608235dBda",
+          "0x4FC292d5D255Ec8Ad4cdcd36c5E188dfEE9D160e"
+        ],
+        "txExecutionResult": 0,
+        "txData": "0xdf9d1604617267732501192c41444d495404066d6574686f642c70726f626500",
+        "txDataDecoded": {
+          "callData": {},
+          "leaderOnly": false,
+          "type": "call"
+        },
+        "numOfInitialValidators": "3",
+        "statusName": "PROPOSING",
+        "resultName": "AGREE",
+        "txExecutionResultName": "NOT_VOTED"
+      }
+    },
+    {
+      "row": {
+        "key": "probe:0:4:REWRITE",
+        "tx": "0x79cc117afb63de2928e4d41f2b80d0c0f1a5c2f9547f36d0365c6c43c95993c0",
+        "method": "probe",
+        "at": 1791637609,
+        "address": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+        "signature": "6e0081cb278723ff015e195677f27dc74b08a274ebac7b8d6bc341eb1621e7c2",
+        "step": "probe",
+        "challenge_id": 0,
+        "item_index": 4,
+        "mode": "REWRITE",
+        "rewrite_hash": "dc484735c683f2a987b567358c9a6a91caa700ffcb3ed9aa773247ea2b3badc9",
+        "previous_tx": "0xffa3c8873c4752ad077e6ff4a0dc79bdd0e49a582d7ac95fbf65ea1f45b66c59",
+        "previous_row": {
+          "key": "probe:0:4:REWRITE",
+          "tx": "0xffa3c8873c4752ad077e6ff4a0dc79bdd0e49a582d7ac95fbf65ea1f45b66c59",
+          "method": "probe",
+          "at": 1791634321,
+          "address": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+          "signature": "6e0081cb278723ff015e195677f27dc74b08a274ebac7b8d6bc341eb1621e7c2",
+          "step": "probe",
+          "challenge_id": 0,
+          "item_index": 4,
+          "mode": "REWRITE",
+          "rewrite_hash": "dc484735c683f2a987b567358c9a6a91caa700ffcb3ed9aa773247ea2b3badc9"
+        },
+        "previous_receipt": "bradbury-v2-scripted.jsonl.receipts/0xffa3c8873c4752ad077e6ff4a0dc79bdd0e49a582d7ac95fbf65ea1f45b66c59.finalized-4723q5n9.json"
+      },
+      "receipt": {
+        "currentTimestamp": "1791638732",
+        "sender": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+        "recipient": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+        "initialRotations": "3",
+        "txSlot": "98",
+        "createdTimestamp": "1791637614",
+        "lastVoteTimestamp": "1791637667",
+        "randomSeed": "0x04779809f410f01389bd8db727f018085968178abdd607ea4acd41a9aee75d86",
+        "result": 1,
+        "txExecutionHash": "0x5a8dabe345d67037d602eff705f2a18d16f91350f2399e575b7cc715f6105aa4",
+        "txCalldata": "0xf90173b9016f1604617267732501213c52455752495445fc147b22616e73776572223a223338222c22636c617373223a22666f726d61745f7368696674222c2270726f6d7074223a224f6e206120707261637469636520776f726b73686565742c20612073747564656e7420726561647320746869732070726f626c656d3a2052656865617273616c20726f6f6d20696e76656e746f72793a5c6e2d20526f77733a20365c6e2d2043686169727320696e206561636820726f773a20375c6e2d204368616972732074616b656e206f757420666f7220726570616972206265666f7265207468652067726f757020617272697665733a20345c6e5175657374696f6e3a20486f77206d616e79206368616972732072656d61696e20696e207468652072656865617273616c20726f6f6d2061667465722074686f736520636861697273206172652072656d6f7665643f222c2276657273696f6e223a22696d70656163682f31227d066d6574686f642c70726f626500",
+        "eqBlocksOutputs": "0xf88bb84b00c4047b226f726967696e616c5f726573756c74223a20223338222c2022726577726974655f726573756c74223a20223338222c202273616d655f7175657374696f6e223a20747275657db6009c037b22737461747573223a20224c495645222c2022616e73776572223a20223338222c2022636f7272656374223a20747275657d86706164646564",
+        "messages": [],
+        "queueType": 0,
+        "queuePosition": "0",
+        "activator": "0x0c526A6af46A038E31dA21C123756Ab2D75f06Bc",
+        "lastLeader": "0x2CD9051E10cd1547a7b64eF61EbF1E608235dBda",
+        "status": 2,
+        "txId": "0x79cc117afb63de2928e4d41f2b80d0c0f1a5c2f9547f36d0365c6c43c95993c0",
+        "readStateBlockRange": {
+          "activationBlock": "24266070",
+          "processingBlock": "0",
+          "proposalBlock": "0"
+        },
+        "numOfRounds": "0",
+        "lastRound": {
+          "round": "0",
+          "leaderIndex": "4",
+          "votesCommitted": "0",
+          "votesRevealed": "0",
+          "appealBond": "0",
+          "rotationsLeft": "2",
+          "result": 1,
+          "roundValidators": [
+            "0x77a07271abB443F55be19c357AA35206BeB63E1d",
+            "0x4f36CB2C58385575fafb443d80E3c290b12DA6aE",
+            "0x4FC292d5D255Ec8Ad4cdcd36c5E188dfEE9D160e",
+            "0xb4Fb7ADc6877a6A16bd131c7c9270834bD3DEf34",
+            "0x2CD9051E10cd1547a7b64eF61EbF1E608235dBda"
+          ],
+          "validatorVotes": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "validatorVotesHash": [
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000"
+          ],
+          "validatorResultHash": [
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000"
+          ],
+          "validatorVotesName": [
+            "NOT_VOTED",
+            "NOT_VOTED",
+            "NOT_VOTED",
+            "NOT_VOTED",
+            "NOT_VOTED"
+          ]
+        },
+        "consumedValidators": [
+          "0x77a07271abB443F55be19c357AA35206BeB63E1d",
+          "0x4f36CB2C58385575fafb443d80E3c290b12DA6aE",
+          "0x4FC292d5D255Ec8Ad4cdcd36c5E188dfEE9D160e",
+          "0xb4Fb7ADc6877a6A16bd131c7c9270834bD3DEf34",
+          "0x2CD9051E10cd1547a7b64eF61EbF1E608235dBda"
+        ],
+        "txExecutionResult": 0,
+        "txData": "0xf90173b9016f1604617267732501213c52455752495445fc147b22616e73776572223a223338222c22636c617373223a22666f726d61745f7368696674222c2270726f6d7074223a224f6e206120707261637469636520776f726b73686565742c20612073747564656e7420726561647320746869732070726f626c656d3a2052656865617273616c20726f6f6d20696e76656e746f72793a5c6e2d20526f77733a20365c6e2d2043686169727320696e206561636820726f773a20375c6e2d204368616972732074616b656e206f757420666f7220726570616972206265666f7265207468652067726f757020617272697665733a20345c6e5175657374696f6e3a20486f77206d616e79206368616972732072656d61696e20696e207468652072656865617273616c20726f6f6d2061667465722074686f736520636861697273206172652072656d6f7665643f222c2276657273696f6e223a22696d70656163682f31227d066d6574686f642c70726f626500",
+        "txDataDecoded": {
+          "callData": {},
+          "leaderOnly": false,
+          "type": "call"
+        },
+        "numOfInitialValidators": "3",
+        "statusName": "PROPOSING",
+        "resultName": "AGREE",
+        "txExecutionResultName": "NOT_VOTED"
+      }
+    },
+    {
+      "row": {
+        "key": "probe:0:7:ADMIT",
+        "tx": "0x5ecf527fa9d9899a061932632477f4310b8d17370e0f3cdb60fb6df85ea2a2cf",
+        "method": "probe",
+        "at": 1791637689,
+        "address": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+        "signature": "2944d4ab564fbea056fe869822f0eea937891b8fd2d574d1ff18a8fe1d52b100",
+        "step": "probe",
+        "challenge_id": 0,
+        "item_index": 7,
+        "mode": "ADMIT",
+        "previous_tx": "0x7041168b999c143cb0f81ecf8b680ad9168fd305cbb19c162ea8b6bc450410c9",
+        "previous_row": {
+          "key": "probe:0:7:ADMIT",
+          "tx": "0x7041168b999c143cb0f81ecf8b680ad9168fd305cbb19c162ea8b6bc450410c9",
+          "method": "probe",
+          "at": 1791634845,
+          "address": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+          "signature": "2944d4ab564fbea056fe869822f0eea937891b8fd2d574d1ff18a8fe1d52b100",
+          "step": "probe",
+          "challenge_id": 0,
+          "item_index": 7,
+          "mode": "ADMIT"
+        },
+        "previous_receipt": "bradbury-v2-scripted.jsonl.receipts/0x7041168b999c143cb0f81ecf8b680ad9168fd305cbb19c162ea8b6bc450410c9.finalized-nb0j4ypb.json"
+      },
+      "receipt": {
+        "currentTimestamp": "1791638732",
+        "sender": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+        "recipient": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+        "initialRotations": "3",
+        "txSlot": "99",
+        "createdTimestamp": "1791637694",
+        "lastVoteTimestamp": "1791637724",
+        "randomSeed": "0x04779809f410f01389bd8db727f018085968178abdd607ea4acd41a9aee75d86",
+        "result": 1,
+        "txExecutionHash": "0x16e3fa0a71a8cbe18b07572d0c8e5c9402cff25dc7b3c20e45431d090056dd92",
+        "txCalldata": "0xdf9d1604617267732501392c41444d495404066d6574686f642c70726f626500",
+        "eqBlocksOutputs": "0xf852b84900b4047b226f726967696e616c5f726573756c74223a202237222c2022726577726974655f726573756c74223a202237222c202273616d655f7175657374696f6e223a20747275657d86706164646564",
+        "messages": [],
+        "queueType": 0,
+        "queuePosition": "0",
+        "activator": "0x77a07271abB443F55be19c357AA35206BeB63E1d",
+        "lastLeader": "0x79485eF57aC2055dC83b9E7b2C9Cf184Fc79648E",
+        "status": 2,
+        "txId": "0x5ecf527fa9d9899a061932632477f4310b8d17370e0f3cdb60fb6df85ea2a2cf",
+        "readStateBlockRange": {
+          "activationBlock": "24266070",
+          "processingBlock": "0",
+          "proposalBlock": "0"
+        },
+        "numOfRounds": "0",
+        "lastRound": {
+          "round": "0",
+          "leaderIndex": "4",
+          "votesCommitted": "0",
+          "votesRevealed": "0",
+          "appealBond": "0",
+          "rotationsLeft": "2",
+          "result": 1,
+          "roundValidators": [
+            "0x2CD9051E10cd1547a7b64eF61EbF1E608235dBda",
+            "0xB93a46B843fB32E8Ce392e68eDFE93Faa4a40817",
+            "0x992E8D62263eD1Fe2E14FfB11aDf1080edBe4b5a",
+            "0x8E7765267023F88d4155d52F4ce2319aDDf1dc33",
+            "0x79485eF57aC2055dC83b9E7b2C9Cf184Fc79648E"
+          ],
+          "validatorVotes": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "validatorVotesHash": [
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000"
+          ],
+          "validatorResultHash": [
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000"
+          ],
+          "validatorVotesName": [
+            "NOT_VOTED",
+            "NOT_VOTED",
+            "NOT_VOTED",
+            "NOT_VOTED",
+            "NOT_VOTED"
+          ]
+        },
+        "consumedValidators": [
+          "0x2CD9051E10cd1547a7b64eF61EbF1E608235dBda",
+          "0xB93a46B843fB32E8Ce392e68eDFE93Faa4a40817",
+          "0x992E8D62263eD1Fe2E14FfB11aDf1080edBe4b5a",
+          "0x8E7765267023F88d4155d52F4ce2319aDDf1dc33",
+          "0x79485eF57aC2055dC83b9E7b2C9Cf184Fc79648E"
+        ],
+        "txExecutionResult": 0,
+        "txData": "0xdf9d1604617267732501392c41444d495404066d6574686f642c70726f626500",
+        "txDataDecoded": {
+          "callData": {},
+          "leaderOnly": false,
+          "type": "call"
+        },
+        "numOfInitialValidators": "3",
+        "statusName": "PROPOSING",
+        "resultName": "AGREE",
+        "txExecutionResultName": "NOT_VOTED"
+      }
+    },
+    {
+      "row": {
+        "key": "probe:0:8:ADMIT",
+        "tx": "0x0e83a80c06c5b1ba72c9fbf54dff955bd50f6ab295379308d2d6331fc8fe1345",
+        "method": "probe",
+        "at": 1791637741,
+        "address": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+        "signature": "70874fad4cf844ac2ec57591a338532a7a028cc39be37d560c87f5b4d390040b",
+        "step": "probe",
+        "challenge_id": 0,
+        "item_index": 8,
+        "mode": "ADMIT",
+        "previous_tx": "0xb3d0f91487def18a63247e86dfef6d864f4a1a2b0cd75f9956d78b2b78966755",
+        "previous_row": {
+          "key": "probe:0:8:ADMIT",
+          "tx": "0xb3d0f91487def18a63247e86dfef6d864f4a1a2b0cd75f9956d78b2b78966755",
+          "method": "probe",
+          "at": 1791634982,
+          "address": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+          "signature": "70874fad4cf844ac2ec57591a338532a7a028cc39be37d560c87f5b4d390040b",
+          "step": "probe",
+          "challenge_id": 0,
+          "item_index": 8,
+          "mode": "ADMIT"
+        },
+        "previous_receipt": "bradbury-v2-scripted.jsonl.receipts/0xb3d0f91487def18a63247e86dfef6d864f4a1a2b0cd75f9956d78b2b78966755.finalized-atxhlxpi.json"
+      },
+      "receipt": {
+        "currentTimestamp": "1791638732",
+        "sender": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+        "recipient": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+        "initialRotations": "3",
+        "txSlot": "100",
+        "createdTimestamp": "1791637746",
+        "lastVoteTimestamp": "1791637809",
+        "randomSeed": "0x04779809f410f01389bd8db727f018085968178abdd607ea4acd41a9aee75d86",
+        "result": 1,
+        "txExecutionHash": "0x69e3f4b5507ffa2ff2399a5fde40072d80ba576adfe730d9158c5a31ab3ef75a",
+        "txCalldata": "0xdf9d1604617267732501412c41444d495404066d6574686f642c70726f626500",
+        "eqBlocksOutputs": "0xf858b84f00e4047b226f726967696e616c5f726573756c74223a202232353030222c2022726577726974655f726573756c74223a202232353030222c202273616d655f7175657374696f6e223a20747275657d86706164646564",
+        "messages": [],
+        "queueType": 0,
+        "queuePosition": "0",
+        "activator": "0x59dC5E6fD7428c5Ee6fc24aE2B99E5860A9c9499",
+        "lastLeader": "0x59dC5E6fD7428c5Ee6fc24aE2B99E5860A9c9499",
+        "status": 2,
+        "txId": "0x0e83a80c06c5b1ba72c9fbf54dff955bd50f6ab295379308d2d6331fc8fe1345",
+        "readStateBlockRange": {
+          "activationBlock": "24266070",
+          "processingBlock": "0",
+          "proposalBlock": "0"
+        },
+        "numOfRounds": "0",
+        "lastRound": {
+          "round": "0",
+          "leaderIndex": "3",
+          "votesCommitted": "0",
+          "votesRevealed": "0",
+          "appealBond": "0",
+          "rotationsLeft": "2",
+          "result": 1,
+          "roundValidators": [
+            "0xB93a46B843fB32E8Ce392e68eDFE93Faa4a40817",
+            "0x422357d87B035e478777C84748BAC834CE2A9597",
+            "0xA58D6FcCD69eaafB5869dA58913f116045D75444",
+            "0x59dC5E6fD7428c5Ee6fc24aE2B99E5860A9c9499",
+            "0x3a130401885fD9322E2E21174A5496065f716b35"
+          ],
+          "validatorVotes": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "validatorVotesHash": [
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000"
+          ],
+          "validatorResultHash": [
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000"
+          ],
+          "validatorVotesName": [
+            "NOT_VOTED",
+            "NOT_VOTED",
+            "NOT_VOTED",
+            "NOT_VOTED",
+            "NOT_VOTED"
+          ]
+        },
+        "consumedValidators": [
+          "0xB93a46B843fB32E8Ce392e68eDFE93Faa4a40817",
+          "0x422357d87B035e478777C84748BAC834CE2A9597",
+          "0xA58D6FcCD69eaafB5869dA58913f116045D75444",
+          "0x59dC5E6fD7428c5Ee6fc24aE2B99E5860A9c9499",
+          "0x3a130401885fD9322E2E21174A5496065f716b35"
+        ],
+        "txExecutionResult": 0,
+        "txData": "0xdf9d1604617267732501412c41444d495404066d6574686f642c70726f626500",
+        "txDataDecoded": {
+          "callData": {},
+          "leaderOnly": false,
+          "type": "call"
+        },
+        "numOfInitialValidators": "3",
+        "statusName": "PROPOSING",
+        "resultName": "AGREE",
+        "txExecutionResultName": "NOT_VOTED"
+      }
+    },
+    {
+      "row": {
+        "key": "probe:0:14:REWRITE",
+        "tx": "0x17b942767dd081ca867130d1a91e75c8f9fe804e593ed04c204ce9522e550ae0",
+        "method": "probe",
+        "at": 1791637840,
+        "address": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+        "signature": "056b2ad6b9be4527925b7871966b0c4f1773209aaedb821a488bdccd5c2bb953",
+        "step": "probe",
+        "challenge_id": 0,
+        "item_index": 14,
+        "mode": "REWRITE",
+        "rewrite_hash": "b7b617eb2fecc693d87450763f1a19904c02d3c7654e824b88ff1b91332847b5",
+        "previous_tx": "0x807cd78b8d09f91047a7d7d7e42409b12c8c627bf235c8c312ebc2e117179931",
+        "previous_row": {
+          "key": "probe:0:14:REWRITE",
+          "tx": "0x807cd78b8d09f91047a7d7d7e42409b12c8c627bf235c8c312ebc2e117179931",
+          "method": "probe",
+          "at": 1791635961,
+          "address": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+          "signature": "056b2ad6b9be4527925b7871966b0c4f1773209aaedb821a488bdccd5c2bb953",
+          "step": "probe",
+          "challenge_id": 0,
+          "item_index": 14,
+          "mode": "REWRITE",
+          "rewrite_hash": "b7b617eb2fecc693d87450763f1a19904c02d3c7654e824b88ff1b91332847b5"
+        },
+        "previous_receipt": "bradbury-v2-scripted.jsonl.receipts/0x807cd78b8d09f91047a7d7d7e42409b12c8c627bf235c8c312ebc2e117179931.finalized-29g7_tt5.json"
+      },
+      "receipt": {
+        "currentTimestamp": "1791638732",
+        "sender": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+        "recipient": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+        "initialRotations": "3",
+        "txSlot": "101",
+        "createdTimestamp": "1791637845",
+        "lastVoteTimestamp": "1791637902",
+        "randomSeed": "0x04779809f410f01389bd8db727f018085968178abdd607ea4acd41a9aee75d86",
+        "result": 1,
+        "txExecutionHash": "0xeefb36bb26c89618db00570596ae11716ff0f47a5f3f7bd437a2b9c1467033bb",
+        "txCalldata": "0xf90163b9015f1604617267732501713c52455752495445fc137b22616e73776572223a223533222c22636c617373223a22666f726d61745f7368696674222c2270726f6d7074223a224f6e206120707261637469636520776f726b73686565742c20612073747564656e7420726561647320746869732070726f626c656d3a2041726368697665207368656c66207265636f72643a5c6e5374617274696e6720666f6c646572733a2036345c6e466f6c646572732072656d6f76656420666f7220696e7370656374696f6e3a2031385c6e4e65776c7920707265706172656420666f6c64657273206164646564206166746572776172643a20375c6e5175657374696f6e3a20486f77206d616e7920666f6c6465727320617265206f6e20746865207368656c662061667465722074686573652074776f206368616e6765733f222c2276657273696f6e223a22696d70656163682f31227d066d6574686f642c70726f626500",
+        "eqBlocksOutputs": "0xf88bb84b00c4047b226f726967696e616c5f726573756c74223a20223533222c2022726577726974655f726573756c74223a20223533222c202273616d655f7175657374696f6e223a20747275657db6009c037b22737461747573223a20224c495645222c2022616e73776572223a20223533222c2022636f7272656374223a20747275657d86706164646564",
+        "messages": [],
+        "queueType": 0,
+        "queuePosition": "0",
+        "activator": "0xB7551beF37a05995218f9a1BB7A93e5B6705f535",
+        "lastLeader": "0x4f36CB2C58385575fafb443d80E3c290b12DA6aE",
+        "status": 2,
+        "txId": "0x17b942767dd081ca867130d1a91e75c8f9fe804e593ed04c204ce9522e550ae0",
+        "readStateBlockRange": {
+          "activationBlock": "24266070",
+          "processingBlock": "0",
+          "proposalBlock": "0"
+        },
+        "numOfRounds": "0",
+        "lastRound": {
+          "round": "0",
+          "leaderIndex": "3",
+          "votesCommitted": "0",
+          "votesRevealed": "0",
+          "appealBond": "0",
+          "rotationsLeft": "2",
+          "result": 1,
+          "roundValidators": [
+            "0x3f5cAED686336ED9cF3Dede61154B0Cd67Fb9bD7",
+            "0xF01877B6Ac60861CA3b134e0E483C482679b4682",
+            "0x8E7765267023F88d4155d52F4ce2319aDDf1dc33",
+            "0x4f36CB2C58385575fafb443d80E3c290b12DA6aE",
+            "0xb4Fb7ADc6877a6A16bd131c7c9270834bD3DEf34"
+          ],
+          "validatorVotes": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "validatorVotesHash": [
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000"
+          ],
+          "validatorResultHash": [
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000"
+          ],
+          "validatorVotesName": [
+            "NOT_VOTED",
+            "NOT_VOTED",
+            "NOT_VOTED",
+            "NOT_VOTED",
+            "NOT_VOTED"
+          ]
+        },
+        "consumedValidators": [
+          "0x3f5cAED686336ED9cF3Dede61154B0Cd67Fb9bD7",
+          "0xF01877B6Ac60861CA3b134e0E483C482679b4682",
+          "0x8E7765267023F88d4155d52F4ce2319aDDf1dc33",
+          "0x4f36CB2C58385575fafb443d80E3c290b12DA6aE",
+          "0xb4Fb7ADc6877a6A16bd131c7c9270834bD3DEf34"
+        ],
+        "txExecutionResult": 0,
+        "txData": "0xf90163b9015f1604617267732501713c52455752495445fc137b22616e73776572223a223533222c22636c617373223a22666f726d61745f7368696674222c2270726f6d7074223a224f6e206120707261637469636520776f726b73686565742c20612073747564656e7420726561647320746869732070726f626c656d3a2041726368697665207368656c66207265636f72643a5c6e5374617274696e6720666f6c646572733a2036345c6e466f6c646572732072656d6f76656420666f7220696e7370656374696f6e3a2031385c6e4e65776c7920707265706172656420666f6c64657273206164646564206166746572776172643a20375c6e5175657374696f6e3a20486f77206d616e7920666f6c6465727320617265206f6e20746865207368656c662061667465722074686573652074776f206368616e6765733f222c2276657273696f6e223a22696d70656163682f31227d066d6574686f642c70726f626500",
+        "txDataDecoded": {
+          "callData": {},
+          "leaderOnly": false,
+          "type": "call"
+        },
+        "numOfInitialValidators": "3",
+        "statusName": "PROPOSING",
+        "resultName": "AGREE",
+        "txExecutionResultName": "NOT_VOTED"
+      }
+    },
+    {
+      "row": {
+        "key": "probe:0:15:ADMIT",
+        "tx": "0x099adcb10f7aa80d10b88cf294904c664ea4dc56f94d99463c370d39b762a780",
+        "method": "probe",
+        "at": 1791638177,
+        "address": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+        "signature": "8f7049830265bad43ee8afee53c7efa01900b19df186c4655a3cbc9c897bbc06",
+        "step": "probe",
+        "challenge_id": 0,
+        "item_index": 15,
+        "mode": "ADMIT",
+        "previous_tx": "0xc900228f414ac952841659d8b4d278818c79432b88c0a653da807c0d36c5947c",
+        "previous_row": {
+          "key": "probe:0:15:ADMIT",
+          "tx": "0xc900228f414ac952841659d8b4d278818c79432b88c0a653da807c0d36c5947c",
+          "method": "probe",
+          "at": 1791636146,
+          "address": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+          "signature": "8f7049830265bad43ee8afee53c7efa01900b19df186c4655a3cbc9c897bbc06",
+          "step": "probe",
+          "challenge_id": 0,
+          "item_index": 15,
+          "mode": "ADMIT"
+        },
+        "previous_receipt": "bradbury-v2-scripted.jsonl.receipts/0xc900228f414ac952841659d8b4d278818c79432b88c0a653da807c0d36c5947c.finalized-p37x3che.json"
+      },
+      "receipt": {
+        "currentTimestamp": "1791638732",
+        "sender": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+        "recipient": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+        "initialRotations": "3",
+        "txSlot": "104",
+        "createdTimestamp": "1791638181",
+        "lastVoteTimestamp": "1791638490",
+        "randomSeed": "0x04779809f410f01389bd8db727f018085968178abdd607ea4acd41a9aee75d86",
+        "result": 1,
+        "txExecutionHash": "0x1fcceb66ff6d689b835e902128ebff2d80edc6463e3990c76e13a5a47c8d0463",
+        "txCalldata": "0xdf9d1604617267732501792c41444d495404066d6574686f642c70726f626500",
+        "eqBlocksOutputs": "0xf854b84b00c4047b226f726967696e616c5f726573756c74223a20223130222c2022726577726974655f726573756c74223a20223130222c202273616d655f7175657374696f6e223a20747275657d86706164646564",
+        "messages": [],
+        "queueType": 0,
+        "queuePosition": "0",
+        "activator": "0x183217483618c4EBd34C987DE400e01bEFfe5860",
+        "lastLeader": "0x8E7765267023F88d4155d52F4ce2319aDDf1dc33",
+        "status": 2,
+        "txId": "0x099adcb10f7aa80d10b88cf294904c664ea4dc56f94d99463c370d39b762a780",
+        "readStateBlockRange": {
+          "activationBlock": "24266070",
+          "processingBlock": "0",
+          "proposalBlock": "0"
+        },
+        "numOfRounds": "2",
+        "lastRound": {
+          "round": "0",
+          "leaderIndex": "2",
+          "votesCommitted": "0",
+          "votesRevealed": "0",
+          "appealBond": "0",
+          "rotationsLeft": "2",
+          "result": 1,
+          "roundValidators": [
+            "0xB7551beF37a05995218f9a1BB7A93e5B6705f535",
+            "0x0c526A6af46A038E31dA21C123756Ab2D75f06Bc",
+            "0x8E7765267023F88d4155d52F4ce2319aDDf1dc33",
+            "0x7c23E70217AB2A9E777940Eb769bA4198d1BaA61",
+            "0x2d012a292244C7ce6423a114d19109990923Af76"
+          ],
+          "validatorVotes": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "validatorVotesHash": [
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000"
+          ],
+          "validatorResultHash": [
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000"
+          ],
+          "validatorVotesName": [
+            "NOT_VOTED",
+            "NOT_VOTED",
+            "NOT_VOTED",
+            "NOT_VOTED",
+            "NOT_VOTED"
+          ]
+        },
+        "consumedValidators": [
+          "0xB7551beF37a05995218f9a1BB7A93e5B6705f535",
+          "0x0c526A6af46A038E31dA21C123756Ab2D75f06Bc",
+          "0x8E7765267023F88d4155d52F4ce2319aDDf1dc33",
+          "0x7c23E70217AB2A9E777940Eb769bA4198d1BaA61",
+          "0x2d012a292244C7ce6423a114d19109990923Af76"
+        ],
+        "txExecutionResult": 0,
+        "txData": "0xdf9d1604617267732501792c41444d495404066d6574686f642c70726f626500",
+        "txDataDecoded": {
+          "callData": {},
+          "leaderOnly": false,
+          "type": "call"
+        },
+        "numOfInitialValidators": "3",
+        "statusName": "PROPOSING",
+        "resultName": "AGREE",
+        "txExecutionResultName": "NOT_VOTED"
+      }
+    },
+    {
+      "row": {
+        "key": "probe:0:16:REWRITE",
+        "tx": "0xe2432aec90a82ea1a518fc7c63e916348c4bf25c95aa715c5876cb69d8721ebb",
+        "method": "probe",
+        "at": 1791636214,
+        "address": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+        "signature": "941bf221babbd7ef1aacb64696743f1ed5bef6c4f90b0a6f155e8a2dac98bee6",
+        "step": "probe",
+        "challenge_id": 0,
+        "item_index": 16,
+        "mode": "REWRITE",
+        "rewrite_hash": "26b2fa89a8b8de276d70c8ee7e6d1b6af7001539f9bbf7147b92390bf0662242"
+      },
+      "receipt": {
+        "currentTimestamp": "1791638733",
+        "sender": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+        "recipient": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+        "initialRotations": "3",
+        "txSlot": "68",
+        "createdTimestamp": "1791636219",
+        "lastVoteTimestamp": "0",
+        "randomSeed": "0x87b4ff639fe665c34ae90877ee2ec508f5d89d815581c32efbee9d4462f88e61",
+        "result": 0,
+        "txExecutionHash": "0x5bf7ed5009dc9257ea8bcb2ba5cb8759a169db3e4b2b9e7fc40970e9ca655126",
+        "txCalldata": "0xf9017ab90176160461726773250181013c52455752495445ac157b22616e73776572223a2237222c22636c617373223a226e756d6572616c5f737562737469747574696f6e222c2270726f6d7074223a224f6e206120707261637469636520776f726b73686565742c20612073747564656e7420726561647320746869732070726f626c656d3a2041206c616e7465726e206b697420686173203237206261747465726965732c20627574203620626174746572696573206172652064616d6167656420616e642063616e6e6f7420626520757365642e2045616368206c616e7465726e206e65656473203320757361626c65206261747465726965732e205573696e6720616c6c2074686520757361626c65206261747465726965732066726f6d2074686973206b69742c20686f77206d616e7920636f6d706c657465206c616e7465726e732063616e20626520706f77657265643f222c2276657273696f6e223a22696d70656163682f31227d066d6574686f642c70726f626500",
+        "eqBlocksOutputs": "0xf88bb84a00bc047b226f726967696e616c5f726573756c74223a20223130222c2022726577726974655f726573756c74223a202237222c202273616d655f7175657374696f6e223a20747275657db700a4037b22737461747573223a20224c495645222c2022616e73776572223a20223130222c2022636f7272656374223a2066616c73657d86706164646564",
+        "messages": [],
+        "queueType": 0,
+        "queuePosition": "0",
+        "activator": "0x4FC292d5D255Ec8Ad4cdcd36c5E188dfEE9D160e",
+        "lastLeader": "0x96298d411a2D622945BEACa6112374583b501d52",
+        "status": 6,
+        "txId": "0xe2432aec90a82ea1a518fc7c63e916348c4bf25c95aa715c5876cb69d8721ebb",
+        "readStateBlockRange": {
+          "activationBlock": "24258446",
+          "processingBlock": "24264950",
+          "proposalBlock": "24264953"
+        },
+        "numOfRounds": "4",
+        "lastRound": {
+          "round": "0",
+          "leaderIndex": "4",
+          "votesCommitted": "5",
+          "votesRevealed": "4",
+          "appealBond": "0",
+          "rotationsLeft": "2",
+          "result": 0,
+          "roundValidators": [
+            "0x7c23E70217AB2A9E777940Eb769bA4198d1BaA61",
+            "0x470AAa7DE37ff3E1C2b38eD9096263ca0d541F21",
+            "0xE8fdefdfe18fD8E5B0d576b7CcfC5a29CE43fD7f",
+            "0x183217483618c4EBd34C987DE400e01bEFfe5860",
+            "0x96298d411a2D622945BEACa6112374583b501d52"
+          ],
+          "validatorVotes": [
+            0,
+            4,
+            3,
+            3,
+            1
+          ],
+          "validatorVotesHash": [
+            "0x1afc5621ced061c318c1a80756562929516ea8f147163acb64f8b241ea2e308a",
+            "0xf2fe756b5eecd1a876d0eeb74dc4c2bf9e8f2d2b82850bc258ae09c9d4163fda",
+            "0xd588f5a1b610a0cba17ce6dad4c090449083c13b4b5bd05b5e02c5a714c6b192",
+            "0x3208a8cd01289260e23194807ec457c4162df601a6f6f99279b0d3c2d0e9b450",
+            "0x436629992089ab7533eecd205dcaa38e0339d9e6260476d7eb6c9d47b2d56794"
+          ],
+          "validatorResultHash": [
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x28e8ea90c658230326f80cfd0139088607f77342cf90eff867ec84cb36a75405",
+            "0x9fc8d2d92c2ea25ae2ac3d9b20370cb9cb1e53d073b5c1a20b03621ca750f8df",
+            "0x9fc8d2d92c2ea25ae2ac3d9b20370cb9cb1e53d073b5c1a20b03621ca750f8df",
+            "0x4d73cda10a9fffb4b3f3a41399de2ed4f13361248fda40c1fdc8d79cdff59fa6"
+          ],
+          "validatorVotesName": [
+            "NOT_VOTED",
+            "DETERMINISTIC_VIOLATION",
+            "TIMEOUT",
+            "TIMEOUT",
+            "AGREE"
+          ]
+        },
+        "consumedValidators": [
+          "0x7c23E70217AB2A9E777940Eb769bA4198d1BaA61",
+          "0x470AAa7DE37ff3E1C2b38eD9096263ca0d541F21",
+          "0xE8fdefdfe18fD8E5B0d576b7CcfC5a29CE43fD7f",
+          "0x2CD9051E10cd1547a7b64eF61EbF1E608235dBda",
+          "0x183217483618c4EBd34C987DE400e01bEFfe5860",
+          "0x96298d411a2D622945BEACa6112374583b501d52"
+        ],
+        "txExecutionResult": 1,
+        "txData": "0xf9017ab90176160461726773250181013c52455752495445ac157b22616e73776572223a2237222c22636c617373223a226e756d6572616c5f737562737469747574696f6e222c2270726f6d7074223a224f6e206120707261637469636520776f726b73686565742c20612073747564656e7420726561647320746869732070726f626c656d3a2041206c616e7465726e206b697420686173203237206261747465726965732c20627574203620626174746572696573206172652064616d6167656420616e642063616e6e6f7420626520757365642e2045616368206c616e7465726e206e65656473203320757361626c65206261747465726965732e205573696e6720616c6c2074686520757361626c65206261747465726965732066726f6d2074686973206b69742c20686f77206d616e7920636f6d706c657465206c616e7465726e732063616e20626520706f77657265643f222c2276657273696f6e223a22696d70656163682f31227d066d6574686f642c70726f626500",
+        "txDataDecoded": {
+          "callData": {},
+          "leaderOnly": false,
+          "type": "call"
+        },
+        "numOfInitialValidators": "3",
+        "statusName": "UNDETERMINED",
+        "resultName": "IDLE",
+        "txExecutionResultName": "FINISHED_WITH_RETURN"
+      }
+    },
+    {
+      "row": {
+        "key": "probe:0:17:ADMIT",
+        "tx": "0xd7807ccfcc63d70144969deaa9d037053e1a347626934f768c0a11f5545ad712",
+        "method": "probe",
+        "at": 1791636399,
+        "address": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+        "signature": "b43601b8652f4f63dd63392796b3062d98b22897a308dc49141978b59b6db090",
+        "step": "probe",
+        "challenge_id": 0,
+        "item_index": 17,
+        "mode": "ADMIT"
+      },
+      "receipt": {
+        "currentTimestamp": "1791638733",
+        "sender": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+        "recipient": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+        "initialRotations": "3",
+        "txSlot": "72",
+        "createdTimestamp": "1791636404",
+        "lastVoteTimestamp": "1791636411",
+        "randomSeed": "0x0ee3195b59f43fbe5b615f5f10dbdeb7d0842967f544115317b7ef0551791744",
+        "result": 0,
+        "txExecutionHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "txCalldata": "0xe09e160461726773250189012c41444d495404066d6574686f642c70726f626500",
+        "eqBlocksOutputs": "0x",
+        "messages": [],
+        "queueType": 0,
+        "queuePosition": "0",
+        "activator": "0xf5E017C93f37E3f03595C03D5A6A98396769C175",
+        "lastLeader": "0xB93a46B843fB32E8Ce392e68eDFE93Faa4a40817",
+        "status": 11,
+        "txId": "0xd7807ccfcc63d70144969deaa9d037053e1a347626934f768c0a11f5545ad712",
+        "readStateBlockRange": {
+          "activationBlock": "24259014",
+          "processingBlock": "24259023",
+          "proposalBlock": "24259028"
+        },
+        "numOfRounds": "0",
+        "lastRound": {
+          "round": "0",
+          "leaderIndex": "4",
+          "votesCommitted": "0",
+          "votesRevealed": "0",
+          "appealBond": "0",
+          "rotationsLeft": "3",
+          "result": 0,
+          "roundValidators": [
+            "0x9F6aa7364D20CF25F054Ea83f3CB950317fD34b6",
+            "0x2d012a292244C7ce6423a114d19109990923Af76",
+            "0x0c526A6af46A038E31dA21C123756Ab2D75f06Bc",
+            "0x77a07271abB443F55be19c357AA35206BeB63E1d",
+            "0xB93a46B843fB32E8Ce392e68eDFE93Faa4a40817"
+          ],
+          "validatorVotes": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "validatorVotesHash": [
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000"
+          ],
+          "validatorResultHash": [
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000"
+          ],
+          "validatorVotesName": [
+            "NOT_VOTED",
+            "NOT_VOTED",
+            "NOT_VOTED",
+            "NOT_VOTED",
+            "NOT_VOTED"
+          ]
+        },
+        "consumedValidators": [
+          "0x9F6aa7364D20CF25F054Ea83f3CB950317fD34b6",
+          "0x2d012a292244C7ce6423a114d19109990923Af76",
+          "0x0c526A6af46A038E31dA21C123756Ab2D75f06Bc",
+          "0x77a07271abB443F55be19c357AA35206BeB63E1d",
+          "0xB93a46B843fB32E8Ce392e68eDFE93Faa4a40817"
+        ],
+        "txExecutionResult": 0,
+        "txData": "0xe09e160461726773250189012c41444d495404066d6574686f642c70726f626500",
+        "txDataDecoded": {
+          "callData": {},
+          "leaderOnly": false,
+          "type": "call"
+        },
+        "numOfInitialValidators": "3",
+        "statusName": "READY_TO_FINALIZE",
+        "resultName": "IDLE",
+        "txExecutionResultName": "NOT_VOTED"
+      }
+    },
+    {
+      "row": {
+        "key": "probe:0:18:ADMIT",
+        "tx": "0x0889b7420af3da1d6c5bb8b29c4547de20bc141f71f47efbb969fb580a047ef3",
+        "method": "probe",
+        "at": 1791636520,
+        "address": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+        "signature": "91059143afe416f645bfd27149abd7b0e52f57d3ca0e010946cde8ff6c08361e",
+        "step": "probe",
+        "challenge_id": 0,
+        "item_index": 18,
+        "mode": "ADMIT"
+      },
+      "receipt": {
+        "currentTimestamp": "1791638733",
+        "sender": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+        "recipient": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+        "initialRotations": "3",
+        "txSlot": "76",
+        "createdTimestamp": "1791636525",
+        "lastVoteTimestamp": "1791636529",
+        "randomSeed": "0x203523ccab0dd23e4fcd4f02e2eab1f467ff56c38c73eeb5c41ebedee5582cae",
+        "result": 0,
+        "txExecutionHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "txCalldata": "0xe09e160461726773250191012c41444d495404066d6574686f642c70726f626500",
+        "eqBlocksOutputs": "0x",
+        "messages": [],
+        "queueType": 0,
+        "queuePosition": "0",
+        "activator": "0x3f5cAED686336ED9cF3Dede61154B0Cd67Fb9bD7",
+        "lastLeader": "0x0c526A6af46A038E31dA21C123756Ab2D75f06Bc",
+        "status": 11,
+        "txId": "0x0889b7420af3da1d6c5bb8b29c4547de20bc141f71f47efbb969fb580a047ef3",
+        "readStateBlockRange": {
+          "activationBlock": "24259379",
+          "processingBlock": "24259385",
+          "proposalBlock": "24259387"
+        },
+        "numOfRounds": "0",
+        "lastRound": {
+          "round": "0",
+          "leaderIndex": "1",
+          "votesCommitted": "0",
+          "votesRevealed": "0",
+          "appealBond": "0",
+          "rotationsLeft": "3",
+          "result": 0,
+          "roundValidators": [
+            "0xF01877B6Ac60861CA3b134e0E483C482679b4682",
+            "0x0c526A6af46A038E31dA21C123756Ab2D75f06Bc",
+            "0x9D998aD7C7f9Cc448A4DbDf49edD7CADBe3d57B6",
+            "0xB7551beF37a05995218f9a1BB7A93e5B6705f535",
+            "0xB93a46B843fB32E8Ce392e68eDFE93Faa4a40817"
+          ],
+          "validatorVotes": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "validatorVotesHash": [
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000"
+          ],
+          "validatorResultHash": [
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000"
+          ],
+          "validatorVotesName": [
+            "NOT_VOTED",
+            "NOT_VOTED",
+            "NOT_VOTED",
+            "NOT_VOTED",
+            "NOT_VOTED"
+          ]
+        },
+        "consumedValidators": [
+          "0xF01877B6Ac60861CA3b134e0E483C482679b4682",
+          "0x0c526A6af46A038E31dA21C123756Ab2D75f06Bc",
+          "0x9D998aD7C7f9Cc448A4DbDf49edD7CADBe3d57B6",
+          "0xB7551beF37a05995218f9a1BB7A93e5B6705f535",
+          "0xB93a46B843fB32E8Ce392e68eDFE93Faa4a40817"
+        ],
+        "txExecutionResult": 0,
+        "txData": "0xe09e160461726773250191012c41444d495404066d6574686f642c70726f626500",
+        "txDataDecoded": {
+          "callData": {},
+          "leaderOnly": false,
+          "type": "call"
+        },
+        "numOfInitialValidators": "3",
+        "statusName": "READY_TO_FINALIZE",
+        "resultName": "IDLE",
+        "txExecutionResultName": "NOT_VOTED"
+      }
+    },
+    {
+      "row": {
+        "key": "probe:0:20:REWRITE",
+        "tx": "0xd60abc39a390e1ee98eeb59df561927d377a7e2d143f2c30584b9bf385fe66ae",
+        "method": "probe",
+        "at": 1791636798,
+        "address": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+        "signature": "66f1a9de3a9bb5ccecc102ba9d4ca2ecfefbf27a1c1f0c8ecd16e0ac59b21486",
+        "step": "probe",
+        "challenge_id": 0,
+        "item_index": 20,
+        "mode": "REWRITE",
+        "rewrite_hash": "6be073f3d73bd4b7b973c18c0bc9fa7ad9767fa21a62ed411a952f632b527c63"
+      },
+      "receipt": {
+        "currentTimestamp": "1791638733",
+        "sender": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+        "recipient": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+        "initialRotations": "3",
+        "txSlot": "83",
+        "createdTimestamp": "1791636803",
+        "lastVoteTimestamp": "1791638374",
+        "randomSeed": "0x80da0a342842d7621dbac56d3941c324a096ef9852acafd1ad1b6861a19ae92d",
+        "result": 3,
+        "txExecutionHash": "0xabe7c3f876fcd61fa25084f76344e151b9b6b582f5995e51d742901f7dbdc004",
+        "txCalldata": "0xf9017bb901771604617267732501a1013c52455752495445b4157b22616e73776572223a223237222c22636c617373223a2270617261706872617365222c2270726f6d7074223a224f6e206120707261637469636520776f726b73686565742c20612073747564656e7420726561647320746869732070726f626c656d3a2045616368206f66203720636172746f6e732064656c69766572656420746f20612072656164696e6720636c756220636f6e7461696e732035206e6f7465626f6f6b732e204f6e63652038206f662074686f7365206e6f7465626f6f6b732068617665206265656e2068616e64656420746f206e6577206d656d626572732c20746865206f7267616e697a65722073746f72657320616c6c207468652072656d61696e696e67206e6f7465626f6f6b7320696e206120637570626f6172642e20486f77206d616e79206172652073746f7265642074686572653f222c2276657273696f6e223a22696d70656163682f31227d066d6574686f642c70726f626500",
+        "eqBlocksOutputs": "0xf88bb84b00c4047b226f726967696e616c5f726573756c74223a20223237222c2022726577726974655f726573756c74223a20223237222c202273616d655f7175657374696f6e223a20747275657db6009c037b22737461747573223a20224c495645222c2022616e73776572223a20223237222c2022636f7272656374223a20747275657d86706164646564",
+        "messages": [],
+        "queueType": 0,
+        "queuePosition": "0",
+        "activator": "0xE8fdefdfe18fD8E5B0d576b7CcfC5a29CE43fD7f",
+        "lastLeader": "0x4f36CB2C58385575fafb443d80E3c290b12DA6aE",
+        "status": 12,
+        "txId": "0xd60abc39a390e1ee98eeb59df561927d377a7e2d143f2c30584b9bf385fe66ae",
+        "readStateBlockRange": {
+          "activationBlock": "24260229",
+          "processingBlock": "24264979",
+          "proposalBlock": "24264981"
+        },
+        "numOfRounds": "4",
+        "lastRound": {
+          "round": "0",
+          "leaderIndex": "2",
+          "votesCommitted": "5",
+          "votesRevealed": "5",
+          "appealBond": "0",
+          "rotationsLeft": "2",
+          "result": 3,
+          "roundValidators": [
+            "0x183217483618c4EBd34C987DE400e01bEFfe5860",
+            "0x0c526A6af46A038E31dA21C123756Ab2D75f06Bc",
+            "0x4f36CB2C58385575fafb443d80E3c290b12DA6aE",
+            "0x79485eF57aC2055dC83b9E7b2C9Cf184Fc79648E",
+            "0x3a130401885fD9322E2E21174A5496065f716b35"
+          ],
+          "validatorVotes": [
+            3,
+            3,
+            1,
+            3,
+            1
+          ],
+          "validatorVotesHash": [
+            "0x84204f4f691c7d0f3399ecb1430b9825373dcfcd00e0d426507f42e6927a2bc2",
+            "0x397c98ca9f3e97f27c3b96556c4e29d3a5de8d44e2690f482ce6387bacbd5c0e",
+            "0x1ebeb88656af7c20c8d6c427f0b345e44c30d0dce695246e7b891f81f8491c8f",
+            "0x20ba5a49b710b173bb0b406fc10a43eed59af0e901bea57051000ff3854536da",
+            "0x7bc473723e26def1c2a4e8b526a206e49e7ee75d4a2483389262314438950a22"
+          ],
+          "validatorResultHash": [
+            "0x9fc8d2d92c2ea25ae2ac3d9b20370cb9cb1e53d073b5c1a20b03621ca750f8df",
+            "0x9fc8d2d92c2ea25ae2ac3d9b20370cb9cb1e53d073b5c1a20b03621ca750f8df",
+            "0x08377c2ff29ddd8a3847026ba9a214e92e8a64f2a6c807c26b96d52114e050d5",
+            "0x9fc8d2d92c2ea25ae2ac3d9b20370cb9cb1e53d073b5c1a20b03621ca750f8df",
+            "0x08377c2ff29ddd8a3847026ba9a214e92e8a64f2a6c807c26b96d52114e050d5"
+          ],
+          "validatorVotesName": [
+            "TIMEOUT",
+            "TIMEOUT",
+            "AGREE",
+            "TIMEOUT",
+            "AGREE"
+          ]
+        },
+        "consumedValidators": [
+          "0x183217483618c4EBd34C987DE400e01bEFfe5860",
+          "0x0c526A6af46A038E31dA21C123756Ab2D75f06Bc",
+          "0x4f36CB2C58385575fafb443d80E3c290b12DA6aE",
+          "0xb4Fb7ADc6877a6A16bd131c7c9270834bD3DEf34",
+          "0x79485eF57aC2055dC83b9E7b2C9Cf184Fc79648E",
+          "0x3a130401885fD9322E2E21174A5496065f716b35"
+        ],
+        "txExecutionResult": 1,
+        "txData": "0xf9017bb901771604617267732501a1013c52455752495445b4157b22616e73776572223a223237222c22636c617373223a2270617261706872617365222c2270726f6d7074223a224f6e206120707261637469636520776f726b73686565742c20612073747564656e7420726561647320746869732070726f626c656d3a2045616368206f66203720636172746f6e732064656c69766572656420746f20612072656164696e6720636c756220636f6e7461696e732035206e6f7465626f6f6b732e204f6e63652038206f662074686f7365206e6f7465626f6f6b732068617665206265656e2068616e64656420746f206e6577206d656d626572732c20746865206f7267616e697a65722073746f72657320616c6c207468652072656d61696e696e67206e6f7465626f6f6b7320696e206120637570626f6172642e20486f77206d616e79206172652073746f7265642074686572653f222c2276657273696f6e223a22696d70656163682f31227d066d6574686f642c70726f626500",
+        "txDataDecoded": {
+          "callData": {},
+          "leaderOnly": false,
+          "type": "call"
+        },
+        "numOfInitialValidators": "3",
+        "statusName": "VALIDATORS_TIMEOUT",
+        "resultName": "TIMEOUT",
+        "txExecutionResultName": "FINISHED_WITH_RETURN"
+      }
+    },
+    {
+      "row": {
+        "key": "probe:0:23:ADMIT",
+        "tx": "0x71080a8c453adeac282c58ad415eda13b3684d7fd5f2a3f456455b2189384792",
+        "method": "probe",
+        "at": 1791637526,
+        "address": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+        "signature": "9474ca7b68466e36ae3f28cd0807965e68ab4818f429cd9122555d5617ec55d3",
+        "step": "probe",
+        "challenge_id": 0,
+        "item_index": 23,
+        "mode": "ADMIT"
+      },
+      "receipt": {
+        "currentTimestamp": "1791638733",
+        "sender": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+        "recipient": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+        "initialRotations": "3",
+        "txSlot": "95",
+        "createdTimestamp": "1791637531",
+        "lastVoteTimestamp": "1791638728",
+        "randomSeed": "0x7fa41f08ac30987b02191290aadc62713e7b7890d9f3d52115f413e7e056ff05",
+        "result": 0,
+        "txExecutionHash": "0x117058a6767aff523acda605ef5b68eebddc6ff458bd01e4eaf370626ad86354",
+        "txCalldata": "0xe09e1604617267732501b9012c41444d495404066d6574686f642c70726f626500",
+        "eqBlocksOutputs": "0xf858b84f00e4047b226f726967696e616c5f726573756c74223a202231353030222c2022726577726974655f726573756c74223a202231353030222c202273616d655f7175657374696f6e223a20747275657d86706164646564",
+        "messages": [],
+        "queueType": 0,
+        "queuePosition": "0",
+        "activator": "0x859dF0816Ed95B22B946C56dBc004b17993d1Ed6",
+        "lastLeader": "0x0c526A6af46A038E31dA21C123756Ab2D75f06Bc",
+        "status": 13,
+        "txId": "0x71080a8c453adeac282c58ad415eda13b3684d7fd5f2a3f456455b2189384792",
+        "readStateBlockRange": {
+          "activationBlock": "24266070",
+          "processingBlock": "24266077",
+          "proposalBlock": "24266079"
+        },
+        "numOfRounds": "2",
+        "lastRound": {
+          "round": "2",
+          "leaderIndex": "3",
+          "votesCommitted": "0",
+          "votesRevealed": "0",
+          "appealBond": "0",
+          "rotationsLeft": "2",
+          "result": 0,
+          "roundValidators": [
+            "0x59dC5E6fD7428c5Ee6fc24aE2B99E5860A9c9499",
+            "0xE8fdefdfe18fD8E5B0d576b7CcfC5a29CE43fD7f",
+            "0xB7551beF37a05995218f9a1BB7A93e5B6705f535",
+            "0x0c526A6af46A038E31dA21C123756Ab2D75f06Bc",
+            "0xb4Fb7ADc6877a6A16bd131c7c9270834bD3DEf34"
+          ],
+          "validatorVotes": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "validatorVotesHash": [
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000"
+          ],
+          "validatorResultHash": [
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x0000000000000000000000000000000000000000000000000000000000000000"
+          ],
+          "validatorVotesName": [
+            "NOT_VOTED",
+            "NOT_VOTED",
+            "NOT_VOTED",
+            "NOT_VOTED",
+            "NOT_VOTED"
+          ]
+        },
+        "consumedValidators": [
+          "0x422357d87B035e478777C84748BAC834CE2A9597",
+          "0x59dC5E6fD7428c5Ee6fc24aE2B99E5860A9c9499",
+          "0xE8fdefdfe18fD8E5B0d576b7CcfC5a29CE43fD7f",
+          "0xB7551beF37a05995218f9a1BB7A93e5B6705f535",
+          "0x0c526A6af46A038E31dA21C123756Ab2D75f06Bc",
+          "0xb4Fb7ADc6877a6A16bd131c7c9270834bD3DEf34"
+        ],
+        "txExecutionResult": 0,
+        "txData": "0xe09e1604617267732501b9012c41444d495404066d6574686f642c70726f626500",
+        "txDataDecoded": {
+          "callData": {},
+          "leaderOnly": false,
+          "type": "call"
+        },
+        "numOfInitialValidators": "3",
+        "statusName": "LEADER_TIMEOUT",
+        "resultName": "IDLE",
+        "txExecutionResultName": "NOT_VOTED"
+      }
+    }
+  ],
+  "deadline": 1791644225,
+  "chain_time": 1791638730,
+  "input_sha256": "bf9d6232aaa85c8f2b1104141d9d3477cffedcdd4c165b0579bef45cb2900f84"
+}

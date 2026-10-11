@@ -1,0 +1,27 @@
+{
+  "kind": "read",
+  "method_or_key": "get_probe",
+  "args_or_hash": [
+    0,
+    21
+  ],
+  "value": {
+    "challenge_id": 0,
+    "item_index": 21,
+    "pinned": "RIGHT",
+    "pinned_answer": "10",
+    "recall": "MATCH",
+    "rewrite": "WRONG",
+    "rewrite_answer": "9",
+    "rewrite_class": "numeral_substitution",
+    "rewrite_hash": "2d082cb3b12fd5f955396e3517baf9766ba8dcfe8f05a52839f5f006bea40e3b",
+    "rewrite_prompt": "On a practice worksheet, a student reads this problem: A coordinator divides 48 plain badges equally among 8 volunteers. Each volunteer then receives 3 extra badges from a separate reserve. How many badges does each volunteer have after receiving the extra badges?",
+    "rewrite_reply": "10",
+    "slice_settled": true,
+    "stage_c1": "ADMISSIBLE",
+    "stage_c2": "ADMISSIBLE",
+    "stale": true,
+    "touched": true
+  },
+  "at": 1791698408
+}

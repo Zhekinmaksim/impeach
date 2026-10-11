@@ -1,0 +1,12 @@
+✔ read-only lookup binds canonical receipt and protocol pins to native FINAL (4.594417ms)
+✔ saved real C0 receipt has Phase UND/no-messages event while Main event alone is insufficient (0.473958ms)
+✔ wrong event, identity, boolean, duplicate, reorg or nonfinal native cannot authorize (1.8945ms)
+✔ unavailable evidence and bounded no-event search fail without any fallback mutation (0.898459ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 68.097375

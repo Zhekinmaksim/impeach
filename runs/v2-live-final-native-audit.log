@@ -1,0 +1,7 @@
+read receipts 1 / 107
+read receipts 21 / 107
+read receipts 41 / 107
+read receipts 61 / 107
+read receipts 81 / 107
+read receipts 101 / 107
+{"totals": {"pinned": {"RIGHT": 24}, "recall": {"MISS": 24}, "stage_c1": {"ADMISSIBLE": 24}, "stage_c2": {"ADMISSIBLE": 23, "PENDING": 1}, "rewrite": {"RIGHT": 24}}, "all_24_admitted": false, "statuses": {"FINALIZED": 107}, "all_manifest_finalized": true, "manifest_rows": 107, "recovery_rows": 8}

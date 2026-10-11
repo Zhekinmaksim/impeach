@@ -1,0 +1,59 @@
+{
+  "at": "2026-10-11T09:14:12.442320+00:00",
+  "states": {
+    "22": {
+      "challenge_id": 1,
+      "item_index": 22,
+      "pinned": "RIGHT",
+      "pinned_answer": "34",
+      "recall": "MISS",
+      "rewrite": "RIGHT",
+      "rewrite_answer": "34",
+      "rewrite_class": "entity_rename",
+      "rewrite_hash": "409e257cd3469bc5ffba5963c7162053a1f3890893ba75b48775c28f32027627",
+      "rewrite_prompt": "Yuna has 31 polished shells in a box. Felix gives her 8 more polished shells, and she then lends 5 shells from the box to Asha. How many polished shells remain in Yuna's box after both exchanges?",
+      "rewrite_reply": "34",
+      "slice_settled": true,
+      "stage_c1": "ADMISSIBLE",
+      "stage_c2": "ADMISSIBLE",
+      "stale": false,
+      "touched": true
+    },
+    "14": {
+      "challenge_id": 1,
+      "item_index": 14,
+      "pinned": "RIGHT",
+      "pinned_answer": "53",
+      "recall": "MISS",
+      "rewrite": "RIGHT",
+      "rewrite_answer": "53",
+      "rewrite_class": "format_shift",
+      "rewrite_hash": "b97103a65f52333081a63f4a4ef157c033cb839210671dc5149a69b70962415c",
+      "rewrite_prompt": "Archive shelf record:\nStarting folders: 64\nFolders removed for inspection: 18\nNewly prepared folders added afterward: 7\nQuestion: How many folders are on the shelf after these two changes?",
+      "rewrite_reply": "53",
+      "slice_settled": false,
+      "stage_c1": "ADMISSIBLE",
+      "stage_c2": "PENDING",
+      "stale": false,
+      "touched": true
+    },
+    "23": {
+      "challenge_id": 1,
+      "item_index": 23,
+      "pinned": "RIGHT",
+      "pinned_answer": "1500",
+      "recall": "MISS",
+      "rewrite": "RIGHT",
+      "rewrite_answer": "1500",
+      "rewrite_class": "unit_change",
+      "rewrite_hash": "a9716ef7c5d6c987ccdfde49591736b7420c164ae2a0179136e9340d7b3cf4ee",
+      "rewrite_prompt": "A mixing station has 0.9 liters of clear water in one jug and 0.6 liters in another jug. All this water is poured into an empty container without spilling. How many milliliters of water are in that container?",
+      "rewrite_reply": "1500",
+      "slice_settled": false,
+      "stage_c1": "ADMISSIBLE",
+      "stage_c2": "PENDING",
+      "stale": false,
+      "touched": true
+    }
+  }
+}

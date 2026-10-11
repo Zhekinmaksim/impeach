@@ -1,0 +1,14 @@
+{
+  "kind": "read",
+  "method_or_key": "solvency",
+  "args_or_hash": [],
+  "value": {
+    "balanced": true,
+    "bonds": 100000000000000000,
+    "credited": 13000000000000000,
+    "escrowed": 111000000000000000,
+    "held": 124000000000000000,
+    "stakes": 11000000000000000
+  },
+  "at": 1791698387
+}

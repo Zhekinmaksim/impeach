@@ -1,0 +1,6 @@
+{"at": 1791639916, "action": "APPEAL_PREFLIGHT", "key": "probe:0:2:ADMIT", "tx": "0x88d675814aaa4976c64a5b596e3c4cb4fd224d8e7a7086991e31951f040151f7", "returncode": 1}
+Traceback (most recent call last):
+  File "/tmp/impeach-scripted-appeal-pass.py", line 68, in <module>
+    if dry.returncode:raise RuntimeError('Appeal simulation refused; no dispatch '+tx)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Appeal simulation refused; no dispatch 0x88d675814aaa4976c64a5b596e3c4cb4fd224d8e7a7086991e31951f040151f7

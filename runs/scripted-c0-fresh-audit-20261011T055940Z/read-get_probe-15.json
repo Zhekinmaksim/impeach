@@ -1,0 +1,27 @@
+{
+  "kind": "read",
+  "method_or_key": "get_probe",
+  "args_or_hash": [
+    0,
+    15
+  ],
+  "value": {
+    "challenge_id": 0,
+    "item_index": 15,
+    "pinned": "RIGHT",
+    "pinned_answer": "10",
+    "recall": "MATCH",
+    "rewrite": "RIGHT",
+    "rewrite_answer": "10",
+    "rewrite_class": "paraphrase",
+    "rewrite_hash": "aad68d1eb022572e05f93c65a126ebcf238e026e2f904d1870cc28afc871d1ec",
+    "rewrite_prompt": "On a practice worksheet, a student reads this problem: Inside each of 5 sealed sleeves are 6 sanding discs. The workshop shares every disc equally between 3 workbenches and keeps none aside. How many sanding discs are given to each workbench?",
+    "rewrite_reply": "10",
+    "slice_settled": false,
+    "stage_c1": "ADMISSIBLE",
+    "stage_c2": "PENDING",
+    "stale": false,
+    "touched": true
+  },
+  "at": 1791698403
+}

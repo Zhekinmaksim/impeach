@@ -1,0 +1,1 @@
+{"service":"impeach-openrouter","enabled":true,"status":"configured","model":"meta-llama/llama-3.1-8b-instruct","provider":"deepinfra/fp8","expires_at":"2026-10-11T10:38:56.000Z","credit_only":true,"allowed_requests":72,"policy_sha256":"c0074e648369675d44a5c031bb91ae6fb36e51a4f1c311490ddecb7e4ee3831c"}

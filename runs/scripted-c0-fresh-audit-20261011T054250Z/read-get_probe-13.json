@@ -1,0 +1,27 @@
+{
+  "kind": "read",
+  "method_or_key": "get_probe",
+  "args_or_hash": [
+    0,
+    13
+  ],
+  "value": {
+    "challenge_id": 0,
+    "item_index": 13,
+    "pinned": "RIGHT",
+    "pinned_answer": "270",
+    "recall": "MATCH",
+    "rewrite": "RIGHT",
+    "rewrite_answer": "270",
+    "rewrite_class": "unit_change",
+    "rewrite_hash": "0d3786a695001c06a04de637f233ae4544d62d410cbf8c1dd590a81bcf45391a",
+    "rewrite_prompt": "On a practice worksheet, a student reads this problem: A demonstration includes a video lasting 240 seconds followed immediately by a sound clip lasting 0.5 minutes. There is no pause between them. What is the total running time of the demonstration in seconds?",
+    "rewrite_reply": "270",
+    "slice_settled": true,
+    "stage_c1": "ADMISSIBLE",
+    "stage_c2": "ADMISSIBLE",
+    "stale": false,
+    "touched": true
+  },
+  "at": 1791697387
+}

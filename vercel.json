@@ -11,6 +11,10 @@
       "maxDuration": 60,
       "includeFiles": "{calibration/claim-court24-v2.json,calibration/court24-v2.items.json,examples/court24-v2/rewrites/*.json}"
     },
+    "api/live-v3/chat/completions.mjs": {
+      "maxDuration": 60,
+      "includeFiles": "{calibration/claim-court24-v3.json,calibration/court24-v3.items.json,examples/court24-v3/rewrites/*.json}"
+    },
     "api/scripted-v2/chat/completions.mjs": {
       "maxDuration": 15,
       "includeFiles": "{calibration/claim-court24-v2-scripted.json,calibration/court24-v2-scripted.items.json,examples/court24-v2-scripted/rewrites/*.json}"

@@ -1,0 +1,156 @@
+{
+  "receipt": {
+    "currentTimestamp": "1791638493",
+    "sender": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+    "recipient": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+    "initialRotations": "3",
+    "txSlot": "95",
+    "createdTimestamp": "1791637531",
+    "lastVoteTimestamp": "0",
+    "randomSeed": "0xcabb1c392e8c0a8a85dc3e0dfbfca2efc56d97284deba7b7b38caaf93e9e6d62",
+    "result": 0,
+    "txExecutionHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "txCalldata": "0xe09e1604617267732501b9012c41444d495404066d6574686f642c70726f626500",
+    "eqBlocksOutputs": "0x",
+    "messages": [],
+    "queueType": 0,
+    "queuePosition": "0",
+    "activator": "0x859dF0816Ed95B22B946C56dBc004b17993d1Ed6",
+    "lastLeader": "0x422357d87B035e478777C84748BAC834CE2A9597",
+    "status": 2,
+    "txId": "0x71080a8c453adeac282c58ad415eda13b3684d7fd5f2a3f456455b2189384792",
+    "readStateBlockRange": {
+      "activationBlock": "24262438",
+      "processingBlock": "24262444",
+      "proposalBlock": "24262446"
+    },
+    "numOfRounds": "2",
+    "lastRound": {
+      "round": "0",
+      "leaderIndex": "0",
+      "votesCommitted": "0",
+      "votesRevealed": "0",
+      "appealBond": "0",
+      "rotationsLeft": "3",
+      "result": 0,
+      "roundValidators": [
+        "0x422357d87B035e478777C84748BAC834CE2A9597",
+        "0x59dC5E6fD7428c5Ee6fc24aE2B99E5860A9c9499",
+        "0xE8fdefdfe18fD8E5B0d576b7CcfC5a29CE43fD7f",
+        "0xB7551beF37a05995218f9a1BB7A93e5B6705f535",
+        "0x0c526A6af46A038E31dA21C123756Ab2D75f06Bc"
+      ],
+      "validatorVotes": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "validatorVotesHash": [
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "0x0000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "validatorResultHash": [
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "0x0000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "validatorVotesName": [
+        "NOT_VOTED",
+        "NOT_VOTED",
+        "NOT_VOTED",
+        "NOT_VOTED",
+        "NOT_VOTED"
+      ]
+    },
+    "consumedValidators": [
+      "0x422357d87B035e478777C84748BAC834CE2A9597",
+      "0x59dC5E6fD7428c5Ee6fc24aE2B99E5860A9c9499",
+      "0xE8fdefdfe18fD8E5B0d576b7CcfC5a29CE43fD7f",
+      "0xB7551beF37a05995218f9a1BB7A93e5B6705f535",
+      "0x0c526A6af46A038E31dA21C123756Ab2D75f06Bc"
+    ],
+    "txExecutionResult": 0,
+    "txData": "0xe09e1604617267732501b9012c41444d495404066d6574686f642c70726f626500",
+    "txDataDecoded": {
+      "callData": {},
+      "leaderOnly": false,
+      "type": "call"
+    },
+    "numOfInitialValidators": "3",
+    "statusName": "PROPOSING",
+    "resultName": "IDLE",
+    "txExecutionResultName": "NOT_VOTED"
+  },
+  "canAppeal": true,
+  "minBond": "0",
+  "roundData": [
+    "2",
+    {
+      "round": "0",
+      "leaderIndex": "0",
+      "votesCommitted": "0",
+      "votesRevealed": "0",
+      "appealBond": "0",
+      "rotationsLeft": "3",
+      "result": 0,
+      "roundValidators": [
+        "0x422357d87B035e478777C84748BAC834CE2A9597",
+        "0x59dC5E6fD7428c5Ee6fc24aE2B99E5860A9c9499",
+        "0xE8fdefdfe18fD8E5B0d576b7CcfC5a29CE43fD7f",
+        "0xB7551beF37a05995218f9a1BB7A93e5B6705f535",
+        "0x0c526A6af46A038E31dA21C123756Ab2D75f06Bc"
+      ],
+      "validatorVotes": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "validatorVotesHash": [
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "0x0000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "validatorResultHash": [
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "0x0000000000000000000000000000000000000000000000000000000000000000"
+      ]
+    }
+  ],
+  "at": 1791638493,
+  "tx": "0x71080a8c453adeac282c58ad415eda13b3684d7fd5f2a3f456455b2189384792",
+  "key": "probe:0:23:ADMIT",
+  "attempt": 1,
+  "state": {
+    "challenge_id": 0,
+    "item_index": 23,
+    "pinned": "RIGHT",
+    "pinned_answer": "1500",
+    "recall": "MATCH",
+    "rewrite": "RIGHT",
+    "rewrite_answer": "1500",
+    "rewrite_class": "unit_change",
+    "rewrite_hash": "495077b9666c607c3e82ad9dacab857ce43f6594e062c46be784a714946f8b6d",
+    "rewrite_prompt": "On a practice worksheet, a student reads this problem: A mixing station has 0.9 liters of clear water in one jug and 0.6 liters in another jug. All this water is poured into an empty container without spilling. How many milliliters of water are in that container?",
+    "rewrite_reply": "1500",
+    "slice_settled": false,
+    "stage_c1": "ADMISSIBLE",
+    "stage_c2": "PENDING",
+    "stale": false,
+    "touched": true
+  },
+  "snapshot_is_final_outcome": false
+}

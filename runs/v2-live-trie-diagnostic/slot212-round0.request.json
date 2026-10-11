@@ -1,0 +1,18 @@
+{
+  "at": "2026-10-11T10:00:55.316291+00:00",
+  "rpc": "https://rpc-bradbury.genlayer.com",
+  "request": {
+    "jsonrpc": "2.0",
+    "method": "gen_dbg_trie",
+    "params": [
+      {
+        "txID": "0xcedffa69c57e1b3b42dc91ec2f4921b5d43de2a0ca05841382df34aa2f752a54",
+        "round": 0
+      }
+    ],
+    "id": 1
+  },
+  "source_doc_commit": "7208bbfc83c90efc115ce248b12641cc265642c1",
+  "source_doc_url": "https://github.com/genlayerlabs/genlayer-docs/blob/7208bbfc83c90efc115ce248b12641cc265642c1/pages/api-references/genlayer-node/debug/gen_dbg_trie.mdx",
+  "source_doc_sha256": "911475b35ae100418ddcee70a90724ced3271f84152a265a5eed5384477a0b5d"
+}

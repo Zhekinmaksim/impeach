@@ -1,0 +1,27 @@
+{
+  "kind": "read",
+  "method_or_key": "get_probe",
+  "args_or_hash": [
+    0,
+    22
+  ],
+  "value": {
+    "challenge_id": 0,
+    "item_index": 22,
+    "pinned": "RIGHT",
+    "pinned_answer": "34",
+    "recall": "MATCH",
+    "rewrite": "RIGHT",
+    "rewrite_answer": "34",
+    "rewrite_class": "entity_rename",
+    "rewrite_hash": "1d3c5bba1fee7baf39a58084ec8d83e2ca3acccbb0613ea416b3fb20159725f1",
+    "rewrite_prompt": "On a practice worksheet, a student reads this problem: Yuna has 31 polished shells in a box. Felix gives her 8 more polished shells, and she then lends 5 shells from the box to Asha. How many polished shells remain in Yuna's box after both exchanges?",
+    "rewrite_reply": "34",
+    "slice_settled": true,
+    "stage_c1": "ADMISSIBLE",
+    "stage_c2": "ADMISSIBLE",
+    "stale": false,
+    "touched": true
+  },
+  "at": 1791697401
+}

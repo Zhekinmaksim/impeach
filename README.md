@@ -6,30 +6,35 @@ A published score says a model can do something. It might instead say the model
 has seen the answers. Impeach is a GenLayer Intelligent Contract that
 cross-examines the score: the publisher swears to a number and bonds it, a
 challenger stakes that it came from memory, and the validator set asks the model
-the sealed questions again in words it has not met.
+the sealed questions and their committed rewrites, then tests verbatim recall.
 
 ```text
 Jastrow  — is this specification decidable at all
 Suborn   — does this specification survive a document written to break it
-Impeach  — does this score survive items the model has not seen before
+Impeach  — does this score survive rewritten items and verbatim recall
 ```
 
 > **Status.** [Live case](https://impeach.vercel.app) ·
 > [Scripted examples](https://impeach.vercel.app/?demo=1) ·
 > [Source](https://github.com/Zhekinmaksim/impeach).
-> The live Bradbury certificate is `INCONCLUSIVE / TOO_FEW_ADMISSIBLE`:
-> 11 answered sealed items, 4 admitted pairs, with a minimum of 20.
-> `web/case.json` contains the contract reads and transaction outcomes;
-> `web/demo.json` preserves the three clearly labelled scripted examples.
-> See [OPENROUTER.md](OPENROUTER.md), [LOCAL-MODEL.md](LOCAL-MODEL.md), and
-> [DEPLOY.md](DEPLOY.md) for reproducing the run. Submission is prepared separately.
+> The v2 scripted lookup control is finalized `CONTAMINATED / RECALL`:
+> all 24 pinned answers and recall matches, with 13 admitted rewrite pairs.
+> The real v2 attempt finalized all 107 transactions, but its stored C2 results
+> contain only 23 admitted pairs; item 14 remains pending after one reviewed
+> leader-timeout appeal. It has not been ruled or presented as a full trial.
+> A fresh v3 cohort is being calibrated for a six-hour court window, with
+> finalized recovery and no automatic appeals. Its model route stays disabled
+> until verification; its public inference window remains at most four hours.
+> [V2-TRIAL.md](V2-TRIAL.md) records the evidence and limits.
+> Submission will be filled together after completion.
 
-The court is deployed on Bradbury (chain 4221) at
-`0x47b0B5a11fC7F44F8f0d4ABa3A54b1A304AfDD3e`.
-The [deployment transaction](https://explorer-bradbury.genlayer.com/transactions/0x28e52e602628b4dfbf5e0972aa10dfe9bda751c3b7284cd3921526dff4cd415e)
-is finalized with `AGREE / FINISHED_WITH_RETURN`. Source hashes and the failed first
-attempt are recorded in `runs/deployment.json`. The completed trial certificate is linked from the page, together with the failed
-and recovered probe transactions.
+The current court is deployed on Bradbury (chain 4221) at
+`0x45F610cefF1ed367d684A1839b1801Af12Cfb038`.
+The [deployment transaction](https://explorer-bradbury.genlayer.com/transactions/0x2cce6952dc55539449ee434cd50dc6cd91357ec3bff37876ee97f4a9c1d2c941)
+is finalized with `MAJORITY_AGREE / FINISHED_WITH_RETURN`. The
+[deployment record](runs/v2-deployment.json) preserves exact source and artifact
+hashes. The old partial real trial is retained in
+[runs/v1-final-case.json](runs/v1-final-case.json).
 
 ## Run it
 
@@ -49,9 +54,9 @@ python3 -m venv .venv
 make check-sdk PY=.venv/bin/python
 ```
 
-The verified baseline is 177 contract assertions, 143 pinned-SDK assertions,
-47 browser-arithmetic checks, and regression tests for the live runner and
-rehearsal. The page has also been checked at desktop and mobile widths.
+The verified baseline is 184 contract assertions, 150 pinned-SDK assertions,
+156 Python runner/regression tests, 47 browser-arithmetic checks and 38 Node
+tests for the endpoints, gas guards, receipt output and native queue inspection. The page has also been checked at desktop and mobile widths.
 
 ## The three mechanisms
 
@@ -119,11 +124,11 @@ the bond back while nobody is challenging), `withdraw`.
 ```text
 contracts/impeach.py       the court
 cli/impeach.py             seal · check · envelope · recompute · probe · rule
-calibration/               24 GSM8K test items, the claim file for the live case
+calibration/               original GSM8K and two frozen synthetic v2 cohorts
 examples/rewrites/         24 rewrites across five classes, arithmetic machine-checked
 examples/controls/         4 rewrites that change the answer; a referee must stop them
 test/                      scenarios, scripted subjects, stub, real-SDK runner
-scripts/                   simulate · rehearse · run_case · collect · referee_dryrun · stub_endpoint
+scripts/                   rehearsal, referee replay, native trial/queue helpers, collection
 web/                       the page; case.json for the current case, demo.json for examples
 spec/SPEC.md               the specification this was built from
 ```
@@ -157,61 +162,48 @@ browser). The suite holds the three equal.
 
 ## Live validation
 
-The live subject is `meta-llama/llama-3.1-8b-instruct`, fixed to DeepInfra FP8,
-with frozen decode parameters and a public Vercel gateway. The Bradbury trial
-opened, challenged and revealed all 24 committed items. Its first item passed
-both referee framings and all three native model probes.
+The current real subject is `meta-llama/llama-3.1-8b-instruct`, fixed to
+DeepInfra FP8, with frozen decode parameters and an allowlisted public Vercel
+endpoint. Its fresh trial contains 24 disclosed synthetic arithmetic items.
+A separate scripted control uses a stored-answer lookup and a transformed
+cohort with disjoint source content hashes. These demonstrations are public,
+not independent benchmarks; they make no claim about absence from model training.
 
-The partial run stopped after a leader timeout; the fixed trial window then
-expired. The court ruled `INCONCLUSIVE / TOO_FEW_ADMISSIBLE`: 11 sealed answers,
-4 admitted pairs and 12 recall probes. Nine of the 11 sealed answers were correct.
-The certificate's court-adjusted rewrite score is 1000‰ and its gap is −181‰;
-missing or unadmitted rewrites are presumed correct for the publisher, so that
-score is not the subject's measured rewrite accuracy. The recall result is 0‰.
-None of the detectors reached the 20-item minimum.
+The scripted native certificate is finalized `CONTAMINATED / RECALL`:
+24/24 pinned answers were correct and 24/24 held-out continuations matched.
+Thirteen rewrite pairs were admitted by both referee framings, with four stale
+answers. The court-adjusted rewrite score is 833‰, Δ is 166‰ and R is 1000‰.
+The recall detector reaches its 20-item minimum; the paired detector does not.
+Missing or unadmitted rewrites are presumed correct for the publisher, so
+833‰ is not measured accuracy on admitted pairs alone. The
+[finality handoff](runs/c0-finality-20261011-resume/handoff.json) proves the
+[rule](https://explorer-bradbury.genlayer.com/transactions/0xd2970d5c785db84c92cfbf71924d8b719e29f8e48b29715b9da9c345e9c5ed77)
+and an empty native court queue. This result describes the scripted subject.
 
-The [rule transaction](https://explorer-bradbury.genlayer.com/transactions/0xdd4d149a02291d1901e80f277eca45ac48ec0284b3c57aa74ed8c5cb4bcc4d12)
-is finalized with `AGREE / FINISHED_WITH_RETURN`. `runs/bradbury-vercel.jsonl` preserves
-submissions and recovery links; `web/case.json` includes their fetched outcomes.
-Leader timeouts, disagreement and execution violations remain visible. They
-are not subject answers. The result establishes the native integration and
-partial evidence, not a contamination finding or a successful 24-item trial.
+The fresh real trial is in progress. Its preceding 72-call real-model rehearsal
+answered both originals and rewrites at 1000‰, with Δ=0‰ and R=0‰; it used
+scripted referee admission in the local contract harness. Separately, 112 real
+Sonnet 4.6 calls, replayed through the corrected parser and exact prompt cache,
+admitted all 24 intended rewrite pairs and rejected all four negative controls
+in both framings. Raw transcripts are retained. Neither local result is a
+native verdict or a guarantee of agreement among GenLayer validators.
+See [V2-TRIAL.md](V2-TRIAL.md) for the frozen policies, source hashes and evidence.
 
-The publisher retired the ruled claim; the certificate is retained. Native
-withdrawals of 0.116 GEN to the publisher and 0.008 GEN to the challenger are
-finalized; both wallet increases were verified after gas fees. See
-`runs/native-withdraw-verification.json` for exact messages and wallet balances.
-The four-hour model API
-expired automatically and production is configured disabled. Total OpenRouter
-usage, including calibration, is $1.28827328 of the approved $5.
+The original real-model trial on the previous court ended
+`INCONCLUSIVE / TOO_FEW_ADMISSIBLE` after its fixed window expired: 11 sealed
+answers, four admitted pairs and 12 recall probes, below the 20-item minimum.
+Nine sealed answers were correct; adjusted rewrite score 1000‰, Δ=−181‰, R=0‰.
+Its failed transactions remain visible in [the historical snapshot](runs/v1-final-case.json).
+The publisher retired that claim; withdrawals of 0.116 GEN and 0.008 GEN were
+finalized and both wallet increases verified after fees. This partial result
+establishes integration and limited evidence, without a contamination finding.
 
-An earlier trial used a temporary tunnel which returned HTTP 502, `no tunnel`,
-after passing local preflight. Its immutable endpoint could not be repaired.
-That separate court remains pending until 12 October 2026, 22:20:45 in Tashkent;
-0.1 GEN bond and 0.023 GEN stake remain locked there. See `runs/live-status.json`.
-Its spent registry and failed evidence remain intact.
-Gateway restrictions and spending safeguards are documented in
-[OPENROUTER.md](OPENROUTER.md).
-
-The initial real-model referee runs exposed false admissions. The revised referee
-solves both questions before seeing the proposed answer key, then checks the class
-in two framings. GPT-4.1 admitted 20/24 honest rewrites and rejected all 4 controls;
-Sonnet 4.6 admitted 14/24 and rejected all 4 controls in both framings. The full
-Sonnet transcript and exact offline replay are in `runs/`. These false rejections
-are a material limitation: at least 20 admitted pairs are needed for the gap
-verdict. Calibration with one model does not guarantee validator agreement.
-
-The deployed clock, native HTTP probes, referee rounds and rule operation have
-been exercised on Bradbury. A complete 24-item live evaluation remains outstanding;
-the published `INCONCLUSIVE` certificate records the partial trial honestly.
-
-The real subject rehearsal used `meta-llama/llama-3.1-8b-instruct`, fixed to
-DeepInfra FP8: 72 requests, sealed accuracy 750‰, rewritten accuracy 708‰,
-Δ 41‰ and recall 0‰. Its local forecast is `CLEAN`, with a scripted marker
-and referee; it is not a network verdict. Two responses lacked a final answer
-at 512 tokens and remained truncated at 1024. They remain errors in the
-original 512-token measurement. See `runs/llama-rehearsal.json` and
-`runs/llama-requests.jsonl`.
+An earlier trial used a temporary tunnel which returned HTTP 502 after local
+preflight. That separate court remains pending until 12 October 2026, 22:20:45
+in Tashkent; 0.1 GEN bond and 0.023 GEN stake remain locked there. Its evidence
+and spent registry are preserved in [runs/live-status.json](runs/live-status.json).
+The $5 OpenRouter allowance is shared across every rehearsal and live run;
+gateway restrictions and spending safeguards are in [OPENROUTER.md](OPENROUTER.md).
 
 ## Limits
 

@@ -1,0 +1,28 @@
+{
+  "checked_at": "2026-10-11T06:50:40.169119+00:00",
+  "deployment": "https://impeach-qve4nrfi6-zhekinmaksim-8919s-projects.vercel.app",
+  "public_endpoint": "https://impeach.vercel.app/api/live-v2/chat/completions",
+  "expires_at": "2026-10-11T10:38:56.000Z",
+  "claim_id": 1,
+  "challenge_id": 1,
+  "trial_deadline": "2026-10-11T09:46:04Z",
+  "real_subject_preflight_pass": true,
+  "preflight_cost_usd": 0.00000486,
+  "usage_is_byok": false,
+  "legacy_disabled": true,
+  "scripted_and_arbitrary_requests": 403,
+  "policy_sha256": "c0074e648369675d44a5c031bb91ae6fb36e51a4f1c311490ddecb7e4ee3831c",
+  "source_evidence_sha256": {
+    "runs/v2-live-health-20261011.json": "dbb76a27f2eb0edf524a6cfc0b9fcac00ece8ce517dc3d95af473dfb22659b1a",
+    "runs/v2-live-preflight-20261011.json": "7ed5447449bf8bc4100277ff068fa12ee539449166d1d398a85fff50e25a803a",
+    "runs/v2-legacy-health-20261011.json": "db86b7d99ba0f4e4b43ad89875bf027a4e2585b9087937494e3ab6d5b2c7191c",
+    "runs/v2-live-reject-scripted-20261011.json": "4515eaf47c8a52373f8dfc05b89f10358d100e4e23eed76db69adaa0b795b438",
+    "runs/v2-live-reject-arbitrary-20261011.json": "4515eaf47c8a52373f8dfc05b89f10358d100e4e23eed76db69adaa0b795b438",
+    "runs/v2-live-before-counts.json": "d69d5dde01dcb9816258a229f9980a01479af19d1fb26fce31923e4ab426fe47",
+    "runs/v2-live-before-registry.json": "fd987c593427823656731151f40bed290cb756718fd994c40301ad402dfa5622",
+    "runs/v2-live-initial-challenge.json": "22d4fa65864ce8bbc698e2650cf9a0db93750ba9d25d5b0a04aef0d3aa6fbbf6",
+    "runs/v2-budget-live-open.json": "e56e416300767c563e48f77c939a56dad8683ba2168527ee398c8106ff44e199"
+  },
+  "ordered_requests_sha256": "4795886ad63c3cab29436873bf5e531ee7c4b4097d91aa0b51564c76e2bbc74d",
+  "local_canonical_policy_matches_production": true
+}

@@ -1,0 +1,42 @@
+{
+  "kind": "read",
+  "method_or_key": "certificate",
+  "args_or_hash": [
+    0
+  ],
+  "value": {
+    "admissible_probes": 0,
+    "bond_standing": 100000000000000000,
+    "bond_sworn": 100000000000000000,
+    "challenge_id": -1,
+    "challenges_survived": 0,
+    "claim_id": 0,
+    "contested": false,
+    "dead_probes": 0,
+    "decode_params": "{\"temperature\": 0, \"top_p\": 1, \"max_tokens\": 512, \"seed\": 7, \"model\": \"scripted/memoriser-court24-v2\"}",
+    "delta_milli": 0,
+    "delta_threshold": 250,
+    "final": false,
+    "inadmissible_rewrites": 0,
+    "items_burned": 24,
+    "items_probed": 0,
+    "min_items": 20,
+    "pinned_milli": 0,
+    "reason": "",
+    "recall_milli": 0,
+    "recall_probes": 0,
+    "recall_threshold": 150,
+    "rewrite_milli": 0,
+    "ruled_at": 0,
+    "score_expired_at": 1791633425,
+    "score_status": "SPENT",
+    "score_sworn_milli": 1000,
+    "spec_hash": "2285e9af9ed84c160feb5fa78474f81f238c462063010104a2ba4397203e11be",
+    "stale_answers": 0,
+    "state": "TRIAL",
+    "subject": "scripted/memoriser-court24-v2@2026-10-10",
+    "under_challenge": true,
+    "verdict": "UNCONTESTED"
+  },
+  "at": 1791698381
+}

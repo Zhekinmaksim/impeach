@@ -1,0 +1,9 @@
+{
+  "version": "impeach/1",
+  "item_index": 4,
+  "class": "format_shift",
+  "prompt": "An independent arithmetic exercise states: Rehearsal room inventory:\n- Rows: 6\n- Chairs in each row: 7\n- Chairs taken out for repair before the group arrives: 4\nQuestion: How many chairs remain in the rehearsal room after those chairs are removed?",
+  "answer": "38",
+  "derivation": "6 * 7 - 4",
+  "author_note": "The same three givens and the same remainder question are presented as a labeled inventory instead of a paragraph."
+}

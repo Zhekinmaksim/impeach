@@ -1,0 +1,32 @@
+Retrieving project…
+Deploying zhekinmaksim-8919s-projects/impeach
+Uploading [--------------------] (0.0B/234.9KB)
+Uploading [=====---------------] (69.5KB/234.9KB)
+Uploading [==========----------] (125.3KB/234.9KB)
+Uploading [===============-----] (182.6KB/234.9KB)
+Uploading [====================] (234.9KB/234.9KB)
+Inspect: https://vercel.com/zhekinmaksim-8919s-projects/impeach/9upEemquV9nwQP4UwevoKbWq6TS7 [3s]
+Production: https://impeach-qve4nrfi6-zhekinmaksim-8919s-projects.vercel.app [3s]
+Building...
+Building...
+Building: Running build in Washington, D.C., USA (East) – iad1
+Building: Build machine configuration: 4 cores, 8 GB
+Building: Retrieving list of deployment files...
+Building: Previous build caches not available.
+Building: Downloading 166 deployment files...
+Building: Running "vercel build"
+Building: Vercel CLI 62.7.0
+Building: Installing dependencies...
+Building: up to date in 427ms
+Building: Build Completed in /vercel/output [813ms]
+Building: Deploying outputs...
+[2K[1A[2K[GProduction: https://impeach-qve4nrfi6-zhekinmaksim-8919s-projects.vercel.app [10s]
+Completing...
+Aliased: https://impeach.vercel.app [11s]
+╭──────────────────────────────────────────────────────────────────────────────╮
+│                                                                              │
+│                     Update available! v50.44.0 ≫ v63.1.2                     │
+│   Changelog: https://github.com/vercel/vercel/releases/tag/vercel%4063.1.2   │
+│                     Run `npm i vercel@latest` to update.                     │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯

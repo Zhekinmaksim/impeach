@@ -1,0 +1,206 @@
+{
+  "at": 1791704361002,
+  "address": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+  "blockNumber": "24466423",
+  "blockTimestamp": "1791704367",
+  "protocol": {
+    "chainId": 4221,
+    "main": "0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D",
+    "manager": "0x8aCE036C8C3C5D603dB546b031302FCf149648E8",
+    "version": "2.0.0",
+    "implementations": {
+      "Idleness": "0x4e696416634012119187d8dda6a56e66ac7cb23d",
+      "ConsensusMain": "0x0a2c393975da79505ed930efc55ae4aeb88b0d62",
+      "AddressManager": "0xf63f3a95fbf2e97618a5e3ea0fff63024915f3e6",
+      "ConsensusData": "0x7ee629530e70e2a3a772f8522d8835060abf0755",
+      "Queues": "0x7559ebdbc6f59e5dd2a048a1a1539ac14bf93db0",
+      "TransactionManager": "0xeee45073f7eeb3b80d1973f8398f8e508f893f9c",
+      "FinalizationPhase": "0x3ab63c1fc784682ef72276a76e2ad8fc1c5813b2",
+      "IdlenessPhase": "0x2cf61473cafcf47adc0ddd861290a7e848881446"
+    },
+    "sourceCommit": "9c686087963551277fc2dce0354c2b1a7050b4b2"
+  },
+  "sourceSha256": "6336e9c160b53839497adb4652c0cf8d7c1f5b76bcf7ed99d3f5553da53f3c89",
+  "mainTimeouts": {
+    "activate": "180",
+    "propose": "420",
+    "commit": "420",
+    "reveal": "120",
+    "accept": "1800",
+    "leaderReveal": "120"
+  },
+  "heads": {
+    "getFinalizedHeadTxId": "0xd4380bf20f72d9f046a03ec7f373f48e825756bc4bca7639490de679062dc37c",
+    "getPendingHeadTxId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "getAcceptedHeadTxId": "0xd4380bf20f72d9f046a03ec7f373f48e825756bc4bca7639490de679062dc37c",
+    "getUndeterminedHeadTxId": "0x0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "transactions": [
+    {
+      "tx": "0xd4380bf20f72d9f046a03ec7f373f48e825756bc4bca7639490de679062dc37c",
+      "stored": {
+        "result": 0,
+        "txExecutionResult": 1,
+        "previousStatus": 0,
+        "status": 5,
+        "txOrigin": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+        "sender": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+        "recipient": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+        "activator": "0xA58D6FcCD69eaafB5869dA58913f116045D75444",
+        "txSlot": "130",
+        "initialRotations": "3",
+        "numOfInitialValidators": "5",
+        "epoch": "175",
+        "id": "0xd4380bf20f72d9f046a03ec7f373f48e825756bc4bca7639490de679062dc37c",
+        "randomSeed": "0x4e24c363f647fe8d836b8c21de098c92a4f36f1b340778c4b15b859a084e3fdb",
+        "txExecutionHash": "0x7136c636af1d817a22a6444bb20f3c913a5398ee129d6340be709494e0774d91",
+        "resultHash": "0x97364fd3c2b00bdde2317905b3c6cde7fb2873554c6dfd908f2bc0dd7698b533",
+        "txCalldata": "0xf90139b901351604617267732509293c52455752495445ac117b22616e73776572223a223431222c22636c617373223a2270617261706872617365222c2270726f6d7074223a2241742074686520626567696e6e696e67206f6620746865206461792074686572652061726520343520626c616e6b20696e64657820636172647320696e206120737570706c79206472617765722e204166746572206120746561636865722072656d6f76657320313220666f7220616e20616374697669747920616e6420616464732038206e657720626c616e6b206361726473206c617465722c20686f77206d616e7920626c616e6b20696e64657820636172647320646f6573207468652064726177657220636f6e7461696e3f222c2276657273696f6e223a22696d70656163682f31227d066d6574686f642c70726f626500",
+        "eqBlocksOutputs": "0xf88bb84b00c4047b226f726967696e616c5f726573756c74223a20223431222c2022726577726974655f726573756c74223a20223431222c202273616d655f7175657374696f6e223a20747275657db6009c037b22737461747573223a20224c495645222c2022616e73776572223a20223431222c2022636f7272656374223a20747275657d86706164646564",
+        "readStateBlockRanges": [
+          {
+            "activationBlock": "24460913",
+            "processingBlock": "24461019",
+            "proposalBlock": "24461022"
+          }
+        ],
+        "validUntil": "1791706155",
+        "value": "0",
+        "lockedStorageUnitPrice": "0",
+        "storageFeeUsed": "0"
+      },
+      "receipt": {
+        "currentTimestamp": "1791704361",
+        "sender": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+        "recipient": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+        "initialRotations": "3",
+        "txSlot": "130",
+        "createdTimestamp": "1791702566",
+        "lastVoteTimestamp": "1791702644",
+        "randomSeed": "0x4e24c363f647fe8d836b8c21de098c92a4f36f1b340778c4b15b859a084e3fdb",
+        "result": 1,
+        "txExecutionHash": "0x7136c636af1d817a22a6444bb20f3c913a5398ee129d6340be709494e0774d91",
+        "txCalldata": "0xf90139b901351604617267732509293c52455752495445ac117b22616e73776572223a223431222c22636c617373223a2270617261706872617365222c2270726f6d7074223a2241742074686520626567696e6e696e67206f6620746865206461792074686572652061726520343520626c616e6b20696e64657820636172647320696e206120737570706c79206472617765722e204166746572206120746561636865722072656d6f76657320313220666f7220616e20616374697669747920616e6420616464732038206e657720626c616e6b206361726473206c617465722c20686f77206d616e7920626c616e6b20696e64657820636172647320646f6573207468652064726177657220636f6e7461696e3f222c2276657273696f6e223a22696d70656163682f31227d066d6574686f642c70726f626500",
+        "eqBlocksOutputs": "0xf88bb84b00c4047b226f726967696e616c5f726573756c74223a20223431222c2022726577726974655f726573756c74223a20223431222c202273616d655f7175657374696f6e223a20747275657db6009c037b22737461747573223a20224c495645222c2022616e73776572223a20223431222c2022636f7272656374223a20747275657d86706164646564",
+        "messages": [],
+        "queueType": 0,
+        "queuePosition": "0",
+        "activator": "0xA58D6FcCD69eaafB5869dA58913f116045D75444",
+        "lastLeader": "0x2d012a292244C7ce6423a114d19109990923Af76",
+        "status": 5,
+        "txId": "0xd4380bf20f72d9f046a03ec7f373f48e825756bc4bca7639490de679062dc37c",
+        "readStateBlockRange": {
+          "activationBlock": "24460913",
+          "processingBlock": "24461019",
+          "proposalBlock": "24461022"
+        },
+        "numOfRounds": "0",
+        "lastRound": {
+          "round": "0",
+          "leaderIndex": "0",
+          "votesCommitted": "5",
+          "votesRevealed": "5",
+          "appealBond": "0",
+          "rotationsLeft": "3",
+          "result": 1,
+          "roundValidators": [
+            "0x2d012a292244C7ce6423a114d19109990923Af76",
+            "0xB7551beF37a05995218f9a1BB7A93e5B6705f535",
+            "0x4Cd1ab61867487F45988dB08eb18bd00e20c518a",
+            "0x58a7b7ac6Cb01843e4e5af117C551E59449E0F49",
+            "0x59dC5E6fD7428c5Ee6fc24aE2B99E5860A9c9499"
+          ],
+          "validatorVotes": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "validatorVotesHash": [
+            "0xe752e197fd181e2954c28f63150079a75053c1d45c7a2d5de07c1673922da15b",
+            "0x505d93a0ed37365af6461844a0156d16b275523b65506756f79f8ad383f8b195",
+            "0xab943e7a44c9eac4d24d0d9d7959776edaf7d5b336a9849c231ef5fe37090981",
+            "0x38b2a09424276e51ac4ad155b474b9f321daf2265b12ba500a499536ed27cc0d",
+            "0x1b661921aed4ddc141a169e354948f32dee5f8a74c5729fa6217b524ed324480"
+          ],
+          "validatorResultHash": [
+            "0x97364fd3c2b00bdde2317905b3c6cde7fb2873554c6dfd908f2bc0dd7698b533",
+            "0x97364fd3c2b00bdde2317905b3c6cde7fb2873554c6dfd908f2bc0dd7698b533",
+            "0x97364fd3c2b00bdde2317905b3c6cde7fb2873554c6dfd908f2bc0dd7698b533",
+            "0x97364fd3c2b00bdde2317905b3c6cde7fb2873554c6dfd908f2bc0dd7698b533",
+            "0x97364fd3c2b00bdde2317905b3c6cde7fb2873554c6dfd908f2bc0dd7698b533"
+          ],
+          "validatorVotesName": [
+            "AGREE",
+            "AGREE",
+            "AGREE",
+            "AGREE",
+            "AGREE"
+          ]
+        },
+        "consumedValidators": [
+          "0x2d012a292244C7ce6423a114d19109990923Af76",
+          "0xB7551beF37a05995218f9a1BB7A93e5B6705f535",
+          "0x4Cd1ab61867487F45988dB08eb18bd00e20c518a",
+          "0x58a7b7ac6Cb01843e4e5af117C551E59449E0F49",
+          "0x59dC5E6fD7428c5Ee6fc24aE2B99E5860A9c9499"
+        ],
+        "txExecutionResult": 1,
+        "txData": "0xf90139b901351604617267732509293c52455752495445ac117b22616e73776572223a223431222c22636c617373223a2270617261706872617365222c2270726f6d7074223a2241742074686520626567696e6e696e67206f6620746865206461792074686572652061726520343520626c616e6b20696e64657820636172647320696e206120737570706c79206472617765722e204166746572206120746561636865722072656d6f76657320313220666f7220616e20616374697669747920616e6420616464732038206e657720626c616e6b206361726473206c617465722c20686f77206d616e7920626c616e6b20696e64657820636172647320646f6573207468652064726177657220636f6e7461696e3f222c2276657273696f6e223a22696d70656163682f31227d066d6574686f642c70726f626500",
+        "txDataDecoded": {
+          "callData": {
+            "args": [
+              "1",
+              "5",
+              "REWRITE",
+              "{\"answer\":\"41\",\"class\":\"paraphrase\",\"prompt\":\"At the beginning of the day there are 45 blank index cards in a supply drawer. After a teacher removes 12 for an activity and adds 8 new blank cards later, how many blank index cards does the drawer contain?\",\"version\":\"impeach/1\"}"
+            ],
+            "method": "probe"
+          },
+          "leaderOnly": false,
+          "type": "call"
+        },
+        "numOfInitialValidators": "3",
+        "statusName": "ACCEPTED",
+        "resultName": "AGREE",
+        "txExecutionResultName": "FINISHED_WITH_RETURN"
+      },
+      "decoded": {
+        "callData": {
+          "args": [
+            "1",
+            "5",
+            "REWRITE",
+            "{\"answer\":\"41\",\"class\":\"paraphrase\",\"prompt\":\"At the beginning of the day there are 45 blank index cards in a supply drawer. After a teacher removes 12 for an activity and adds 8 new blank cards later, how many blank index cards does the drawer contain?\",\"version\":\"impeach/1\"}"
+          ],
+          "method": "probe"
+        },
+        "leaderOnly": false,
+        "type": "call"
+      },
+      "mainTimestamps": {
+        "created": "1791702566",
+        "pending": "1791702566",
+        "activated": "1791702568",
+        "proposed": "1791702603",
+        "committed": "1791702641",
+        "lastVote": "1791702644",
+        "appealSubmitted": "0",
+        "leaderRevealed": "1791702642"
+      },
+      "firstSlotElapsed": false,
+      "queueType": 2,
+      "queueModification": {
+        "lastQueueType": 2,
+        "lastQueueTimestamp": "1791702644"
+      },
+      "atFinalizedHead": true,
+      "canFinalize": [
+        false,
+        "1791704367",
+        "1791704444"
+      ]
+    }
+  ]
+}

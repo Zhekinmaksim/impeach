@@ -1,0 +1,123 @@
+{
+  "format": "impeach-case-handoff/1",
+  "at": "2026-10-11T10:14:26.119599+00:00",
+  "address": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+  "claim_id": 1,
+  "challenge_id": 1,
+  "native_writer_released": true,
+  "native_queue_heads": {
+    "getFinalizedHeadTxId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "getPendingHeadTxId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "getAcceptedHeadTxId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "getUndeterminedHeadTxId": "0x0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "actual_totals": {
+    "pinned": {
+      "RIGHT": 24
+    },
+    "recall": {
+      "MISS": 24
+    },
+    "stage_c1": {
+      "ADMISSIBLE": 24
+    },
+    "stage_c2": {
+      "ADMISSIBLE": 23,
+      "PENDING": 1
+    },
+    "rewrite": {
+      "RIGHT": 24
+    }
+  },
+  "all_manifest_finalized": true,
+  "manifest_rows": 107,
+  "unique_hashes": 107,
+  "recovery_rows": 8,
+  "frozen_onchain_claim_matches": true,
+  "all_24_paired_goal_completed": false,
+  "unresolved_C2_item": 14,
+  "item14_latest_hash": "0xa264c36846db3a8a567d3e493ceadfd3ff30d1582aa6f573fe7d42d701ccb40c",
+  "item23_latest_hash": "0xcedffa69c57e1b3b42dc91ec2f4921b5d43de2a0ca05841382df34aa2f752a54",
+  "item14_same_hash_appeals_sent": 1,
+  "item23_finalize_evm": "0x8be4cbb49d1393c15ab01ea306fffef73b4d938824023805f28ac7744ab6d137",
+  "state_discrepancy": "Item14 native transaction FINALIZED/MAJORITY_AGREE/RETURN with Phase previousStatus5 and shouldProcessMessages=true, but all observed status/fixed-block selectors still show stage_c2 PENDING. Cause unresolved; no new application retry eligible.",
+  "certificate": {
+    "admissible_probes": 0,
+    "bond_standing": 100000000000000000,
+    "bond_sworn": 100000000000000000,
+    "challenge_id": -1,
+    "challenges_survived": 0,
+    "claim_id": 1,
+    "contested": false,
+    "dead_probes": 0,
+    "decode_params": "{\"temperature\": 0, \"top_p\": 1, \"max_tokens\": 512, \"seed\": 7, \"model\": \"meta-llama/llama-3.1-8b-instruct\"}",
+    "delta_milli": 0,
+    "delta_threshold": 250,
+    "final": false,
+    "inadmissible_rewrites": 0,
+    "items_burned": 24,
+    "items_probed": 0,
+    "min_items": 20,
+    "pinned_milli": 0,
+    "reason": "",
+    "recall_milli": 0,
+    "recall_probes": 0,
+    "recall_threshold": 150,
+    "rewrite_milli": 0,
+    "ruled_at": 0,
+    "score_expired_at": 1791701164,
+    "score_status": "SPENT",
+    "score_sworn_milli": 1000,
+    "spec_hash": "16ddeb8153d57d7d0640e2ab1f69d1352502256a40f682a15de8d7b7bd951321",
+    "stale_answers": 0,
+    "state": "TRIAL",
+    "subject": "meta-llama/llama-3.1-8b-instruct@deepinfra-fp8/court24-v2/2026-10-10",
+    "under_challenge": true,
+    "verdict": "UNCONTESTED"
+  },
+  "claim_status": "TRIAL",
+  "challenge_status": "TRIAL",
+  "solvency": {
+    "balanced": true,
+    "bonds": 100000000000000000,
+    "credited": 147000000000000000,
+    "escrowed": 101000000000000000,
+    "held": 248000000000000000,
+    "stakes": 1000000000000000
+  },
+  "offline_forecast_only": {
+    "verdict": "CLEAN",
+    "reason": "",
+    "delta_milli": 0,
+    "recall_milli": 0,
+    "pinned_milli": 1000,
+    "rewrite_milli": 1000,
+    "admissible_probes": 23,
+    "inadmissible_rewrites": 0,
+    "stale_answers": 0,
+    "dead_probes": 0,
+    "recall_probes": 24,
+    "items_probed": 24
+  },
+  "rule_sent": false,
+  "retire_sent": false,
+  "withdraw_sent": false,
+  "approval_block": {
+    "action": "deterministic rule1 with partial23 paired results",
+    "blocked_before_execution": true,
+    "reason": "Automatic approval review rejected irreversible partial closure: user authorized completion of all24 pairs, not publishing a partial verdict. Direct user authorization for partial closure required; no workaround attempted."
+  },
+  "evidence_sha256": {
+    "runs/v2-live-final-native-audit/audit.json": "fdd46874f54039860fa4a350c05473b51c6c9d2132f0a7cad23b3a270f09a9a8",
+    "runs/v2-live-final-native-audit/raw.jsonl": "d4c3ea976ade14452ca64b93751b0ea79af200c1aa75a735faad1e8aae398200",
+    "runs/v2-live-all24-views-after-final.json": "e1e3493b70bc14a5e789979b5c1295e0cbb05e49549c44393ba1a11723887a16",
+    "runs/v2-live-state-filters-after-all-final.json": "81bb124e8628d0c2e412e45aec5c2eb17885f645d1b8beb257345d05923881a7",
+    "runs/v2-live-two-finalization-events.json": "2dcb7cec4e0d351e4b913a3eecd43d19d78f3dce0a5a9f7b70e500264aaa74bc",
+    "runs/v2-live-item23-finalize01/native-after.json": "d7ada7566bb1ba4e21ea5049c96fd023c3ba9bbcb9772ac4ebf726bfcf364e4d",
+    "runs/v2-live-item23-finalize01/evm-receipt.json": "4e61dfe6056b8527acbcdb857b2ab980f3d914bf2b5bde95c01f0092f2edb962",
+    "runs/v2-live-pre-rule-forecast.json": "b2cf49fecd68ef7ed62a0178d0c000220f07027533458b61d49b0359ac4702d7",
+    "build/impeach.py": "6336e9c160b53839497adb4652c0cf8d7c1f5b76bcf7ed99d3f5553da53f3c89",
+    "calibration/claim-court24-v2.json": "abcc8a53798accb23db089dc8cafe6f54bcc0417e4a0c225faae5d5a9c9dda3c",
+    "runs/bradbury-v2-live.jsonl": "29eb291c0c3ea8f8a0f29e63dd1e6e9ed80d7326ec2a98b89af8fc4b874810af"
+  }
+}

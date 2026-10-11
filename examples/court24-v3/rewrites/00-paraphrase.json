@@ -1,0 +1,9 @@
+{
+  "version": "impeach/1",
+  "item_index": 0,
+  "class": "paraphrase",
+  "prompt": "An independent arithmetic exercise states: During the morning a workshop produces 28 blue labels, followed by another 17 that afternoon. After 9 of these labels are attached to completed toolboxes, how many printed blue labels are still unused?",
+  "answer": "36",
+  "derivation": "28 + 17 - 9",
+  "author_note": "Only sentence wording changes; both print batches, the used quantity, and the requested remainder are preserved."
+}

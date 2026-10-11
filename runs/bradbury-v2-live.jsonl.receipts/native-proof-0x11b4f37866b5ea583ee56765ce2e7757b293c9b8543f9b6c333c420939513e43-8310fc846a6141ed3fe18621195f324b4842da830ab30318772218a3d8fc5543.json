@@ -1,0 +1,567 @@
+{
+  "format": "impeach-native-no-messages/1",
+  "tx": "0x11b4f37866b5ea583ee56765ce2e7757b293c9b8543f9b6c333c420939513e43",
+  "address": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+  "observedAt": 1791705521563,
+  "snapshot": {
+    "at": 1791705493375,
+    "address": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+    "blockNumber": "24469888",
+    "blockTimestamp": "1791705494",
+    "protocol": {
+      "chainId": 4221,
+      "main": "0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D",
+      "manager": "0x8aCE036C8C3C5D603dB546b031302FCf149648E8",
+      "version": "2.0.0",
+      "implementations": {
+        "IdlenessPhase": "0x2cf61473cafcf47adc0ddd861290a7e848881446",
+        "ConsensusData": "0x7ee629530e70e2a3a772f8522d8835060abf0755",
+        "ConsensusMain": "0x0a2c393975da79505ed930efc55ae4aeb88b0d62",
+        "Idleness": "0x4e696416634012119187d8dda6a56e66ac7cb23d",
+        "Queues": "0x7559ebdbc6f59e5dd2a048a1a1539ac14bf93db0",
+        "TransactionManager": "0xeee45073f7eeb3b80d1973f8398f8e508f893f9c",
+        "AddressManager": "0xf63f3a95fbf2e97618a5e3ea0fff63024915f3e6",
+        "FinalizationPhase": "0x3ab63c1fc784682ef72276a76e2ad8fc1c5813b2"
+      },
+      "sourceCommit": "9c686087963551277fc2dce0354c2b1a7050b4b2"
+    },
+    "sourceSha256": "6336e9c160b53839497adb4652c0cf8d7c1f5b76bcf7ed99d3f5553da53f3c89",
+    "mainTimeouts": {
+      "activate": "180",
+      "propose": "420",
+      "commit": "420",
+      "reveal": "120",
+      "accept": "1800",
+      "leaderReveal": "120"
+    },
+    "heads": {
+      "getFinalizedHeadTxId": "0x45ce4011f12c8d14eeabc32f1708d6e9d4c5cd85e9459f32c766b7be0c5ce5b0",
+      "getPendingHeadTxId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "getAcceptedHeadTxId": "0x45ce4011f12c8d14eeabc32f1708d6e9d4c5cd85e9459f32c766b7be0c5ce5b0",
+      "getUndeterminedHeadTxId": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "transactions": [
+      {
+        "tx": "0x45ce4011f12c8d14eeabc32f1708d6e9d4c5cd85e9459f32c766b7be0c5ce5b0",
+        "stored": {
+          "result": 0,
+          "txExecutionResult": 1,
+          "previousStatus": 0,
+          "status": 5,
+          "txOrigin": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+          "sender": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+          "recipient": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+          "activator": "0xF01877B6Ac60861CA3b134e0E483C482679b4682",
+          "txSlot": "137",
+          "initialRotations": "3",
+          "numOfInitialValidators": "5",
+          "epoch": "175",
+          "id": "0x45ce4011f12c8d14eeabc32f1708d6e9d4c5cd85e9459f32c766b7be0c5ce5b0",
+          "randomSeed": "0xc7a218f6206f5f371b3ae98eb2a39afca82de784f4e1824710783c334b7471c3",
+          "txExecutionHash": "0x51ddf6036bfe300a13725faa8be9e1533f1836d4944c2bccc7dd3a41a5d928e5",
+          "resultHash": "0x0acee2d4a5104d6a38dca23c53fb9bbdd7d313f93294914e6a36a597613414aa",
+          "txCalldata": "0xe09e16046172677325093934524543414c4c04066d6574686f642c70726f626500",
+          "eqBlocksOutputs": "0xca82000186706164646564",
+          "readStateBlockRanges": [
+            {
+              "activationBlock": "24464322",
+              "processingBlock": "24464331",
+              "proposalBlock": "24464333"
+            }
+          ],
+          "validUntil": "1791707264",
+          "value": "0",
+          "lockedStorageUnitPrice": "0",
+          "storageFeeUsed": "0"
+        },
+        "receipt": {
+          "currentTimestamp": "1791705488",
+          "sender": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+          "recipient": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+          "initialRotations": "3",
+          "txSlot": "137",
+          "createdTimestamp": "1791703681",
+          "lastVoteTimestamp": "1791703697",
+          "randomSeed": "0xc7a218f6206f5f371b3ae98eb2a39afca82de784f4e1824710783c334b7471c3",
+          "result": 1,
+          "txExecutionHash": "0x51ddf6036bfe300a13725faa8be9e1533f1836d4944c2bccc7dd3a41a5d928e5",
+          "txCalldata": "0xe09e16046172677325093934524543414c4c04066d6574686f642c70726f626500",
+          "eqBlocksOutputs": "0xca82000186706164646564",
+          "messages": [],
+          "queueType": 0,
+          "queuePosition": "0",
+          "activator": "0xF01877B6Ac60861CA3b134e0E483C482679b4682",
+          "lastLeader": "0xb4Fb7ADc6877a6A16bd131c7c9270834bD3DEf34",
+          "status": 5,
+          "txId": "0x45ce4011f12c8d14eeabc32f1708d6e9d4c5cd85e9459f32c766b7be0c5ce5b0",
+          "readStateBlockRange": {
+            "activationBlock": "24464322",
+            "processingBlock": "24464331",
+            "proposalBlock": "24464333"
+          },
+          "numOfRounds": "0",
+          "lastRound": {
+            "round": "0",
+            "leaderIndex": "4",
+            "votesCommitted": "5",
+            "votesRevealed": "5",
+            "appealBond": "0",
+            "rotationsLeft": "3",
+            "result": 1,
+            "roundValidators": [
+              "0x59dC5E6fD7428c5Ee6fc24aE2B99E5860A9c9499",
+              "0xF01877B6Ac60861CA3b134e0E483C482679b4682",
+              "0x9F6aa7364D20CF25F054Ea83f3CB950317fD34b6",
+              "0xB93a46B843fB32E8Ce392e68eDFE93Faa4a40817",
+              "0xb4Fb7ADc6877a6A16bd131c7c9270834bD3DEf34"
+            ],
+            "validatorVotes": [
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "validatorVotesHash": [
+              "0x046133eea6717ac221c521637af7e016469d470b977780fa89d72a9c31274a78",
+              "0x18b2b27e89335274a04bcdea43188643635adacfa04d58fe0fe79a61eb364955",
+              "0xf83e553815705fa77cdbac6afa43ccc5cb15f6528fb3ee10bf73ad319b8b52ee",
+              "0x6ec888ee337c3b960ab0ec81f1aee3b95c189af7c6c429abb8eaf6e554aae029",
+              "0xd3ebfbe9d0418201b839d753788465b2c05b4fceb7ea39a5f442643d1e029896"
+            ],
+            "validatorResultHash": [
+              "0x0acee2d4a5104d6a38dca23c53fb9bbdd7d313f93294914e6a36a597613414aa",
+              "0x0acee2d4a5104d6a38dca23c53fb9bbdd7d313f93294914e6a36a597613414aa",
+              "0x0acee2d4a5104d6a38dca23c53fb9bbdd7d313f93294914e6a36a597613414aa",
+              "0x0acee2d4a5104d6a38dca23c53fb9bbdd7d313f93294914e6a36a597613414aa",
+              "0x0acee2d4a5104d6a38dca23c53fb9bbdd7d313f93294914e6a36a597613414aa"
+            ],
+            "validatorVotesName": [
+              "AGREE",
+              "AGREE",
+              "AGREE",
+              "AGREE",
+              "AGREE"
+            ]
+          },
+          "consumedValidators": [
+            "0x59dC5E6fD7428c5Ee6fc24aE2B99E5860A9c9499",
+            "0xF01877B6Ac60861CA3b134e0E483C482679b4682",
+            "0x9F6aa7364D20CF25F054Ea83f3CB950317fD34b6",
+            "0xB93a46B843fB32E8Ce392e68eDFE93Faa4a40817",
+            "0xb4Fb7ADc6877a6A16bd131c7c9270834bD3DEf34"
+          ],
+          "txExecutionResult": 1,
+          "txData": "0xe09e16046172677325093934524543414c4c04066d6574686f642c70726f626500",
+          "txDataDecoded": {
+            "callData": {
+              "args": [
+                "1",
+                "7",
+                "RECALL",
+                ""
+              ],
+              "method": "probe"
+            },
+            "leaderOnly": false,
+            "type": "call"
+          },
+          "numOfInitialValidators": "3",
+          "statusName": "ACCEPTED",
+          "resultName": "AGREE",
+          "txExecutionResultName": "FINISHED_WITH_RETURN"
+        },
+        "decoded": {
+          "callData": {
+            "args": [
+              "1",
+              "7",
+              "RECALL",
+              ""
+            ],
+            "method": "probe"
+          },
+          "leaderOnly": false,
+          "type": "call"
+        },
+        "mainTimestamps": {
+          "created": "1791703681",
+          "pending": "1791703681",
+          "activated": "1791703683",
+          "proposed": "1791703687",
+          "committed": "1791703693",
+          "lastVote": "1791703697",
+          "appealSubmitted": "0",
+          "leaderRevealed": "1791703695"
+        },
+        "firstSlotElapsed": false,
+        "queueType": 2,
+        "queueModification": {
+          "lastQueueType": 2,
+          "lastQueueTimestamp": "1791703697"
+        },
+        "atFinalizedHead": true,
+        "canFinalize": [
+          false,
+          "1791705494",
+          "1791705497"
+        ]
+      },
+      {
+        "tx": "0x11b4f37866b5ea583ee56765ce2e7757b293c9b8543f9b6c333c420939513e43",
+        "stored": {
+          "result": 0,
+          "txExecutionResult": 1,
+          "previousStatus": 0,
+          "status": 7,
+          "txOrigin": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+          "sender": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+          "recipient": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+          "activator": "0x4FC292d5D255Ec8Ad4cdcd36c5E188dfEE9D160e",
+          "txSlot": "123",
+          "initialRotations": "3",
+          "numOfInitialValidators": "5",
+          "epoch": "175",
+          "id": "0x11b4f37866b5ea583ee56765ce2e7757b293c9b8543f9b6c333c420939513e43",
+          "randomSeed": "0x007a2cf49bc509b6d000e1d174168928a411a00d7f11b7d6b1eb5062cee0f9c8",
+          "txExecutionHash": "0x27a87c40195a33ededd567f69a865e5a78912037075dbe3718f11e85b3f22e3d",
+          "resultHash": "0x5f462b22552799f0f84881b5cdad906ceeff0e94c86d7dd6d5f2bdce5370bad4",
+          "txCalldata": "0xf9012cb901281604617267732509193c52455752495445c4107b22616e73776572223a22323530222c22636c617373223a22756e69745f6368616e6765222c2270726f6d7074223a2241206372616674207461626c652068617320612072656420726962626f6e206d6561737572696e6720312e38206d657465727320616e64206120626c756520726962626f6e206d6561737572696e6720302e37206d65746572732e205468652074776f20726962626f6e732061726520706c6163656420656e6420746f20656e6420776974686f7574206f7665726c61702e205768617420697320746865697220636f6d62696e6564206c656e67746820696e2063656e74696d65746572733f222c2276657273696f6e223a22696d70656163682f31227d066d6574686f642c70726f626500",
+          "eqBlocksOutputs": "0xf88cb84d00d4047b226f726967696e616c5f726573756c74223a2022323530222c2022726577726974655f726573756c74223a2022323530222c202273616d655f7175657374696f6e223a20747275657db50094037b22737461747573223a202244454144222c2022616e73776572223a2022222c2022636f7272656374223a2066616c73657d86706164646564",
+          "readStateBlockRanges": [
+            {
+              "activationBlock": "24459815",
+              "processingBlock": "24459916",
+              "proposalBlock": "24459918"
+            }
+          ],
+          "validUntil": "1791705787",
+          "value": "0",
+          "lockedStorageUnitPrice": "0",
+          "storageFeeUsed": "0"
+        },
+        "receipt": {
+          "currentTimestamp": "1791705488",
+          "sender": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+          "recipient": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+          "initialRotations": "3",
+          "txSlot": "123",
+          "createdTimestamp": "1791702208",
+          "lastVoteTimestamp": "1791702241",
+          "randomSeed": "0x007a2cf49bc509b6d000e1d174168928a411a00d7f11b7d6b1eb5062cee0f9c8",
+          "result": 0,
+          "txExecutionHash": "0x27a87c40195a33ededd567f69a865e5a78912037075dbe3718f11e85b3f22e3d",
+          "txCalldata": "0xf9012cb901281604617267732509193c52455752495445c4107b22616e73776572223a22323530222c22636c617373223a22756e69745f6368616e6765222c2270726f6d7074223a2241206372616674207461626c652068617320612072656420726962626f6e206d6561737572696e6720312e38206d657465727320616e64206120626c756520726962626f6e206d6561737572696e6720302e37206d65746572732e205468652074776f20726962626f6e732061726520706c6163656420656e6420746f20656e6420776974686f7574206f7665726c61702e205768617420697320746865697220636f6d62696e6564206c656e67746820696e2063656e74696d65746572733f222c2276657273696f6e223a22696d70656163682f31227d066d6574686f642c70726f626500",
+          "eqBlocksOutputs": "0xf88cb84d00d4047b226f726967696e616c5f726573756c74223a2022323530222c2022726577726974655f726573756c74223a2022323530222c202273616d655f7175657374696f6e223a20747275657db50094037b22737461747573223a202244454144222c2022616e73776572223a2022222c2022636f7272656374223a2066616c73657d86706164646564",
+          "messages": [],
+          "queueType": 0,
+          "queuePosition": "0",
+          "activator": "0x4FC292d5D255Ec8Ad4cdcd36c5E188dfEE9D160e",
+          "lastLeader": "0xE8fdefdfe18fD8E5B0d576b7CcfC5a29CE43fD7f",
+          "status": 7,
+          "txId": "0x11b4f37866b5ea583ee56765ce2e7757b293c9b8543f9b6c333c420939513e43",
+          "readStateBlockRange": {
+            "activationBlock": "24459815",
+            "processingBlock": "24459916",
+            "proposalBlock": "24459918"
+          },
+          "numOfRounds": "0",
+          "lastRound": {
+            "round": "0",
+            "leaderIndex": "3",
+            "votesCommitted": "0",
+            "votesRevealed": "0",
+            "appealBond": "0",
+            "rotationsLeft": "2",
+            "result": 0,
+            "roundValidators": [
+              "0x9D998aD7C7f9Cc448A4DbDf49edD7CADBe3d57B6",
+              "0x96298d411a2D622945BEACa6112374583b501d52",
+              "0x77a07271abB443F55be19c357AA35206BeB63E1d",
+              "0xE8fdefdfe18fD8E5B0d576b7CcfC5a29CE43fD7f",
+              "0x58a7b7ac6Cb01843e4e5af117C551E59449E0F49"
+            ],
+            "validatorVotes": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "validatorVotesHash": [
+              "0x0000000000000000000000000000000000000000000000000000000000000000",
+              "0x0000000000000000000000000000000000000000000000000000000000000000",
+              "0x0000000000000000000000000000000000000000000000000000000000000000",
+              "0x0000000000000000000000000000000000000000000000000000000000000000",
+              "0x0000000000000000000000000000000000000000000000000000000000000000"
+            ],
+            "validatorResultHash": [
+              "0x0000000000000000000000000000000000000000000000000000000000000000",
+              "0x0000000000000000000000000000000000000000000000000000000000000000",
+              "0x0000000000000000000000000000000000000000000000000000000000000000",
+              "0x0000000000000000000000000000000000000000000000000000000000000000",
+              "0x0000000000000000000000000000000000000000000000000000000000000000"
+            ],
+            "validatorVotesName": [
+              "NOT_VOTED",
+              "NOT_VOTED",
+              "NOT_VOTED",
+              "NOT_VOTED",
+              "NOT_VOTED"
+            ]
+          },
+          "consumedValidators": [
+            "0x9D998aD7C7f9Cc448A4DbDf49edD7CADBe3d57B6",
+            "0x79485eF57aC2055dC83b9E7b2C9Cf184Fc79648E",
+            "0x96298d411a2D622945BEACa6112374583b501d52",
+            "0x77a07271abB443F55be19c357AA35206BeB63E1d",
+            "0xE8fdefdfe18fD8E5B0d576b7CcfC5a29CE43fD7f",
+            "0x58a7b7ac6Cb01843e4e5af117C551E59449E0F49"
+          ],
+          "txExecutionResult": 1,
+          "txData": "0xf9012cb901281604617267732509193c52455752495445c4107b22616e73776572223a22323530222c22636c617373223a22756e69745f6368616e6765222c2270726f6d7074223a2241206372616674207461626c652068617320612072656420726962626f6e206d6561737572696e6720312e38206d657465727320616e64206120626c756520726962626f6e206d6561737572696e6720302e37206d65746572732e205468652074776f20726962626f6e732061726520706c6163656420656e6420746f20656e6420776974686f7574206f7665726c61702e205768617420697320746865697220636f6d62696e6564206c656e67746820696e2063656e74696d65746572733f222c2276657273696f6e223a22696d70656163682f31227d066d6574686f642c70726f626500",
+          "txDataDecoded": {
+            "callData": {
+              "args": [
+                "1",
+                "3",
+                "REWRITE",
+                "{\"answer\":\"250\",\"class\":\"unit_change\",\"prompt\":\"A craft table has a red ribbon measuring 1.8 meters and a blue ribbon measuring 0.7 meters. The two ribbons are placed end to end without overlap. What is their combined length in centimeters?\",\"version\":\"impeach/1\"}"
+              ],
+              "method": "probe"
+            },
+            "leaderOnly": false,
+            "type": "call"
+          },
+          "numOfInitialValidators": "3",
+          "statusName": "FINALIZED",
+          "resultName": "IDLE",
+          "txExecutionResultName": "FINISHED_WITH_RETURN"
+        },
+        "decoded": {
+          "callData": {
+            "args": [
+              "1",
+              "3",
+              "REWRITE",
+              "{\"answer\":\"250\",\"class\":\"unit_change\",\"prompt\":\"A craft table has a red ribbon measuring 1.8 meters and a blue ribbon measuring 0.7 meters. The two ribbons are placed end to end without overlap. What is their combined length in centimeters?\",\"version\":\"impeach/1\"}"
+            ],
+            "method": "probe"
+          },
+          "leaderOnly": false,
+          "type": "call"
+        },
+        "mainTimestamps": {
+          "created": "1791702208",
+          "pending": "1791702208",
+          "activated": "1791702239",
+          "proposed": "1791702241",
+          "committed": "1791702235",
+          "lastVote": "1791702241",
+          "appealSubmitted": "0",
+          "leaderRevealed": "1791702236"
+        },
+        "firstSlotElapsed": false,
+        "queueType": 2,
+        "queueModification": {
+          "lastQueueType": 2,
+          "lastQueueTimestamp": "1791702241"
+        },
+        "atFinalizedHead": false,
+        "canFinalize": [
+          false,
+          "1791705494",
+          "0"
+        ]
+      }
+    ]
+  },
+  "eventProtocol": {
+    "chainId": 4221,
+    "main": "0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D",
+    "manager": "0x8aCE036C8C3C5D603dB546b031302FCf149648E8",
+    "version": "2.0.0",
+    "implementations": {
+      "ConsensusMain": "0x0a2c393975da79505ed930efc55ae4aeb88b0d62",
+      "FinalizationPhase": "0x3ab63c1fc784682ef72276a76e2ad8fc1c5813b2",
+      "ConsensusData": "0x7ee629530e70e2a3a772f8522d8835060abf0755",
+      "AddressManager": "0xf63f3a95fbf2e97618a5e3ea0fff63024915f3e6",
+      "Queues": "0x7559ebdbc6f59e5dd2a048a1a1539ac14bf93db0",
+      "IdlenessPhase": "0x2cf61473cafcf47adc0ddd861290a7e848881446",
+      "TransactionManager": "0xeee45073f7eeb3b80d1973f8398f8e508f893f9c",
+      "Idleness": "0x4e696416634012119187d8dda6a56e66ac7cb23d"
+    },
+    "sourceCommit": "9c686087963551277fc2dce0354c2b1a7050b4b2"
+  },
+  "event": {
+    "txId": "0x11b4f37866b5ea583ee56765ce2e7757b293c9b8543f9b6c333c420939513e43",
+    "previousStatus": 13,
+    "shouldProcessMessages": false,
+    "log": {
+      "address": "0x7de0ff58b401f2d800470e4390e24ff2baa02aae",
+      "blockHash": "0x9f1784afb7999535395d9e8ccba262985a8a700cd1efb6803edcaa48e87b3f99",
+      "blockNumber": "24465592",
+      "blockTimestamp": "1791704096",
+      "data": "0x000000000000000000000000000000000000000000000000000000000000000d0000000000000000000000000000000000000000000000000000000000000000",
+      "logIndex": 1,
+      "removed": false,
+      "topics": [
+        "0xfcc739ca8e51c67e4fd127179070d26ae8ed5ed6dcbc26bcd88ff81c50f346a6",
+        "0x11b4f37866b5ea583ee56765ce2e7757b293c9b8543f9b6c333c420939513e43"
+      ],
+      "transactionHash": "0x68136e11acfb6a9b1e2bd094ef23a41950f91b4b75ab5a4ca455f3e2ab22002e",
+      "transactionIndex": 1
+    }
+  },
+  "evm": {
+    "receipt": {
+      "blockHash": "0x9f1784afb7999535395d9e8ccba262985a8a700cd1efb6803edcaa48e87b3f99",
+      "blockNumber": "24465592",
+      "contractAddress": null,
+      "cumulativeGasUsed": "3491127",
+      "effectiveGasPrice": "86331100",
+      "from": "0x56f66a6ad96acd0c640d90707761a26efeb81ac2",
+      "gasUsed": "723816",
+      "l2ToL1Logs": [],
+      "logs": [
+        {
+          "address": "0x1d301acef55eaf7df5d3741659d426f51061ec8d",
+          "blockHash": "0x9f1784afb7999535395d9e8ccba262985a8a700cd1efb6803edcaa48e87b3f99",
+          "blockNumber": "24465592",
+          "blockTimestamp": "1791704096",
+          "data": "0x000000000000000000000000000000000000000000000000000000000000000d0000000000000000000000000000000000000000000000000000000000000007",
+          "logIndex": 0,
+          "removed": false,
+          "topics": [
+            "0xc8a7adcd793ee2c31f7814aeef44437537b00ebc2e9ab3dec66d7561411b4d7b",
+            "0x11b4f37866b5ea583ee56765ce2e7757b293c9b8543f9b6c333c420939513e43"
+          ],
+          "transactionHash": "0x68136e11acfb6a9b1e2bd094ef23a41950f91b4b75ab5a4ca455f3e2ab22002e",
+          "transactionIndex": 1
+        },
+        {
+          "address": "0x7de0ff58b401f2d800470e4390e24ff2baa02aae",
+          "blockHash": "0x9f1784afb7999535395d9e8ccba262985a8a700cd1efb6803edcaa48e87b3f99",
+          "blockNumber": "24465592",
+          "blockTimestamp": "1791704096",
+          "data": "0x000000000000000000000000000000000000000000000000000000000000000d0000000000000000000000000000000000000000000000000000000000000000",
+          "logIndex": 1,
+          "removed": false,
+          "topics": [
+            "0xfcc739ca8e51c67e4fd127179070d26ae8ed5ed6dcbc26bcd88ff81c50f346a6",
+            "0x11b4f37866b5ea583ee56765ce2e7757b293c9b8543f9b6c333c420939513e43"
+          ],
+          "transactionHash": "0x68136e11acfb6a9b1e2bd094ef23a41950f91b4b75ab5a4ca455f3e2ab22002e",
+          "transactionIndex": 1
+        },
+        {
+          "address": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d",
+          "blockHash": "0x9f1784afb7999535395d9e8ccba262985a8a700cd1efb6803edcaa48e87b3f99",
+          "blockNumber": "24465592",
+          "blockTimestamp": "1791704096",
+          "data": "0x",
+          "logIndex": 2,
+          "removed": false,
+          "topics": [
+            "0x24196ec40f90671b7144e716978686b4f3c7d6b00b23da3971ef2b52af27d87f",
+            "0x11b4f37866b5ea583ee56765ce2e7757b293c9b8543f9b6c333c420939513e43"
+          ],
+          "transactionHash": "0x68136e11acfb6a9b1e2bd094ef23a41950f91b4b75ab5a4ca455f3e2ab22002e",
+          "transactionIndex": 1
+        }
+      ],
+      "logsBloom": "0x00000000000000000000041000000000000000000000000000000000000000000000000000000000000000000000081000000800000000400020000000000000000000000000000000000800000000000020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000800000000000200000000000000000000000020000000000000000040000000000000000000000000000000000011000000000000000000000000000000000000000000000000000004000000000000000000008000000000001200000000000000000000000000000000000020000000000000100000000000000000000000",
+      "status": "success",
+      "to": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d",
+      "transactionHash": "0x68136e11acfb6a9b1e2bd094ef23a41950f91b4b75ab5a4ca455f3e2ab22002e",
+      "transactionIndex": 1,
+      "type": "eip1559"
+    },
+    "transaction": {
+      "accessList": [],
+      "blockHash": "0x9f1784afb7999535395d9e8ccba262985a8a700cd1efb6803edcaa48e87b3f99",
+      "blockNumber": "24465592",
+      "blockTimestamp": "1791704096",
+      "chainId": 4221,
+      "from": "0x56f66a6ad96acd0c640d90707761a26efeb81ac2",
+      "gas": "1508102",
+      "gasPrice": "86331100",
+      "hash": "0x68136e11acfb6a9b1e2bd094ef23a41950f91b4b75ab5a4ca455f3e2ab22002e",
+      "input": "0xb2efda8311b4f37866b5ea583ee56765ce2e7757b293c9b8543f9b6c333c420939513e43",
+      "maxFeePerGas": "172662200",
+      "maxPriorityFeePerGas": "0",
+      "nonce": 1983614,
+      "r": "0xf96b119e46d48ece8e661cb9ad1217ac69bcbb03a4cff003d033a37c745aeaf",
+      "s": "0x756f911be5374f1a02c152538da46146219c2ec866e41d4d3769e32ea73ed792",
+      "to": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d",
+      "transactionIndex": 1,
+      "type": "eip1559",
+      "v": "1",
+      "value": "0",
+      "yParity": 1,
+      "typeHex": "0x2"
+    },
+    "block": {
+      "baseFeePerGas": "86331100",
+      "difficulty": "0",
+      "extraData": "0x",
+      "gasLimit": "100000000",
+      "gasUsed": "11539862",
+      "hash": "0x9f1784afb7999535395d9e8ccba262985a8a700cd1efb6803edcaa48e87b3f99",
+      "logsBloom": "0x00000000000000000000041000000000000000000000000000000000000000000000000000000000000000000000081000000800000000400020000000000000000000000000000000000800000000000020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000800000000000200000000000000000000000020000000000000000040000000000000000000000000000000000011000000000000000000000000000000000000000000000000000004000000000000000000008000000000001200000000000000000000000000000000000020000000000000100000000000000000000000",
+      "miner": "0xf51b92325d0661018fc792454ce6be5c588dadd0",
+      "mixHash": "0x0000000000000000000000000000000000000000000000000000000000000001",
+      "nonce": "0x0000000000000000",
+      "number": "24465592",
+      "parentHash": "0x7ae60fd2ce4048e76236a04bd1f772f8dd03d2fdd88e3b6f0eea06cd4621646d",
+      "receiptsRoot": "0xa02cad61c7930f933669c9b4a68cda2ca5f9ed2560ecc847db36c7c980d31677",
+      "sha3Uncles": "0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347",
+      "size": "1150",
+      "stateRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "timestamp": "1791704096",
+      "totalDifficulty": "0",
+      "transactions": [
+        "0x63f9b45565c1836f7829aa0010f26dcaf5cc227182b72e3a2a588cf8906c8090",
+        "0x68136e11acfb6a9b1e2bd094ef23a41950f91b4b75ab5a4ca455f3e2ab22002e",
+        "0x3e3987ee17b0ad64fda308af46a3390dacd88a49a2b1d1b26f1b062346d2824c",
+        "0xc5380edb6acfddef208056cf1b93aa89f985705f382ca9d810132e0d685d5532",
+        "0x5129561d10bcb6751333138f4f9447ded39e8f61b0172c4d0d37b22772bf23a8",
+        "0xf75ba5e2f79db27c2fcb1eb46886f5d21613113c8160f72faf69f9e8f59d41bd",
+        "0x07133517b10f3689dabed05b031937a264e8a23d6271615fcb81197e8da11c52",
+        "0x161beb185791b83535f381e07ba2e06340ef25eb98900d5e0d4c983bc8e5bbe3",
+        "0x023e99e1e742a3b9033f0de47115d0d588e6c9890bd4fea7b81c97bf8cc27ed3",
+        "0x74b307fcca87792bc57462f3d99502959bc8dbe5d70be6d6a2aa11fd8f010187",
+        "0x8e45e6b6caf499799f458d0dee01a57920fbe95fcfd3cb05a4fb04382e0c550e",
+        "0xb001e9bf1b7e57856a7402707a43cc12dad6563a7dbbe1b959e4c8ed7659d659",
+        "0x647d3462e6cbf2313d2042286d4465ca8ac464c3ef6b3e1b3b9b578eb0a44fc5",
+        "0xb4249c4014f8b32615214066380103054918da03b7ab4faf94044c497646d1dd",
+        "0xdec353dc3f7840e64f912ca362688071decfefb2bebf0b8b2aca306c76855956",
+        "0x6db8236dea5757030a174b3738cbef8f936f06d8debf2e83b3bb345be3f2eb39",
+        "0xa9bcadd6cbbd66b8c5d4114817aa49495afdebeb6e0e314744f434e0fb160761",
+        "0x51de308f6a3771091a46bfe33eaffefac5be8a9212483926e4b3dd9042af622e",
+        "0x7acba37a291c184b279bea04cbfb53b2b37b4867a9893eacaf7be7290da76f9a"
+      ],
+      "transactionsRoot": "0x0b9306f194525b5575d8b48acb7938b4acb98ce3d2518600678d5d572170ac52",
+      "uncles": []
+    }
+  },
+  "lookup": {
+    "fromBlock": "24449889",
+    "toBlock": "24469888",
+    "maxBlocks": 20000,
+    "explicitEvmHash": null
+  },
+  "origin": "chain_observation",
+  "call": {
+    "method": "probe",
+    "args": [
+      "1",
+      "3",
+      "REWRITE",
+      "{\"answer\":\"250\",\"class\":\"unit_change\",\"prompt\":\"A craft table has a red ribbon measuring 1.8 meters and a blue ribbon measuring 0.7 meters. The two ribbons are placed end to end without overlap. What is their combined length in centimeters?\",\"version\":\"impeach/1\"}"
+    ],
+    "value": "0"
+  },
+  "source_sha256": "6336e9c160b53839497adb4652c0cf8d7c1f5b76bcf7ed99d3f5553da53f3c89",
+  "claim_sha256": "4e38532eb6b66b718e461aa4539c27783892a54d0529875e37c59d2ee8bf6c8e"
+}

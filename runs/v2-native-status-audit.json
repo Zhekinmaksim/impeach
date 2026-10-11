@@ -1,0 +1,192 @@
+{
+  "format": "impeach-native-status-provenance/1",
+  "at": "2026-10-10T13:28:49.852706+00:00",
+  "scope": "Read-only public RPC, official GitHub network manifest, and public verified-source API; no signing, secrets or repository edits.",
+  "conclusion": "Confirmed actual Bradbury deployment uses legacy status positions 11 through 14; SDK status 11 naming is correct. Consensus v0.6 reassignment does not apply to this deployed implementation.",
+  "mapping_11_to_14": {
+    "11": "ReadyToFinalize",
+    "12": "ValidatorsTimeout",
+    "13": "LeaderTimeout",
+    "14": "LeaderRevealing"
+  },
+  "full_source_mapping": {
+    "0": "Uninitialized",
+    "1": "Pending",
+    "2": "Proposing",
+    "3": "Committing",
+    "4": "Revealing",
+    "5": "Accepted",
+    "6": "Undetermined",
+    "7": "Finalized",
+    "8": "Canceled",
+    "9": "AppealRevealing",
+    "10": "AppealCommitting",
+    "11": "ReadyToFinalize",
+    "12": "ValidatorsTimeout",
+    "13": "LeaderTimeout",
+    "14": "LeaderRevealing"
+  },
+  "rpc": {
+    "endpoint": "https://rpc-bradbury.genlayer.com",
+    "chain_id_hex": "0x107d",
+    "chain_id": 4221,
+    "consensus_proxy": "0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D",
+    "eip1967_slot": "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc",
+    "main_implementation": "0x0a2c393975da79505ed930efc55ae4aeb88b0d62",
+    "VERSION": "2.0.0",
+    "observed_latest_block_hex": "0x1724678",
+    "observed_latest_block": 24266360,
+    "appeals_implementation": "0x1181d6876692984913fd53b783fbfc19c2f1ed38",
+    "finalization_implementation": "0x3ab63c1fc784682ef72276a76e2ad8fc1c5813b2",
+    "consensus_data_implementation": "0x7ee629530e70e2a3a772f8522d8835060abf0755",
+    "raw_files": [
+      "/tmp/impeach-status-rpc.json",
+      "/tmp/impeach-status-live-version-subimplementations.json",
+      "/tmp/impeach-status-data-pointer.json"
+    ],
+    "note": "Reads used latest, not one atomic historical block; the independent pointers agree with the immutable official manifest."
+  },
+  "official_manifest": {
+    "repository": "https://github.com/genlayerlabs/genlayer-networks",
+    "commit": "f9a30ed9536e56255cd2d7f8579a4d5dcc81ffd0",
+    "url": "https://github.com/genlayerlabs/genlayer-networks/blob/f9a30ed9536e56255cd2d7f8579a4d5dcc81ffd0/bradbury/testnet_deployments.json",
+    "release": "v0.5:9c68608",
+    "consensus_source_commit": "9c686087963551277fc2dce0354c2b1a7050b4b2",
+    "main_implementation": "0x0a2C393975dA79505ED930eFC55ae4AEB88b0d62",
+    "all_four_implementations_match_rpc": true,
+    "local_file": "/tmp/impeach-status-deployments.json",
+    "sha256": "e3fc603c3a26b1b7428ab365a7d6581d111840aefd0b4a1644dfb6f2efda9002"
+  },
+  "verified_source": {
+    "main": {
+      "api_url": "https://explorer-api.testnet-chain.genlayer.com/api?module=contract&action=getsourcecode&address=0x0a2C393975dA79505ED930eFC55ae4AEB88b0d62",
+      "contract_name": "contracts/ConsensusMain.sol:ConsensusMain",
+      "match": "match",
+      "verified_at": "2026-05-15T09:37:06Z",
+      "compiler": "0.8.28+commit.7893614a",
+      "response_file": "/tmp/impeach-status-verified-main.json",
+      "response_sha256": "857f333cee302ff43a1e31581aa0e694236bc77eff375d6b465069cfe0680511",
+      "contract_source_sha256": "52c526675ab78e4c14c13f688629117cc2cbda2234927c43e067ea4943fde305",
+      "enum_source": "contracts/transactions/interfaces/ITransactions.sol",
+      "enum_source_sha256": "51bb03bdb1fdadd19ff134861e2d9e2ddcdb38b1f088e0fb491812b0892b8756"
+    },
+    "appeals": {
+      "api_url": "https://explorer-api.testnet-chain.genlayer.com/api?module=contract&action=getsourcecode&address=0x1181D6876692984913fd53B783FBfc19c2F1ed38",
+      "contract_name": "contracts/transactions/Appeals.sol:Appeals",
+      "match": "exact_match",
+      "verified_at": "2026-03-10T19:23:42Z",
+      "compiler": "0.8.28+commit.7893614a",
+      "response_file": "/tmp/impeach-status-verified-appeals.json",
+      "response_sha256": "247624edf45a47428959bb9dcb089bbbf5d5a30aafac66d769e9653b1123464f",
+      "contract_source_sha256": "1f48e7099b7992d0fb10fb0a2d91da0f9edbe7bfa0070cd1630f1eeecec483b7"
+    },
+    "finalization": {
+      "api_url": "https://explorer-api.testnet-chain.genlayer.com/api?module=contract&action=getsourcecode&address=0x3Ab63c1fC784682ef72276a76E2AD8fc1C5813b2",
+      "contract_name": "contracts/phases/FinalizationPhase.sol:FinalizationPhase",
+      "match": "match",
+      "verified_at": "2026-05-28T12:04:02Z",
+      "compiler": "0.8.28+commit.7893614a",
+      "response_file": "/tmp/impeach-status-verified-finalization.json",
+      "response_sha256": "c62c8316980736f0496fb43f9eb4bf238c353b711749d6376c12dccc89d8d48f",
+      "contract_source_sha256": "f244a92013d96fa4574365301802139c099aa89752f8456280c7d893d1049656"
+    },
+    "data": {
+      "api_url": "https://explorer-api.testnet-chain.genlayer.com/api?module=contract&action=getsourcecode&address=0x7EE629530e70E2a3A772F8522d8835060aBf0755",
+      "contract_name": "contracts/ConsensusData.sol:ConsensusData",
+      "match": "exact_match",
+      "verified_at": "2026-03-10T16:38:41Z",
+      "compiler": "0.8.28+commit.7893614a",
+      "response_file": "/tmp/impeach-status-verified-data.json",
+      "response_sha256": "74b7c7f76b4ce41bcc0af9e3232f0001ad739610d4876258c7ae4201723454b3",
+      "contract_source_sha256": "db54169ba49e7fff514d8143d4269191886ee1e3f886eae4ba58379d1bce0c7b"
+    }
+  },
+  "eligibility_explanation": [
+    {
+      "finding": "Appeals.canAppeal is a next-round validator-capacity check, not a complete submission-eligibility check. It reads the stored status only to special-case LeaderTimeout; true does not prove an appeal can legally be submitted in the current phase.",
+      "source": "verified_source.appeals",
+      "functions": [
+        "canAppeal",
+        "_canAppeal"
+      ]
+    },
+    {
+      "finding": "ConsensusData receipt status is a time projection from _getTransactionStatusAtTimestamp, rather than necessarily the stored TransactionManager status. A stored LeaderTimeout may project to ReadyToFinalize after proposed or activated timestamp plus accept timeout.",
+      "source": "verified_source.data",
+      "functions": [
+        "getTransactionData",
+        "_getTransactionStatusAtTimestamp"
+      ]
+    },
+    {
+      "finding": "ConsensusData.canFinalize separately checks the stored phase, timing references, and finalized-queue head. Missing lastVote/committed/leaderRevealed references or a blocked finalized queue can return false with third value zero despite projected ReadyToFinalize.",
+      "source": "verified_source.data",
+      "function": "canFinalize"
+    },
+    {
+      "finding": "The exact branch behind the saved item17 false result has not been proven here: no fresh item17 raw stored state/timestamps/queue-head read was made. The verified code explains why the boolean alone cannot disprove the enum.",
+      "observation_only": true
+    }
+  ],
+  "saved_item17_evidence": {
+    "path": "runs/bradbury-v2-scripted-finalization/0xd7807ccfcc63d70144969deaa9d037053e1a347626934f768c0a11f5545ad712.eligibility-1791638641585.json",
+    "status_code": 11,
+    "sdk_name": "READY_TO_FINALIZE",
+    "canAppeal": true,
+    "canFinalize": [
+      false,
+      "1791638649",
+      "0"
+    ]
+  },
+  "safety_interpretation": "Do not infer native success, semantic failure, finalization eligibility, or permission to appeal from the enum name or canAppeal boolean alone.",
+  "outcome_enum_audit": "/tmp/impeach-native-outcome-enum-audit.json",
+  "vote_type_mapping": {
+    "0": "NotVoted",
+    "1": "FinishedWithReturn",
+    "2": "FinishedWithError",
+    "3": "Timeout",
+    "4": "NondetDisagree"
+  },
+  "execution_result_mapping": {
+    "0": "NotVoted",
+    "1": "FinishedWithReturn",
+    "2": "FinishedWithError",
+    "3": "Timeout",
+    "4": "NondetDisagree"
+  },
+  "transaction_result_mapping": {
+    "0": "Idle",
+    "1": "MajorityAgree",
+    "2": "MajorityDisagree",
+    "3": "MajorityTimeout",
+    "4": "DeterministicViolation",
+    "5": "NoMajority"
+  },
+  "validator_timeout_appeal_source_audit": "/tmp/impeach-validator-timeout-appeal-audit.json",
+  "normalizer_implementation": {
+    "files": [
+      "scripts/chain_receipts.py",
+      "test/test_runner.py"
+    ],
+    "legacy_result_aliases": {
+      "AGREE": "MAJORITY_AGREE",
+      "DISAGREE": "MAJORITY_DISAGREE",
+      "TIMEOUT": "MAJORITY_TIMEOUT"
+    },
+    "unconfirmed_result_codes": [
+      6,
+      7
+    ],
+    "unconfirmed_execution_codes": [
+      5
+    ],
+    "raw_evidence_policy": "No mutation. Raw SDK labels remain in native receipts; only future returned normalizer labels are canonical.",
+    "validation": "make check with supported Node24: 184 local contract checks, 97 Python tests, 47 web parity checks, JS suites 5+13+7+1 all passed.",
+    "byte_identical_historical_web_json_and_saved_vote_evidence": [
+      "web/case.json",
+      "web/demo.json",
+      "runs/bradbury-v2-scripted-recovery/0xe2432aec90a82ea1a518fc7c63e916348c4bf25c95aa715c5876cb69d8721ebb.third-appeal-eligibility-1791639136.json"
+    ]
+  }
+}

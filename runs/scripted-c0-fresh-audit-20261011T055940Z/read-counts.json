@@ -1,0 +1,11 @@
+{
+  "kind": "read",
+  "method_or_key": "counts",
+  "args_or_hash": [],
+  "value": {
+    "challenges": 1,
+    "claims": 1,
+    "spent": 24
+  },
+  "at": 1791698387
+}

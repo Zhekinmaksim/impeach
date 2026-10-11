@@ -1,0 +1,11 @@
+{
+  "version": "impeach/1",
+  "item_index": 0,
+  "class": "paraphrase",
+  "prompt": "An independent arithmetic exercise states: A workshop prints 28 blue labels in the morning and 17 blue labels in the afternoon. The staff then receive 9 additional blue labels from a supplier and use none of the labels. How many blue labels does the workshop now have?",
+  "answer": "36",
+  "true_answer": "54",
+  "derivation": "28 + 17 + 9",
+  "author_note": "Intentional negative control: removal of 9 is changed to receipt of 9, and the supplied answer is incorrect. This is not a paraphrase.",
+  "expect": "INADMISSIBLE"
+}

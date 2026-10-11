@@ -1,0 +1,3 @@
+Gas preflight: {"from":"0x771388495F34d21C5574FeFc04cd1D5811E00aDa","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"525200","boundedEstimate":"525200","gasLimit":"577720","gasCap":"16777216","calldataBytes":36,"dryRun":false}
+Observed EVM transaction: 0x8be4cbb49d1393c15ab01ea306fffef73b4d938824023805f28ac7744ab6d137
+Finalization EVM transaction: 0x8be4cbb49d1393c15ab01ea306fffef73b4d938824023805f28ac7744ab6d137

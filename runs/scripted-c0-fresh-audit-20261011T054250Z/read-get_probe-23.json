@@ -1,0 +1,27 @@
+{
+  "kind": "read",
+  "method_or_key": "get_probe",
+  "args_or_hash": [
+    0,
+    23
+  ],
+  "value": {
+    "challenge_id": 0,
+    "item_index": 23,
+    "pinned": "RIGHT",
+    "pinned_answer": "1500",
+    "recall": "MATCH",
+    "rewrite": "RIGHT",
+    "rewrite_answer": "1500",
+    "rewrite_class": "unit_change",
+    "rewrite_hash": "495077b9666c607c3e82ad9dacab857ce43f6594e062c46be784a714946f8b6d",
+    "rewrite_prompt": "On a practice worksheet, a student reads this problem: A mixing station has 0.9 liters of clear water in one jug and 0.6 liters in another jug. All this water is poured into an empty container without spilling. How many milliliters of water are in that container?",
+    "rewrite_reply": "1500",
+    "slice_settled": true,
+    "stage_c1": "ADMISSIBLE",
+    "stage_c2": "ADMISSIBLE",
+    "stale": false,
+    "touched": true
+  },
+  "at": 1791697401
+}

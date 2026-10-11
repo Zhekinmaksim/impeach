@@ -1,13 +1,18 @@
 # Impeach — a court for benchmark scores
 
+Implementation notes are current as of 11 October 2026. The scripted control is
+finalized `CONTAMINATED / RECALL`; the real Llama native case remains in progress.
+Its preparation and evidence are tracked in [V2-TRIAL.md](../V2-TRIAL.md).
+Local calibration is not a real native certificate.
+
 A published score says a model can do something. It might instead say the model
 has seen the answers. Nothing on chain, and almost nothing off it, can tell those
 two apart after the fact.
 
 Impeach is a GenLayer court that cross-examines a score. The publisher swears to
 a number and bonds it. A challenger stakes that the number came from memory. The
-validator set tests the model on the pinned items and on answer-preserving
-rewrites of those items generated at judgment time, and rules on the gap.
+validator set tests the model on pinned items and challenger-proposed rewrites
+that preserve declared class invariants, and rules on the gap and recall.
 
 ```text
 Jastrow  — is this specification decidable at all
@@ -93,17 +98,36 @@ than either alone.
 
 ### Detector 1 — the gap
 
-For each admissible probe pair, the model answers the pinned item and the
-rewritten item. Both answers are scored against the pinned ground truth by the
-rule frozen at `open_claim`.
+The model answers the pinned item and the rewritten item. Each is marked against
+its own reference answer under the scoring rule frozen at `open_claim`; a
+permitted numeral substitution changes the reference. The implemented gap uses
+every item with a live pinned answer. A missing or rejected rewrite is presumed
+correct, so selectively omitting pairs cannot increase the gap. An admitted
+rewrite that fails to answer counts as wrong.
 
 ```text
-Δ = accuracy(pinned items) − accuracy(answer-preserving rewrites)
+Δ = 1000 × (pinned_right − court_adjusted_rewrite_right) / live_pinned_items
 ```
 
 A model that can do the task answers both. A model that memorised the set answers
 the first and stumbles on the second. Δ is reported in per-mille integer maths so
 the contract can compute it without floats.
+
+The optional `NUMERIC_LINE_RULE` is selected only when the claim freezes exactly
+the constant in [contracts/impeach.py](../contracts/impeach.py). It requires the
+last nonempty, whitespace-trimmed line to begin with literal `ANSWER:` and then
+contain one ASCII decimal number, optionally negative, with no other content.
+`ANSWER: -003.500` is valid and canonicalizes to `-3.5`; units, commas, `+3`,
+exponents, `.5`, `5.`, Unicode digits and text after the answer are invalid.
+Leading integer zeros, trailing fractional zeros and negative zero do not change
+the value. Equality uses decimal strings, without floating-point rounding.
+
+This rule marks the subject's real response deterministically and compares the
+status, canonical answer and correctness across validators with `strict_eq`.
+It makes no LLM marking call. A malformed final answer is wrong, not silently
+repaired. Every other frozen scoring-rule string retains the semantic LLM marker
+and `prompt_comparative` answer equivalence. A publisher cannot switch rules
+after opening a claim.
 
 ### Detector 2 — verbatim recall
 
@@ -116,9 +140,10 @@ R = share of items where the continuation matches the held-out remainder
     above the pinned similarity threshold
 ```
 
-Reproducing an item it was never shown in the prompt is not a capability
-argument. It is the single most direct evidence of training-set membership, and
-it costs one call per item.
+This costs one subject call per eligible item. Recall is evidence of reproduced
+text under this protocol, not proof of training-set membership: public text,
+predictable wording or an explicit lookup can also produce recall. The scripted
+control deliberately implements such a lookup and is labeled accordingly.
 
 ### Verdict
 
@@ -126,28 +151,40 @@ Thresholds are frozen at `open_claim`, not chosen after the numbers are in.
 
 | verdict | condition |
 | --- | --- |
-| `CONTAMINATED` | `Δ ≥ delta_threshold` **or** `R ≥ recall_threshold`, with `n ≥ min_items` |
-| `CLEAN` | both below threshold, with `n ≥ min_items` |
+| `CONTAMINATED` | gap reaches its threshold with enough admitted pairs, or recall reaches its threshold with enough eligible recall probes |
+| `UNSUPPORTED` | enough live pinned items, no contamination detector trips, and sworn accuracy exceeds measured pinned accuracy by at least `delta_threshold` |
+| `CLEAN` | neither detector nor score shortfall trips, with enough admitted pairs |
 | `INCONCLUSIVE` | too few admissible probes, or the endpoint failed to answer |
 
-`INCONCLUSIVE` is a first-class outcome and pays nobody. Borrowed directly from
-Jastrow's gate, where it did more work than the other two.
+`INCONCLUSIVE` is a first-class outcome. Slice refunds/forfeitures and the
+`ENDPOINT_SILENT` reimbursement still apply; it does not mean nobody was paid.
+`DEFAULT` and `UNSUPPORTED / SET_ALREADY_SPENT` also cover failure to reveal and
+reuse of an already burned source, respectively. See [DECISIONS.md](../DECISIONS.md).
 
 ## 5. Admissibility — the Suborn lesson, reused
 
 This is where the project lives or dies, and it is the same failure mode Suborn
 found: an attacker who is allowed to change the question will always win.
 
-A rewrite that changes the correct answer is not evidence of contamination. It is
-a different question. So every rewrite faces a referee round before its result
-counts:
+A rewrite counts only when it preserves its declared class invariant and both
+reference answers are correct. Two referee framings must independently return
+`ADMISSIBLE`; rejection in either framing forfeits that item's stake slice to
+the publisher. A valid rejection is a completed judgment, not a consensus error
+to retry until it passes.
 
-> Does the rewritten item have the same correct answer as the original, for the
-> same reason? Ignore wording, ordering, names and surface form.
+Each framing makes two `exec_prompt(..., response_format="json")` calls. A blind
+solver receives the two questions without the answer keys. A separate semantic
+class judge checks the keys and invariant. The recorded computed answers come
+from the blind solver; the judge supplies a genuine Boolean `same_question`.
+For numeric reference pairs, canonical decimal results and that Boolean are
+compared by `strict_eq`. Nonnumeric pairs retain `prompt_comparative` equivalence.
+After consensus, both computed answers must still match their references.
 
-Two framings, both must agree — the Suborn stage-B shape, which in the live run
-caught all three attempts to move the facts. Failed admissibility forfeits the
-challenger's stake into the pool.
+The response parser accepts one unambiguous JSON object: bare, in a single JSON
+code fence, or surrounded by optional prose. It refuses competing objects,
+multiple code blocks, non-object JSON and invalid field types. It never chooses
+the favorable object or turns a string such as `"true"` into a Boolean. A parse
+failure closes admissibility. This also applies to the legacy answer marker.
 
 **Perturbation classes** are declared by the publisher at `open_claim`, so a
 challenger cannot demand absurd rewrites, and declared again per challenge, so
@@ -171,11 +208,11 @@ memorising model answers with the old number, which is a very clean signal.
 
 | who | posts | gets it back | loses it |
 | --- | --- | --- | --- |
-| publisher | bond, sized to the claim | verdict `CLEAN` | verdict `CONTAMINATED`, bond to the challenger |
+| publisher | bond, sized to the claim | remains posted after `CLEAN`; credited on permitted retirement | `CONTAMINATED`, `UNSUPPORTED` or default, as specified by the settlement |
 | challenger | stake per challenge | any admissible round, win or lose | rewrites ruled inadmissible |
 | either | — | — | `INCONCLUSIVE` returns both, minus probe costs |
 
-Griefing funds the next case, as in Suborn. The asymmetry is deliberate: an
+Forfeited slices go to the publisher, not a shared pool. The asymmetry is deliberate: an
 honest challenger who fails to find contamination pays nothing beyond gas,
 because the published misses are the half of the record that makes a `CLEAN`
 certificate worth anything.
@@ -196,14 +233,16 @@ open_claim(
     recall_threshold: int,   # per mille
     min_items: int,
     bond: int,
+    stake: int,              # stake per challenged item
+    extras: str,             # JSON recall and time-window settings
 ) payable -> claim_id
 
 challenge(claim_id, subset_json, classes_json) payable -> challenge_id
 reveal_items(claim_id, items_json)          # hashes must match, set is burned
-probe(challenge_id, item_index, mode)       # mode: PINNED | REWRITE | RECALL
+probe(challenge_id, item_index, mode, payload) # PINNED | REWRITE | RECALL | ADMIT
 rule(challenge_id) -> verdict               # computes Δ and R, settles bonds
 certificate(claim_id) -> {...}              # view, readable by other contracts
-is_spent(item_hash) -> bool                 # the registry everyone else reads
+is_spent(item_hash) -> bool                 # sealed commitment or unsalted content hash
 ```
 
 Storage mirrors Suborn: `TreeMap` keyed by id, pull-based balances with a single
@@ -211,10 +250,12 @@ Storage mirrors Suborn: `TreeMap` keyed by id, pull-based balances with a single
 
 ## 8. Equivalence principles
 
-- **answering a probe** — `prompt_comparative` requires matching status and
-  correctness fields and equivalent extracted answers, ignoring answer formatting.
-- **admissibility** — `prompt_comparative` compares independently computed
-  original/rewrite answers and the semantic referee's boolean, in two framings.
+- **answering a numeric-line probe** — `strict_eq` compares canonical numeric
+  results and correctness; there is no LLM marker. Other frozen rules use the
+  semantic marker and `prompt_comparative`.
+- **admissibility** — two framings, each with a blind solver and semantic class
+  judge. Numeric pairs use `strict_eq` on canonical results and a Boolean;
+  nonnumeric pairs use `prompt_comparative`.
 - **verbatim recall** — `strict_eq` on an integer similarity bucket. No LLM.
 - **the model call itself** — each validator calls the endpoint independently.
   Receipts preserve a failure to reach consensus. An undetermined result can
@@ -235,7 +276,7 @@ Storage mirrors Suborn: `TreeMap` keyed by id, pull-based balances with a single
   "inadmissible_rewrites": 6,
   "items_burned": 24,
   "spec_hash": "…",
-  "ruled_at_block": 1234567
+  "ruled_at": 1791633600
 }
 ```
 
@@ -243,12 +284,129 @@ An agent marketplace, a grant committee or another contract reads this before
 trusting a number. That is the consumer outside the project, and its absence is
 what keeps most submissions at 13.
 
+### Native finality and recovery evidence
+
+Application ruling and native transaction finalization are separate facts.
+A transaction may finalize automatically or through an explicit Main call;
+both need a fresh native receipt. A successful EVM transaction alone does not
+prove native consensus or application execution. Preserve original native
+hashes, failed receipts, recovery links and any EVM finalization evidence.
+
+The active Bradbury deployment is chain 4221, ConsensusMain proxy
+`0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D`, implementation
+`0x0a2C393975dA79505ED930eFC55ae4AEB88b0d62`, `VERSION=2.0.0`, release
+`v0.5:9c68608`. Its [verified status table](../runs/v2-native-status-audit.json)
+has 11 `READY_TO_FINALIZE`, 12 `VALIDATORS_TIMEOUT`, 13 `LEADER_TIMEOUT` and
+14 `LEADER_REVEALING`; the v0.6 reassignment does not apply. Status 14 remains
+pending. The [verified outcome table](../runs/v2-native-outcome-enum-audit.json)
+is:
+
+| Code | Consensus result | Vote / execution result |
+| --- | --- | --- |
+| 0 | `IDLE` | `NOT_VOTED` |
+| 1 | `MAJORITY_AGREE` | `FINISHED_WITH_RETURN` |
+| 2 | `MAJORITY_DISAGREE` | `FINISHED_WITH_ERROR` |
+| 3 | `MAJORITY_TIMEOUT` | `TIMEOUT` |
+| 4 | `DETERMINISTIC_VIOLATION` | `NONDET_DISAGREE` |
+| 5 | `NO_MAJORITY` | undefined |
+
+Saved raw SDK labels are unchanged. The result normalizer accepts old `AGREE`,
+`DISAGREE` and `TIMEOUT` names as aliases; unknown numeric codes and conflicting
+fields stop processing. A leader returning a value does not establish majority
+agreement. `FINALIZED` may close a failed transaction: stored `UNDETERMINED` (6),
+`VALIDATORS_TIMEOUT` (12) and `LEADER_TIMEOUT` (13) can retain stale outcome fields.
+Queue evidence records their numeric `beforeStoredFailurePhase` and
+`native_success=false`; `beforeStoredUND` is true specifically for phase 6.
+These annotations alone do not prove that a replacement probe is safe.
+
+The completion helper defaults to one recovery per slot. Explicit
+`--max-recoveries 3` permits at most three new transactions after the original.
+The receipt-only path requires a fresh finalized negative result or finalized
+`IDLE / NOT_VOTED`, unchanged inputs, an unapplied slot and an open trial.
+It preserves each previous row, receipt hash and ordinal. Pending/replaying,
+applied, inadmissible and dead slots are not resent. Ambiguous `RETURN / IDLE`
+without the explicit proof below remains blocked.
+The baseline run policy uses no automatic appeals, since they can rewind later
+calls. A single separately reviewed exception was made for the latest item 14
+ADMIT recovery after `LEADER_TIMEOUT`: one zero-bond appeal, with the same native
+hash and unchanged payload. Its [dispatch](../runs/v2-live-item14-appeal01/dispatch.json)
+and [EVM receipt](../runs/v2-live-item14-appeal01/evm-receipt.json) preserve the
+action (`0xd6e15fa9…`). This exception does not authorize additional probe calls
+or appeals, and does not change the completion or recovery helpers' behavior.
+
+The optional `--allow-proven-no-messages` flag in both helpers, together with
+`--source` naming the exact deployed artifact (default `build/impeach.py`),
+permits only two additional combinations: `FINALIZED / FINISHED_WITH_RETURN /
+IDLE` and `FINALIZED / NOT_VOTED / MAJORITY_AGREE`, in status/execution/result
+order. Ordinary receipt classification and retry predicates are unchanged.
+The proof must contain a unique canonical EVM receipt with a matching
+`TransactionFinalized` event from the pinned FinalizationPhase proxy
+`0x7de0FF58B401F2D800470e4390e24fF2bAa02AaE`, previous status in `{6,12,13}` and
+`shouldProcessMessages=false`. The same-named Main event is insufficient.
+Current and event-block protocol pins, event/transaction/block identities,
+frozen source and claim, original calldata/value and fresh native `FINALIZED`
+state must match. Recovery rechecks exact slot identities, unchanged empty
+state and the frozen deadline after lookup. Unavailable or missing evidence
+halts this path.
+
+An RPC-observed proof without a linked local service journal has origin
+`chain_observation`, which makes no claim about automatic versus manual
+finalization. Origin `service_queue` additionally binds the matching
+before/dispatch/EVM receipt/after/done evidence. Each recovery row and durable
+marker stores the failure basis, relative proof path and SHA256; whole-history
+validation binds these to the original row, receipt and current frozen
+claim/source. Raw receipts remain unchanged. See
+[decision 16](../DECISIONS.md#16-recover-an-ambiguous-finalized-failure-only-with-a-bound-event-proof).
+
+After a bounded completer exits and releases its exclusive manifest lock,
+`service_queue.py` may hold the same lock to service known native heads. It is
+read-only by default. Explicit execution permits only zero-value Main finalize
+or mature-phase idleness calls after protocol/source/claim/calldata checks and
+exact gas simulation. Known stored failure phases 6/12/13 are eligible only at
+the actual finalized-queue head, with fresh source/calldata checks and exact
+Main simulation, even if their outcome fields are stale. Main simulation can
+establish eligibility even when the older `ConsensusData.canFinalize` view is
+false. An idleness attempt is limited
+to one per hash/phase/round/timestamp fingerprint; unresolved dispatch or lack
+of native progress prevents blind repetition. A previously recorded, verified
+zero-value rule can be finalized, but the service never creates rules, probes,
+appeals, retirements or withdrawals. Resume completion only after its lock is
+free. Trial deadlines and ordinary receipt-only recovery predicates remain
+unchanged.
+
+The finalized [scripted control proof](../runs/c0-finality-20261011-resume/handoff.json)
+records 24 pinned answers, 24 recall matches, 13 admitted pairs, rewrite score
+833‰, Δ=166‰, four stale answers and R=1000‰. The recall detector has enough
+items; the paired detector does not. The rewrite score is court-adjusted across
+all 24 live pinned items, including presumed-correct unadmitted rewrites. This
+is a native certificate for an explicitly scripted lookup, not a real LLM
+result or a completed real-case certificate.
+
+The real C1 [handoff at 11 October 2026, 10:14 UTC](../runs/v2-live-final-native-handoff.json)
+and [full audit](../runs/v2-live-final-native-audit/audit.json) establish 107/107
+recorded native hashes `FINALIZED` and empty queues. Application getters still
+record 24 pinned `RIGHT`, 24 recall `MISS`, 24 rewrite `RIGHT` and 24
+first-framing `ADMISSIBLE` outcomes, but only 23 second-framing `ADMISSIBLE`
+outcomes. Item 14 remains C2 `PENDING` after its positive finalized receipt
+`0xa264c368…`, `MAJORITY_AGREE / FINISHED_WITH_RETURN`, round 2 and referee
+output `53 / 53 / true`.
+
+Both item 14 and item 23 [Phase finalization events](../runs/v2-live-two-finalization-events.json)
+have `previousStatus=5` and `shouldProcessMessages=true`. This does not meet
+the no-messages proof predicate above. Native finality has not repaired the
+missing applied pair; its cause remains unresolved. No C1 rule, retirement or
+withdrawal has been sent. Automatic approval review rejected partial 23-pair
+closure before broadcast because the authorized goal was all 24 pairs;
+explicit user authorization for partial closure has been requested. C1 is
+still `TRIAL`. The saved `CLEAN` calculation is an offline forecast and must
+not be reported as a native certificate.
+
 ## 10. Defaults to start from
 
 | parameter | default | why |
 | --- | --- | --- |
 | `min_items` | 20 | below this the gap is noise |
-| `delta_threshold` | 250 ‰ | a 25-point drop is not explainable by rewrite friction |
+| `delta_threshold` | 250 ‰ | frozen operational cutoff for the gap and sworn-score shortfall |
 | `recall_threshold` | 150 ‰ | three items in twenty reproduced verbatim |
 | recall prefix | 40% | enough context to continue, not enough to infer |
 | similarity | normalised Levenshtein ≥ 0.9 | tolerant of whitespace, not of paraphrase |
@@ -257,12 +415,41 @@ what keeps most submissions at 13.
 Publish the defaults and let every claim override them in the open, since a
 publisher who insists on a 600‰ threshold has told you something.
 
+The current v2 trials keep `min_items=20`, `delta_threshold=250` and
+`recall_threshold=150`; changing parsing or consensus representation did not
+lower these thresholds. The public synthetic cohorts use seeds 240524 and
+240525. The scripted cohort adds a disclosed worksheet prefix to the same
+arithmetic and uses fresh salts, giving disjoint registry content hashes. It is
+not an independent benchmark, secret data, or evidence of worldwide novelty or
+absence from model training. See the two audits linked in [V2-TRIAL.md](../V2-TRIAL.md).
+
+The separate frozen [v3 claim](../calibration/claim-court24-v3.json) uses seed
+240526 and adds `An independent arithmetic exercise states: ` exactly once
+to each of the 24 originals, 24 rewrites and four controls. Answers, formulas
+and classes are copied from v2; this prefix is not evidence of an independent
+benchmark. The [generator audit](../calibration/court24-v3-audit.json) verifies
+fresh salts and no content-hash or commitment collisions with the three prior
+claimed corpora. Previous corpora, contract source and build are unchanged.
+
+V3 retains the numeric rule, decoding, Llama 3.1 8B/DeepInfra subject, 1000‰ oath
+and detector thresholds. Its reveal window is 3,600 seconds and trial window
+21,600 seconds. The prepared `/api/live-v3/chat/completions` route is separately
+gated by `TRIAL_V3_ENABLED=false`. The inference API retains its four-hour
+expiry limit and the same shared $5 lifetime key cap; six hours of trial time
+does not extend endpoint access.
+
+The 72 old-response replay in the v3 audit checks local contract behavior with
+exactly checked prefixed requests and scripted referee decisions. It is not a
+new subject measurement. Real Sonnet calibration is in progress, targeting
+112 calls at `max_tokens=512`, with a $1.80 run cap and total key usage at most
+$4.80 below the hard $5 limit. The [raw transcript](../runs/v3-referee-sonnet-transcript.jsonl)
+does not yet establish a completed calibration or native verdict.
+
 ## 11. Honest limits, stated in the submission
 
-- **Reachability.** The subject must answer a public endpoint. Models behind a
-  paid key cannot be tested without handing out the key, which nobody will do.
-  v1 covers public endpoints and on-chain agents; everything else is out of scope
-  and should be said so rather than fudged.
+- **Reachability.** The implemented subject interface is public HTTPS without
+  validator credentials. A bounded server-side proxy can hold a paid provider
+  key without revealing it. An on-chain subject interface is not implemented.
 - **Δ is evidence, not proof.** Some drop on rewrites is normal for every model.
   The threshold is a convention, and the certificate carries the raw numbers so a
   reader can disagree with it.
@@ -288,6 +475,14 @@ publisher who insists on a 600‰ threshold has told you something.
    Jastrow way: record the hash at submit, build the report later
 6. page: the claim, the two detectors side by side, every probe pair readable in
    full, and the spent registry as a searchable list
+
+The current offline `make check` baseline is 184 stub contract checks,
+156 Python tests, 47 browser-arithmetic parity checks and 38 Node tests on
+Node 24, plus fixture consistency and published-snapshot recomputation. The
+Python total includes 31 focused queue-service tests; the separate pinned-SDK
+suite remains 150 checks. These checks cover contract behavior and orchestration
+guards without establishing
+native validator agreement or a real-subject verdict.
 
 ## 13. Open questions worth deciding before writing code
 

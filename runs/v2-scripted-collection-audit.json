@@ -1,0 +1,252 @@
+{
+  "at": "2026-10-11T06:50:59.505208+00:00",
+  "court": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+  "claim_id": 0,
+  "challenge_id": 0,
+  "label": "Native scripted lookup control. No real LLM finding. Complete pinned and recall; partial paired rewrites.",
+  "snapshot": "runs/v2-scripted-case.json",
+  "raw_read_evidence": "runs/v2-scripted-collection-raw.jsonl",
+  "log": "runs/v2-scripted-collection.log",
+  "manifest": "runs/bradbury-v2-scripted.jsonl",
+  "manifest_sha256": "2284ebee907c79e52f9c55cedaab68f6746151b2d92a25adfd8dc9a6d4eed5d9",
+  "transactions": {
+    "total": 105,
+    "by_status": {
+      "FINALIZED": 105
+    },
+    "all_hashes_retained": true,
+    "unique_hashes": 105,
+    "recoveries": [
+      {
+        "key": "probe:0:2:ADMIT",
+        "original_tx": "0x34465f4e798c4ee81210a3a5c337e73934ba48c7ccc81c32bbe4cab547fc3e11",
+        "recovery_tx": "0x88d675814aaa4976c64a5b596e3c4cb4fd224d8e7a7086991e31951f040151f7",
+        "original_receipt": "runs/bradbury-v2-scripted.jsonl.receipts/0x34465f4e798c4ee81210a3a5c337e73934ba48c7ccc81c32bbe4cab547fc3e11.finalized-b0hokhdc.json",
+        "same_signature": true,
+        "both_hashes_in_snapshot": true
+      },
+      {
+        "key": "probe:0:3:ADMIT",
+        "original_tx": "0xc256b6cfafedae00e73aa7687d925bf25cb02708051306c36c7ec8acfdf32920",
+        "recovery_tx": "0x28054e97e3187cba989d4c8561e18c188d0e05de81dafe76580b5102824b45b9",
+        "original_receipt": "runs/bradbury-v2-scripted.jsonl.receipts/0xc256b6cfafedae00e73aa7687d925bf25cb02708051306c36c7ec8acfdf32920.finalized-u91xlek8.json",
+        "same_signature": true,
+        "both_hashes_in_snapshot": true
+      },
+      {
+        "key": "probe:0:4:REWRITE",
+        "original_tx": "0xffa3c8873c4752ad077e6ff4a0dc79bdd0e49a582d7ac95fbf65ea1f45b66c59",
+        "recovery_tx": "0x79cc117afb63de2928e4d41f2b80d0c0f1a5c2f9547f36d0365c6c43c95993c0",
+        "original_receipt": "runs/bradbury-v2-scripted.jsonl.receipts/0xffa3c8873c4752ad077e6ff4a0dc79bdd0e49a582d7ac95fbf65ea1f45b66c59.finalized-4723q5n9.json",
+        "same_signature": true,
+        "both_hashes_in_snapshot": true
+      },
+      {
+        "key": "probe:0:7:ADMIT",
+        "original_tx": "0x7041168b999c143cb0f81ecf8b680ad9168fd305cbb19c162ea8b6bc450410c9",
+        "recovery_tx": "0x5ecf527fa9d9899a061932632477f4310b8d17370e0f3cdb60fb6df85ea2a2cf",
+        "original_receipt": "runs/bradbury-v2-scripted.jsonl.receipts/0x7041168b999c143cb0f81ecf8b680ad9168fd305cbb19c162ea8b6bc450410c9.finalized-nb0j4ypb.json",
+        "same_signature": true,
+        "both_hashes_in_snapshot": true
+      },
+      {
+        "key": "probe:0:8:ADMIT",
+        "original_tx": "0xb3d0f91487def18a63247e86dfef6d864f4a1a2b0cd75f9956d78b2b78966755",
+        "recovery_tx": "0x0e83a80c06c5b1ba72c9fbf54dff955bd50f6ab295379308d2d6331fc8fe1345",
+        "original_receipt": "runs/bradbury-v2-scripted.jsonl.receipts/0xb3d0f91487def18a63247e86dfef6d864f4a1a2b0cd75f9956d78b2b78966755.finalized-atxhlxpi.json",
+        "same_signature": true,
+        "both_hashes_in_snapshot": true
+      },
+      {
+        "key": "probe:0:14:REWRITE",
+        "original_tx": "0x807cd78b8d09f91047a7d7d7e42409b12c8c627bf235c8c312ebc2e117179931",
+        "recovery_tx": "0x17b942767dd081ca867130d1a91e75c8f9fe804e593ed04c204ce9522e550ae0",
+        "original_receipt": "runs/bradbury-v2-scripted.jsonl.receipts/0x807cd78b8d09f91047a7d7d7e42409b12c8c627bf235c8c312ebc2e117179931.finalized-29g7_tt5.json",
+        "same_signature": true,
+        "both_hashes_in_snapshot": true
+      },
+      {
+        "key": "probe:0:15:ADMIT",
+        "original_tx": "0xc900228f414ac952841659d8b4d278818c79432b88c0a653da807c0d36c5947c",
+        "recovery_tx": "0x099adcb10f7aa80d10b88cf294904c664ea4dc56f94d99463c370d39b762a780",
+        "original_receipt": "runs/bradbury-v2-scripted.jsonl.receipts/0xc900228f414ac952841659d8b4d278818c79432b88c0a653da807c0d36c5947c.finalized-p37x3che.json",
+        "same_signature": true,
+        "both_hashes_in_snapshot": true
+      }
+    ],
+    "acknowledged_failure_events": 42,
+    "acknowledged_failure_unique_hashes": 15,
+    "all_original_failure_receipt_hashes_verified": true,
+    "failure_history": "runs/bradbury-v2-scripted.jsonl.complete/events.jsonl",
+    "finalized_failures_not_reclassified_as_success": [
+      {
+        "tx": "0xb120096abc56a06cf058af128c260184348a03ce4bb1a4d4cba883b69d087541",
+        "status": "FINALIZED",
+        "execution": "NOT_VOTED",
+        "consensus": "MAJORITY_AGREE",
+        "native_success": false,
+        "evm_tx": "0xec2861d2d9c523d025ef8bbace6c1500b4f8276ac0b872402fa6fec5ce92eb6e",
+        "automatic_finalization_observed": false,
+        "previous_stored_status": 6,
+        "should_process_messages": false
+      },
+      {
+        "tx": "0x099adcb10f7aa80d10b88cf294904c664ea4dc56f94d99463c370d39b762a780",
+        "status": "FINALIZED",
+        "execution": "NOT_VOTED",
+        "consensus": "MAJORITY_AGREE",
+        "native_success": false,
+        "evm_tx": "0x6e6a6a7f7d2625ac6627fefe13f7b3467ebbf3b2bbb732b5627e0747ec16a853",
+        "automatic_finalization_observed": true,
+        "previous_stored_status": 6,
+        "should_process_messages": false
+      },
+      {
+        "tx": "0x0e83a80c06c5b1ba72c9fbf54dff955bd50f6ab295379308d2d6331fc8fe1345",
+        "status": "FINALIZED",
+        "execution": "NOT_VOTED",
+        "consensus": "MAJORITY_AGREE",
+        "native_success": false,
+        "evm_tx": "0xda62e0de48b78616764b796a64dc5341e74fba3bd32ebf5ad3142e99cd10cf6c",
+        "automatic_finalization_observed": true,
+        "previous_stored_status": 6,
+        "should_process_messages": false
+      },
+      {
+        "tx": "0x17b942767dd081ca867130d1a91e75c8f9fe804e593ed04c204ce9522e550ae0",
+        "status": "FINALIZED",
+        "execution": "NOT_VOTED",
+        "consensus": "MAJORITY_AGREE",
+        "native_success": false,
+        "evm_tx": "0x7dd875d604e53f5fdbdfe3a6fc305d73e872fa172267f39bca01185dadd43ec2",
+        "automatic_finalization_observed": true,
+        "previous_stored_status": 6,
+        "should_process_messages": false
+      },
+      {
+        "tx": "0x28054e97e3187cba989d4c8561e18c188d0e05de81dafe76580b5102824b45b9",
+        "status": "FINALIZED",
+        "execution": "NOT_VOTED",
+        "consensus": "MAJORITY_AGREE",
+        "native_success": false,
+        "evm_tx": "0x840921a93b78c9f1ab1b06b2437d1be38cac850b756454b3b204752c8f83396f",
+        "automatic_finalization_observed": true,
+        "previous_stored_status": 6,
+        "should_process_messages": false
+      },
+      {
+        "tx": "0x5ecf527fa9d9899a061932632477f4310b8d17370e0f3cdb60fb6df85ea2a2cf",
+        "status": "FINALIZED",
+        "execution": "NOT_VOTED",
+        "consensus": "MAJORITY_AGREE",
+        "native_success": false,
+        "evm_tx": "0x14b36d924e7a8fedbcaf9fe9e80e6832ab0bde4620c92f8c7f1544a4aa3d3cb0",
+        "automatic_finalization_observed": true,
+        "previous_stored_status": 6,
+        "should_process_messages": false
+      },
+      {
+        "tx": "0x79cc117afb63de2928e4d41f2b80d0c0f1a5c2f9547f36d0365c6c43c95993c0",
+        "status": "FINALIZED",
+        "execution": "NOT_VOTED",
+        "consensus": "MAJORITY_AGREE",
+        "native_success": false,
+        "evm_tx": "0x4449e480bae0433a1b0a49334dc3ddd07f68dc1cde8a3111b5e21ea05c395000",
+        "automatic_finalization_observed": true,
+        "previous_stored_status": 6,
+        "should_process_messages": false
+      },
+      {
+        "tx": "0x85de7b172f28a2a77a1635b5e49f691abd8fc923cced6f2272e7e16ce24bee49",
+        "status": "FINALIZED",
+        "execution": "NOT_VOTED",
+        "consensus": "MAJORITY_AGREE",
+        "native_success": false,
+        "evm_tx": "0x0a9072d15cf6d9bc2bddee39fdf6d3e66c8e66ef5bf3b9d688a322c900270519",
+        "automatic_finalization_observed": true,
+        "previous_stored_status": 6,
+        "should_process_messages": false
+      },
+      {
+        "tx": "0x88d675814aaa4976c64a5b596e3c4cb4fd224d8e7a7086991e31951f040151f7",
+        "status": "FINALIZED",
+        "execution": "FINISHED_WITH_RETURN",
+        "consensus": "MAJORITY_DISAGREE",
+        "native_success": false,
+        "evm_tx": "0x5a92af71f16409e0b164d685bb1499f7873c0f799e05c5c859d074ad2e4386ea",
+        "automatic_finalization_observed": true,
+        "previous_stored_status": 6,
+        "should_process_messages": false
+      }
+    ]
+  },
+  "probe_counts": {
+    "pinned": {
+      "RIGHT": 24
+    },
+    "recall": {
+      "MATCH": 24
+    },
+    "stage_c1": {
+      "ADMISSIBLE": 20,
+      "PENDING": 4
+    },
+    "stage_c2": {
+      "ADMISSIBLE": 13,
+      "PENDING": 11
+    },
+    "rewrite": {
+      "RIGHT": 16,
+      "WRONG": 4,
+      "": 4
+    }
+  },
+  "recomputed": {
+    "verdict": "CONTAMINATED",
+    "reason": "RECALL",
+    "delta_milli": 166,
+    "recall_milli": 1000,
+    "pinned_milli": 1000,
+    "rewrite_milli": 833,
+    "admissible_probes": 13,
+    "inadmissible_rewrites": 0,
+    "stale_answers": 4,
+    "dead_probes": 0,
+    "recall_probes": 24,
+    "items_probed": 24
+  },
+  "recompute_matches_actual_certificate": true,
+  "certificate_unchanged_from_finality_proof": true,
+  "certificate_canonical_sha256": "d57e58f6942fe9f3a6e67ad6456f1419d22845b642b8f56a4eea1b5c58967e80",
+  "snapshot_file_sha256": "9e9f086d94a01344ac7637573f6511844dacd4f3960159db1e236ad59896152c",
+  "credit_by_address": {
+    "0x771388495F34d21C5574FeFc04cd1D5811E00aDa": {
+      "wei": 4000000000000000,
+      "read_at": "2026-10-11T06:50:42.532973+00:00"
+    },
+    "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9": {
+      "wei": 121000000000000000,
+      "read_at": "2026-10-11T06:50:48.625994+00:00"
+    }
+  },
+  "solvency": {
+    "at": "2026-10-11T06:50:50.387051+00:00",
+    "kind": "read",
+    "args": [
+      "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+      "solvency",
+      [],
+      "https://rpc-bradbury.genlayer.com",
+      30
+    ],
+    "result": {
+      "balanced": true,
+      "bonds": 100000000000000000,
+      "credited": 125000000000000000,
+      "escrowed": 123000000000000000,
+      "held": 248000000000000000,
+      "stakes": 23000000000000000
+    }
+  },
+  "note": "Credits and solvency are fresh contract-wide reads; the real C1 may be active concurrently. C0 certificate/probes are final. No transactions were signed or sent by this collection."
+}

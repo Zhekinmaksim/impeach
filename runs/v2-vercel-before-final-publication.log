@@ -1,0 +1,19 @@
+Retrieving project…
+> Found Project zhekinmaksim-8919s-projects/impeach [5s]
+
+  General
+
+    ID				prj_XfWwyavkvJrHl210SIcpOKEh9Zh9
+    Name			impeach
+    Owner			Zmaxxteam
+    Created At			09 October 2026 21:44:28 [2d ago]
+    Root Directory		.
+    Node.js Version		24.x
+
+  Framework Settings
+
+    Framework Preset		Other
+    Build Command		`npm run vercel-build` or `npm run build`
+    Output Directory		web
+    Install Command		`yarn install`, `pnpm install`, `npm install`, or `bun install`
+

@@ -1,0 +1,1761 @@
+{
+  "format": "impeach-synthetic-audit/1",
+  "dataset": "court24-v3",
+  "seed": 240526,
+  "status": "DRAFT_PREPARATION_NO_NEW_MODEL_OR_NATIVE_RESULT",
+  "scope": "Offline arithmetic, collision, contract-gate and cross-prompt old-response regression checks only.",
+  "disclosure": "This is an explicitly disclosed arithmetic copy of court24-v2. The exact prefix 'An independent arithmetic exercise states: ' is added once to every original, rewrite and control; the word independent is prompt text, not a claim of an independent benchmark. Answers, formulas and classes are unchanged. Public deterministic salts and different text hashes permit a separate claim without reusing spent content. They establish neither secrecy, worldwide novelty nor absence from model training.",
+  "draft_note": "Prepared as a separate candidate claim while final auditing of the prior native case remains separate. This audit does not declare the prior case complete or diagnose its storage issue. The requested 1000-per-mille oath has not been measured on these new prefixed prompts.",
+  "construction": {
+    "seed": 240526,
+    "source_items": "calibration/court24-v2.items.json",
+    "source_items_sha256": "d6f77c7586e3c09d92ab59a8761589b1d3adb08a5afc641b953077f79ae25e8e",
+    "prefix": "An independent arithmetic exercise states: ",
+    "salt_derivation": "First 32 hexadecimal characters of SHA256(UTF-8(\"impeach/court24-v3|seed=240526|item=NN\")); NN is the zero-padded item index.",
+    "answers_formulas_classes": "Unchanged from court24-v2.",
+    "generator": "scripts/generate_court24_v3.py",
+    "generator_sha256": "25c506cd20da7ed29a1b4fd45411bb18da8de97e4e58ed41f8dea1a31918e735",
+    "prefix_applied": "Exactly once to all 24 originals, 24 rewrites and 4 controls."
+  },
+  "frozen_terms": {
+    "endpoint": "https://impeach.vercel.app/api/live-v3/chat/completions",
+    "model": "meta-llama/llama-3.1-8b-instruct",
+    "provider": {
+      "only": [
+        "deepinfra/fp8"
+      ],
+      "allow_fallbacks": false,
+      "require_parameters": true,
+      "max_price": {
+        "prompt": 0.05,
+        "completion": 0.1,
+        "request": 0
+      }
+    },
+    "score_milli": 1000,
+    "trial_window_s": 21600,
+    "reveal_window_s": 3600,
+    "decode_params": {
+      "temperature": 0,
+      "top_p": 1,
+      "max_tokens": 512,
+      "seed": 7,
+      "model": "meta-llama/llama-3.1-8b-instruct"
+    },
+    "other_terms_unchanged_from_v2": true
+  },
+  "summary": {
+    "items": 24,
+    "honest_rewrites": 24,
+    "controls": 4,
+    "class_counts": {
+      "paraphrase": 5,
+      "numeral_substitution": 5,
+      "entity_rename": 5,
+      "unit_change": 5,
+      "format_shift": 4
+    },
+    "original_and_rewrite_formulas_correct": 48,
+    "answer_preserving_rewrites": 19,
+    "numeral_substitutions_change_answer": 5,
+    "honest_contract_precheck_passes": 24,
+    "honest_cli_envelope_lint_passes": 24,
+    "unique_item_commitments": 24,
+    "unique_original_content_hashes": 24,
+    "unique_rewrite_content_hashes": 24,
+    "unique_salts": 24,
+    "colliding_commitments_with_all_prior_claims": 0,
+    "colliding_original_rewrite_control_content_with_all_prior_claims": 0,
+    "reused_prior_salts": 0,
+    "prior_claims_checked": 3,
+    "original_and_rewrite_recall_eligible": 48,
+    "unique_recall_prefixes_at_400": 24,
+    "max_prompt_chars": 268,
+    "max_item_chars_allowed": 2000,
+    "minimum_squashed_tail_chars": 138,
+    "source_files_unchanged": true,
+    "new_model_calls": 0,
+    "chain_calls": 0
+  },
+  "comparison": {
+    "claims": [
+      "calibration/claim-court24-v2-scripted.json",
+      "calibration/claim-court24-v2.json",
+      "calibration/claim-gsm8k.json"
+    ],
+    "prior_item_commitments": 72,
+    "prior_prompt_content_hashes": 150,
+    "files": [
+      {
+        "path": "build/impeach.py",
+        "sha256": "6336e9c160b53839497adb4652c0cf8d7c1f5b76bcf7ed99d3f5553da53f3c89"
+      },
+      {
+        "path": "calibration/claim-court24-v2-scripted.json",
+        "sha256": "2bf7ada138b4b5a56197ff9e0b86686a4a90d7f74e5522e8ca3fbefbbeb6979f"
+      },
+      {
+        "path": "calibration/claim-court24-v2.json",
+        "sha256": "abcc8a53798accb23db089dc8cafe6f54bcc0417e4a0c225faae5d5a9c9dda3c"
+      },
+      {
+        "path": "calibration/claim-gsm8k.json",
+        "sha256": "9bd438031f1302402120baa8064838c92cae1cf78862d578bef4c94b9fe5583b"
+      },
+      {
+        "path": "calibration/court24-v2-audit.json",
+        "sha256": "d3a82e54c51eb6ead20314264f8087bd848c2451dfa5d0c2b25bb16af60aa73a"
+      },
+      {
+        "path": "calibration/court24-v2-scripted.items.json",
+        "sha256": "2cae693d181c7738b30ab57d12b9431846847af9c69231d7c72a4c02be0fb220"
+      },
+      {
+        "path": "calibration/court24-v2.items.json",
+        "sha256": "d6f77c7586e3c09d92ab59a8761589b1d3adb08a5afc641b953077f79ae25e8e"
+      },
+      {
+        "path": "calibration/gsm8k-24.items.json",
+        "sha256": "c75c5eab57e6343afc9cd87868f8a3284988ebc5bb0f76b5803c601b62873780"
+      },
+      {
+        "path": "contracts/impeach.py",
+        "sha256": "d7e8f0f1e967dc8f883a5758594325e075711f77a79f8f8229071467db3a704b"
+      },
+      {
+        "path": "examples/controls/00-INADMISSIBLE-paraphrase.json",
+        "sha256": "54260a77d566fe583868b448d39fc5a003b37a029c935c8c6e3c73b69417ec3a"
+      },
+      {
+        "path": "examples/controls/03-INADMISSIBLE-entity-rename.json",
+        "sha256": "032322506df47f22d389347087c21b862daa3c1374627a91a4ecfd90fa337f2a"
+      },
+      {
+        "path": "examples/controls/10-INADMISSIBLE-numeral-substitution.json",
+        "sha256": "f555fe583593c45567fe180faf2ee09e5d23cc3007ec6bbed78d3e9ccd646e28"
+      },
+      {
+        "path": "examples/controls/17-INADMISSIBLE-unit-change.json",
+        "sha256": "41bf56d4ac319a486107c00c82199c4ecd6cba5f6d6072cec649088197ba9395"
+      },
+      {
+        "path": "examples/court24-v2-scripted/rewrites/00-paraphrase.json",
+        "sha256": "ca6388aa49df69bd423b445242d28b47f883c78a1a8ffe3adace9a7b8f3811a1"
+      },
+      {
+        "path": "examples/court24-v2-scripted/rewrites/01-numeral-substitution.json",
+        "sha256": "f0aa7f36dc4f4aa5c6d95f3d6e4f72cd1457add8beb79ad2294ca992d32c41de"
+      },
+      {
+        "path": "examples/court24-v2-scripted/rewrites/02-entity-rename.json",
+        "sha256": "a7f9ab9e2c65638131d2555776f262d5bf362aba9f119d214c379bf70382cc10"
+      },
+      {
+        "path": "examples/court24-v2-scripted/rewrites/03-unit-change.json",
+        "sha256": "5d9fe059064633c4f62473cfa52ff4febf8f22f2c91f04016a146fa373e62f5b"
+      },
+      {
+        "path": "examples/court24-v2-scripted/rewrites/04-format-shift.json",
+        "sha256": "b506668a85eed94df882035adef949121fa4baef1ea8b4d390b022c419cebd4e"
+      },
+      {
+        "path": "examples/court24-v2-scripted/rewrites/05-paraphrase.json",
+        "sha256": "959c974471c5e19ef8faaf5a2109f401de7f338190d8552f19501530f4e58bee"
+      },
+      {
+        "path": "examples/court24-v2-scripted/rewrites/06-numeral-substitution.json",
+        "sha256": "3609ca31b0c645595fb033ac6c59e64d55d23ca78f6a181e596573bcd950ea1b"
+      },
+      {
+        "path": "examples/court24-v2-scripted/rewrites/07-entity-rename.json",
+        "sha256": "05de6f1bb595fd749c890414c4cf1c8587646e023210361130d35a2d1c61f63d"
+      },
+      {
+        "path": "examples/court24-v2-scripted/rewrites/08-unit-change.json",
+        "sha256": "76220b59a61c616c69fc412daddfbefb26ad3dfc4fffa927fef4a81150db7dbf"
+      },
+      {
+        "path": "examples/court24-v2-scripted/rewrites/09-format-shift.json",
+        "sha256": "f88a6da9fbaa4992127a37b8c284a4d4e62357c50f14ef6a033b3876506806fe"
+      },
+      {
+        "path": "examples/court24-v2-scripted/rewrites/10-paraphrase.json",
+        "sha256": "7076b077c0930e12df59ddfe25f2f59135253f54b85aeedf03a1230b488e8ce5"
+      },
+      {
+        "path": "examples/court24-v2-scripted/rewrites/11-numeral-substitution.json",
+        "sha256": "c55416bdd1a11dc438c268f27b63a30f342475ce2a33a0b98b860b8191a5272a"
+      },
+      {
+        "path": "examples/court24-v2-scripted/rewrites/12-entity-rename.json",
+        "sha256": "b71ffbb14193b2be1013bca42d4a6ebad837f33ca39b67fb49dc840c8ea0bf68"
+      },
+      {
+        "path": "examples/court24-v2-scripted/rewrites/13-unit-change.json",
+        "sha256": "3be7a7c7f4bba5ab74c7ebdb4b8f524fadde311ed97fd4b39da388f43e5d9a7b"
+      },
+      {
+        "path": "examples/court24-v2-scripted/rewrites/14-format-shift.json",
+        "sha256": "da54531f5b56b22c5340df2bb1254e0ad4db51ed2cde04c1e68e2e2a5ddc75d5"
+      },
+      {
+        "path": "examples/court24-v2-scripted/rewrites/15-paraphrase.json",
+        "sha256": "56c5b78a8c5d905c5555b5268d1b2c44e27908c9a6451bb08f0f53b8d307de6d"
+      },
+      {
+        "path": "examples/court24-v2-scripted/rewrites/16-numeral-substitution.json",
+        "sha256": "ea412406ca2bb5513c187e4972427a8f72ff6975604009b25aef2dcf82a7fd66"
+      },
+      {
+        "path": "examples/court24-v2-scripted/rewrites/17-entity-rename.json",
+        "sha256": "25551ce8951796281b5230c19962e5f710ed24362459f86319b24846ec841591"
+      },
+      {
+        "path": "examples/court24-v2-scripted/rewrites/18-unit-change.json",
+        "sha256": "4061235c61e43aa4ff13185ceea327a080db7e1466869b2f3e9e9dda853c96d9"
+      },
+      {
+        "path": "examples/court24-v2-scripted/rewrites/19-format-shift.json",
+        "sha256": "546ce98d14d97b67226ddce589ca75478ceacc3fe77a4ccf448aea92dc87154d"
+      },
+      {
+        "path": "examples/court24-v2-scripted/rewrites/20-paraphrase.json",
+        "sha256": "5b0ffaaebff9daa6da392267c1acff4d351adce45997f39d9d2e12cd623d3ac1"
+      },
+      {
+        "path": "examples/court24-v2-scripted/rewrites/21-numeral-substitution.json",
+        "sha256": "5fa77a49b05fee69fd6d57a6bbd5ac5e7bb4cd6644cf2c3e1d15a9c388fa3661"
+      },
+      {
+        "path": "examples/court24-v2-scripted/rewrites/22-entity-rename.json",
+        "sha256": "6ce11171899d2fa2899bfeacb74caa64d94ae4bfd20a97e5435d38d06de142f6"
+      },
+      {
+        "path": "examples/court24-v2-scripted/rewrites/23-unit-change.json",
+        "sha256": "6fb345330c65633de748f4d96939cbe42fe6846ca87b7c4c3e2410fe734e4dcc"
+      },
+      {
+        "path": "examples/court24-v2/controls/00-INADMISSIBLE-paraphrase.json",
+        "sha256": "4d5fab52d38774d9e8d18b6469b918f28b8c4d9bd396e9885bb39d3472d47d73"
+      },
+      {
+        "path": "examples/court24-v2/controls/01-INADMISSIBLE-numeral-substitution.json",
+        "sha256": "9333e006ff9b559fc4226d74d86325297588a37f9aad370c366ddd9fb9bd977d"
+      },
+      {
+        "path": "examples/court24-v2/controls/02-INADMISSIBLE-entity-rename.json",
+        "sha256": "68acd54adf21993493240fc10039d71fefde2d9d922ba636a2f3c738440674a5"
+      },
+      {
+        "path": "examples/court24-v2/controls/03-INADMISSIBLE-unit-change.json",
+        "sha256": "9d0ee0aeb51c5ba78e295c6e0db20f494fe15a674a1db2e061be213a852470b4"
+      },
+      {
+        "path": "examples/court24-v2/rewrites/00-paraphrase.json",
+        "sha256": "00d10d8cb1196fb2af9f2777fea42e6ac8fe1d96bad90ae47c91d036ffd6ecb2"
+      },
+      {
+        "path": "examples/court24-v2/rewrites/01-numeral-substitution.json",
+        "sha256": "3035fefe8abdbdeff02c0920a01a07f3c620d820ee83d9d0e9c094447156239b"
+      },
+      {
+        "path": "examples/court24-v2/rewrites/02-entity-rename.json",
+        "sha256": "525160cf8e41ddcc12a815e6a40fc7c69ebbffbc0b0faa8938b5ea34c8d2a4ec"
+      },
+      {
+        "path": "examples/court24-v2/rewrites/03-unit-change.json",
+        "sha256": "84e467534c24ab3803193f9230a9d014b8f4fd803fa3961eaefc62f649604db5"
+      },
+      {
+        "path": "examples/court24-v2/rewrites/04-format-shift.json",
+        "sha256": "155ec897dc0e756d024be5197d1f5f09ab8bef4f2c76099b0ef93cf2e403a7c3"
+      },
+      {
+        "path": "examples/court24-v2/rewrites/05-paraphrase.json",
+        "sha256": "da273d25365b55de40ace4dd6395c84123561eaf1adf393b3186936b0a4e097b"
+      },
+      {
+        "path": "examples/court24-v2/rewrites/06-numeral-substitution.json",
+        "sha256": "d8d9d63e3830cf113f1f5ec9ccd3d07ece1dc33f39e6dee694c52708642e2298"
+      },
+      {
+        "path": "examples/court24-v2/rewrites/07-entity-rename.json",
+        "sha256": "8d3feb90ca10a4cd86843b75998e6bd19119e7cb5b12e933f5ef98bd4fb4a130"
+      },
+      {
+        "path": "examples/court24-v2/rewrites/08-unit-change.json",
+        "sha256": "6197ad69abf46aebfa518c5802d59eb2b6573101d53274a331abdcb76570bffd"
+      },
+      {
+        "path": "examples/court24-v2/rewrites/09-format-shift.json",
+        "sha256": "5eaf84728090d53c8d5d17cb123f3d7f935ca13668b8deff2b8a1571b34f1e23"
+      },
+      {
+        "path": "examples/court24-v2/rewrites/10-paraphrase.json",
+        "sha256": "6c32c8ac4d4c4afcc2ded043d7e928ceb72323d68116dc31a2ed2eb214f6588e"
+      },
+      {
+        "path": "examples/court24-v2/rewrites/11-numeral-substitution.json",
+        "sha256": "2043c598dede3ca49a4a4f8204eda3c4293b8796476d9983684b17d63dc4d087"
+      },
+      {
+        "path": "examples/court24-v2/rewrites/12-entity-rename.json",
+        "sha256": "233ceeffee7b562063a752616875bb4f980ee9eefd7789b9c697a676425331eb"
+      },
+      {
+        "path": "examples/court24-v2/rewrites/13-unit-change.json",
+        "sha256": "26540de8948eabf69fd8b448173d455fa7a88480f4131f70c057c9063732404f"
+      },
+      {
+        "path": "examples/court24-v2/rewrites/14-format-shift.json",
+        "sha256": "c2972d44a42693000965fcda13cd0f9dfddc7fc7b2b26c6fd7435357ab2780bf"
+      },
+      {
+        "path": "examples/court24-v2/rewrites/15-paraphrase.json",
+        "sha256": "befdbf612468fd5983e8301bb3a82c88ddef812e0655b4a0cc29a59fc026ad62"
+      },
+      {
+        "path": "examples/court24-v2/rewrites/16-numeral-substitution.json",
+        "sha256": "068946206cc30bff75a98178e77dbaae58fe4e7213c31cfa579dce904149243a"
+      },
+      {
+        "path": "examples/court24-v2/rewrites/17-entity-rename.json",
+        "sha256": "5d763cb67f70d1e2d2fe2f0498058e5ec56e07da8ebec4a97c12387005af0548"
+      },
+      {
+        "path": "examples/court24-v2/rewrites/18-unit-change.json",
+        "sha256": "23f521f1cfd01e42cf6df4928aab4d3d6e5fdd029b94f36733a44c4cc8265f3f"
+      },
+      {
+        "path": "examples/court24-v2/rewrites/19-format-shift.json",
+        "sha256": "0f1feeb7e5d149aba263b97a25de9d9949616a9e43e4d63db3e7490c21b867a0"
+      },
+      {
+        "path": "examples/court24-v2/rewrites/20-paraphrase.json",
+        "sha256": "6b70e705a84e7ab0dbb7885497afb3606e768a3561ebb7ff787cccc9b3b13cef"
+      },
+      {
+        "path": "examples/court24-v2/rewrites/21-numeral-substitution.json",
+        "sha256": "28057fbc537052217f22683b4f8a034788804bcb5ae0abd04ae5914afbd8bfd2"
+      },
+      {
+        "path": "examples/court24-v2/rewrites/22-entity-rename.json",
+        "sha256": "51f327e6f17452ec624d7727ca4ba8d47e36e53232c19be0606ca186d1c85804"
+      },
+      {
+        "path": "examples/court24-v2/rewrites/23-unit-change.json",
+        "sha256": "de17256befc85d0ed35ae8f9c598e522192da3b231c528e6311ef2ae08562d6d"
+      },
+      {
+        "path": "examples/rewrites/00-numeral-substitution.json",
+        "sha256": "967f84b67709247b1da5597bd63c509d1ee00c4ac90c3212e76294a3c51035fd"
+      },
+      {
+        "path": "examples/rewrites/01-unit-change.json",
+        "sha256": "78b44faab81c590d3b8ea6a8f4e418ef7c2a97af38c2fd3f4ba97fafe56f6b74"
+      },
+      {
+        "path": "examples/rewrites/02-numeral-substitution.json",
+        "sha256": "7e1e7c718a9e4c457905f5a2a35a5ad24473529fe7c6e6faffaa4b8286d28724"
+      },
+      {
+        "path": "examples/rewrites/03-entity-rename.json",
+        "sha256": "c787bf5cfde9554bf27d29384d4840367c52e68ce18ac73b5b05d0a44cc0335a"
+      },
+      {
+        "path": "examples/rewrites/04-numeral-substitution.json",
+        "sha256": "4d4396ade9851256bddb01a54f4be9c27c451d311e5cf5e57a43a5e1b3430011"
+      },
+      {
+        "path": "examples/rewrites/05-paraphrase.json",
+        "sha256": "2a97a35ac3bafa61529cef3659ea9f4ea583363dac465701745dc5124b88c443"
+      },
+      {
+        "path": "examples/rewrites/06-format-shift.json",
+        "sha256": "a31177761af1e7076fec9dbd3c1d92fedb74493a180053a7d5aae662ea6e7a93"
+      },
+      {
+        "path": "examples/rewrites/07-numeral-substitution.json",
+        "sha256": "3d7f13ece1fc84bd0da785f1c34c3759364641ae5304dffa49bd457a68ad07e1"
+      },
+      {
+        "path": "examples/rewrites/08-entity-rename.json",
+        "sha256": "89283c7004799963393bc1dd91784908def92d057e81505fb957edc7a51f0f9d"
+      },
+      {
+        "path": "examples/rewrites/09-paraphrase.json",
+        "sha256": "e3421d84b63e095df9e59fc05106c9df0b7c01089a3eba268fbf20c4b615fa2e"
+      },
+      {
+        "path": "examples/rewrites/10-numeral-substitution.json",
+        "sha256": "93b79e01d6225fb9aa3a4463075c6e4b0506b9cd9e6d5f7bb5ece6deae775163"
+      },
+      {
+        "path": "examples/rewrites/11-numeral-substitution.json",
+        "sha256": "761b1b97252e6462654e758038644417072128be25956d7a4068da92e1416e74"
+      },
+      {
+        "path": "examples/rewrites/12-unit-change.json",
+        "sha256": "238eb94e1e2a82707d7b5e6226c12c28f058abbf11ed68b1524c92137e877f1a"
+      },
+      {
+        "path": "examples/rewrites/13-entity-rename.json",
+        "sha256": "f544d55b67b5db0693c2968ba80d5429b4037714e87fac4087ce1a71394d7963"
+      },
+      {
+        "path": "examples/rewrites/14-format-shift.json",
+        "sha256": "68c1d5d2b72d6541e4f6cc8371b6c609a8c4ba596d8c54db700be65505970a2c"
+      },
+      {
+        "path": "examples/rewrites/15-numeral-substitution.json",
+        "sha256": "53cce4c4fcb5f56476ecb77df807113375f7414dfcc0f5ce3332b96c7e9ed187"
+      },
+      {
+        "path": "examples/rewrites/16-paraphrase.json",
+        "sha256": "0d1eb11a8c5d1affb57de52d99c9804507baf78922e753b5e4817121e6e45f38"
+      },
+      {
+        "path": "examples/rewrites/17-unit-change.json",
+        "sha256": "703628dfaee3b9c6ce1cb69f74495d01d5abb90cf640bde10e6061cd30280ad8"
+      },
+      {
+        "path": "examples/rewrites/18-numeral-substitution.json",
+        "sha256": "19339c4f63c120dcddc0ca5b93dc89468f2328e4001cf5c00b95bde23a2d7a2c"
+      },
+      {
+        "path": "examples/rewrites/19-entity-rename.json",
+        "sha256": "abb1026a7dd96885e47e020dc7d6cdcb0cdf8fdafb42014c5714364886eb690d"
+      },
+      {
+        "path": "examples/rewrites/20-numeral-substitution.json",
+        "sha256": "f29c51b86f9ae160faa54bd6d4448802a328c3d8453260e249c8f0e01fbfc6df"
+      },
+      {
+        "path": "examples/rewrites/21-format-shift.json",
+        "sha256": "8479dd3100985294f1535ec56d6364dbca8ac147a2371378f09b16205b559062"
+      },
+      {
+        "path": "examples/rewrites/22-entity-rename.json",
+        "sha256": "d27b7df4fb42f339324659c784c1601c919113b7f38d31b03835ad1f9ba627f2"
+      },
+      {
+        "path": "examples/rewrites/23-paraphrase.json",
+        "sha256": "2ad9ef7379a79f79c58ca5b01d0cb30adfe65213faf0e978029a83756fc5170b"
+      },
+      {
+        "path": "runs/v2-llama-requests.jsonl",
+        "sha256": "35b8561122518a433f98b688848c015b3bfc635609c3f4a8e96bf9bdbf14271d"
+      }
+    ]
+  },
+  "contract_harness": {
+    "runtime": "test/drivers.py StubDriver, real contracts/impeach.py on local stub",
+    "contract_sha256": "d7e8f0f1e967dc8f883a5758594325e075711f77a79f8f8229071467db3a704b",
+    "build_sha256": "6336e9c160b53839497adb4652c0cf8d7c1f5b76bcf7ed99d3f5553da53f3c89",
+    "operations": "seed prior spent hashes, open exact claim, challenge all24, reveal24, 96 local probe calls, local rule; no chain operations",
+    "referee": "Scripted arithmetic and declared-class fixtures; not a real model referee or validator consensus.",
+    "honest_both_framings_admitted": 24,
+    "controls_both_framings_rejected": 4,
+    "numeric_llm_marker_calls": 0,
+    "solvency_violations": 0
+  },
+  "old_response_regression_replay": {
+    "kind": "CROSS_PROMPT_OFFLINE_REGRESSION_ONLY",
+    "source": "runs/v2-llama-requests.jsonl",
+    "source_sha256": "35b8561122518a433f98b688848c015b3bfc635609c3f4a8e96bf9bdbf14271d",
+    "source_calls": 72,
+    "replayed_responses": 72,
+    "new_prompt_model_measurements": 0,
+    "exact_prompt_replay": false,
+    "limitation": "The old v2 raw response objects are mapped by item/mode to exact newly generated requests, including recomputed recall prefixes. This checks numeric scoring and local state-machine plumbing only; it does not establish that the model will answer or recall the new prefixed text the same way. Admission is scripted.",
+    "local_fixture_result": {
+      "verdict": "CLEAN",
+      "pinned_milli": 1000,
+      "rewrite_milli": 1000,
+      "delta_milli": 0,
+      "recall_milli": 0,
+      "admissible_probes": 24,
+      "stale_answers": 0
+    },
+    "mapping": [
+      {
+        "item_index": 0,
+        "mode": "PINNED",
+        "source_line_1based": 1,
+        "old_request_sha256": "be0613ca92ec8036666a66323fd8e03839be0f4059b70766072beed660b84b32",
+        "new_request_sha256": "494540e30611b9bfbde41a95d17c7150a354936810f2665c17f31f9c7b18b4b4",
+        "unmodified_response_sha256": "fc71a35b6c2c618447963929dfffafc574880f40d53200cf1d1c9b40689fedf0",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 0,
+        "mode": "REWRITE",
+        "source_line_1based": 3,
+        "old_request_sha256": "6c64f50ee8f3662060429d3578995b51bdb5e14fd39641cac3f5cc2e11ab2786",
+        "new_request_sha256": "29f4fad3407e1d418629b447bad0b9a5634079d758a7291934c3bafaa8ce0c06",
+        "unmodified_response_sha256": "8a515ea22eec6c26a775a9dc1f2fdb5ca2b84622fd112c6599f06edf51c140e8",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 0,
+        "mode": "RECALL",
+        "source_line_1based": 2,
+        "old_request_sha256": "e443201621042a0071d26877264164d3a04576cc5657edf7f1e129bded4fe123",
+        "new_request_sha256": "0336e41c1b5299e0077ee98ff5b211ee99cd770a5d9eeb76610fa8d5fe354f80",
+        "unmodified_response_sha256": "248bff0dd2bdeda3daabc83d9a86aee364fc387d493bbd8bf47ce2f516683216",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 1,
+        "mode": "PINNED",
+        "source_line_1based": 4,
+        "old_request_sha256": "4fb6d7e06bb98e6dd75d05f5a73d9f7b0489061927e2de2d81d965065588876e",
+        "new_request_sha256": "70c0a30ca1a5eeedefb891c6d8774cc560a4624acf4f0000d200ea85cd5858c8",
+        "unmodified_response_sha256": "ab9e0df9dc39f0f6ff2b1a7bcb821fae02d281162c3633a843dbe06e85a36fae",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 1,
+        "mode": "REWRITE",
+        "source_line_1based": 6,
+        "old_request_sha256": "f27ee239bda6e29b3e33f3e4bc724212e62d16a7390bb3938a5b9cb4e05fa794",
+        "new_request_sha256": "31fb52ecccf2dee1dc64c6692ec0c2eaee9aa09542335021c6f60ca44083a37b",
+        "unmodified_response_sha256": "25fd97a4720dc55aa03c4a36d8447840d3e946dd9b39fc75df1df8914d38b5c7",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 1,
+        "mode": "RECALL",
+        "source_line_1based": 5,
+        "old_request_sha256": "0218cda06573947fb30c7d80a268cdd43fea848e8ea819306fc5d3d7e9d02858",
+        "new_request_sha256": "727e250d1ba8e5ca22440ac273a0cbe6e6b45e9926fe72bf8faa1921eb4c42cb",
+        "unmodified_response_sha256": "235ab8496ccbc202e3445fa2611e5f309412a0855bbdcde92f827000775b7058",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 2,
+        "mode": "PINNED",
+        "source_line_1based": 7,
+        "old_request_sha256": "798396c003f0e1d248d682d63d112014ecfcf26e1b66d5e9262e8e60a90ee048",
+        "new_request_sha256": "dce12f2f4262aed1a7c565d7509ddfc58d87048640e24e74011c5f3c1c4b33b6",
+        "unmodified_response_sha256": "ec488d78e5b009b907176b4bdc725346c7698f113fc96350c073e77f144b4faf",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 2,
+        "mode": "REWRITE",
+        "source_line_1based": 9,
+        "old_request_sha256": "84d722b8e7877046ef1b9c92bc5b97968ac09dd2ee2a1f30fc1539b4a11c62e0",
+        "new_request_sha256": "ba1f3ceca0f6aadc1f972aad4c73de3025c044cac65c0b5f88a3b527ac549f8b",
+        "unmodified_response_sha256": "da1a0fed7381c91ec1b9e3faf67ffc5263fe5b9bcd8a4665a0b2101a21e66083",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 2,
+        "mode": "RECALL",
+        "source_line_1based": 8,
+        "old_request_sha256": "dba2a844392d46bc7c101395fb3ab22b3fb3af081e125471c46543f7d0cd40dc",
+        "new_request_sha256": "a02f321acbd7b8e85c4199265b8506d8dd3f75f80a50b7e00561a65b5a509a67",
+        "unmodified_response_sha256": "3931821012aa84571f28904fa86dfa449298492d2263b4c904c24e98e5b47f00",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 3,
+        "mode": "PINNED",
+        "source_line_1based": 10,
+        "old_request_sha256": "44405bd7fe943bc681d3e1c7d90674a0419408ceadf8f0ddef2faec09e74b11a",
+        "new_request_sha256": "a9656c7adfbc5c9ff470dfb50cdd2c53a5b882f6f09e65b8de9da03573c89fdc",
+        "unmodified_response_sha256": "07e67e5f38cd29f1de43203553641a6ceefe732002b7ca8758a9c5f7cbbbc3db",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 3,
+        "mode": "REWRITE",
+        "source_line_1based": 12,
+        "old_request_sha256": "b425cc182ce6badb1cf3bf78d7a531d398d51944161e34b800f20dc35ecfb1f6",
+        "new_request_sha256": "5c9a0c43f6d6fce17d2ece7db8f2eb689674cefc89d6d4c32ac47890be68b8a2",
+        "unmodified_response_sha256": "03e500e4ba9c9aa55f7bbc6fddd9268159130af58f5c5d5699f35cefab072d30",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 3,
+        "mode": "RECALL",
+        "source_line_1based": 11,
+        "old_request_sha256": "d779cb4921588d7deadbfa748841f10c13c174f7fd184f835cfa06baa17e5a2d",
+        "new_request_sha256": "287d54dd544bfd7282e4620a68cb238663e508d8635f19f553566b7b2af9a6f5",
+        "unmodified_response_sha256": "8c83e7d43f1c57cca46f99143389bb95184c5c593ea2223f97d270324fd992af",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 4,
+        "mode": "PINNED",
+        "source_line_1based": 13,
+        "old_request_sha256": "e00fb2cf102c3a5b27f4bac1d5f77e806f7ca5504dffaebb95e7c9519dedab74",
+        "new_request_sha256": "ef3f76bd9b4f516a430e2d8c0c24ecddd8a9a13e6a7facf384682bd5e34904d1",
+        "unmodified_response_sha256": "5903fea2160ffa323da79ad98f429e712ba81f751dd5cdd0b920c0dd36f0894c",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 4,
+        "mode": "REWRITE",
+        "source_line_1based": 15,
+        "old_request_sha256": "343abf5efd253d377d149977e71a360b2652620ae5653f40174a57ae1e710543",
+        "new_request_sha256": "156db7e6ccf976440f82ceff4c10b0dc088b0aa429d385cf403ad5d4478a6408",
+        "unmodified_response_sha256": "8816cb52b78d71ad4a28576c28ca1ef76896d8d31a22d7a0f552bf32c71b3fa3",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 4,
+        "mode": "RECALL",
+        "source_line_1based": 14,
+        "old_request_sha256": "ec8a669c5e57aea17caa2d469544788c0299fbb84650368e3b46783b947b3d7e",
+        "new_request_sha256": "4c014fb9ccf0718e46b892401c41cb26fa7b5d5d2988db9422d1d5657159779a",
+        "unmodified_response_sha256": "647e1f6c84d58a762b66b3038c2a0ccc91ab4b3d39a5de0375a27fbc65064d84",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 5,
+        "mode": "PINNED",
+        "source_line_1based": 16,
+        "old_request_sha256": "2d8922b8c707fb76c6c1293de8283463739d22c2f5311035881aa4baaca76e05",
+        "new_request_sha256": "78102e0190cced6d1bea8bd4c43234c977f28d5140742df80696fa01f0579172",
+        "unmodified_response_sha256": "4a5a2efb571ac60283ceec2723e81f2896e0cdbd8499a62192386854ff7796ba",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 5,
+        "mode": "REWRITE",
+        "source_line_1based": 18,
+        "old_request_sha256": "7573b3b6bdd1c6d007f46308d456ced511573d4b4e2e27ac2e6cd6117680ecdd",
+        "new_request_sha256": "b98688e8ec72ad95fb126b5a5d7e616847fd7edd0e54543c80b64570b896e1c2",
+        "unmodified_response_sha256": "a7ecb5e7b0f2ec8b6250dcf53f0db02140400266e621a0cb3670003eaa489709",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 5,
+        "mode": "RECALL",
+        "source_line_1based": 17,
+        "old_request_sha256": "6c891ac38618d33ae8341db67871e329044e7e281873816a1bca87c6158d3953",
+        "new_request_sha256": "7fbb55736bf80d0bdaed3a7d06f9349f8cbee8f31f70ce45a506ef336a938da9",
+        "unmodified_response_sha256": "ec4f7760675b3523ca0bca0788e4bb288ec788ee57c50423cf83c60cc557e424",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 6,
+        "mode": "PINNED",
+        "source_line_1based": 19,
+        "old_request_sha256": "c1c3a59521b8652414a5b228fc9123d7a01eeafe318f7233d30aa5c766fe52b0",
+        "new_request_sha256": "02cbd01ed02de8601e2f9faa4ca144deb62c0397c637ce788bf759394acbeeaf",
+        "unmodified_response_sha256": "b4d42e2d07c925a93520d4d9f92e43339b450fcd98d3cbe7aad4336db4a43e02",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 6,
+        "mode": "REWRITE",
+        "source_line_1based": 21,
+        "old_request_sha256": "386658b0fc18c3f0f8b04563a909b1a54aaa164fca1dc04e5feccf00d2bdec7e",
+        "new_request_sha256": "9c377b4a4115dbbb654790f985636ec28bd21944a35414f76611bd1460fb9b15",
+        "unmodified_response_sha256": "754fb850a82e9ef263a59956d41476db001bb9b6d9bdb0b881135be6d7cffe1b",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 6,
+        "mode": "RECALL",
+        "source_line_1based": 20,
+        "old_request_sha256": "187521bf1e3d8a9636336f9b1ad696291aef8bed9a0029714ec75ff00a460f21",
+        "new_request_sha256": "6976b5a0e054c7e82d337389963976c7af4f56de054093babe91f6a8f5bb42c7",
+        "unmodified_response_sha256": "a0b611139bef86fe0437ed7173dd3f2c9e74d8e136561da732180e448fc28751",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 7,
+        "mode": "PINNED",
+        "source_line_1based": 22,
+        "old_request_sha256": "518c23a15669cbbcf1888f13c510fc5c83a8f4e33ab616e6d92ad49be2424360",
+        "new_request_sha256": "b494fd19e7e405751dd00fc3a9d73b0711064976f48f5526f2bd1dd545407ce8",
+        "unmodified_response_sha256": "4ae7e6606c5db2453859f9db41ef640cb338aaeaaabe9a39b51a44488cb32dc5",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 7,
+        "mode": "REWRITE",
+        "source_line_1based": 24,
+        "old_request_sha256": "969dc671b715118138c324d2b4e4b4c97cc12a84d6a89641d2e84cfeaa59c7bc",
+        "new_request_sha256": "c40d44fe54a7621435fddea98247f386c7fe5cdb7fdf1bc6acdfc7ee07b7c790",
+        "unmodified_response_sha256": "bb674dc1d657f732fea5ce93aa25c8d7fdb9fb883f8ae1d236e246bc65173724",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 7,
+        "mode": "RECALL",
+        "source_line_1based": 23,
+        "old_request_sha256": "285df324a2d99a86f5a7e7aeb1e72bb044d3c916cb221b210e44eea556eafc59",
+        "new_request_sha256": "d156a1eaf34630600aabec38ba616f6dd4fd57f6a71764a4cb17430d631f85ba",
+        "unmodified_response_sha256": "78f3aa30001a544f36159efc101347230137323aeda9edc3ccfb9751fd5d38a2",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 8,
+        "mode": "PINNED",
+        "source_line_1based": 25,
+        "old_request_sha256": "1a3e3eba2d8c07d17f268269f949accf16c14b8441f4cf15bb76160613e9ff02",
+        "new_request_sha256": "65e739a36ec310603038db76b4ddf71d300dd7ef4ea5cc1a69d1dd4c91018af0",
+        "unmodified_response_sha256": "db02d2b2e8aff41220a7d702d425379a42d55d664def77c70ae418739014026b",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 8,
+        "mode": "REWRITE",
+        "source_line_1based": 27,
+        "old_request_sha256": "2bd155fed148cb3265edbca68af9a577fac3f74cb9bccf7af31bdf59641a75e7",
+        "new_request_sha256": "0c2b2c4a8299df522b5272cc7a3a8e12c28261205061f65605ad0886bf6a2e1a",
+        "unmodified_response_sha256": "c453fe371879080a2c58d95b350d200887b6c6eed5d68b0c78f485c531f53e1c",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 8,
+        "mode": "RECALL",
+        "source_line_1based": 26,
+        "old_request_sha256": "1116180db3005a76246d3eea0a5de889f2ad51ff457578811a2766c8bbdd2344",
+        "new_request_sha256": "6062a4f9ab78f74ef7074e1230e32696251a635e6a9617dd2cf95e9ea9bbfcbe",
+        "unmodified_response_sha256": "8330c232caa6fb43c3ace9da7bb5421438c0dc9d9730531659f6215615ed9af7",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 9,
+        "mode": "PINNED",
+        "source_line_1based": 28,
+        "old_request_sha256": "a19948c901aa2dd6490e13c3f9902d853eaa27f2b196d1b797278395194c2847",
+        "new_request_sha256": "9eeb1c922c881c2829cf03c60f90f2d97eddec780d1802173151899740854713",
+        "unmodified_response_sha256": "56bb4040d3a161a05cc1295363e3a7e092404e23325785b68beba8babc12c654",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 9,
+        "mode": "REWRITE",
+        "source_line_1based": 30,
+        "old_request_sha256": "a57f66fdf80e7a07dd4508eb73d32673567838fdbfcc7276807a68e43e709dc6",
+        "new_request_sha256": "0c4a40c3235ab43324834174c47cbead9875daac61ae0593cdf2286484b41186",
+        "unmodified_response_sha256": "9fb8a316c753b43ab3d339ac25f8a3574cd92ff68835003de4c9dd851b95d180",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 9,
+        "mode": "RECALL",
+        "source_line_1based": 29,
+        "old_request_sha256": "2e5b67c40451f26ac4b2ec0b75ee8deb2ede5420d6372cee535f5cd399968d39",
+        "new_request_sha256": "fed55e85889bf8d2cbf5c56bd5d30e060e445f3888325a07a9283d0df9f3384e",
+        "unmodified_response_sha256": "a201cb3eb2fc55e97127affc1ceecd5f71e18eb778efc0e35bd457bf2fd8fc80",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 10,
+        "mode": "PINNED",
+        "source_line_1based": 31,
+        "old_request_sha256": "1f715b4dba9c6b815a8c83e06cebf5fb7095889a1a81573dc8ae7b2c55471e8b",
+        "new_request_sha256": "39c45adda25e187c4343e9e1097e1ba7eb1e9ce7431b4194ecf3605803d7dcb5",
+        "unmodified_response_sha256": "187ad565d0196551dd453ce72f4daa46dec591fa023fac87c4dea6f53dac1462",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 10,
+        "mode": "REWRITE",
+        "source_line_1based": 33,
+        "old_request_sha256": "d958a1b093dda7a7c9492e33d9ecf978b92ea9c78fdec77ff72f4c193d27b24d",
+        "new_request_sha256": "c7431228d9d4408165d37e6244a89568ed6f4b0389f144b3bb45d9fc8584c1ca",
+        "unmodified_response_sha256": "f94ecd1564e26846abb2dccbd7f065181bd5af50af74f5375f39a31950b4c076",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 10,
+        "mode": "RECALL",
+        "source_line_1based": 32,
+        "old_request_sha256": "34d8d70bfdc8edd4211faaadfa9102384ec9993a8bd47922770ca16a81384081",
+        "new_request_sha256": "2b5e067aefd8d8f985fac79eab98a9aff5e26807487153c001702c7263c85bbe",
+        "unmodified_response_sha256": "ba353b03e5065bb81af969caba874f599f967f89d036d7538b30ddeaa7c8d93d",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 11,
+        "mode": "PINNED",
+        "source_line_1based": 34,
+        "old_request_sha256": "0302ab0101db70db593043a4c10edd46614de134801c9ec7ef480d76e9400208",
+        "new_request_sha256": "6352dafa9c3303479855aa91f98e81d26d41f7948f88420c7e03089cf891b371",
+        "unmodified_response_sha256": "128ca67b8ef5e4faf1796e754e91dc1a6f847c8b5ff2fc9b871932cf91544bce",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 11,
+        "mode": "REWRITE",
+        "source_line_1based": 36,
+        "old_request_sha256": "8f1ebd683dec5cb966bf4e5d75ebfe40cfc9ba4fd88229a6ca5f67623ce8dbff",
+        "new_request_sha256": "5b46cd11aee6443bfa02af6c200d8d0f9431207b0cb1ca612c6abc77e08911e9",
+        "unmodified_response_sha256": "8e163f40d1549994089c8cf2e0cf68cc3162600a1b3ae5edd0a3897947916050",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 11,
+        "mode": "RECALL",
+        "source_line_1based": 35,
+        "old_request_sha256": "826ec295a174e660c7a3eb8fbaa68ca694b09dd463238203d12827c1969c9772",
+        "new_request_sha256": "6177eace559683a388607611602ac8e3aa4066814f6bb618d5fe3624528f0799",
+        "unmodified_response_sha256": "07355ba31c4942dd869ee13749f021bd131365b99389707c1a50d986d319122d",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 12,
+        "mode": "PINNED",
+        "source_line_1based": 37,
+        "old_request_sha256": "fe192ca86017195fd522ce8705fda47de4dc4a14fe67d049e8bdac4fbd3d5305",
+        "new_request_sha256": "b349ad7341c05f3400244b8da6cfa23dab2beadeb189f1caa87989cc9323d1ff",
+        "unmodified_response_sha256": "7add4e4d12797ea77cd8efb9b15a9a01b5d3d8accc442ec8303c9bc98b83eeae",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 12,
+        "mode": "REWRITE",
+        "source_line_1based": 39,
+        "old_request_sha256": "1c3089b1966e9226591c210f50524c324c2fb0f62a7efb6a943126a8145c1f9c",
+        "new_request_sha256": "ecf00ebf9aa623bfe4ae434468ac8ec4bb78db72b906e6a2a0608f61cb048ddd",
+        "unmodified_response_sha256": "3594b775bd50898a55dd88e8dd2f2e058301e689513be79e3528a6ecd44e1c04",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 12,
+        "mode": "RECALL",
+        "source_line_1based": 38,
+        "old_request_sha256": "2ba0f96ad217a4ec844103d4d7cf1587a2166b4a3ff99507d9f40abe29f40563",
+        "new_request_sha256": "aac6b2f610af1b44a3148b1141193b7d28eba7292c6b901a61cf929921f9c0dd",
+        "unmodified_response_sha256": "3c6f789d9b7ffa8e51d6492bad0cccc4a73145eca6d4f1404bd2666d7c4b2dfe",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 13,
+        "mode": "PINNED",
+        "source_line_1based": 40,
+        "old_request_sha256": "0640df0158d302d4c2fb27a5a237534cd4de2e061789b216bafee9da3c0c3a69",
+        "new_request_sha256": "7ffa61ee1b6c989a5d8a76a14fc7ec67ca35f91dfeffbb6d8390ad829474cd86",
+        "unmodified_response_sha256": "f0c46fd1e48a84aea08b2ede651743b9dc1352dcd74f9e5bd85b908b200d5b4e",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 13,
+        "mode": "REWRITE",
+        "source_line_1based": 42,
+        "old_request_sha256": "d3fe71cc55eb1cf5161272990e4983cdccfd5e34b99d87ec8419530877101412",
+        "new_request_sha256": "343df325756c405dd6c499bae2cf5b0c22714995b11f072f661786afcc7b8d8f",
+        "unmodified_response_sha256": "0a654292199dbd30bc21cd3c5ebf2ef021029275df16d2222bfdc6ebea560e60",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 13,
+        "mode": "RECALL",
+        "source_line_1based": 41,
+        "old_request_sha256": "ded4394f6ac1b1ce8a707300ed928b988fa86ac5ddb887b28d95661a949cbe23",
+        "new_request_sha256": "4bc1ec261996e9ad118ca5a55e7ad6bba9166156e40ae36f3eecd26b429983d2",
+        "unmodified_response_sha256": "295630dda372638fb5155391fc4c638290a3c2ae7eba120653dd0323f8933fda",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 14,
+        "mode": "PINNED",
+        "source_line_1based": 43,
+        "old_request_sha256": "d908c46ce889690129fef4934fb97f3aec61349938e51ee785bcddae89ee7e34",
+        "new_request_sha256": "9ca5b623af9ea7f8bd28bbb98cf125fe5cee5ab0cb6487f6ba3d3469d7dcf4ce",
+        "unmodified_response_sha256": "461913358f049322f074ca0ddcf332330df88fbb18b49b39fefa98b1dd1f7262",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 14,
+        "mode": "REWRITE",
+        "source_line_1based": 45,
+        "old_request_sha256": "b8bc69574cacd14f9c5a2a63646c2f6828514a19ae7a3f9c9609e5e6103f3be4",
+        "new_request_sha256": "78e1a42e1209973d627eab4dc4eff586f433d72d293934f2d28aedd4154c9cbc",
+        "unmodified_response_sha256": "7051c045d81d82286ca478fdeb24dfe3992eedc1e9caae5b6dcbab3b6e1ef736",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 14,
+        "mode": "RECALL",
+        "source_line_1based": 44,
+        "old_request_sha256": "2017d05faebfdfa8dfcca20175a80ec4fc5dca58e71c40fd892fb03e4db79fc4",
+        "new_request_sha256": "859bcf6b78d9a7758a5d56d2ead9ff3e68222ff6ff8bf44f47102cbdb5fb1395",
+        "unmodified_response_sha256": "64e767560382b38d78f211176a1314cea21572414ef9467d3c63c07fc7a556ac",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 15,
+        "mode": "PINNED",
+        "source_line_1based": 46,
+        "old_request_sha256": "bfdbf9694f7be818348bcaa7d88c148272173f4d928ca9009df2a1657ed53302",
+        "new_request_sha256": "5bdfb0cdedb7c841bd6286a0e26160ea442d8b130252780f8ac86bc317a54399",
+        "unmodified_response_sha256": "fd7031138636dbfd7a65faf5ee0d4d217e13e22e258e08d53f0cce16c1a85461",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 15,
+        "mode": "REWRITE",
+        "source_line_1based": 48,
+        "old_request_sha256": "dbe0e98e80d8fe92ac6b08fbdd8f143a96911e38f0b9cb388da6aec3845ad166",
+        "new_request_sha256": "a8c7d7227f74705070438698282ba1fdb94f6c6e7b556911d0e23a7ae825796b",
+        "unmodified_response_sha256": "ba4fa96edf3548fd8f83446aa0bf5a18a6a51d4ce2fe0fbecb343599365840cf",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 15,
+        "mode": "RECALL",
+        "source_line_1based": 47,
+        "old_request_sha256": "fee7379bf1aba29eef7553432d30d03c53f2967b1834d1eb21a3edac0c8fb875",
+        "new_request_sha256": "d00827323eea11ed685d02a7c8cd4bbd360035ec9210c5af46f90540415aa8eb",
+        "unmodified_response_sha256": "14455744c75b1a6ee863276346a48ea26093cc0e6caf0af2d423979101d78f95",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 16,
+        "mode": "PINNED",
+        "source_line_1based": 49,
+        "old_request_sha256": "39570999ed4870452b6b9521032f07469e7024fe64fa4cf90d339ae33c14331b",
+        "new_request_sha256": "c160d3a4c33a4a3b9de0531d8e98a47274d8b99f0fe41674ee86b00780340398",
+        "unmodified_response_sha256": "657d79fd228f6cc78d0fb8eebbb7b81a3fb241ff1b8b531e0e4580e121e23c16",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 16,
+        "mode": "REWRITE",
+        "source_line_1based": 51,
+        "old_request_sha256": "af5c5bc11c63b44dfe29c365b46376c3883751271dc748641b6c51f2a2547f0a",
+        "new_request_sha256": "728d81160a3b75b3153593c76a5d9a6463c93cdd5b05a404637d921eeeec5578",
+        "unmodified_response_sha256": "9981cd2fed48de4c9dc722d2b7f215741d1fe5756ca3942f9a00a6558c449137",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 16,
+        "mode": "RECALL",
+        "source_line_1based": 50,
+        "old_request_sha256": "26a2d052e092598e993fe66485eb61ec4061f760600980c40e31f1bfb556fe2e",
+        "new_request_sha256": "5b8fb6355538569edbf135eb9921e373888c47d3bcaa8691b43a619a79fb561f",
+        "unmodified_response_sha256": "25d0b28ce8997ec31c37f46b0dd12e704e6e0613c44353faf0529769f3f2dc84",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 17,
+        "mode": "PINNED",
+        "source_line_1based": 52,
+        "old_request_sha256": "30d4f2a1c140965749fb1080ff2bcbc48fffe81ced1b3e31a64e05c7341b38ea",
+        "new_request_sha256": "2c232db39f73c7c6218b62fe915b8819926d5946f5eb8b1d45eec6bd5e991e2e",
+        "unmodified_response_sha256": "2d19dd0c052997d542587f422b637b3b2916eb4c8fc99dc8872ad00adc184d19",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 17,
+        "mode": "REWRITE",
+        "source_line_1based": 54,
+        "old_request_sha256": "774b2774a02cf5af853b7afb6d0ced0f4cd471c2df7d440dc2d05fb4f04ff64f",
+        "new_request_sha256": "446482bf36f60ef92efc6f60dee859a6f666a03d53bc70fe33ce525e399abe15",
+        "unmodified_response_sha256": "747354a6baa22dce03f8fbdb68930817649cb334d6c9532a7b34aeed3ef9ffba",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 17,
+        "mode": "RECALL",
+        "source_line_1based": 53,
+        "old_request_sha256": "b23e0f00eb70adcd9ca6eebe2d3a6eeed44e54885bef0b9ddc165860ae152b19",
+        "new_request_sha256": "c1dbc874331b30d005c8cfa0026655f7512a9496775924bd1c55bc187452dc71",
+        "unmodified_response_sha256": "72e29433811574010df37cd7ae5aaf09e4b52385c8bf5cdce454fb333ae4fe18",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 18,
+        "mode": "PINNED",
+        "source_line_1based": 55,
+        "old_request_sha256": "6248ab2d760c998b5b3b57fa9e201e4aedf9569f03f92524a72bdc2460863c69",
+        "new_request_sha256": "3cddf5672b86af7dcc998315e5e52c787bf65550582e23ea18de12e211ac8cac",
+        "unmodified_response_sha256": "23527f1477ffc01138b8c8603c35b21167bc7bb4b9d1362180c16e0bc883f116",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 18,
+        "mode": "REWRITE",
+        "source_line_1based": 57,
+        "old_request_sha256": "67cb3692fc51ab49b857003d1abe7a17e7d5bff489d964837930bdaeb1c35fc1",
+        "new_request_sha256": "c15786c83cec1579c56077cad7459c7e4b59805b1f1b1f193ba7253430d773ef",
+        "unmodified_response_sha256": "74ee80e36c897a3735cb56a2c4c0fc5d748647a83fb40beb4c9d20f7b2df3bf1",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 18,
+        "mode": "RECALL",
+        "source_line_1based": 56,
+        "old_request_sha256": "4198810458b2343b94fed767fd23767ac70dd63a4a7f182f1ed3187660a1a17a",
+        "new_request_sha256": "b931c806587681e7cfb3f697d12abfe48cac873e126c5513b4c10b60e7b2f597",
+        "unmodified_response_sha256": "7c0ee17ae1ab39b82c34d09eacf51fc6c0ce88ff620ea0d3513d3fafc1c396d1",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 19,
+        "mode": "PINNED",
+        "source_line_1based": 58,
+        "old_request_sha256": "4252ab83ccbd647e8a2e7382499cabce9b783c8372427abf8e4c82b1415f16c9",
+        "new_request_sha256": "9fee848921d9c10375c1da8cda06752c9aa1a312f1d8a076da906102e31f5df2",
+        "unmodified_response_sha256": "88bc99ac469528546a5048d3a434962989378445fb7fbf5d7d33235c6a7b18ce",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 19,
+        "mode": "REWRITE",
+        "source_line_1based": 60,
+        "old_request_sha256": "986276c0a9e0f8f31326bfc96fd8dede4b6d6fe25db9d13fe23cc2beaba29265",
+        "new_request_sha256": "b104a008d548a69e9958d2c6569f708a33d71d6316a6e13a2c111f31b3269a2a",
+        "unmodified_response_sha256": "5639ebcefc8471e0f27137b9930dbfa1f5b379040e6bb95c8ca4bff81c6bfd62",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 19,
+        "mode": "RECALL",
+        "source_line_1based": 59,
+        "old_request_sha256": "c48d1bab73755adadb32ff6f906af396b2258375160175908dfd0c238ddb8238",
+        "new_request_sha256": "8a2e0c334970abf3ec2c52e4c1a3803ba56f9631563e4c958dae59bfd5cb5c46",
+        "unmodified_response_sha256": "db009ea0beb64d56ef8dedfeb8bcdfe1ef217e212cedc0dde3aae724c2cfb6c4",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 20,
+        "mode": "PINNED",
+        "source_line_1based": 61,
+        "old_request_sha256": "6888300b5d75e813e9729767dc5dc646822b76690decbbe74f05ad2940d6da2a",
+        "new_request_sha256": "77a8c395da606b5e912d25e184d956277a7f436582d7afddeedcbc6b1c5d1f1e",
+        "unmodified_response_sha256": "1e0163065432b8ea4617a525afe2d84daa70d5f8a15c07be15e26bfd21d991e9",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 20,
+        "mode": "REWRITE",
+        "source_line_1based": 63,
+        "old_request_sha256": "627a59c54670c5b99beb375a130d387556d48cc2ead88f3d708da474910d2619",
+        "new_request_sha256": "d61fd8e41b6b7e5eb26e95bdfab061d5d64b54936baf0645bab07780758e39e2",
+        "unmodified_response_sha256": "ea2051debfd3d638244e4afcdfafd3031da9357f6e9230f3b1804a13bd3f0a4a",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 20,
+        "mode": "RECALL",
+        "source_line_1based": 62,
+        "old_request_sha256": "2402746e521b089775ec8a5a81faaae7d48ccc875a938d49c9d8e8f9a8dbf353",
+        "new_request_sha256": "eb042440b85066ca7a07c82e7adcea7697c5f23dcc48e31947d48827cf8dcf98",
+        "unmodified_response_sha256": "ed365b57cc16209614e22b4caafa9853ed053170e70c93c1cddf5ccd699cb7b3",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 21,
+        "mode": "PINNED",
+        "source_line_1based": 64,
+        "old_request_sha256": "edc9cee067f54391483714fed26f1eceb79ed8b9e499cae34d60a1dbb745543d",
+        "new_request_sha256": "b8f0fe3dd5e8ced70d30fe7af48c73d804776cacfcb9f5ad5e020665db8e74af",
+        "unmodified_response_sha256": "c902d634b1da49ac39ce4de102447f96238b13e6d162edbb65bb7afc555d8a66",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 21,
+        "mode": "REWRITE",
+        "source_line_1based": 66,
+        "old_request_sha256": "9ae4fb7cd9ff8d5db3d5885aea568f1d4e774b2e89a7a008360213d13794438b",
+        "new_request_sha256": "89457080b395cb11d69bd6af11b6a8cf2f93df153eb08f8328dbad1856022980",
+        "unmodified_response_sha256": "92c89f9b84485d18ad9690f5849501246a3aa7b97420dbeee5d672f0666f3566",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 21,
+        "mode": "RECALL",
+        "source_line_1based": 65,
+        "old_request_sha256": "14656d5cb078047935371422e704c6058a8a696e8369b5ac7ab6303c0ca9a61c",
+        "new_request_sha256": "504e16bc3d5b4beb4b82ce27bbf4d1b8d52736f3a3747ffc4dc2900ea759ed4f",
+        "unmodified_response_sha256": "6a211c386e69708ae3e916324128867567a59a792c07e8e40747d42dc536c1d9",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 22,
+        "mode": "PINNED",
+        "source_line_1based": 67,
+        "old_request_sha256": "c00389f7e3c3e57b8edd1bbf2ec3ccaa4a633dfebf497d48e21f791ecda4551f",
+        "new_request_sha256": "18a54860e38890c0221f3122bd54aa8da701215282279771a5806c3b40f0241e",
+        "unmodified_response_sha256": "2b7f2e144033cc966d25099430a9d6ab130e50b07f3eab3a1c1bff881af54fee",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 22,
+        "mode": "REWRITE",
+        "source_line_1based": 69,
+        "old_request_sha256": "70c695c9ad7032066fd71407594865da0630a6376c40744695fc1766518e8900",
+        "new_request_sha256": "345d2ebc9171ba41fc7ac748c3a492e1f80f2d78e759a58d575f73efb8c1d906",
+        "unmodified_response_sha256": "ae43a68ef4bcec4e98473794f3efec06a5e1bdc13b62170186f5fa574d1e03da",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 22,
+        "mode": "RECALL",
+        "source_line_1based": 68,
+        "old_request_sha256": "15d81bc4b050af5b04118efe162279d737f5872dde44890629ed821d385d868e",
+        "new_request_sha256": "fd75f270281f3740e8d0b86cc5ae5c2d633c00b43c90dec1e943c2c10611fc8e",
+        "unmodified_response_sha256": "d284077edb2fff099196888b51025c630e1b6e43692186b87f5c419cb8e34ee1",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 23,
+        "mode": "PINNED",
+        "source_line_1based": 70,
+        "old_request_sha256": "afde3e0fba875c7b50ec1ca2886ba14ecb4514e460d30141c054428c1037a4df",
+        "new_request_sha256": "53cd290a13df40be01cfa693a2f2ff4e85e5711dca8ebbcdb5dc02b238f92e9f",
+        "unmodified_response_sha256": "9bcbae32383eadb260efc417d285837ff843a5980ed1110272d312545efb6840",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 23,
+        "mode": "REWRITE",
+        "source_line_1based": 72,
+        "old_request_sha256": "c3ed7ea0d3e07e4729d644272408eca4f4e6cd756eff3d65bcec75a481595f7e",
+        "new_request_sha256": "ff9393d15ea3df7a01506fc68fc76e62f67897e1ac94818cdb038e2b50739c94",
+        "unmodified_response_sha256": "4a7668d447fbe3ce5d77849f5a71665e5222cd624ddb061fd3f0dcd56cf7de71",
+        "exact_new_request_and_prefix_checked": true
+      },
+      {
+        "item_index": 23,
+        "mode": "RECALL",
+        "source_line_1based": 71,
+        "old_request_sha256": "80a3b4f2fd2b1766fa545d476be679a2749884a5b21833b871b539ebfdf140ae",
+        "new_request_sha256": "14ab8fd0d7cfcc918a46173d8d3be96dd1bf02380f178374dd1540fdc7a2e62b",
+        "unmodified_response_sha256": "dee6c56dd3d1796f17594f477fd8da5a472795fa3d78a03f18999ade7ba4f546",
+        "exact_new_request_and_prefix_checked": true
+      }
+    ]
+  },
+  "items": [
+    {
+      "item_index": 0,
+      "class": "paraphrase",
+      "original_formula": "28 + 17 - 9",
+      "original_answer": "36",
+      "rewrite_formula": "28 + 17 - 9",
+      "rewrite_answer": "36",
+      "same_answer": true,
+      "formula_copy_preserved": true,
+      "source_invariant_review": "Only sentence wording changes; both print batches, the used quantity, and the requested remainder are preserved.",
+      "item_commitment": "7820648c56627b0e318caeaac3859f84d66d554ddf8c476e52eee0ceba99f8f0",
+      "content_hash": "12393ccb854b93b1336c61c2b9296994d59c963f5da53c4aad27f4700774bd88",
+      "rewrite_content_hash": "7407d9c11f5baf8095d324942308b554abadca6ef4306693bb88e8e65ce8d3ae",
+      "rewrite_hash": "75334e11e572dc96661c4355209d139c7d373659bdde1788ef2fe41b1159140b",
+      "precheck_error": "",
+      "cli_envelope_errors": [],
+      "original_prompt_chars": 233,
+      "rewrite_prompt_chars": 244
+    },
+    {
+      "item_index": 1,
+      "class": "numeral_substitution",
+      "original_formula": "4 * 8 + 3",
+      "original_answer": "35",
+      "rewrite_formula": "5 * 7 + 2",
+      "rewrite_answer": "37",
+      "same_answer": false,
+      "formula_copy_preserved": true,
+      "source_invariant_review": "Only the three numeric givens change: 4->5 boxes, 8->7 clips per box, 3->2 loose clips. Multiplication then addition is preserved.",
+      "item_commitment": "937f1ab97b660f18a0e23c4bab6885945a3d4529fa94fd04823800b51711f842",
+      "content_hash": "cb49bd4b8fc7f56931d65b4e4286e1b202ffd921c690add6e09a427620e7d3ab",
+      "rewrite_content_hash": "7059f0c069eb85a8ad2399a19dd32c6f81acd0ee168c48346bc45e599f3c767a",
+      "rewrite_hash": "52039a2f6c55369183a68c59bd318c0d1f66eb18638fb65c60daec490a9d27ba",
+      "precheck_error": "",
+      "cli_envelope_errors": [],
+      "original_prompt_chars": 246,
+      "rewrite_prompt_chars": 246
+    },
+    {
+      "item_index": 2,
+      "class": "entity_rename",
+      "original_formula": "18 - 5 + 7",
+      "original_answer": "20",
+      "rewrite_formula": "18 - 5 + 7",
+      "rewrite_answer": "20",
+      "same_answer": true,
+      "formula_copy_preserved": true,
+      "source_invariant_review": "Consistent name mapping Mira->Nila and Tomas->Daren; pronouns, transfer directions, quantities, and queried owner are unchanged.",
+      "item_commitment": "125423498b62b5755ae87bd2bec575e5fa5b409e60f7a45ea2ef490801a262e2",
+      "content_hash": "c3be273a6c5ee8fd458426e5aabad6e64e5d625640a83d3019329dedfe511cde",
+      "rewrite_content_hash": "5229bf6a950ea73bcae95a1c79d2ef978583d90350b1dbdae0ccbd881e6b66f8",
+      "rewrite_hash": "4e966b8843532356a1e1c144fcafa4479031721d059a69bf21306b5232e78929",
+      "precheck_error": "",
+      "cli_envelope_errors": [],
+      "original_prompt_chars": 249,
+      "rewrite_prompt_chars": 249
+    },
+    {
+      "item_index": 3,
+      "class": "unit_change",
+      "original_formula": "180 + 70",
+      "original_answer": "250",
+      "rewrite_formula": "(18 / 10) * 100 + (7 / 10) * 100",
+      "rewrite_answer": "250",
+      "same_answer": true,
+      "formula_copy_preserved": true,
+      "source_invariant_review": "180 cm = 1.8 m and 70 cm = 0.7 m exactly. Both physical lengths and the requested output in centimeters are unchanged.",
+      "item_commitment": "47921f82aefef507feb4fc0db66366acaaec72e7dee98bbd11247fad8bfede47",
+      "content_hash": "a7bb0f4657af51a43ac4dc6e43e2ec55d4e48259e0319d2fe723452b42cf27cc",
+      "rewrite_content_hash": "cb7c13b5c42e18aec883c818ca18c1d381be849dae01dd9bbe5c91eedab31f3d",
+      "rewrite_hash": "4d7e8ae5628334206c08e0693ee5039fea8357d2b12bcd3c6433c13ea30245e0",
+      "precheck_error": "",
+      "cli_envelope_errors": [],
+      "original_prompt_chars": 244,
+      "rewrite_prompt_chars": 235
+    },
+    {
+      "item_index": 4,
+      "class": "format_shift",
+      "original_formula": "6 * 7 - 4",
+      "original_answer": "38",
+      "rewrite_formula": "6 * 7 - 4",
+      "rewrite_answer": "38",
+      "same_answer": true,
+      "formula_copy_preserved": true,
+      "source_invariant_review": "The same three givens and the same remainder question are presented as a labeled inventory instead of a paragraph.",
+      "item_commitment": "be0df239ec53d2aa6ef74a5c5eb424e69585b061d6532a9522129456fc659e3e",
+      "content_hash": "06760ce1953f4ee0ae7f7126aac25b3709eff9dd92a954ef182539acb3ffd053",
+      "rewrite_content_hash": "fca3804909dc83c2811879c040e3a8290ef02a7d21a5d7820c5d5b783566f9b7",
+      "rewrite_hash": "8f3b8005019ca1c43444f35bb725b2b09deae1c4308cb3a9058f904f1a18d4d5",
+      "precheck_error": "",
+      "cli_envelope_errors": [],
+      "original_prompt_chars": 249,
+      "rewrite_prompt_chars": 247
+    },
+    {
+      "item_index": 5,
+      "class": "paraphrase",
+      "original_formula": "45 - 12 + 8",
+      "original_answer": "41",
+      "rewrite_formula": "45 - 12 + 8",
+      "rewrite_answer": "41",
+      "same_answer": true,
+      "formula_copy_preserved": true,
+      "source_invariant_review": "The initial stock, removal, later addition, and final-stock question are identical; only wording changes.",
+      "item_commitment": "238574a49e71806161680808333ed4409c83ab8c18cc81eb6078bb6eb6f01d04",
+      "content_hash": "c8cb3d4c4be340c9eb8ad4e42108e1012f8563fad1122432f7d64f66d9a3e3da",
+      "rewrite_content_hash": "fdaf11eccbb72129c7c817ac00d4e5345ce04fc7cd123ea552c338d59ba9103b",
+      "rewrite_hash": "c3369286f9c061b1ee00c24a2a93820a6d1b32995592c28f8d78b274b18801f5",
+      "precheck_error": "",
+      "cli_envelope_errors": [],
+      "original_prompt_chars": 248,
+      "rewrite_prompt_chars": 250
+    },
+    {
+      "item_index": 6,
+      "class": "numeral_substitution",
+      "original_formula": "7 * 6 - 5",
+      "original_answer": "37",
+      "rewrite_formula": "8 * 5 - 7",
+      "rewrite_answer": "33",
+      "same_answer": false,
+      "formula_copy_preserved": true,
+      "source_invariant_review": "Only 7->8 stands, 6->5 lanterns per stand, and 5->7 removed lanterns change. The same multiplication-minus-removal structure remains.",
+      "item_commitment": "d169fd199f21dd13546d0ab38f8387a58a18526a4eed9797bbd83270b017eef9",
+      "content_hash": "ebc9afd01065970e147a17c23725aa60fe20210e16ba3bfd123923b1938bbd62",
+      "rewrite_content_hash": "8ac0d7a1981a0f9c954c6917d5f346b7054e5d27ea2189f39ca572726274fb4e",
+      "rewrite_hash": "e3461e14d3ac26c9cc23092b82889dcc1420d54009ce42af8faeae1b69c33fc1",
+      "precheck_error": "",
+      "cli_envelope_errors": [],
+      "original_prompt_chars": 243,
+      "rewrite_prompt_chars": 243
+    },
+    {
+      "item_index": 7,
+      "class": "entity_rename",
+      "original_formula": "(18 + 24) / 6",
+      "original_answer": "7",
+      "rewrite_formula": "(18 + 24) / 6",
+      "rewrite_answer": "7",
+      "same_answer": true,
+      "formula_copy_preserved": true,
+      "source_invariant_review": "Only Lena->Noor and Rafi->Evan change. The two collections, equal division, and output per tray are preserved.",
+      "item_commitment": "b4b70cf176b187645d838ecdd13ef9b22379c79f99cb211e1cece95458368938",
+      "content_hash": "8203f5a9af6b612d0bae8e9459053dda048cea237f7018ce011f8abb013f4eb5",
+      "rewrite_content_hash": "460d894f63cd4f8c29971fe9dbd7ff0a14cc5898030772604bfd701deb9cb34b",
+      "rewrite_hash": "a59827cba89bc263020197f1d60b577a05d6b56b49041475e1193cdf049172a7",
+      "precheck_error": "",
+      "cli_envelope_errors": [],
+      "original_prompt_chars": 242,
+      "rewrite_prompt_chars": 242
+    },
+    {
+      "item_index": 8,
+      "class": "unit_change",
+      "original_formula": "2 * 1000 + 500",
+      "original_answer": "2500",
+      "rewrite_formula": "2000 + (1 / 2) * 1000",
+      "rewrite_answer": "2500",
+      "same_answer": true,
+      "formula_copy_preserved": true,
+      "source_invariant_review": "2 kg = 2000 g and 500 g = 0.5 kg exactly. Both masses and the requested total in grams remain identical.",
+      "item_commitment": "23e1f27e54e66c517f938055983bae231b49c2dad9e98fdd205525b4ed55ab3f",
+      "content_hash": "1c70e506e98654c740230cdec5c72147bc38909494399c76d2b12691bab35fba",
+      "rewrite_content_hash": "e371b8b5252befbeb23039de8c788e2d62504bc54c6bd0ae9033528cb2a8b146",
+      "rewrite_hash": "1c4d54fb035b96676a144bff977125ca1f519f587b10b51d68740e049a11dc13",
+      "precheck_error": "",
+      "cli_envelope_errors": [],
+      "original_prompt_chars": 235,
+      "rewrite_prompt_chars": 238
+    },
+    {
+      "item_index": 9,
+      "class": "format_shift",
+      "original_formula": "9 * 8 + 6",
+      "original_answer": "78",
+      "rewrite_formula": "9 * 8 + 6",
+      "rewrite_answer": "78",
+      "same_answer": true,
+      "formula_copy_preserved": true,
+      "source_invariant_review": "Paragraph converted to labeled fields; rack count, capacity, loose stock, and requested total are unchanged.",
+      "item_commitment": "49de9c58dff0048762b6eb8cd2ed9e7cf873b03e29bc089263691bf5500ac5d4",
+      "content_hash": "3fb3844e41a07fb687e86458218ef9e832cb93bb3c50b6fcc19205f82f7566cf",
+      "rewrite_content_hash": "72013574d3f953e642d1f29ebe582d2a14580fae8382f0056a1dca0dbbd8a185",
+      "rewrite_hash": "f2de1c45c4aa1556afc5dbcb28e0602719d945524caea7ad8c386145679c4be7",
+      "precheck_error": "",
+      "cli_envelope_errors": [],
+      "original_prompt_chars": 231,
+      "rewrite_prompt_chars": 232
+    },
+    {
+      "item_index": 10,
+      "class": "paraphrase",
+      "original_formula": "54 - 19 - 8",
+      "original_answer": "27",
+      "rewrite_formula": "54 - 19 - 8",
+      "rewrite_answer": "27",
+      "same_answer": true,
+      "formula_copy_preserved": true,
+      "source_invariant_review": "The same seating capacity, two boarding groups, no departures, and unused-seat question are retained.",
+      "item_commitment": "33487f1b63331e7fc74ef26fa144ba9390bef69786706d6c4ed4d1ae0020cad7",
+      "content_hash": "438d133a90dacfe55b56a5914a32216bcf5daf40e25667a24d97cf7d50f548bf",
+      "rewrite_content_hash": "bc500f1605e4c59a25ba3153bb2d2292bc1b02219854ed374dfe9835793b6542",
+      "rewrite_hash": "136c1855ecfee2c544d967e059c0a1db8337b788631d0e9a33f268e92b34773c",
+      "precheck_error": "",
+      "cli_envelope_errors": [],
+      "original_prompt_chars": 252,
+      "rewrite_prompt_chars": 266
+    },
+    {
+      "item_index": 11,
+      "class": "numeral_substitution",
+      "original_formula": "9 * 4 + 6",
+      "original_answer": "42",
+      "rewrite_formula": "7 * 5 + 8",
+      "rewrite_answer": "43",
+      "same_answer": false,
+      "formula_copy_preserved": true,
+      "source_invariant_review": "Only 9->7 bundles, 4->5 per bundle, and 6->8 singles change. The requested total uses the same multiplication-plus-addition structure.",
+      "item_commitment": "208646aef5946c9e2b39fea0d5390f1079fb3f121910a6fea8aa62406f6ce7ee",
+      "content_hash": "4b96e74a7fb38507bb2e909696dd79ef8dc7660fd75ec70547f5cc40ec6c3eb8",
+      "rewrite_content_hash": "ada8c84b1baaf96fb187ffc0c94f986ae05083f27ff7c918e47ba9b76eb60aeb",
+      "rewrite_hash": "e20ed60d925973e161fad62883277b14b4f78484440cd5159e9aa3e655d33ffd",
+      "precheck_error": "",
+      "cli_envelope_errors": [],
+      "original_prompt_chars": 240,
+      "rewrite_prompt_chars": 240
+    },
+    {
+      "item_index": 12,
+      "class": "entity_rename",
+      "original_formula": "(12 + 6) / 3",
+      "original_answer": "6",
+      "rewrite_formula": "(12 + 6) / 3",
+      "rewrite_answer": "6",
+      "same_answer": true,
+      "formula_copy_preserved": true,
+      "source_invariant_review": "Only Ada->Iris and Bruno->Cedric change. Both contributions, equal sharing, and output per bag are the same.",
+      "item_commitment": "61853d82981790c67a01802e9e9eec506a0ecdb02a8bab5f507990fdb5c77c27",
+      "content_hash": "360e7f3496c4ae7b5550e24cd39d98a31293125671bd953c780780c78301501b",
+      "rewrite_content_hash": "6eef265b153b5b70c2e8e7c9e34a0985c0f0e04cd83f5383619ba0f89542eb1e",
+      "rewrite_hash": "f8166ca4dde2773c9d7819e90c827d97091914e0de2c29ed623129e81869eb3c",
+      "precheck_error": "",
+      "cli_envelope_errors": [],
+      "original_prompt_chars": 240,
+      "rewrite_prompt_chars": 242
+    },
+    {
+      "item_index": 13,
+      "class": "unit_change",
+      "original_formula": "4 * 60 + 30",
+      "original_answer": "270",
+      "rewrite_formula": "240 + (1 / 2) * 60",
+      "rewrite_answer": "270",
+      "same_answer": true,
+      "formula_copy_preserved": true,
+      "source_invariant_review": "4 minutes = 240 seconds and 30 seconds = 0.5 minutes exactly. Durations, sequence, absence of a pause, and output in seconds are unchanged.",
+      "item_commitment": "6b7aa20bb1032669895efdfd5929166de8ced561371464e788839114d90b26ea",
+      "content_hash": "1475cd2cdd94feac3cb87aa1a7f11d34ee3760a8d606c625a72830c412584720",
+      "rewrite_content_hash": "0e3127c080bc3dad42b1c35cb11e71887b36f0f11420ac19b64481734c22f23a",
+      "rewrite_hash": "adeeae5ec8e936af8d5f54e2bd869fd36adb45a6e0aa96ad3d59bf19d385bb75",
+      "precheck_error": "",
+      "cli_envelope_errors": [],
+      "original_prompt_chars": 246,
+      "rewrite_prompt_chars": 249
+    },
+    {
+      "item_index": 14,
+      "class": "format_shift",
+      "original_formula": "64 - 18 + 7",
+      "original_answer": "53",
+      "rewrite_formula": "64 - 18 + 7",
+      "rewrite_answer": "53",
+      "same_answer": true,
+      "formula_copy_preserved": true,
+      "source_invariant_review": "The chronological stock record is converted into labeled lines; all quantities, operations, and the final count are preserved.",
+      "item_commitment": "1620e2c9f0642ab9ec32cefda6a449e3c51b01c44d7ffabcebaa3159fd4d7294",
+      "content_hash": "c6fbb3551242fc18c9ac1aab16838b64e64b4b004e1b1d34a6950de661fc2737",
+      "rewrite_content_hash": "8ac70876393a614546553ea67e982e555c19951bab7d0212f1b701969e3f135f",
+      "rewrite_hash": "cf55aa55fdc1de97acdf46a464f8e91293dab8e6778c1ceb46c7d8b8535c60af",
+      "precheck_error": "",
+      "cli_envelope_errors": [],
+      "original_prompt_chars": 242,
+      "rewrite_prompt_chars": 231
+    },
+    {
+      "item_index": 15,
+      "class": "paraphrase",
+      "original_formula": "5 * 6 / 3",
+      "original_answer": "10",
+      "rewrite_formula": "5 * 6 / 3",
+      "rewrite_answer": "10",
+      "same_answer": true,
+      "formula_copy_preserved": true,
+      "source_invariant_review": "Sleeve count, discs per sleeve, number of recipients, equal sharing, and no reserve are unchanged; only wording changes.",
+      "item_commitment": "018cc3555aa68fd16a86de3e5cebe892408dc34823eda85a0e7468e836f76ec8",
+      "content_hash": "d3098cc4768ac949f73b066add5eb16a21aaa5c27c1508e199399ce6afd209c4",
+      "rewrite_content_hash": "488fe9fe107e87244b9c634256097d08fd77b5dedb3a707e7071b8fbb160b150",
+      "rewrite_hash": "f9332d86e292571e9e0883e7c977a3f400eba6d6999f6757c79dc6a9cb11f194",
+      "precheck_error": "",
+      "cli_envelope_errors": [],
+      "original_prompt_chars": 260,
+      "rewrite_prompt_chars": 230
+    },
+    {
+      "item_index": 16,
+      "class": "numeral_substitution",
+      "original_formula": "(24 - 4) / 2",
+      "original_answer": "10",
+      "rewrite_formula": "(27 - 6) / 3",
+      "rewrite_answer": "7",
+      "same_answer": false,
+      "formula_copy_preserved": true,
+      "source_invariant_review": "Only 24->27 total batteries, 4->6 unusable, and 2->3 per lantern change. Subtraction followed by exact division remains the task.",
+      "item_commitment": "d91e67106d422777570cd75a54f67b44126574ccf04d858ab1b09aec890ed008",
+      "content_hash": "f07eedb6ad8c0a6ac2f32db87eb9c065fd130b1df46576cd31373b4ba78b58ea",
+      "rewrite_content_hash": "6512eeb90b9732111a7fb35185e49e858075234577e8a36b7d9aea6137411e26",
+      "rewrite_hash": "8b35bd6a7828e01e54114b67e7ba0fbfef92ab6ad533aeea47b1cff8fbc966b2",
+      "precheck_error": "",
+      "cli_envelope_errors": [],
+      "original_prompt_chars": 250,
+      "rewrite_prompt_chars": 250
+    },
+    {
+      "item_index": 17,
+      "class": "entity_rename",
+      "original_formula": "4 * 11 - 6",
+      "original_answer": "38",
+      "rewrite_formula": "4 * 11 - 6",
+      "rewrite_answer": "38",
+      "same_answer": true,
+      "formula_copy_preserved": true,
+      "source_invariant_review": "Only Davi->Oren and Suri->Tali change. Packing, removal, quantities, and remaining-delivery question are preserved.",
+      "item_commitment": "e8787fa392d62e25ba4b80f3999a15f2186271e2bf7dd6140257c6d812850926",
+      "content_hash": "b58018cfc08070fcfec517357ea4a471c534cdcf702ca6b9eb54d13abf983d6b",
+      "rewrite_content_hash": "e168fd8f28e82219951e566cc9f47024dcac7a222e33606fb0e5cf0683c2c84b",
+      "rewrite_hash": "06dd9d709d8f5359ebb1bc3d8a7447ce33a6839ae4191d0d8b400c739d291874",
+      "precheck_error": "",
+      "cli_envelope_errors": [],
+      "original_prompt_chars": 259,
+      "rewrite_prompt_chars": 259
+    },
+    {
+      "item_index": 18,
+      "class": "unit_change",
+      "original_formula": "1250 + 750",
+      "original_answer": "2000",
+      "rewrite_formula": "(125 / 100) * 1000 + (75 / 100) * 1000",
+      "rewrite_answer": "2000",
+      "same_answer": true,
+      "formula_copy_preserved": true,
+      "source_invariant_review": "1250 m = 1.25 km and 750 m = 0.75 km exactly. Both physical lengths and the total requested in meters are preserved.",
+      "item_commitment": "7bf1a6d4b462cc4461b81b288518af367df9df9b7b66a8367d3a09d69645a8b0",
+      "content_hash": "a754e610db2788848f9f6df59bcbc0d8b6c3f0283879abd90cf1c62cf58f7293",
+      "rewrite_content_hash": "f967bcf8ab9c8e2ffb5674fbd7a7572af2931da23f771281dbb9d47c026fa3c8",
+      "rewrite_hash": "398a89b51158d263e39ceca1d7c5bb0cdda407a2dffd083de8a782ab768ab40c",
+      "precheck_error": "",
+      "cli_envelope_errors": [],
+      "original_prompt_chars": 244,
+      "rewrite_prompt_chars": 253
+    },
+    {
+      "item_index": 19,
+      "class": "format_shift",
+      "original_formula": "72 / 8 + 5",
+      "original_answer": "14",
+      "rewrite_formula": "72 / 8 + 5",
+      "rewrite_answer": "14",
+      "same_answer": true,
+      "formula_copy_preserved": true,
+      "source_invariant_review": "The same packing operation and already packed stock are presented as fields, without changing quantities or the total-packets question.",
+      "item_commitment": "9c1301acc7259e615b6e5f56c1151189ac384db9737c5aec44c27de27e739bd6",
+      "content_hash": "f821342288ab57260abfceb728e7fd475a5579ca0271cabef39781e57feb12f6",
+      "rewrite_content_hash": "2c89c5d837c9fadc7299711cf09b9a08efb2848d3f3c621571dbf4b5c1039f69",
+      "rewrite_hash": "66d5e62ef4594c15f0648b97b30e088225d2a540526ed71a9df6774085d2c245",
+      "precheck_error": "",
+      "cli_envelope_errors": [],
+      "original_prompt_chars": 244,
+      "rewrite_prompt_chars": 250
+    },
+    {
+      "item_index": 20,
+      "class": "paraphrase",
+      "original_formula": "7 * 5 - 8",
+      "original_answer": "27",
+      "rewrite_formula": "7 * 5 - 8",
+      "rewrite_answer": "27",
+      "same_answer": true,
+      "formula_copy_preserved": true,
+      "source_invariant_review": "All carton counts, contents, giveaway quantity, and the requested remainder are unchanged; only prose is rephrased.",
+      "item_commitment": "9cdca6fd2f405812dc6ac385063155a908f1f0d21bec443fc7dcd42052aea627",
+      "content_hash": "4c6f0f939ade7cc5d4dac7ee83db6a2c4718db23802d4ccc4176ad43c82c8a20",
+      "rewrite_content_hash": "b842265f5bd8023aa6bf2242f8019548158727e9ce3d486cfc6cf8ae9cd8e0dc",
+      "rewrite_hash": "811d3626643d7b01269fc1bc852a9a03f88183e30513f13023c1832be1e5486c",
+      "precheck_error": "",
+      "cli_envelope_errors": [],
+      "original_prompt_chars": 250,
+      "rewrite_prompt_chars": 260
+    },
+    {
+      "item_index": 21,
+      "class": "numeral_substitution",
+      "original_formula": "36 / 6 + 4",
+      "original_answer": "10",
+      "rewrite_formula": "48 / 8 + 3",
+      "rewrite_answer": "9",
+      "same_answer": false,
+      "formula_copy_preserved": true,
+      "source_invariant_review": "Only 36->48 shared badges, 6->8 volunteers, and 4->3 extras per person change. Equal division then a per-person addition is preserved.",
+      "item_commitment": "97265fcd9f7d94b667806750b37755f963c44ebe825567fe8810c0706dbbbccf",
+      "content_hash": "a8709ac648e01fd9d0195d2e7122a0e5a5464421fc981a3fab6126aaadae7075",
+      "rewrite_content_hash": "53a5e31fa6fd0f3b6a27d7b011e7c82dacd099026bd69d4cd04ec69165d1f309",
+      "rewrite_hash": "bb9d748bb922f726a3d4c6efb0a6712210b4857b315a4e3fa4b4c8b6060d612f",
+      "precheck_error": "",
+      "cli_envelope_errors": [],
+      "original_prompt_chars": 252,
+      "rewrite_prompt_chars": 252
+    },
+    {
+      "item_index": 22,
+      "class": "entity_rename",
+      "original_formula": "31 + 8 - 5",
+      "original_answer": "34",
+      "rewrite_formula": "31 + 8 - 5",
+      "rewrite_answer": "34",
+      "same_answer": true,
+      "formula_copy_preserved": true,
+      "source_invariant_review": "Consistent mapping Priya->Yuna, Marco->Felix, Nera->Asha. Quantities, directions of exchange, and the queried box remain identical.",
+      "item_commitment": "e946951db4cd21dd0ec176d943fc1ed168dff4761a54d5f38d1656b21fc9c2fa",
+      "content_hash": "7f8b18dc735fbdc864f5b8fc8364b51421fdeb083d16843bafb2d6e859e715b9",
+      "rewrite_content_hash": "cda122ae6c3dc74644b862b55dfa35d62c05488acc79e31fbb5b45b36626bd8d",
+      "rewrite_hash": "e8059f2ed5582a5eab17f9128ed314833aa20f2797ad1a2cebe453a9a1a59650",
+      "precheck_error": "",
+      "cli_envelope_errors": [],
+      "original_prompt_chars": 240,
+      "rewrite_prompt_chars": 238
+    },
+    {
+      "item_index": 23,
+      "class": "unit_change",
+      "original_formula": "900 + 600",
+      "original_answer": "1500",
+      "rewrite_formula": "(9 / 10) * 1000 + (6 / 10) * 1000",
+      "rewrite_answer": "1500",
+      "same_answer": true,
+      "formula_copy_preserved": true,
+      "source_invariant_review": "900 mL = 0.9 L and 600 mL = 0.6 L exactly. Both volumes, complete transfer, and output in milliliters are preserved.",
+      "item_commitment": "9bf8614cf537e45d19e3d0aefa6cb14cdf430cf2d3ecbf2a5a1ea8146e705f35",
+      "content_hash": "e74d35b0629149cf3144cd570be660867f91230aeac87533bd5e492212d9c965",
+      "rewrite_content_hash": "ee7941a86c61218960f91208878bc636bd0e0669185e5baabefe7ee523a6a593",
+      "rewrite_hash": "d222bdf531e7d6f225c43cd60798516d87cb4765cbc8929b8e3fe0c3a17b39a1",
+      "precheck_error": "",
+      "cli_envelope_errors": [],
+      "original_prompt_chars": 261,
+      "rewrite_prompt_chars": 251
+    }
+  ],
+  "controls": [
+    {
+      "item_index": 0,
+      "class": "paraphrase",
+      "formula": "28 + 17 + 9",
+      "computed_answer": "54",
+      "supplied_answer": "36",
+      "scripted_referee_framings": [
+        "INADMISSIBLE",
+        "INADMISSIBLE"
+      ],
+      "source_reason": "Intentional negative control: removal of 9 is changed to receipt of 9, and the supplied answer is incorrect. This is not a paraphrase."
+    },
+    {
+      "item_index": 1,
+      "class": "numeral_substitution",
+      "formula": "5 * 7 + 2",
+      "computed_answer": "37",
+      "supplied_answer": "38",
+      "scripted_referee_framings": [
+        "INADMISSIBLE",
+        "INADMISSIBLE"
+      ],
+      "source_reason": "Intentional negative control: the numeric substitution has the correct structure, but 5*7+2 is 37 rather than the supplied 38."
+    },
+    {
+      "item_index": 2,
+      "class": "entity_rename",
+      "formula": "18 - 5 - 7",
+      "computed_answer": "6",
+      "supplied_answer": "6",
+      "scripted_referee_framings": [
+        "INADMISSIBLE",
+        "INADMISSIBLE"
+      ],
+      "source_reason": "Intentional negative control with a correct answer key: the second transfer now goes away from the queried owner. Entity renaming may not reverse that relation."
+    },
+    {
+      "item_index": 3,
+      "class": "unit_change",
+      "formula": "(18 * 100) // 10 + 7 * 100",
+      "computed_answer": "880",
+      "supplied_answer": "880",
+      "scripted_referee_framings": [
+        "INADMISSIBLE",
+        "INADMISSIBLE"
+      ],
+      "source_reason": "Intentional negative control with a correct answer key: 70 centimeters became 7 meters rather than 0.7 meters. The physical blue-ribbon length is ten times larger."
+    }
+  ],
+  "artifact_sha256": [
+    {
+      "path": "calibration/claim-court24-v3.json",
+      "sha256": "17577cd188fa66c5735bc1e1228c335ee51743631ab9981b01f371d1653fbe61"
+    },
+    {
+      "path": "calibration/court24-v3.items.json",
+      "sha256": "bc4bdd39e13c8d5cc23c7528934adcbaca8eb1becb0341d889b127ebc39b8d13"
+    },
+    {
+      "path": "examples/court24-v3/controls/00-INADMISSIBLE-paraphrase.json",
+      "sha256": "def94c96f1af1ae090bce0600177a3dc8497250560df8778a3f9bff779fab5c7"
+    },
+    {
+      "path": "examples/court24-v3/controls/01-INADMISSIBLE-numeral-substitution.json",
+      "sha256": "60a2c3f532aceaf55adaaeb67eb7bc7065ad17a7c70d3439d4c42d642647619a"
+    },
+    {
+      "path": "examples/court24-v3/controls/02-INADMISSIBLE-entity-rename.json",
+      "sha256": "4ed322308e682c6477156ae1d5935612c3f36ae4674131beaf28c0cd76b018d5"
+    },
+    {
+      "path": "examples/court24-v3/controls/03-INADMISSIBLE-unit-change.json",
+      "sha256": "d5276e88055ad53d66ec234c22611b72b0968610732b9e43a37d3199bdf9f8b2"
+    },
+    {
+      "path": "examples/court24-v3/rewrites/00-paraphrase.json",
+      "sha256": "297ab70dc4ce26594a6c75c49407c1b3ff91f88fc988d1271ff0ffcf47a2327a"
+    },
+    {
+      "path": "examples/court24-v3/rewrites/01-numeral-substitution.json",
+      "sha256": "f5a01b2d4b1fb6c96cb9d9e1ef436c69eeee8b50784c850d3c65e6fc988b60e9"
+    },
+    {
+      "path": "examples/court24-v3/rewrites/02-entity-rename.json",
+      "sha256": "5e312060a61d45074162ab1ccf338f6998c292c95caaaba0e34b13857806caa9"
+    },
+    {
+      "path": "examples/court24-v3/rewrites/03-unit-change.json",
+      "sha256": "35a38066eb3266d81c7286ca5d0ebc3ed0979bd08f9a246710789ec25dbddb8e"
+    },
+    {
+      "path": "examples/court24-v3/rewrites/04-format-shift.json",
+      "sha256": "e7431a8322662560db66ba6d95433f9633cd38b36be7aeabf6dd6bf8f060ffac"
+    },
+    {
+      "path": "examples/court24-v3/rewrites/05-paraphrase.json",
+      "sha256": "655f26bb518ccaf590d0a8b81896cd0f9403a3d454b43dea0abb0bbe4b163cb0"
+    },
+    {
+      "path": "examples/court24-v3/rewrites/06-numeral-substitution.json",
+      "sha256": "06e619c9b2326e861303ab7fa506cd5f5dd54bfb9ec45751b525b2aaed43cd3f"
+    },
+    {
+      "path": "examples/court24-v3/rewrites/07-entity-rename.json",
+      "sha256": "6feb7994073d4ed9b9bf3b4c52d61b2c72f76bb9ac0b8627139eb3cdf2a54e85"
+    },
+    {
+      "path": "examples/court24-v3/rewrites/08-unit-change.json",
+      "sha256": "0ac6ebd841e9ab9b0757c61ede22006e2c500d70f8d0d5b41893915f8bc1ae02"
+    },
+    {
+      "path": "examples/court24-v3/rewrites/09-format-shift.json",
+      "sha256": "bcc132d44007a702c82b0c34e689620ff2143d4d73d093aa34c386b621c3c128"
+    },
+    {
+      "path": "examples/court24-v3/rewrites/10-paraphrase.json",
+      "sha256": "5da9291f2ae546d9ea22118e4a4886a1e5bc6c1609e3bec004753ebdee8d65e1"
+    },
+    {
+      "path": "examples/court24-v3/rewrites/11-numeral-substitution.json",
+      "sha256": "e36fa8cd41dca0511f1d26253eddc75bbcf64a7845dfda03afbd8e1753d2bc3a"
+    },
+    {
+      "path": "examples/court24-v3/rewrites/12-entity-rename.json",
+      "sha256": "25a9d3de77e77c92c70120d8534949777d7cc52e94d2575b468aedef1c72f729"
+    },
+    {
+      "path": "examples/court24-v3/rewrites/13-unit-change.json",
+      "sha256": "c9c928a329fa1e1b2c30076f0b75e4f07b091ba75fb4b27c1fd0035c256a3d34"
+    },
+    {
+      "path": "examples/court24-v3/rewrites/14-format-shift.json",
+      "sha256": "75ff71493c2f038b7a57787ec2f9cf381ccc2b5cd824b9aa2b57447697e3673a"
+    },
+    {
+      "path": "examples/court24-v3/rewrites/15-paraphrase.json",
+      "sha256": "9e0672dc8af16f3fb90eea7df4857efe671623621a5ca70f8c1d084555f7df90"
+    },
+    {
+      "path": "examples/court24-v3/rewrites/16-numeral-substitution.json",
+      "sha256": "5c3e3a7361391ba2f85399bc1c85ae427b24106bde0eb8d1cf7167c8cc9f262a"
+    },
+    {
+      "path": "examples/court24-v3/rewrites/17-entity-rename.json",
+      "sha256": "4878ae93026c8767e331df0fc02bd3edd66ae49dcb557e5a205f1feea8c43250"
+    },
+    {
+      "path": "examples/court24-v3/rewrites/18-unit-change.json",
+      "sha256": "3daf53543f786218d814402f9f8f25bca17ddaaf8720b6ab26062849a450d3eb"
+    },
+    {
+      "path": "examples/court24-v3/rewrites/19-format-shift.json",
+      "sha256": "d75c1c5f96f33c44821ac38c359e7cd8b50e307c1eba3e0f3f516720a6681362"
+    },
+    {
+      "path": "examples/court24-v3/rewrites/20-paraphrase.json",
+      "sha256": "fa6484c2e596f98cc0dd675f2d151ccba332aefe9dacfc6419ee42d6d8af37ee"
+    },
+    {
+      "path": "examples/court24-v3/rewrites/21-numeral-substitution.json",
+      "sha256": "a2e7f77dc958cbe10fdba549cc2bcf81ec00f7bd7575b1c13df5795616d3c403"
+    },
+    {
+      "path": "examples/court24-v3/rewrites/22-entity-rename.json",
+      "sha256": "8b588ead87c274d0ff2d142b7b368aea9a6005b4e7a6ada9b2bca8ac0e2d2f61"
+    },
+    {
+      "path": "examples/court24-v3/rewrites/23-unit-change.json",
+      "sha256": "e21ce0b1522e7433f8d2014b165f242f291888f5eda306449cc50b0b39f74ff1"
+    }
+  ]
+}
