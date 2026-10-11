@@ -1,0 +1,10 @@
+{
+  "key": "retire:1",
+  "tx": "0x39c253d1bf3fbc11420b7b3f53e8cfd9d22390b61dafeb362c34b3664f2be4f0",
+  "method": "retire_claim",
+  "at": 1791717146,
+  "address": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+  "signature": "b8a1ef97acf6571f1d4cd27be97a8ebee8e79620e8e3fe6e31bee04c27e95640",
+  "step": "retire",
+  "claim_id": 1
+}

@@ -1,0 +1,16 @@
+{
+  "began_at": "2026-10-11 10:52:29 UTC",
+  "expiry": "2026-10-11T14:51:29Z",
+  "epoch": 1791730289,
+  "commit": "db97d705688cf6f15cb9de30ac36b0abe32b8922",
+  "project_id": "prj_XfWwyavkvJrHl210SIcpOKEh9Zh9",
+  "team_id": "team_k7iVbqImwnCXn8cgWJOcjJuB",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "provider": "deepinfra/fp8",
+  "shared_lifetime_budget_usd": 5,
+  "legacy_enabled": false,
+  "v2_enabled": false,
+  "v3_enabled": true,
+  "key_reuploaded": false,
+  "state": "ENV_CONFIGURED_DEPLOYMENT_NOT_YET_VERIFIED"
+}

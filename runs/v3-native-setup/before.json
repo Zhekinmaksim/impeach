@@ -1,0 +1,11 @@
+{
+  "at": 1791716364.231402,
+  "counts": {
+    "challenges": 2,
+    "claims": 2,
+    "spent": 48
+  },
+  "preflight_sha256": "c3e68e328cb71d3f2d4cbed70cb37dd20f615b8def7c53b978752b46fff83be6",
+  "activation_sha256": "da704b4d8b19dd3176abedd47b04f9d102d3c0ac989aeb81ae9300062d35a726",
+  "wrapper_sha256": "f9e69de98cba6a8816a68bb6361567c3a66e51522addd6daf4133f4945203581"
+}

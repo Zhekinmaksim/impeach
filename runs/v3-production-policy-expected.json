@@ -1,0 +1,8 @@
+{
+  "at": "2026-10-11T10:54:58.335Z",
+  "claim": "calibration/claim-court24-v3.json",
+  "request_count": 72,
+  "request_json_sha256": "a29524895890629b37608e5c2b9fbe6c5e9e83509cfb82864b18b94e73cbdfd4",
+  "gateway_policy_sha256": "165a05a76d4a046448ef2e3da448c1e1148de9043950adb2bc07906af4466693",
+  "encoding": "SHA256 of sorted canonical requests joined with LF; matches deployed gateway GET policy_sha256"
+}

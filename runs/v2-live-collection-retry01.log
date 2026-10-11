@@ -1,0 +1,6 @@
+109 transactions: FINALIZED 109
+  ADMIT    FINALIZED 30
+  PINNED   FINALIZED 24
+  RECALL   FINALIZED 24
+  REWRITE  FINALIZED 26
+1 cases, 72 registry rows -> runs/v2-live-case.json

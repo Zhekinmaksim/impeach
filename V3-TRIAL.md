@@ -1,12 +1,19 @@
 # Fresh full trial after the v2 storage discrepancy
 
-Prepared on 11 October 2026. No v3 native result is claimed in this snapshot.
+Active on 11 October 2026: native claim/challenge **2/2**. The trial began
+at **11:00:47 UTC (16:00:47 Tashkent)** and ends at **17:00:47 UTC**.
+The model gateway expires at **14:51:29 UTC (19:51:29 Tashkent)**; new
+subject dispatch stops at 14:49:29 UTC. No v3 native verdict is claimed yet.
 The court remains `0x45F610cefF1ed367d684A1839b1801Af12Cfb038` on Bradbury,
 chain 4221; deployed source and artifact are unchanged. V2 finalized all 107
 transactions but retained only 23 C2 admissions. Its pending item 14, reviewed
 appeal and rejected partial-closure attempt remain in
 [the handoff](runs/v2-live-final-native-handoff.json) and [V2-TRIAL.md](V2-TRIAL.md).
-No partial ruling is sent without the user's separate authorization.
+The user separately authorized closing the partial v2 case. Its
+[rule](runs/v2-c1-rule-final-native.json) is finalized `CLEAN` with 23 admitted
+pairs, and [retirement](runs/v2-c1-retire-final-native.json) is finalized with
+the 0.1 GEN bond credited to the publisher. The credited bond has not yet been
+withdrawn to the wallet.
 
 ## What is frozen
 
@@ -46,7 +53,9 @@ scripted admission, not native validator consensus.
 Use one account writer and one manifest,
 `runs/bradbury-v3-live.jsonl`. Read the current counters instead of assuming
 claim/challenge IDs; the [preflight](runs/v3-native-preflight.json) observed
-2/2 as the next IDs and all 48 new commitment/text checks unspent.
+all 48 new commitment/text checks unspent. The
+[accepted setup](runs/v3-native-setup/result.json) confirms IDs 2/2 and the
+actual six-hour trial clock.
 
 Activate only `/api/live-v3/chat/completions` using `TRIAL_V3_ENABLED`.
 The legacy and v2 paid routes stay off. Record the actual UTC expiry and

@@ -1,0 +1,36 @@
+{
+  "began_at": "2026-10-11 10:52:29 UTC",
+  "expiry": "2026-10-11T14:51:29Z",
+  "epoch": 1791730289,
+  "commit": "db97d705688cf6f15cb9de30ac36b0abe32b8922",
+  "project_id": "prj_XfWwyavkvJrHl210SIcpOKEh9Zh9",
+  "team_id": "team_k7iVbqImwnCXn8cgWJOcjJuB",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "provider": "deepinfra/fp8",
+  "shared_lifetime_budget_usd": 5,
+  "legacy_enabled": false,
+  "v2_enabled": false,
+  "v3_enabled": true,
+  "key_reuploaded": false,
+  "state": "PUBLIC_DEPLOYMENT_VERIFIED_BEFORE_NATIVE_OPEN",
+  "verified_at": "2026-10-11T10:56:38.546398+00:00",
+  "deployment": "https://impeach-imtw7kv1n-zhekinmaksim-8919s-projects.vercel.app",
+  "policy": {
+    "at": "2026-10-11T10:54:58.335Z",
+    "claim": "calibration/claim-court24-v3.json",
+    "request_count": 72,
+    "request_json_sha256": "a29524895890629b37608e5c2b9fbe6c5e9e83509cfb82864b18b94e73cbdfd4",
+    "gateway_policy_sha256": "165a05a76d4a046448ef2e3da448c1e1148de9043950adb2bc07906af4466693",
+    "encoding": "SHA256 of sorted canonical requests joined with LF; matches deployed gateway GET policy_sha256"
+  },
+  "preflight_cost_usd": 6.54e-06,
+  "preflight_sha256": "98f99facf2b98b42c7e2bb9dbc31d6d425717db0fd4a593829a8e165494530d4",
+  "model_measurement": "runs/v3-llama-verified-audit.json",
+  "referee_measurement": "runs/v3-referee-verified.json",
+  "ci": {
+    "run_id": 38133478155,
+    "head_sha": "db97d705688cf6f15cb9de30ac36b0abe32b8922",
+    "conclusion": "success",
+    "url": "https://github.com/Zhekinmaksim/impeach/actions/runs/38133478155"
+  }
+}

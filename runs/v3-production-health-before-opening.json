@@ -1,0 +1,53 @@
+{
+  "at": "2026-10-11T10:55:00.606839+00:00",
+  "deployment": "https://impeach-imtw7kv1n-zhekinmaksim-8919s-projects.vercel.app",
+  "commit": "db97d705688cf6f15cb9de30ac36b0abe32b8922",
+  "routes": {
+    "https://impeach.vercel.app/api/chat/completions": {
+      "http_status": 200,
+      "body": {
+        "service": "impeach-openrouter",
+        "enabled": false,
+        "status": "trial_disabled"
+      }
+    },
+    "https://impeach.vercel.app/api/live-v2/chat/completions": {
+      "http_status": 200,
+      "body": {
+        "service": "impeach-openrouter",
+        "enabled": false,
+        "status": "trial_disabled"
+      }
+    },
+    "https://impeach.vercel.app/api/live-v3/chat/completions": {
+      "http_status": 200,
+      "body": {
+        "service": "impeach-openrouter",
+        "enabled": true,
+        "status": "configured",
+        "model": "meta-llama/llama-3.1-8b-instruct",
+        "provider": "deepinfra/fp8",
+        "expires_at": "2026-10-11T14:51:29.000Z",
+        "credit_only": true,
+        "allowed_requests": 72,
+        "policy_sha256": "165a05a76d4a046448ef2e3da448c1e1148de9043950adb2bc07906af4466693"
+      }
+    }
+  },
+  "arbitrary": {
+    "http_status": 403,
+    "body": {
+      "error": {
+        "code": "request_not_in_trial"
+      }
+    }
+  },
+  "other_model": {
+    "http_status": 403,
+    "body": {
+      "error": {
+        "code": "request_not_in_trial"
+      }
+    }
+  }
+}

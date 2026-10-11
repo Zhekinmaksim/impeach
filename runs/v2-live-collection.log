@@ -1,0 +1,51 @@
+Traceback (most recent call last):
+  File "/Users/zmaxx/Projects/impeach/scripts/collect.py", line 158, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/Users/zmaxx/Projects/impeach/scripts/collect.py", line 111, in main
+    case = snapshot.build_case(read, cid, txs=txs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/zmaxx/Projects/impeach/scripts/snapshot.py", line 35, in build_case
+    item = read("get_item", claim_id, i)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/zmaxx/Projects/impeach/scripts/collect.py", line 76, in read
+    return tool.chain_call(args.address, method, list(call_args), args.rpc, args.timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/zmaxx/Projects/impeach/cli/impeach.py", line 389, in chain_call
+    raise RuntimeError((result.stdout + result.stderr).strip())
+RuntimeError: GenLayer RPC error (gen_call): fetch failed
+file:///Users/zmaxx/.nvm/versions/node/v20.20.2/lib/node_modules/genlayer/node_modules/viem/_esm/utils/buildRequest.js:127
+                        throw new UnknownRpcError(err);
+                              ^
+
+UnknownRpcError: An unknown RPC error occurred.
+
+Details: fetch failed
+Version: viem@2.50.4
+    at withRetry.delay.count.count (file:///Users/zmaxx/.nvm/versions/node/v20.20.2/lib/node_modules/genlayer/node_modules/viem/_esm/utils/buildRequest.js:127:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async attemptRetry (file:///Users/zmaxx/.nvm/versions/node/v20.20.2/lib/node_modules/genlayer/node_modules/viem/_esm/utils/promise/withRetry.js:24:30) {
+  details: 'fetch failed',
+  docsPath: undefined,
+  metaMessages: undefined,
+  shortMessage: 'An unknown RPC error occurred.',
+  version: '2.50.4',
+  code: -1,
+  [cause]: TypeError: fetch failed
+      at node:internal/deps/undici/undici:14976:13
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async Object.request (file:///Users/zmaxx/.nvm/versions/node/v20.20.2/lib/node_modules/genlayer/node_modules/genlayer-js/dist/index.js:2396:26)
+      at async withRetry.delay.count.count (file:///Users/zmaxx/.nvm/versions/node/v20.20.2/lib/node_modules/genlayer/node_modules/viem/_esm/utils/buildRequest.js:30:24)
+      at async attemptRetry (file:///Users/zmaxx/.nvm/versions/node/v20.20.2/lib/node_modules/genlayer/node_modules/viem/_esm/utils/promise/withRetry.js:24:30) {
+    [cause]: ConnectTimeoutError: Connect Timeout Error (attempted addresses: 172.67.210.182:443, timeout: 10000ms)
+        at onConnectTimeout (node:internal/deps/undici/undici:2746:28)
+        at Immediate._onImmediate (node:internal/deps/undici/undici:2727:11)
+        at process.processImmediate (node:internal/timers:483:21) {
+      code: 'UND_ERR_CONNECT_TIMEOUT',
+      [Symbol(undici.error.UND_ERR)]: true,
+      [Symbol(undici.error.UND_ERR_CONNECT_TIMEOUT)]: true
+    }
+  }
+}
+
+Node.js v20.20.2

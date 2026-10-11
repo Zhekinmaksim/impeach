@@ -1,0 +1,10 @@
+{
+  "key": "rule:1",
+  "tx": "0x58bffcd326423143099e7fe0db99a5019bed1091ecad089dfff77c7c7958b0a4",
+  "method": "rule",
+  "at": 1791717059,
+  "address": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038",
+  "signature": "4dc299bdc3f4de30b59d386fe6e5bc51d4c294ff613cb7e18f8a2dd4fa56f0dc",
+  "step": "rule",
+  "challenge_id": 1
+}

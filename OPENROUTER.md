@@ -4,11 +4,11 @@ OpenRouter can supply the real subject and the local referee. The contract canno
 send an API key. A gateway adds the server-side key and exposes only the committed
 demonstration trial.
 
-For the prepared fresh trial, use [V3-TRIAL.md](V3-TRIAL.md); the previous run is
+For the active fresh trial, use [V3-TRIAL.md](V3-TRIAL.md); the previous run is
 preserved in [V2-TRIAL.md](V2-TRIAL.md). As of 11 October 2026,
 the scripted native control has a finalized `CONTAMINATED / RECALL` certificate;
-the real Llama native case is in progress and no real native verdict is asserted
-here. The [control finality handoff](runs/c0-finality-20261011-resume/handoff.json)
+real C1 has a finalized 23-pair `CLEAN` ruling and retirement, and V3
+is in progress without a verdict. The [control finality handoff](runs/c0-finality-20261011-resume/handoff.json)
 records 24 pinned answers, 24 recall matches, 13 admitted pairs, court-adjusted
 rewrite score 833‰, Δ=166‰, four stale answers and R=1000‰. This is the disclosed
 scripted lookup, not an LLM finding. Its unadmitted rewrites receive the contract's
@@ -24,19 +24,29 @@ final transactions have Phase events with `previousStatus=5` and
 `shouldProcessMessages=true`; the
 no-messages retry proof does not apply. The 24-pair goal has not been repaired.
 
-No C1 rule, retirement or withdrawal was sent. Automatic approval review
-rejected partial 23-pair closure before broadcast; explicit user authorization
-has been requested. The saved `CLEAN` calculation is only an offline forecast,
-not a ruled native certificate.
+Automatic approval review initially rejected partial 23-pair closure before
+broadcast. The user subsequently authorized that closure and bond return.
+The [C1 rule result](runs/v2-live-rule01/result.json), `0x58bffcd…`, was `ACCEPTED`;
+the [certificate](runs/v2-live-rule01/after.json) records `CLEAN`, n=23, Δ=0‰ and
+R=0‰. This does not complete the 24-pair goal. The
+[retirement result](runs/v2-live-retire01/result.json), `0x39c253d…`, was also
+`ACCEPTED`: [state](runs/v2-live-retire01/after.json) is `RETIRED`, bond zero,
+and 0.1 GEN credited internally. No wallet withdrawal has been sent. Both the
+[rule](runs/v2-c1-rule-final-native.json) and
+[retirement](runs/v2-c1-retire-final-native.json) now have actual stored native
+`FINALIZED / FINISHED_WITH_RETURN` receipts. The
+[collected case](runs/v2-live-case.json) records n=23 and 109 finalized native
+transactions. Certificate `final=true` describes the retired application state;
+the native receipts establish transaction finality separately.
 
 ## Routes and frozen corpora
 
 | Public path | Fixed claim and corpus | Enablement |
 | --- | --- | --- |
-| `/api/chat/completions` | `calibration/claim-gsm8k.json`; original GSM8K files | Legacy `TRIAL_ENABLED`; keep false for the v2 run |
-| `/api/live-v2/chat/completions` | `calibration/claim-court24-v2.json`; `calibration/court24-v2.items.json`, `examples/court24-v2/rewrites` | Separate `TRIAL_V2_ENABLED=true`; disabled otherwise |
+| `/api/chat/completions` | `calibration/claim-gsm8k.json`; original GSM8K files | Legacy `TRIAL_ENABLED`; currently false |
+| `/api/live-v2/chat/completions` | `calibration/claim-court24-v2.json`; `calibration/court24-v2.items.json`, `examples/court24-v2/rewrites` | Separate `TRIAL_V2_ENABLED`; currently false |
 | `/api/scripted-v2/chat/completions` | `calibration/claim-court24-v2-scripted.json`; `calibration/court24-v2-scripted.items.json`, `examples/court24-v2-scripted/rewrites` | Public fixed lookup; no secret, provider or inference cost |
-| `/api/live-v3/chat/completions` | `calibration/claim-court24-v3.json`; `calibration/court24-v3.items.json`, `examples/court24-v3/rewrites` | Independent `TRIAL_V3_ENABLED`; currently false |
+| `/api/live-v3/chat/completions` | `calibration/claim-court24-v3.json`; `calibration/court24-v3.items.json`, `examples/court24-v3/rewrites` | Independent `TRIAL_V3_ENABLED=true`; active until 14:51:29 UTC on 11 October |
 
 Each endpoint admits only its own 72 exact JSON request bodies: 24 originals,
 24 committed rewrites and 24 recall prefixes. Object key order is immaterial;
@@ -62,7 +72,7 @@ also carry `X-Impeach-Mode: scripted-no-llm`. This is a public control, not a re
 LLM response. Both v2 corpora are disclosed synthetic material and share their
 mathematics; see the limitations and audits in [V2-TRIAL.md](V2-TRIAL.md).
 
-The prepared [v3 claim](calibration/claim-court24-v3.json) uses seed 240526 and
+The frozen [v3 claim](calibration/claim-court24-v3.json) uses seed 240526 and
 the exact prefix `An independent arithmetic exercise states: ` on every
 original, rewrite and control. It copies v2 arithmetic and answers; the prefix
 does not make this an independent benchmark. Fresh salts and disjoint text
@@ -90,10 +100,13 @@ The [local snapshot](runs/v3-llama-verified.json) forecasts `CLEAN` using script
 admission; it is not native consensus or a certificate. Recorded successful
 responses cost $0.00035026; the initial raw errors remain in the record.
 
-The v3 public switch is still false, and no v3 native claim has been opened.
-The route targets the existing Vercel project and server-side key; preparation
-did not upload that key again. The C1 partial-closure request remains pending;
-the fresh 10:46 UTC read still showed item 14's C2 `PENDING`.
+V3 [claim/challenge 2/2](runs/v3-native-setup/result.json) entered `TRIAL` at
+11:00:47 UTC on 11 October; the court deadline is 17:00:47 UTC. Its first subject
+probe has been dispatched, with no V3 verdict yet. The
+[verified public gateway](runs/v3-live-activation-verified.json) is active until
+14:51:29 UTC (19:51:29 Tashkent), fixed epoch `1791730289`; subject dispatch
+stops at 14:49:29 UTC. Legacy and v2 paid routes are off. The existing project
+and key are reused; the key was not uploaded again.
 The [10:47 UTC budget snapshot](runs/v3-budget-before-activation.json) records
 $2.02391728 used and $2.97608272 remaining under the same $5 lifetime key cap,
 with zero BYOK usage and no limit reset.
@@ -262,7 +275,7 @@ concurrent reservations, restarts, rejected requests and failure accounting.
 
 The commands in this section describe `/api/chat/completions` and its original
 GSM8K claim. They do not enable or rehearse v2/v3. Use the route/claim pairing above
-and [V3-TRIAL.md](V3-TRIAL.md) for the prepared run.
+and [V3-TRIAL.md](V3-TRIAL.md) for the active run.
 
 The function is **disabled by default**. Deploying the site does not enable model
 calls. `GET /api/chat/completions` is a free health/configuration check and does not
@@ -283,7 +296,7 @@ starting models are `meta-llama/llama-3.1-8b-instruct` for the subject and
 | `REFEREE_MODEL` | Local referee only; not exposed through the public endpoint |
 | `TRIAL_ENABLED` | Must equal `true` to permit inference; otherwise disabled |
 | `TRIAL_V2_ENABLED` | Separate switch for live v2; does not change the legacy endpoint |
-| `TRIAL_V3_ENABLED` | Separate switch for live v3; currently false |
+| `TRIAL_V3_ENABLED` | Separate switch for live v3; currently true within its fixed window |
 | `TRIAL_CREDIT_ONLY` | Optional `true` for the verified DeepInfra credits-only route; defaults to false |
 | `TRIAL_BUDGET_USD` | Approved total key limit; currently `5` |
 | `TRIAL_EXPIRES_AT` | UTC deadline in `YYYY-MM-DDTHH:MM:SSZ` format; at most 4 hours in credits-only mode, otherwise 96 hours |

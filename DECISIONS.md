@@ -220,12 +220,21 @@ failure eligible for the proof-based retry path. Finalizing the native queue
 did not establish 24 applied pairs, and the storage discrepancy's cause remains
 unresolved.
 
-No `rule`, retirement or withdrawal has been sent for C1. Automatic approval
-review rejected closing the partial 23-pair result before broadcast because the
-authorized goal was all 24 pairs; explicit user authorization for that partial
-closure has been requested. The saved `CLEAN` calculation is an offline forecast,
-not a native certificate. C1 remains `TRIAL`, without a ruled verdict; a fresh
-10:46 UTC read still showed item 14's C2 `PENDING`.
+Automatic approval review initially rejected partial 23-pair closure before
+broadcast because the authorized goal was all 24 pairs. The user subsequently
+authorized partial closure and bond return. The
+[rule result](runs/v2-live-rule01/result.json), `0x58bffcd…`, was `ACCEPTED`;
+the [application certificate](runs/v2-live-rule01/after.json) records `CLEAN`,
+n=23, Δ=0‰ and R=0‰. Item 14's pending C2 and the incomplete 24-pair objective
+remain disclosed. The [retirement](runs/v2-live-retire01/result.json),
+`0x39c253d…`, was `ACCEPTED`; [state](runs/v2-live-retire01/after.json) is
+`RETIRED`, bond zero, with 0.1 GEN credited internally. No wallet withdrawal
+has been sent. Both the [rule](runs/v2-c1-rule-final-native.json) and
+[retirement](runs/v2-c1-retire-final-native.json) now have actual stored native
+`FINALIZED / FINISHED_WITH_RETURN` receipts. The
+[collected case](runs/v2-live-case.json) retains n=23 and all 109 native
+transactions finalized. These receipts establish native finality separately
+from the certificate's application `final=true`.
 
 ### 14. Preserve unknown transactions instead of guessing a result
 
@@ -384,9 +393,9 @@ deployed build remain unchanged.
 
 V3 keeps Llama 3.1 8B on `deepinfra/fp8`, the numeric scoring rule, decoding,
 1000‰ oath and thresholds. Its trial window is 21,600 seconds (six hours),
-with the same 3,600-second reveal window. The prepared
+with the same 3,600-second reveal window. The active
 `/api/live-v3/chat/completions` route has its own `TRIAL_V3_ENABLED` switch,
-currently false. The API's four-hour expiry limit and shared $5 lifetime key
+currently true. The API's four-hour expiry limit and shared $5 lifetime key
 cap are unchanged; a longer trial does not extend endpoint access or reset
 credit.
 
@@ -413,9 +422,14 @@ responses cost $0.00035026. The initial errors and partial snapshot remain saved
 
 The full offline checks, including the scheduling policy below, passed in
 [v3-subject-first-full-check.log](runs/v3-subject-first-full-check.log).
-The public v3 switch remains false and no v3 native claim is open. The route
-uses the existing Vercel project and server-side key; no key was uploaded again
-for this preparation. [V3-TRIAL.md](V3-TRIAL.md) records the launch procedure.
+V3 [claim/challenge 2/2](runs/v3-native-setup/result.json) entered `TRIAL` at
+11:00:47 UTC on 11 October, with a 17:00:47 UTC court deadline. Subject probing
+has begun; no V3 native verdict is claimed. The
+[verified gateway](runs/v3-live-activation-verified.json) is active until
+14:51:29 UTC (19:51:29 Tashkent), immutable epoch `1791730289`; the subject
+dispatch cutoff is 14:49:29 UTC. Legacy and v2 paid routes remain off. The
+existing Vercel project and key are reused without re-uploading the key.
+[V3-TRIAL.md](V3-TRIAL.md) records the active run procedure.
 The [pre-activation key snapshot](runs/v3-budget-before-activation.json) at
 10:47 UTC records $2.02391728 used, $2.97608272 remaining, zero BYOK usage and
 no reset under the shared $5 lifetime cap.

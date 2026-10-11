@@ -1,0 +1,9 @@
+{
+  "checked_at": "2026-10-11T12:00:02.447941+00:00",
+  "limit": 5,
+  "limit_remaining": 2.97465078,
+  "usage": 2.02534922,
+  "limit_reset": null,
+  "include_byok_in_limit": false,
+  "byok_usage": 0
+}

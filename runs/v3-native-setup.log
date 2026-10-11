@@ -1,0 +1,15 @@
+Transaction Hash: 0x6d496d483c03edb59c0386fabbaa19edd606f81fe47012c58dac6b9dffb00083
+Gas preflight: {"from":"0x771388495F34d21C5574FeFc04cd1D5811E00aDa","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"2808813","boundedEstimate":"2808813","gasLimit":"3089695","gasCap":"16777216","calldataBytes":2788,"dryRun":false}
+sent  open 0x6d496d483c03edb59c0386fabbaa19edd606f81fe47012c58dac6b9dffb00083
+accepted  open 0x6d496d483c03edb59c0386fabbaa19edd606f81fe47012c58dac6b9dffb00083
+{"actual_claim_id": 2, "open_tx": "0x6d496d483c03edb59c0386fabbaa19edd606f81fe47012c58dac6b9dffb00083"}
+Transaction Hash: 0x5d3bcf0eea8260351d1573145fd18368224ada050cd8f298ec812c66aff16aca
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"1059618","boundedEstimate":"1059618","gasLimit":"1165580","gasCap":"16777216","calldataBytes":452,"dryRun":false}
+sent  challenge:2 0x5d3bcf0eea8260351d1573145fd18368224ada050cd8f298ec812c66aff16aca
+accepted  challenge:2 0x5d3bcf0eea8260351d1573145fd18368224ada050cd8f298ec812c66aff16aca
+{"actual_challenge_id": 2, "challenge_tx": "0x5d3bcf0eea8260351d1573145fd18368224ada050cd8f298ec812c66aff16aca"}
+Transaction Hash: 0x521dabe386c85626b4dd02295403fd6d169b5293804c80951a15fdae4ec2ba5c
+Gas preflight: {"from":"0x771388495F34d21C5574FeFc04cd1D5811E00aDa","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"6764987","boundedEstimate":"6703839","gasLimit":"7374223","gasCap":"16777216","calldataBytes":8004,"dryRun":false}
+sent  reveal:2 0x521dabe386c85626b4dd02295403fd6d169b5293804c80951a15fdae4ec2ba5c
+accepted  reveal:2 0x521dabe386c85626b4dd02295403fd6d169b5293804c80951a15fdae4ec2ba5c
+{"setup_complete": true, "claim_id": 2, "challenge_id": 2, "trial_started_at": 1791716447, "trial_deadline": 1791738047, "gateway_expires_at": 1791730289}

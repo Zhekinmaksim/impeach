@@ -17,8 +17,8 @@ accuracy on admitted pairs alone. This control is a stored-answer lookup.
 The real Llama gateway was activated until **11 October 2026, 10:38:56 UTC**.
 A paid preflight returned the exact reference `ANSWER: 36`, with credit-only
 DeepInfra usage and a cost of $0.00000486. Immediately before opening, the real
-cohort had 24 unspent content hashes. No completed real native certificate is
-asserted here. See [health](runs/v2-live-health-20261011.json),
+cohort had 24 unspent content hashes. Its later certificate covers 23 admitted
+pairs, as recorded below. See [health](runs/v2-live-health-20261011.json),
 [raw inference](runs/v2-live-preflight-20261011.json),
 [counts](runs/v2-live-before-counts.json), and
 [registry](runs/v2-live-before-registry.json).
@@ -30,13 +30,22 @@ but only 23 C2 rulings are stored. Item 14 remains `PENDING`. The
 [handoff](runs/v2-live-final-native-handoff.json) confirms unchanged frozen
 inputs, balanced solvency and empty queues. The successful appeal and both
 finalization events do not establish a 24th stored admission. No v2 real
-certificate has been ruled. Closing this partial case requires the user's
-separate authorization after automatic approval review rejected the action.
+certificate was initially ruled. Automatic approval review rejected partial
+closure before dispatch; the user then explicitly authorized closing the
+23-pair attempt and retiring its bond. The
+[rule](runs/v2-live-rule01/result.json) produced `CLEAN` with Δ=0‰,
+R=0‰ and 23 admitted pairs. [Retirement](runs/v2-live-retire01/result.json)
+credited the 0.1 GEN bond internally. Both the
+[rule](runs/v2-c1-rule-final-native.json) and
+[retirement](runs/v2-c1-retire-final-native.json) are natively finalized.
+The [collected snapshot](runs/v2-live-case.json) retains all 109 finalized
+transactions. Wallet withdrawal remains outstanding; this is a partial trial.
 
 A [fresh v3 cohort](calibration/court24-v3-audit.json) adds a disclosed common
 prefix and new salts to the same arithmetic. It has no spent-hash overlap,
-a six-hour court window and a separate disabled `/api/live-v3/chat/completions`
-route. The gateway's four-hour window and shared lifetime $5 budget are
+a six-hour court window and a separate `/api/live-v3/chat/completions`
+route, currently active until 14:51:29 UTC on 11 October 2026. The gateway's
+four-hour window and shared lifetime $5 budget are
 unchanged. Offline reuse of earlier responses is labeled as cross-prompt
 regression, not a new model measurement. Subsequent actual calibration passed:
 [112 new Sonnet calls](runs/v3-referee-verified.json) admitted all 24 rewrites

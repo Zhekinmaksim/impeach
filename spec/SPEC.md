@@ -1,11 +1,11 @@
 # Impeach — a court for benchmark scores
 
 Implementation notes are current as of 11 October 2026. The scripted control is
-finalized `CONTAMINATED / RECALL`; the real Llama native case remains in progress.
-Its unresolved v2 record is tracked in [V2-TRIAL.md](../V2-TRIAL.md); the prepared
-fresh run is in [V3-TRIAL.md](../V3-TRIAL.md). V3 calibration has passed locally,
-but the v3 endpoint is off and no v3 native claim has opened. Local calibration
-is not a real native certificate.
+finalized `CONTAMINATED / RECALL`. Real C1 has a finalized 23-pair `CLEAN` ruling
+and retirement; its incomplete 24-pair record
+is tracked in [V2-TRIAL.md](../V2-TRIAL.md). The active fresh run is in
+[V3-TRIAL.md](../V3-TRIAL.md). V3 has no native verdict yet. Local calibration
+does not establish one.
 
 A published score says a model can do something. It might instead say the model
 has seen the answers. Nothing on chain, and almost nothing off it, can tell those
@@ -415,13 +415,21 @@ output `53 / 53 / true`.
 Both item 14 and item 23 [Phase finalization events](../runs/v2-live-two-finalization-events.json)
 have `previousStatus=5` and `shouldProcessMessages=true`. This does not meet
 the no-messages proof predicate above. Native finality has not repaired the
-missing applied pair; its cause remains unresolved. No C1 rule, retirement or
-withdrawal has been sent. Automatic approval review rejected partial 23-pair
-closure before broadcast because the authorized goal was all 24 pairs;
-explicit user authorization for partial closure has been requested. C1 is
-still `TRIAL`. The saved `CLEAN` calculation is an offline forecast and must
-not be reported as a native certificate. A fresh 10:46 UTC read still showed
-item 14's C2 `PENDING`.
+missing applied pair; its cause remains unresolved. Automatic approval review
+initially rejected partial 23-pair closure before broadcast; the user later
+authorized that closure and bond return. The
+[rule](../runs/v2-live-rule01/result.json), `0x58bffcd…`, was `ACCEPTED`, and its
+[certificate](../runs/v2-live-rule01/after.json) records `CLEAN`, n=23, Δ=0‰ and
+R=0‰. The [retirement](../runs/v2-live-retire01/result.json), `0x39c253d…`, was
+also `ACCEPTED`: [state](../runs/v2-live-retire01/after.json) is `RETIRED`, bond
+zero, and 0.1 GEN credited internally. No wallet withdrawal has been sent.
+Both the [rule](../runs/v2-c1-rule-final-native.json) and
+[retirement](../runs/v2-c1-retire-final-native.json) now have actual stored native
+`FINALIZED / FINISHED_WITH_RETURN` receipts. The
+[collected case](../runs/v2-live-case.json) records n=23 and 109 finalized native
+transactions. Application `final=true` denotes retirement; native finality is
+established by the receipts. The result does not complete the 24-pair objective
+or change item 14's pending C2.
 
 ## 10. Defaults to start from
 
@@ -455,8 +463,8 @@ claimed corpora. Previous corpora, contract source and build are unchanged.
 
 V3 retains the numeric rule, decoding, Llama 3.1 8B/DeepInfra subject, 1000‰ oath
 and detector thresholds. Its reveal window is 3,600 seconds and trial window
-21,600 seconds. The prepared `/api/live-v3/chat/completions` route is separately
-gated by `TRIAL_V3_ENABLED=false`. The inference API retains its four-hour
+21,600 seconds. The active `/api/live-v3/chat/completions` route is separately
+gated by `TRIAL_V3_ENABLED=true`. The inference API retains its four-hour
 expiry limit and the same shared $5 lifetime key cap; six hours of trial time
 does not extend endpoint access.
 
@@ -478,9 +486,14 @@ successful responses cost $0.00035026; initial errors remain saved. The
 [local snapshot](../runs/v3-llama-verified.json) forecasts `CLEAN` with scripted
 admission, not native validator consensus.
 
-V3 remains disabled and unopened on chain. It targets the existing Vercel
-project and server-side key, without uploading the key again. Follow
-[V3-TRIAL.md](../V3-TRIAL.md) for the separate launch and final-certificate gates.
+V3 [claim/challenge 2/2](../runs/v3-native-setup/result.json) entered `TRIAL` at
+11:00:47 UTC on 11 October; its court deadline is 17:00:47 UTC. Subject probing
+has begun and no V3 native verdict is asserted. The
+[verified gateway](../runs/v3-live-activation-verified.json) is active until
+14:51:29 UTC (19:51:29 Tashkent), fixed epoch `1791730289`, with subject dispatch
+cutoff 14:49:29 UTC. Legacy and v2 paid routes are off. The existing Vercel
+project and key are reused without another key upload. Follow
+[V3-TRIAL.md](../V3-TRIAL.md) for the active run and final-certificate gates.
 The [10:47 UTC pre-activation snapshot](../runs/v3-budget-before-activation.json)
 records $2.02391728 used and $2.97608272 remaining under the shared $5 lifetime
 key cap, zero BYOK usage and no limit reset.

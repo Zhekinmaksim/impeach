@@ -21,10 +21,12 @@ Impeach  — does this score survive rewritten items and verbatim recall
 > all 24 pinned answers and recall matches, with 13 admitted rewrite pairs.
 > The real v2 attempt finalized all 107 transactions, but its stored C2 results
 > contain only 23 admitted pairs; item 14 remains pending after one reviewed
-> leader-timeout appeal. It has not been ruled or presented as a full trial.
-> A fresh v3 cohort passed real model and referee calibration for a six-hour court window, with
-> finalized recovery and no automatic appeals. Its model route stays disabled
-> until verification; its public inference window remains at most four hours.
+> leader-timeout appeal. With the user's separate approval it received an
+> finalized `CLEAN` certificate and was retired; its 109 recorded transactions
+> are finalized, and it remains a partial trial.
+> The fresh v3 claim/challenge 2/2 is now running after real model and referee
+> calibration, with a six-hour court window and finalized recovery, without
+> appeals. Its model gateway expires at 14:51:29 UTC on 11 October 2026.
 > [V2-TRIAL.md](V2-TRIAL.md) records the evidence and limits.
 > [V3-TRIAL.md](V3-TRIAL.md) records the fresh cohort and model deadline policy.
 > Submission will be filled together after completion.
