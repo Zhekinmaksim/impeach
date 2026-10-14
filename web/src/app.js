@@ -248,8 +248,13 @@ function renderHero(kase, fresh) {
     rows[2].append(h("span", { class: "b " + m.recall[0], style: "--i:" + i }));
   });
   const cert = kase.certificate;
-  fig.append(...rows, h("figcaption", {
-    text: "The sheet of " + subjectLabel(kase) + ": " + subset.length + " items, one column each. Row one, answered as sealed. Row two, answered as rewritten. Row three, continued the sealed text.",
+  fig.append(h("div", { class: "hero-sheet-title", "aria-hidden": "true" },
+    h("span", { text: subjectLabel(kase) }), h("span", { text: subset.length + " items / published evidence" })));
+  const labels = ["Original", "Rewritten", "Recall"];
+  rows.forEach((row, i) => fig.append(h("div", { class: "hero-mark-line", "aria-hidden": "true" },
+    h("span", { class: "hero-mark-label", text: labels[i] }), row)));
+  fig.append(h("figcaption", {
+    text: "One column per item. Each mark comes from the selected case below.",
   }));
   fig.setAttribute("role", "img");
   fig.setAttribute("aria-label",
