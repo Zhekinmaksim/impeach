@@ -1,0 +1,11 @@
+{
+  "checked_at": "2026-10-16T05:22:50.186655+00:00",
+  "limit": 5,
+  "limit_remaining": 2.97383054,
+  "limit_reset": null,
+  "usage": 2.02616946,
+  "usage_daily": 0,
+  "usage_weekly": 0,
+  "is_management_key": false,
+  "include_byok_in_limit": false
+}

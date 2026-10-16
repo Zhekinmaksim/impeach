@@ -7,6 +7,7 @@ network finalizes transactions without changing the rehearsal coverage.
 """
 
 import json
+from copy import deepcopy
 import os
 import sys
 
@@ -25,6 +26,13 @@ def build() -> dict:
     ]
     with open(os.path.join(ROOT, "web", "demo.json"), encoding="utf-8") as source:
         snap = json.load(source)
+    cases = deepcopy(snap["cases"])
+    clean = next(c for c in cases if c["certificate"]["verdict"] == "CLEAN")
+    for measured, unavailable in ((0, "DEAD"), (19, "DEAD"), (20, "DEAD"), (0, "NA"), (0, "")):
+        coverage = deepcopy(clean)
+        for i, probe in enumerate(coverage["probes"]):
+            probe["recall"] = "MISS" if i < measured else unavailable
+        cases.append(coverage)
     return {
         "texts": [
             {"text": t, "squash": tool.squash(t), "flatten": tool.flatten(t), "content_hash": tool.content_hash(t)}
@@ -44,7 +52,7 @@ def build() -> dict:
                     c["probes"],
                 ),
             }
-            for c in snap["cases"]
+            for c in cases
         ],
     }
 

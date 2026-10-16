@@ -17,27 +17,23 @@ Impeach  — does this score survive rewritten items and verbatim recall
 > **Status.** [Live case](https://impeach.vercel.app) ·
 > [Scripted examples](https://impeach.vercel.app/?demo=1) ·
 > [Source](https://github.com/Zhekinmaksim/impeach).
-> The v2 scripted lookup control is finalized `CONTAMINATED / RECALL`:
-> all 24 pinned answers and recall matches, with 13 admitted rewrite pairs.
-> The real v2 attempt finalized all 107 transactions, but its stored C2 results
-> contain only 23 admitted pairs; item 14 remains pending after one reviewed
-> leader-timeout appeal. With the user's separate approval it received an
-> finalized `CLEAN` certificate and was retired; its 109 recorded transactions
-> are finalized, and it remains a partial trial.
-> The fresh v3 claim/challenge 2/2 is now running after real model and referee
-> calibration, with a six-hour court window and finalized recovery, without
-> appeals. Its model gateway expires at 14:51:29 UTC on 11 October 2026.
-> [V2-TRIAL.md](V2-TRIAL.md) records the evidence and limits.
-> [V3-TRIAL.md](V3-TRIAL.md) records the fresh cohort and model deadline policy.
-> Submission will be filled together after completion.
+> Court revision `impeach/1.1` corrects text answer-key admission and requires
+> measured recall evidence before issuing `CLEAN`.
+> [REVIEW-FIXES.md](REVIEW-FIXES.md) records the correction, regression tests
+> and corrected native workflow. The new trial requires 24 admitted pairs and
+> 24 measured recall results. No corrected native verdict is claimed yet.
+> Historical v2 evidence remains separate: a finalized scripted
+> `CONTAMINATED / RECALL` control and a finalized, explicitly partial 23-pair
+> real-model `CLEAN` ruling. The later v3 attempt has no completed native verdict.
+> [V2-TRIAL.md](V2-TRIAL.md) and [V3-TRIAL.md](V3-TRIAL.md) preserve those records.
 
-The current court is deployed on Bradbury (chain 4221) at
-`0x45F610cefF1ed367d684A1839b1801Af12Cfb038`.
-The [deployment transaction](https://explorer-bradbury.genlayer.com/transactions/0x2cce6952dc55539449ee434cd50dc6cd91357ec3bff37876ee97f4a9c1d2c941)
-is finalized with `MAJORITY_AGREE / FINISHED_WITH_RETURN`. The
-[deployment record](runs/v2-deployment.json) preserves exact source and artifact
-hashes. The old partial real trial is retained in
-[runs/v1-final-case.json](runs/v1-final-case.json).
+The corrected court is deployed on Bradbury (chain 4221) at
+`0xCB67936d0b00b82Ea73611b3C8353a21EBdc7261`.
+The [deployment transaction](https://explorer-bradbury.genlayer.com/transactions/0x664310c1df84a6271f19da43affa696c3460e8aad7f0b02aa49318bc3c5dfcbe)
+initially returned `ACCEPTED / AGREE / FINISHED_WITH_RETURN`; see the
+[receipt](runs/review-deploy-receipt.json) and [build manifest](build/impeach.manifest.json).
+Historical trials used `0x45F610cefF1ed367d684A1839b1801Af12Cfb038`;
+its [deployment record](runs/v2-deployment.json) retains the original hashes.
 
 ## Run it
 
@@ -92,12 +88,20 @@ numbers, and the contract records when the model answers a rewrite with the
 
 ## Verdicts
 
+Court revision `impeach/1.1` compares both blind referee results with their
+committed answer keys, including text answers. Text comparison normalizes case,
+spacing, quote marks, commas, currency signs and trailing periods using `norm_answer`; unlisted synonyms are conservatively
+rejected. A semantic `same_question: true` cannot override a mismatched key.
+`CLEAN` requires at least `min_items` admitted pairs **and** `min_items` measured
+recall results (`MATCH` or `MISS`). Missing, dead and ineligible (`NA`) recall
+probes cannot count as negative recall evidence. See [review corrections](REVIEW-FIXES.md).
+
 | verdict | condition | bond |
 | --- | --- | --- |
 | `CONTAMINATED` | `Δ ≥ delta_threshold` or `R ≥ recall_threshold`, each on at least `min_items` | to the challenger |
 | `UNSUPPORTED` | the sworn score does not reproduce on its own sealed items, or the set was already spent | to the challenger |
-| `CLEAN` | both under threshold on at least `min_items` admitted pairs | stays posted |
-| `INCONCLUSIVE` | too few admitted pairs, or the endpoint did not answer | stays posted |
+| `CLEAN` | both under threshold, with at least `min_items` admitted pairs and measured recall results | stays posted |
+| `INCONCLUSIVE` | too few admitted pairs or measured recall results, or the endpoint did not answer | stays posted |
 | `DEFAULT` | the publisher did not reveal inside the window | to the challenger |
 | `UNCONTESTED` | nobody challenged; not a verdict | publisher may retire it |
 

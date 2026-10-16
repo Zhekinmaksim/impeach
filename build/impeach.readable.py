@@ -4,6 +4,7 @@ import typing
 import hashlib
 from dataclasses import dataclass
 VERSION = 'impeach/1'
+COURT_REVISION = 'impeach/1.1'
 NUMERIC_LINE_RULE = 'The last nonempty line must be ANSWER: followed by one ASCII decimal number with an optional minus sign and decimal point, and nothing else. The answer is correct exactly when that number equals the reference number. Leading zeros and trailing decimal zeros do not change its value.'
 MAX_ITEMS = 64
 MIN_ITEMS_FLOOR = 8
@@ -789,9 +790,12 @@ class Impeach(gl.Contract):
         elif n_live >= min_items and shortfall >= int(c.delta_threshold):
             verdict = UNSUPPORTED
             reason = 'SCORE_NOT_REPRODUCED'
-        elif admissible >= min_items:
+        elif admissible >= min_items and recall_n >= min_items:
             verdict = CLEAN
-            reason = '' if recall_n >= min_items else 'RECALL_NOT_MEASURED'
+            reason = ''
+        elif admissible >= min_items:
+            verdict = INCONCLUSIVE
+            reason = 'TOO_FEW_RECALL'
         elif n_live < min_items and n_live + dead_pinned >= min_items:
             verdict = INCONCLUSIVE
             reason = 'ENDPOINT_SILENT'
@@ -933,10 +937,8 @@ class Impeach(gl.Contract):
                 if type(computed) is not str or not computed.strip():
                     ok = False
                     continue
-                normalized = norm_answer(expected)
-                unsigned = normalized[1:] if normalized.startswith('-') else normalized
-                digits = unsigned.replace('.', '', 1)
-                if digits.isascii() and digits.isdigit() and (numeric_value(computed) != numeric_value(expected) if numeric_pair else norm_answer(computed) != normalized):
+                equal = numeric_value(computed) == numeric_value(expected) if numeric_pair else norm_answer(computed) == norm_answer(expected)
+                if not equal:
                     ok = False
         except Exception:
             ok = False
@@ -1015,7 +1017,7 @@ class Impeach(gl.Contract):
     def certificate(self, claim_id: int) -> typing.Any:
         c = self._claim(claim_id)
         burned = int(c.burned_at) > 0
-        out = {'claim_id': claim_id, 'subject': c.subject, 'verdict': c.last_verdict, 'reason': '', 'contested': int(c.last_challenge) > 0, 'under_challenge': int(c.active_challenge) > 0, 'final': c.status in (CONTAMINATED, UNSUPPORTED, DEFAULTED, RETIRED), 'state': c.status, 'challenges_survived': int(c.challenges_survived), 'bond_standing': int(c.bond), 'bond_sworn': int(c.bond_sworn), 'delta_milli': 0, 'recall_milli': 0, 'pinned_milli': 0, 'rewrite_milli': 0, 'admissible_probes': 0, 'inadmissible_rewrites': 0, 'stale_answers': 0, 'dead_probes': 0, 'recall_probes': 0, 'items_probed': 0, 'items_burned': int(c.n_items) if burned else 0, 'score_sworn_milli': int(c.score_milli), 'score_status': 'SPENT' if burned else 'SEALED', 'score_expired_at': int(c.burned_at), 'delta_threshold': int(c.delta_threshold), 'recall_threshold': int(c.recall_threshold), 'min_items': int(c.min_items), 'decode_params': c.decode_params, 'spec_hash': c.spec_hash, 'ruled_at': 0, 'challenge_id': int(c.last_challenge) - 1}
+        out = {'court_revision': COURT_REVISION, 'claim_id': claim_id, 'subject': c.subject, 'verdict': c.last_verdict, 'reason': '', 'contested': int(c.last_challenge) > 0, 'under_challenge': int(c.active_challenge) > 0, 'final': c.status in (CONTAMINATED, UNSUPPORTED, DEFAULTED, RETIRED), 'state': c.status, 'challenges_survived': int(c.challenges_survived), 'bond_standing': int(c.bond), 'bond_sworn': int(c.bond_sworn), 'delta_milli': 0, 'recall_milli': 0, 'pinned_milli': 0, 'rewrite_milli': 0, 'admissible_probes': 0, 'inadmissible_rewrites': 0, 'stale_answers': 0, 'dead_probes': 0, 'recall_probes': 0, 'items_probed': 0, 'items_burned': int(c.n_items) if burned else 0, 'score_sworn_milli': int(c.score_milli), 'score_status': 'SPENT' if burned else 'SEALED', 'score_expired_at': int(c.burned_at), 'delta_threshold': int(c.delta_threshold), 'recall_threshold': int(c.recall_threshold), 'min_items': int(c.min_items), 'decode_params': c.decode_params, 'spec_hash': c.spec_hash, 'ruled_at': 0, 'challenge_id': int(c.last_challenge) - 1}
         if int(c.last_challenge) > 0:
             ch = self.challenges[u256(int(c.last_challenge) - 1)]
             n = int(ch.n_live)

@@ -1,0 +1,20 @@
+{
+  "network": "testnet-bradbury",
+  "chain_id": 4221,
+  "court_revision": "impeach/1.1",
+  "contract": "0xCB67936d0b00b82Ea73611b3C8353a21EBdc7261",
+  "deploy_tx": "0x664310c1df84a6271f19da43affa696c3460e8aad7f0b02aa49318bc3c5dfcbe",
+  "publisher": "0x771388495F34d21C5574FeFc04cd1D5811E00aDa",
+  "artifact": "build/impeach.py",
+  "source_sha256": "c206ce2fe02de08ea64b6f00a2716891d8b2388cdee4c2bc9772972ad5f174be",
+  "compact_sha256": "cedb003fb9af0099d1a868a70f46f7e2bd747af77df740d032ba8aa307586c7a",
+  "artifact_sha256": "3d46770b50e2f59cadc621a40ff36da1f747c885fa9f9c45327a1199b2afa3b9",
+  "source_bytes": 71592,
+  "compact_bytes": 55706,
+  "artifact_bytes": 18332,
+  "transformation": "remove comments/docstrings; AST equivalence checked; zlib + base85",
+  "status": "ACCEPTED",
+  "execution": "FINISHED_WITH_RETURN",
+  "consensus_result": "AGREE",
+  "legacy_contract": "0x45F610cefF1ed367d684A1839b1801Af12Cfb038"
+}

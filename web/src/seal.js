@@ -93,7 +93,8 @@ export function ruleOffline(terms, probes) {
   } else if (nLive >= terms.min_items && shortfall >= terms.delta_threshold) {
     verdict = "UNSUPPORTED"; reason = "SCORE_NOT_REPRODUCED";
   } else if (admissible >= terms.min_items) {
-    verdict = "CLEAN"; reason = recallN >= terms.min_items ? "" : "RECALL_NOT_MEASURED";
+    verdict = recallN >= terms.min_items ? "CLEAN" : "INCONCLUSIVE";
+    reason = recallN >= terms.min_items ? "" : "TOO_FEW_RECALL";
   } else if (nLive < terms.min_items && nLive + deadPinned >= terms.min_items) {
     verdict = "INCONCLUSIVE"; reason = "ENDPOINT_SILENT";
   } else {

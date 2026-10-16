@@ -36,6 +36,8 @@ const VERDICT_TEXT = {
   INCONCLUSIVE: (c) =>
     c.reason === "ENDPOINT_SILENT"
       ? "The endpoint did not answer enough probes to rule. The publisher paid the challenger's costs, and the claim can be tried again."
+      : c.reason === "TOO_FEW_RECALL"
+      ? "Too few recall probes produced a measured result. Admitted rewrites alone cannot establish CLEAN. Rewrite stake was settled according to the referee rulings."
       : "Too few rewrites were admitted to rule on the gap. No bond penalty was imposed; rewrite stake was settled according to the referee rulings.",
   DEFAULT: () => "The publisher did not reveal the sealed items inside the window and lost by default. Nothing was burned.",
   UNCONTESTED: () => "Nobody has challenged this claim. That is not a finding: an unchallenged score is never called clean.",

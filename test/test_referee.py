@@ -36,6 +36,41 @@ class RefereeTests(unittest.TestCase):
         self.assertEqual(self.ruling({"original_result": "0", "rewrite_result": "57600",
                                       "same_question": True}), "INADMISSIBLE")
 
+    def test_text_answer_keys_are_compared_in_both_framings(self):
+        for framing in (1, 2):
+            for original, rewrite, expected in (
+                ("Paris", "Paris", "ADMISSIBLE"),
+                (" PARIS. ", "paris", "ADMISSIBLE"),
+                ("London", "Paris", "INADMISSIBLE"),
+                ("Paris", "London", "INADMISSIBLE"),
+                ("London", "London", "INADMISSIBLE"),
+                ("", "Paris", "INADMISSIBLE"),
+                (True, "Paris", "INADMISSIBLE"),
+                (["Paris"], "Paris", "INADMISSIBLE"),
+            ):
+                with self.subTest(framing=framing, original=original, rewrite=rewrite):
+                    self.driver.gl.nondet.handler = lambda _prompt: json.dumps({
+                        "original_result": original, "rewrite_result": rewrite,
+                        "same_question": True,
+                    })
+                    self.assertEqual(self.driver.contract._referee(
+                        framing, "paraphrase", "Name the capital of France.", "Paris",
+                        "Which city is France's capital?", "Paris"), expected)
+
+    def test_mixed_text_and_numeric_keys_cannot_bypass_either_comparison(self):
+        for original, rewrite, expected in (
+            ("Paris", "2", "ADMISSIBLE"),
+            ("London", "2", "INADMISSIBLE"),
+            ("Paris", "3", "INADMISSIBLE"),
+        ):
+            with self.subTest(original=original, rewrite=rewrite):
+                self.driver.gl.nondet.handler = lambda _prompt: json.dumps({
+                    "original_result": original, "rewrite_result": rewrite,
+                    "same_question": True,
+                })
+                self.assertEqual(self.driver.contract._referee(
+                    1, "format_shift", "Question A", "Paris", "Question B", "2"), expected)
+
     def test_blind_solver_cannot_see_the_supplied_answer_key(self):
         prompts = []
         env = next(e for e in self.corpus["controls"] if e["item_index"] == 10)

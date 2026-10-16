@@ -1,6 +1,8 @@
 # Impeach — a court for benchmark scores
 
-Implementation notes are current as of 11 October 2026. The scripted control is
+Revision `impeach/1.1` corrections and current validation are tracked in
+[REVIEW-FIXES.md](../REVIEW-FIXES.md), dated 16 October 2026.
+The following trial history describes the earlier deployment: the scripted control is
 finalized `CONTAMINATED / RECALL`. Real C1 has a finalized 23-pair `CLEAN` ruling
 and retirement; its incomplete 24-pair record
 is tracked in [V2-TRIAL.md](../V2-TRIAL.md). The active fresh run is in
@@ -155,13 +157,21 @@ Thresholds are frozen at `open_claim`, not chosen after the numbers are in.
 | --- | --- |
 | `CONTAMINATED` | gap reaches its threshold with enough admitted pairs, or recall reaches its threshold with enough eligible recall probes |
 | `UNSUPPORTED` | enough live pinned items, no contamination detector trips, and sworn accuracy exceeds measured pinned accuracy by at least `delta_threshold` |
-| `CLEAN` | neither detector nor score shortfall trips, with enough admitted pairs |
-| `INCONCLUSIVE` | too few admissible probes, or the endpoint failed to answer |
+| `CLEAN` | neither detector nor score shortfall trips, with at least `min_items` admitted pairs and at least `min_items` measured recall results |
+| `INCONCLUSIVE` | too few admissible probes, insufficient measured recall, or the endpoint failed to answer |
 
 `INCONCLUSIVE` is a first-class outcome. Slice refunds/forfeitures and the
 `ENDPOINT_SILENT` reimbursement still apply; it does not mean nobody was paid.
 `DEFAULT` and `UNSUPPORTED / SET_ALREADY_SPENT` also cover failure to reveal and
 reuse of an already burned source, respectively. See [DECISIONS.md](../DECISIONS.md).
+
+Revision `impeach/1.1` returns `INCONCLUSIVE / TOO_FEW_RECALL` when admitted pairs
+meet the minimum but recall does not. Only `MATCH` and `MISS` count as measured
+recall; `NA`, `DEAD` and missing results never do. Each referee framing also
+requires the blind solver's original and rewritten results to match the supplied
+answer keys: canonical decimal equality for a numeric pair, deterministic
+`norm_answer` equality otherwise. A true semantic Boolean cannot bypass either
+comparison. Text aliases beyond that normalization are not admitted automatically.
 
 ## 5. Admissibility — the Suborn lesson, reused
 

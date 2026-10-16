@@ -645,6 +645,114 @@ def silence(check, make):
     d.close()
 
 
+def text_answer_admissibility(check, make):
+    check.section("text answer keys survive the real SDK boundary")
+    for framing in (1, 2):
+        d, w = make()
+        items = [dict(prompt="Capital question %d: Name the capital city of France." % i,
+                      answer="Paris", salt="text-adversary-%d" % i) for i in range(8)]
+        cid = open_claim(d, "https://text.example/v1/chat/completions", items=items,
+                         min_items=8, classes=["paraphrase"])
+        hid = challenge(d, cid, subset=list(range(8)), classes=["paraphrase"])
+        reveal(d, cid, items=items)
+        # Both framings claim semantic validity; the blind solver supplies a
+        # wrong text answer in the round under attack. The committed key wins.
+        def llm(prompt):
+            wrong = "BLIND SOLVE. REFEREE FRAMING: %d" % framing in prompt
+            return json.dumps({"original_result": "London" if wrong else "Paris",
+                               "rewrite_result": "Paris", "same_question": True})
+        w._solve = llm
+        w._referee = llm
+        env = dict(version=tool.VERSION, **{"class": "paraphrase"},
+                   prompt="For capital question zero, which city is France's capital?", answer="Paris")
+        first = d.call(d.addr(2), "probe", hid, 0, "REWRITE", tool.canonical_envelope(env))
+        result = first if framing == 1 else d.call(d.addr(3), "probe", hid, 0, "ADMIT", "")
+        check("framing %d: a true Boolean cannot admit a wrong text result" % framing,
+              result == "INADMISSIBLE", result)
+        check("framing %d: rejected slice settles once with solvent accounting" % framing,
+              d.view("balance_of", d.hex(d.addr(1))) == STAKE and d.broken == [])
+        d.close()
+
+
+def recall_coverage(check, make):
+    check.section("CLEAN requires measured evidence from both detectors")
+    for measured in (0, 19, 20):
+        d, w = make()
+        subject = pop.Capable(CORPUS, miss=0)
+        reply = subject.reply
+        measured_prefixes = {
+            pop.RECALL_INSTRUCTION + tool.split_for_recall(it["prompt"], 400)[0]
+            for it in ITEMS[:measured]
+        }
+        subject.reply = lambda user: (
+            None if user.startswith(pop.RECALL_INSTRUCTION) and user not in measured_prefixes
+            else reply(user)
+        )
+        url = w.serve("https://recall-coverage.example/v1/chat/completions", subject)
+        cid = open_claim(d, url, score=1000)
+        hid = challenge(d, cid)
+        reveal(d, cid)
+        run_trial(d, hid, retries=True)
+        verdict = d.call(d.addr(3), "rule", hid)
+        cert = d.view("certificate", cid)
+        expected = "CLEAN" if measured >= 20 else "INCONCLUSIVE"
+        reason = "" if measured >= 20 else "TOO_FEW_RECALL"
+        check("%d recall results: %s" % (measured, expected),
+              verdict == expected and cert["reason"] == reason
+              and cert["recall_probes"] == measured and cert["admissible_probes"] == 24,
+              cert)
+        check("%d recall results: offline recomputation agrees" % measured,
+              offline_agrees(d, cid, hid))
+        check("%d recall results: solvency held" % measured, d.broken == [])
+        d.close()
+
+    d, w = make()
+    items = [dict(prompt="Case %d: A baker has 12 loaves and sells 5. How many remain?" % i,
+                  answer="7", salt="short-recall-%d" % i) for i in range(8)]
+    rewrites = {i: dict(version=tool.VERSION, **{"class": "paraphrase"}, item_index=i,
+                        prompt="Case %d: After selling 5 of 12 loaves, how many are left?" % i,
+                        answer="7") for i in range(8)}
+    corpus = dict(items=items, rewrites=rewrites, controls=[])
+    w.corpus = corpus
+    w.honest = {tool.rewrite_hash(e["class"], e["prompt"], e["answer"]) for e in rewrites.values()}
+    url = w.serve("https://short-recall.example/v1/chat/completions", pop.Capable(corpus, miss=0))
+    cid = open_claim(d, url, items=items, score=1000, min_items=8, classes=["paraphrase"])
+    hid = challenge(d, cid, subset=list(range(8)), classes=["paraphrase"])
+    reveal(d, cid, items=items)
+    out = run_trial(d, hid, subset=list(range(8)), envelopes=rewrites)
+    verdict = d.call(d.addr(3), "rule", hid)
+    cert = d.view("certificate", cid)
+    check("ineligible short tails are NA, never negative recall evidence",
+          all(p["recall"] == "NA" for p in out.values()) and cert["recall_probes"] == 0)
+    check("NA cannot produce a CLEAN certificate despite eight admitted pairs",
+          verdict == "INCONCLUSIVE" and cert["reason"] == "TOO_FEW_RECALL"
+          and cert["admissible_probes"] == 8, cert)
+    check("NA result recomputes offline and preserves solvency",
+          offline_agrees(d, cid, hid, list(range(8))) and d.broken == [])
+    d.close()
+
+    d, w = make()
+    url = w.serve("https://missing-recall.example/v1/chat/completions", pop.Capable(CORPUS, miss=0))
+    cid = open_claim(d, url, score=1000)
+    hid = challenge(d, cid)
+    reveal(d, cid)
+    for i in ALL:
+        d.call(d.addr(3), "probe", hid, i, "PINNED", "")
+        d.call(d.addr(2), "probe", hid, i, "REWRITE", tool.canonical_envelope(REWRITES[i]))
+        d.call(d.addr(3), "probe", hid, i, "ADMIT", "")
+    check("unasked recall cannot be ruled before the deadline",
+          d.reverts(d.addr(3), "rule", hid, match="open probes"))
+    d.warp(WINDOWS["trial_window_s"] + 1)
+    verdict = d.call(d.addr(3), "rule", hid)
+    cert = d.view("certificate", cid)
+    check("deadline expiry cannot turn missing recall into CLEAN",
+          verdict == "INCONCLUSIVE" and cert["reason"] == "TOO_FEW_RECALL"
+          and cert["recall_probes"] == 0 and cert["admissible_probes"] == 24, cert)
+    check("missing recall recomputes offline and preserves solvency",
+          offline_agrees(d, cid, hid) and d.broken == [])
+    d.close()
+
+
 def defaults_and_windows(check, make):
     check.section("windows: refusing to reveal, walking away")
     d, w = make()
@@ -764,6 +872,8 @@ def run_all(make, label: str, module=None, quiet: bool = False) -> Checker:
     admissibility(check, make)
     omission(check, make)
     silence(check, make)
+    recall_coverage(check, make)
+    text_answer_admissibility(check, make)
     defaults_and_windows(check, make)
     standing(check, make)
     numeric_scoring(check, make)

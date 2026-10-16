@@ -272,8 +272,10 @@ def rule_offline(terms: dict, probes: list) -> dict:
         reason = "GAP_AND_RECALL" if gap_trips and recall_trips else ("GAP" if gap_trips else "RECALL")
     elif n_live >= min_items and shortfall >= int(terms["delta_threshold"]):
         verdict, reason = "UNSUPPORTED", "SCORE_NOT_REPRODUCED"
+    elif admissible >= min_items and recall_n >= min_items:
+        verdict, reason = "CLEAN", ""
     elif admissible >= min_items:
-        verdict, reason = "CLEAN", ("" if recall_n >= min_items else "RECALL_NOT_MEASURED")
+        verdict, reason = "INCONCLUSIVE", "TOO_FEW_RECALL"
     elif n_live < min_items and n_live + dead_pinned >= min_items:
         verdict, reason = "INCONCLUSIVE", "ENDPOINT_SILENT"
     else:

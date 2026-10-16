@@ -32,6 +32,7 @@ import hashlib
 from dataclasses import dataclass
 
 VERSION = "impeach/1"
+COURT_REVISION = "impeach/1.1"
 
 # An opt-in scoring rule frozen in the claim, with no LLM marker. Other rules
 # retain the semantic marker; a publisher cannot switch after opening.
@@ -1145,9 +1146,12 @@ class Impeach(gl.Contract):
         elif n_live >= min_items and shortfall >= int(c.delta_threshold):
             verdict = UNSUPPORTED
             reason = "SCORE_NOT_REPRODUCED"
-        elif admissible >= min_items:
+        elif admissible >= min_items and recall_n >= min_items:
             verdict = CLEAN
-            reason = "" if recall_n >= min_items else "RECALL_NOT_MEASURED"
+            reason = ""
+        elif admissible >= min_items:
+            verdict = INCONCLUSIVE
+            reason = "TOO_FEW_RECALL"
         elif n_live < min_items and n_live + dead_pinned >= min_items:
             verdict = INCONCLUSIVE
             reason = "ENDPOINT_SILENT"
@@ -1453,12 +1457,15 @@ Nothing else.
                 if type(computed) is not str or not computed.strip():
                     ok = False
                     continue
-                normalized = norm_answer(expected)
-                unsigned = normalized[1:] if normalized.startswith("-") else normalized
-                digits = unsigned.replace(".", "", 1)
-                if digits.isascii() and digits.isdigit() and (
-                    numeric_value(computed) != numeric_value(expected) if numeric_pair else norm_answer(computed) != normalized
-                ):
+                # The semantic Boolean never substitutes for comparing the
+                # blind results with BOTH committed answer keys. Text answers
+                # use the same deterministic normalization as the precheck;
+                # unlisted synonyms are conservatively rejected.
+                equal = (
+                    numeric_value(computed) == numeric_value(expected)
+                    if numeric_pair else norm_answer(computed) == norm_answer(expected)
+                )
+                if not equal:
                     ok = False
         except Exception:
             ok = False  # fail closed: an unreadable referee round is not a pass
@@ -1557,6 +1564,7 @@ Nothing else.
         c = self._claim(claim_id)
         burned = int(c.burned_at) > 0
         out = {
+            "court_revision": COURT_REVISION,
             "claim_id": claim_id,
             "subject": c.subject,
             "verdict": c.last_verdict,
