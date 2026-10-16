@@ -1,0 +1,13 @@
+{
+  "from": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+  "to": "0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D",
+  "chainId": 4221,
+  "sdkEstimate": "864965",
+  "boundedEstimate": "864965",
+  "gasLimit": "951462",
+  "gasCap": "16777216",
+  "calldataBytes": 260,
+  "dryRun": true,
+  "initialValidators": 5,
+  "consensusMaxRotations": 7
+}

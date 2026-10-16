@@ -120,6 +120,17 @@ the contract address from its `recipient` field before the smoke tests.
 `clock` is the one runtime assumption the reveal and trial windows rest on. If
 it is wrong, do not open a claim.
 
+The bridge also accepts `--max-rotations 7`, or the per-process environment
+variable `IMPEACH_CONSENSUS_MAX_ROTATIONS=7` when running the Python helpers.
+This permits more leader rotations inside a new consensus transaction and can
+lengthen its pending phase. It does not change the benchmark or the initial
+committee size. The override is bounded to 1..7; omission keeps the SDK default.
+Before signing, the bridge decodes the actual `addTransaction` calldata and
+refuses an unexpected committee size or rotation budget. The review run's
+[read-only simulation](runs/review-rotations7-dry-run.json) confirms five initial
+validators and seven rotations on Bradbury. Use a longer receipt wait when
+enabling the larger budget. An already applied result never becomes retryable.
+
 ## 4. Two accounts
 
 The contract refuses a publisher challenging their own claim. Create and fund a

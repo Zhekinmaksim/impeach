@@ -12,6 +12,7 @@ check: lint
 	$(PY) scripts/make_fixtures.py --check
 	$(NODE) test/test_parity.mjs
 	$(NODE) --test test/test_gas.mjs
+	$(NODE) --test test/test_consensus_options.mjs
 	$(NODE) --test test/test_proxy.mjs
 	$(NODE) --test test/test_endpoints_v2.mjs
 	$(NODE) --test test/test_endpoint_v3.mjs

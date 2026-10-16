@@ -11,6 +11,7 @@ import {realpathSync, readFileSync} from "node:fs";
 import {pathToFileURL} from "node:url";
 import {checkedGas, TRANSACTION_GAS_CAP, causedBy} from "./gas_guard.mjs";
 import {writeLine} from "./output.mjs";
+import {rotationBudget, verifyRotationEncoding} from "./consensus_options.mjs";
 
 function fail(message) {
   console.error("genlayer_write: " + message);
@@ -116,6 +117,13 @@ const finalizeHash = option("--finalize");
 const idlenessHash = option("--process-idleness");
 if ([deployPath, appealHash, finalizeHash, idlenessHash].filter(Boolean).length > 1) fail("choose only one deploy, appeal, finalize, or idleness operation");
 const dryRun = process.argv.includes("--dry-run");
+let rotations;
+try {
+  rotations = rotationBudget(option('--max-rotations', process.env.IMPEACH_CONSENSUS_MAX_ROTATIONS));
+} catch (error) { fail(error.message); }
+if (rotations !== undefined && (appealHash || finalizeHash || idlenessHash)) {
+  fail('max rotations applies only to new application writes or deployments');
+}
 const [address, method] = process.argv.slice(2);
 if (!deployPath && !appealHash && !finalizeHash && !idlenessHash) {
   required(address, "contract address");
@@ -149,6 +157,13 @@ const gasCap = BigInt(option("--gas-cap", TRANSACTION_GAS_CAP.toString()));
 const account = {
   ...signer,
   async signTransaction(tx) {
+    let consensus = {};
+    if (rotations !== undefined) {
+      const {decodeFunctionData} = await import(pathToFileURL(join(packageRoot, "node_modules/viem/_esm/index.js")));
+      consensus = verifyRotationEncoding(decodeFunctionData({
+        abi: chains.testnetBradbury.consensusMainContract.abi, data: tx.data,
+      }), rotations, chains.testnetBradbury.defaultNumberOfInitialValidators);
+    }
     const gas = await checkedGas(tx, (request) => client.request(request), {
       chainId: chains.testnetBradbury.id,
       consensusAddress: chains.testnetBradbury.consensusMainContract.address,
@@ -157,7 +172,7 @@ const account = {
     const report = {from: signer.address, to: tx.to, chainId: tx.chainId,
       sdkEstimate: tx.gas.toString(), boundedEstimate: gas.estimate.toString(),
       gasLimit: gas.gas.toString(), gasCap: gas.cap.toString(),
-      calldataBytes: (tx.data.length - 2) / 2, dryRun};
+      calldataBytes: (tx.data.length - 2) / 2, dryRun, ...consensus};
     if (dryRun) {
       console.log(JSON.stringify(report, null, 2));
       throw dryRunComplete;
@@ -221,9 +236,10 @@ try {
     console.log("Appealed original transaction:", appealHash);
     process.exit(0);
   }
+  const consensusOptions = rotations === undefined ? {} : {consensusMaxRotations: rotations};
   const hash = deployPath
-    ? await client.deployContract({account, code: readFileSync(resolve(deployPath), "utf8"), args: parseArgs()})
-    : await client.writeContract({account, address, functionName: method, args: parseArgs(), value});
+    ? await client.deployContract({account, code: readFileSync(resolve(deployPath), "utf8"), args: parseArgs(), ...consensusOptions})
+    : await client.writeContract({account, address, functionName: method, args: parseArgs(), value, ...consensusOptions});
   console.log("Transaction Hash:", hash);
 } catch (error) {
   if (!causedBy(error, dryRunComplete)) throw error;
