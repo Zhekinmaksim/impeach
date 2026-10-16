@@ -209,8 +209,10 @@ python3 scripts/retry_finalized_probe.py --address $CONTRACT --account challenge
 Recovery checks the original input signature, zero value, untouched slot and
 open trial window. It preserves the finalized receipt and appends a new manifest
 row with `previous_tx`, its ordinal, the preceding row and immutable receipt.
-Default recovery is one attempt; explicit `--max-recoveries 3` permits at most
-three per slot, each after a new finalized failure. Do not run recovery
+Default recovery is one attempt; explicit `--max-recoveries N` permits up to
+six per slot, each after a new finalized failure. Increasing an exhausted
+operator limit preserves the same claim identity and the entire receipt chain;
+it never resets history or retries a saved answer. Do not run recovery
 concurrently with the ordinary runner or queue service on the same account.
 Before sending, it also saves a durable dispatch marker. If interrupted before
 the new hash is recorded, it refuses another attempt until the on-chain outcome

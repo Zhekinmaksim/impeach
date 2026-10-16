@@ -1,0 +1,5 @@
+saved original finalized receipt: /Users/zmaxx/Projects/impeach/runs/review-live.jsonl.receipts/0x614d366142ba699d23cfe5956e88ea5badfce15ad65f611705fdd5d16b5e457d.finalized-fuf9v2vq.json
+Transaction Hash: 0x66f7d218ec7dd4ab529e5cc9bc67d921fcf97a572879d2258343e326e947268a
+Gas preflight: {"from":"0x771388495F34d21C5574FeFc04cd1D5811E00aDa","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"835942","boundedEstimate":"835942","gasLimit":"919537","gasCap":"16777216","calldataBytes":260,"dryRun":false,"initialValidators":5,"consensusMaxRotations":7}
+sent  probe:1:4:ADMIT 0x66f7d218ec7dd4ab529e5cc9bc67d921fcf97a572879d2258343e326e947268a
+accepted  probe:1:4:ADMIT 0x66f7d218ec7dd4ab529e5cc9bc67d921fcf97a572879d2258343e326e947268a

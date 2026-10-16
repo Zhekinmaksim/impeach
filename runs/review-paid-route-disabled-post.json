@@ -1,0 +1,11 @@
+{
+  "at": "2026-10-16T11:42:21.204012+00:00",
+  "status": 503,
+  "body": {
+    "error": {
+      "code": "trial_disabled"
+    }
+  },
+  "request": "unchanged allowlisted item14 request",
+  "purpose": "Verify disabled paid route rejects a valid model request before upstream inference."
+}

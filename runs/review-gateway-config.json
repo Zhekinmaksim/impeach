@@ -1,0 +1,29 @@
+{
+  "endpoint": "https://impeach.vercel.app/api/live-v3/chat/completions",
+  "activated_for": "steward corrections, court impeach/1.1",
+  "lifetime_budget_usd": 5,
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "provider": "deepinfra/fp8",
+  "allowed_requests": 72,
+  "key_reused_from_existing_server_secret": true,
+  "windows": [
+    {
+      "expires_at": "2026-10-16T09:24:16Z",
+      "expires_epoch": 1792142656,
+      "basis": "original four-hour authorization"
+    },
+    {
+      "expires_at": "2026-10-16T14:27:02Z",
+      "expires_epoch": 1792160822,
+      "basis": "explicit user renewal on 16 October; same total $5 limit",
+      "evidence": "review-authorized-window-renewal.json"
+    }
+  ],
+  "expires_at": "2026-10-16T14:27:02Z",
+  "expires_epoch": 1792160822,
+  "enabled": false,
+  "disabled_at": "2026-10-16T11:40:48.350961+00:00",
+  "shutdown_evidence": "review-gateway-shutdown-health.json",
+  "disabled_post_evidence": "review-paid-route-disabled-post.json",
+  "subject_finality_evidence": "review-last-subject-final-native.json"
+}

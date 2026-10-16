@@ -1,0 +1,13 @@
+{
+  "kind": "fresh real-model rehearsal, scripted local admission; not native consensus",
+  "requests": 72,
+  "successful_responses": 72,
+  "truncated_responses": 0,
+  "cost_usd": 0.00034794,
+  "transcript_sha256": "3fb8138f929aa5066034951c5eb4475a0896b4357e620203ff39df92cd63bd78",
+  "snapshot": "runs/review-live-rehearsal.json",
+  "pinned_milli": 1000,
+  "rewrite_milli": 1000,
+  "recall_milli": 0,
+  "forecast": "CLEAN"
+}

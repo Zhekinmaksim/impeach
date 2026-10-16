@@ -1,0 +1,18 @@
+SETUP open
+Transaction Hash: 0x78ab96a22688f9e0eac5a7c9c82b8da5e34e7f16e591c37923f23e23848c4784
+Gas preflight: {"from":"0x771388495F34d21C5574FeFc04cd1D5811E00aDa","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"2808725","boundedEstimate":"2808725","gasLimit":"3089598","gasCap":"16777216","calldataBytes":2788,"dryRun":false}
+sent  open 0x78ab96a22688f9e0eac5a7c9c82b8da5e34e7f16e591c37923f23e23848c4784
+accepted  open 0x78ab96a22688f9e0eac5a7c9c82b8da5e34e7f16e591c37923f23e23848c4784
+SETUP challenge
+accepted  open 0x78ab96a22688f9e0eac5a7c9c82b8da5e34e7f16e591c37923f23e23848c4784
+Transaction Hash: 0x722b6fc019c75d07b9f7969823452cca36761d04ff60233e8203032037223f3c
+Gas preflight: {"from":"0x4988285D5a05da3a1827f21330fdf14d9F81d4C9","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"1059581","boundedEstimate":"1059581","gasLimit":"1165540","gasCap":"16777216","calldataBytes":452,"dryRun":false}
+sent  challenge:1 0x722b6fc019c75d07b9f7969823452cca36761d04ff60233e8203032037223f3c
+accepted  challenge:1 0x722b6fc019c75d07b9f7969823452cca36761d04ff60233e8203032037223f3c
+SETUP reveal
+accepted  open 0x78ab96a22688f9e0eac5a7c9c82b8da5e34e7f16e591c37923f23e23848c4784
+accepted  challenge:1 0x722b6fc019c75d07b9f7969823452cca36761d04ff60233e8203032037223f3c
+Transaction Hash: 0x4926f677ec38395c56809716d2c36668b9e449d78f380fe1aa514ed67cc7ee00
+Gas preflight: {"from":"0x771388495F34d21C5574FeFc04cd1D5811E00aDa","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"6764949","boundedEstimate":"6703803","gasLimit":"7374184","gasCap":"16777216","calldataBytes":8004,"dryRun":false}
+sent  reveal:1 0x4926f677ec38395c56809716d2c36668b9e449d78f380fe1aa514ed67cc7ee00
+accepted  reveal:1 0x4926f677ec38395c56809716d2c36668b9e449d78f380fe1aa514ed67cc7ee00

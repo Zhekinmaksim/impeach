@@ -12,7 +12,7 @@ Initial calls have durable dispatch markers. An unknown submission outcome
 requires manual reconciliation; deleting a marker to guess-and-resend is unsafe.
 After progressing all independent initial slots, the existing guarded recovery
 helper may retry each finalized, untouched failed slot once by default, or up
-to three times with --max-recoveries 3. Every retry requires a new finalized
+to six times with --max-recoveries 6. Every retry requires a new finalized
 failure and preserves the earlier hashes and receipts. No appeal,
 finalization, rule, retire or withdrawal is performed here.
 
@@ -632,7 +632,7 @@ def parse_args(argv=None):
     parser.add_argument('--allow-proven-no-messages', action='store_true',
                         help='opt in to exact finalized ambiguous outcomes with a verified Phase event proof')
     parser.add_argument('--source', default=str(Path(run_case.ROOT)/'build/impeach.py'))
-    parser.add_argument('--max-recoveries', type=int, choices=range(1, 4), default=1,
+    parser.add_argument('--max-recoveries', type=int, choices=range(1, recovery.MAX_RECOVERIES + 1), default=1,
                         help='maximum new recovery transactions per slot, excluding the original (default: 1)')
     parser.add_argument('--subject-first', action='store_true',
                         help='complete all subject states/recoveries before any ADMIT; blocked subjects pause for service/resume')

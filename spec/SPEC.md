@@ -5,9 +5,10 @@ Revision `impeach/1.1` corrections and current validation are tracked in
 The following trial history describes the earlier deployment: the scripted control is
 finalized `CONTAMINATED / RECALL`. Real C1 has a finalized 23-pair `CLEAN` ruling
 and retirement; its incomplete 24-pair record
-is tracked in [V2-TRIAL.md](../V2-TRIAL.md). The active fresh run is in
-[V3-TRIAL.md](../V3-TRIAL.md). V3 has no native verdict yet. Local calibration
-does not establish one.
+is tracked in [V2-TRIAL.md](../V2-TRIAL.md). The historical
+[V3 attempt](../V3-TRIAL.md) expired without a native verdict. The corrected
+deployment's current run is tracked in [REVIEW-FIXES.md](../REVIEW-FIXES.md).
+Local calibration does not establish a native verdict.
 
 A published score says a model can do something. It might instead say the model
 has seen the answers. Nothing on chain, and almost nothing off it, can tell those

@@ -1,10 +1,17 @@
 # OpenRouter subject endpoint
 
+Current correction run (16 October 2026): [REVIEW-FIXES.md](REVIEW-FIXES.md).
+The same v3 allowlist serves `calibration/claim-review-live.json`; requests and
+model parameters are unchanged, while the corrected court requires 24 paired
+and 24 recall results. The temporary window is recorded in
+`runs/review-gateway-config.json`. It uses the original server Secret and the
+same lifetime $5 key cap. The dated v2/v3 activation records below are historical.
+
 OpenRouter can supply the real subject and the local referee. The contract cannot
 send an API key. A gateway adds the server-side key and exposes only the committed
 demonstration trial.
 
-For the active fresh trial, use [V3-TRIAL.md](V3-TRIAL.md); the previous run is
+For the historical v3 trial, see [V3-TRIAL.md](V3-TRIAL.md); the previous run is
 preserved in [V2-TRIAL.md](V2-TRIAL.md). As of 11 October 2026,
 the scripted native control has a finalized `CONTAMINATED / RECALL` certificate;
 real C1 has a finalized 23-pair `CLEAN` ruling and retirement, and V3

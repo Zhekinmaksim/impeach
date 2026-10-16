@@ -1,4 +1,9 @@
-# Fresh full trial after the v2 storage discrepancy
+# Historical v3 trial after the v2 storage discrepancy
+
+This file preserves the 11 October attempt. Its windows have expired and no
+completed v3 native verdict is claimed. The corrected 16 October court and
+replacement regression trial are tracked in [REVIEW-FIXES.md](REVIEW-FIXES.md).
+The dates and active-state descriptions below are the historical run record.
 
 Active on 11 October 2026: native claim/challenge **2/2**. The trial began
 at **11:00:47 UTC (16:00:47 Tashkent)** and ends at **17:00:47 UTC**.

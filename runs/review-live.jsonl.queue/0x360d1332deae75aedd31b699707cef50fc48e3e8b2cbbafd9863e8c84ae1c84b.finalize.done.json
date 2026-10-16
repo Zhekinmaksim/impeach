@@ -1,0 +1,9 @@
+{
+  "at": 1792148654,
+  "resolved": true,
+  "evm_tx": "0xfd215289cd95fe02bfb7f12031b3ed3eb62657de64552923fa2b36860d85dc41",
+  "native_status": "FINALIZED",
+  "beforeStoredUND": false,
+  "beforeStoredFailurePhase": 13,
+  "native_success": false
+}

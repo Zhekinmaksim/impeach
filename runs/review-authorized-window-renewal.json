@@ -1,0 +1,24 @@
+{
+  "event": "SUBJECT_WINDOW_RENEWED",
+  "at": 1792146516,
+  "authority": "Explicit user reply: Да, продолжай в пределах $5; additional window up to four hours.",
+  "previous_identity": {
+    "address": "0xcb67936d0b00b82ea73611b3c8353a21ebdc7261",
+    "challenge_id": 1,
+    "input_sha256": "8eb4cf62cf411c76c5620abb3a80d2039f02e68ed746bf6390eccffbbac59c87",
+    "subject_first": true,
+    "subject_deadline": 1792142656
+  },
+  "new_identity": {
+    "address": "0xcb67936d0b00b82ea73611b3c8353a21ebdc7261",
+    "challenge_id": 1,
+    "input_sha256": "8eb4cf62cf411c76c5620abb3a80d2039f02e68ed746bf6390eccffbbac59c87",
+    "subject_first": true,
+    "subject_deadline": 1792160822
+  },
+  "previous_identity_sha256": "104b57f15e1592cce53396364cc9aeea9065e4f140599d19885e433ca627aa8d",
+  "model_claim_and_corpus_unchanged": true,
+  "lifetime_limit_usd": 5,
+  "budget_snapshot": "review-budget-before-renewal.json",
+  "gateway_health": "review-endpoint-renewal-health.json"
+}

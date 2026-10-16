@@ -6,7 +6,7 @@ never resumes unrelated manifest entries. The existing bridge performs its
 normal gas preflight. Use --dry-run to perform all reads without submitting.
 The appended previous_receipt path is relative to the manifest's directory.
 An interrupted dispatch requires manual reconciliation before another attempt.
-One recovery per slot is the default; --max-recoveries permits at most three.
+One recovery per slot is the default; --max-recoveries permits at most six.
 """
 
 import argparse
@@ -28,6 +28,7 @@ CORE_FIELDS = {"key", "tx", "method", "at", "address", "signature"}
 TX = re.compile(r"^0x[0-9a-fA-F]{64}$")
 SUBJECT_MODES = ('PINNED', 'RECALL', 'REWRITE')
 SUBJECT_DEADLINE_MARGIN = 120
+MAX_RECOVERIES = 6
 
 
 def subject_deadline(args):
@@ -86,8 +87,8 @@ def require_subject_window(args, mode, chain_time):
 
 def max_recoveries(args):
     limit = getattr(args, "max_recoveries", 1)
-    if type(limit) is not int or limit not in range(1, 4):
-        raise SystemExit("max recoveries must be an integer from 1 to 3")
+    if type(limit) is not int or limit not in range(1, MAX_RECOVERIES + 1):
+        raise SystemExit("max recoveries must be an integer from 1 to 6")
     return limit
 
 
@@ -129,7 +130,7 @@ def recovery_chain(row):
     current = row
     while True:
         tx = current.get("tx", "")
-        if not isinstance(tx, str) or not TX.fullmatch(tx) or tx.lower() in seen or len(chain) > 3:
+        if not isinstance(tx, str) or not TX.fullmatch(tx) or tx.lower() in seen or len(chain) > MAX_RECOVERIES:
             raise SystemExit("invalid recovery history: malformed, repeated or excessive transaction hashes")
         seen.add(tx.lower())
         chain.append(current)
@@ -406,7 +407,7 @@ def parse_args(argv=None):
     parser.add_argument('--allow-proven-no-messages', action='store_true',
                         help='opt in to exact finalized ambiguous outcomes with a verified Phase event proof')
     parser.add_argument('--source', default=os.path.join(run_case.ROOT, 'build/impeach.py'))
-    parser.add_argument("--max-recoveries", type=int, choices=range(1, 4), default=1,
+    parser.add_argument("--max-recoveries", type=int, choices=range(1, MAX_RECOVERIES + 1), default=1,
                         help="maximum new recovery transactions per slot, excluding the original (default: 1)")
     parser.add_argument('--subject-deadline', type=int,
                         help='API expiry as a positive UTC epoch; subject dispatch stops 120 seconds earlier')

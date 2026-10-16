@@ -14,26 +14,20 @@ Suborn   — does this specification survive a document written to break it
 Impeach  — does this score survive rewritten items and verbatim recall
 ```
 
-> **Status.** [Live case](https://impeach.vercel.app) ·
-> [Scripted examples](https://impeach.vercel.app/?demo=1) ·
+> **Status.** [Live case](https://impeach.click) ·
+> [Scripted examples](https://impeach.click/?demo=1) ·
 > [Source](https://github.com/Zhekinmaksim/impeach).
-> Court revision `impeach/1.1` corrects text answer-key admission and requires
-> measured recall evidence before issuing `CLEAN`.
-> [REVIEW-FIXES.md](REVIEW-FIXES.md) records the correction, regression tests
-> and corrected native workflow. The new trial requires 24 admitted pairs and
-> 24 measured recall results. No corrected native verdict is claimed yet.
-> Historical v2 evidence remains separate: a finalized scripted
-> `CONTAMINATED / RECALL` control and a finalized, explicitly partial 23-pair
-> real-model `CLEAN` ruling. The later v3 attempt has no completed native verdict.
-> [V2-TRIAL.md](V2-TRIAL.md) and [V3-TRIAL.md](V3-TRIAL.md) preserve those records.
+> Corrected court `impeach/1.1`: the real-model case is **native FINALIZED / CLEAN**,
+> with all **24 admitted pairs and 24 measured recall results**, Δ=0‰ and R=0‰.
+> The claim was retired after ruling; its certificate is final.
+> [Corrections and native proofs](REVIEW-FIXES.md) document the answer-key and recall
+> fixes. A separate 24-item scripted control on this revision is still in progress.
 
-The corrected court is deployed on Bradbury (chain 4221) at
-`0xCB67936d0b00b82Ea73611b3C8353a21EBdc7261`.
-The [deployment transaction](https://explorer-bradbury.genlayer.com/transactions/0x664310c1df84a6271f19da43affa696c3460e8aad7f0b02aa49318bc3c5dfcbe)
-initially returned `ACCEPTED / AGREE / FINISHED_WITH_RETURN`; see the
-[receipt](runs/review-deploy-receipt.json) and [build manifest](build/impeach.manifest.json).
-Historical trials used `0x45F610cefF1ed367d684A1839b1801Af12Cfb038`;
-its [deployment record](runs/v2-deployment.json) retains the original hashes.
+The corrected court is deployed on [Bradbury, chain 4221](https://explorer-bradbury.genlayer.com/address/0xCB67936d0b00b82Ea73611b3C8353a21EBdc7261).
+The [build manifest](build/impeach.manifest.json) and
+[source verification](runs/review-protocol-and-source-preflight.json) bind the
+exact deployed artifact. Previous deployments and their partial trials remain
+historical records in [V2-TRIAL.md](V2-TRIAL.md) and [V3-TRIAL.md](V3-TRIAL.md).
 
 ## Run it
 
@@ -53,9 +47,10 @@ python3 -m venv .venv
 make check-sdk PY=.venv/bin/python
 ```
 
-The verified baseline is 184 contract assertions, 150 pinned-SDK assertions,
-173 Python runner/regression tests, 47 browser-arithmetic checks and 38 Node
-tests for the endpoints, gas guards, receipt output and native queue inspection. The page has also been checked at desktop and mobile widths.
+The corrected revision passes 203 local contract assertions, 169 pinned-SDK
+assertions, 187 Python regression tests and 52 browser parity checks, together
+with the endpoint, gas, receipt and native queue checks. CI runs both local and
+pinned-SDK jobs.
 
 ## The three mechanisms
 
@@ -176,41 +171,32 @@ A separate scripted control uses a stored-answer lookup and a transformed
 cohort with disjoint source content hashes. These demonstrations are public,
 not independent benchmarks; they make no claim about absence from model training.
 
-The scripted native certificate is finalized `CONTAMINATED / RECALL`:
-24/24 pinned answers were correct and 24/24 held-out continuations matched.
-Thirteen rewrite pairs were admitted by both referee framings, with four stale
-answers. The court-adjusted rewrite score is 833‰, Δ is 166‰ and R is 1000‰.
-The recall detector reaches its 20-item minimum; the paired detector does not.
-Missing or unadmitted rewrites are presumed correct for the publisher, so
-833‰ is not measured accuracy on admitted pairs alone. The
-[finality handoff](runs/c0-finality-20261011-resume/handoff.json) proves the
-[rule](https://explorer-bradbury.genlayer.com/transactions/0xd2970d5c785db84c92cfbf71924d8b719e29f8e48b29715b9da9c345e9c5ed77)
-and an empty native court queue. This result describes the scripted subject.
+The corrected real-model [case record](runs/review-live-final-case.json) contains
+24/24 correct original and rewritten answers, 24 recall misses, and both referee
+framings admitting all 24 pairs. Its [rule transaction](https://explorer-bradbury.genlayer.com/transactions/0x9e0a82eaee891864a753cdd9dab304368d649ab5d299de91c728fd437a106bec)
+is native FINALIZED. The [native proof](runs/review-live-rule-final-native.json)
+checks actual TransactionManager state, execution and the deployed source hash.
+All 113 transactions in the collected case are finalized, including unsuccessful
+consensus attempts, which remain visible rather than being counted as answers.
+The [retirement proof](runs/review-live-retire-final-native.json) confirms the
+final certificate and return of the 0.1 test GEN bond to internal credit.
+Wallet withdrawal is a separate settlement step.
 
-The fresh real trial is in progress. Its preceding 72-call real-model rehearsal
-answered both originals and rewrites at 1000‰, with Δ=0‰ and R=0‰; it used
-scripted referee admission in the local contract harness. Separately, 112 real
-Sonnet 4.6 calls, replayed through the corrected parser and exact prompt cache,
-admitted all 24 intended rewrite pairs and rejected all four negative controls
-in both framings. Raw transcripts are retained. Neither local result is a
-native verdict or a guarantee of agreement among GenLayer validators.
-See [V2-TRIAL.md](V2-TRIAL.md) for the frozen policies, source hashes and evidence.
+The new scripted control has all 24 original answers correct and all 24 held-out
+continuations matching. Its remaining rewrite/referee rounds are still running;
+no completed control verdict on this revision is claimed yet. The historical
+scripted `CONTAMINATED / RECALL` certificate belongs to the previous court and is
+preserved in [V2-TRIAL.md](V2-TRIAL.md).
 
-The original real-model trial on the previous court ended
-`INCONCLUSIVE / TOO_FEW_ADMISSIBLE` after its fixed window expired: 11 sealed
-answers, four admitted pairs and 12 recall probes, below the 20-item minimum.
-Nine sealed answers were correct; adjusted rewrite score 1000‰, Δ=−181‰, R=0‰.
-Its failed transactions remain visible in [the historical snapshot](runs/v1-final-case.json).
-The publisher retired that claim; withdrawals of 0.116 GEN and 0.008 GEN were
-finalized and both wallet increases verified after fees. This partial result
-establishes integration and limited evidence, without a contamination finding.
+A preceding 72-request real-model rehearsal and an exact-prompt replay of 112
+recorded referee responses are calibration evidence, not native verdicts. The
+corpora are public regression fixtures and may already have appeared on chain.
+They do not establish absence from model training.
 
-An earlier trial used a temporary tunnel which returned HTTP 502 after local
-preflight. That separate court remains pending until 12 October 2026, 22:20:45
-in Tashkent; 0.1 GEN bond and 0.023 GEN stake remain locked there. Its evidence
-and spent registry are preserved in [runs/live-status.json](runs/live-status.json).
-The $5 OpenRouter allowance is shared across every rehearsal and live run;
-gateway restrictions and spending safeguards are in [OPENROUTER.md](OPENROUTER.md).
+The paid route was disabled after the last real subject result finalized. A valid
+model POST now returns `503 / trial_disabled`; the scripted route remains free.
+Recorded lifetime OpenRouter usage is approximately $2.03 under the shared $5 cap.
+See [OPENROUTER.md](OPENROUTER.md) for gateway policy and prior trial history.
 
 ## Limits
 

@@ -1,0 +1,5 @@
+Transaction Hash: 0x26eef7e5e96b14dbb415b6b990492b85532de94668bfda2592d61beb601211c5
+Gas preflight: {"from":"0x771388495F34d21C5574FeFc04cd1D5811E00aDa","to":"0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D","chainId":4221,"sdkEstimate":"812654","boundedEstimate":"812654","gasLimit":"893920","gasCap":"16777216","calldataBytes":260,"dryRun":false,"initialValidators":5,"consensusMaxRotations":7}
+sent  retire:1 0x26eef7e5e96b14dbb415b6b990492b85532de94668bfda2592d61beb601211c5
+accepted  retire:1 0x26eef7e5e96b14dbb415b6b990492b85532de94668bfda2592d61beb601211c5
+{"tx": "0x26eef7e5e96b14dbb415b6b990492b85532de94668bfda2592d61beb601211c5", "state": "RETIRED", "verdict": "CLEAN", "credited_bond": 100000000000000000, "native_finalization": "pending"}

@@ -1,8 +1,15 @@
 # Impeach — submission
 
-**One line.** A GenLayer court for benchmark scores: a bonded score is tested on
-its sealed items and on rewrites the model has not seen, and the items are burned
-into a public registry the moment they are shown.
+**One line.** A GenLayer court for benchmark scores: validators test bonded
+claims with semantic rewrites and verbatim recall, then publish a verdict and
+an irreversible registry of revealed test items.
+
+The 16 October steward corrections are documented in
+[REVIEW-FIXES.md](REVIEW-FIXES.md). Revision `impeach/1.1` is deployed at
+[the corrected Bradbury court](https://explorer-bradbury.genlayer.com/address/0xCB67936d0b00b82Ea73611b3C8353a21EBdc7261).
+The corrected real-model case is native FINALIZED / CLEAN with all 24 admitted
+pairs and 24 measured recall results. The retired certificate is final; its
+Δ and R are both zero. The new scripted control is still being completed.
 
 ## What it is
 
@@ -39,8 +46,9 @@ humans and CI.
 
 | where | principle | on what |
 | --- | --- | --- |
-| marking a model's answer | `prompt_comparative` | matching status and correctness, and equivalent extracted answers; ignores prose |
-| admissibility | `prompt_comparative` | independently computed answers and the class decision, two framings |
+| numeric answer marking | `strict_eq` | deterministic final-line parsing and canonical numeric equality |
+| legacy semantic answer marking | `prompt_comparative` | matching status and correctness, and equivalent extracted answers; ignores prose |
+| admissibility | `prompt_comparative` plus deterministic key checks | two blind solutions and the class decision in each of two framings; both solutions must match their respective committed keys |
 | verbatim recall | `strict_eq` | an integer bucket from bounded edit distance; no LLM |
 
 Each validator calls the endpoint itself. A round that fails consensus does not
@@ -64,30 +72,41 @@ and its test in `DECISIONS.md`.
 - Only subjects that answer a public HTTPS endpoint without a key.
 - Δ is evidence, not proof; the certificate carries raw counts.
 - Burning is irreversible, whatever the verdict.
-- The demonstration set (24 GSM8K test items) was never secret.
-- _If the live subject is the scripted memoriser, say so here in one sentence._
+- The original GSM8K demo and the current synthetic regression corpora are public.
+  Reusing a disclosed corpus on a corrected deployment does not make it secret.
+- The lookup-table control is explicitly scripted; its conviction is a control,
+  not a finding about a real LLM.
+- `CLEAN` requires at least `min_items` admitted pairs and measured recall results.
+  Missing, `NA` and `DEAD` recall cannot support a clean certificate.
 
 ## Evidence
 
-_To fill together from receipts and `web/case.json`; preserve the partial trial's limitations._
+- Website: [impeach.click](https://impeach.click).
+- Source: [Zhekinmaksim/impeach](https://github.com/Zhekinmaksim/impeach).
+- Corrections, regression coverage and native status: [REVIEW-FIXES.md](REVIEW-FIXES.md).
+- Corrected deployment: [receipt](runs/review-deploy-receipt.json) and
+  [source/protocol verification](runs/review-protocol-and-source-preflight.json).
+- Real-model claim/challenge `1/1`: [frozen claim](calibration/claim-review-live.json),
+  [transaction journal](runs/review-live.jsonl).
+- Scripted control claim/challenge `0/0`: [frozen claim](calibration/claim-review-scripted.json);
+  its full corrected native certificate is pending.
+- Local calibration: [72 real subject responses](runs/review-live-rehearsal-audit.json)
+  and [112-response exact referee replay](runs/review-referee-replay.json).
+  Neither is presented as a native verdict.
 
-| | |
-| --- | --- |
-| contract | |
-| deploy tx | |
-| claim id / challenge id | |
-| subject and endpoint | |
-| terms hash | |
-| verdict, reason | |
-| Δ / R / sealed accuracy | |
-| admitted pairs / refused rewrites / old answers | |
-| transactions sent / accepted / undetermined | |
-| validator set size, distinct leaders | |
-| items burned | |
-| GEN spent | |
-| page | |
-| repository | |
+The public site displays the corrected real-model native snapshot. Its local
+recomputation agrees with the on-chain certificate. The previous site record is
+preserved in [the historical snapshot](runs/review-previous-site-case.json).
 
-The current trial's transaction hashes are recorded at submission in
-`runs/bradbury-vercel.jsonl`; fetched outcomes are included in `web/case.json`.
-`runs/bradbury.jsonl` preserves the earlier tunnel trial separately.
+## Review path
+
+1. Open https://impeach.click and inspect claim 1, the real Llama model.
+2. Inspect the 24 original/rewrite pairs and both admission decisions per item.
+3. Open the ruling: CLEAN, admitted 24, recall 24, Δ=0‰, R=0‰.
+4. Follow the rule transaction to the Bradbury explorer and inspect the
+   [native finality proof](runs/review-live-rule-final-native.json).
+5. Download the record and run `python3 cli/impeach.py recompute web/case.json`.
+   The result must agree with the stored certificate.
+
+The website is a record viewer; signed contract operations run through the
+included CLI. The paid subject endpoint is disabled after completion.

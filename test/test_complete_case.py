@@ -603,6 +603,35 @@ class CompletionTests(unittest.TestCase):
         self.assertEqual(Path(self.args.manifest).read_bytes(),before)
         self.assertEqual(self.calls.count((0,'PINNED')),4)
 
+    def test_explicit_larger_bound_resumes_exhausted_history_without_resetting_it(self):
+        self.args.max_recoveries = 3
+        for attempt in range(6):
+            self.behavior[(0,'PINNED',attempt)] = FAILED
+        self.assertEqual(complete.complete(self.args),2)
+        before=Path(self.args.manifest).read_bytes()
+        identity=Path(self.args.manifest+'.complete/identity.json').read_bytes()
+        self.args.max_recoveries = 6
+        self.assertEqual(complete.complete(self.args),0)
+        self.assertTrue(Path(self.args.manifest).read_bytes().startswith(before))
+        self.assertEqual(Path(self.args.manifest+'.complete/identity.json').read_bytes(),identity)
+        rows=[r for r in self.rows() if r['key']=='probe:0:0:PINNED']
+        self.assertEqual([r.get('recovery_ordinal',0) for r in rows],list(range(7)))
+        self.assertEqual(recovery.validate_history(rows[-1],self.args.manifest),6)
+        calls=len(self.calls)
+        self.assertEqual(complete.complete(self.args),0)
+        self.assertEqual(len(self.calls),calls)
+
+    def test_seventh_recovery_is_blocked_by_absolute_ceiling(self):
+        self.args.max_recoveries = 6
+        for attempt in range(7):
+            self.behavior[(0,'PINNED',attempt)] = FAILED
+        self.assertEqual(complete.complete(self.args),2)
+        self.assertEqual(self.calls.count((0,'PINNED')),7)
+        self.assertEqual(self.report()['recoveries_exhausted'][0]['recovery_ordinal'],6)
+        before=Path(self.args.manifest).read_bytes()
+        self.assertEqual(complete.complete(self.args),2)
+        self.assertEqual(Path(self.args.manifest).read_bytes(),before)
+
     def test_pending_second_recovery_never_consumes_third_allowance(self):
         self.args.max_recoveries = 3
         self.behavior[(0,'PINNED',0)] = FAILED
@@ -659,8 +688,9 @@ class CompletionTests(unittest.TestCase):
                  for value in ('--'+name,getattr(self.args,name))]+['--challenge-id','0']
         self.assertEqual(complete.parse_args(options).max_recoveries,1)
         self.assertEqual(complete.parse_args(options+['--max-recoveries','3']).max_recoveries,3)
+        self.assertEqual(complete.parse_args(options+['--max-recoveries','6']).max_recoveries,6)
         with contextlib.redirect_stderr(io.StringIO()), self.assertRaises(SystemExit):
-            complete.parse_args(options+['--max-recoveries','4'])
+            complete.parse_args(options+['--max-recoveries','7'])
 
 
 if __name__=='__main__': unittest.main()

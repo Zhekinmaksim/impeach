@@ -1,0 +1,12 @@
+
+model                 meta-llama/llama-3.1-8b-instruct
+requests              144  (144 got no reply)
+answered as sealed    0‰
+answered as rewritten 0‰
+gap Δ                 0‰   threshold 250‰
+verbatim recall R     0‰   threshold 150‰
+old answers given     0
+replies without an ANSWER: line  0
+forecast              INCONCLUSIVE ENDPOINT_SILENT
+
+snapshot -> runs/review-live-rehearsal.json

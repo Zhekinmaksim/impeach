@@ -1,0 +1,717 @@
+{
+  "format": "impeach-native-no-messages/1",
+  "tx": "0xad46882f4500e3602ea89400b087bd06599cae4976c68649b9d6b890e4c116d1",
+  "address": "0xCB67936d0b00b82Ea73611b3C8353a21EBdc7261",
+  "observedAt": 1792150156563,
+  "snapshot": {
+    "at": 1792150153636,
+    "address": "0xCB67936d0b00b82Ea73611b3C8353a21EBdc7261",
+    "blockNumber": "25311237",
+    "blockTimestamp": "1792150158",
+    "protocol": {
+      "chainId": 4221,
+      "main": "0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D",
+      "manager": "0x8aCE036C8C3C5D603dB546b031302FCf149648E8",
+      "version": "2.0.0",
+      "implementations": {
+        "Idleness": "0x4e696416634012119187d8dda6a56e66ac7cb23d",
+        "ConsensusMain": "0x0a2c393975da79505ed930efc55ae4aeb88b0d62",
+        "Queues": "0x7559ebdbc6f59e5dd2a048a1a1539ac14bf93db0",
+        "IdlenessPhase": "0x2cf61473cafcf47adc0ddd861290a7e848881446",
+        "ConsensusData": "0x7ee629530e70e2a3a772f8522d8835060abf0755",
+        "TransactionManager": "0xeee45073f7eeb3b80d1973f8398f8e508f893f9c",
+        "AddressManager": "0xf63f3a95fbf2e97618a5e3ea0fff63024915f3e6",
+        "FinalizationPhase": "0x3ab63c1fc784682ef72276a76e2ad8fc1c5813b2"
+      },
+      "sourceCommit": "9c686087963551277fc2dce0354c2b1a7050b4b2"
+    },
+    "sourceSha256": "3d46770b50e2f59cadc621a40ff36da1f747c885fa9f9c45327a1199b2afa3b9",
+    "mainTimeouts": {
+      "activate": "180",
+      "propose": "420",
+      "commit": "420",
+      "reveal": "120",
+      "accept": "1800",
+      "leaderReveal": "120"
+    },
+    "heads": {
+      "getFinalizedHeadTxId": "0xb919db3ff394e613ed857ee9e4186ae93c3ba58e3c974719092fa1c1a799ce41",
+      "getPendingHeadTxId": "0x5e719a4bf3a21319982ffefabd1e312123b631a08cd2fa872cdf2fc01dc6f23c",
+      "getAcceptedHeadTxId": "0xb919db3ff394e613ed857ee9e4186ae93c3ba58e3c974719092fa1c1a799ce41",
+      "getUndeterminedHeadTxId": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "transactions": [
+      {
+        "tx": "0xb919db3ff394e613ed857ee9e4186ae93c3ba58e3c974719092fa1c1a799ce41",
+        "stored": {
+          "result": 0,
+          "txExecutionResult": 1,
+          "previousStatus": 0,
+          "status": 5,
+          "txOrigin": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+          "sender": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+          "recipient": "0xCB67936d0b00b82Ea73611b3C8353a21EBdc7261",
+          "activator": "0xF01877B6Ac60861CA3b134e0E483C482679b4682",
+          "txSlot": "167",
+          "initialRotations": "7",
+          "numOfInitialValidators": "5",
+          "epoch": "178",
+          "id": "0xb919db3ff394e613ed857ee9e4186ae93c3ba58e3c974719092fa1c1a799ce41",
+          "randomSeed": "0xc3a6790e09328fa8ff4444cdd8bde7c47c84749b973beb1ba4deab5b16694c5c",
+          "txExecutionHash": "0x33dcbe60041ec6eb1447e27b1646346c70ebb8dd62db69223e71582ae818ac92",
+          "resultHash": "0x15a9ba685a196a8f46d18a5dafd2d68dc54eefc626e490bcd81c750db65085ae",
+          "txCalldata": "0xf90171b9016d1604617267732501693c52455752495445ec147b22616e73776572223a22323730222c22636c617373223a22756e69745f6368616e6765222c2270726f6d7074223a224f6e206120707261637469636520776f726b73686565742c20612073747564656e7420726561647320746869732070726f626c656d3a20412064656d6f6e7374726174696f6e20696e636c75646573206120766964656f206c617374696e6720323430207365636f6e647320666f6c6c6f77656420696d6d6564696174656c79206279206120736f756e6420636c6970206c617374696e6720302e35206d696e757465732e205468657265206973206e6f207061757365206265747765656e207468656d2e20576861742069732074686520746f74616c2072756e6e696e672074696d65206f66207468652064656d6f6e7374726174696f6e20696e207365636f6e64733f222c2276657273696f6e223a22696d70656163682f31227d066d6574686f642c70726f626500",
+          "eqBlocksOutputs": "0xf88eb84d00d4047b226f726967696e616c5f726573756c74223a2022323730222c2022726577726974655f726573756c74223a2022323730222c202273616d655f7175657374696f6e223a20747275657db700a4037b22737461747573223a20224c495645222c2022616e73776572223a2022323730222c2022636f7272656374223a20747275657d86706164646564",
+          "readStateBlockRanges": [
+            {
+              "activationBlock": "25310300",
+              "processingBlock": "25310313",
+              "proposalBlock": "25310314"
+            }
+          ],
+          "validUntil": "1792151937",
+          "value": "0",
+          "lockedStorageUnitPrice": "0",
+          "storageFeeUsed": "0"
+        },
+        "receipt": {
+          "currentTimestamp": "1792150152",
+          "sender": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+          "recipient": "0xCB67936d0b00b82Ea73611b3C8353a21EBdc7261",
+          "initialRotations": "7",
+          "txSlot": "167",
+          "createdTimestamp": "1792148350",
+          "lastVoteTimestamp": "1792148397",
+          "randomSeed": "0xc3a6790e09328fa8ff4444cdd8bde7c47c84749b973beb1ba4deab5b16694c5c",
+          "result": 1,
+          "txExecutionHash": "0x33dcbe60041ec6eb1447e27b1646346c70ebb8dd62db69223e71582ae818ac92",
+          "txCalldata": "0xf90171b9016d1604617267732501693c52455752495445ec147b22616e73776572223a22323730222c22636c617373223a22756e69745f6368616e6765222c2270726f6d7074223a224f6e206120707261637469636520776f726b73686565742c20612073747564656e7420726561647320746869732070726f626c656d3a20412064656d6f6e7374726174696f6e20696e636c75646573206120766964656f206c617374696e6720323430207365636f6e647320666f6c6c6f77656420696d6d6564696174656c79206279206120736f756e6420636c6970206c617374696e6720302e35206d696e757465732e205468657265206973206e6f207061757365206265747765656e207468656d2e20576861742069732074686520746f74616c2072756e6e696e672074696d65206f66207468652064656d6f6e7374726174696f6e20696e207365636f6e64733f222c2276657273696f6e223a22696d70656163682f31227d066d6574686f642c70726f626500",
+          "eqBlocksOutputs": "0xf88eb84d00d4047b226f726967696e616c5f726573756c74223a2022323730222c2022726577726974655f726573756c74223a2022323730222c202273616d655f7175657374696f6e223a20747275657db700a4037b22737461747573223a20224c495645222c2022616e73776572223a2022323730222c2022636f7272656374223a20747275657d86706164646564",
+          "messages": [],
+          "queueType": 0,
+          "queuePosition": "0",
+          "activator": "0xF01877B6Ac60861CA3b134e0E483C482679b4682",
+          "lastLeader": "0xF01877B6Ac60861CA3b134e0E483C482679b4682",
+          "status": 5,
+          "txId": "0xb919db3ff394e613ed857ee9e4186ae93c3ba58e3c974719092fa1c1a799ce41",
+          "readStateBlockRange": {
+            "activationBlock": "25310300",
+            "processingBlock": "25310313",
+            "proposalBlock": "25310314"
+          },
+          "numOfRounds": "0",
+          "lastRound": {
+            "round": "0",
+            "leaderIndex": "1",
+            "votesCommitted": "5",
+            "votesRevealed": "5",
+            "appealBond": "0",
+            "rotationsLeft": "7",
+            "result": 1,
+            "roundValidators": [
+              "0x3B940A5b4A762583453D9e9Cf0981BE0426A8e79",
+              "0xF01877B6Ac60861CA3b134e0E483C482679b4682",
+              "0x992E8D62263eD1Fe2E14FfB11aDf1080edBe4b5a",
+              "0x470AAa7DE37ff3E1C2b38eD9096263ca0d541F21",
+              "0x79485eF57aC2055dC83b9E7b2C9Cf184Fc79648E"
+            ],
+            "validatorVotes": [
+              1,
+              1,
+              1,
+              1,
+              4
+            ],
+            "validatorVotesHash": [
+              "0x3ecd2a5e38339084b7fb293525fc7d636e4e8f9bdec1c0b36c285d352af99494",
+              "0x29bd4449d4bdf92b88e5056cef9ca2d873962c1512b27c4eb41812a661576434",
+              "0x010bc993f10a24f7efc26911bc04e83adbb1f3244fa03fdd3d677dd27db2e28f",
+              "0x5f57ed00c125b057038dd8c15bd59e9222242498ad64d1040f21c7a4efcab6a8",
+              "0xe8609cbb93ae915bdb8b2a954f3e248ef66838241cbecc07315098414431f921"
+            ],
+            "validatorResultHash": [
+              "0x15a9ba685a196a8f46d18a5dafd2d68dc54eefc626e490bcd81c750db65085ae",
+              "0x15a9ba685a196a8f46d18a5dafd2d68dc54eefc626e490bcd81c750db65085ae",
+              "0x15a9ba685a196a8f46d18a5dafd2d68dc54eefc626e490bcd81c750db65085ae",
+              "0x15a9ba685a196a8f46d18a5dafd2d68dc54eefc626e490bcd81c750db65085ae",
+              "0x13c9938d924ebe0bc93417ded1c7245ccebf13f858ae81911b5fe2cbcc6f1780"
+            ],
+            "validatorVotesName": [
+              "AGREE",
+              "AGREE",
+              "AGREE",
+              "AGREE",
+              "DETERMINISTIC_VIOLATION"
+            ]
+          },
+          "consumedValidators": [
+            "0x3B940A5b4A762583453D9e9Cf0981BE0426A8e79",
+            "0xF01877B6Ac60861CA3b134e0E483C482679b4682",
+            "0x992E8D62263eD1Fe2E14FfB11aDf1080edBe4b5a",
+            "0x470AAa7DE37ff3E1C2b38eD9096263ca0d541F21",
+            "0x79485eF57aC2055dC83b9E7b2C9Cf184Fc79648E"
+          ],
+          "txExecutionResult": 1,
+          "txData": "0xf90171b9016d1604617267732501693c52455752495445ec147b22616e73776572223a22323730222c22636c617373223a22756e69745f6368616e6765222c2270726f6d7074223a224f6e206120707261637469636520776f726b73686565742c20612073747564656e7420726561647320746869732070726f626c656d3a20412064656d6f6e7374726174696f6e20696e636c75646573206120766964656f206c617374696e6720323430207365636f6e647320666f6c6c6f77656420696d6d6564696174656c79206279206120736f756e6420636c6970206c617374696e6720302e35206d696e757465732e205468657265206973206e6f207061757365206265747765656e207468656d2e20576861742069732074686520746f74616c2072756e6e696e672074696d65206f66207468652064656d6f6e7374726174696f6e20696e207365636f6e64733f222c2276657273696f6e223a22696d70656163682f31227d066d6574686f642c70726f626500",
+          "txDataDecoded": {
+            "callData": {
+              "args": [
+                "0",
+                "13",
+                "REWRITE",
+                "{\"answer\":\"270\",\"class\":\"unit_change\",\"prompt\":\"On a practice worksheet, a student reads this problem: A demonstration includes a video lasting 240 seconds followed immediately by a sound clip lasting 0.5 minutes. There is no pause between them. What is the total running time of the demonstration in seconds?\",\"version\":\"impeach/1\"}"
+              ],
+              "method": "probe"
+            },
+            "leaderOnly": false,
+            "type": "call"
+          },
+          "numOfInitialValidators": "7",
+          "statusName": "ACCEPTED",
+          "resultName": "AGREE",
+          "txExecutionResultName": "FINISHED_WITH_RETURN"
+        },
+        "decoded": {
+          "callData": {
+            "args": [
+              "0",
+              "13",
+              "REWRITE",
+              "{\"answer\":\"270\",\"class\":\"unit_change\",\"prompt\":\"On a practice worksheet, a student reads this problem: A demonstration includes a video lasting 240 seconds followed immediately by a sound clip lasting 0.5 minutes. There is no pause between them. What is the total running time of the demonstration in seconds?\",\"version\":\"impeach/1\"}"
+            ],
+            "method": "probe"
+          },
+          "leaderOnly": false,
+          "type": "call"
+        },
+        "mainTimestamps": {
+          "created": "1792148350",
+          "pending": "1792148350",
+          "activated": "1792148355",
+          "proposed": "1792148371",
+          "committed": "1792148394",
+          "lastVote": "1792148397",
+          "appealSubmitted": "0",
+          "leaderRevealed": "1792148395"
+        },
+        "firstSlotElapsed": false,
+        "queueType": 2,
+        "queueModification": {
+          "lastQueueType": 2,
+          "lastQueueTimestamp": "1792148397"
+        },
+        "atFinalizedHead": true,
+        "canFinalize": [
+          false,
+          "1792150158",
+          "1792150197"
+        ]
+      },
+      {
+        "tx": "0x5e719a4bf3a21319982ffefabd1e312123b631a08cd2fa872cdf2fc01dc6f23c",
+        "stored": {
+          "result": 0,
+          "txExecutionResult": 0,
+          "previousStatus": 0,
+          "status": 2,
+          "txOrigin": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+          "sender": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+          "recipient": "0xCB67936d0b00b82Ea73611b3C8353a21EBdc7261",
+          "activator": "0x7538369A22a176afFccb6B273eedfbb92780bf22",
+          "txSlot": "201",
+          "initialRotations": "7",
+          "numOfInitialValidators": "5",
+          "epoch": "178",
+          "id": "0x5e719a4bf3a21319982ffefabd1e312123b631a08cd2fa872cdf2fc01dc6f23c",
+          "randomSeed": "0xe39391bd07aff07a86c12f92a550f7a49be2a8000d22c41608f4222c2add2ec8",
+          "txExecutionHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+          "resultHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+          "txCalldata": "0xdf9d1604617267732501392c41444d495404066d6574686f642c70726f626500",
+          "eqBlocksOutputs": "0x",
+          "readStateBlockRanges": [
+            {
+              "activationBlock": "25311231",
+              "processingBlock": "0",
+              "proposalBlock": "0"
+            }
+          ],
+          "validUntil": "1792153731",
+          "value": "0",
+          "lockedStorageUnitPrice": "0",
+          "storageFeeUsed": "0"
+        },
+        "receipt": {
+          "currentTimestamp": "1792150152",
+          "sender": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+          "recipient": "0xCB67936d0b00b82Ea73611b3C8353a21EBdc7261",
+          "initialRotations": "7",
+          "txSlot": "201",
+          "createdTimestamp": "1792150144",
+          "lastVoteTimestamp": "0",
+          "randomSeed": "0xe39391bd07aff07a86c12f92a550f7a49be2a8000d22c41608f4222c2add2ec8",
+          "result": 0,
+          "txExecutionHash": "0x61a0bad99b7f5b92c0faacdb6383844a4df2b14e8840e12fa9d7da60a6837b5a",
+          "txCalldata": "0xdf9d1604617267732501392c41444d495404066d6574686f642c70726f626500",
+          "eqBlocksOutputs": "0xf852b84900b4047b226f726967696e616c5f726573756c74223a202237222c2022726577726974655f726573756c74223a202237222c202273616d655f7175657374696f6e223a20747275657d86706164646564",
+          "messages": [],
+          "queueType": 0,
+          "queuePosition": "0",
+          "activator": "0x7538369A22a176afFccb6B273eedfbb92780bf22",
+          "lastLeader": "0x422357d87B035e478777C84748BAC834CE2A9597",
+          "status": 3,
+          "txId": "0x5e719a4bf3a21319982ffefabd1e312123b631a08cd2fa872cdf2fc01dc6f23c",
+          "readStateBlockRange": {
+            "activationBlock": "25311231",
+            "processingBlock": "25311236",
+            "proposalBlock": "25311238"
+          },
+          "numOfRounds": "0",
+          "lastRound": {
+            "round": "0",
+            "leaderIndex": "1",
+            "votesCommitted": "1",
+            "votesRevealed": "0",
+            "appealBond": "0",
+            "rotationsLeft": "7",
+            "result": 0,
+            "roundValidators": [
+              "0x992E8D62263eD1Fe2E14FfB11aDf1080edBe4b5a",
+              "0x422357d87B035e478777C84748BAC834CE2A9597",
+              "0x4f36CB2C58385575fafb443d80E3c290b12DA6aE",
+              "0x3f5cAED686336ED9cF3Dede61154B0Cd67Fb9bD7",
+              "0xfd811B16001077243e07173ec72a4735FF04C3AA"
+            ],
+            "validatorVotes": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "validatorVotesHash": [
+              "0x0000000000000000000000000000000000000000000000000000000000000000",
+              "0x0000000000000000000000000000000000000000000000000000000000000000",
+              "0x0000000000000000000000000000000000000000000000000000000000000000",
+              "0x4ca6fad649b782a755760a984bcbb6f71e0f02f8e0bed4cc97e4e50679e79b82",
+              "0x0000000000000000000000000000000000000000000000000000000000000000"
+            ],
+            "validatorResultHash": [
+              "0x0000000000000000000000000000000000000000000000000000000000000000",
+              "0x0000000000000000000000000000000000000000000000000000000000000000",
+              "0x0000000000000000000000000000000000000000000000000000000000000000",
+              "0x0000000000000000000000000000000000000000000000000000000000000000",
+              "0x0000000000000000000000000000000000000000000000000000000000000000"
+            ],
+            "validatorVotesName": [
+              "NOT_VOTED",
+              "NOT_VOTED",
+              "NOT_VOTED",
+              "NOT_VOTED",
+              "NOT_VOTED"
+            ]
+          },
+          "consumedValidators": [
+            "0x992E8D62263eD1Fe2E14FfB11aDf1080edBe4b5a",
+            "0x422357d87B035e478777C84748BAC834CE2A9597",
+            "0x4f36CB2C58385575fafb443d80E3c290b12DA6aE",
+            "0x3f5cAED686336ED9cF3Dede61154B0Cd67Fb9bD7",
+            "0xfd811B16001077243e07173ec72a4735FF04C3AA"
+          ],
+          "txExecutionResult": 0,
+          "txData": "0xdf9d1604617267732501392c41444d495404066d6574686f642c70726f626500",
+          "txDataDecoded": {
+            "callData": {
+              "args": [
+                "0",
+                "7",
+                "ADMIT",
+                ""
+              ],
+              "method": "probe"
+            },
+            "leaderOnly": false,
+            "type": "call"
+          },
+          "numOfInitialValidators": "7",
+          "statusName": "COMMITTING",
+          "resultName": "IDLE",
+          "txExecutionResultName": "NOT_VOTED"
+        },
+        "decoded": {
+          "callData": {
+            "args": [
+              "0",
+              "7",
+              "ADMIT",
+              ""
+            ],
+            "method": "probe"
+          },
+          "leaderOnly": false,
+          "type": "call"
+        },
+        "mainTimestamps": {
+          "created": "1792150144",
+          "pending": "1792150144",
+          "activated": "1792150145",
+          "proposed": "0",
+          "committed": "0",
+          "lastVote": "0",
+          "appealSubmitted": "0",
+          "leaderRevealed": "0"
+        },
+        "firstSlotElapsed": false,
+        "queueType": 1,
+        "queueModification": {
+          "lastQueueType": 0,
+          "lastQueueTimestamp": "0"
+        },
+        "atFinalizedHead": false,
+        "canFinalize": [
+          false,
+          "1792150158",
+          "0"
+        ]
+      },
+      {
+        "tx": "0xad46882f4500e3602ea89400b087bd06599cae4976c68649b9d6b890e4c116d1",
+        "stored": {
+          "result": 0,
+          "txExecutionResult": 1,
+          "previousStatus": 0,
+          "status": 7,
+          "txOrigin": "0x771388495F34d21C5574FeFc04cd1D5811E00aDa",
+          "sender": "0x771388495F34d21C5574FeFc04cd1D5811E00aDa",
+          "recipient": "0xCB67936d0b00b82Ea73611b3C8353a21EBdc7261",
+          "activator": "0x3B940A5b4A762583453D9e9Cf0981BE0426A8e79",
+          "txSlot": "165",
+          "initialRotations": "7",
+          "numOfInitialValidators": "5",
+          "epoch": "178",
+          "id": "0xad46882f4500e3602ea89400b087bd06599cae4976c68649b9d6b890e4c116d1",
+          "randomSeed": "0x412b52e3882461a1cce2f5476846f9ae89c1cbc9767a8a628b1a73e9cf04c429",
+          "txExecutionHash": "0x982f878e2e2edcd13c5b71eae61b7f9d7e5560cab9bdd020075fbd5b05c8ba42",
+          "resultHash": "0xa9dc7c6065482adb5ebb8c1931aef3e83105f04a31575d5a9cdc9c62da121205",
+          "txCalldata": "0xdf9d1604617267732509792c41444d495404066d6574686f642c70726f626500",
+          "eqBlocksOutputs": "0xf854b84b00c4047b226f726967696e616c5f726573756c74223a20223130222c2022726577726974655f726573756c74223a20223130222c202273616d655f7175657374696f6e223a20747275657d86706164646564",
+          "readStateBlockRanges": [
+            {
+              "activationBlock": "25310006",
+              "processingBlock": "25310068",
+              "proposalBlock": "25310070"
+            }
+          ],
+          "validUntil": "1792151641",
+          "value": "0",
+          "lockedStorageUnitPrice": "0",
+          "storageFeeUsed": "0"
+        },
+        "receipt": {
+          "currentTimestamp": "1792150152",
+          "sender": "0x771388495F34d21C5574FeFc04cd1D5811E00aDa",
+          "recipient": "0xCB67936d0b00b82Ea73611b3C8353a21EBdc7261",
+          "initialRotations": "7",
+          "txSlot": "165",
+          "createdTimestamp": "1792148054",
+          "lastVoteTimestamp": "1792148127",
+          "randomSeed": "0x412b52e3882461a1cce2f5476846f9ae89c1cbc9767a8a628b1a73e9cf04c429",
+          "result": 0,
+          "txExecutionHash": "0x982f878e2e2edcd13c5b71eae61b7f9d7e5560cab9bdd020075fbd5b05c8ba42",
+          "txCalldata": "0xdf9d1604617267732509792c41444d495404066d6574686f642c70726f626500",
+          "eqBlocksOutputs": "0xf854b84b00c4047b226f726967696e616c5f726573756c74223a20223130222c2022726577726974655f726573756c74223a20223130222c202273616d655f7175657374696f6e223a20747275657d86706164646564",
+          "messages": [],
+          "queueType": 0,
+          "queuePosition": "0",
+          "activator": "0x3B940A5b4A762583453D9e9Cf0981BE0426A8e79",
+          "lastLeader": "0xB93a46B843fB32E8Ce392e68eDFE93Faa4a40817",
+          "status": 7,
+          "txId": "0xad46882f4500e3602ea89400b087bd06599cae4976c68649b9d6b890e4c116d1",
+          "readStateBlockRange": {
+            "activationBlock": "25310006",
+            "processingBlock": "25310068",
+            "proposalBlock": "25310070"
+          },
+          "numOfRounds": "0",
+          "lastRound": {
+            "round": "0",
+            "leaderIndex": "0",
+            "votesCommitted": "0",
+            "votesRevealed": "0",
+            "appealBond": "0",
+            "rotationsLeft": "6",
+            "result": 0,
+            "roundValidators": [
+              "0xB93a46B843fB32E8Ce392e68eDFE93Faa4a40817",
+              "0x2d012a292244C7ce6423a114d19109990923Af76",
+              "0x0c526A6af46A038E31dA21C123756Ab2D75f06Bc",
+              "0x79485eF57aC2055dC83b9E7b2C9Cf184Fc79648E",
+              "0x59dC5E6fD7428c5Ee6fc24aE2B99E5860A9c9499"
+            ],
+            "validatorVotes": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "validatorVotesHash": [
+              "0x0000000000000000000000000000000000000000000000000000000000000000",
+              "0x0000000000000000000000000000000000000000000000000000000000000000",
+              "0x0000000000000000000000000000000000000000000000000000000000000000",
+              "0x0000000000000000000000000000000000000000000000000000000000000000",
+              "0x0000000000000000000000000000000000000000000000000000000000000000"
+            ],
+            "validatorResultHash": [
+              "0x0000000000000000000000000000000000000000000000000000000000000000",
+              "0x0000000000000000000000000000000000000000000000000000000000000000",
+              "0x0000000000000000000000000000000000000000000000000000000000000000",
+              "0x0000000000000000000000000000000000000000000000000000000000000000",
+              "0x0000000000000000000000000000000000000000000000000000000000000000"
+            ],
+            "validatorVotesName": [
+              "NOT_VOTED",
+              "NOT_VOTED",
+              "NOT_VOTED",
+              "NOT_VOTED",
+              "NOT_VOTED"
+            ]
+          },
+          "consumedValidators": [
+            "0xB93a46B843fB32E8Ce392e68eDFE93Faa4a40817",
+            "0x2d012a292244C7ce6423a114d19109990923Af76",
+            "0x0c526A6af46A038E31dA21C123756Ab2D75f06Bc",
+            "0x79485eF57aC2055dC83b9E7b2C9Cf184Fc79648E",
+            "0x3a130401885fD9322E2E21174A5496065f716b35",
+            "0x59dC5E6fD7428c5Ee6fc24aE2B99E5860A9c9499"
+          ],
+          "txExecutionResult": 1,
+          "txData": "0xdf9d1604617267732509792c41444d495404066d6574686f642c70726f626500",
+          "txDataDecoded": {
+            "callData": {
+              "args": [
+                "1",
+                "15",
+                "ADMIT",
+                ""
+              ],
+              "method": "probe"
+            },
+            "leaderOnly": false,
+            "type": "call"
+          },
+          "numOfInitialValidators": "7",
+          "statusName": "FINALIZED",
+          "resultName": "IDLE",
+          "txExecutionResultName": "FINISHED_WITH_RETURN"
+        },
+        "decoded": {
+          "callData": {
+            "args": [
+              "1",
+              "15",
+              "ADMIT",
+              ""
+            ],
+            "method": "probe"
+          },
+          "leaderOnly": false,
+          "type": "call"
+        },
+        "mainTimestamps": {
+          "created": "1792148054",
+          "pending": "1792148085",
+          "activated": "1792148123",
+          "proposed": "1792148127",
+          "committed": "1792148117",
+          "lastVote": "1792148127",
+          "appealSubmitted": "0",
+          "leaderRevealed": "1792148118"
+        },
+        "firstSlotElapsed": false,
+        "queueType": 2,
+        "queueModification": {
+          "lastQueueType": 2,
+          "lastQueueTimestamp": "1792148127"
+        },
+        "atFinalizedHead": false,
+        "canFinalize": [
+          false,
+          "1792150158",
+          "0"
+        ]
+      }
+    ]
+  },
+  "eventProtocol": {
+    "chainId": 4221,
+    "main": "0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D",
+    "manager": "0x8aCE036C8C3C5D603dB546b031302FCf149648E8",
+    "version": "2.0.0",
+    "implementations": {
+      "ConsensusMain": "0x0a2c393975da79505ed930efc55ae4aeb88b0d62",
+      "Idleness": "0x4e696416634012119187d8dda6a56e66ac7cb23d",
+      "IdlenessPhase": "0x2cf61473cafcf47adc0ddd861290a7e848881446",
+      "ConsensusData": "0x7ee629530e70e2a3a772f8522d8835060abf0755",
+      "AddressManager": "0xf63f3a95fbf2e97618a5e3ea0fff63024915f3e6",
+      "Queues": "0x7559ebdbc6f59e5dd2a048a1a1539ac14bf93db0",
+      "TransactionManager": "0xeee45073f7eeb3b80d1973f8398f8e508f893f9c",
+      "FinalizationPhase": "0x3ab63c1fc784682ef72276a76e2ad8fc1c5813b2"
+    },
+    "sourceCommit": "9c686087963551277fc2dce0354c2b1a7050b4b2"
+  },
+  "event": {
+    "txId": "0xad46882f4500e3602ea89400b087bd06599cae4976c68649b9d6b890e4c116d1",
+    "previousStatus": 13,
+    "shouldProcessMessages": false,
+    "log": {
+      "address": "0x7de0ff58b401f2d800470e4390e24ff2baa02aae",
+      "blockHash": "0x0ee56b39fe201d6b873b7da7b561e010c6b34d26255b09af4508d1c22fcd3477",
+      "blockNumber": "25311227",
+      "blockTimestamp": "1792150134",
+      "data": "0x000000000000000000000000000000000000000000000000000000000000000d0000000000000000000000000000000000000000000000000000000000000000",
+      "logIndex": 1,
+      "removed": false,
+      "topics": [
+        "0xfcc739ca8e51c67e4fd127179070d26ae8ed5ed6dcbc26bcd88ff81c50f346a6",
+        "0xad46882f4500e3602ea89400b087bd06599cae4976c68649b9d6b890e4c116d1"
+      ],
+      "transactionHash": "0xa681a6eef0a4a142dc743e6d2c76558c512b6f0b3a0606e092335273e6d80488",
+      "transactionIndex": 0
+    }
+  },
+  "evm": {
+    "receipt": {
+      "blockHash": "0x0ee56b39fe201d6b873b7da7b561e010c6b34d26255b09af4508d1c22fcd3477",
+      "blockNumber": "25311227",
+      "contractAddress": null,
+      "cumulativeGasUsed": "538872",
+      "effectiveGasPrice": "83333400",
+      "from": "0x610ad38a9eae81c79960f8a885ad16877bda0463",
+      "gasUsed": "538872",
+      "l2ToL1Logs": [],
+      "logs": [
+        {
+          "address": "0x1d301acef55eaf7df5d3741659d426f51061ec8d",
+          "blockHash": "0x0ee56b39fe201d6b873b7da7b561e010c6b34d26255b09af4508d1c22fcd3477",
+          "blockNumber": "25311227",
+          "blockTimestamp": "1792150134",
+          "data": "0x000000000000000000000000000000000000000000000000000000000000000d0000000000000000000000000000000000000000000000000000000000000007",
+          "logIndex": 0,
+          "removed": false,
+          "topics": [
+            "0xc8a7adcd793ee2c31f7814aeef44437537b00ebc2e9ab3dec66d7561411b4d7b",
+            "0xad46882f4500e3602ea89400b087bd06599cae4976c68649b9d6b890e4c116d1"
+          ],
+          "transactionHash": "0xa681a6eef0a4a142dc743e6d2c76558c512b6f0b3a0606e092335273e6d80488",
+          "transactionIndex": 0
+        },
+        {
+          "address": "0x7de0ff58b401f2d800470e4390e24ff2baa02aae",
+          "blockHash": "0x0ee56b39fe201d6b873b7da7b561e010c6b34d26255b09af4508d1c22fcd3477",
+          "blockNumber": "25311227",
+          "blockTimestamp": "1792150134",
+          "data": "0x000000000000000000000000000000000000000000000000000000000000000d0000000000000000000000000000000000000000000000000000000000000000",
+          "logIndex": 1,
+          "removed": false,
+          "topics": [
+            "0xfcc739ca8e51c67e4fd127179070d26ae8ed5ed6dcbc26bcd88ff81c50f346a6",
+            "0xad46882f4500e3602ea89400b087bd06599cae4976c68649b9d6b890e4c116d1"
+          ],
+          "transactionHash": "0xa681a6eef0a4a142dc743e6d2c76558c512b6f0b3a0606e092335273e6d80488",
+          "transactionIndex": 0
+        },
+        {
+          "address": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d",
+          "blockHash": "0x0ee56b39fe201d6b873b7da7b561e010c6b34d26255b09af4508d1c22fcd3477",
+          "blockNumber": "25311227",
+          "blockTimestamp": "1792150134",
+          "data": "0x",
+          "logIndex": 2,
+          "removed": false,
+          "topics": [
+            "0x24196ec40f90671b7144e716978686b4f3c7d6b00b23da3971ef2b52af27d87f",
+            "0xad46882f4500e3602ea89400b087bd06599cae4976c68649b9d6b890e4c116d1"
+          ],
+          "transactionHash": "0xa681a6eef0a4a142dc743e6d2c76558c512b6f0b3a0606e092335273e6d80488",
+          "transactionIndex": 0
+        }
+      ],
+      "logsBloom": "0x00000000000000000000040000000000000000000000000000000000000000000000010000000000000000000000081000000800000000000020000000000000000000000000000000000800000000000020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000020000000000000000040000000000000000000000000000000000011000000000000000000000008000000000000000000000000000004000000000000000000008000000000001200000000000000000000000000000000000020000010000000100000000000000000000000",
+      "status": "success",
+      "to": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d",
+      "transactionHash": "0xa681a6eef0a4a142dc743e6d2c76558c512b6f0b3a0606e092335273e6d80488",
+      "transactionIndex": 0,
+      "type": "eip1559"
+    },
+    "transaction": {
+      "accessList": [],
+      "blockHash": "0x0ee56b39fe201d6b873b7da7b561e010c6b34d26255b09af4508d1c22fcd3477",
+      "blockNumber": "25311227",
+      "blockTimestamp": "1792150134",
+      "chainId": 4221,
+      "from": "0x610ad38a9eae81c79960f8a885ad16877bda0463",
+      "gas": "1120654",
+      "gasPrice": "83333400",
+      "hash": "0xa681a6eef0a4a142dc743e6d2c76558c512b6f0b3a0606e092335273e6d80488",
+      "input": "0xb2efda83ad46882f4500e3602ea89400b087bd06599cae4976c68649b9d6b890e4c116d1",
+      "maxFeePerGas": "166666800",
+      "maxPriorityFeePerGas": "0",
+      "nonce": 1660506,
+      "r": "0xdc65b8ce20afca7487a94fe03c4e4facb4fe51c2e4f68102b6c69833a5d8c52a",
+      "s": "0x186b313785d017f8aee15c0d43d93e829a4ba5af7c87066682d219d920025506",
+      "to": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d",
+      "transactionIndex": 0,
+      "type": "eip1559",
+      "v": "0",
+      "value": "0",
+      "yParity": 0,
+      "typeHex": "0x2"
+    },
+    "block": {
+      "baseFeePerGas": "83333400",
+      "difficulty": "0",
+      "extraData": "0x",
+      "gasLimit": "100000000",
+      "gasUsed": "1139068",
+      "hash": "0x0ee56b39fe201d6b873b7da7b561e010c6b34d26255b09af4508d1c22fcd3477",
+      "logsBloom": "0x00000000000000000000040000000000000000000000000000000000000000000000010000000000000000000000081000000800000000000020000000000000000000000000000000000800000000000020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000020000000000000000040000000000000000000000000000000000011000000000000000000000008000000000000000000000000000004000000000000000000008000000000001200000000000000000000000000000000000020000010000000100000000000000000000000",
+      "miner": "0xf51b92325d0661018fc792454ce6be5c588dadd0",
+      "mixHash": "0x0000000000000000000000000000000000000000000000000000000000000001",
+      "nonce": "0x0000000000000000",
+      "number": "25311227",
+      "parentHash": "0x6c12ccbf4b29f67cc1d43bd0f77dc2dc325b2d6e262ae9df5b3ee5555cf8aef6",
+      "receiptsRoot": "0x54a6a5db84be64c78cfe3dfa8c06ed08bb3d331a7c6ca5e716f4be977bd07c93",
+      "sha3Uncles": "0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347",
+      "size": "621",
+      "stateRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "timestamp": "1792150134",
+      "totalDifficulty": "0",
+      "transactions": [
+        "0xa681a6eef0a4a142dc743e6d2c76558c512b6f0b3a0606e092335273e6d80488",
+        "0x34f98396efe170421af8876527e9dc41ce6878bc126343428a328b060d292bdc",
+        "0xb78ae3ee542f8a421dd5eb5e3efc79bcac7c26fc15951bf74e74d780ad887271"
+      ],
+      "transactionsRoot": "0x730ce4fc874204e4f11800112aef70893b4139cfcc749224f87044ec5fbb0f26",
+      "uncles": []
+    }
+  },
+  "lookup": {
+    "fromBlock": "25291238",
+    "toBlock": "25311237",
+    "maxBlocks": 20000,
+    "explicitEvmHash": null
+  },
+  "origin": "chain_observation",
+  "call": {
+    "method": "probe",
+    "args": [
+      "1",
+      "15",
+      "ADMIT",
+      ""
+    ],
+    "value": "0"
+  },
+  "source_sha256": "3d46770b50e2f59cadc621a40ff36da1f747c885fa9f9c45327a1199b2afa3b9",
+  "claim_sha256": "8eb4cf62cf411c76c5620abb3a80d2039f02e68ed746bf6390eccffbbac59c87"
+}

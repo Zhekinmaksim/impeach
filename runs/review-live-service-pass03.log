@@ -1,0 +1,4 @@
+{"at": 1792148637, "action": "PLAN", "operation": "finalize", "tx": "0x360d1332deae75aedd31b699707cef50fc48e3e8b2cbbafd9863e8c84ae1c84b", "execute": true, "consensus_data_can_finalize": [true, "1792148635", "26"], "beforeStoredUND": false, "beforeStoredFailurePhase": 13, "native_success": false}
+{"at": 1792148647, "action": "EVM_HASH", "evm_tx": "0xfd215289cd95fe02bfb7f12031b3ed3eb62657de64552923fa2b36860d85dc41"}
+{"at": 1792148654, "action": "PROTOCOL_OPERATION_DONE", "operation": "finalize", "tx": "0x360d1332deae75aedd31b699707cef50fc48e3e8b2cbbafd9863e8c84ae1c84b", "evm_tx": "0xfd215289cd95fe02bfb7f12031b3ed3eb62657de64552923fa2b36860d85dc41", "native_status": "FINALIZED", "resolved": true, "beforeStoredUND": false, "beforeStoredFailurePhase": 13, "native_success": false}
+{"at": 1792148654, "action": "OPERATION_BOUND", "operations": 1}

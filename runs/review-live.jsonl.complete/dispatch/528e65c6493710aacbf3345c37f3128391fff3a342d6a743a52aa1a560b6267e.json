@@ -1,0 +1,9 @@
+{
+  "key": "probe:1:8:PINNED",
+  "address": "0xcb67936d0b00b82ea73611b3c8353a21ebdc7261",
+  "signature": "4b75502dfb91d532f1945b10effbe710d1323e45288af7aeb0b96fc3bd295a9f",
+  "input_sha256": "8eb4cf62cf411c76c5620abb3a80d2039f02e68ed746bf6390eccffbbac59c87",
+  "at": 1792129992,
+  "status": "DISPATCHING",
+  "recovery_ordinal": 0
+}

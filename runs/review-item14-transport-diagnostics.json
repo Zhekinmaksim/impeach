@@ -1,0 +1,15 @@
+{
+  "checked_at": "2026-10-16T06:53:27.558182+00:00",
+  "note": "Sampled platform logs; 200 at the server does not prove delivery to a validator. No definitive cause inferred. Raw platform logs kept only in /tmp.",
+  "sampled_requests": 50,
+  "status_counts": {
+    "200": 50
+  },
+  "oldest_timestamp_ms": 1792132124284,
+  "newest_timestamp_ms": 1792133263678,
+  "native_failure_tx": "0xc482a3a2a2378d6e519a5f33926b7793b81c75989f2a04e4689e070c0933a77e",
+  "native_leader_referee": "53 / 53, same_question=true",
+  "native_leader_answer_bucket": "DEAD",
+  "direct_replay_http_status": 200,
+  "direct_response_path": "runs/review-item14-direct-response.json"
+}

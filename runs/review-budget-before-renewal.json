@@ -1,0 +1,9 @@
+{
+  "at": "2026-10-16T10:27:14.435677+00:00",
+  "limit": 5,
+  "limit_remaining": 2.97234998,
+  "limit_reset": null,
+  "usage": 2.02765002,
+  "byok_usage": 0,
+  "include_byok_in_limit": false
+}

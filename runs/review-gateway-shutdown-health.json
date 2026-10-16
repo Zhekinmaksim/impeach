@@ -1,0 +1,26 @@
+{
+  "at": "2026-10-16T11:40:48.350961+00:00",
+  "paid": {
+    "url": "https://impeach.vercel.app/api/live-v3/chat/completions",
+    "status": 200,
+    "body": {
+      "service": "impeach-openrouter",
+      "enabled": false,
+      "status": "trial_disabled"
+    }
+  },
+  "control": {
+    "url": "https://impeach.vercel.app/api/scripted-v2/chat/completions",
+    "status": 200,
+    "body": {
+      "service": "impeach-scripted-memoriser",
+      "enabled": true,
+      "model": "scripted/memoriser-court24-v2",
+      "kind": "scripted",
+      "llm": false,
+      "allowed_requests": 72,
+      "description": "Sealed-answer and verbatim-tail lookup. No LLM or external API is called.",
+      "policy_sha256": "10f625fd19d9c4cb2118e99bde3815eaec77d1c9f5ccfd1fe2be3f0b0852ea50"
+    }
+  }
+}

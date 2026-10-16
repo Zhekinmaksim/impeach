@@ -389,11 +389,11 @@ class FinalizedProbeRecoveryTests(unittest.TestCase):
             fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
             self.refuse("another recovery")
 
-    def test_three_recoveries_preserve_inputs_ordinals_and_prebroadcast_evidence(self):
-        self.args.max_recoveries = 3
+    def test_six_recoveries_preserve_inputs_ordinals_and_prebroadcast_evidence(self):
+        self.args.max_recoveries = 6
         original_bytes = Path(self.args.manifest).read_bytes()
         receipts = [self.receipt, {"status": 7, "result": 0, "txExecutionResult": 0},
-                    {"status": 7, "result": 2, "txExecutionResult": 1}]
+                    {"status": 7, "result": 2, "txExecutionResult": 1}] * 2
         saved = {}
         for ordinal, receipt in enumerate(receipts, 1):
             previous = self.read_rows()[-1]
@@ -425,15 +425,15 @@ class FinalizedProbeRecoveryTests(unittest.TestCase):
         self.args.tx = tx
         with self.assertRaisesRegex(SystemExit, "configured limit"):
             recovery.retry(self.args)
-        self.assertEqual(self.send.call_count, 3)
-        self.assertEqual(len(self.read_rows()), 4)
+        self.assertEqual(self.send.call_count, 6)
+        self.assertEqual(len(self.read_rows()), 7)
         for path, raw in saved.items():
             self.assertEqual(path.read_bytes(), raw)
 
     def test_larger_limit_does_not_retry_pending_replay_or_finalized_return_idle(self):
         recovery.retry(self.args)
         self.args.tx = self.new_tx
-        self.args.max_recoveries = 3
+        self.args.max_recoveries = 6
         self.send.reset_mock()
         for status, result, execution in ((1, 0, 0), (4, 0, 0), (14, 1, 1),
                                           (6, 5, 1), (11, 5, 1), (12, 3, 3), (7, 0, 1)):
@@ -511,17 +511,18 @@ class FinalizedProbeRecoveryTests(unittest.TestCase):
         self.args.deadline_margin = 10
         self.refuse("window has closed")
         self.args.deadline_margin = 0
-        for limit in (0, 4, True):
+        for limit in (0, 7, True):
             self.args.max_recoveries = limit
-            self.refuse("integer from 1 to 3")
+            self.refuse("integer from 1 to 6")
 
     def test_cli_recovery_policy_defaults_to_one_and_is_bounded(self):
         options = [value for name in ("address", "account", "rpc", "manifest", "tx")
                    for value in ("--" + name, getattr(self.args, name))]
         self.assertEqual(recovery.parse_args(options).max_recoveries, 1)
         self.assertEqual(recovery.parse_args(options + ["--max-recoveries", "3"]).max_recoveries, 3)
+        self.assertEqual(recovery.parse_args(options + ["--max-recoveries", "6"]).max_recoveries, 6)
         with contextlib.redirect_stderr(io.StringIO()), self.assertRaises(SystemExit):
-            recovery.parse_args(options + ["--max-recoveries", "4"])
+            recovery.parse_args(options + ["--max-recoveries", "7"])
 
 
 if __name__ == "__main__":

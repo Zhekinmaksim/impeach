@@ -1,0 +1,13 @@
+{
+  "at": 1792148644,
+  "operation": "finalize",
+  "tx": "0x360d1332deae75aedd31b699707cef50fc48e3e8b2cbbafd9863e8c84ae1c84b",
+  "phase_fingerprint": "a1803581e386d6f9c272e9c50a1385fc12c3356241dd4e9e6095737b221ee2c7",
+  "account": "alice",
+  "from": "0x771388495F34d21C5574FeFc04cd1D5811E00aDa",
+  "value": 0,
+  "status": "DISPATCHING",
+  "beforeStoredUND": false,
+  "beforeStoredFailurePhase": 13,
+  "native_success": false
+}

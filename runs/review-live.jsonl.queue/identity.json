@@ -1,0 +1,8 @@
+{
+  "address": "0xcb67936d0b00b82ea73611b3c8353a21ebdc7261",
+  "claim_id": 1,
+  "challenge_id": 1,
+  "claim_sha256": "8eb4cf62cf411c76c5620abb3a80d2039f02e68ed746bf6390eccffbbac59c87",
+  "source_sha256": "3d46770b50e2f59cadc621a40ff36da1f747c885fa9f9c45327a1199b2afa3b9",
+  "rpc": "https://rpc-bradbury.genlayer.com"
+}
