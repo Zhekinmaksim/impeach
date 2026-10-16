@@ -22,6 +22,10 @@ queue service/resume; DEAD or rejected rewrites do not become retryable.
 --subject-deadline is the public API expiry as UTC epoch seconds. Subject
 dispatches stop 120 seconds earlier; ADMIT may continue within the court window.
 Already sent calls are never canceled and may execute after API expiry.
+
+--admit-ready-only explicitly runs C2 for already saved subject pairs while a
+subject recovery awaits finality. Exit 0 in that mode means the ready C2 pass
+is complete; progress.json still reports the whole case's actual completeness.
 """
 
 import argparse
@@ -133,6 +137,9 @@ class Completer(run_case.Runner):
         super().__init__(args)
         self.max_recoveries = recovery.max_recoveries(args)
         self.subject_first = getattr(args, 'subject_first', False)
+        self.admit_ready_only = getattr(args, 'admit_ready_only', False)
+        if self.admit_ready_only and not self.subject_first:
+            raise Pause('--admit-ready-only requires --subject-first and cannot dispatch subject modes')
         self.subject_deadline = recovery.subject_deadline(args)
         if self.subject_deadline is not None and not self.subject_first:
             raise Pause('--subject-deadline requires --subject-first for completion scheduling')
@@ -470,6 +477,8 @@ class Completer(run_case.Runner):
         for row in self.rows.values():
             if row.get('method') != 'probe' or self.outcomes.get(row['tx']) != 'FAILURE':
                 continue
+            if self.admit_ready_only and row.get('mode') != 'ADMIT':
+                continue
             state = self.states.get(row['item_index'], {})
             if not recovery.slot_untouched(state, row['mode']):
                 continue
@@ -522,6 +531,8 @@ class Completer(run_case.Runner):
                                               'recall': s.get('recall'), 'rewrite': s.get('rewrite'),
                                               'stage_c1': s.get('stage_c1')}
                                              for i, s in sorted(self.states.items()) if not subjects_completed(s)])
+        if self.admit_ready_only:
+            data['admit_ready_only'] = True
         json_write(self.folder / 'progress.json', data)
         return data
 
@@ -530,22 +541,30 @@ class Completer(run_case.Runner):
         # Even applied slots do not justify silently ignoring an unknown hash.
         for row in self.rows.values():
             self.wait(row)
-        if self.subject_first:
+        if self.admit_ready_only:
+            self.event('ADMIT_READY_ONLY', message='Explicit C2-only scheduling; subject deadline and inputs unchanged')
+        if self.subject_first and not self.admit_ready_only:
             self.subject_stage()
         while True:
             self.guard()
             if self.subject_first:
                 for index in range(24):
                     self.state(index)
-                if not all(subjects_completed(self.states[index]) for index in range(24)):
+                if not self.admit_ready_only and not all(subjects_completed(self.states[index]) for index in range(24)):
                     raise Pause('subject state changed before ADMIT stage; resume without another broadcast')
             for index in range(24):
+                if self.admit_ready_only and not subjects_completed(self.states[index]):
+                    continue
                 for mode in (('ADMIT',) if self.subject_first else MODES):
                     self.initial(index, mode)
                 self.state(index)
             progress = self.report('RUNNING')
             if progress['all_slots_complete']:
                 self.report('COMPLETE')
+                return 0
+            if self.admit_ready_only and all(not subjects_completed(s) or
+                    s.get('stage_c2') in {'ADMISSIBLE', 'INADMISSIBLE'} for s in self.states.values()):
+                self.report('READY_ADMISSIONS_COMPLETE', 'Ready pairs only; inspect all_slots_complete for the whole case')
                 return 0
             # Progress all initially available slots before any recovery attempt.
             recovered = became_successful = False
@@ -617,6 +636,8 @@ def parse_args(argv=None):
                         help='maximum new recovery transactions per slot, excluding the original (default: 1)')
     parser.add_argument('--subject-first', action='store_true',
                         help='complete all subject states/recoveries before any ADMIT; blocked subjects pause for service/resume')
+    parser.add_argument('--admit-ready-only', action='store_true',
+                        help='explicit C2-only pass for saved pairs; requires --subject-first; exit 0 is not whole-case completion')
     parser.add_argument('--subject-deadline', type=int,
                         help='public API expiry as UTC epoch seconds; subject dispatch stops 120 seconds earlier')
     args = parser.parse_args(argv)
@@ -627,6 +648,8 @@ def parse_args(argv=None):
         parser.error('invalid address/account/timing options; poll interval must be in (0, 10] seconds')
     if args.subject_deadline is not None and (args.subject_deadline <= 0 or not args.subject_first):
         parser.error('--subject-deadline must be a positive UTC epoch and requires --subject-first')
+    if args.admit_ready_only and not args.subject_first:
+        parser.error('--admit-ready-only requires --subject-first')
     args.dry_run, args.delay, args.acknowledge_failed = False, 0, []
     return args
 

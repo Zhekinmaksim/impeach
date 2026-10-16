@@ -135,6 +135,54 @@ class CompletionTests(unittest.TestCase):
         self.assertEqual(len(self.calls),96)
         self.assertEqual(len(self.rows()),96)
 
+    def prepare_ready_pairs(self):
+        self.args.subject_first = True
+        self.args.subject_deadline = 1  # Expired API must not block unpaid C2.
+        self.args.admit_ready_only = True
+        for index in range(24):
+            self.apply(index, 'PINNED')
+            self.apply(index, 'RECALL')
+            if index != 14:
+                self.apply(index, 'REWRITE')
+
+    def test_ready_c2_pass_never_calls_subject_or_claims_whole_case_completion(self):
+        self.prepare_ready_pairs()
+        self.assertEqual(complete.complete(self.args), 0)
+        self.assertEqual(self.calls, [(i, 'ADMIT') for i in range(24) if i != 14])
+        report = self.report()
+        self.assertEqual(report['phase'], 'READY_ADMISSIONS_COMPLETE')
+        self.assertFalse(report['all_slots_complete'])
+        self.assertFalse(report['all_24_admitted'])
+        self.assertEqual(report['totals']['admitted'], 23)
+        self.assertEqual(report['subjects_incomplete'][0]['item_index'], 14)
+        identity = Path(self.args.manifest+'.complete/identity.json').read_bytes()
+        # Once the subject recovery is actually saved, normal completion uses
+        # the same identity and only sends the missing C2.
+        self.apply(14, 'REWRITE')
+        self.args.admit_ready_only = False
+        self.assertEqual(complete.complete(self.args), 0)
+        self.assertEqual(self.calls[-1], (14, 'ADMIT'))
+        self.assertEqual(len(self.calls), 24)
+        self.assertTrue(self.report()['all_24_admitted'])
+        self.assertEqual(Path(self.args.manifest+'.complete/identity.json').read_bytes(), identity)
+
+    def test_ready_c2_pass_retains_finalized_failure_and_uses_guarded_recovery(self):
+        self.prepare_ready_pairs()
+        self.behavior[(3, 'ADMIT', 0)] = FAILED
+        self.assertEqual(complete.complete(self.args), 0)
+        rows = [r for r in self.rows() if r['item_index'] == 3]
+        self.assertEqual(len(rows), 2)
+        self.assertEqual(rows[1]['previous_tx'], rows[0]['tx'])
+        self.assertEqual(rows[1]['recovery_ordinal'], 1)
+        self.assertTrue(all(mode == 'ADMIT' for _, mode in self.calls))
+        self.assertFalse(self.report()['all_slots_complete'])
+        self.assertEqual(self.report()['totals']['admitted'], 23)
+
+    def test_ready_c2_option_cannot_dispatch_all_modes_without_subject_first(self):
+        self.args.admit_ready_only = True
+        self.assertEqual(complete.complete(self.args), 2)
+        self.assertEqual(self.calls, [])
+
     def subject_first(self, deadline=None):
         self.args.subject_first=True
         self.args.subject_deadline=deadline
