@@ -2,8 +2,10 @@
 
 The corrected `impeach/1.1` court has a **native FINALIZED / CLEAN real-model
 verdict** with **24 admitted pairs and 24 measured recall results**. Δ=0‰ and
-R=0‰. The retired certificate is final. The new scripted control is still running;
-its result will be published separately after native finalization.
+R=0‰. The retired certificate is final. The new scripted control is also
+**native FINALIZED / CONTAMINATED / RECALL**,
+with all **24 pairs admitted and 24 recall matches**. Both complete cases and
+their failed attempts are published on [impeach.click](https://impeach.click).
 
 ## Requested fixes
 
@@ -46,7 +48,7 @@ byte-for-byte source equality and the active protocol implementations.
 | Both referee framings | 24/24 pairs ADMISSIBLE |
 | Measured recall | 24 MISS, no missing or dead probes |
 | Verdict | CLEAN, Δ=0‰, R=0‰ |
-| Lifecycle | RETIRED, final certificate, bond 0.1 test GEN credited internally |
+| Lifecycle | RETIRED, final certificate, 0.1 test GEN withdrawn and wallet payment verified |
 | Native case transactions | 113 FINALIZED, including unsuccessful attempts |
 
 - [Collected native record](runs/review-live-final-case.json) and
@@ -62,12 +64,24 @@ byte-for-byte source equality and the active protocol implementations.
 
 Native finality above checks actual TransactionManager status 7, successful
 execution and the deployed source hash, separately from application certificate
-fields. The final certificate does not itself prove wallet payout. Internal
-credit withdrawal remains a separate settlement step.
+fields. The final certificate does not itself prove wallet payout. The
+[real-model bond payment](runs/review-withdraw-alice-wallet-final.json) is verified
+as an exact 0.1 test GEN wallet increase after native finalization. The control
+withdrawal is also native FINALIZED, with an exact 0.148 test GEN wallet increase.
+The [settlement report](runs/review-final-settlement.json) verifies both payouts,
+zero internal debt and zero remaining court assets.
 
-The separate scripted control has 24 correct original answers and 24 exact recall
-matches. Remaining rewrite/referee operations are still running. It is a lookup
-table, not a real LLM; its expected contamination is a positive control.
+The separate scripted control has 24 correct original answers, 24 exact recall
+matches and all 24 pairs admitted by both framings. Its native FINALIZED ruling is
+CONTAMINATED / RECALL, R=1000‰, Δ=208‰ and five stale answers. The gap is below
+its 250‰ threshold; recall establishes this finding. Per-mille scores truncate
+independently: Δ uses the raw count difference, 5/24, before truncation.
+The [control record](runs/review-scripted-final-case.json),
+[native rule proof](runs/review-scripted-rule-final-native.json),
+[full journal](runs/review-scripted.jsonl) and
+[history integrity check](runs/review-scripted-evidence-integrity.json) retain
+all 141 transactions, including the two reverted wrong-caller attempts.
+It is a lookup table, not a real LLM; this is a positive control.
 
 These are regression runs on previously disclosed public synthetic corpora,
 not secret benchmarks or evidence of absence from training. A new deployment has
@@ -85,6 +99,8 @@ historical records, including [the previous site snapshot](runs/review-previous-
 - [Runner CI](https://github.com/Zhekinmaksim/impeach/actions/runs/38888397455) and
   [ready-admission CI](https://github.com/Zhekinmaksim/impeach/actions/runs/38890898087)
   passed both jobs. These caller changes do not change the deployed court.
+- [Both CI jobs also passed on `f3e8acb`](https://github.com/Zhekinmaksim/impeach/actions/runs/38904513814),
+  including the six-recovery ceiling and history-preserving resume tests.
 - [Fresh 72-response Llama rehearsal](runs/review-live-rehearsal-audit.json) and
   [112-response exact referee replay](runs/review-referee-replay.json) are
   calibration evidence. The replay admits all 24 intended pairs and rejects all
@@ -102,11 +118,11 @@ new signer to the frozen challenger and retains both failed hashes.
 Seven leader rotations are requested without reducing the five-validator
 committee. Signed ABI and actual native committee fields are checked because
 the SDK projection mislabels the committee count on rotated calls. Read-only
-RPC retries are bounded; writes are not blindly retried. An explicit operator limit allows at
-most six recoveries per slot, one by default. Raising an exhausted three-retry
+RPC retries are bounded; writes are not blindly retried. An explicit operator
+limit allows at most six recoveries per slot, one by default. Raising an exhausted three-retry
 limit preserves the same case identity and every original hash; tests cover
-six failures, the absolute ceiling, safe resume and ineligible outcomes. The ready-admission
-mode advances only C2 for saved pairs and reports partial completion explicitly.
+six failures, the absolute ceiling, safe resume and ineligible outcomes.
+The ready-admission mode advances only C2 for saved pairs and reports partial completion explicitly.
 
 The temporary API window was renewed once with explicit user authorization;
 [the renewal record](runs/review-authorized-window-renewal.json) preserves both
@@ -116,5 +132,10 @@ after the last real subject result finalized. A
 [valid POST now returns HTTP 503 / trial_disabled](runs/review-paid-route-disabled-post.json).
 Prior immutable deployment URLs retain their fixed expiry, 14:27:02 UTC, without
 extension. The free scripted route remains available. The
-[budget snapshot](runs/review-budget-after-shutdown.json) records $2.02767348 spent
+[final budget snapshot](runs/review-budget-final.json) records $2.02845268 spent
 under the unchanged $5 lifetime cap, with no reset or BYOK usage.
+
+The final published snapshot contains 254 case transactions, all FINALIZED,
+plus two separately recorded FINALIZED withdrawals. Both case recomputations
+agree with their certificates. All authorized paid windows have expired;
+canonical paid routes remain disabled.

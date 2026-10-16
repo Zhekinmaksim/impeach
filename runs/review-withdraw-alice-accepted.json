@@ -1,0 +1,14 @@
+{
+  "at": 1792155659,
+  "tx": "0xa4e05b77ae5c6db8c2490dfbfd98650fabc0e918b938df2da31394f715a985fe",
+  "credit": 0,
+  "solvency": {
+    "balanced": true,
+    "bonds": 100000000000000000,
+    "credited": 45000000000000000,
+    "escrowed": 103000000000000000,
+    "held": 148000000000000000,
+    "stakes": 3000000000000000
+  },
+  "payment_finality_verified": false
+}

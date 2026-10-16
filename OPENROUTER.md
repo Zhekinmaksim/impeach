@@ -1,7 +1,9 @@
 # OpenRouter subject endpoint
 
 Current correction run (16 October 2026): [REVIEW-FIXES.md](REVIEW-FIXES.md).
-The same v3 allowlist serves `calibration/claim-review-live.json`; requests and
+The corrected real-model case is native FINALIZED / CLEAN with all 24 paired
+and 24 recall results. Its canonical paid route is now disabled.
+The same v3 allowlist served `calibration/claim-review-live.json`; requests and
 model parameters are unchanged, while the corrected court requires 24 paired
 and 24 recall results. The temporary window is recorded in
 `runs/review-gateway-config.json`. It uses the original server Secret and the
@@ -53,7 +55,7 @@ the native receipts establish transaction finality separately.
 | `/api/chat/completions` | `calibration/claim-gsm8k.json`; original GSM8K files | Legacy `TRIAL_ENABLED`; currently false |
 | `/api/live-v2/chat/completions` | `calibration/claim-court24-v2.json`; `calibration/court24-v2.items.json`, `examples/court24-v2/rewrites` | Separate `TRIAL_V2_ENABLED`; currently false |
 | `/api/scripted-v2/chat/completions` | `calibration/claim-court24-v2-scripted.json`; `calibration/court24-v2-scripted.items.json`, `examples/court24-v2-scripted/rewrites` | Public fixed lookup; no secret, provider or inference cost |
-| `/api/live-v3/chat/completions` | `calibration/claim-court24-v3.json`; `calibration/court24-v3.items.json`, `examples/court24-v3/rewrites` | Independent `TRIAL_V3_ENABLED=true`; active until 14:51:29 UTC on 11 October |
+| `/api/live-v3/chat/completions` | `calibration/claim-court24-v3.json`; `calibration/court24-v3.items.json`, `examples/court24-v3/rewrites` | `TRIAL_V3_ENABLED=false` after the corrected 16 October case; earlier dated activations below are historical |
 
 Each endpoint admits only its own 72 exact JSON request bodies: 24 originals,
 24 committed rewrites and 24 recall prefixes. Object key order is immaterial;

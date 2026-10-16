@@ -1,0 +1,14 @@
+Waiting for the recorded native finality windows; no inference or signing.
+scripted-rule actual native FINALIZED with successful execution
+withdraw-challenger actual native FINALIZED with successful execution
+141 transactions: FINALIZED 141
+  ADMIT    FINALIZED 40
+  PINNED   FINALIZED 24
+  RECALL   FINALIZED 24
+  REWRITE  FINALIZED 49
+1 cases, 48 registry rows -> runs/review-scripted-final-case.json
+Challenger exact +0.148 GEN verified; court native assets zero.
+Prepared final publication: two complete native cases, 254 FINALIZED transactions, both wallet payments verified; response 968 characters
+ok   claim 1  CLEAN  Δ=0‰ R=0‰ n=24
+ok   claim 0  CONTAMINATED  Δ=208‰ R=1000‰ n=24
+Final native evidence, exact payments, merged records, response and checks complete. Ready for publication review.

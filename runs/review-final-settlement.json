@@ -1,0 +1,82 @@
+{
+  "format": "impeach-review-settlement/1",
+  "court": "0xCB67936d0b00b82Ea73611b3C8353a21EBdc7261",
+  "chain_id": 4221,
+  "court_revision": "impeach/1.1",
+  "proofs": {
+    "real_rule": {
+      "file": "runs/review-live-rule-final-native.json",
+      "tx": "0x9e0a82eaee891864a753cdd9dab304368d649ab5d299de91c728fd437a106bec",
+      "native_status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN"
+    },
+    "real_retire": {
+      "file": "runs/review-live-retire-final-native.json",
+      "tx": "0x26eef7e5e96b14dbb415b6b990492b85532de94668bfda2592d61beb601211c5",
+      "native_status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN"
+    },
+    "control_rule": {
+      "file": "runs/review-scripted-rule-final-native.json",
+      "tx": "0x228a982b1c4ea18ba1fe49ff18625a9e3d50c3f7fc2cf0e5c195fe6d48dbbae2",
+      "native_status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN"
+    },
+    "alice_withdrawal": {
+      "file": "runs/review-withdraw-alice-final-native.json",
+      "tx": "0xa4e05b77ae5c6db8c2490dfbfd98650fabc0e918b938df2da31394f715a985fe",
+      "native_status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN"
+    },
+    "challenger_withdrawal": {
+      "file": "runs/review-withdraw-challenger-final-native.json",
+      "tx": "0x9f9b15f947d3cab8e8831fc1d01f2795abd9f04641b3553880d1aa0a6aca1a66",
+      "native_status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN"
+    }
+  },
+  "alice_payment": {
+    "at": "2026-10-16T15:30:36.873Z",
+    "address": "0x771388495F34d21C5574FeFc04cd1D5811E00aDa",
+    "blockNumber": "25315543",
+    "blockHash": "0xffaf432a3abd782057c6835458ee2d6ff43979086ba510844aa08b8f058c48d5",
+    "walletWei": "157055504833678674609",
+    "walletGEN": "157.055504833678674609",
+    "beforeWei": "156955504833678674609",
+    "increaseWei": "100000000000000000",
+    "expectedPaymentWei": "100000000000000000",
+    "exactIncreaseVerified": true,
+    "nativeProof": "review-withdraw-alice-final-native.json"
+  },
+  "challenger_payment": {
+    "at": "2026-10-16T16:05:59.846Z",
+    "address": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+    "blockNumber": "25316484",
+    "blockHash": "0x3d9f91f5bffe1585b70a516e6d1d804c033b5789bbc1275ccf6cfb3c1f33e298",
+    "walletWei": "919571162948117901",
+    "walletGEN": "0.919571162948117901",
+    "beforeWei": "771571162948117901",
+    "increaseWei": "148000000000000000",
+    "expectedPaymentWei": "148000000000000000",
+    "exactIncreaseVerified": true,
+    "nativeProof": "review-withdraw-challenger-final-native.json"
+  },
+  "court_final_assets_and_ledger": {
+    "at": "2026-10-16T16:05:59.849Z",
+    "address": "0xCB67936d0b00b82Ea73611b3C8353a21EBdc7261",
+    "blockNumber": "25316484",
+    "blockHash": "0x3d9f91f5bffe1585b70a516e6d1d804c033b5789bbc1275ccf6cfb3c1f33e298",
+    "walletWei": "0",
+    "solvency": {
+      "balanced": true,
+      "bonds": 0,
+      "credited": 0,
+      "escrowed": 0,
+      "held": 0,
+      "stakes": 0
+    },
+    "solvency_read_at": "2026-10-16T16:06:01.628303+00:00"
+  },
+  "total_deposits_wei": "248000000000000000",
+  "total_verified_wallet_payments_wei": "248000000000000000"
+}

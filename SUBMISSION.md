@@ -9,7 +9,10 @@ The 16 October steward corrections are documented in
 [the corrected Bradbury court](https://explorer-bradbury.genlayer.com/address/0xCB67936d0b00b82Ea73611b3C8353a21EBdc7261).
 The corrected real-model case is native FINALIZED / CLEAN with all 24 admitted
 pairs and 24 measured recall results. The retired certificate is final; its
-Δ and R are both zero. The new scripted control is still being completed.
+Δ and R are both zero. The new scripted control is also native FINALIZED /
+CONTAMINATED / RECALL with
+all 24 pairs admitted and 24 recall matches. Both withdrawals have finalized and
+the actual wallet increases are verified.
 
 ## What it is
 
@@ -89,13 +92,15 @@ and its test in `DECISIONS.md`.
 - Real-model claim/challenge `1/1`: [frozen claim](calibration/claim-review-live.json),
   [transaction journal](runs/review-live.jsonl).
 - Scripted control claim/challenge `0/0`: [frozen claim](calibration/claim-review-scripted.json);
-  its full corrected native certificate is pending.
+  all 24 pairs and both referee framings are complete. Its CONTAMINATED / RECALL
+  rule is native FINALIZED; see [case](runs/review-scripted-final-case.json) and
+  [native proof](runs/review-scripted-rule-final-native.json).
 - Local calibration: [72 real subject responses](runs/review-live-rehearsal-audit.json)
   and [112-response exact referee replay](runs/review-referee-replay.json).
   Neither is presented as a native verdict.
 
-The public site displays the corrected real-model native snapshot. Its local
-recomputation agrees with the on-chain certificate. The previous site record is
+The public site displays both corrected native cases, with the real model first.
+Its local recomputation agrees with both on-chain certificates. The previous site record is
 preserved in [the historical snapshot](runs/review-previous-site-case.json).
 
 ## Review path
@@ -107,6 +112,8 @@ preserved in [the historical snapshot](runs/review-previous-site-case.json).
    [native finality proof](runs/review-live-rule-final-native.json).
 5. Download the record and run `python3 cli/impeach.py recompute web/case.json`.
    The result must agree with the stored certificate.
+6. Choose Scripted control: expect CONTAMINATED / RECALL, admitted 24, recall 24,
+   R=1000‰. Its rule must also be native FINALIZED.
 
 The website is a record viewer; signed contract operations run through the
 included CLI. The paid subject endpoint is disabled after completion.

@@ -1,0 +1,25 @@
+{
+  "captured_at": "2026-10-16T10:41:45.192334+00:00",
+  "native_evidence": "review-item14-recovery2-native.json",
+  "tx": "0x360d1332deae75aedd31b699707cef50fc48e3e8b2cbbafd9863e8c84ae1c84b",
+  "stored_status": 13,
+  "stored_result": 0,
+  "stored_execution": 1,
+  "initial_validators": 5,
+  "rotations": 7,
+  "leader_output_subject": {
+    "status": "LIVE",
+    "answer": "53",
+    "correct": true
+  },
+  "validator_votes": [
+    "NOT_VOTED",
+    "NOT_VOTED",
+    "NOT_VOTED",
+    "NOT_VOTED",
+    "NOT_VOTED"
+  ],
+  "model_answer_is_not_a_saved_probe": true,
+  "earliest_finalization_epoch": 1792148609,
+  "cause": "Consensus did not complete; the exact validator-side cause is not established."
+}

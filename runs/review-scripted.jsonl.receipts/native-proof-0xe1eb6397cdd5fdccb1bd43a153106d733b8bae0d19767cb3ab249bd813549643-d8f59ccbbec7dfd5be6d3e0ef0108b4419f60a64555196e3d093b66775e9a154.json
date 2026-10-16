@@ -1,0 +1,550 @@
+{
+  "format": "impeach-native-no-messages/1",
+  "tx": "0xe1eb6397cdd5fdccb1bd43a153106d733b8bae0d19767cb3ab249bd813549643",
+  "address": "0xCB67936d0b00b82Ea73611b3C8353a21EBdc7261",
+  "observedAt": 1792153130102,
+  "snapshot": {
+    "at": 1792153127277,
+    "address": "0xCB67936d0b00b82Ea73611b3C8353a21EBdc7261",
+    "blockNumber": "25312169",
+    "blockTimestamp": "1792153133",
+    "protocol": {
+      "chainId": 4221,
+      "main": "0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D",
+      "manager": "0x8aCE036C8C3C5D603dB546b031302FCf149648E8",
+      "version": "2.0.0",
+      "implementations": {
+        "AddressManager": "0xf63f3a95fbf2e97618a5e3ea0fff63024915f3e6",
+        "TransactionManager": "0xeee45073f7eeb3b80d1973f8398f8e508f893f9c",
+        "FinalizationPhase": "0x3ab63c1fc784682ef72276a76e2ad8fc1c5813b2",
+        "Idleness": "0x4e696416634012119187d8dda6a56e66ac7cb23d",
+        "Queues": "0x7559ebdbc6f59e5dd2a048a1a1539ac14bf93db0",
+        "ConsensusMain": "0x0a2c393975da79505ed930efc55ae4aeb88b0d62",
+        "ConsensusData": "0x7ee629530e70e2a3a772f8522d8835060abf0755",
+        "IdlenessPhase": "0x2cf61473cafcf47adc0ddd861290a7e848881446"
+      },
+      "sourceCommit": "9c686087963551277fc2dce0354c2b1a7050b4b2"
+    },
+    "sourceSha256": "3d46770b50e2f59cadc621a40ff36da1f747c885fa9f9c45327a1199b2afa3b9",
+    "mainTimeouts": {
+      "activate": "180",
+      "propose": "420",
+      "commit": "420",
+      "reveal": "120",
+      "accept": "1800",
+      "leaderReveal": "120"
+    },
+    "heads": {
+      "getFinalizedHeadTxId": "0xd156db8cee8df1825dd2b56479df628bc2f25d7faa7277a1621a6bde3b1185be",
+      "getPendingHeadTxId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "getAcceptedHeadTxId": "0xd156db8cee8df1825dd2b56479df628bc2f25d7faa7277a1621a6bde3b1185be",
+      "getUndeterminedHeadTxId": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "transactions": [
+      {
+        "tx": "0xd156db8cee8df1825dd2b56479df628bc2f25d7faa7277a1621a6bde3b1185be",
+        "stored": {
+          "result": 0,
+          "txExecutionResult": 1,
+          "previousStatus": 0,
+          "status": 5,
+          "txOrigin": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+          "sender": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+          "recipient": "0xCB67936d0b00b82Ea73611b3C8353a21EBdc7261",
+          "activator": "0x9F6aa7364D20CF25F054Ea83f3CB950317fD34b6",
+          "txSlot": "217",
+          "initialRotations": "7",
+          "numOfInitialValidators": "5",
+          "epoch": "178",
+          "id": "0xd156db8cee8df1825dd2b56479df628bc2f25d7faa7277a1621a6bde3b1185be",
+          "randomSeed": "0x8f1d7117f7bb4b19988c5c8ab602f9ac9b6f5d7612430a959aab1c80ea00499f",
+          "txExecutionHash": "0xc66fd4c91ab0855c535e978d3ff99709355889a4af9d01e88e13a2d468b9649e",
+          "resultHash": "0x2dc519f0b02f6a2b4ffd2114032fbf0b753ba7f4be7548ab89f9f2b88096b477",
+          "txCalldata": "0xf90177b90173160461726773250191013c5245575249544594157b22616e73776572223a2232303030222c22636c617373223a22756e69745f6368616e6765222c2270726f6d7074223a224f6e206120707261637469636520776f726b73686565742c20612073747564656e7420726561647320746869732070726f626c656d3a204120737572766579207465616d206d65617375726573206120666f6f747061746820696e2074776f20636f6e73656375746976652073656374696f6e732e205468652066697273742073656374696f6e20697320312e3235206b696c6f6d6574657273206c6f6e6720616e6420746865207365636f6e642073656374696f6e20697320302e3735206b696c6f6d6574657273206c6f6e672e20576861742069732074686520746f74616c206c656e677468206f662074686573652074776f2073656374696f6e7320696e206d65746572733f222c2276657273696f6e223a22696d70656163682f31227d066d6574686f642c70726f626500",
+          "eqBlocksOutputs": "0xf892b84f00e4047b226f726967696e616c5f726573756c74223a202232303030222c2022726577726974655f726573756c74223a202232303030222c202273616d655f7175657374696f6e223a20747275657db83800ac037b22737461747573223a20224c495645222c2022616e73776572223a202232303030222c2022636f7272656374223a20747275657d86706164646564",
+          "readStateBlockRanges": [
+            {
+              "activationBlock": "25311595",
+              "processingBlock": "25311595",
+              "proposalBlock": "25311597"
+            }
+          ],
+          "validUntil": "1792154861",
+          "value": "0",
+          "lockedStorageUnitPrice": "0",
+          "storageFeeUsed": "0"
+        },
+        "receipt": {
+          "currentTimestamp": "1792153127",
+          "sender": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+          "recipient": "0xCB67936d0b00b82Ea73611b3C8353a21EBdc7261",
+          "initialRotations": "7",
+          "txSlot": "217",
+          "createdTimestamp": "1792151274",
+          "lastVoteTimestamp": "1792151345",
+          "randomSeed": "0x8f1d7117f7bb4b19988c5c8ab602f9ac9b6f5d7612430a959aab1c80ea00499f",
+          "result": 1,
+          "txExecutionHash": "0xc66fd4c91ab0855c535e978d3ff99709355889a4af9d01e88e13a2d468b9649e",
+          "txCalldata": "0xf90177b90173160461726773250191013c5245575249544594157b22616e73776572223a2232303030222c22636c617373223a22756e69745f6368616e6765222c2270726f6d7074223a224f6e206120707261637469636520776f726b73686565742c20612073747564656e7420726561647320746869732070726f626c656d3a204120737572766579207465616d206d65617375726573206120666f6f747061746820696e2074776f20636f6e73656375746976652073656374696f6e732e205468652066697273742073656374696f6e20697320312e3235206b696c6f6d6574657273206c6f6e6720616e6420746865207365636f6e642073656374696f6e20697320302e3735206b696c6f6d6574657273206c6f6e672e20576861742069732074686520746f74616c206c656e677468206f662074686573652074776f2073656374696f6e7320696e206d65746572733f222c2276657273696f6e223a22696d70656163682f31227d066d6574686f642c70726f626500",
+          "eqBlocksOutputs": "0xf892b84f00e4047b226f726967696e616c5f726573756c74223a202232303030222c2022726577726974655f726573756c74223a202232303030222c202273616d655f7175657374696f6e223a20747275657db83800ac037b22737461747573223a20224c495645222c2022616e73776572223a202232303030222c2022636f7272656374223a20747275657d86706164646564",
+          "messages": [],
+          "queueType": 0,
+          "queuePosition": "0",
+          "activator": "0x9F6aa7364D20CF25F054Ea83f3CB950317fD34b6",
+          "lastLeader": "0x2CD9051E10cd1547a7b64eF61EbF1E608235dBda",
+          "status": 5,
+          "txId": "0xd156db8cee8df1825dd2b56479df628bc2f25d7faa7277a1621a6bde3b1185be",
+          "readStateBlockRange": {
+            "activationBlock": "25311595",
+            "processingBlock": "25311595",
+            "proposalBlock": "25311597"
+          },
+          "numOfRounds": "0",
+          "lastRound": {
+            "round": "0",
+            "leaderIndex": "4",
+            "votesCommitted": "5",
+            "votesRevealed": "5",
+            "appealBond": "0",
+            "rotationsLeft": "7",
+            "result": 1,
+            "roundValidators": [
+              "0x9F6aa7364D20CF25F054Ea83f3CB950317fD34b6",
+              "0x183217483618c4EBd34C987DE400e01bEFfe5860",
+              "0x4f36CB2C58385575fafb443d80E3c290b12DA6aE",
+              "0xA58D6FcCD69eaafB5869dA58913f116045D75444",
+              "0x2CD9051E10cd1547a7b64eF61EbF1E608235dBda"
+            ],
+            "validatorVotes": [
+              1,
+              3,
+              1,
+              1,
+              1
+            ],
+            "validatorVotesHash": [
+              "0x00c958c58cffd3c172df2c7c7650ef01cefa16e22e205738400500bc754564f0",
+              "0xea4ddada15338eb18bed3a1e95e879978ae1c794d77b8a7a5869e9c1e2dae1c1",
+              "0x2d76b6b43bb01b6f44268bb4accf9ab3ef3c533a1b598801005d434544d359c3",
+              "0xa164982c6235e10a379330aa31aa05657922cd0e1a483ac34858ec5db0dc0800",
+              "0x6943bb4a57308ef9feb15d859a76a9c80450b7daef1924764bf6f0cc546ed68a"
+            ],
+            "validatorResultHash": [
+              "0x2dc519f0b02f6a2b4ffd2114032fbf0b753ba7f4be7548ab89f9f2b88096b477",
+              "0x9fc8d2d92c2ea25ae2ac3d9b20370cb9cb1e53d073b5c1a20b03621ca750f8df",
+              "0x2dc519f0b02f6a2b4ffd2114032fbf0b753ba7f4be7548ab89f9f2b88096b477",
+              "0x2dc519f0b02f6a2b4ffd2114032fbf0b753ba7f4be7548ab89f9f2b88096b477",
+              "0x2dc519f0b02f6a2b4ffd2114032fbf0b753ba7f4be7548ab89f9f2b88096b477"
+            ],
+            "validatorVotesName": [
+              "AGREE",
+              "TIMEOUT",
+              "AGREE",
+              "AGREE",
+              "AGREE"
+            ]
+          },
+          "consumedValidators": [
+            "0x9F6aa7364D20CF25F054Ea83f3CB950317fD34b6",
+            "0x183217483618c4EBd34C987DE400e01bEFfe5860",
+            "0x4f36CB2C58385575fafb443d80E3c290b12DA6aE",
+            "0xA58D6FcCD69eaafB5869dA58913f116045D75444",
+            "0x2CD9051E10cd1547a7b64eF61EbF1E608235dBda"
+          ],
+          "txExecutionResult": 1,
+          "txData": "0xf90177b90173160461726773250191013c5245575249544594157b22616e73776572223a2232303030222c22636c617373223a22756e69745f6368616e6765222c2270726f6d7074223a224f6e206120707261637469636520776f726b73686565742c20612073747564656e7420726561647320746869732070726f626c656d3a204120737572766579207465616d206d65617375726573206120666f6f747061746820696e2074776f20636f6e73656375746976652073656374696f6e732e205468652066697273742073656374696f6e20697320312e3235206b696c6f6d6574657273206c6f6e6720616e6420746865207365636f6e642073656374696f6e20697320302e3735206b696c6f6d6574657273206c6f6e672e20576861742069732074686520746f74616c206c656e677468206f662074686573652074776f2073656374696f6e7320696e206d65746572733f222c2276657273696f6e223a22696d70656163682f31227d066d6574686f642c70726f626500",
+          "txDataDecoded": {
+            "callData": {
+              "args": [
+                "0",
+                "18",
+                "REWRITE",
+                "{\"answer\":\"2000\",\"class\":\"unit_change\",\"prompt\":\"On a practice worksheet, a student reads this problem: A survey team measures a footpath in two consecutive sections. The first section is 1.25 kilometers long and the second section is 0.75 kilometers long. What is the total length of these two sections in meters?\",\"version\":\"impeach/1\"}"
+              ],
+              "method": "probe"
+            },
+            "leaderOnly": false,
+            "type": "call"
+          },
+          "numOfInitialValidators": "7",
+          "statusName": "ACCEPTED",
+          "resultName": "AGREE",
+          "txExecutionResultName": "FINISHED_WITH_RETURN"
+        },
+        "decoded": {
+          "callData": {
+            "args": [
+              "0",
+              "18",
+              "REWRITE",
+              "{\"answer\":\"2000\",\"class\":\"unit_change\",\"prompt\":\"On a practice worksheet, a student reads this problem: A survey team measures a footpath in two consecutive sections. The first section is 1.25 kilometers long and the second section is 0.75 kilometers long. What is the total length of these two sections in meters?\",\"version\":\"impeach/1\"}"
+            ],
+            "method": "probe"
+          },
+          "leaderOnly": false,
+          "type": "call"
+        },
+        "mainTimestamps": {
+          "created": "1792151274",
+          "pending": "1792151310",
+          "activated": "1792151311",
+          "proposed": "1792151330",
+          "committed": "1792151343",
+          "lastVote": "1792151345",
+          "appealSubmitted": "0",
+          "leaderRevealed": "1792151344"
+        },
+        "firstSlotElapsed": false,
+        "queueType": 2,
+        "queueModification": {
+          "lastQueueType": 2,
+          "lastQueueTimestamp": "1792151345"
+        },
+        "atFinalizedHead": true,
+        "canFinalize": [
+          false,
+          "1792153133",
+          "1792153145"
+        ]
+      },
+      {
+        "tx": "0xe1eb6397cdd5fdccb1bd43a153106d733b8bae0d19767cb3ab249bd813549643",
+        "stored": {
+          "result": 0,
+          "txExecutionResult": 1,
+          "previousStatus": 0,
+          "status": 7,
+          "txOrigin": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+          "sender": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+          "recipient": "0xCB67936d0b00b82Ea73611b3C8353a21EBdc7261",
+          "activator": "0x9D998aD7C7f9Cc448A4DbDf49edD7CADBe3d57B6",
+          "txSlot": "215",
+          "initialRotations": "7",
+          "numOfInitialValidators": "5",
+          "epoch": "178",
+          "id": "0xe1eb6397cdd5fdccb1bd43a153106d733b8bae0d19767cb3ab249bd813549643",
+          "randomSeed": "0xff86810fd6b5abe59ca5b306408eee359deab3bbf428ee8f958e21230ab5a6ec",
+          "txExecutionHash": "0xebab13f3bfaf12c1d6bb50b5d4c20b011824e475b8b1cd04bac7235ce53a37b4",
+          "resultHash": "0xe967f080ff4ee7eee2af95b32c5f48bfe298a5dec9898b64f9b4401abb55a933",
+          "txCalldata": "0xf9017db90179160461726773250189013c52455752495445c4157b22616e73776572223a223338222c22636c617373223a22656e746974795f72656e616d65222c2270726f6d7074223a224f6e206120707261637469636520776f726b73686565742c20612073747564656e7420726561647320746869732070726f626c656d3a204f72656e207061636b732034206372617465732077697468203131206d61726b65722070656e7320696e206561636820637261746520666f72206120636c617373726f6f6d2064656c69766572792e2054616c692072656d6f7665732036206d61726b65722070656e732066726f6d2074686f73652063726174657320666f722061207365706172617465206f726465722e20486f77206d616e79206d61726b65722070656e732072656d61696e20696e207468652063726174657320666f722074686520636c617373726f6f6d2064656c69766572793f222c2276657273696f6e223a22696d70656163682f31227d066d6574686f642c70726f626500",
+          "eqBlocksOutputs": "0xf854b84b00c4047b226f726967696e616c5f726573756c74223a20223434222c2022726577726974655f726573756c74223a20223434222c202273616d655f7175657374696f6e223a20747275657d86706164646564",
+          "readStateBlockRanges": [
+            {
+              "activationBlock": "25311551",
+              "processingBlock": "25311563",
+              "proposalBlock": "25311564"
+            }
+          ],
+          "validUntil": "1792154808",
+          "value": "0",
+          "lockedStorageUnitPrice": "0",
+          "storageFeeUsed": "0"
+        },
+        "receipt": {
+          "currentTimestamp": "1792153127",
+          "sender": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+          "recipient": "0xCB67936d0b00b82Ea73611b3C8353a21EBdc7261",
+          "initialRotations": "7",
+          "txSlot": "215",
+          "createdTimestamp": "1792151220",
+          "lastVoteTimestamp": "1792151250",
+          "randomSeed": "0xff86810fd6b5abe59ca5b306408eee359deab3bbf428ee8f958e21230ab5a6ec",
+          "result": 0,
+          "txExecutionHash": "0xebab13f3bfaf12c1d6bb50b5d4c20b011824e475b8b1cd04bac7235ce53a37b4",
+          "txCalldata": "0xf9017db90179160461726773250189013c52455752495445c4157b22616e73776572223a223338222c22636c617373223a22656e746974795f72656e616d65222c2270726f6d7074223a224f6e206120707261637469636520776f726b73686565742c20612073747564656e7420726561647320746869732070726f626c656d3a204f72656e207061636b732034206372617465732077697468203131206d61726b65722070656e7320696e206561636820637261746520666f72206120636c617373726f6f6d2064656c69766572792e2054616c692072656d6f7665732036206d61726b65722070656e732066726f6d2074686f73652063726174657320666f722061207365706172617465206f726465722e20486f77206d616e79206d61726b65722070656e732072656d61696e20696e207468652063726174657320666f722074686520636c617373726f6f6d2064656c69766572793f222c2276657273696f6e223a22696d70656163682f31227d066d6574686f642c70726f626500",
+          "eqBlocksOutputs": "0xf854b84b00c4047b226f726967696e616c5f726573756c74223a20223434222c2022726577726974655f726573756c74223a20223434222c202273616d655f7175657374696f6e223a20747275657d86706164646564",
+          "messages": [],
+          "queueType": 0,
+          "queuePosition": "0",
+          "activator": "0x9D998aD7C7f9Cc448A4DbDf49edD7CADBe3d57B6",
+          "lastLeader": "0xb4Fb7ADc6877a6A16bd131c7c9270834bD3DEf34",
+          "status": 7,
+          "txId": "0xe1eb6397cdd5fdccb1bd43a153106d733b8bae0d19767cb3ab249bd813549643",
+          "readStateBlockRange": {
+            "activationBlock": "25311551",
+            "processingBlock": "25311563",
+            "proposalBlock": "25311564"
+          },
+          "numOfRounds": "0",
+          "lastRound": {
+            "round": "0",
+            "leaderIndex": "4",
+            "votesCommitted": "0",
+            "votesRevealed": "0",
+            "appealBond": "0",
+            "rotationsLeft": "6",
+            "result": 0,
+            "roundValidators": [
+              "0x992E8D62263eD1Fe2E14FfB11aDf1080edBe4b5a",
+              "0xe9aEF995C8a47FABcc36d3958b6d9ad41dc91b7a",
+              "0x7538369A22a176afFccb6B273eedfbb92780bf22",
+              "0x4FC292d5D255Ec8Ad4cdcd36c5E188dfEE9D160e",
+              "0xb4Fb7ADc6877a6A16bd131c7c9270834bD3DEf34"
+            ],
+            "validatorVotes": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "validatorVotesHash": [
+              "0x0000000000000000000000000000000000000000000000000000000000000000",
+              "0x0000000000000000000000000000000000000000000000000000000000000000",
+              "0x0000000000000000000000000000000000000000000000000000000000000000",
+              "0x0000000000000000000000000000000000000000000000000000000000000000",
+              "0x0000000000000000000000000000000000000000000000000000000000000000"
+            ],
+            "validatorResultHash": [
+              "0x0000000000000000000000000000000000000000000000000000000000000000",
+              "0x0000000000000000000000000000000000000000000000000000000000000000",
+              "0x0000000000000000000000000000000000000000000000000000000000000000",
+              "0x0000000000000000000000000000000000000000000000000000000000000000",
+              "0x0000000000000000000000000000000000000000000000000000000000000000"
+            ],
+            "validatorVotesName": [
+              "NOT_VOTED",
+              "NOT_VOTED",
+              "NOT_VOTED",
+              "NOT_VOTED",
+              "NOT_VOTED"
+            ]
+          },
+          "consumedValidators": [
+            "0x992E8D62263eD1Fe2E14FfB11aDf1080edBe4b5a",
+            "0xe9aEF995C8a47FABcc36d3958b6d9ad41dc91b7a",
+            "0x7538369A22a176afFccb6B273eedfbb92780bf22",
+            "0x4FC292d5D255Ec8Ad4cdcd36c5E188dfEE9D160e",
+            "0xA58D6FcCD69eaafB5869dA58913f116045D75444",
+            "0xb4Fb7ADc6877a6A16bd131c7c9270834bD3DEf34"
+          ],
+          "txExecutionResult": 1,
+          "txData": "0xf9017db90179160461726773250189013c52455752495445c4157b22616e73776572223a223338222c22636c617373223a22656e746974795f72656e616d65222c2270726f6d7074223a224f6e206120707261637469636520776f726b73686565742c20612073747564656e7420726561647320746869732070726f626c656d3a204f72656e207061636b732034206372617465732077697468203131206d61726b65722070656e7320696e206561636820637261746520666f72206120636c617373726f6f6d2064656c69766572792e2054616c692072656d6f7665732036206d61726b65722070656e732066726f6d2074686f73652063726174657320666f722061207365706172617465206f726465722e20486f77206d616e79206d61726b65722070656e732072656d61696e20696e207468652063726174657320666f722074686520636c617373726f6f6d2064656c69766572793f222c2276657273696f6e223a22696d70656163682f31227d066d6574686f642c70726f626500",
+          "txDataDecoded": {
+            "callData": {
+              "args": [
+                "0",
+                "17",
+                "REWRITE",
+                "{\"answer\":\"38\",\"class\":\"entity_rename\",\"prompt\":\"On a practice worksheet, a student reads this problem: Oren packs 4 crates with 11 marker pens in each crate for a classroom delivery. Tali removes 6 marker pens from those crates for a separate order. How many marker pens remain in the crates for the classroom delivery?\",\"version\":\"impeach/1\"}"
+              ],
+              "method": "probe"
+            },
+            "leaderOnly": false,
+            "type": "call"
+          },
+          "numOfInitialValidators": "7",
+          "statusName": "FINALIZED",
+          "resultName": "IDLE",
+          "txExecutionResultName": "FINISHED_WITH_RETURN"
+        },
+        "decoded": {
+          "callData": {
+            "args": [
+              "0",
+              "17",
+              "REWRITE",
+              "{\"answer\":\"38\",\"class\":\"entity_rename\",\"prompt\":\"On a practice worksheet, a student reads this problem: Oren packs 4 crates with 11 marker pens in each crate for a classroom delivery. Tali removes 6 marker pens from those crates for a separate order. How many marker pens remain in the crates for the classroom delivery?\",\"version\":\"impeach/1\"}"
+            ],
+            "method": "probe"
+          },
+          "leaderOnly": false,
+          "type": "call"
+        },
+        "mainTimestamps": {
+          "created": "1792151220",
+          "pending": "1792151220",
+          "activated": "1792151247",
+          "proposed": "1792151250",
+          "committed": "1792151244",
+          "lastVote": "1792151250",
+          "appealSubmitted": "0",
+          "leaderRevealed": "1792151245"
+        },
+        "firstSlotElapsed": false,
+        "queueType": 2,
+        "queueModification": {
+          "lastQueueType": 2,
+          "lastQueueTimestamp": "1792151250"
+        },
+        "atFinalizedHead": false,
+        "canFinalize": [
+          false,
+          "1792153133",
+          "0"
+        ]
+      }
+    ]
+  },
+  "eventProtocol": {
+    "chainId": 4221,
+    "main": "0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D",
+    "manager": "0x8aCE036C8C3C5D603dB546b031302FCf149648E8",
+    "version": "2.0.0",
+    "implementations": {
+      "FinalizationPhase": "0x3ab63c1fc784682ef72276a76e2ad8fc1c5813b2",
+      "Idleness": "0x4e696416634012119187d8dda6a56e66ac7cb23d",
+      "IdlenessPhase": "0x2cf61473cafcf47adc0ddd861290a7e848881446",
+      "AddressManager": "0xf63f3a95fbf2e97618a5e3ea0fff63024915f3e6",
+      "ConsensusMain": "0x0a2c393975da79505ed930efc55ae4aeb88b0d62",
+      "ConsensusData": "0x7ee629530e70e2a3a772f8522d8835060abf0755",
+      "TransactionManager": "0xeee45073f7eeb3b80d1973f8398f8e508f893f9c",
+      "Queues": "0x7559ebdbc6f59e5dd2a048a1a1539ac14bf93db0"
+    },
+    "sourceCommit": "9c686087963551277fc2dce0354c2b1a7050b4b2"
+  },
+  "event": {
+    "txId": "0xe1eb6397cdd5fdccb1bd43a153106d733b8bae0d19767cb3ab249bd813549643",
+    "previousStatus": 13,
+    "shouldProcessMessages": false,
+    "log": {
+      "address": "0x7de0ff58b401f2d800470e4390e24ff2baa02aae",
+      "blockHash": "0xa4a2e56dbca993125273151b6b4976467526daae747f200f4426511e87c49b81",
+      "blockNumber": "25312159",
+      "blockTimestamp": "1792153110",
+      "data": "0x000000000000000000000000000000000000000000000000000000000000000d0000000000000000000000000000000000000000000000000000000000000000",
+      "logIndex": 1,
+      "removed": false,
+      "topics": [
+        "0xfcc739ca8e51c67e4fd127179070d26ae8ed5ed6dcbc26bcd88ff81c50f346a6",
+        "0xe1eb6397cdd5fdccb1bd43a153106d733b8bae0d19767cb3ab249bd813549643"
+      ],
+      "transactionHash": "0x22b05a0ea5433bb93cb9cfe447ad5c109d913ea46b197d731569c4b0a2c53df7",
+      "transactionIndex": 0
+    }
+  },
+  "evm": {
+    "receipt": {
+      "blockHash": "0xa4a2e56dbca993125273151b6b4976467526daae747f200f4426511e87c49b81",
+      "blockNumber": "25312159",
+      "contractAddress": null,
+      "cumulativeGasUsed": "503657",
+      "effectiveGasPrice": "83333400",
+      "from": "0x610ad38a9eae81c79960f8a885ad16877bda0463",
+      "gasUsed": "503657",
+      "l2ToL1Logs": [],
+      "logs": [
+        {
+          "address": "0x1d301acef55eaf7df5d3741659d426f51061ec8d",
+          "blockHash": "0xa4a2e56dbca993125273151b6b4976467526daae747f200f4426511e87c49b81",
+          "blockNumber": "25312159",
+          "blockTimestamp": "1792153110",
+          "data": "0x000000000000000000000000000000000000000000000000000000000000000d0000000000000000000000000000000000000000000000000000000000000007",
+          "logIndex": 0,
+          "removed": false,
+          "topics": [
+            "0xc8a7adcd793ee2c31f7814aeef44437537b00ebc2e9ab3dec66d7561411b4d7b",
+            "0xe1eb6397cdd5fdccb1bd43a153106d733b8bae0d19767cb3ab249bd813549643"
+          ],
+          "transactionHash": "0x22b05a0ea5433bb93cb9cfe447ad5c109d913ea46b197d731569c4b0a2c53df7",
+          "transactionIndex": 0
+        },
+        {
+          "address": "0x7de0ff58b401f2d800470e4390e24ff2baa02aae",
+          "blockHash": "0xa4a2e56dbca993125273151b6b4976467526daae747f200f4426511e87c49b81",
+          "blockNumber": "25312159",
+          "blockTimestamp": "1792153110",
+          "data": "0x000000000000000000000000000000000000000000000000000000000000000d0000000000000000000000000000000000000000000000000000000000000000",
+          "logIndex": 1,
+          "removed": false,
+          "topics": [
+            "0xfcc739ca8e51c67e4fd127179070d26ae8ed5ed6dcbc26bcd88ff81c50f346a6",
+            "0xe1eb6397cdd5fdccb1bd43a153106d733b8bae0d19767cb3ab249bd813549643"
+          ],
+          "transactionHash": "0x22b05a0ea5433bb93cb9cfe447ad5c109d913ea46b197d731569c4b0a2c53df7",
+          "transactionIndex": 0
+        },
+        {
+          "address": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d",
+          "blockHash": "0xa4a2e56dbca993125273151b6b4976467526daae747f200f4426511e87c49b81",
+          "blockNumber": "25312159",
+          "blockTimestamp": "1792153110",
+          "data": "0x",
+          "logIndex": 2,
+          "removed": false,
+          "topics": [
+            "0x24196ec40f90671b7144e716978686b4f3c7d6b00b23da3971ef2b52af27d87f",
+            "0xe1eb6397cdd5fdccb1bd43a153106d733b8bae0d19767cb3ab249bd813549643"
+          ],
+          "transactionHash": "0x22b05a0ea5433bb93cb9cfe447ad5c109d913ea46b197d731569c4b0a2c53df7",
+          "transactionIndex": 0
+        }
+      ],
+      "logsBloom": "0x00000000000000000000040000000000000000000000000000000000000000002000000000000000000000000000081000000800000000000020000000000000000000000000000000000800000000000020000000000000000008000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000020000000000000000040000000000000000000000000000000000011000000000000000000000000000000000000000000000000000004000000000000000001008000000000001200000000000000000000000000000000000020000000000000100000000000000000000000",
+      "status": "success",
+      "to": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d",
+      "transactionHash": "0x22b05a0ea5433bb93cb9cfe447ad5c109d913ea46b197d731569c4b0a2c53df7",
+      "transactionIndex": 0,
+      "type": "eip1559"
+    },
+    "transaction": {
+      "accessList": [],
+      "blockHash": "0xa4a2e56dbca993125273151b6b4976467526daae747f200f4426511e87c49b81",
+      "blockNumber": "25312159",
+      "blockTimestamp": "1792153110",
+      "chainId": 4221,
+      "from": "0x610ad38a9eae81c79960f8a885ad16877bda0463",
+      "gas": "1049106",
+      "gasPrice": "83333400",
+      "hash": "0x22b05a0ea5433bb93cb9cfe447ad5c109d913ea46b197d731569c4b0a2c53df7",
+      "input": "0xb2efda83e1eb6397cdd5fdccb1bd43a153106d733b8bae0d19767cb3ab249bd813549643",
+      "maxFeePerGas": "166666800",
+      "maxPriorityFeePerGas": "0",
+      "nonce": 1660521,
+      "r": "0x9c19fccac3617ed111f59bd71d1add180d211b9059b14d6fd74d81387ebf1abe",
+      "s": "0x114b80e6e838f5ad8f36de47273cac0930b7f9c8a54fe50787177cff129b8393",
+      "to": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d",
+      "transactionIndex": 0,
+      "type": "eip1559",
+      "v": "1",
+      "value": "0",
+      "yParity": 1,
+      "typeHex": "0x2"
+    },
+    "block": {
+      "baseFeePerGas": "83333400",
+      "difficulty": "0",
+      "extraData": "0x",
+      "gasLimit": "100000000",
+      "gasUsed": "833746",
+      "hash": "0xa4a2e56dbca993125273151b6b4976467526daae747f200f4426511e87c49b81",
+      "logsBloom": "0x00000000000000000000040000000000000000000000000000000000000000002000000000000000000000000000081000000800000000000020000000000000000000000000000000000800000000000020000000000000000008000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000020000000000000000040000000000000000000000000000000000011000000000000000000000000000000000000000000000000000004000000000000000001008000000000001200000000000000000000000000000000000020000000000000100000000000000000000000",
+      "miner": "0xf51b92325d0661018fc792454ce6be5c588dadd0",
+      "mixHash": "0x0000000000000000000000000000000000000000000000000000000000000001",
+      "nonce": "0x0000000000000000",
+      "number": "25312159",
+      "parentHash": "0xc369c9c478f758600f867ccfca4efffaa041d0137305713282400fbed0a90414",
+      "receiptsRoot": "0x66f4ff6c6d8257f08978d3487c8d07987b9ebf6207c5cf9c353932778581527b",
+      "sha3Uncles": "0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347",
+      "size": "588",
+      "stateRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "timestamp": "1792153110",
+      "totalDifficulty": "0",
+      "transactions": [
+        "0x22b05a0ea5433bb93cb9cfe447ad5c109d913ea46b197d731569c4b0a2c53df7",
+        "0x7402d57113c13d15f7261643bdbc25fb294c797c43754b80058b86ffda3f2789"
+      ],
+      "transactionsRoot": "0x0147cd0a794fcb38842175bfb8ba36632d760f9d2bb9573171ed76563bb1c489",
+      "uncles": []
+    }
+  },
+  "lookup": {
+    "fromBlock": "25292170",
+    "toBlock": "25312169",
+    "maxBlocks": 20000,
+    "explicitEvmHash": null
+  },
+  "origin": "chain_observation",
+  "call": {
+    "method": "probe",
+    "args": [
+      "0",
+      "17",
+      "REWRITE",
+      "{\"answer\":\"38\",\"class\":\"entity_rename\",\"prompt\":\"On a practice worksheet, a student reads this problem: Oren packs 4 crates with 11 marker pens in each crate for a classroom delivery. Tali removes 6 marker pens from those crates for a separate order. How many marker pens remain in the crates for the classroom delivery?\",\"version\":\"impeach/1\"}"
+    ],
+    "value": "0"
+  },
+  "source_sha256": "3d46770b50e2f59cadc621a40ff36da1f747c885fa9f9c45327a1199b2afa3b9",
+  "claim_sha256": "fe7ec539d0a0afa42758a9c85708c568c5c844418a08ac6f565f8988b5575162"
+}

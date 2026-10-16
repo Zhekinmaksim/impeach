@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-16T15:30:36.873Z",
+  "address": "0x771388495F34d21C5574FeFc04cd1D5811E00aDa",
+  "blockNumber": "25315543",
+  "blockHash": "0xffaf432a3abd782057c6835458ee2d6ff43979086ba510844aa08b8f058c48d5",
+  "walletWei": "157055504833678674609",
+  "walletGEN": "157.055504833678674609",
+  "beforeWei": "156955504833678674609",
+  "increaseWei": "100000000000000000",
+  "expectedPaymentWei": "100000000000000000",
+  "exactIncreaseVerified": true,
+  "nativeProof": "review-withdraw-alice-final-native.json"
+}

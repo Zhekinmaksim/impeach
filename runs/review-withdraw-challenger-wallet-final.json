@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-16T16:05:59.846Z",
+  "address": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+  "blockNumber": "25316484",
+  "blockHash": "0x3d9f91f5bffe1585b70a516e6d1d804c033b5789bbc1275ccf6cfb3c1f33e298",
+  "walletWei": "919571162948117901",
+  "walletGEN": "0.919571162948117901",
+  "beforeWei": "771571162948117901",
+  "increaseWei": "148000000000000000",
+  "expectedPaymentWei": "148000000000000000",
+  "exactIncreaseVerified": true,
+  "nativeProof": "review-withdraw-challenger-final-native.json"
+}

@@ -1,0 +1,10 @@
+{
+  "usage": 2.02845268,
+  "limit": 5,
+  "limit_remaining": 2.97154732,
+  "limit_reset": null,
+  "include_byok_in_limit": false,
+  "byok_usage": 0,
+  "at": "2026-10-16T15:31:07.232626+00:00",
+  "all_authorized_subject_windows_expired": true
+}

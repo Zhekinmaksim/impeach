@@ -1,0 +1,2065 @@
+{
+ "format": "impeach-case/1",
+ "provenance": "bradbury",
+ "contract": "0xCB67936d0b00b82Ea73611b3C8353a21EBdc7261",
+ "generated_at": 1792166758,
+ "note": "",
+ "cases": [
+  {
+   "label": "scripted/memoriser-court24-v2@review-2026-10-16",
+   "note": "",
+   "claim": {
+    "active_challenge": -1,
+    "bond": 0,
+    "bond_sworn": 100000000000000000,
+    "burned_at": 1792128619,
+    "challenges_survived": 0,
+    "claim_id": 0,
+    "classes": [
+     "paraphrase",
+     "numeral_substitution",
+     "entity_rename",
+     "unit_change",
+     "format_shift"
+    ],
+    "decode_params": "{\"temperature\": 0, \"top_p\": 1, \"max_tokens\": 512, \"seed\": 7, \"model\": \"scripted/memoriser-court24-v2\"}",
+    "delta_threshold": 250,
+    "endpoint": "https://impeach.vercel.app/api/scripted-v2/chat/completions",
+    "item_hashes": [
+     "b5903bae04c7ed7deb34d1e7eac13ed5d46e2695583e7267c0384cc9ee7d20bd",
+     "bc284993b7859d05641f47561917a201db02e7e90ebfcd4ffc540b0232f7c318",
+     "44c8d01070ba74f6f64b5dd0c4fc55e4b3b99a98b64dd161b10a3770b6a09c18",
+     "61aaaa39fc8b712942be9b78a2a7ca1895217c42023e16dad4f39161150e9409",
+     "8083117d706a814ee4093aa2e70bcc28112e716c147b31e9613bfa7772a1bb87",
+     "f1f547806f27cfa50a6f31e88d8956b4422055a2e570b627815f7a1fbf1927aa",
+     "92a893b0c148390a7ee7df6590649a5cf5c55618fd38ef0081853df315c5610b",
+     "a8d673cd28dbc51219319ff50290d05d45015752a4ca9530997f5472db0261d3",
+     "5cf87c52133a5658c7e31941a35d635712b0185ca2c205b01db69bb6b738d195",
+     "d413d92a0f5f31dbc39eca9d0293cab8a58d716ec8a496f1fb00bea199316b8d",
+     "059fcd5064f8d88fc9483387209a5b670f0423c32f0b003a8aa9d0221838b9b1",
+     "5cca787d7057a6a260de758424e9f08fe24983e3c065ba7af01f50a42ba3c7b0",
+     "3dcbbb205c85b4f86c2e08fdfe0d68ef858c180356cc345983743381b495077d",
+     "2c223151ad5f4e7a8ae5142e9a77b03d7412a8cfce3c50a0eeec5d2736b3d21d",
+     "6f81e4cba6f1e0255c98fd22e5f79e079f68dd2bcd85145a92c8753e3c5a6fcc",
+     "582389e884f7364cc852d98c3a790afda2b1b9f563824c63f54581cf9f12dd58",
+     "0dd8a6766c284bb984f7fddd77927620deab728e4b43eaf3912970a283f6d396",
+     "b37e0aecf2c26404912a9eedbca7ae73fda7662e4cec99dcfa3ac3d938780379",
+     "0817a3550bbdc3355841dadcee833eee52be333b1363234a631f6439a529cde4",
+     "e21b108ef35ad83736221c078921e5808d6d06565841c0cab03d8958d73edce1",
+     "7a89a38953967c100db9b7450b9881578e06e9e56156d3cae88144dca59d5be9",
+     "6dd6ac7714ef4ae1b26009deca635b78face9e2853e033d2baabdfeeea335b49",
+     "0198e691a7fa1dec37fda380da99e5f284353ae8cb486d44bb16e848b3f03259",
+     "2cbbd5d73db0331a377d2efdef4745df9241a526f42124ab3a088c8839fae4d5"
+    ],
+    "last_challenge": 0,
+    "last_verdict": "CONTAMINATED",
+    "min_items": 24,
+    "opened_at": 1792128573,
+    "prompt_template": "{\"system\": \"You are a careful solver of grade-school math word problems.\", \"user\": \"Solve the problem. Finish with a line of the form ANSWER: <number>.\\n\\n{{item}}\"}",
+    "publisher": "0x771388495F34d21C5574FeFc04cd1D5811E00aDa",
+    "recall_prefix_milli": 400,
+    "recall_threshold": 150,
+    "reveal_window_s": 3600,
+    "score_milli": 1000,
+    "scoring_rule": "The last nonempty line must be ANSWER: followed by one ASCII decimal number with an optional minus sign and decimal point, and nothing else. The answer is correct exactly when that number equals the reference number. Leading zeros and trailing decimal zeros do not change its value.",
+    "similarity_milli": 900,
+    "spec_hash": "beccb0581ef922d877ba8aea551dcc6ade109e3434658fb955f25b694f21eb21",
+    "stake": 1000000000000000,
+    "status": "CONTAMINATED",
+    "subject": "scripted/memoriser-court24-v2@review-2026-10-16",
+    "trial_window_s": 43200
+   },
+   "certificate": {
+    "admissible_probes": 24,
+    "bond_standing": 0,
+    "bond_sworn": 100000000000000000,
+    "challenge_id": 0,
+    "challenges_survived": 0,
+    "claim_id": 0,
+    "contested": true,
+    "court_revision": "impeach/1.1",
+    "dead_probes": 0,
+    "decode_params": "{\"temperature\": 0, \"top_p\": 1, \"max_tokens\": 512, \"seed\": 7, \"model\": \"scripted/memoriser-court24-v2\"}",
+    "delta_milli": 208,
+    "delta_threshold": 250,
+    "final": true,
+    "inadmissible_rewrites": 0,
+    "items_burned": 24,
+    "items_probed": 24,
+    "min_items": 24,
+    "pinned_milli": 1000,
+    "reason": "RECALL",
+    "recall_milli": 1000,
+    "recall_probes": 24,
+    "recall_threshold": 150,
+    "rewrite_milli": 791,
+    "ruled_at": 1792164677,
+    "score_expired_at": 1792128619,
+    "score_status": "SPENT",
+    "score_sworn_milli": 1000,
+    "spec_hash": "beccb0581ef922d877ba8aea551dcc6ade109e3434658fb955f25b694f21eb21",
+    "stale_answers": 5,
+    "state": "CONTAMINATED",
+    "subject": "scripted/memoriser-court24-v2@review-2026-10-16",
+    "under_challenge": false,
+    "verdict": "CONTAMINATED"
+   },
+   "challenge": {
+    "challenge_id": 0,
+    "challenger": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+    "claim_id": 0,
+    "classes": [
+     "entity_rename",
+     "format_shift",
+     "numeral_substitution",
+     "paraphrase",
+     "unit_change"
+    ],
+    "posted_at": 1792128597,
+    "reason": "RECALL",
+    "ruled_at": 1792164677,
+    "slice": 1000000000000000,
+    "stake_locked": 0,
+    "status": "RULED",
+    "subset": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     16,
+     17,
+     18,
+     19,
+     20,
+     21,
+     22,
+     23
+    ],
+    "trial_started_at": 1792128619,
+    "verdict": "CONTAMINATED"
+   },
+   "items": [
+    {
+     "answer": "36",
+     "content_hash": "3943968d0542d597142ed33ec666cf123cd47927c8822a94fa39f6df61934218",
+     "index": 0,
+     "prompt": "On a practice worksheet, a student reads this problem: A workshop prints 28 blue labels in the morning and 17 blue labels in the afternoon. The staff use 9 of those labels on finished toolboxes. How many of the printed blue labels remain unused?",
+     "salt": "20e2cb32e0c1407f8231f490969b7a71",
+     "item_hash": "b5903bae04c7ed7deb34d1e7eac13ed5d46e2695583e7267c0384cc9ee7d20bd",
+     "recall_prefix": "On a practice worksheet, a student reads this problem: A workshop prints 28 blue labels in the mor",
+     "recall_tail": "ning and 17 blue labels in the afternoon. The staff use 9 of those labels on finished toolboxes. How many of the printed blue labels remain unused?"
+    },
+    {
+     "answer": "35",
+     "content_hash": "fdd915f283c78597e1318966d358820366a9016538a2dc7090b390263c835c00",
+     "index": 1,
+     "prompt": "On a practice worksheet, a student reads this problem: A repair station opens 4 boxes containing 8 brass clips in each box. It also has 3 loose brass clips on the counter. Counting only these boxes and loose clips, how many brass clips does the station have?",
+     "salt": "a8004029e9a602ad19afc0b13391130e",
+     "item_hash": "bc284993b7859d05641f47561917a201db02e7e90ebfcd4ffc540b0232f7c318",
+     "recall_prefix": "On a practice worksheet, a student reads this problem: A repair station opens 4 boxes containing 8 bras",
+     "recall_tail": "s clips in each box. It also has 3 loose brass clips on the counter. Counting only these boxes and loose clips, how many brass clips does the station have?"
+    },
+    {
+     "answer": "20",
+     "content_hash": "d26b159e5ea7d7bc73a607a4c359dc0b245fb028ba61fb7d6baa3fe218754044",
+     "index": 2,
+     "prompt": "On a practice worksheet, a student reads this problem: Mira has 18 wooden tokens in her pouch. She gives 5 tokens to Tomas, and Tomas then gives Mira 7 other wooden tokens from his own collection. How many wooden tokens are in Mira's pouch after both transfers?",
+     "salt": "01c3a1e58e1d330bf0b5f1a938d3f866",
+     "item_hash": "44c8d01070ba74f6f64b5dd0c4fc55e4b3b99a98b64dd161b10a3770b6a09c18",
+     "recall_prefix": "On a practice worksheet, a student reads this problem: Mira has 18 wooden tokens in her pouch. She gives",
+     "recall_tail": " 5 tokens to Tomas, and Tomas then gives Mira 7 other wooden tokens from his own collection. How many wooden tokens are in Mira's pouch after both transfers?"
+    },
+    {
+     "answer": "250",
+     "content_hash": "3ea66ddff8f8637c2464672b04a224ede4b445eb24590a989176ccc35cd15268",
+     "index": 3,
+     "prompt": "On a practice worksheet, a student reads this problem: A craft table has a red ribbon measuring 180 centimeters and a blue ribbon measuring 70 centimeters. The two ribbons are placed end to end without overlap. What is their combined length in centimeters?",
+     "salt": "046391043d7e15f243686bc02279760c",
+     "item_hash": "61aaaa39fc8b712942be9b78a2a7ca1895217c42023e16dad4f39161150e9409",
+     "recall_prefix": "On a practice worksheet, a student reads this problem: A craft table has a red ribbon measuring 180 ce",
+     "recall_tail": "ntimeters and a blue ribbon measuring 70 centimeters. The two ribbons are placed end to end without overlap. What is their combined length in centimeters?"
+    },
+    {
+     "answer": "38",
+     "content_hash": "8091d9d670e2e3b942bc55837b42671ad1ebb141d47e99c7d384e7b0bf45694e",
+     "index": 4,
+     "prompt": "On a practice worksheet, a student reads this problem: A rehearsal room contains 6 rows with 7 chairs in each row. Before the group arrives, 4 of these chairs are taken out for repair. How many chairs remain in the rehearsal room after those chairs are removed?",
+     "salt": "55746061e22e8806f827d5532155cea7",
+     "item_hash": "8083117d706a814ee4093aa2e70bcc28112e716c147b31e9613bfa7772a1bb87",
+     "recall_prefix": "On a practice worksheet, a student reads this problem: A rehearsal room contains 6 rows with 7 chairs in",
+     "recall_tail": " each row. Before the group arrives, 4 of these chairs are taken out for repair. How many chairs remain in the rehearsal room after those chairs are removed?"
+    },
+    {
+     "answer": "41",
+     "content_hash": "10053304c2d1008b1c507cdca7c9eec3909c313c651afb4a17a2d7d6b19f8c0a",
+     "index": 5,
+     "prompt": "On a practice worksheet, a student reads this problem: A supply drawer starts the day with 45 blank index cards. A teacher takes 12 cards for an activity and later puts 8 new blank cards into the drawer. How many blank index cards are in the drawer at the end?",
+     "salt": "9f1068db3e9c2499b3572381c84d6590",
+     "item_hash": "f1f547806f27cfa50a6f31e88d8956b4422055a2e570b627815f7a1fbf1927aa",
+     "recall_prefix": "On a practice worksheet, a student reads this problem: A supply drawer starts the day with 45 blank inde",
+     "recall_tail": "x cards. A teacher takes 12 cards for an activity and later puts 8 new blank cards into the drawer. How many blank index cards are in the drawer at the end?"
+    },
+    {
+     "answer": "37",
+     "content_hash": "4e4308bce3da02753cd0c64b5c8167a08301274c31e279472df281d724b01d3a",
+     "index": 6,
+     "prompt": "On a practice worksheet, a student reads this problem: A gallery arranges 7 display stands with 6 paper lanterns on each stand. Then 5 lanterns are removed from the display because they are damaged. How many paper lanterns are still on the display stands?",
+     "salt": "b6ec4d562380a991328b36f58713aadf",
+     "item_hash": "92a893b0c148390a7ee7df6590649a5cf5c55618fd38ef0081853df315c5610b",
+     "recall_prefix": "On a practice worksheet, a student reads this problem: A gallery arranges 7 display stands with 6 pape",
+     "recall_tail": "r lanterns on each stand. Then 5 lanterns are removed from the display because they are damaged. How many paper lanterns are still on the display stands?"
+    },
+    {
+     "answer": "7",
+     "content_hash": "b0f73b6c7c1c251f74bcab338c30409648b4e37ab5e8fdedfa58af4f9cd70977",
+     "index": 7,
+     "prompt": "On a practice worksheet, a student reads this problem: Lena brings 18 red counters and Rafi brings 24 red counters to a puzzle table. They combine their counters and divide all of them equally among 6 trays. How many red counters are placed in each tray?",
+     "salt": "3348f97ab48fb654dc802e756d84139c",
+     "item_hash": "a8d673cd28dbc51219319ff50290d05d45015752a4ca9530997f5472db0261d3",
+     "recall_prefix": "On a practice worksheet, a student reads this problem: Lena brings 18 red counters and Rafi brings 24",
+     "recall_tail": " red counters to a puzzle table. They combine their counters and divide all of them equally among 6 trays. How many red counters are placed in each tray?"
+    },
+    {
+     "answer": "2500",
+     "content_hash": "7b496e472ece562b7ee63be1735103a0f476be7571d39177c14e233a473d0b87",
+     "index": 8,
+     "prompt": "On a practice worksheet, a student reads this problem: A parcel contains a metal block with a mass of 2 kilograms and packing material with a mass of 500 grams. Nothing else is inside the parcel. What is the combined mass of its contents in grams?",
+     "salt": "88a8e7a869bf3ac2e5036ec56158815b",
+     "item_hash": "5cf87c52133a5658c7e31941a35d635712b0185ca2c205b01db69bb6b738d195",
+     "recall_prefix": "On a practice worksheet, a student reads this problem: A parcel contains a metal block with a mass",
+     "recall_tail": " of 2 kilograms and packing material with a mass of 500 grams. Nothing else is inside the parcel. What is the combined mass of its contents in grams?"
+    },
+    {
+     "answer": "78",
+     "content_hash": "b3f4e2c563a3ce578fe848b858b0de9c0bdbbb4d0143f274fdbcab844386016e",
+     "index": 9,
+     "prompt": "On a practice worksheet, a student reads this problem: A laboratory puts 9 empty vials into each of 8 storage racks. Another 6 empty vials are kept loose beside the racks. How many empty vials are there altogether in the racks and beside them?",
+     "salt": "8eeeef586fb22c600e6d60c12f9905a4",
+     "item_hash": "d413d92a0f5f31dbc39eca9d0293cab8a58d716ec8a496f1fb00bea199316b8d",
+     "recall_prefix": "On a practice worksheet, a student reads this problem: A laboratory puts 9 empty vials into each ",
+     "recall_tail": "of 8 storage racks. Another 6 empty vials are kept loose beside the racks. How many empty vials are there altogether in the racks and beside them?"
+    },
+    {
+     "answer": "27",
+     "content_hash": "8923bda34a4dec74845e7edf98a9f0e1fbb52dffed2f51733491265634dc1ee5",
+     "index": 10,
+     "prompt": "On a practice worksheet, a student reads this problem: A shuttle has 54 passenger seats. At the first stop 19 passengers board, and at the next stop 8 more passengers board. Nobody leaves, and each passenger uses one seat. How many passenger seats are still empty?",
+     "salt": "44c48766758b0b8df9a64df4548131ce",
+     "item_hash": "059fcd5064f8d88fc9483387209a5b670f0423c32f0b003a8aa9d0221838b9b1",
+     "recall_prefix": "On a practice worksheet, a student reads this problem: A shuttle has 54 passenger seats. At the first sto",
+     "recall_tail": "p 19 passengers board, and at the next stop 8 more passengers board. Nobody leaves, and each passenger uses one seat. How many passenger seats are still empty?"
+    },
+    {
+     "answer": "42",
+     "content_hash": "75d513bf2adf9a1f2b0bbd5e72d0034fbc2b1c726faaea2d1e504a7b3f6fa29c",
+     "index": 11,
+     "prompt": "On a practice worksheet, a student reads this problem: A book stall receives 9 bundles with 4 bookmarks in each bundle. The owner adds 6 single bookmarks from a desk drawer to the same display. How many bookmarks are on the display after this addition?",
+     "salt": "5ca5e69fc9b67bd42816752e7fa6cf73",
+     "item_hash": "5cca787d7057a6a260de758424e9f08fe24983e3c065ba7af01f50a42ba3c7b0",
+     "recall_prefix": "On a practice worksheet, a student reads this problem: A book stall receives 9 bundles with 4 bookma",
+     "recall_tail": "rks in each bundle. The owner adds 6 single bookmarks from a desk drawer to the same display. How many bookmarks are on the display after this addition?"
+    },
+    {
+     "answer": "6",
+     "content_hash": "9f3dc4869828565c36f748a4a5f72fde81719650d45ac23eb258f1d51ec26050",
+     "index": 12,
+     "prompt": "On a practice worksheet, a student reads this problem: Ada places 12 glass beads in a bowl, and Bruno adds 6 more glass beads to that bowl. They divide all the beads equally among 3 small bags with none left over. How many glass beads go into each bag?",
+     "salt": "0829fbeedba9fe3b8ddab0acba0d6b4b",
+     "item_hash": "3dcbbb205c85b4f86c2e08fdfe0d68ef858c180356cc345983743381b495077d",
+     "recall_prefix": "On a practice worksheet, a student reads this problem: Ada places 12 glass beads in a bowl, and Brun",
+     "recall_tail": "o adds 6 more glass beads to that bowl. They divide all the beads equally among 3 small bags with none left over. How many glass beads go into each bag?"
+    },
+    {
+     "answer": "270",
+     "content_hash": "c7c6847ae9dc568dbfbb6a5c44beaf6ef887ce8e53f251baf5ccf69482fba4d1",
+     "index": 13,
+     "prompt": "On a practice worksheet, a student reads this problem: A demonstration includes a video lasting 4 minutes followed immediately by a sound clip lasting 30 seconds. There is no pause between them. What is the total running time of the demonstration in seconds?",
+     "salt": "781f9530897c8d9017c366bf6c9afbf1",
+     "item_hash": "2c223151ad5f4e7a8ae5142e9a77b03d7412a8cfce3c50a0eeec5d2736b3d21d",
+     "recall_prefix": "On a practice worksheet, a student reads this problem: A demonstration includes a video lasting 4 minut",
+     "recall_tail": "es followed immediately by a sound clip lasting 30 seconds. There is no pause between them. What is the total running time of the demonstration in seconds?"
+    },
+    {
+     "answer": "53",
+     "content_hash": "6d6b81eab27c56c62113227a27b037acaabe3a7103d072789d424603b83d9a0c",
+     "index": 14,
+     "prompt": "On a practice worksheet, a student reads this problem: An archive shelf starts with 64 folders. An archivist removes 18 folders for inspection and then adds 7 newly prepared folders to the shelf. How many folders are on the shelf after these two changes?",
+     "salt": "413d28b1a3c5356dcf543ac3ef8fe3b1",
+     "item_hash": "6f81e4cba6f1e0255c98fd22e5f79e079f68dd2bcd85145a92c8753e3c5a6fcc",
+     "recall_prefix": "On a practice worksheet, a student reads this problem: An archive shelf starts with 64 folders. An ar",
+     "recall_tail": "chivist removes 18 folders for inspection and then adds 7 newly prepared folders to the shelf. How many folders are on the shelf after these two changes?"
+    },
+    {
+     "answer": "10",
+     "content_hash": "8630d7f80aa33a2762c273c6ac806543181f15c8ccb12496a33d259d66595f2a",
+     "index": 15,
+     "prompt": "On a practice worksheet, a student reads this problem: A workshop has 5 sealed sleeves containing 6 sanding discs in each sleeve. All of these discs are distributed equally among 3 workbenches, with none kept in storage. How many sanding discs does each workbench receive?",
+     "salt": "f906d36eb97c6095d22945c007a9b4f3",
+     "item_hash": "582389e884f7364cc852d98c3a790afda2b1b9f563824c63f54581cf9f12dd58",
+     "recall_prefix": "On a practice worksheet, a student reads this problem: A workshop has 5 sealed sleeves containing 6 sanding ",
+     "recall_tail": "discs in each sleeve. All of these discs are distributed equally among 3 workbenches, with none kept in storage. How many sanding discs does each workbench receive?"
+    },
+    {
+     "answer": "10",
+     "content_hash": "f376eafdcd0eb538b519afa648f75ed8ab227f17ed372791b63ea0486034447a",
+     "index": 16,
+     "prompt": "On a practice worksheet, a student reads this problem: A lantern kit has 24 batteries, but 4 batteries are damaged and cannot be used. Each lantern needs 2 usable batteries. Using all the usable batteries from this kit, how many complete lanterns can be powered?",
+     "salt": "00e02195c2f7b62decc0240c6f92b0b4",
+     "item_hash": "0dd8a6766c284bb984f7fddd77927620deab728e4b43eaf3912970a283f6d396",
+     "recall_prefix": "On a practice worksheet, a student reads this problem: A lantern kit has 24 batteries, but 4 batteries a",
+     "recall_tail": "re damaged and cannot be used. Each lantern needs 2 usable batteries. Using all the usable batteries from this kit, how many complete lanterns can be powered?"
+    },
+    {
+     "answer": "38",
+     "content_hash": "39a390fb9a6ae5115f5f4fc0a9eaa1fbffc71f8138be21528000db832be0fd25",
+     "index": 17,
+     "prompt": "On a practice worksheet, a student reads this problem: Davi packs 4 crates with 11 marker pens in each crate for a classroom delivery. Suri removes 6 marker pens from those crates for a separate order. How many marker pens remain in the crates for the classroom delivery?",
+     "salt": "2d1d48b22d804b4788bfd2f702bd54f3",
+     "item_hash": "b37e0aecf2c26404912a9eedbca7ae73fda7662e4cec99dcfa3ac3d938780379",
+     "recall_prefix": "On a practice worksheet, a student reads this problem: Davi packs 4 crates with 11 marker pens in each crate",
+     "recall_tail": " for a classroom delivery. Suri removes 6 marker pens from those crates for a separate order. How many marker pens remain in the crates for the classroom delivery?"
+    },
+    {
+     "answer": "2000",
+     "content_hash": "231d08b3b755dd7c78e4324e4231e6fbf246fae464e6133a3a4ef4286093937d",
+     "index": 18,
+     "prompt": "On a practice worksheet, a student reads this problem: A survey team measures a footpath in two consecutive sections. The first section is 1250 meters long and the second section is 750 meters long. What is the total length of these two sections in meters?",
+     "salt": "76889ec6a1cc77f780000f0ce8cd7c9d",
+     "item_hash": "0817a3550bbdc3355841dadcee833eee52be333b1363234a631f6439a529cde4",
+     "recall_prefix": "On a practice worksheet, a student reads this problem: A survey team measures a footpath in two consec",
+     "recall_tail": "utive sections. The first section is 1250 meters long and the second section is 750 meters long. What is the total length of these two sections in meters?"
+    },
+    {
+     "answer": "14",
+     "content_hash": "901a4b35f5de1322509eb1c87dbbc6d73097c5c332499685ec9551627cd395b6",
+     "index": 19,
+     "prompt": "On a practice worksheet, a student reads this problem: A print shop packs 72 invitation cards into packets containing 8 cards each. It already has 5 other complete packets on a shelf. How many complete packets does the shop have after packing the 72 cards?",
+     "salt": "30b2174a3f406305ce91f35c7af80f24",
+     "item_hash": "e21b108ef35ad83736221c078921e5808d6d06565841c0cab03d8958d73edce1",
+     "recall_prefix": "On a practice worksheet, a student reads this problem: A print shop packs 72 invitation cards into pac",
+     "recall_tail": "kets containing 8 cards each. It already has 5 other complete packets on a shelf. How many complete packets does the shop have after packing the 72 cards?"
+    },
+    {
+     "answer": "27",
+     "content_hash": "e928ea48caacfe4348d7ccdcb3536180817f582650249300c0ae2ea0b971fcf6",
+     "index": 20,
+     "prompt": "On a practice worksheet, a student reads this problem: A reading club receives 7 cartons containing 5 notebooks in each carton. The organizer gives 8 of these notebooks to new members and keeps the rest in a cupboard. How many notebooks are kept in the cupboard?",
+     "salt": "10a33f1e52b27f387a1f925fad6824c7",
+     "item_hash": "7a89a38953967c100db9b7450b9881578e06e9e56156d3cae88144dca59d5be9",
+     "recall_prefix": "On a practice worksheet, a student reads this problem: A reading club receives 7 cartons containing 5 no",
+     "recall_tail": "tebooks in each carton. The organizer gives 8 of these notebooks to new members and keeps the rest in a cupboard. How many notebooks are kept in the cupboard?"
+    },
+    {
+     "answer": "10",
+     "content_hash": "3ceeb5ac011654da9d0b3b8ea630c1d4566bf7662ab77500f600847abaebea00",
+     "index": 21,
+     "prompt": "On a practice worksheet, a student reads this problem: A coordinator divides 36 plain badges equally among 6 volunteers. Each volunteer then receives 4 extra badges from a separate reserve. How many badges does each volunteer have after receiving the extra badges?",
+     "salt": "170cccabb86856c61ccaa1ca755c02bb",
+     "item_hash": "6dd6ac7714ef4ae1b26009deca635b78face9e2853e033d2baabdfeeea335b49",
+     "recall_prefix": "On a practice worksheet, a student reads this problem: A coordinator divides 36 plain badges equally amon",
+     "recall_tail": "g 6 volunteers. Each volunteer then receives 4 extra badges from a separate reserve. How many badges does each volunteer have after receiving the extra badges?"
+    },
+    {
+     "answer": "34",
+     "content_hash": "13e32067b0c694fde3d4bcd4846475f6fa2e9b61c8238b4444ab7d0ed063591a",
+     "index": 22,
+     "prompt": "On a practice worksheet, a student reads this problem: Priya has 31 polished shells in a box. Marco gives her 8 more polished shells, and she then lends 5 shells from the box to Nera. How many polished shells remain in Priya's box after both exchanges?",
+     "salt": "ab9f644e10f45bc0d2f83adac0fe224d",
+     "item_hash": "0198e691a7fa1dec37fda380da99e5f284353ae8cb486d44bb16e848b3f03259",
+     "recall_prefix": "On a practice worksheet, a student reads this problem: Priya has 31 polished shells in a box. Marco ",
+     "recall_tail": "gives her 8 more polished shells, and she then lends 5 shells from the box to Nera. How many polished shells remain in Priya's box after both exchanges?"
+    },
+    {
+     "answer": "1500",
+     "content_hash": "aafd4c8074730df0c9f866b613b7caac201d587feb8efbe4c2ac339611784acc",
+     "index": 23,
+     "prompt": "On a practice worksheet, a student reads this problem: A mixing station has 900 milliliters of clear water in one jug and 600 milliliters in another jug. All this water is poured into an empty container without spilling. How many milliliters of water are in that container?",
+     "salt": "7478a015b1ee622c7bdaef0e901605d0",
+     "item_hash": "2cbbd5d73db0331a377d2efdef4745df9241a526f42124ab3a088c8839fae4d5",
+     "recall_prefix": "On a practice worksheet, a student reads this problem: A mixing station has 900 milliliters of clear water in",
+     "recall_tail": " one jug and 600 milliliters in another jug. All this water is poured into an empty container without spilling. How many milliliters of water are in that container?"
+    }
+   ],
+   "probes": [
+    {
+     "challenge_id": 0,
+     "item_index": 0,
+     "pinned": "RIGHT",
+     "pinned_answer": "36",
+     "recall": "MATCH",
+     "rewrite": "RIGHT",
+     "rewrite_answer": "36",
+     "rewrite_class": "paraphrase",
+     "rewrite_hash": "9ebfd85b4d2bcf7742b3011b3eb0981993ce4808e944fa0982d2c46deb610c6f",
+     "rewrite_prompt": "On a practice worksheet, a student reads this problem: During the morning a workshop produces 28 blue labels, followed by another 17 that afternoon. After 9 of these labels are attached to completed toolboxes, how many printed blue labels are still unused?",
+     "rewrite_reply": "36",
+     "slice_settled": true,
+     "stage_c1": "ADMISSIBLE",
+     "stage_c2": "ADMISSIBLE",
+     "stale": false,
+     "touched": true
+    },
+    {
+     "challenge_id": 0,
+     "item_index": 1,
+     "pinned": "RIGHT",
+     "pinned_answer": "35",
+     "recall": "MATCH",
+     "rewrite": "WRONG",
+     "rewrite_answer": "37",
+     "rewrite_class": "numeral_substitution",
+     "rewrite_hash": "d4c0fb3a94f6a15c724be25a61e976a6ac2016ae15ada74d8b9b65075f07355f",
+     "rewrite_prompt": "On a practice worksheet, a student reads this problem: A repair station opens 5 boxes containing 7 brass clips in each box. It also has 2 loose brass clips on the counter. Counting only these boxes and loose clips, how many brass clips does the station have?",
+     "rewrite_reply": "35",
+     "slice_settled": true,
+     "stage_c1": "ADMISSIBLE",
+     "stage_c2": "ADMISSIBLE",
+     "stale": true,
+     "touched": true
+    },
+    {
+     "challenge_id": 0,
+     "item_index": 2,
+     "pinned": "RIGHT",
+     "pinned_answer": "20",
+     "recall": "MATCH",
+     "rewrite": "RIGHT",
+     "rewrite_answer": "20",
+     "rewrite_class": "entity_rename",
+     "rewrite_hash": "10e0c9390afd1efbd70d1951b45a632f996ac5e64c592fc27af5d2964334f351",
+     "rewrite_prompt": "On a practice worksheet, a student reads this problem: Nila has 18 wooden tokens in her pouch. She gives 5 tokens to Daren, and Daren then gives Nila 7 other wooden tokens from his own collection. How many wooden tokens are in Nila's pouch after both transfers?",
+     "rewrite_reply": "20",
+     "slice_settled": true,
+     "stage_c1": "ADMISSIBLE",
+     "stage_c2": "ADMISSIBLE",
+     "stale": false,
+     "touched": true
+    },
+    {
+     "challenge_id": 0,
+     "item_index": 3,
+     "pinned": "RIGHT",
+     "pinned_answer": "250",
+     "recall": "MATCH",
+     "rewrite": "RIGHT",
+     "rewrite_answer": "250",
+     "rewrite_class": "unit_change",
+     "rewrite_hash": "21b5a533324d00f5b0437c75414d97814df873adca25a14485019ae23a12ccbd",
+     "rewrite_prompt": "On a practice worksheet, a student reads this problem: A craft table has a red ribbon measuring 1.8 meters and a blue ribbon measuring 0.7 meters. The two ribbons are placed end to end without overlap. What is their combined length in centimeters?",
+     "rewrite_reply": "250",
+     "slice_settled": true,
+     "stage_c1": "ADMISSIBLE",
+     "stage_c2": "ADMISSIBLE",
+     "stale": false,
+     "touched": true
+    },
+    {
+     "challenge_id": 0,
+     "item_index": 4,
+     "pinned": "RIGHT",
+     "pinned_answer": "38",
+     "recall": "MATCH",
+     "rewrite": "RIGHT",
+     "rewrite_answer": "38",
+     "rewrite_class": "format_shift",
+     "rewrite_hash": "dc484735c683f2a987b567358c9a6a91caa700ffcb3ed9aa773247ea2b3badc9",
+     "rewrite_prompt": "On a practice worksheet, a student reads this problem: Rehearsal room inventory:\n- Rows: 6\n- Chairs in each row: 7\n- Chairs taken out for repair before the group arrives: 4\nQuestion: How many chairs remain in the rehearsal room after those chairs are removed?",
+     "rewrite_reply": "38",
+     "slice_settled": true,
+     "stage_c1": "ADMISSIBLE",
+     "stage_c2": "ADMISSIBLE",
+     "stale": false,
+     "touched": true
+    },
+    {
+     "challenge_id": 0,
+     "item_index": 5,
+     "pinned": "RIGHT",
+     "pinned_answer": "41",
+     "recall": "MATCH",
+     "rewrite": "RIGHT",
+     "rewrite_answer": "41",
+     "rewrite_class": "paraphrase",
+     "rewrite_hash": "5dd308554394aef968cb20bcf667fead0bf79a92db394575b159e22e1bb9fce9",
+     "rewrite_prompt": "On a practice worksheet, a student reads this problem: At the beginning of the day there are 45 blank index cards in a supply drawer. After a teacher removes 12 for an activity and adds 8 new blank cards later, how many blank index cards does the drawer contain?",
+     "rewrite_reply": "41",
+     "slice_settled": true,
+     "stage_c1": "ADMISSIBLE",
+     "stage_c2": "ADMISSIBLE",
+     "stale": false,
+     "touched": true
+    },
+    {
+     "challenge_id": 0,
+     "item_index": 6,
+     "pinned": "RIGHT",
+     "pinned_answer": "37",
+     "recall": "MATCH",
+     "rewrite": "WRONG",
+     "rewrite_answer": "33",
+     "rewrite_class": "numeral_substitution",
+     "rewrite_hash": "619d5be511f8c1716f5f073351f8a1514b71220c5fd7ff845fb3af8fae89fe28",
+     "rewrite_prompt": "On a practice worksheet, a student reads this problem: A gallery arranges 8 display stands with 5 paper lanterns on each stand. Then 7 lanterns are removed from the display because they are damaged. How many paper lanterns are still on the display stands?",
+     "rewrite_reply": "37",
+     "slice_settled": true,
+     "stage_c1": "ADMISSIBLE",
+     "stage_c2": "ADMISSIBLE",
+     "stale": true,
+     "touched": true
+    },
+    {
+     "challenge_id": 0,
+     "item_index": 7,
+     "pinned": "RIGHT",
+     "pinned_answer": "7",
+     "recall": "MATCH",
+     "rewrite": "RIGHT",
+     "rewrite_answer": "7",
+     "rewrite_class": "entity_rename",
+     "rewrite_hash": "f6f5ce7801af02a186482c0d16ee3e90366c9d53f7a08814d631f6bfea4c7811",
+     "rewrite_prompt": "On a practice worksheet, a student reads this problem: Noor brings 18 red counters and Evan brings 24 red counters to a puzzle table. They combine their counters and divide all of them equally among 6 trays. How many red counters are placed in each tray?",
+     "rewrite_reply": "7",
+     "slice_settled": true,
+     "stage_c1": "ADMISSIBLE",
+     "stage_c2": "ADMISSIBLE",
+     "stale": false,
+     "touched": true
+    },
+    {
+     "challenge_id": 0,
+     "item_index": 8,
+     "pinned": "RIGHT",
+     "pinned_answer": "2500",
+     "recall": "MATCH",
+     "rewrite": "RIGHT",
+     "rewrite_answer": "2500",
+     "rewrite_class": "unit_change",
+     "rewrite_hash": "94dba48c58bde0cacef92906aed707e5dd29ae0e6a90f371fc4ca53c856905e6",
+     "rewrite_prompt": "On a practice worksheet, a student reads this problem: A parcel contains a metal block with a mass of 2000 grams and packing material with a mass of 0.5 kilograms. Nothing else is inside the parcel. What is the combined mass of its contents in grams?",
+     "rewrite_reply": "2500",
+     "slice_settled": true,
+     "stage_c1": "ADMISSIBLE",
+     "stage_c2": "ADMISSIBLE",
+     "stale": false,
+     "touched": true
+    },
+    {
+     "challenge_id": 0,
+     "item_index": 9,
+     "pinned": "RIGHT",
+     "pinned_answer": "78",
+     "recall": "MATCH",
+     "rewrite": "RIGHT",
+     "rewrite_answer": "78",
+     "rewrite_class": "format_shift",
+     "rewrite_hash": "fc23be6a2c81d5a33ea54a7b10d3aff5e93a29b45ea9f3235111fdd896e093ef",
+     "rewrite_prompt": "On a practice worksheet, a student reads this problem: Laboratory vial count\nStorage racks: 8\nEmpty vials per rack: 9\nLoose empty vials beside the racks: 6\nRequested total: How many empty vials are there altogether in the racks and beside them?",
+     "rewrite_reply": "78",
+     "slice_settled": true,
+     "stage_c1": "ADMISSIBLE",
+     "stage_c2": "ADMISSIBLE",
+     "stale": false,
+     "touched": true
+    },
+    {
+     "challenge_id": 0,
+     "item_index": 10,
+     "pinned": "RIGHT",
+     "pinned_answer": "27",
+     "recall": "MATCH",
+     "rewrite": "RIGHT",
+     "rewrite_answer": "27",
+     "rewrite_class": "paraphrase",
+     "rewrite_hash": "3a343e856dee0ec024e27d2b7742e6791f7d15c6eb5f6e8b3b28527ecd7f8912",
+     "rewrite_prompt": "On a practice worksheet, a student reads this problem: There are 54 seats for passengers on a shuttle. A group of 19 boards at the first stop and another 8 boards at the following stop. With no passengers getting off and one seat used per passenger, how many seats remain empty?",
+     "rewrite_reply": "27",
+     "slice_settled": true,
+     "stage_c1": "ADMISSIBLE",
+     "stage_c2": "ADMISSIBLE",
+     "stale": false,
+     "touched": true
+    },
+    {
+     "challenge_id": 0,
+     "item_index": 11,
+     "pinned": "RIGHT",
+     "pinned_answer": "42",
+     "recall": "MATCH",
+     "rewrite": "WRONG",
+     "rewrite_answer": "43",
+     "rewrite_class": "numeral_substitution",
+     "rewrite_hash": "8d34999e2362f6deeadc93a733c53391ddbde545a05f8fda988de672e4743d51",
+     "rewrite_prompt": "On a practice worksheet, a student reads this problem: A book stall receives 7 bundles with 5 bookmarks in each bundle. The owner adds 8 single bookmarks from a desk drawer to the same display. How many bookmarks are on the display after this addition?",
+     "rewrite_reply": "42",
+     "slice_settled": true,
+     "stage_c1": "ADMISSIBLE",
+     "stage_c2": "ADMISSIBLE",
+     "stale": true,
+     "touched": true
+    },
+    {
+     "challenge_id": 0,
+     "item_index": 12,
+     "pinned": "RIGHT",
+     "pinned_answer": "6",
+     "recall": "MATCH",
+     "rewrite": "RIGHT",
+     "rewrite_answer": "6",
+     "rewrite_class": "entity_rename",
+     "rewrite_hash": "a67e444cfb228ffb223fa1a53eef797ad1944d285ab7cb7cd5db4108c38774c9",
+     "rewrite_prompt": "On a practice worksheet, a student reads this problem: Iris places 12 glass beads in a bowl, and Cedric adds 6 more glass beads to that bowl. They divide all the beads equally among 3 small bags with none left over. How many glass beads go into each bag?",
+     "rewrite_reply": "6",
+     "slice_settled": true,
+     "stage_c1": "ADMISSIBLE",
+     "stage_c2": "ADMISSIBLE",
+     "stale": false,
+     "touched": true
+    },
+    {
+     "challenge_id": 0,
+     "item_index": 13,
+     "pinned": "RIGHT",
+     "pinned_answer": "270",
+     "recall": "MATCH",
+     "rewrite": "RIGHT",
+     "rewrite_answer": "270",
+     "rewrite_class": "unit_change",
+     "rewrite_hash": "0d3786a695001c06a04de637f233ae4544d62d410cbf8c1dd590a81bcf45391a",
+     "rewrite_prompt": "On a practice worksheet, a student reads this problem: A demonstration includes a video lasting 240 seconds followed immediately by a sound clip lasting 0.5 minutes. There is no pause between them. What is the total running time of the demonstration in seconds?",
+     "rewrite_reply": "270",
+     "slice_settled": true,
+     "stage_c1": "ADMISSIBLE",
+     "stage_c2": "ADMISSIBLE",
+     "stale": false,
+     "touched": true
+    },
+    {
+     "challenge_id": 0,
+     "item_index": 14,
+     "pinned": "RIGHT",
+     "pinned_answer": "53",
+     "recall": "MATCH",
+     "rewrite": "RIGHT",
+     "rewrite_answer": "53",
+     "rewrite_class": "format_shift",
+     "rewrite_hash": "b7b617eb2fecc693d87450763f1a19904c02d3c7654e824b88ff1b91332847b5",
+     "rewrite_prompt": "On a practice worksheet, a student reads this problem: Archive shelf record:\nStarting folders: 64\nFolders removed for inspection: 18\nNewly prepared folders added afterward: 7\nQuestion: How many folders are on the shelf after these two changes?",
+     "rewrite_reply": "53",
+     "slice_settled": true,
+     "stage_c1": "ADMISSIBLE",
+     "stage_c2": "ADMISSIBLE",
+     "stale": false,
+     "touched": true
+    },
+    {
+     "challenge_id": 0,
+     "item_index": 15,
+     "pinned": "RIGHT",
+     "pinned_answer": "10",
+     "recall": "MATCH",
+     "rewrite": "RIGHT",
+     "rewrite_answer": "10",
+     "rewrite_class": "paraphrase",
+     "rewrite_hash": "aad68d1eb022572e05f93c65a126ebcf238e026e2f904d1870cc28afc871d1ec",
+     "rewrite_prompt": "On a practice worksheet, a student reads this problem: Inside each of 5 sealed sleeves are 6 sanding discs. The workshop shares every disc equally between 3 workbenches and keeps none aside. How many sanding discs are given to each workbench?",
+     "rewrite_reply": "10",
+     "slice_settled": true,
+     "stage_c1": "ADMISSIBLE",
+     "stage_c2": "ADMISSIBLE",
+     "stale": false,
+     "touched": true
+    },
+    {
+     "challenge_id": 0,
+     "item_index": 16,
+     "pinned": "RIGHT",
+     "pinned_answer": "10",
+     "recall": "MATCH",
+     "rewrite": "WRONG",
+     "rewrite_answer": "7",
+     "rewrite_class": "numeral_substitution",
+     "rewrite_hash": "26b2fa89a8b8de276d70c8ee7e6d1b6af7001539f9bbf7147b92390bf0662242",
+     "rewrite_prompt": "On a practice worksheet, a student reads this problem: A lantern kit has 27 batteries, but 6 batteries are damaged and cannot be used. Each lantern needs 3 usable batteries. Using all the usable batteries from this kit, how many complete lanterns can be powered?",
+     "rewrite_reply": "10",
+     "slice_settled": true,
+     "stage_c1": "ADMISSIBLE",
+     "stage_c2": "ADMISSIBLE",
+     "stale": true,
+     "touched": true
+    },
+    {
+     "challenge_id": 0,
+     "item_index": 17,
+     "pinned": "RIGHT",
+     "pinned_answer": "38",
+     "recall": "MATCH",
+     "rewrite": "RIGHT",
+     "rewrite_answer": "38",
+     "rewrite_class": "entity_rename",
+     "rewrite_hash": "cd791cfa042fc0bcb3c55ed328509f3bead1da51f5170c6b6c7f65c8a7db73f1",
+     "rewrite_prompt": "On a practice worksheet, a student reads this problem: Oren packs 4 crates with 11 marker pens in each crate for a classroom delivery. Tali removes 6 marker pens from those crates for a separate order. How many marker pens remain in the crates for the classroom delivery?",
+     "rewrite_reply": "38",
+     "slice_settled": true,
+     "stage_c1": "ADMISSIBLE",
+     "stage_c2": "ADMISSIBLE",
+     "stale": false,
+     "touched": true
+    },
+    {
+     "challenge_id": 0,
+     "item_index": 18,
+     "pinned": "RIGHT",
+     "pinned_answer": "2000",
+     "recall": "MATCH",
+     "rewrite": "RIGHT",
+     "rewrite_answer": "2000",
+     "rewrite_class": "unit_change",
+     "rewrite_hash": "2289939c545dcf76cae3582d913d1430d1c5c2e3dbee6655985b08b18bf110d6",
+     "rewrite_prompt": "On a practice worksheet, a student reads this problem: A survey team measures a footpath in two consecutive sections. The first section is 1.25 kilometers long and the second section is 0.75 kilometers long. What is the total length of these two sections in meters?",
+     "rewrite_reply": "2000",
+     "slice_settled": true,
+     "stage_c1": "ADMISSIBLE",
+     "stage_c2": "ADMISSIBLE",
+     "stale": false,
+     "touched": true
+    },
+    {
+     "challenge_id": 0,
+     "item_index": 19,
+     "pinned": "RIGHT",
+     "pinned_answer": "14",
+     "recall": "MATCH",
+     "rewrite": "RIGHT",
+     "rewrite_answer": "14",
+     "rewrite_class": "format_shift",
+     "rewrite_hash": "7cdebd5bbe8f1e3608024ee86b115d8f05c438c1804533d0e16ed714e4ed237a",
+     "rewrite_prompt": "On a practice worksheet, a student reads this problem: Print shop packing sheet\nInvitation cards to pack: 72\nCards in each packet: 8\nOther complete packets already on the shelf: 5\nQuestion: How many complete packets does the shop have after packing the 72 cards?",
+     "rewrite_reply": "14",
+     "slice_settled": true,
+     "stage_c1": "ADMISSIBLE",
+     "stage_c2": "ADMISSIBLE",
+     "stale": false,
+     "touched": true
+    },
+    {
+     "challenge_id": 0,
+     "item_index": 20,
+     "pinned": "RIGHT",
+     "pinned_answer": "27",
+     "recall": "MATCH",
+     "rewrite": "RIGHT",
+     "rewrite_answer": "27",
+     "rewrite_class": "paraphrase",
+     "rewrite_hash": "6be073f3d73bd4b7b973c18c0bc9fa7ad9767fa21a62ed411a952f632b527c63",
+     "rewrite_prompt": "On a practice worksheet, a student reads this problem: Each of 7 cartons delivered to a reading club contains 5 notebooks. Once 8 of those notebooks have been handed to new members, the organizer stores all the remaining notebooks in a cupboard. How many are stored there?",
+     "rewrite_reply": "27",
+     "slice_settled": true,
+     "stage_c1": "ADMISSIBLE",
+     "stage_c2": "ADMISSIBLE",
+     "stale": false,
+     "touched": true
+    },
+    {
+     "challenge_id": 0,
+     "item_index": 21,
+     "pinned": "RIGHT",
+     "pinned_answer": "10",
+     "recall": "MATCH",
+     "rewrite": "WRONG",
+     "rewrite_answer": "9",
+     "rewrite_class": "numeral_substitution",
+     "rewrite_hash": "2d082cb3b12fd5f955396e3517baf9766ba8dcfe8f05a52839f5f006bea40e3b",
+     "rewrite_prompt": "On a practice worksheet, a student reads this problem: A coordinator divides 48 plain badges equally among 8 volunteers. Each volunteer then receives 3 extra badges from a separate reserve. How many badges does each volunteer have after receiving the extra badges?",
+     "rewrite_reply": "10",
+     "slice_settled": true,
+     "stage_c1": "ADMISSIBLE",
+     "stage_c2": "ADMISSIBLE",
+     "stale": true,
+     "touched": true
+    },
+    {
+     "challenge_id": 0,
+     "item_index": 22,
+     "pinned": "RIGHT",
+     "pinned_answer": "34",
+     "recall": "MATCH",
+     "rewrite": "RIGHT",
+     "rewrite_answer": "34",
+     "rewrite_class": "entity_rename",
+     "rewrite_hash": "1d3c5bba1fee7baf39a58084ec8d83e2ca3acccbb0613ea416b3fb20159725f1",
+     "rewrite_prompt": "On a practice worksheet, a student reads this problem: Yuna has 31 polished shells in a box. Felix gives her 8 more polished shells, and she then lends 5 shells from the box to Asha. How many polished shells remain in Yuna's box after both exchanges?",
+     "rewrite_reply": "34",
+     "slice_settled": true,
+     "stage_c1": "ADMISSIBLE",
+     "stage_c2": "ADMISSIBLE",
+     "stale": false,
+     "touched": true
+    },
+    {
+     "challenge_id": 0,
+     "item_index": 23,
+     "pinned": "RIGHT",
+     "pinned_answer": "1500",
+     "recall": "MATCH",
+     "rewrite": "RIGHT",
+     "rewrite_answer": "1500",
+     "rewrite_class": "unit_change",
+     "rewrite_hash": "495077b9666c607c3e82ad9dacab857ce43f6594e062c46be784a714946f8b6d",
+     "rewrite_prompt": "On a practice worksheet, a student reads this problem: A mixing station has 0.9 liters of clear water in one jug and 0.6 liters in another jug. All this water is poured into an empty container without spilling. How many milliliters of water are in that container?",
+     "rewrite_reply": "1500",
+     "slice_settled": true,
+     "stage_c1": "ADMISSIBLE",
+     "stage_c2": "ADMISSIBLE",
+     "stale": false,
+     "touched": true
+    }
+   ],
+   "txs": {
+    "open": {
+     "tx": "0x5704344f1cbc41e93d279f8f647aa45109cf62aeca03786250ad7f7592f29ddc",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "challenge:0": {
+     "tx": "0xaed85e2bdff382362ff52f31a077fc4bfaac2af5612f4979f4a81b9ce6c2c751",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "reveal:0": {
+     "tx": "0x4e8c97c3cb0ee98d1777f634cbab0a31ffdf3c50be0a41945d1299eea92deb2a",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:0:PINNED": {
+     "tx": "0x88ea28a0bfe30d38a18092de50160994f3c0df606ba7c005106e5f63dcb29c2e",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:0:RECALL": {
+     "tx": "0xbdf2a562c5eb8279fbaf0e2ee82a7e21806c5d3511ad59f11a6beecbbf0e97e0",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:0:REWRITE": {
+     "tx": "0x7e9bc16b32d07815da6c6815c462e8630b9807c2b47935ec148a34206bdadf1e",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:0:ADMIT": {
+     "tx": "0xd05a5b1b5ed050426acaa2ee6c96a03bb63425abf3087ec56f8580a42bee079b",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:1:PINNED": {
+     "tx": "0x4db8f76b1f91237a3343393e7e6abf0e4dcabfc5c87afaae40a5df2e66947cd0",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:1:RECALL": {
+     "tx": "0xa7931397b0fd32178a74ad23b6899a62098950ec8bca417aa31d4a9dd12aee74",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:2:PINNED": {
+     "tx": "0xdc19bd0f3481bd74ed5d0e671bd9851a1dd8f3bff5fc81b53371aa8a7cd2323c",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:2:RECALL": {
+     "tx": "0xc55dae9c399bb52964895065b5704b1e1751ab5f9ac77eafd913e11f8a163911",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:3:PINNED": {
+     "tx": "0xa956ac3acc676fb7f02d1e247f5ab9f6d9f73d87432f5129e7aa6727ed6cf368",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:3:RECALL": {
+     "tx": "0x489aff3ff7015f50d41d9470aee0ee2ff24c23b1ff99bb7fe3e971c66ede96c9",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:4:PINNED": {
+     "tx": "0x62ed10aa0d52f39ba9b96826b4c74c46a59d66b34727162c45980de2e6bd257c",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:4:RECALL": {
+     "tx": "0x27c33f4077a6d4caa765441c4b4e27cb3913f2e0b1ce46d636f5a46d4e8ea4b1",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:5:PINNED": {
+     "tx": "0x307e65b18bf5619160c7dd897f9259417c4b00e6bd961200f9f75d1c4233f0f9",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:5:RECALL": {
+     "tx": "0x1908fab7d48a98964b16eba8fb3f621836b12977c88be867ef446bd089c8ed97",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:6:PINNED": {
+     "tx": "0x2606f6a280164d7612cd62d97125ffc9957a3d6a79e1ad399cf071c8d5ccf451",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:6:RECALL": {
+     "tx": "0x7d5027d2d814df7e82e135324ebe0cc8122f9825f98bd97db3d90d771975475f",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:7:PINNED": {
+     "tx": "0xce3c7532f94f7e1867fa8ce2da27abbde220b85056e15a7976a0cdbbb0d2add0",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:7:RECALL": {
+     "tx": "0x43b142e957e1b41010919cfcd48472eb7a6d0efc3586369708e64cd5b342096d",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:8:PINNED": {
+     "tx": "0x8f6e7728a15c1a15fc674ff39cd3a66112cdf3ed372a119bdcb3704cf2143621",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:8:RECALL": {
+     "tx": "0xda32aa5f5ec37f380e2c4e4d298b8093e54f0a2edf037fdd081f4fa968556463",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:9:PINNED": {
+     "tx": "0x8e7c739a1b7326bab8fcc7ffdfe865dc6e2a4e97d3e6703c557d37f55ec5af70",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:9:RECALL": {
+     "tx": "0x012084bbed777da54c0fd0ca94808d74f82cef2d2f5d8ff3d321b3e94d31b8e5",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:10:PINNED": {
+     "tx": "0x35b2806b1062b6db414eb5cf3197a6888d55efdf5837b6680a06e37c8f9f977c",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:10:RECALL": {
+     "tx": "0x72b150e2d97ab665df0deff4665e5535764a0fe776ffd650a728f26affb1e140",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:11:PINNED": {
+     "tx": "0x202a886e0f194ccb22bb7f4d29771bb0958d31c0353d75af7b16be6dffd1e096",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:11:RECALL": {
+     "tx": "0x88445768783470cbc3df628c7ebd981f5aa855d34751363adebdb0f39bc6a138",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:12:PINNED": {
+     "tx": "0x8865deffbfdb387967ea1d73e9cc2d0635fa2e9a86e833a679eede22293a6668",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:12:RECALL": {
+     "tx": "0x616d1e26a5acaf96ffe591ca52be934a2700841b99dcae382645c0907def169f",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:13:PINNED": {
+     "tx": "0x2018ee8a241a0b6c14325ab60b99c04a323a35085fafb62b16f00b28bfaa349e",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:13:RECALL": {
+     "tx": "0xbe9077fce322148ca7bc0dffe362dc73c39019f9cf548b78dd5137383dd3f5c9",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:14:PINNED": {
+     "tx": "0x8858e00e8c41677444bdd602ca46a4f4e82950927beddefbb779e6f10ca742c1",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:14:RECALL": {
+     "tx": "0x713b7cf352348023ea1898aa35cbfdc0f825b08a57cd05d19114e4071c5a4eb2",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:15:PINNED": {
+     "tx": "0x42621663d0a788beeff2698427b8f9bbc787a3d8d3d355231e0f4d51d61dc1b7",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:15:RECALL": {
+     "tx": "0xe9df2a9e1b3e80a657d25fa7740372b84205f5cb876dc362a20e322ac4e58d10",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:16:PINNED": {
+     "tx": "0x5437533452fe5244ef7715beb2dfe24976280d147eb70ec306210ec376f0e043",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:16:RECALL": {
+     "tx": "0xa47ee189cf9e8a4b9cec699f2800bf2ec6f728bca82e2ebd29d8af45a83a5c08",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:17:PINNED": {
+     "tx": "0x7dd905e2202ec81ee9c5e4078da3a6e9a78d9fe101f1931b3860e6e0c2e07570",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:17:RECALL": {
+     "tx": "0xcd00a4a14eeffaa4bebc3ce67d8a5d6141b789cf11757cfb7962c9e3beae205c",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:18:PINNED": {
+     "tx": "0xd1ae7f8b5a2b11957d41cd2860c27b80d62ee56c0d5f74f8e06b357e30ebdd13",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:18:RECALL": {
+     "tx": "0xd4034dc11869449f178b989a3eaf011a27030462f09d700eeaa5fef5afe43fbe",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:19:PINNED": {
+     "tx": "0xea4a584676753184d7d8f8d11dcb4381feba7ead81c617e9776d9169e7a342c9",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:19:RECALL": {
+     "tx": "0x03e3db5a991c9b57e1359c57aca192b71c7aaa61ee1b3512a04f399941380269",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:20:PINNED": {
+     "tx": "0xb9e84a89ce1b00b1a963b4132d92d89e7ccf5a70a3fb5f9d6f7fec6bdb5a4203",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:20:RECALL": {
+     "tx": "0x09798feb3691f31a601e7127bf8d51eda8809bf5f70d419e3f57e1c5566e9598",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:21:PINNED": {
+     "tx": "0xc6abdb7d74c5ca97b04b9b54f8268522795a25f413bf1204f50e1c738bbd03c7",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:21:RECALL": {
+     "tx": "0x157cbf9fefba71827f49c95809db00ae5810cc9d746286eb50d5f640009ef580",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:22:PINNED": {
+     "tx": "0x28704ff4473ad579226c14670ceb2c71be232fae6eca2d3a403687ca527db3aa",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:22:RECALL": {
+     "tx": "0xfc1928e08d931d3368e33f9754a7393436c8603a92e2747d4216699b03d32930",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:23:PINNED": {
+     "tx": "0xdf892cc0309baa91bf5a0b751e37bf29bd28343ffc07d8234c863a7fdcdcb47c",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:23:RECALL": {
+     "tx": "0xb6caf50af7f34af8bb03195b02c2fad0511562ca234829dc6de5a71336145c50",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:1:REWRITE": {
+     "tx": "0x96a493cd65a4424bbec811998bd04aa9cc54a53be25d296e108cc434fd1272bb",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_ERROR",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:2:REWRITE": {
+     "tx": "0x7dbfbd0f17cc5cae374f525426d364fece9c9e3aa43914208bdbca54576d2239",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_ERROR",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:3:REWRITE": {
+     "tx": "0x9bf2f8ff10537aeb9adda903ce52d720bd71ea8d326384c268c838d04a457b77",
+     "status": "FINALIZED",
+     "execution": "NOT_VOTED",
+     "consensus_result": "IDLE"
+    },
+    "probe:0:4:REWRITE": {
+     "tx": "0x19b48756d81d005fec430b31343002fcad37c6ff1ef1cec5ce5d31054a5ae113",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:4:ADMIT": {
+     "tx": "0x6e69564b14bd029baebbff07cc1cbfb6b42ff761d240fd7d0d2dc746a829b1cf",
+     "status": "FINALIZED",
+     "execution": "NOT_VOTED",
+     "consensus_result": "IDLE"
+    },
+    "probe:0:5:REWRITE": {
+     "tx": "0x2e8dc85baba8da12e0b6efe6a9ff70c2fe3ea6719cd8d75bd0ac47e273713a0e",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:5:ADMIT": {
+     "tx": "0x81832680657617faba669024d69a5286921d615477b397b8c9c5d12fbeb932f4",
+     "status": "FINALIZED",
+     "execution": "NOT_VOTED",
+     "consensus_result": "IDLE"
+    },
+    "probe:0:6:REWRITE": {
+     "tx": "0xd05f1230af1c4bd59506e1efd6337d913bf4b2cbde4786197298dd2afb75267f",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:6:ADMIT": {
+     "tx": "0xe271aa4ce41f63dc8465779601e8e6f26761c3f9d43bb9120645efc68eaf5f16",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:7:REWRITE": {
+     "tx": "0xaeaf67c741c3560913d94c14bf0cc1e705cd62843c332942160a722cd432ace2",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:7:ADMIT": {
+     "tx": "0x1bb670025bded32b3cf068a4190978260e26684fb1ccaa5c0ea53017caa3a46b",
+     "status": "FINALIZED",
+     "execution": "NOT_VOTED",
+     "consensus_result": "IDLE"
+    },
+    "probe:0:8:REWRITE": {
+     "tx": "0x0beb0b8db5e5f5a48736fe9ce6cbe91adc09492c28946cbb8fe2bf3d4281b8bc",
+     "status": "FINALIZED",
+     "execution": "NOT_VOTED",
+     "consensus_result": "IDLE"
+    },
+    "probe:0:9:REWRITE": {
+     "tx": "0x1be42e44246acf5c0c31f72b54b3e36b697e8159edaa54618e740a52c87d5e8e",
+     "status": "FINALIZED",
+     "execution": "NOT_VOTED",
+     "consensus_result": "IDLE"
+    },
+    "probe:0:10:REWRITE": {
+     "tx": "0x9dffafd57d92120e78d2b23e43aff99072a7f11023610190355471ffd1fb3db2",
+     "status": "FINALIZED",
+     "execution": "NOT_VOTED",
+     "consensus_result": "IDLE"
+    },
+    "probe:0:11:REWRITE": {
+     "tx": "0x58d23a257418ae41821353045817669ef9153995d14c2172b91aa77d5509997e",
+     "status": "FINALIZED",
+     "execution": "NOT_VOTED",
+     "consensus_result": "IDLE"
+    },
+    "probe:0:12:REWRITE": {
+     "tx": "0xb0eec96582bf5c87260cbcaabd7d7d5f72cc58cbde375dc6abaaa06c2a9b656c",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:12:ADMIT": {
+     "tx": "0x4cdb228b45ef281e4e7c161272c26d51636fe5cd1f0d91e7995b331ff18895e8",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:13:REWRITE": {
+     "tx": "0xb919db3ff394e613ed857ee9e4186ae93c3ba58e3c974719092fa1c1a799ce41",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:13:ADMIT": {
+     "tx": "0xbb5ba43986aa583554f3f01db6dc3a94cf20bec1b9056f99e9e9cce93e02782f",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_TIMEOUT"
+    },
+    "probe:0:14:REWRITE": {
+     "tx": "0x6cf600f644a75983483fce9b6f58b54a6ba5283a54b95701f52570f7b3a4bdd7",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_TIMEOUT"
+    },
+    "probe:0:1:REWRITE@0xf62a900cceb92f23f8baf9d4f42221f5f8df3e0ac3aa08ef04ff97451c26d3c8": {
+     "tx": "0xf62a900cceb92f23f8baf9d4f42221f5f8df3e0ac3aa08ef04ff97451c26d3c8",
+     "status": "FINALIZED",
+     "execution": "NOT_VOTED",
+     "consensus_result": "IDLE",
+     "previous_tx": "0x96a493cd65a4424bbec811998bd04aa9cc54a53be25d296e108cc434fd1272bb"
+    },
+    "probe:0:2:REWRITE@0x50396770baaf5da2797b4be74afccdf2d545d14cc283bb360439e7657d20f4d8": {
+     "tx": "0x50396770baaf5da2797b4be74afccdf2d545d14cc283bb360439e7657d20f4d8",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE",
+     "previous_tx": "0x7dbfbd0f17cc5cae374f525426d364fece9c9e3aa43914208bdbca54576d2239"
+    },
+    "probe:0:2:ADMIT": {
+     "tx": "0xe5f0bcfac64bc780d38a2d462d1e5a130c79ed83df94fd260493367903411863",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:15:REWRITE": {
+     "tx": "0x547a852e30830d329b04f591b5a63ee87e6eab6340d9ed411ea7aef1ed23411e",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:15:ADMIT": {
+     "tx": "0x9e3a9756f2fe8b73cd56f2ee87316793587f6379d4202802f7e8a44c31582005",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:16:REWRITE": {
+     "tx": "0xa2be783aee14e40b56b93865352322c54ce2528391b0c30772e8775628da2a23",
+     "status": "FINALIZED",
+     "execution": "NOT_VOTED",
+     "consensus_result": "IDLE"
+    },
+    "probe:0:17:REWRITE": {
+     "tx": "0x0bd149c332a9b2d362d96489772054b47bbad9789d3a4eda3b04adfcbe19f30d",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "IDLE"
+    },
+    "probe:0:18:REWRITE": {
+     "tx": "0xde2a3ed2fe886fa69b8359f0e320462eabfff821605b0f052d0e8e984f4e4d60",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_TIMEOUT"
+    },
+    "probe:0:19:REWRITE": {
+     "tx": "0xa0eb348a68e051c1e0af63a4ee7665dd48554ac5483e6204045d53a28c1d4ffb",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:19:ADMIT": {
+     "tx": "0x4613a3af5877b451ce04922b105f42f3bbec313e36008ff1e1559a10fb4efec1",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:20:REWRITE": {
+     "tx": "0xebf959607842c806f241ebcafb4f5a0290d34d3da9f0608c6db24a2ea01a0480",
+     "status": "FINALIZED",
+     "execution": "NOT_VOTED",
+     "consensus_result": "IDLE"
+    },
+    "probe:0:21:REWRITE": {
+     "tx": "0x7b32fe2764041cd9165673d61ec5c2b149af0ac6e82f32ad40f5435c21498d3d",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:21:ADMIT": {
+     "tx": "0x1b4eaad8edceabb252913276d2d2da991537ec3cba11c1fc5105450c34c3dcbd",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:22:REWRITE": {
+     "tx": "0x3bba82919da45a704593116acd78a16f11e84f44847a04271b00214f185b81c1",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:22:ADMIT": {
+     "tx": "0x235e554496b6d2db87b19e08f4a7f35b24b930cb8cce05beff83b368a85a54ab",
+     "status": "FINALIZED",
+     "execution": "NOT_VOTED",
+     "consensus_result": "IDLE"
+    },
+    "probe:0:23:REWRITE": {
+     "tx": "0xac65b5bae5bf6723c3ee576d16061078d04444b286ad9bd3179a94035d0fab32",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_TIMEOUT"
+    },
+    "probe:0:3:REWRITE@0x496d24bd4fcec8677701130171fd52961d86ebaacbc155f14be62c772507eeec": {
+     "tx": "0x496d24bd4fcec8677701130171fd52961d86ebaacbc155f14be62c772507eeec",
+     "status": "FINALIZED",
+     "execution": "NOT_VOTED",
+     "consensus_result": "IDLE",
+     "previous_tx": "0x9bf2f8ff10537aeb9adda903ce52d720bd71ea8d326384c268c838d04a457b77"
+    },
+    "probe:0:4:ADMIT@0x8786eacec372b7099354ec6176430a273f9a299427ce3b5f721576ccfbf9f0f0": {
+     "tx": "0x8786eacec372b7099354ec6176430a273f9a299427ce3b5f721576ccfbf9f0f0",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE",
+     "previous_tx": "0x6e69564b14bd029baebbff07cc1cbfb6b42ff761d240fd7d0d2dc746a829b1cf"
+    },
+    "probe:0:5:ADMIT@0x31929f870d2674cc213acf4c54e7f1a442f73d165ea2f636f67efff152b39e27": {
+     "tx": "0x31929f870d2674cc213acf4c54e7f1a442f73d165ea2f636f67efff152b39e27",
+     "status": "FINALIZED",
+     "execution": "NOT_VOTED",
+     "consensus_result": "IDLE",
+     "previous_tx": "0x81832680657617faba669024d69a5286921d615477b397b8c9c5d12fbeb932f4"
+    },
+    "probe:0:7:ADMIT@0x5e719a4bf3a21319982ffefabd1e312123b631a08cd2fa872cdf2fc01dc6f23c": {
+     "tx": "0x5e719a4bf3a21319982ffefabd1e312123b631a08cd2fa872cdf2fc01dc6f23c",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "IDLE",
+     "previous_tx": "0x1bb670025bded32b3cf068a4190978260e26684fb1ccaa5c0ea53017caa3a46b"
+    },
+    "probe:0:8:REWRITE@0x0333677338bca81255482546bed74048539a2e2dff33a6308321128b427f4478": {
+     "tx": "0x0333677338bca81255482546bed74048539a2e2dff33a6308321128b427f4478",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE",
+     "previous_tx": "0x0beb0b8db5e5f5a48736fe9ce6cbe91adc09492c28946cbb8fe2bf3d4281b8bc"
+    },
+    "probe:0:9:REWRITE@0x7fb1c6b0aa312d4c0684128dc75b5b299d709a7ece5ef5c2f357cae6c28f5147": {
+     "tx": "0x7fb1c6b0aa312d4c0684128dc75b5b299d709a7ece5ef5c2f357cae6c28f5147",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE",
+     "previous_tx": "0x1be42e44246acf5c0c31f72b54b3e36b697e8159edaa54618e740a52c87d5e8e"
+    },
+    "probe:0:10:REWRITE@0x5f5398f596de9eda64d57bf5c3639072b37efeca7d5ad517b91b278f8904bb44": {
+     "tx": "0x5f5398f596de9eda64d57bf5c3639072b37efeca7d5ad517b91b278f8904bb44",
+     "status": "FINALIZED",
+     "execution": "NOT_VOTED",
+     "consensus_result": "IDLE",
+     "previous_tx": "0x9dffafd57d92120e78d2b23e43aff99072a7f11023610190355471ffd1fb3db2"
+    },
+    "probe:0:11:REWRITE@0x6f7716e5517ba9fced9147e9031b0b4173ea712fb1467247b022a034c0d716ae": {
+     "tx": "0x6f7716e5517ba9fced9147e9031b0b4173ea712fb1467247b022a034c0d716ae",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE",
+     "previous_tx": "0x58d23a257418ae41821353045817669ef9153995d14c2172b91aa77d5509997e"
+    },
+    "probe:0:13:ADMIT@0x0a915beb5a8a3c19d9dd388986ef424f21bc5e63f5edd295572549286d49b276": {
+     "tx": "0x0a915beb5a8a3c19d9dd388986ef424f21bc5e63f5edd295572549286d49b276",
+     "status": "FINALIZED",
+     "execution": "NOT_VOTED",
+     "consensus_result": "IDLE",
+     "previous_tx": "0xbb5ba43986aa583554f3f01db6dc3a94cf20bec1b9056f99e9e9cce93e02782f"
+    },
+    "probe:0:14:REWRITE@0x7053af6b2d318a9bbf273592053c408ebdccaccb0deaaeb3e9fa841297010b68": {
+     "tx": "0x7053af6b2d318a9bbf273592053c408ebdccaccb0deaaeb3e9fa841297010b68",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE",
+     "previous_tx": "0x6cf600f644a75983483fce9b6f58b54a6ba5283a54b95701f52570f7b3a4bdd7"
+    },
+    "probe:0:8:ADMIT": {
+     "tx": "0xf65c2e83be364d9d766095068af7da9be000a3487e2a915249bec305b939376a",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:9:ADMIT": {
+     "tx": "0x75a3b41a290f2fdac72406e7e97de54d74b86e599f8d395d210e7472d8b0dd31",
+     "status": "FINALIZED",
+     "execution": "NOT_VOTED",
+     "consensus_result": "IDLE"
+    },
+    "probe:0:11:ADMIT": {
+     "tx": "0x715105b4f6bc1bc994fa67968661b6994d01632236df54de28d38aeefbe955b6",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:14:ADMIT": {
+     "tx": "0xf350d7c4c3fa18d50a6a48a5c7ec4b20fbef8f02de70075826b3c4cf10ea437b",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:1:REWRITE@0xd9980c91f10d2cc8abd17f969769216a0c960231dbc271e7df1d43350c073e2d": {
+     "tx": "0xd9980c91f10d2cc8abd17f969769216a0c960231dbc271e7df1d43350c073e2d",
+     "status": "FINALIZED",
+     "execution": "NOT_VOTED",
+     "consensus_result": "IDLE",
+     "previous_tx": "0xf62a900cceb92f23f8baf9d4f42221f5f8df3e0ac3aa08ef04ff97451c26d3c8"
+    },
+    "probe:0:16:REWRITE@0xc027336546ef4c0205aa89cfa5ee326e0c3b1f5a0f230d29494b1b589b48f196": {
+     "tx": "0xc027336546ef4c0205aa89cfa5ee326e0c3b1f5a0f230d29494b1b589b48f196",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE",
+     "previous_tx": "0xa2be783aee14e40b56b93865352322c54ce2528391b0c30772e8775628da2a23"
+    },
+    "probe:0:17:REWRITE@0xe1eb6397cdd5fdccb1bd43a153106d733b8bae0d19767cb3ab249bd813549643": {
+     "tx": "0xe1eb6397cdd5fdccb1bd43a153106d733b8bae0d19767cb3ab249bd813549643",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "IDLE",
+     "previous_tx": "0x0bd149c332a9b2d362d96489772054b47bbad9789d3a4eda3b04adfcbe19f30d"
+    },
+    "probe:0:18:REWRITE@0xd156db8cee8df1825dd2b56479df628bc2f25d7faa7277a1621a6bde3b1185be": {
+     "tx": "0xd156db8cee8df1825dd2b56479df628bc2f25d7faa7277a1621a6bde3b1185be",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE",
+     "previous_tx": "0xde2a3ed2fe886fa69b8359f0e320462eabfff821605b0f052d0e8e984f4e4d60"
+    },
+    "probe:0:16:ADMIT": {
+     "tx": "0x2f0f53380810b33a09236a8e09037a4bc3775fc435075762b1531614be3381c7",
+     "status": "FINALIZED",
+     "execution": "NOT_VOTED",
+     "consensus_result": "IDLE"
+    },
+    "probe:0:18:ADMIT": {
+     "tx": "0xa2224976c6f0436b003037ea8b4ff84334aad22f49e193ef74b9ae411967fd9e",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:20:REWRITE@0x1750e2e13a5d43f90600f4a394ef2ee45e53aff3652c3e8bb697e49cad2597c4": {
+     "tx": "0x1750e2e13a5d43f90600f4a394ef2ee45e53aff3652c3e8bb697e49cad2597c4",
+     "status": "FINALIZED",
+     "execution": "NOT_VOTED",
+     "consensus_result": "IDLE",
+     "previous_tx": "0xebf959607842c806f241ebcafb4f5a0290d34d3da9f0608c6db24a2ea01a0480"
+    },
+    "probe:0:22:ADMIT@0x8f1f41656ba2f9da94613cb68d82c739e390af2709fa4e65ff687213d81132ea": {
+     "tx": "0x8f1f41656ba2f9da94613cb68d82c739e390af2709fa4e65ff687213d81132ea",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE",
+     "previous_tx": "0x235e554496b6d2db87b19e08f4a7f35b24b930cb8cce05beff83b368a85a54ab"
+    },
+    "probe:0:23:REWRITE@0xf4de5a7c522fe3aacc013465b8f59f9ea82d95cf49c0a5489be244de4f2d74da": {
+     "tx": "0xf4de5a7c522fe3aacc013465b8f59f9ea82d95cf49c0a5489be244de4f2d74da",
+     "status": "FINALIZED",
+     "execution": "NOT_VOTED",
+     "consensus_result": "IDLE",
+     "previous_tx": "0xac65b5bae5bf6723c3ee576d16061078d04444b286ad9bd3179a94035d0fab32"
+    },
+    "probe:0:3:REWRITE@0x3b8467e58032170076681ecff368b401374b2e47a09ea99edee27c031ffbac84": {
+     "tx": "0x3b8467e58032170076681ecff368b401374b2e47a09ea99edee27c031ffbac84",
+     "status": "FINALIZED",
+     "execution": "NOT_VOTED",
+     "consensus_result": "IDLE",
+     "previous_tx": "0x496d24bd4fcec8677701130171fd52961d86ebaacbc155f14be62c772507eeec"
+    },
+    "probe:0:5:ADMIT@0x39a736042aa1b03178ebb5e3da07d7cbdf7fc7660d5e9bfd9d140a10f2cb97d1": {
+     "tx": "0x39a736042aa1b03178ebb5e3da07d7cbdf7fc7660d5e9bfd9d140a10f2cb97d1",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE",
+     "previous_tx": "0x31929f870d2674cc213acf4c54e7f1a442f73d165ea2f636f67efff152b39e27"
+    },
+    "probe:0:7:ADMIT@0x5b61d7922e6db2176cccfcd69754c775683fd8a7680f93205601e22d1eb3e3d6": {
+     "tx": "0x5b61d7922e6db2176cccfcd69754c775683fd8a7680f93205601e22d1eb3e3d6",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE",
+     "previous_tx": "0x5e719a4bf3a21319982ffefabd1e312123b631a08cd2fa872cdf2fc01dc6f23c"
+    },
+    "probe:0:10:REWRITE@0xa20fa23324154a578ad01ba440322497554dc605e268470c57bbe612f526c695": {
+     "tx": "0xa20fa23324154a578ad01ba440322497554dc605e268470c57bbe612f526c695",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE",
+     "previous_tx": "0x5f5398f596de9eda64d57bf5c3639072b37efeca7d5ad517b91b278f8904bb44"
+    },
+    "probe:0:13:ADMIT@0x440fca782403eefe0ecfca24fdb4a0efde74d0fe78d60f4c66d1a5c049a62202": {
+     "tx": "0x440fca782403eefe0ecfca24fdb4a0efde74d0fe78d60f4c66d1a5c049a62202",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_TIMEOUT",
+     "previous_tx": "0x0a915beb5a8a3c19d9dd388986ef424f21bc5e63f5edd295572549286d49b276"
+    },
+    "probe:0:10:ADMIT": {
+     "tx": "0x6d490905cebdb202ad2240073c389f815fda7a3cb64d6d9e709fcd152eb3e6d8",
+     "status": "FINALIZED",
+     "execution": "NOT_VOTED",
+     "consensus_result": "IDLE"
+    },
+    "probe:0:9:ADMIT@0x863f14b757b6621e2a62e52dd54bc39fe94fcb3bc3c70fe33bdeafdca2c8e7da": {
+     "tx": "0x863f14b757b6621e2a62e52dd54bc39fe94fcb3bc3c70fe33bdeafdca2c8e7da",
+     "status": "FINALIZED",
+     "execution": "NOT_VOTED",
+     "consensus_result": "IDLE",
+     "previous_tx": "0x75a3b41a290f2fdac72406e7e97de54d74b86e599f8d395d210e7472d8b0dd31"
+    },
+    "probe:0:1:REWRITE@0x12c1f09f5849ae4aeb3d69acac69c6cb8fd15c77bd4657dd37ab6b9b4c469745": {
+     "tx": "0x12c1f09f5849ae4aeb3d69acac69c6cb8fd15c77bd4657dd37ab6b9b4c469745",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE",
+     "previous_tx": "0xd9980c91f10d2cc8abd17f969769216a0c960231dbc271e7df1d43350c073e2d"
+    },
+    "probe:0:1:ADMIT": {
+     "tx": "0xd529c75561fd347fe695b8ad9080d29fef6d4ddae8a48daf0295d9ad746dcd8b",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:17:REWRITE@0x1bdae321c1100c7fcfb3d7bd68565e29d5adf8facb838f5456873788061cf6f9": {
+     "tx": "0x1bdae321c1100c7fcfb3d7bd68565e29d5adf8facb838f5456873788061cf6f9",
+     "status": "FINALIZED",
+     "execution": "NOT_VOTED",
+     "consensus_result": "IDLE",
+     "previous_tx": "0xe1eb6397cdd5fdccb1bd43a153106d733b8bae0d19767cb3ab249bd813549643"
+    },
+    "probe:0:16:ADMIT@0x2c80c1e8f6c04e855937c4ec53a0e9c3f9ef7668ac4a476d7a5dcd5ceb91237d": {
+     "tx": "0x2c80c1e8f6c04e855937c4ec53a0e9c3f9ef7668ac4a476d7a5dcd5ceb91237d",
+     "status": "FINALIZED",
+     "execution": "NOT_VOTED",
+     "consensus_result": "IDLE",
+     "previous_tx": "0x2f0f53380810b33a09236a8e09037a4bc3775fc435075762b1531614be3381c7"
+    },
+    "probe:0:20:REWRITE@0x13d6373e1f35720e603d77c420eb652575f088266ee55a2e28a827ba7952b50d": {
+     "tx": "0x13d6373e1f35720e603d77c420eb652575f088266ee55a2e28a827ba7952b50d",
+     "status": "FINALIZED",
+     "execution": "NOT_VOTED",
+     "consensus_result": "IDLE",
+     "previous_tx": "0x1750e2e13a5d43f90600f4a394ef2ee45e53aff3652c3e8bb697e49cad2597c4"
+    },
+    "probe:0:23:REWRITE@0x5786889af5a9f7963ca057feda4023829b0fdea3cf28637b2e2512fc627ab2d6": {
+     "tx": "0x5786889af5a9f7963ca057feda4023829b0fdea3cf28637b2e2512fc627ab2d6",
+     "status": "FINALIZED",
+     "execution": "NOT_VOTED",
+     "consensus_result": "IDLE",
+     "previous_tx": "0xf4de5a7c522fe3aacc013465b8f59f9ea82d95cf49c0a5489be244de4f2d74da"
+    },
+    "probe:0:3:REWRITE@0xa4eb8f6edab531e35d3c6de1b71da518b9792ffdf28542dc992a5b2b4f51d688": {
+     "tx": "0xa4eb8f6edab531e35d3c6de1b71da518b9792ffdf28542dc992a5b2b4f51d688",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE",
+     "previous_tx": "0x3b8467e58032170076681ecff368b401374b2e47a09ea99edee27c031ffbac84"
+    },
+    "probe:0:3:ADMIT": {
+     "tx": "0x90135d22d4469dcc264e3fab64fd95565a6a9e125f9d0b4f09b5ea7d867c7f1c",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:13:ADMIT@0xc239ff2034e33bd74f4ac3d0653918433d7be1d62447d07a5bba6e0743b853a3": {
+     "tx": "0xc239ff2034e33bd74f4ac3d0653918433d7be1d62447d07a5bba6e0743b853a3",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE",
+     "previous_tx": "0x440fca782403eefe0ecfca24fdb4a0efde74d0fe78d60f4c66d1a5c049a62202"
+    },
+    "probe:0:10:ADMIT@0xb12d23e66f2c94d112e647e0aa58dcc243ac8a96211aa6ada2775ebb53fd515a": {
+     "tx": "0xb12d23e66f2c94d112e647e0aa58dcc243ac8a96211aa6ada2775ebb53fd515a",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE",
+     "previous_tx": "0x6d490905cebdb202ad2240073c389f815fda7a3cb64d6d9e709fcd152eb3e6d8"
+    },
+    "probe:0:9:ADMIT@0xca8921d0833ff3c893fc2c0504986bd92fb4158546323a29a6a26fc8f3df309d": {
+     "tx": "0xca8921d0833ff3c893fc2c0504986bd92fb4158546323a29a6a26fc8f3df309d",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE",
+     "previous_tx": "0x863f14b757b6621e2a62e52dd54bc39fe94fcb3bc3c70fe33bdeafdca2c8e7da"
+    },
+    "probe:0:17:REWRITE@0x0ad5028e1a79422dcbf5f44b63c3c42c9affa93232c67b95f3246679ff90eb11": {
+     "tx": "0x0ad5028e1a79422dcbf5f44b63c3c42c9affa93232c67b95f3246679ff90eb11",
+     "status": "FINALIZED",
+     "execution": "NOT_VOTED",
+     "consensus_result": "IDLE",
+     "previous_tx": "0x1bdae321c1100c7fcfb3d7bd68565e29d5adf8facb838f5456873788061cf6f9"
+    },
+    "probe:0:16:ADMIT@0xb45d5d7990aee451336354475ac411ea8d79333d994ed1da94c1682ef7bfb3dd": {
+     "tx": "0xb45d5d7990aee451336354475ac411ea8d79333d994ed1da94c1682ef7bfb3dd",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE",
+     "previous_tx": "0x2c80c1e8f6c04e855937c4ec53a0e9c3f9ef7668ac4a476d7a5dcd5ceb91237d"
+    },
+    "probe:0:20:REWRITE@0xba86f4063e908993713cb1ad344e0dd6dfeafa4a4b94ef7c355b262f35ce9496": {
+     "tx": "0xba86f4063e908993713cb1ad344e0dd6dfeafa4a4b94ef7c355b262f35ce9496",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE",
+     "previous_tx": "0x13d6373e1f35720e603d77c420eb652575f088266ee55a2e28a827ba7952b50d"
+    },
+    "probe:0:20:ADMIT": {
+     "tx": "0xc79ab3ba94641e8805df41282986c721604949bccedadfc564713c0397aa0424",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    },
+    "probe:0:23:REWRITE@0xd91076b86fdff6a1cda53ea90f98f21306eeb623e78f301d1061e5b3415b3e81": {
+     "tx": "0xd91076b86fdff6a1cda53ea90f98f21306eeb623e78f301d1061e5b3415b3e81",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE",
+     "previous_tx": "0x5786889af5a9f7963ca057feda4023829b0fdea3cf28637b2e2512fc627ab2d6"
+    },
+    "probe:0:23:ADMIT": {
+     "tx": "0xb2d7eb941b5b9657f62f7e3241a5d6f6d5f7afafa48e983a079dc6a282716921",
+     "status": "FINALIZED",
+     "execution": "NOT_VOTED",
+     "consensus_result": "IDLE"
+    },
+    "probe:0:17:REWRITE@0xd12dc5015030b0c6178b47a6a7ad5d051d716c35585bf44e64545aec163bffe8": {
+     "tx": "0xd12dc5015030b0c6178b47a6a7ad5d051d716c35585bf44e64545aec163bffe8",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE",
+     "previous_tx": "0x0ad5028e1a79422dcbf5f44b63c3c42c9affa93232c67b95f3246679ff90eb11"
+    },
+    "probe:0:17:ADMIT": {
+     "tx": "0xa4cf9fa702ba707d62d91d0f90565fa4838ca30dde093d6a2e56be8153a28e30",
+     "status": "FINALIZED",
+     "execution": "NOT_VOTED",
+     "consensus_result": "IDLE"
+    },
+    "probe:0:23:ADMIT@0xf3b1bb8adaf792539fc2842c3ea411545239f413142f374d78debc33ac55c2ea": {
+     "tx": "0xf3b1bb8adaf792539fc2842c3ea411545239f413142f374d78debc33ac55c2ea",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE",
+     "previous_tx": "0xb2d7eb941b5b9657f62f7e3241a5d6f6d5f7afafa48e983a079dc6a282716921"
+    },
+    "probe:0:17:ADMIT@0x03834f52a0aa7723f39740f3271246fc235e9153ccbc7dcb8ca9f7093a16009d": {
+     "tx": "0x03834f52a0aa7723f39740f3271246fc235e9153ccbc7dcb8ca9f7093a16009d",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE",
+     "previous_tx": "0xa4cf9fa702ba707d62d91d0f90565fa4838ca30dde093d6a2e56be8153a28e30"
+    },
+    "rule:0": {
+     "tx": "0x228a982b1c4ea18ba1fe49ff18625a9e3d50c3f7fc2cf0e5c195fe6d48dbbae2",
+     "status": "FINALIZED",
+     "execution": "FINISHED_WITH_RETURN",
+     "consensus_result": "MAJORITY_AGREE"
+    }
+   }
+  }
+ ],
+ "registry": [
+  {
+   "burned_at": 1792128619,
+   "claim_id": 0,
+   "content_hash": "3943968d0542d597142ed33ec666cf123cd47927c8822a94fa39f6df61934218",
+   "preview": "On a practice worksheet, a student reads this problem: A workshop prints 28 blue labels in the morning and 17 blue labels in the afternoon. The staff use 9 of those labels on finished toolboxes. How many of the printed blue labels remain unused?",
+   "item_hash": "b5903bae04c7ed7deb34d1e7eac13ed5d46e2695583e7267c0384cc9ee7d20bd"
+  },
+  {
+   "burned_at": 1792128619,
+   "claim_id": 0,
+   "content_hash": "fdd915f283c78597e1318966d358820366a9016538a2dc7090b390263c835c00",
+   "preview": "On a practice worksheet, a student reads this problem: A repair station opens 4 boxes containing 8 brass clips in each box. It also has 3 loose brass clips on the counter. Counting only these boxes and loose clips, how many brass clips does the station have?",
+   "item_hash": "bc284993b7859d05641f47561917a201db02e7e90ebfcd4ffc540b0232f7c318"
+  },
+  {
+   "burned_at": 1792128619,
+   "claim_id": 0,
+   "content_hash": "d26b159e5ea7d7bc73a607a4c359dc0b245fb028ba61fb7d6baa3fe218754044",
+   "preview": "On a practice worksheet, a student reads this problem: Mira has 18 wooden tokens in her pouch. She gives 5 tokens to Tomas, and Tomas then gives Mira 7 other wooden tokens from his own collection. How many wooden tokens are in Mira's pouch after both transfers?",
+   "item_hash": "44c8d01070ba74f6f64b5dd0c4fc55e4b3b99a98b64dd161b10a3770b6a09c18"
+  },
+  {
+   "burned_at": 1792128619,
+   "claim_id": 0,
+   "content_hash": "3ea66ddff8f8637c2464672b04a224ede4b445eb24590a989176ccc35cd15268",
+   "preview": "On a practice worksheet, a student reads this problem: A craft table has a red ribbon measuring 180 centimeters and a blue ribbon measuring 70 centimeters. The two ribbons are placed end to end without overlap. What is their combined length in centimeters?",
+   "item_hash": "61aaaa39fc8b712942be9b78a2a7ca1895217c42023e16dad4f39161150e9409"
+  },
+  {
+   "burned_at": 1792128619,
+   "claim_id": 0,
+   "content_hash": "8091d9d670e2e3b942bc55837b42671ad1ebb141d47e99c7d384e7b0bf45694e",
+   "preview": "On a practice worksheet, a student reads this problem: A rehearsal room contains 6 rows with 7 chairs in each row. Before the group arrives, 4 of these chairs are taken out for repair. How many chairs remain in the rehearsal room after those chairs are removed?",
+   "item_hash": "8083117d706a814ee4093aa2e70bcc28112e716c147b31e9613bfa7772a1bb87"
+  },
+  {
+   "burned_at": 1792128619,
+   "claim_id": 0,
+   "content_hash": "10053304c2d1008b1c507cdca7c9eec3909c313c651afb4a17a2d7d6b19f8c0a",
+   "preview": "On a practice worksheet, a student reads this problem: A supply drawer starts the day with 45 blank index cards. A teacher takes 12 cards for an activity and later puts 8 new blank cards into the drawer. How many blank index cards are in the drawer at the end?",
+   "item_hash": "f1f547806f27cfa50a6f31e88d8956b4422055a2e570b627815f7a1fbf1927aa"
+  },
+  {
+   "burned_at": 1792128619,
+   "claim_id": 0,
+   "content_hash": "4e4308bce3da02753cd0c64b5c8167a08301274c31e279472df281d724b01d3a",
+   "preview": "On a practice worksheet, a student reads this problem: A gallery arranges 7 display stands with 6 paper lanterns on each stand. Then 5 lanterns are removed from the display because they are damaged. How many paper lanterns are still on the display stands?",
+   "item_hash": "92a893b0c148390a7ee7df6590649a5cf5c55618fd38ef0081853df315c5610b"
+  },
+  {
+   "burned_at": 1792128619,
+   "claim_id": 0,
+   "content_hash": "b0f73b6c7c1c251f74bcab338c30409648b4e37ab5e8fdedfa58af4f9cd70977",
+   "preview": "On a practice worksheet, a student reads this problem: Lena brings 18 red counters and Rafi brings 24 red counters to a puzzle table. They combine their counters and divide all of them equally among 6 trays. How many red counters are placed in each tray?",
+   "item_hash": "a8d673cd28dbc51219319ff50290d05d45015752a4ca9530997f5472db0261d3"
+  },
+  {
+   "burned_at": 1792128619,
+   "claim_id": 0,
+   "content_hash": "7b496e472ece562b7ee63be1735103a0f476be7571d39177c14e233a473d0b87",
+   "preview": "On a practice worksheet, a student reads this problem: A parcel contains a metal block with a mass of 2 kilograms and packing material with a mass of 500 grams. Nothing else is inside the parcel. What is the combined mass of its contents in grams?",
+   "item_hash": "5cf87c52133a5658c7e31941a35d635712b0185ca2c205b01db69bb6b738d195"
+  },
+  {
+   "burned_at": 1792128619,
+   "claim_id": 0,
+   "content_hash": "b3f4e2c563a3ce578fe848b858b0de9c0bdbbb4d0143f274fdbcab844386016e",
+   "preview": "On a practice worksheet, a student reads this problem: A laboratory puts 9 empty vials into each of 8 storage racks. Another 6 empty vials are kept loose beside the racks. How many empty vials are there altogether in the racks and beside them?",
+   "item_hash": "d413d92a0f5f31dbc39eca9d0293cab8a58d716ec8a496f1fb00bea199316b8d"
+  },
+  {
+   "burned_at": 1792128619,
+   "claim_id": 0,
+   "content_hash": "8923bda34a4dec74845e7edf98a9f0e1fbb52dffed2f51733491265634dc1ee5",
+   "preview": "On a practice worksheet, a student reads this problem: A shuttle has 54 passenger seats. At the first stop 19 passengers board, and at the next stop 8 more passengers board. Nobody leaves, and each passenger uses one seat. How many passenger seats are still empty?",
+   "item_hash": "059fcd5064f8d88fc9483387209a5b670f0423c32f0b003a8aa9d0221838b9b1"
+  },
+  {
+   "burned_at": 1792128619,
+   "claim_id": 0,
+   "content_hash": "75d513bf2adf9a1f2b0bbd5e72d0034fbc2b1c726faaea2d1e504a7b3f6fa29c",
+   "preview": "On a practice worksheet, a student reads this problem: A book stall receives 9 bundles with 4 bookmarks in each bundle. The owner adds 6 single bookmarks from a desk drawer to the same display. How many bookmarks are on the display after this addition?",
+   "item_hash": "5cca787d7057a6a260de758424e9f08fe24983e3c065ba7af01f50a42ba3c7b0"
+  },
+  {
+   "burned_at": 1792128619,
+   "claim_id": 0,
+   "content_hash": "9f3dc4869828565c36f748a4a5f72fde81719650d45ac23eb258f1d51ec26050",
+   "preview": "On a practice worksheet, a student reads this problem: Ada places 12 glass beads in a bowl, and Bruno adds 6 more glass beads to that bowl. They divide all the beads equally among 3 small bags with none left over. How many glass beads go into each bag?",
+   "item_hash": "3dcbbb205c85b4f86c2e08fdfe0d68ef858c180356cc345983743381b495077d"
+  },
+  {
+   "burned_at": 1792128619,
+   "claim_id": 0,
+   "content_hash": "c7c6847ae9dc568dbfbb6a5c44beaf6ef887ce8e53f251baf5ccf69482fba4d1",
+   "preview": "On a practice worksheet, a student reads this problem: A demonstration includes a video lasting 4 minutes followed immediately by a sound clip lasting 30 seconds. There is no pause between them. What is the total running time of the demonstration in seconds?",
+   "item_hash": "2c223151ad5f4e7a8ae5142e9a77b03d7412a8cfce3c50a0eeec5d2736b3d21d"
+  },
+  {
+   "burned_at": 1792128619,
+   "claim_id": 0,
+   "content_hash": "6d6b81eab27c56c62113227a27b037acaabe3a7103d072789d424603b83d9a0c",
+   "preview": "On a practice worksheet, a student reads this problem: An archive shelf starts with 64 folders. An archivist removes 18 folders for inspection and then adds 7 newly prepared folders to the shelf. How many folders are on the shelf after these two changes?",
+   "item_hash": "6f81e4cba6f1e0255c98fd22e5f79e079f68dd2bcd85145a92c8753e3c5a6fcc"
+  },
+  {
+   "burned_at": 1792128619,
+   "claim_id": 0,
+   "content_hash": "8630d7f80aa33a2762c273c6ac806543181f15c8ccb12496a33d259d66595f2a",
+   "preview": "On a practice worksheet, a student reads this problem: A workshop has 5 sealed sleeves containing 6 sanding discs in each sleeve. All of these discs are distributed equally among 3 workbenches, with none kept in storage. How many sanding discs does each workbench receive?",
+   "item_hash": "582389e884f7364cc852d98c3a790afda2b1b9f563824c63f54581cf9f12dd58"
+  },
+  {
+   "burned_at": 1792128619,
+   "claim_id": 0,
+   "content_hash": "f376eafdcd0eb538b519afa648f75ed8ab227f17ed372791b63ea0486034447a",
+   "preview": "On a practice worksheet, a student reads this problem: A lantern kit has 24 batteries, but 4 batteries are damaged and cannot be used. Each lantern needs 2 usable batteries. Using all the usable batteries from this kit, how many complete lanterns can be powered?",
+   "item_hash": "0dd8a6766c284bb984f7fddd77927620deab728e4b43eaf3912970a283f6d396"
+  },
+  {
+   "burned_at": 1792128619,
+   "claim_id": 0,
+   "content_hash": "39a390fb9a6ae5115f5f4fc0a9eaa1fbffc71f8138be21528000db832be0fd25",
+   "preview": "On a practice worksheet, a student reads this problem: Davi packs 4 crates with 11 marker pens in each crate for a classroom delivery. Suri removes 6 marker pens from those crates for a separate order. How many marker pens remain in the crates for the classroom delivery?",
+   "item_hash": "b37e0aecf2c26404912a9eedbca7ae73fda7662e4cec99dcfa3ac3d938780379"
+  },
+  {
+   "burned_at": 1792128619,
+   "claim_id": 0,
+   "content_hash": "231d08b3b755dd7c78e4324e4231e6fbf246fae464e6133a3a4ef4286093937d",
+   "preview": "On a practice worksheet, a student reads this problem: A survey team measures a footpath in two consecutive sections. The first section is 1250 meters long and the second section is 750 meters long. What is the total length of these two sections in meters?",
+   "item_hash": "0817a3550bbdc3355841dadcee833eee52be333b1363234a631f6439a529cde4"
+  },
+  {
+   "burned_at": 1792128619,
+   "claim_id": 0,
+   "content_hash": "901a4b35f5de1322509eb1c87dbbc6d73097c5c332499685ec9551627cd395b6",
+   "preview": "On a practice worksheet, a student reads this problem: A print shop packs 72 invitation cards into packets containing 8 cards each. It already has 5 other complete packets on a shelf. How many complete packets does the shop have after packing the 72 cards?",
+   "item_hash": "e21b108ef35ad83736221c078921e5808d6d06565841c0cab03d8958d73edce1"
+  },
+  {
+   "burned_at": 1792128619,
+   "claim_id": 0,
+   "content_hash": "e928ea48caacfe4348d7ccdcb3536180817f582650249300c0ae2ea0b971fcf6",
+   "preview": "On a practice worksheet, a student reads this problem: A reading club receives 7 cartons containing 5 notebooks in each carton. The organizer gives 8 of these notebooks to new members and keeps the rest in a cupboard. How many notebooks are kept in the cupboard?",
+   "item_hash": "7a89a38953967c100db9b7450b9881578e06e9e56156d3cae88144dca59d5be9"
+  },
+  {
+   "burned_at": 1792128619,
+   "claim_id": 0,
+   "content_hash": "3ceeb5ac011654da9d0b3b8ea630c1d4566bf7662ab77500f600847abaebea00",
+   "preview": "On a practice worksheet, a student reads this problem: A coordinator divides 36 plain badges equally among 6 volunteers. Each volunteer then receives 4 extra badges from a separate reserve. How many badges does each volunteer have after receiving the extra badges?",
+   "item_hash": "6dd6ac7714ef4ae1b26009deca635b78face9e2853e033d2baabdfeeea335b49"
+  },
+  {
+   "burned_at": 1792128619,
+   "claim_id": 0,
+   "content_hash": "13e32067b0c694fde3d4bcd4846475f6fa2e9b61c8238b4444ab7d0ed063591a",
+   "preview": "On a practice worksheet, a student reads this problem: Priya has 31 polished shells in a box. Marco gives her 8 more polished shells, and she then lends 5 shells from the box to Nera. How many polished shells remain in Priya's box after both exchanges?",
+   "item_hash": "0198e691a7fa1dec37fda380da99e5f284353ae8cb486d44bb16e848b3f03259"
+  },
+  {
+   "burned_at": 1792128619,
+   "claim_id": 0,
+   "content_hash": "aafd4c8074730df0c9f866b613b7caac201d587feb8efbe4c2ac339611784acc",
+   "preview": "On a practice worksheet, a student reads this problem: A mixing station has 900 milliliters of clear water in one jug and 600 milliliters in another jug. All this water is poured into an empty container without spilling. How many milliliters of water are in that container?",
+   "item_hash": "2cbbd5d73db0331a377d2efdef4745df9241a526f42124ab3a088c8839fae4d5"
+  },
+  {
+   "burned_at": 1792128896,
+   "claim_id": 1,
+   "content_hash": "12393ccb854b93b1336c61c2b9296994d59c963f5da53c4aad27f4700774bd88",
+   "preview": ""
+  },
+  {
+   "burned_at": 1792128896,
+   "claim_id": 1,
+   "content_hash": "cb49bd4b8fc7f56931d65b4e4286e1b202ffd921c690add6e09a427620e7d3ab",
+   "preview": ""
+  },
+  {
+   "burned_at": 1792128896,
+   "claim_id": 1,
+   "content_hash": "c3be273a6c5ee8fd458426e5aabad6e64e5d625640a83d3019329dedfe511cde",
+   "preview": ""
+  },
+  {
+   "burned_at": 1792128896,
+   "claim_id": 1,
+   "content_hash": "a7bb0f4657af51a43ac4dc6e43e2ec55d4e48259e0319d2fe723452b42cf27cc",
+   "preview": ""
+  },
+  {
+   "burned_at": 1792128896,
+   "claim_id": 1,
+   "content_hash": "06760ce1953f4ee0ae7f7126aac25b3709eff9dd92a954ef182539acb3ffd053",
+   "preview": ""
+  },
+  {
+   "burned_at": 1792128896,
+   "claim_id": 1,
+   "content_hash": "c8cb3d4c4be340c9eb8ad4e42108e1012f8563fad1122432f7d64f66d9a3e3da",
+   "preview": ""
+  },
+  {
+   "burned_at": 1792128896,
+   "claim_id": 1,
+   "content_hash": "ebc9afd01065970e147a17c23725aa60fe20210e16ba3bfd123923b1938bbd62",
+   "preview": ""
+  },
+  {
+   "burned_at": 1792128896,
+   "claim_id": 1,
+   "content_hash": "8203f5a9af6b612d0bae8e9459053dda048cea237f7018ce011f8abb013f4eb5",
+   "preview": ""
+  },
+  {
+   "burned_at": 1792128896,
+   "claim_id": 1,
+   "content_hash": "1c70e506e98654c740230cdec5c72147bc38909494399c76d2b12691bab35fba",
+   "preview": ""
+  },
+  {
+   "burned_at": 1792128896,
+   "claim_id": 1,
+   "content_hash": "3fb3844e41a07fb687e86458218ef9e832cb93bb3c50b6fcc19205f82f7566cf",
+   "preview": ""
+  },
+  {
+   "burned_at": 1792128896,
+   "claim_id": 1,
+   "content_hash": "438d133a90dacfe55b56a5914a32216bcf5daf40e25667a24d97cf7d50f548bf",
+   "preview": ""
+  },
+  {
+   "burned_at": 1792128896,
+   "claim_id": 1,
+   "content_hash": "4b96e74a7fb38507bb2e909696dd79ef8dc7660fd75ec70547f5cc40ec6c3eb8",
+   "preview": ""
+  },
+  {
+   "burned_at": 1792128896,
+   "claim_id": 1,
+   "content_hash": "360e7f3496c4ae7b5550e24cd39d98a31293125671bd953c780780c78301501b",
+   "preview": ""
+  },
+  {
+   "burned_at": 1792128896,
+   "claim_id": 1,
+   "content_hash": "1475cd2cdd94feac3cb87aa1a7f11d34ee3760a8d606c625a72830c412584720",
+   "preview": ""
+  },
+  {
+   "burned_at": 1792128896,
+   "claim_id": 1,
+   "content_hash": "c6fbb3551242fc18c9ac1aab16838b64e64b4b004e1b1d34a6950de661fc2737",
+   "preview": ""
+  },
+  {
+   "burned_at": 1792128896,
+   "claim_id": 1,
+   "content_hash": "d3098cc4768ac949f73b066add5eb16a21aaa5c27c1508e199399ce6afd209c4",
+   "preview": ""
+  },
+  {
+   "burned_at": 1792128896,
+   "claim_id": 1,
+   "content_hash": "f07eedb6ad8c0a6ac2f32db87eb9c065fd130b1df46576cd31373b4ba78b58ea",
+   "preview": ""
+  },
+  {
+   "burned_at": 1792128896,
+   "claim_id": 1,
+   "content_hash": "b58018cfc08070fcfec517357ea4a471c534cdcf702ca6b9eb54d13abf983d6b",
+   "preview": ""
+  },
+  {
+   "burned_at": 1792128896,
+   "claim_id": 1,
+   "content_hash": "a754e610db2788848f9f6df59bcbc0d8b6c3f0283879abd90cf1c62cf58f7293",
+   "preview": ""
+  },
+  {
+   "burned_at": 1792128896,
+   "claim_id": 1,
+   "content_hash": "f821342288ab57260abfceb728e7fd475a5579ca0271cabef39781e57feb12f6",
+   "preview": ""
+  },
+  {
+   "burned_at": 1792128896,
+   "claim_id": 1,
+   "content_hash": "4c6f0f939ade7cc5d4dac7ee83db6a2c4718db23802d4ccc4176ad43c82c8a20",
+   "preview": ""
+  },
+  {
+   "burned_at": 1792128896,
+   "claim_id": 1,
+   "content_hash": "a8709ac648e01fd9d0195d2e7122a0e5a5464421fc981a3fab6126aaadae7075",
+   "preview": ""
+  },
+  {
+   "burned_at": 1792128896,
+   "claim_id": 1,
+   "content_hash": "7f8b18dc735fbdc864f5b8fc8364b51421fdeb083d16843bafb2d6e859e715b9",
+   "preview": ""
+  },
+  {
+   "burned_at": 1792128896,
+   "claim_id": 1,
+   "content_hash": "e74d35b0629149cf3144cd570be660867f91230aeac87533bd5e492212d9c965",
+   "preview": ""
+  }
+ ],
+ "receipts": {
+  "total": 141,
+  "by_status": {
+   "FINALIZED": 141
+  },
+  "by_execution": {
+   "FINISHED_WITH_RETURN": 108,
+   "FINISHED_WITH_ERROR": 2,
+   "NOT_VOTED": 31
+  },
+  "by_consensus_result": {
+   "MAJORITY_AGREE": 102,
+   "IDLE": 34,
+   "MAJORITY_TIMEOUT": 5
+  },
+  "by_mode": {
+   "PINNED": {
+    "FINALIZED": 24
+   },
+   "RECALL": {
+    "FINALIZED": 24
+   },
+   "REWRITE": {
+    "FINALIZED": 49
+   },
+   "ADMIT": {
+    "FINALIZED": 40
+   }
+  },
+  "pending": 0
+ }
+}

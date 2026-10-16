@@ -1,0 +1,89 @@
+{
+  "currentTimestamp": "1792151616",
+  "sender": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+  "recipient": "0xCB67936d0b00b82Ea73611b3C8353a21EBdc7261",
+  "initialRotations": "7",
+  "txSlot": "196",
+  "createdTimestamp": "1792149842",
+  "lastVoteTimestamp": "1792149846",
+  "randomSeed": "0x73abf7cf49cc4938ea2d0ce1626e07ce6345c91d3cfde590738b685d598b5a53",
+  "result": 0,
+  "txExecutionHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "txCalldata": "0xe09e1604617267732501b1012c41444d495404066d6574686f642c70726f626500",
+  "eqBlocksOutputs": "0x",
+  "messages": [],
+  "queueType": 0,
+  "queuePosition": "0",
+  "activator": "0x3B940A5b4A762583453D9e9Cf0981BE0426A8e79",
+  "lastLeader": "0x3f5cAED686336ED9cF3Dede61154B0Cd67Fb9bD7",
+  "status": 13,
+  "txId": "0x235e554496b6d2db87b19e08f4a7f35b24b930cb8cce05beff83b368a85a54ab",
+  "readStateBlockRange": {
+    "activationBlock": "25311093",
+    "processingBlock": "25311093",
+    "proposalBlock": "25311094"
+  },
+  "numOfRounds": "0",
+  "lastRound": {
+    "round": "0",
+    "leaderIndex": "1",
+    "votesCommitted": "0",
+    "votesRevealed": "0",
+    "appealBond": "0",
+    "rotationsLeft": "7",
+    "result": 0,
+    "roundValidators": [
+      "0x2CD9051E10cd1547a7b64eF61EbF1E608235dBda",
+      "0x3f5cAED686336ED9cF3Dede61154B0Cd67Fb9bD7",
+      "0x2d012a292244C7ce6423a114d19109990923Af76",
+      "0x3B940A5b4A762583453D9e9Cf0981BE0426A8e79",
+      "0x4FC292d5D255Ec8Ad4cdcd36c5E188dfEE9D160e"
+    ],
+    "validatorVotes": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "validatorVotesHash": [
+      "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ],
+    "validatorResultHash": [
+      "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ],
+    "validatorVotesName": [
+      "NOT_VOTED",
+      "NOT_VOTED",
+      "NOT_VOTED",
+      "NOT_VOTED",
+      "NOT_VOTED"
+    ]
+  },
+  "consumedValidators": [
+    "0x2CD9051E10cd1547a7b64eF61EbF1E608235dBda",
+    "0x3f5cAED686336ED9cF3Dede61154B0Cd67Fb9bD7",
+    "0x2d012a292244C7ce6423a114d19109990923Af76",
+    "0x3B940A5b4A762583453D9e9Cf0981BE0426A8e79",
+    "0x4FC292d5D255Ec8Ad4cdcd36c5E188dfEE9D160e"
+  ],
+  "txExecutionResult": 0,
+  "txData": "0xe09e1604617267732501b1012c41444d495404066d6574686f642c70726f626500",
+  "txDataDecoded": {
+    "callData": {},
+    "leaderOnly": false,
+    "type": "call"
+  },
+  "numOfInitialValidators": "7",
+  "statusName": "LEADER_TIMEOUT",
+  "resultName": "IDLE",
+  "txExecutionResultName": "NOT_VOTED"
+}

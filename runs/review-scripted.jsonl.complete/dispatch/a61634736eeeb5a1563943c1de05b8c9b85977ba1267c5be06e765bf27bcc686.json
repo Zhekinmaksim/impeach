@@ -1,0 +1,9 @@
+{
+  "key": "probe:0:22:REWRITE",
+  "address": "0xcb67936d0b00b82ea73611b3c8353a21ebdc7261",
+  "signature": "4cdb97e6e915be85f96bd3be206276a0c2d65ede60983e0463648f9b78291c65",
+  "input_sha256": "fe7ec539d0a0afa42758a9c85708c568c5c844418a08ac6f565f8988b5575162",
+  "at": 1792149762,
+  "status": "DISPATCHING",
+  "recovery_ordinal": 0
+}

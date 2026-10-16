@@ -21,7 +21,8 @@ Impeach  — does this score survive rewritten items and verbatim recall
 > with all **24 admitted pairs and 24 measured recall results**, Δ=0‰ and R=0‰.
 > The claim was retired after ruling; its certificate is final.
 > [Corrections and native proofs](REVIEW-FIXES.md) document the answer-key and recall
-> fixes. A separate 24-item scripted control on this revision is still in progress.
+> fixes. The separate 24-item scripted control is also **native FINALIZED**,
+> with **CONTAMINATED / RECALL**, 24 admitted pairs and 24 recall matches.
 
 The corrected court is deployed on [Bradbury, chain 4221](https://explorer-bradbury.genlayer.com/address/0xCB67936d0b00b82Ea73611b3C8353a21EBdc7261).
 The [build manifest](build/impeach.manifest.json) and
@@ -180,11 +181,14 @@ All 113 transactions in the collected case are finalized, including unsuccessful
 consensus attempts, which remain visible rather than being counted as answers.
 The [retirement proof](runs/review-live-retire-final-native.json) confirms the
 final certificate and return of the 0.1 test GEN bond to internal credit.
-Wallet withdrawal is a separate settlement step.
+The [wallet payment proof](runs/review-withdraw-alice-wallet-final.json) verifies
+an exact increase of 0.1 test GEN after native finalization of the withdrawal.
 
-The new scripted control has all 24 original answers correct and all 24 held-out
-continuations matching. Its remaining rewrite/referee rounds are still running;
-no completed control verdict on this revision is claimed yet. The historical
+The new scripted control has all 24 original answers correct, all 24 held-out
+continuations matching, and all 24 pairs admitted by both framings. Its native FINALIZED
+verdict is `CONTAMINATED / RECALL`, with R=1000‰, Δ=208‰ and five stale answers.
+See the [control record](runs/review-scripted-final-case.json) and
+[native rule proof](runs/review-scripted-rule-final-native.json). The historical
 scripted `CONTAMINATED / RECALL` certificate belongs to the previous court and is
 preserved in [V2-TRIAL.md](V2-TRIAL.md).
 
@@ -195,7 +199,11 @@ They do not establish absence from model training.
 
 The paid route was disabled after the last real subject result finalized. A valid
 model POST now returns `503 / trial_disabled`; the scripted route remains free.
-Recorded lifetime OpenRouter usage is approximately $2.03 under the shared $5 cap.
+Both withdrawals are native FINALIZED, with exact wallet increases of 0.1 and
+0.148 test GEN verified. The court owes nothing and holds zero native assets;
+[settlement proofs](runs/review-final-settlement.json) retain both payments.
+All 254 case transactions and both withdrawals are finalized. Recorded lifetime
+OpenRouter usage is approximately $2.03 under the shared $5 cap.
 See [OPENROUTER.md](OPENROUTER.md) for gateway policy and prior trial history.
 
 ## Limits

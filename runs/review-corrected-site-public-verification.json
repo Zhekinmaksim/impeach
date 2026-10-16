@@ -1,0 +1,164 @@
+{
+  "at": "2026-10-16T13:02:18.843671+00:00",
+  "commit": "f3e8acbc115cf88c1da73db9ec1dea38433bf5a8",
+  "checks": [
+    {
+      "url": "https://impeach.click/case.json",
+      "status": 200,
+      "contract": "0xCB67936d0b00b82Ea73611b3C8353a21EBdc7261",
+      "certificate": {
+        "admissible_probes": 24,
+        "bond_standing": 0,
+        "bond_sworn": 100000000000000000,
+        "challenge_id": 1,
+        "challenges_survived": 1,
+        "claim_id": 1,
+        "contested": true,
+        "court_revision": "impeach/1.1",
+        "dead_probes": 0,
+        "decode_params": "{\"temperature\": 0, \"top_p\": 1, \"max_tokens\": 512, \"seed\": 7, \"model\": \"meta-llama/llama-3.1-8b-instruct\"}",
+        "delta_milli": 0,
+        "delta_threshold": 250,
+        "final": true,
+        "inadmissible_rewrites": 0,
+        "items_burned": 24,
+        "items_probed": 24,
+        "min_items": 24,
+        "pinned_milli": 1000,
+        "reason": "",
+        "recall_milli": 0,
+        "recall_probes": 24,
+        "recall_threshold": 150,
+        "rewrite_milli": 1000,
+        "ruled_at": 1792151962,
+        "score_expired_at": 1792128896,
+        "score_status": "SPENT",
+        "score_sworn_milli": 1000,
+        "spec_hash": "7e26251fc1d566ca214beff7a3541bd8a84281a3bba5e3ac3627fad09759568a",
+        "stale_answers": 0,
+        "state": "RETIRED",
+        "subject": "meta-llama/llama-3.1-8b-instruct@deepinfra-fp8/review-2026-10-16",
+        "under_challenge": false,
+        "verdict": "CLEAN"
+      },
+      "receipts": {
+        "total": 113,
+        "by_status": {
+          "FINALIZED": 113
+        },
+        "by_execution": {
+          "FINISHED_WITH_RETURN": 107,
+          "NOT_VOTED": 6
+        },
+        "by_consensus_result": {
+          "MAJORITY_AGREE": 101,
+          "IDLE": 10,
+          "MAJORITY_TIMEOUT": 2
+        },
+        "by_mode": {
+          "PINNED": {
+            "FINALIZED": 24
+          },
+          "RECALL": {
+            "FINALIZED": 24
+          },
+          "REWRITE": {
+            "FINALIZED": 28
+          },
+          "ADMIT": {
+            "FINALIZED": 32
+          }
+        },
+        "pending": 0
+      }
+    },
+    {
+      "url": "https://impeach.click/api/live-v3/chat/completions",
+      "status": 200,
+      "body": {
+        "service": "impeach-openrouter",
+        "enabled": false,
+        "status": "trial_disabled"
+      }
+    },
+    {
+      "url": "https://impeach.vercel.app/case.json",
+      "status": 200,
+      "contract": "0xCB67936d0b00b82Ea73611b3C8353a21EBdc7261",
+      "certificate": {
+        "admissible_probes": 24,
+        "bond_standing": 0,
+        "bond_sworn": 100000000000000000,
+        "challenge_id": 1,
+        "challenges_survived": 1,
+        "claim_id": 1,
+        "contested": true,
+        "court_revision": "impeach/1.1",
+        "dead_probes": 0,
+        "decode_params": "{\"temperature\": 0, \"top_p\": 1, \"max_tokens\": 512, \"seed\": 7, \"model\": \"meta-llama/llama-3.1-8b-instruct\"}",
+        "delta_milli": 0,
+        "delta_threshold": 250,
+        "final": true,
+        "inadmissible_rewrites": 0,
+        "items_burned": 24,
+        "items_probed": 24,
+        "min_items": 24,
+        "pinned_milli": 1000,
+        "reason": "",
+        "recall_milli": 0,
+        "recall_probes": 24,
+        "recall_threshold": 150,
+        "rewrite_milli": 1000,
+        "ruled_at": 1792151962,
+        "score_expired_at": 1792128896,
+        "score_status": "SPENT",
+        "score_sworn_milli": 1000,
+        "spec_hash": "7e26251fc1d566ca214beff7a3541bd8a84281a3bba5e3ac3627fad09759568a",
+        "stale_answers": 0,
+        "state": "RETIRED",
+        "subject": "meta-llama/llama-3.1-8b-instruct@deepinfra-fp8/review-2026-10-16",
+        "under_challenge": false,
+        "verdict": "CLEAN"
+      },
+      "receipts": {
+        "total": 113,
+        "by_status": {
+          "FINALIZED": 113
+        },
+        "by_execution": {
+          "FINISHED_WITH_RETURN": 107,
+          "NOT_VOTED": 6
+        },
+        "by_consensus_result": {
+          "MAJORITY_AGREE": 101,
+          "IDLE": 10,
+          "MAJORITY_TIMEOUT": 2
+        },
+        "by_mode": {
+          "PINNED": {
+            "FINALIZED": 24
+          },
+          "RECALL": {
+            "FINALIZED": 24
+          },
+          "REWRITE": {
+            "FINALIZED": 28
+          },
+          "ADMIT": {
+            "FINALIZED": 32
+          }
+        },
+        "pending": 0
+      }
+    },
+    {
+      "url": "https://impeach.vercel.app/api/live-v3/chat/completions",
+      "status": 200,
+      "body": {
+        "service": "impeach-openrouter",
+        "enabled": false,
+        "status": "trial_disabled"
+      }
+    }
+  ]
+}

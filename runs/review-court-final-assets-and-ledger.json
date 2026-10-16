@@ -1,0 +1,16 @@
+{
+  "at": "2026-10-16T16:05:59.849Z",
+  "address": "0xCB67936d0b00b82Ea73611b3C8353a21EBdc7261",
+  "blockNumber": "25316484",
+  "blockHash": "0x3d9f91f5bffe1585b70a516e6d1d804c033b5789bbc1275ccf6cfb3c1f33e298",
+  "walletWei": "0",
+  "solvency": {
+    "balanced": true,
+    "bonds": 0,
+    "credited": 0,
+    "escrowed": 0,
+    "held": 0,
+    "stakes": 0
+  },
+  "solvency_read_at": "2026-10-16T16:06:01.628303+00:00"
+}

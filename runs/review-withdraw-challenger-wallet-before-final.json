@@ -1,0 +1,11 @@
+{
+  "at": "2026-10-16T15:32:50.856Z",
+  "stage": "after withdrawal acceptance and all own signing fees, before native payment finalization",
+  "address": "0x4988285D5a05da3a1827f21330fdf14d9F81d4C9",
+  "blockNumber": "25315615",
+  "blockHash": "0x3706205b3f3c757f49d135d857a23d835cb2308213b4ee112bace87a3f31725a",
+  "walletWei": "771571162948117901",
+  "walletGEN": "0.771571162948117901",
+  "withdrawal": "0x9f9b15f947d3cab8e8831fc1d01f2795abd9f04641b3553880d1aa0a6aca1a66",
+  "expectedPaymentWei": "148000000000000000"
+}

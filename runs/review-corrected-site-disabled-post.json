@@ -1,0 +1,12 @@
+{
+  "at": "2026-10-16T13:09:19.340539+00:00",
+  "url": "https://impeach.click/api/live-v3/chat/completions",
+  "commit": "f3e8acbc115cf88c1da73db9ec1dea38433bf5a8",
+  "valid_allowlisted_request": true,
+  "status": 503,
+  "body": {
+    "error": {
+      "code": "trial_disabled"
+    }
+  }
+}
