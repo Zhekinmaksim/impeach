@@ -125,6 +125,43 @@ class FinalizedProbeRecoveryTests(unittest.TestCase):
         self.assertFalse(os.path.exists(recovery.dispatch_path(self.args.manifest, self.args.tx)))
         self.assertEqual(len(list(Path(self.args.manifest + '.receipts').glob('*.json'))), 1)
 
+    def test_reverted_wrong_caller_requires_explicit_correction(self):
+        self.receipt.update(status=7, result=1, txExecutionResult=2, sender='0x'+'2'*40)
+        self.refuse('original transaction must be FINALIZED')
+
+    def test_caller_correction_never_retries_success_pending_or_same_caller(self):
+        sender = '0x'+'3'*40
+        base = {'status':7, 'result':1, 'txExecutionResult':2, 'sender':'0x'+'2'*40}
+        self.assertTrue(recovery.caller_correction(base, self.row, sender))
+        for changes in ({'status':5}, {'txExecutionResult':1}, {'txExecutionResult':0},
+                        {'result':0}, {'sender':sender}, {'sender':None}):
+            with self.subTest(changes=changes):
+                self.assertFalse(recovery.caller_correction({**base, **changes}, self.row, sender))
+        self.assertFalse(recovery.caller_correction(base, {**self.row, 'mode':'ADMIT'}, sender))
+
+    def test_caller_correction_binds_frozen_challenger_and_signer_and_retains_history(self):
+        self.args.corrected_rewrite_sender = '0x'+'3'*40
+        self.receipt.update(status=7, result=1, txExecutionResult=2, sender='0x'+'2'*40)
+        self.challenge['challenger'] = self.args.corrected_rewrite_sender
+        with patch.object(recovery.proof, 'frozen_claim') as frozen:
+            self.assertEqual(recovery.retry(self.args), 0)
+            frozen.assert_called_once()
+        command = self.send.call_args.args[0]
+        self.assertEqual(command[command.index('--from')+1], self.args.corrected_rewrite_sender)
+        row = self.read_rows()[-1]
+        self.assertEqual(row['previous_rewrite_caller_correction'], self.args.corrected_rewrite_sender)
+        self.assertEqual(recovery.validate_history(row, self.args.manifest, claim_path=self.args.claim), 1)
+        row['previous_rewrite_caller_correction'] = self.receipt['sender']
+        self.write_rows(self.row, row)
+        with self.assertRaisesRegex(SystemExit, 'unproven reverted caller correction'):
+            recovery.validate_history(row, self.args.manifest, claim_path=self.args.claim)
+
+    def test_caller_correction_refuses_a_sender_other_than_the_challenger(self):
+        self.args.corrected_rewrite_sender = '0x'+'3'*40
+        self.receipt.update(status=7, result=1, txExecutionResult=2, sender='0x'+'2'*40)
+        self.challenge['challenger'] = '0x'+'4'*40
+        self.refuse('must be the frozen challenger')
+
     def test_subject_deadline_cli_is_optional_positive_integer_epoch(self):
         options = [value for name in ('address', 'account', 'rpc', 'manifest', 'tx')
                    for value in ('--' + name, getattr(self.args, name))]

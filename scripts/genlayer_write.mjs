@@ -153,6 +153,9 @@ const dryRunComplete = new Error("DRY_RUN_COMPLETE");
 const from = option("--from");
 if (dryRun && !/^0x[0-9a-fA-F]{40}$/.test(from)) fail("--dry-run requires --from <public account address>");
 const signer = dryRun ? {address: from, type: "local"} : sdk.createAccount(privateKey);
+if (from && signer.address.toLowerCase() !== from.toLowerCase()) {
+  fail("unlocked account differs from required --from address; no transaction signed");
+}
 const gasCap = BigInt(option("--gas-cap", TRANSACTION_GAS_CAP.toString()));
 const account = {
   ...signer,

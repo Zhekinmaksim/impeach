@@ -133,6 +133,8 @@ class Runner:
             cmd += ["--account", a.account]
         if a.rpc:
             cmd += ["--rpc", a.rpc]
+        if getattr(a, "from_address", None):
+            cmd += ["--from", a.from_address]
         # every argument travels as JSON so that long text with newlines and
         # quotes is never re-parsed by a shell
         cmd += ["--args-json", json.dumps(call_args, ensure_ascii=False, separators=(",", ":"))]
@@ -162,7 +164,18 @@ class Runner:
         return True
 
     def read(self, method: str, *call_args):
-        return tool.chain_call(self.args.address, method, list(call_args), self.args.rpc)
+        # Retrying a read cannot broadcast a duplicate. Bound each attempt so a
+        # transient RPC stall does not consume the public subject's whole window.
+        for attempt in range(3):
+            try:
+                return tool.chain_call(self.args.address, method, list(call_args),
+                                       self.args.rpc, timeout=20)
+            except (subprocess.TimeoutExpired, RuntimeError):
+                if attempt == 2:
+                    raise
+                print("retry read %s (%d/3); no transaction sent" % (method, attempt + 2),
+                      flush=True)
+                time.sleep(attempt + 1)
 
 
 def step_open(r: Runner) -> int:

@@ -45,6 +45,37 @@ class RunnerTests(unittest.TestCase):
         self.assertEqual(len(lines), 3)
         self.assertTrue(all("--args-json" in line for line in lines))
 
+    def test_read_recovers_from_transient_rpc_failures_without_a_write(self):
+        runner = run_case.Runner(self.args)
+        expected = {"pinned": "RIGHT"}
+        with patch.object(run_case.tool, "chain_call", side_effect=[
+                subprocess.TimeoutExpired("read", 20), RuntimeError("RPC unavailable"), expected]) as read, \
+                patch.object(run_case.time, "sleep") as sleep, \
+                patch.object(runner, "send") as send:
+            self.assertEqual(runner.read("get_probe", 0, 1), expected)
+            self.assertEqual(read.call_count, 3)
+            for call in read.call_args_list:
+                self.assertEqual(call.args, (self.args.address, "get_probe", [0, 1], self.args.rpc))
+                self.assertEqual(call.kwargs, {"timeout": 20})
+            self.assertEqual([call.args[0] for call in sleep.call_args_list], [1, 2])
+            send.assert_not_called()
+
+    def test_read_stops_after_three_failed_attempts(self):
+        runner = run_case.Runner(self.args)
+        with patch.object(run_case.tool, "chain_call", side_effect=RuntimeError("RPC unavailable")) as read, \
+                patch.object(run_case.time, "sleep"), patch.object(runner, "send") as send:
+            with self.assertRaisesRegex(RuntimeError, "RPC unavailable"):
+                runner.read("counts")
+            self.assertEqual(read.call_count, 3)
+            send.assert_not_called()
+
+    def test_malformed_read_is_not_retried_or_assumed_successful(self):
+        runner = run_case.Runner(self.args)
+        with patch.object(run_case.tool, "chain_call", side_effect=json.JSONDecodeError("bad", "", 0)) as read:
+            with self.assertRaises(json.JSONDecodeError):
+                runner.read("counts")
+            self.assertEqual(read.call_count, 1)
+
     def test_live_subset_must_belong_to_challenge(self):
         runner = run_case.Runner(self.args)
         self.args.subset = "2"

@@ -22,7 +22,8 @@ import time
 
 import run_case
 import native_failure_proof as proof
-from chain_receipts import NEGATIVE_RESULTS, consensus_result_of, fetch_receipt, finalized_failure, finalized_no_execution
+from chain_receipts import (NEGATIVE_RESULTS, consensus_result_of, execution_of,
+                            fetch_receipt, finalized_failure, finalized_no_execution, status_of)
 CORE_FIELDS = {"key", "tx", "method", "at", "address", "signature"}
 TX = re.compile(r"^0x[0-9a-fA-F]{64}$")
 SUBJECT_MODES = ('PINNED', 'RECALL', 'REWRITE')
@@ -95,6 +96,22 @@ def retryable_receipt(receipt):
             (consensus_result_of(receipt) in NEGATIVE_RESULTS or finalized_no_execution(receipt)))
 
 
+def caller_correction(receipt, row, sender):
+    """An explicit correction of a reverted REWRITE sent by a different caller.
+
+    Successful returns, pending calls and same-caller semantic failures remain
+    ineligible. The caller must also be checked against the current challenger
+    and the unlocked signing account before broadcasting.
+    """
+    previous = receipt.get('sender')
+    return (row.get('mode') == 'REWRITE' and isinstance(sender, str) and
+            re.fullmatch(r'0x[0-9a-fA-F]{40}', sender) is not None and
+            isinstance(previous, str) and re.fullmatch(r'0x[0-9a-fA-F]{40}', previous) is not None and
+            previous.lower() != sender.lower() and status_of(receipt) == 'FINALIZED' and
+            execution_of(receipt) == 'FINISHED_WITH_ERROR' and
+            consensus_result_of(receipt) == 'MAJORITY_AGREE')
+
+
 def manifest_history(path):
     history = {}
     if os.path.exists(path):
@@ -163,7 +180,12 @@ def validate_history(row, manifest, history=None, claim_path=None, source_path=N
         digest = entry.get("previous_receipt_sha256")
         if digest is not None and digest != hashlib.sha256(raw).hexdigest():
             raise SystemExit("invalid recovery history: finalized receipt evidence changed or is not retryable")
-        if not retryable_receipt(receipt) or entry.get('previous_failure_basis'):
+        corrected_sender = entry.get('previous_rewrite_caller_correction')
+        if corrected_sender is not None:
+            if (entry.get('previous_failure_basis') or
+                    not caller_correction(receipt, entry['previous_row'], corrected_sender)):
+                raise SystemExit('invalid recovery history: unproven reverted caller correction')
+        elif not retryable_receipt(receipt) or entry.get('previous_failure_basis'):
             try:
                 proof.verify_reference(entry, manifest, entry['previous_row'], receipt,
                     original_call(entry['previous_row'], claim_path) if claim_path else None,
@@ -308,7 +330,10 @@ def retry(args, *, completion_lock=None):
         if os.path.lexists(marker):
             unresolved_dispatch(marker)
         receipt = fetch_receipt(row["tx"], args.rpc)
-        needs_proof = not retryable_receipt(receipt)
+        corrected_sender = getattr(args, 'corrected_rewrite_sender', None)
+        if corrected_sender is not None and not caller_correction(receipt, row, corrected_sender):
+            raise SystemExit('caller correction requires a finalized reverted REWRITE from a different sender')
+        needs_proof = not retryable_receipt(receipt) and corrected_sender is None
         if needs_proof and not (getattr(args, 'allow_proven_no_messages', False) and proof.candidate(receipt)):
             raise SystemExit("original transaction must be FINALIZED with an explicit negative consensus result "
                              "or IDLE / NOT_VOTED; unknown or inconsistent fields cannot be retried")
@@ -316,7 +341,14 @@ def retry(args, *, completion_lock=None):
         challenge = runner.read("get_challenge", h)
         if challenge.get("status") != "TRIAL" or i not in challenge.get("subset", []):
             raise SystemExit("item must still belong to an active TRIAL")
+        if corrected_sender is not None:
+            if challenge.get('challenger', '').lower() != corrected_sender.lower():
+                raise SystemExit('corrected sender must be the frozen challenger')
+            args.from_address = corrected_sender
+            runner.args.from_address = corrected_sender
         claim = runner.read("get_claim", challenge["claim_id"])
+        if corrected_sender is not None:
+            proof.frozen_claim(claim, args.claim)
         if runner.read("clock") + getattr(args, "deadline_margin", 0) >= challenge["trial_started_at"] + claim["trial_window_s"]:
             raise SystemExit("trial window has closed")
         state = runner.read("get_probe", h, i)
@@ -340,7 +372,8 @@ def retry(args, *, completion_lock=None):
             raise SystemExit("manifest changed during recovery checks; rerun to inspect it")
         receipt_path = save_receipt(args.manifest, row["tx"], receipt)
         print("saved original finalized receipt: " + receipt_path, flush=True)
-        proof_fields = {'previous_failure_basis', 'previous_finalization_proof', 'previous_finalization_proof_sha256'}
+        proof_fields = {'previous_failure_basis', 'previous_finalization_proof', 'previous_finalization_proof_sha256',
+                        'previous_rewrite_caller_correction'}
         extra = {key: value for key, value in row.items() if key not in CORE_FIELDS | proof_fields}
         receipt_relative = os.path.relpath(receipt_path, os.path.dirname(os.path.abspath(args.manifest)))
         with open(receipt_path, "rb") as source:
@@ -348,6 +381,8 @@ def retry(args, *, completion_lock=None):
         extra.update(previous_tx=row["tx"], previous_row=dict(row), previous_receipt=receipt_relative,
                      previous_receipt_sha256=receipt_sha256, recovery_ordinal=ordinal + 1)
         extra.update(proof_reference or {})
+        if corrected_sender is not None:
+            extra['previous_rewrite_caller_correction'] = corrected_sender
         # Run after proof lookup and all other state reads, immediately before
         # the durable dispatch marker. Existing court/proof checks still apply.
         # This guards handoff to the bridge, not execution of already sent calls.
@@ -375,6 +410,8 @@ def parse_args(argv=None):
                         help="maximum new recovery transactions per slot, excluding the original (default: 1)")
     parser.add_argument('--subject-deadline', type=int,
                         help='API expiry as a positive UTC epoch; subject dispatch stops 120 seconds earlier')
+    parser.add_argument('--corrected-rewrite-sender',
+                        help='explicitly correct a finalized reverted REWRITE from a wrong caller; must equal challenger')
     args = parser.parse_args(argv)
     if args.wait_timeout <= 0 or args.poll_interval <= 0:
         parser.error("wait timeout and poll interval must be positive")
